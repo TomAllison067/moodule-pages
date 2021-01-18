@@ -20,6 +20,31 @@ who knows.
 * `tests.py` - All the unit tests. Very likely this will be quickly divided up into several files in a subdir.
 * `views.py` - Where all our views go. Again it's likely this could be divided up into several files in a subdir.  
 
+## Working with a PSQL database
+Reference this: https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04
+
+Basically, you need to create a postgresql database, and a user that can access the (development-only) database, and
+give the user permission to create new databases as the Django testrunner will create a temporary 
+test database for any unit testing.
+1) Log in to psql `sudo -i -u postgres psql` (or however you like)
+2) Create a database: `CREATE DATABASE foobase;`
+3) Create a user: `CREATE USER someusername WITH PASSWORD somepassword`
+4) Django expects some default settings:
+   ```sql
+   ALTER ROLE myprojectuser SET client_encoding TO 'utf8';
+   ALTER ROLE myprojectuser SET default_transaction_isolation TO 'read committed';
+   ALTER ROLE myprojectuser SET timezone TO 'UTC';
+   ```
+5) Give your user privileges on the database: `GRANT ALL PRIVILEGES ON DATABASE foobase TO someusername;`
+6) For testing, Django will create a test database each time, so your user needs to be able to create new databases:
+    `ALTER USE someusername CREATEDB;`
+   
+Then, in your local `.env` file:
+```
+DEBUG=on
+SECRET_KEY=this-is-not-a-secret-key
+DATABASE_URL=postgresql://someusername:somepassword@localhost:5432/foobase
+```
 # !!!! Important
 Please please please use branches and proper reintegrate / sync merges and proper commit messages!
 
