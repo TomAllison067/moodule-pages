@@ -7,10 +7,10 @@ Django's structure might seem at strange at first.
 
 We have the root directory `modulesProject`,  which in turn has a subdirectory `modulesProject/modulesProject`. This 
 subdirectory contains the ever important `settings.py` which has detailed database information and `urls.py` to organise
-the URLs in use across the many different Django apps.
+the URLs in use across the different Django apps in a given Django project.
 
 `modulesApplication` contains our actual application - the stuff we need to work on. A big professional Django project could
-be made up of many different apps, which is why they get separated out this way. We'll probably only need the one, but
+be made up of different apps, which is why they get separated out this way. We'll probably only need the one, but
 who knows.
 
 `modulesApplication` includes (subject to change as we develop):
@@ -24,7 +24,7 @@ who knows.
 Reference this: https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04
 
 Basically, you need to create a postgresql database, and a user that can access the (development-only) database, and
-give the user permission to create new databases as the Django testrunner will create a temporary 
+give the user permission to create new databases as the Django test runner will create a temporary 
 test database for any unit testing.
 1) Log in to psql `sudo -i -u postgres psql` (or however you like)
 2) Create a database: `CREATE DATABASE foobase;`
@@ -74,7 +74,7 @@ write all the packages in use in `requirements.txt`
 * https://discord.com/channels/799604309251194890/799604309952167971/800018104343330866 relating to testing
 * https://docs.djangoproject.com/en/3.1/intro/tutorial01/ 8-part tutorial that covers key Django concepts in context.  
 ### Scrum
-* http://www.goodagile.com/scrumprimer/scrumprimer20.pdf the 20 page scrum primer - really worth a read
+* http://www.goodagile.com/scrumprimer/scrumprimer20.pdf the 20-page scrum primer - really worth a read
 
 ### Team
 * https://trello.com/teamproject2021group34/home The Trello board
