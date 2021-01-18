@@ -8,23 +8,41 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
+
+# Before deployment:
+# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 """
 
 from pathlib import Path
+import environ  # Let's use django-environ to handle our environment variables
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+"""Importing environment variables with django-environ
+    https://django-environ.readthedocs.io/en/latest/#"""
+env = environ.Env(
+    # Debug false by default (unless specified in .env)
+    DEBUG=(bool, False)
+)
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'bxot#ompg3lsb+ido5ho59wz$e24hhux6c*odgmu71j-1vn==6'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
+# Database
+# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+DATABASES = {
+    'default': env.db()
+}
+
+"""django-environ finished"""
 ALLOWED_HOSTS = []
 
 
@@ -70,17 +88,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'modulesProject.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
