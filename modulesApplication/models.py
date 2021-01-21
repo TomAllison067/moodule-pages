@@ -3,6 +3,9 @@ from django.db import models
 
 # Create your models here.
 class Module(models.Model):
+    """
+    Represents a Module - eg cs2815 (hooray) or cs1860 (boo)
+    """
     mod_code = models.TextField(blank=False, null=False, primary_key=True)
     title = models.TextField(blank=True, null=True)
     year = models.IntegerField(blank=True, null=True)
