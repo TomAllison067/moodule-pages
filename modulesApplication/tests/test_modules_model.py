@@ -26,3 +26,18 @@ class TestModulesModel(TestCase):
         q = Module.objects.filter(pk="CS2815").first()
         self.assertIsNotNone(q, "The newly created Module object is null.")
         self.assertEqual("CS2815", q.mod_code)
+
+    def test_no_mod_code_throws_value_error(self):
+        """
+        Tests that constructing a new module with Module.objects.create throws a value error, and that calling save()
+        on a new regularly instantiated object does the same
+        """
+        self.assertRaises(ValueError, Module.objects.create, mod_code=None)
+        self.assertRaises(ValueError, Module.objects.create, mod_code="")
+        self.module1.mod_code = None
+        self.assertRaises(ValueError, self.module1.save)
+        self.module1.mod_code = ""
+        self.assertRaises(ValueError, self.module1.save)
+        self.module1.mod_code = "CS2800"
+        self.module1.save()
+        self.assertEqual(self.module1, Module.objects.filter(pk="CS2800").first())
