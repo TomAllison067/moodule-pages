@@ -1,5 +1,5 @@
-from django.test import TestCase, TransactionTestCase
 from django.db.utils import IntegrityError
+from django.test import TransactionTestCase
 
 from modulesApplication.models import Module
 
@@ -47,7 +47,7 @@ class TestModulesModel(TransactionTestCase):
         """
         Tests that two modules with the same primary key cannot be put into the database.
         """
-        Module.objects.create(mod_code="foo") # Create the initial module
-        self.assertRaises(IntegrityError, Module.objects.create, mod_code="foo") # Test the create method
+        Module.objects.create(mod_code="foo")  # Create the initial module
+        self.assertRaises(IntegrityError, Module.objects.create, mod_code="foo")  # Test the create method
         m2 = Module(mod_code="foo")
-        self.assertRaises(IntegrityError, m2.save, force_insert=True) # Test the save method
+        self.assertRaises(IntegrityError, m2.save, force_insert=True)  # Test the save method
