@@ -2,5 +2,6 @@ db.sqlite3
 venv/
 .idea/
 **/__pycache__/
+modulesApplication/__pycache__/
 .coverage
 .env
