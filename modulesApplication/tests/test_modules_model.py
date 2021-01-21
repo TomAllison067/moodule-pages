@@ -1,9 +1,10 @@
-from django.test import TestCase
+from django.test import TestCase, TransactionTestCase
+from django.db.utils import IntegrityError
 
 from modulesApplication.models import Module
 
 
-class TestModulesModel(TestCase):
+class TestModulesModel(TransactionTestCase):
     def setUp(self):
         self.module1 = Module(mod_code="CS2815", title="Small Enterprise Team Project", year=2, department="CS",
                               contact_hours=40, exams=0, practical=0, coursework=100, credits=15,
@@ -41,3 +42,12 @@ class TestModulesModel(TestCase):
         self.module1.mod_code = "CS2800"
         self.module1.save()
         self.assertEqual(self.module1, Module.objects.filter(pk="CS2800").first())
+
+    def test_no_duplicate_modules(self):
+        """
+        Tests that two modules with the same primary key cannot be put into the database.
+        """
+        Module.objects.create(mod_code="foo") # Create the initial module
+        self.assertRaises(IntegrityError, Module.objects.create, mod_code="foo") # Test the create method
+        m2 = Module(mod_code="foo")
+        self.assertRaises(IntegrityError, m2.save, force_insert=True) # Test the save method
