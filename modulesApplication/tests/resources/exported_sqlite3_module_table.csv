@@ -1,0 +1,1300 @@
+mod_code,jacs_code,hecos_code,title,short_title,level,department,with_effect_from,availability_terms,credits,corequisites,prerequisites,banned_combinations,learning_outcomes,summary,notional_learning_hours,books_to_purchase,core_reading,exam_format,status,project,lab_hours,deg_progs
+CS3810,"","","Half Unit Project","",6,"Computer Science","","",15,"",CS2800,"","understand complex ideas and identify solutions to a problem,
+apply scientific and software/hardware techniques to solving a problem,
+analyse the solution to a problem and evaluate the associated results,
+demonstrate the ability to plan, organise and present the project work both in written form and orally.","To provide the opportunity to demonstrate independence and originality, to plan and organise a large project over a long period, and to put into practice the techniques taught throughout their degree course.",150,"","C. W. Dawson: The Essence of Computing Projects, A Student's Guide, Prentice Hall, 2000: ISBN-10: 013021972X<br/>
+<br/>
+M. Berndtsson, J. Hansson, B. Olsson, B. Lundell: Planning and Implementing your Final Year Project-with Success: A Guide for Students in Computer Science and Information Systems, Springer-Verlag, 2006: ISBN-10: 1852333324
+","",ACTIVE,1,0,CS
+CS4860,"I120, I112","","Advanced distributed systems and Communication Networks","Advanced distributed systems",7,"Computer Science",2016-17,"Term 1",15,"","","","Display a mastery of core concepts, theories and principles of distributed systems
+Demonstrate knowledge of algorithmic techniques for solving problems in a distributed environment.
+Explain the practical aspects of implementing various components of a distributed system
+Implement various components of a realistic distributed system.
+Think critically about open research problems","The course will cover fundamental principles of building modern distributed systems, for example in the context of the Internet of Things. The specific emphasis will be on the two central components of the IoT reference architecture: cloud infrastructure and wireless networking.
+The course will discuss major challenges found in these environments (such as massive scales, wide distribution, decentralisation, unreliable communication links, component failures and network partitions) and general approaches for dealing with these challenges.
+The topics covered will include:
+abstract models (such as the synchronous and asynchronous distributed computing models, models for wireless networks,');
+algorithmic techniques (such as distributed coordination, fault-tolerant design of distributed algorithms, synchronization techniques,');
+practical case studies.
+The students will also have an opportunity to apply the studied material for implementing various components of a realistic distributed system through a series of formative coursework assignments, lab practicals, and a final project.
+",150,"","Nancy A. Lynch: Distributed Algorithms. The Morgan Kaufmann Series in Data Management Systems (1996). ISBN-13: 978-1558603486
+Hagit Attiya, Jennifer Welch: Distributed Computing: Fundamentals, Simulations and Advanced Topics. John Wiley & Sons; 2 edition (11 Mar. 2004). ISBN-13: 978-0471453246
+Christian Cachin, Rachid Guerraoui, Luís Rodrigues: Introduction to Reliable and Secure Distributed Programming. Springer 2 edition (11 Feb. 2011).  ASIN: B008R61LBG
+Maurice Herlihy, Nir Shavit: The Art of Multiprocessor Programming. Morgan Kaufmann; Revised edition edition (2012). ISBN-13: 978-0123973375
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,2,CS
+MT1820,"","","Matrix Algebra","",4,Maths,"","",15,"","","","","",150,"","","",ACTIVE,0,,MT
+CS4915,I300,"","Standards, IP and Technology","",7,"Computer Science",2018/19,"",15,"","",CS3915,"Demonstrate an understanding of standards, intellectual property and technologies in software engineering.
+Critically assess software licenses.
+Explain how standards are arrived at and the processes necessary to achieve consensus within a community.","This course covers a number of topics under Standards (e.g. CMMI and ISO9000/9001), Intellectual Property (IP) and Technology, and their impact in computer science and software engineering. This includes aspects within IP, software licensing, standards processes and their implications, and multiple software engineering related technologies. Students will be expected to introduce or recap any topic based on reading materials handed out. The main aims of the course are to expose students to the overall environment in which the software industry operates, and to give them an understanding on the implications of standards and IP to the work of a computer scientist and software engineer.
+",150,N/A,"Students will be given online reading materials relevant to each topic.
+",,WONTRUN,0,0,CS
+IY3840,"","","Malicious Software","",6,"Information Security","","",15,"","IY2760 and IY2840","","Comprehend what malicious software is
+Understand the malware landscape of the early days and what efforts and challenges the AV industry was facing to fight malware threats; (basic) static analysis to analyze and detect malware; (basic) assembly and reverse engineering notions are provided
+Explain dynamic analysis. Packing and algorithmic-agnostic unpacking is introduced as an initial step toward full dynamic analysis; sandboxes and limits of dynamic analysis and sandboxes.
+Describe and explain the underground economy and cybercrime that surrounds malicious software
+Demonstrate a critical appreciation of some of the newer research trends that are likely to influence software security work in the coming years","Cybercrime has become both more widespread and harder to battle. Researchers and anecdotal experience show that the cybercrime scene is becoming increasingly organized and consolidated, with strong links also to traditional criminal networks. Modern attacks are indeed stealthy and often profit oriented.
+Malicious software (malware) is the traditional way in which cybercriminals infect user and enterprise hosts to gain access to their private, financial, and intellectual property data. Once stolen, such information can enable more sophisticated attacks, generate illegal revenue, and allow for cyber-espionage.
+By mixing a practical, hands-on approach with the theory and techniques behind the scene, the course discusses the current academic and underground research in the field, trying to answer the foremost question about malware and underground economy, namely, ""Should we care?"".
+Students will learn how traditional and mobile malware work, how they are analyzed and detected, peering through the underground ecosystem that drives this profitable but illegal business. Understanding how malware operates is of paramount importance to form knowledgeable experts, teachers, researchers, and practitioners able to fight back. Besides, it allows us to gather intimate knowledge of the systems and the threats, which is a necessary step to successfully devise novel, effective, and practical mitigation techniques.",150,""," ","",ACTIVE,0,1,CS
+CS1821,I100,"","Programming Fundamentals","",4,"Computer Science",2018-19,"Term 1, Term 2",30,"","","","program independently to solve a given problem.
+know how to write an individual technical report..
+know how to present a project, both at a practical demonstration and in a formal short presentation.
+have been introduced to a programming environment for a particular event driven or embedded domain such as microprocessor coding, robotics coding, game development or interactive web development.
+work in a group on an I.T. project.
+","Students in this course will apply programming concepts from the the very basic (variables, control flow, loops, methods) up to advanced concepts (event driven programming, embedded programming) and best practices. The course will follow a blended learning model incorporating lectures, practical exercises, project work and online assessment.
+",300,"","Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 987-0-470-55309-1
+https://inventwithpython.com/
+Ian Millington – Artificial Intelligence for Games
+David Eberly – Game Physics
+Christer Ericsson – Real Time Collision Detection
+J. Kelly: LEGO Mindstorms NXT-G Programming Guide, Technology in Action Press, 2007, ISBN 10: 1590598717
+Brian Bagnell: Maximum Lego NXT: Building Robots with Java Brains, Variant Press 2007, ISBN 10: 097386491
+","",ACTIVE,0,3,CS
+CS2841,I160,"","Internet Services","",5,"Computer Science",2017-18,"Term 2",15,"","",CS1840,"explain how the Internet works
+understand key Internet protocols
+perform web development tasks involving current web technologies
+use scripting languages to add dynamic aspects to web sites/applications
+describe and assess the fundamentals of Web Services
+explain network security principles","The course introduces how the Internet works and its key protocols. With that foundation, it then addresses the technologies used for web development, including scripting languages and their potential. Web Services and related technologies are also introduced as well as network security principles.
+Course content:
+Internet Basics: protocols, delay and loss.
+Internet Protocol Stack: layer model, key Internet protocols.
+Web Technologies: HTML and related technologies.
+Scripting languages: client and server side scripting.
+Web Services: introduction and related technologies.
+Network Security: basic security concepts and their implications to networks.
+",150,"","J.F. Kurose and K.W. Ross: Computer networking : a top-down approach, Pearson, 6th edition, International edition, 2013.
+","Time allowed: 1 1/2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,1,DC
+CS1802,"I100, I300","","Software development","",4,"Computer Science",2016-17,"Terms 1 and 2",30,"","","","solve basic programming tasks
+understand and use basic object-oriented concepts
+appreciate the need for program documentation, testing, readability and modifiability
+develop a simple application based on a design specification
+create a test plan, execute it, and identify faults in an application","This course teaches programming and object-orientation concepts. Students will learn about program basics (variables, types, scope, lifetimes),  control flow (if-constructs, for-loops, while-loops), data structures (strings, sets, lists, trees, algorithms), objects (classes, dynamic dispatch, interface, inheritance, generics), exceptions (throwing and catching) and file I/O (streams, file reading, writing and copying).
+In addition, students learn software development best practices, how to perform small scale software development from a specification, and details about the testing process and software evaluation.
+",300,"","Herbert Schildt: Java: a Beginner’s Guide, 4th Edition, McGraw-Hill, 2007, ISBN 0072263849
+Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 987-0-470-55309-1
+",,,0,0,CS
+IY3606,I112,"","Smart Cards, RFIDs and Embedded Systems Security","",6,"Information Security",2016-17,"Term 2",15,"",IY2760,"","identify constituent components, analyse strengths and weaknesses, identify new applications of smart cards/security tokens and their use as assets in cyber security; identify the steps in the manufacturing/personalisation processes, analyse and evaluate potential risks and compare security safeguards
+identify and compare the systems in use, analyse the strengths and weaknesses and evaluate interoperability and security issues; analyse the range of capabilities of SIM/USIM cards in Smartphones and apply them to new service ideas, evaluate the possible range of services and security measures
+understand the main standards and applications of smart cards for banking and finance, compare with earlier card solutions and analyse strengths and weaknesses of approaches; analyse the key role of the smart card/RFID for passports, IDs and satellite TV, evaluate the security measures that have protected past and current cards,
+identify and describe new technologies, including NFC, TPM, TEE; and apply them to new applications and evaluate the likely suitability/success of approach; explain how common criteria may affect smart card design/development, analyse the different approaches and compare with less formal methods
+identify and describe the classes of attack and notable methods within each class, analyse countermeasures and evaluate practicality of attacks and the effects on cyber security; identify, compare and  evaluate	different methods of developing applications for smart cards, and understand the development cycle and the use of practical tools
+analyse the issues concerning smart card lifecycle management, and evaluate and compare methods of local and remote card management","Students will have obtained a good understanding of the topic of smart cards and token security.
+Course contents:
+Introduction to Smart Cards/Chips & RFID/NFC; Assets for Cyber Security
+Smart Cards – Trusted Production Environment
+Operating systems, Interoperability and Security
+Applications & Security for Mobile Communications, USIM/SIM, Services and Clouds
+Smart Cards for Secure Banking & Finance
+Smart Cards in eIDs/Passports - & RFIDs/NFC explained
+Advances in Smart Chips/Tokens, and Transport System Case Study
+Common Criteria and Smart Cards
+Security Attacks, Countermeasures and Testing for Smart Cards/RFIDs/NFC
+Application Development Environments for JAVA and SIM Toolkit
+Comparing Alternative Security Tokens/Environments; including TPM and TEE
+",150,"","Course Text book: Keith Mayes, Konstantinos Markantonakis, “Smart Cards, Tokens, Security and
+Applications”, Springer-Verlag New York, January 2008, ISBN: 0387721975
+W. Rankl and W. Effing – “Smart card handbook” 2nd edition John Wiley 1997
+Klaus Finkenzeller, “The RFID Handbook”, John Wiley and Sons 2003
+Zhiqun Chen, “Java Card Technology for Smart Cards”, Addison- Wesley 2000.
+Keith Mayes, Konstantinos Markantonakis, “Secure Smart Embedded Devices, Platforms and
+Applications”, Springer-Verlag New York, 2013, ISBN 978-1-4614-7914-7
+","",ACTIVE,0,0,CS
+CS2815,I300,"","Small enterprise team project","",5,"Computer Science",2017-18,"Term 2",15,CS2800,"CS1811,CS1813",CS2810,"work in a team to produce a substantial product using software engineering techniques
+apply managerial discipline and a professional attitude
+understand why project cost and effort is hard to estimate and why project quality is hard to prescribe
+design software following an agile process
+understand an external customer's requirements for a software product","This course aims to assist students in appreciating the role of the computer professional through the practical experience of developing medium scale software as part of a team.
+Course content:
+The software lifecycle, including: software development, planning and documentation.
+Team development, communication, managing risks and conflicts.
+Practical experience of standard industrial software engineering. Agile project management, use of version control in a team, IDEs, etc.
+A medium scale agile software development project, conducted by teams of students.
+Meetings with an external customer to determine the requirements for a product.
+",150,"","Richard Whitehead: Leading a Software Development Team, Addison Wesley, 2001 ISBN 10: 0201675269
+Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 978 0470553091
+Ken Schwaber: Agile Software Development with Scrum.  Pearson Prentice Hall 2002.    ISBN 978 0132074896
+","",ACTIVE,0,0,CS
+IY2760,I100,"","Introduction to Information Security","",5,"Computer Science",2015/16,"Term 1",15,"","","","Identify, through the case studies how information security may be influenced by real world design and implementation decisions.
+Appreciate the different cryptographic algorithms, their use, advantages and disadvantages
+Apply the above identified cryptographic primitives in the review and evaluation of cryptographic protocols.
+Identify, through the case studies how information security may be influenced by real world design and implantation decisions.
+Appreciate the rational decisions in the design of a number tokens and secure elements","Introduction: What is security (covering notions of Confidentiality, Integrity, and Availability)? Security threats and risks. Security management (ISO 27000 series). Data Protection legislation.-	
+Introduction to the elements of cryptography: Ciphers (stream, block, e.g. DES/3DES/AES). Message Authentication codes (MACs). Public key ciphers and digital signatures (e.g. RSA). 
+Identity verification: use and storage of conventional passwords. Dynamic password schemes. Biometric techniques. Use of tokens (dumb and intelligent), including the use of secure elements such as smart cards and trusted execution environments (TEEs)
+Access control: Access Control Lists, capabilities, security labels (MAC and DAC), and role-based access control. 
+CASE STUDY I: a case study in information security. 	
+Network security concepts and examples: the concepts of security services and security mechanisms (as in ISO 7498-2). An introduction to firewalls, intrusion detection systems and virtual private networks. 
+Computer security concepts and examples: hardware and operating system concepts, malware e.g. viruses, spyware, ransomware etc., restricting access. Authentication and key distribution: The importance and relatedness of the concepts of key management and entity authentication in a network. Objectives of an entity authentication protocol. Some fundamental protocols (e.g. Kerberos). Using authentication protocols for key distribution, and other approaches to key establishment (including public key certificates and X.509).	
+Cyber Physical security, Examine the security provisions, strengths and weaknesses of existing embedded systems/platforms/smart cards and operating systems. 
+CASE STUDY II: a case study in information security. ",150,"","D. Gollman, Computer Security, John Wiley & Sons, 2011 (3rd edition)
+C.P. Pfleeger, S. L. Pfleeger, J Margulies, Security in Computing, Prentice Hall, 2015 (5th edition) 
+K. Martin, Everyday Cryptography: Fundamental Principles and Applications, Oxford University Press, 2017 (2nd edition)
+K. Markantonakis and K. E. Mayes, Secure Smart Embedded Devices, Platforms and Applications, Springer, 2013 ","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+CS3915,I300,"","Standards, IP and Technology","",6,"Computer Science",2018/19,"",15,"","","","Understand the importance of standards, intellectual property and technologies in software engineering.
+Critically assess software licenses.
+Understand how standards are arrived at and the processes necessary to achieve consensus within a community.","This course covers a number of topics under Standards (e.g. CMMI and ISO9000/9001), Intellectual Property (IP) and Technology, and their impact in computer science and software engineering. This includes aspects within IP, software licensing, standards processes and their implications, and multiple software engineering related technologies. Students will be expected to introduce or recap any topic based on reading materials handed out. The main aims of the course are to expose students to the overall environment in which the software industry operates, and to give them an understanding on the implications of standards and IP to the work of a computer scientist and software engineer.
+",150,N/A,"Students will be given online reading materials relevant to each topic.
+",,,0,0,CS
+CS2855,I240,"",Databases,"",5,"Computer Science",2017-18,"Term 1",15,"",CS1811,"","explain the issues involved in database design and the theory of the relational view of data
+describe the crucial issues concerning database integrity and recovery from failure
+write SQL queries
+design and implement a database, from the user specifications to the final design
+implement an interface to an SQL database using an API","The aim of this course is to teach students a number of database concepts and techniques. This ranges from the specification and modelling stages to the implementation of relational databases. The course also introduces students to the usage of databases from software applications.
+The content of the course includes:
+Data modelling: views, subschema, data dictionary, data independence, entity relationship model. The relational model: relations, attributes, domains, relational algebra. Database design: normalisation, normal forms, entities and attributes SQL: basic SQL, correspondence between the relational model and SQL commands, simple queries, combination and sub-queries Administration and implementation: integrity, recovery from failure, concurrency, deletion and updating, forms, report writing.
+",150,"","Database Systems Concepts (6th edition) A. Silbertschatz, H.F. Korth, S. Sudarshan McGraw Hill, 2011
+C.J. Date: An Introduction To Database Systems, 8th edition, Addison Wesley, 2003, ISBN 0321197844
+P. Rob and C. Coronel: Database Systems: Design, Implementation, And Management, Course Technology Inc, 2002, ISBN 061906269X
+R. Elmasri and S. Navathe: Fundamentals Of Database Systems, 3rd edition, Addison Wesley, 2000, ISBN 0805317554
+D.M. Kroenke: Database Processing, Prentice Hall, 1997, ISBN 0137378424
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,2,CS
+CS4870,I120,"","Wireless sensor and actuator networks","",7,"Computer Science",2016-17,"Term 2",15,"",CS3840,"","Design, build, and test wireless sensor and actuator networks for a variety of application setups
+Explore the design space and conduct trade-off analysis between performance and resources
+Design and implement simple protocols and algorithms for wireless sensor and actuator networks
+Think critically about open research problems","The course will combine formal lectures that will focus on the algorithms and the protocols behind wireless sensor and actuator networks and lab classes that will focus on how to build wireless sensor and actuator networks for a variety of applications.
+The lectures will cover critical design factors for WSANs, the protocal stack, models and algorithms for WSANs, routing protocols and more advanced open research problems, such as topology control and mobility.
+The practical classes will cover how to design and build wireless sensor networks and intelligent interactive devices with the ZigBee wireless networking protocol.
+",150,"","- Building Wireless Sensor Networks, Robert Faludi (without kit)
+- Algorithms and protocols for wireless sensor networks, Azzedine Boukerche.
+",,WITHDRAWN,0,1,CS
+CS1840,I160,"","Internet Services","",4,"Computer Science",2017-18,"Term 2",15,"","","","understand the basics of how the Internet works
+understand key Internet protocols
+carry out web development tasks involving current web technologies
+use scripting languages to add dynamic aspects to web sites/applications
+understand the fundamentals of Web Services and network security","The course introduces the basics of how the Internet works and its key protocols. With that foundation, it then addresses the technologies used for web development, including scripting languages and their potential. Web Services and related technologies are also introduced as well as the basics of network security.
+Course content:
+Internet Basics: protocols, delay and loss.
+Internet Protocol Stack: layer model, key Internet protocols.
+Web Technologies: HTML and related technologies.
+Scripting languages: client and server side scripting.
+Web Services: introduction and related technologies.
+Network Security: basic security concepts and their implications to networks.
+",150,"","J.F. Kurose and K.W. Ross: Computer networking : a top-down approach, Pearson, 6th edition, International edition, 2013.
+","Time allowed: 1 1/2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,1,CS
+IY4523,I100,"","Secure business architectures","",7,"Information Security",2016-17,"Term 1",15,"","","","understand, and be able to apply, the concept of a “security lifecycle” in relation to specific security architectures
+understand, and be able to outline the high-level components of a Risk Assessment and apply these components to candidate security architectures.
+appreciate the Governance, Risk and Compliance issues related to business architectures
+apply these to a number of architectures, such as: Identity Management; Outsourcing; PCI-DSS; Supply Chain","The high level aim of this course is to discuss the appropriate system design and business response to technical/architectural decisions which impact the security of the organisation’s information.
+The content of the course will include:
+Introduce the concept of a security development lifecycle
+An overview of the basics of Risk Assessment
+Elaborate on the Governance, Risk and Compliance issues discussed in the Security Management module
+Outsourcing/Cloud Computing architectures
+Identity Management
+The Payment Card Industry – Data Security Standard
+Supply Chain Security
+Big Data
+",150,"","The course will not follow any individual text book, but is likely to make use of: international standards; industry white papers and research reports; case studies using common industry architectures.
+","",ACTIVE,0,0,CS
+CS4580,"","","Advanced Data Communications","",7,"Computer Science","","",15,"",CS1840,"","Show advanced understanding of multimedia communications
+Evaluate coding and compressing algorithms for text, audio, image and video
+Analyse internet technologies in terms of supporting quality of service
+Examine modern network security mechanisms and their applications
+Evaluate internet network management issues and explain possible solutions","The course teaches important topics in modern data communications including text, image, audio and video transfer over networking infrastructures and recent trends in QoS management, network security and network management.<br/>
+Introduction: layering, abstraction, and standards.  The ISO/OSI reference model. The internet reference model<br/>
+Multimedia communications: multimedia information representation coding and compression, applications and standards, quality of service (QoS) requirements<br/>
+Internet technologies: IP addressing, routeing algorithms and routeing protocols, RIP, OSPF, the internet multicast model, scheduling and queue management<br/>
+Security in communication networks: security issues, security mechanisms, secure protocols.<br/>
+Network management: network management issues, infrastructure and framework for internet management
+",150,"","<ul><li>James F. Kurose and Keith W. Ross: Computer Networking : a top-down approach featuring the internet, Addison-Wesley: ISBN: 10:0321227352</li>
+<li>Fred Halsall: multimedia communications: applications, networks, protocols and standards, Addison-Wesley</li>
+<li>William Stallings: Cryptography and network security: principles and practice, prentice Hall: ISBN-10 0131873164</li></ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",DORMANT,0,0,CS
+CS3940,I400,"","Intelligent agents and multi-agent systems","",6,"Computer Science",2017-18,"Term 1",15,"","","","understand the notion of an agent and understand the characteristics of applications that lend themselves to an agent-oriented solution
+describe the key issues associated with constructing agents capable of intelligent autonomous action
+understand the key issues in designing societies of agents that can effectively cooperate in order to solve problems
+evaluate the main application areas of agent-based solutions, and be able to develop a meaningful agent-based system","The aims of this course include introducing the students to the concept and design of an agent and multi-agent system, and the main applications for which they are appropriate. In addition, it presents a contemporary platform for implementing agents and multi-agent systems.  Course contents include:
+Introduction: agents and objects, expert systems, distributed systems; typical application areas for agent systems.
+Intelligent Agents: abstract architectures for agents; tasks for agents, the design of intelligent agents - reasoning agents, agents as reactive systems; hybrid agents (e.g., PRS,'); layered agents (e.g., Interrap).
+Multi-Agent Systems: classifying multi-agent interactions - cooperative versus non-cooperative; zero-sum and other interactions; cooperation - the Prisoner’s dilemma and Axelrod’s experiments; interactions between self-interested agents: auctions systems; negotiation; argumentation;  interaction languages and protocols: speech acts, KQML/KIF, the FIPA framework, ontologies, coordination languages; interactions between benevolent agents: cooperative distributed problem solving (CDPS), partial global planning; coherence and coordination;  applications of intelligent agents and multi-agent systems.
+",150,"","M. Wooldridge: An Introduction to MultiAgent Systems. John Wiley & Sons (2nd edition) 2009: ISBN 978-0-470-51946-2
+G. Weiss, editor: Multi-Agent Systems, A Modern Approach to Distributed Artificial Intelligence. The MIT Press, 1999:  ISBN-10: 0262232030
+J. Ferber: Multi-Agent Systems. Addison-Wesley, 1999: ISBN-10: 0201360489
+M. Singh and M. Huhns: Readings in Agents. Morgan-Kaufmann Publishers, 1997: ISBN-10: 1558604952
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+IY4606,I112,"","Smart Cards, RFIDs and Embedded Systems Security","",7,"Information Security",2016-17,"Term 2",15,"",IY2760,IY3606,"identify constituent components, analyse strengths and weaknesses, identify new applications of smart cards/security tokens and their use as assets in cyber security; identify the steps in the manufacturing/personalisation processes, analyse and evaluate potential risks and compare security safeguards
+identify and compare the systems in use, analyse the strengths and weaknesses and evaluate interoperability and security issues; analyse the range of capabilities of SIM/USIM cards in Smartphones and apply them to new service ideas, evaluate the possible range of services and security measures
+understand the main standards and applications of smart cards for banking and finance, compare with earlier card solutions and analyse strengths and weaknesses of approaches; analyse the key role of the smart card/RFID for passports, IDs and satellite TV, evaluate the security measures that have protected past and current cards,
+identify and describe new technologies, including NFC, TPM, TEE; and apply them to new applications and evaluate the likely suitability/success of approach; explain how common criteria may affect smart card design/development, analyse the different approaches and compare with less formal methods
+identify and describe the classes of attack and notable methods within each class, analyse countermeasures and evaluate practicality of attacks and the effects on cyber security; identify, compare and  evaluate	different methods of developing applications for smart cards, and understand the development cycle and the use of practical tools
+analyse the issues concerning smart card lifecycle management, and evaluate and compare methods of local and remote card management","Students will have developed a mastery of the topic of smart cards and token security.
+Course contents:
+Introduction to Smart Cards/Chips & RFID/NFC; Assets for Cyber Security
+Smart Cards – Trusted Production Environment
+Operating systems, Interoperability and Security
+Applications & Security for Mobile Communications, USIM/SIM, Services and Clouds
+Smart Cards for Secure Banking & Finance
+Smart Cards in eIDs/Passports - & RFIDs/NFC explained
+Advances in Smart Chips/Tokens, and Transport System Case Study
+Common Criteria and Smart Cards
+Security Attacks, Countermeasures and Testing for Smart Cards/RFIDs/NFC
+Application Development Environments for JAVA and SIM Toolkit
+Comparing Alternative Security Tokens/Environments; including TPM and TEE
+",150,"","Course Text book: Keith Mayes, Konstantinos Markantonakis, “Smart Cards, Tokens, Security and
+Applications”, Springer-Verlag New York, January 2008, ISBN: 0387721975
+W. Rankl and W. Effing – “Smart card handbook” 2nd edition John Wiley 1997
+Klaus Finkenzeller, “The RFID Handbook”, John Wiley and Sons 2003
+Zhiqun Chen, “Java Card Technology for Smart Cards”, Addison- Wesley 2000.
+Keith Mayes, Konstantinos Markantonakis, “Secure Smart Embedded Devices, Platforms and
+Applications”, Springer-Verlag New York, 2013, ISBN 978-1-4614-7914-7
+","",ACTIVE,0,0,CS
+CS3945,I150,"","Semantic Web","",6,"Computer Science",2016-17,"Term 1",15,"",CS2841,"","explain fundamental concepts, and standards of the semantic web
+demonstrate a deep understanding of the use of standards such as RDF, RDFS and OWL for modeling different scenarios and reasoning
+demonstrate a deep understanding of underlying logical theory behind the semantic web, for example Description Logic","The Web, as it exists today, primarily supports human understanding and the interpretation of the vast information space it encompasses. However the Web was originally designed with a goal to support not only human-human communication but also as one that would enable automated machine processing of data with minimal human intervention. The Semantic Web is Tim Berners-Lee's vision of a machine understandable and unambiguously computer interpretable Web. The rationale behind such a system is that most of the data currently posted on the web is buried in HTML files suitable for human reading and not for computers to manipulate meaningfully. The semantic Web, an extension of the current web, can be thought of as a globally linked database where information is given well-defined meaning using metadata for better enabling computers and humans to work in close cooperation. The realisation of a Semantic Web will thus make machine reasoning more ubiquitous and powerful, creating an environment where intelligent software agents can roam, carrying out sophisticated tasks for their users.
+Though the original motivation of the semantic web was to constitute the next generation of the WWW, the standards and technologies developed in the process have been found useful in specific realm enterprises as well. From this perspective the Semantic Web can be viewed as a semantically-rich data model that is more expressive than the usual relational data model used in standard databases systems, and is also more adequate to distributed and incomplete resources.
+This course is about the notions, concepts, technologies and modelling techniques that constitute the Semantic Web, whose key distinguishing characteristics will be the support for and use of semantics in new, more effective, more intelligent, ways of managing information and supporting applications.
+",150,"","Primary text:
+Semantic Web for the Working Ontologist (Effective Modeling in RDFS and OWL) 2nd Edition, By Dean Allemang, James Hendler, Elsevier / Morgan Kaufmann, July 2011.
+A Semantic Web Primer (Cooperative Information Systems), 3rd Ed., by Grigoris Antoniou (Author), Paul Groth (Author) et al., 2012.
+Secondary text:
+Semantic Web Programming, John Hebeler, Matthew Fisher, Ryan Blace, Andrew Perez-Lopez, Wiley Publishing, Inc, 2009
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+IY4609,I112,"","Digital forensics","",7,"Information Security",2016-17,"Term 2",15,"",IY2760,IY3609,"understand the concepts of audit and indirect activity records retained by operating systems, particularly in file systems, and  how to retrieve such information
+understand selected network protocols and the collection and derivation of evidence leading to the reconstruction of system and user activity based on network trace information
+understand infiltration and anti-forensics techniques used particularly by malicious software
+apply steganographic and particularly steganalytical methods for different types of media
+understand the retention characteristics of storage systems and non-standard devices such as mobile/smart phones, cloud computing, and vehicular systems","Introduction to forensic science, steps from collecting data to preserving evidence, and a framework for digital forensic evidence collection and processing.
+Fundamentals of host forensics for Microsoft Windows, including kernel architecture, device driver architecture, registry, auditing, and security architecture, file system handling, and reconstruction of file and directory structures on the FAT and NTFS file system families.
+Fundamentals of host forensics for Unix derivatives using the Linux operating system as an exemplar, including kernel and device driver architecture, security and audit mechanisms, file systems and pseudo file systems, and the reconstruction of file and directory structures using UFS and Ext2/3fs as exemplars.
+Foundations of network forensics from data capturing and collection to network file systems and supplementary protocols as well as selected application-layer protocols and techniques used for identifying and reverse-engineering protocols used on networks.
+Introduction to malware including anti-forensics and propagation techniques.
+Introduction to steganographic techniques for images, video, textual data, and audio as well as steganalytical techniques for selected media types and approaches to traitor tracing.
+A survey of non-standard storage mechanisms from retention characteristics to mobile and smart phones and vehicular systems as well as network-based search and storage mechanisms.
+",150,"","K.J. Jones, R. Bejtlich, C. W. Rose: Real Digital Forensics. Addison-Wesley, 2006
+B. Carrier: File System Forensic Analysis. Addison-Wesley, 2005
+D. P. Bovet, M. Cesati: Understanding the Linux Kernel, 3rd ed. O’Reilly, 2006
+M. Russinovich, D.A. Soiomon, A. Ionescu: Windows Internals, 5th ed. Microsoft Press, 2008
+","",ACTIVE,0,0,CS
+MT3130,"","","Complexity Theory","",6,Maths,"","",-1,"","","","","",-10,"","","",ACTIVE,0,"",MT
+CS4234,"I460, I260","","Large-Scale Data Storage and Processing","",7,"Computer Science",2018/19,"Spring Term",15,"",CS1830,"","Knowledge and understanding of core concepts, theories and principles of large scale data storage and processing frameworks.
+Sound evaluation of opportunities and challenges related to leveraging those frameworks for building massive scale analytics solutions, and an ability to make recommendations to resolve these challenges.
+Proficient knowledge and use of at least one large scale data store systems, and at least one massive scale processing framework.
+Ability to design, develop, and evaluate an end to end analytics solution combining large scale data storage and processing frameworks.
+Knowledge of cloud computing as a platform for Big Data analytics.","The main aims of this course are for students to study the underlying principles of storage and processing massive collections of data, typical of today's Big Data systems, and to gain hands-on experience in using large and unstructured data sets for analysis and prediction. The topics covered include techniques and paradigms for querying and processing massive data sets (Spark, MapReduce, Hadoop, data warehousing, SQL for data analytics, stream processing), fundamentals of scalable data storage (NoSQL data bases such as MongoDB, Cassandra, HBase), working with dynamic web data (data acquisition, data formats), elements of cloud computing, and applications to real world data analytics and data mining problems (sentiment analysis, social network mining).
+",150,"","Rajaraman, Leskovec, Ullman, Mining of Massive Datasets, Available for free from http://infolab.stanford.edu/~ullman/mmds.htm
+White, Hadoop: The Definitive Guide, O'Reilly, ISBN-10: 1449311520
+Lin, Dyer, Data-Intensive Text Processing with MapReduce, Synthesis Lectures on Human Language Technologies, 2010, 177 pages, (doi:10.2200/S00274ED1V01Y201006HLT007)
+Chodorow, Dirolf, MongoDB: The Definitive Guide, O'Reilly, ISBN-10: 1449344682
+Miner, Shook, MapReduce Design Patterns, O'Reilly, ISBN-10: 1449327176
+Pramod J. Sadalage, Martin Fowler (2012), NoSQL Distilled: A Brief Guide to the Emerging World of Polyglot Persistence, Addison-Wesley Professional; 1st edition (August 18, 2012)
+Learning Spark: Lightning-Fast Big Data Analysis, by Karau, Konwinski, Wendell, and Zaharia: https://www.amazon.co.uk/Learning-Spark-Lightning-Fast-Data-Analysis/dp/1449358624
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,2,CS
+CS1811,I100,"","Object oriented programming I","",4,"Computer Science",2017-18,"Term 1",15,"","","","solve basic programming tasks
+understand and use basic object-oriented concepts
+demonstrate familiarity with core elements of the Java API","This course teaches programming and object-orientation concepts. Students will learn about program basics (variables, types, scope, lifetimes),  control flow (if-constructs, for-loops, while-loops), data structures (strings, sets, lists, trees), objects (classes and inheritance), exceptions (throwing and catching) and file I/O (streams, file reading and writing).
+",150,"","Herbert Schildt: Java: a Beginner’s Guide, 4th Edition, McGraw-Hill, 2007, ISBN 0072263849
+Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 987-0-470-55309-1
+","Time allowed: 1 1/2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+IY2840,I100,"","Computer and network security","",5,"Computer Science",2016-17,"Term 2",15,"",CS2850,"","Identify and exploit the software vulnerabilities that can be introduced into programs through language features and poor programming practice
+Discuss the countermeasures that can mitigate the exploitation of such software vulnerabilities
+Introduce (briefly) malicious software (malware) as a typical consequence of a successful software exploitation
+Provide pointers to/discuss academic and /or industry research-oriented publications on the subject","This course addresses a number of topics in computer and network security. Its content includes: Memory errors, Web, network, countermeasures and pointers to research papers. The course prepares students to identify software vulnerabilities, shows how to address these and introduces how vulnerabilities are exploited through malware.
+",150,"","Hacking: The art of exploitation, 2nd edition, Jon Erickson
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+DC3760,I100,"","Information Security","",6,"Computer Science",2018/19,"Autumn Term",15,"","",IY2760,"Identify, through case studies how information security may be influenced by real world design and implementation decisions.
+Demonstrate an understanding of the different cryptographic algorithms, their use, advantages and disadvantages.
+Apply the above identified cryptographic primitives in the review and evaluation of cryptographic protocols.
+Appreciate the rational decisions made in the design of some secure systems and security protocols, examples such as authentication protocols, key management protocols, access control, tokens and secure elements, etc.","The aims of this course include providing a breadth of knowledge in Information Security and providing the background needed to study the subject area at different levels of specialisation.
+Course content:
+Introduction: What is security (covering notions of Confidentiality, Integrity, and Availability)? Security threats and risks. Security management (ISO 27000 series). Data Protection legislation.
+Introduction to the elements of cryptography: Ciphers (stream, block, e.g. DES/3DES/AES). Message Authentication codes (MACs). Public key ciphers and digital signatures (e.g. RSA).
+Identity verification: use and storage of conventional passwords. Dynamic password schemes. Biometric techniques. Use of tokens (dumb and intelligent), including the use of secure elements such as smart cards and trusted execution environments (TEEs)
+Access control: Access Control Lists, capabilities, security labels (MAC and DAC), and role-based access control.
+Network security concepts and examples: the concepts of security services and security mechanisms (as in ISO 7498-2). An introduction to firewalls, intrusion detection systems and virtual private networks.
+Computer security concepts and examples: hardware and operating system concepts, malware e.g. viruses, spyware, ransomware etc., restricting access.
+CASE STUDY I: a case study in information security.
+Authentication and key distribution: The importance and relatedness of the concepts of key management and entity authentication in a network. Objectives of an entity authentication protocol. Some fundamental protocols (e.g. Kerberos). Using authentication protocols for key distribution, and other approaches to key establishment (including public key certificates and X.509).
+Cyber Physical security, Examine the security, strengths and weaknesses of existing embedded systems/platforms/smart cards and operating systems.
+CASE STUDY II: a case study in information security.
+",150,"","D. Gollman, Computer Security, John Wiley & Sons, 2011 (3rd edition)
+C.P. Pfleeger, S. L. Pfleeger, J Margulies, Security in Computing, Prentice Hall, 2015 (5th edition)
+K. Martin, Everyday Cryptography: Fundamental Principles and Applications, Oxford University Press, 2017 (2nd edition)
+K. Markantonakis and K. E. Mayes, Secure Smart Embedded Devices, Platforms and Applications, Springer, 2013
+W. Ford, Computer Communications Security, 1994.
+","",ACTIVE,0,0,DC
+CS4220,I150,"","Digital Audio and Applications","",7,"Computer Science",2016-2017,"Term 1",15,"","",CS3220,"master digital audio and  the fundamentals of AD/DA conversion
+program Fourier analysis to synthesize and transform sounds in the frequency domain
+demonstrate an understanding of  lossy and losseless compression algorithms
+program digital signal processing (post-processing and effects)
+develop applications for digital audio (music production, noise cancellation, audio enhancement, automatic music generation)
+acquire a basic knowledge of sound perception and  psychoacoustics","Digital audio has many applications, ranging from music production to audio enhancement, or from noise cancellation in mobile phones to automatic music generations for games. These applications share common features that will be covered in this course. Starting with the fundamentals of sound (nature, transmission, volume), students will then learn how to convert sound to and from the digital domain. Once in the digital domain, audio can be manipulated using algorithms from Digital Signal Processing. The course covers some basic DSP algorithms, engaging the students both in audio analysis (amplitude, frequency, pan, etc.) and audio synthesis (additive , FM, etc.). By the end of this course, students should be able to write simple applications that analyse, manipulate and generate sound.
+",150,"","Musimathics, volumes 1 & 2, Gareth Loy, The MIT press, 2011
+",,DORMANT,0,4,CS
+MT3110,"","","Number Theory","",6,Maths,"","",-1,"","","","","",-10,"","","",ACTIVE,0,,MT
+CS3470,"","","Compilers and Code Generation","",6,"Computer Science","","",15,"","CS1811; CS1812 or CS1813; CS1870","","explain the role and structure of a compiler and the standard stages of compilation
+to build a DFA based lexical analyser for a set of tokens specified using regular expressions
+Advanced students should be able to construct regular expressions, which define specified set of strings
+use grammars to define context free languages and to build parsers for them
+describe syntax directed translators and use them to construct intermediate code
+describe various types of error detection and recovery 
+generate three address code from source code.","To describe how to construct and implement interpreters and compilers for modern processors",150,"","<ul><li>Aho, Lam, Sethi, Ullman: Compilers: Principles, Techniques, and Tools, Addison Wesley, 2006 ISBN: 10: 0321486811</li>
+<li>J. Tremblay and P.G. Sorenson: The theory and practice of compiler writing, McGraw Hill, 1985,  ISBN 0-07-065161-2</li>
+<li>N. Wirth: Algorithms + Data Structures = Programs, Prentice Hall, 1976.</li>
+</ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+CS1890,I310,"","Software Design","",4,"Computer Science",2015-16,"Term 1",15,"","","","Identify common software requirements and how these map to software components.  They will be able to recognise how these requirements have been discharged in existing systems and critique their effectiveness.
+Understand several techniques and notations that make it possible to document software design.  They will understand that Software Engineering supports communication of design ideas and this will allow them to see how Software Engineering is a team activity.
+Understand the importance of the several activities of a professional software engineer.  This will include techniques from agile software development, but will focus on requirements acquisition and software design.
+Apply several techniques to design software based on user requirements.  They will be able to judge the appropriateness of designs produced using these techniques, both formally and informally.
+analyse and critique the design of existing software.  This will include the User Experience of software as a measure of its fitness for purpose.","The course addresses concepts required for performing software design activities. Core course content aims at interpreting requirements, identifying software components, documenting software design and understanding the various stages of software development, as well as techniques with a focus on software design.
+This course will emphasise problem based learning.  Students will progress through case studies in critiquing software, acquiring and expressing requirements, designing software and documenting their designs.
+Students will learn to use current industry standard notations such as User Stories and UML.  Students will see how design is achieved in various current Software Engineering processes, including the waterfall and agile processes.
+",150,"","Shari Pfleeger and Joanne Atlee, Software Engineering: Theory and Practice, Prentice Hall, 4th edition, 2010.
+Martin Fowler, UML distilled: a brief guide to the standard object modelling language, Addison-Wesley, 3rd edition, 2004..
+","Time allowed: 1 1/2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,2,CS
+IY3660,"","","Applications of Cryptography","",6,"Information Security","","",15,"",IY2760,"","Appreciate the full range of security services that can be provided by cryptography
+Compare a number of different cryptographic mechanisms that can be used to provide these security services
+Explain the full nature of the architecture within which cryptography is deployed in a security system
+Identify appropriate cryptographic standards that should be followed when implementing cryptography
+Explain the rationale for the design decisions taken in a number of widely deployed cryptographic systems","The aim of this module is to explain the fundamentals behind cryptography and how it is deployed in real systems.",150,"","<ul><li>D.R. Stinson, Cryptography: Theory and Practice, CRC Press</li>
+<li>K.M. Martin: Everyday Cryptography, OUP.</li>
+<li>A. Dent and C.J. Mitchell: A users’ Guide to Cryptography Standards, Artech House</li>
+<li>C. Paar and J. Pelzl, Understanding Cryptography, Springer</li>
+<li>J. Katz and Y. Lindell, Introduction to Modern Cryptography, CRC Press</li>
+<li>N. Ferguson, B. Schneier and T. Kohno, Cryptography Engineering, Wiley</li>
+</ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,1,CS
+CS3563,I300,"","Technology Entrepreneurship","",6,"Computer Science",2018/19,"",15,"","","","Develop and think about technology-based ideas for the future.
+Understand the issues and challenges facing technology entrepreneurs.
+Assess and evaluate a technology venture.
+Understand the formation, development, growth and exit stages of technology ventures in detail.
+Demonstrate an understanding of the entrepreneurial process in the context of technology ventures.
+Have a systematic understanding, critical awareness and knowledge of current issues in technology entrepreneurship.","This course gives an introduction into how technology start-ups work, and an insight into how to work for one. It takes students through the venture’s life cycle and explores issues that are unique to entrepreneurs starting science and technology-based ventures. It also provides students with a theoretical as well as practical outlook on issues faced by technology ventures/entrepreneurs. After this course, students should also be able to pitch an idea to potential investors.
+",150,N/A,"Allen, K. 2009. Entrepreneurship for Scientists and Engineers (International ed.): Pearson Prentice Hall.
+Dorf, R. C. & Byers, T. H. 2010. Technology Ventures From Idea to Enterprise (3rd ed.): McGraw Hill.
+Bessant, J. & Tidd, J. 2007. Innovation and entrepreneurship: John Wiley & Sons.
+Burns, R. L. (Ed.). 2005. The business of healthcare innovation: Cambridge University Press.
+George, G. & Bock, A. 2009. Inventing entrepreneurs: Technology innovators and their entrepreneurial journey: Prentice Hall.
+Oakey, R. 2012. High-technology entrepreneurship. Routledge.
+Pearce, R. & Barnes, S. 2006. Raising venture capital: Wiley.
+Seifert, R. W., Leleux, B. F., & Tucci, C. 2008. Nurturing science-based ventures: An international case perspective: Springer.
+Shane, S. 2009. Technology strategy for managers and entrepreneurs: Pearson Prentice Hall.
+Touhill, C. J., Touhill, G. J., & O’Riordan, T. A. 2008. Commercialization of Innovative Technologies: Wiley Inter-science.
+",,,0,0,CS
+IY4612,I112,"","Cyber security","",7,"Information Security",2016-17,"Term 2",15,"",IY2760,IY3612,"have an understanding of network robustness and failures, together with key underlying theoretical concepts
+understand critical (information) infrastructures, vulnerabilities, and their dependencies
+appreciate the specific security problems of cyber-physical including SCADA systems and selected infrastructure
+understand complex attacks, analytical models for such attacks, and assurance mechanisms","Week 1: Introduction
+Week 2: Networks and dependencies
+Week 3: Critical infrastructures and interdependencies
+Week 4: Security of Cyber-Physical Systems
+Week 5: Control systems security
+Week 6: Advanced persistent threats
+Week 7: Attack modelling techniques
+Week 8: System assurance
+Week 9: Incident response mechanisms
+Week 10: Offensive cyber operations
+Week 11: Future challenges
+",150,"","J Lopez, R Setola, S Wolthusen (eds.) Critical Information Infrastructures Vol. 7130 of
+Lecture Notes in Computer Science. Springer-Verlag, 2012
+","",ACTIVE,0,0,CS
+CS3840,I120,"","Interconnected devices","",6,"Computer Science",2019-20,"Term 1",15,"","","","Understand how to design, build, and test a simple microcontroller-based embedded system
+Use an appropriate low level programming language to program an embedded system
+Analyse requirements and make design trade-off decisions between hardware, software and networking
+Connect multiple devices to achieve planned goals","The course will present the Internet of Things (IoT) by covering the applications of IoT in society, the components of typical IoT systems and the trends for the future.
+The course will expose students to IoT design considerations, constraints and interfacing between the physical world and the IoT devices.
+After this stage, the course will focus on how the Arduino platform works in terms of the physical board, the libraries and the IDE (integrated development environment). It will cover how to program the Arduino and how to access the pins on the board via the software to control external devices.
+Finally, the course will provide hands-on knowledge on how to plug shields into the main Arduino board to perform other functions such as sensing and actuating.
+",150,"","- Michael Margolis, Arduino Cookbook, 3rd edition
+- John Hughes, Arduino in a Nutshell
+",,,0,0,CS
+CS2860,I130,"","Algorithms and Complexity","",5,"Computer Science",2017/18,Spring,15,"","CS1811,CS1812,CS1813,CS1860","","understand and reason about alternative data structure representations, and their use in programs
+implement and reason about alternative implementations for basic algorithms, including graph algorithms
+calculate the complexity of basic algorithms, including graph algorithms","The main aim of the course is to teach the design of algorithms and data structures from the point of view of time and space complexity. This includes covering sorting and search algorithms, and graphs. The course content includes the following:
+Complexity: counting, big-O notation, best-case, worst-case and average-case analysis.
+Basic algorithms, sorting and searching part: implementation and analysis of linear search, binary search, and basic sorting algorithms,
+especially insertion sort, selection sort, merge sort, quick sort, heap sort.
+Data structures: binary search trees, balanced binary search trees, hash tables, (binary) heaps.
+Abstract datatypes: Sets, maps, priority queues.
+Basic algorithms, graph algorithms part: adjacency matrix and adjacency list representations; algorithms for connectivity, shortest paths,
+and spanning trees.
+",150,"","T.H. Cormen, C.E. Leiserson, R.L. Rivest and C. Stein: Introduction To Algorithms, 3rd Edition, MIT Press, Cambridge MA, 2009,
+ISBN 0262533058
+R. Sedgewick and K. Wayne: Algorithms, 4th edition, Addison-Wesley Professional 2011, ISBN 032157351X
+S. Skiena: The Algorithm Design Manual, 2nd edition, Springer 2010, ISBN 1849967202
+K. Mehlhorn and P. Sanders: Algorithms and Data Structures: The Basic Toolbox. Springer 2008.
+Available at http://www.mpi-inf.mpg.de/~mehlhorn/Toolbox.html
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+CS3110,"","",Bioinformatics,"",6,"Computer Science","","",15,"",None,"","assess the main approaches currently in use in bioinformatics;
+demonstrate an understanding of the analysis of DNA and protein sequences.","To introduce the main approaches currently in use in bioinformatics, with special emphasis on the analysis of DNA and protein sequences emerging from genome sequencing projects and genome-wide experimental assays.",150,"","<ul><li>Understanding Bioinformatics Marketa Zvalebil, Jeremy O. Baum Garland Science, 2007</li>
+<li>R.Durbin, S.Eddy, A.Krogh, and G.Mitchinson: Biological sequence analysis, Cambridge University Press, 1998 : ISBN-10: 0521629713</li>
+<li>R.Duda,P.Hart,D.Stork: Pattern classification, John Wiley &amp; Sons, 2001:ISBN-10: 0471056693</li>
+<li>B.Levin: Genes VIII, Prentice Hall, 2004: ISBN-10: 0131239244</li>
+<li>A.M.Lesk: Introduction to Bioinformatics, Oxford University Press, 2005: ISBN-10: 0199277877</li>
+</ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+CS1812,I100,"","Object oriented programming II","",4,"Computer Science",2017-18,"Term 2",15,CS1811,"","","demonstrate an ability to implement basic algorithms and data structures
+understand and use object-oriented concepts
+appreciate the need for program documentation, testing, readability and modifiability","This course teaches programming and object-orientation concepts, building on what is taught in CS1811. Students will reinforce their knowledge about program basics (e.g. variables, types, scope, lifetimes), algorithms (e.g. recursion, searching, sorting), data structures (e.g. sets, lists, trees), objects (e.g. classes, dynamic dispatch, interface, inheritance, generics), exceptions and I/O (e.g. streams, file reading, writing and copying). Furthermore, the course also teaches fundamentals of coding best practices.
+",150,"","Herbert Schildt: Java: a Beginner’s Guide, 4th Edition, McGraw-Hill, 2007, ISBN 0072263849
+Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 987-0-470-55309-1
+","Time allowed: 1 1/2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+CS4490,I100,"","Computational Optimization","",7,"Computer Science",2018/19,"Spring Term",15,"",CS2860,CS3490,"understand and evaluate fundamental models of computational optimization (CO)
+examine and apply the fundamental algorithms for solving CO problems
+apply theoretical and computational methods to analyse CO algorithms
+further develop algorithmic and mathematical skills","This course will provide students with advanced understanding of fundamental models of computational optimisation (CO) and important algorithms for solving CO problems; enable students to analyse CO algorithms using theoretical and computational methods; and discuss and compare available software packages for solving CO problems.
+Course content:
+Linear programming (LP) model. Formulating problems as LP problems.
+Graphical solution. Simplex method.
+Duality in LP. Decomposition of LP problems. LP software.
+Integer Programming (IP). IP models. Branch-and-Bound algorithm.
+CO problems. Polynomial-time algorithms. Greedy-type algorithms. Construction heuristics and local search for the TSP.
+Theoretical and computational analysis of heuristics and meta-heuristics.
+",150,"","M.W. Carter, C.C. Price, Operations Research: A Practical Introduction, CRC, 2001 (001.424 CAR)
+",,DORMANT,0,0,CS
+CS4250,"","","Visualisation and Exploratory Analysis","",7,"Computer Science","","",15,"","Cannot take if passed CS3250","","have a mastery of the skills and wisdom that are needed for open-ended exploratory analysis of data, and for the analytical presentation and critical evaluation of the results of statistical analyses;
+have a mastery of the construction of linear projections of multivariate data and advanced understanding of non-linear dimension reduction methods;
+have some practical experience of using standard graph visualisation methods and evaluation of results
+be effective in avoiding data snooping
+critically evaluate choices in representational mode, glyph design, and colour design for presentation graphics.","The course aims to teach the principles and arts of statistical visualisation and exploratory analysis of data. There are principles, theory, and skills to be acquired.Course content: 	Construction of informative bivariate plots. This will cover standard axis transformations and why they are useful, and also the importance of constructing data transformations such that a reference hypothesis presents in the simplest possible form. Smoothing with loess. Visualisation of distributions: histograms, binning, and kernel density estimation; cumulative distributions and QQ plots. These topics will be backed up with plenty of practical examples and coursework. 	Visualisation of multivariate data. Linear projections and principal components analysis in primal and dual mode. Kernel PCA. Canonical correlations analysis (CCA) and Kernel CCA. 	Dimensional reduction. Non-linear methods, examples such as t-SNE, Isomap, and proxigrams. 	Exploratory cluster analysis, and metrics for comparison of clusterings. 	Standard methods for visualisation of relational and graph data will be described including practical implementations such as Gephi. 	Checking a found pattern by constructing a suitable randomisation of the data; importance of guarding against `snooping'. 	Principles of selecting modes of presentation for various quantities; basic principles of colour scale design and glyph choice.",150,"","Visualising data, by William S. Cleveland<br/>
+The elements of graphing data by William s. Cleveland<br/>
+The visual display of quantitative data, by Edward Tufle<br/>
+Envisioning information by Edward Tufle","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,1,CS
+CS2910,I400,"","Artificial Intelligence","",5,"Computer Science",2017-18,"Term 2",15,"","","","Use computational logic to model domains and reasoning tasks of an intelligent system
+Understand the role of knowldege representation, problem solving and learning in building domain independent and domain dependent AI capabilities
+Explain conceptual and computational trade-offs between the expressiveness of different representations and capabilities
+Demonstrate how to develop and combine AI capabilities in a suitable programming language","Artificial Intelligence (AI) is usually defined as the science of making computers do things that require intelligence when done by humans. AI has had some success in limited, or simplified, domains. However,  more recently, successes with developments of AI systems such as game playing and robotics have regenerated optimism concerning the attainment of human-level intelligence in a variety of domains despite the profound difficulty of the problem.
+The aim of this course  is to introduce students to the basic principles, methods and techniques of AI to provide the foundations for more advanced courses in this area. The course will start by providing an overview of the approaches in the field by referring to the wider historical context in which the AI vision was set and will further motivate the content to be taught by presenting existing and potential applications. After the overview, the course will deliver a series of topics from first principles, including  the role of first-order logic for knowledge representation, computational  reasoning and problem solving systems, the use of search as a capability for exploring alternative solutions, and how AI systems  use knowledge to plan and learn from first principles.
+Upon completion of the course, students should be able to develop intelligent systems by assembling capabilities to concrete computational problems; understand the role of knowledge representation, problem solving, and learning in intelligent-system engineering; and appreciate the role of problem solving, in wide applications that require a basic understanding of human intelligence from a computational perspective.
+",150,"","Primary text:
+Russell and Norvig. Artificial Intelligence: A Modern Approach. 3rd Edition.
+Secondary text:
+Ivan Bratko. Prolog Programming for Artificial Intelligence 3rd Edition.
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,2,CS
+CS4001,"","","Year in Industry","",7,"Computer Science","","",30,"","60% average in first year of study with no module below 40%.<br/>
+60% average in second year of study with no module below 40%.<br/>
+60% average in third year of study with no module below 40%.","","An understanding of the complexities and demands of the job application process
+An understanding of the day to day running of a company 
+An insight into data handling and analysis skills required in business and Experience a range of practical work based situations
+Improve technical skills and increased ability to evidence and demonstrate their skills to future employers
+An understanding of recruitment priorities of employers"," This is an optional ‘year out’ between the third and final year, spent at an organisation or institution approved by the College as having a function relevant and suitable to Computer Science.  Each student on a placement gets a placement advisor. This can be the same person as the students’ academic adviser or may be different person more experienced in industry collaborations.
+The advisor monitors progression and is the first point of contact in the college if the student is unhappy with anything concerning the placement.
+The adviser would normally visit the student twice at the location of the placement, depending on the location of the placement. The main purpose of the visits is to make sure that the placement proceeds as agreed and the job tasks undertaken by the student are of sufficient educational value.",300,"",N/A,"",ACTIVE,0,,CS
+CS2890,"","","Software Design","",5,"Computer Science","","",15,"",None,"","Identify common software requirements and how these map to software components.  They will be able to recognise how these requirements have been discharged in existing systems and critique their effectiveness.
+Understand several techniques and notations that make it possible to document software design.  They will understand that Software Engineering supports communication of design ideas and this will allow them to see how Software Engineering is a team activity.
+Understand the importance of the several activities of a professional software engineer.  This will include techniques from agile software development, but will focus on requirements acquisition and software design.
+Apply several techniques to design software based on user requirements.  They will be able to judge the appropriateness of designs produced using these techniques, both formally and informally.
+Analyse and critique the design of existing software.  This will include the User Experience of software as a measure of its fitness for purpose.","The course addresses concepts required for performing software design activities. Core course content aims at interpreting requirements, identifying software components, documenting software design and understanding the various stages of software development, as well as techniques with a focus on software design.",150,"","<ul><li>Shari Pfleeger and Joanne Atlee, Software Engineering: Theory and Practice, Prentice Hall, 4th edition, 2010.</li>
+<li>Martin Fowler, UML distilled: a brief guide to the standard object modelling language, Addison-Wesley, 3rd edition, 2004.</li>
+</ul>","",ACTIVE,0,2,DC
+CS3823,"I120, I160","","Individual Project in Distributed and Networked Systems","",6,"Computer Science",2019/20,"Terms 1 & 2",30,"","","","understand complex ideas and identify solutions to a problem
+apply scientific and software/hardware techniques to solving a problem
+analyse the solution to a problem and evaluate the associated results
+demonstrate the ability to plan, organise and present the project work both in written form and orally
+understand legal, social, ethical and professional issues","The content of each project is individual. The rules for choosing a project and designing an individual project are detailed in the Project Handbook.
+",300,"","C. W. Dawson: The Essence of Computing Projects, A Student's Guide, Prentice Hall, 2000: ISBN-10: 013021972X
+M. Berndtsson, J. Hansson, B. Olsson, B. Lundell: Planning and Implementing your Final Year Project - with Success!: A Guide for Students in Computer Science and Information Systems, Springer-Verlag, 2002: ISBN-10: 1852333324
+Richard Epstein: The case of the Killer Robot, John Wiley & Sons, 1997: ISBN 978-0471138235.
+",,,0,0,CS
+CS3910,I300,"","Running a Small Business","",6,"Computer Science",2018/19,"",15,"","","","Understand fundamental concepts, terminology and processes of a business and its operating environment.
+Apply basic strategy and financial management techniques.
+Understand and compare types of Information Systems, architectural paradigms, acquisition models and key software applications of a modern business.
+Comprehend the theoretical foundations of leadership and people management and be able to appraise their applicability in practice.
+Explain and where appropriate apply the principles of Risk Management.","The main aim of this course is to give a good background to students on how to run a small company.
+Course content:
+Introduction – types of Businesses, Organizational Functions/Structures, Business Processes fundamentals.
+Starting a Business – Business Plan, Budgeting and Investment Valuation Methods (e.g. ROI, TCO, NPV), Fund-raising aspects.
+Basics of Strategy and Planning – e.g. Definitions, SWOT Analysis, Porter’s 5 forces, types/elements of plans.
+Business Financial Management – Basics of Accounting, Assets/Liabilities, CAPEX/OPEX, Balance Sheet, P&L, Cash Management, Financial Ratios.
+Capital Raising and the role/services of Banks – e.g. Financial Intermediation, Trade Finance, Payments, Loans, Financial Markets and Instruments.
+Basics of Information Systems – Overview & Landscape, underlying Technology elements, Architectural paradigms, Acquisition methods.
+ERP and Human Resources Management Processes and Systems
+Customer Relationship Management and Marketing concepts, CRM Systems
+Fundamentals of Managing Oneself and Others – e.g. Leadership, Planning, Time and Stress Management, Negotiation, Goal-setting.
+Risk Management and Business Continuity elements
+",150,N/A,"Good small business guide, 7th Edition: How to start and grow your own business, ISBN-10: 1408159597
+Michael Blackstaff, Finance for IT Decision Makers: A Practical Handbook, BCS, ISBN: 1780171226, 2012.
+K.C Laudon, J.P Laudon, Management Information Systems: Managing the Digital Firm, Pearson, ISBN-10: 0133898164.
+HBR's 10 Must Reads for New Managers, Harvard Business Review, ISBN-10: 1633693023, 2017.
+HBR's 10 Must Reads on Managing Yourself, Harvard Business Review, ISBN-10: 1422157997, 2011.
+HBR’s 10 Must Reads on Managing People, Harvard Business Review, ISBN-10: 1422158012, 2011.
+Additional readings and handouts will be provided on specific topics, e.g. on Banks and Financial Services, Risk Management, Leadership, Negotiations, Time Management.
+",,,0,0,CS
+MT2860,"","","Groups and Group Functions","",5,Maths,"","",-1,"","","","","",-10,"","","",ACTIVE,0,,MT
+CS4945,I150,"","Semantic Web","",7,"Computer Science",2016-17,"Term 1",15,"",CS2841,CS3945,"demonstrate a mastery of the fundamental concepts, and standards of the semantic web
+demonstrate an advanced understanding of the use of standards such as RDF, RDFS and OWL for modeling different scenarios and reasoning
+demonstrate an advanced understanding of underlying logical theory behind the semantic web, for example Description Logic","The Web, as it exists today, primarily supports human understanding and the interpretation of the vast information space it encompasses. However the Web was originally designed with a goal to support not only human-human communication but also as one that would enable automated machine processing of data with minimal human intervention. The Semantic Web is Tim Berners-Lee's vision of a machine understandable and unambiguously computer interpretable Web. The rationale behind such a system is that most of the data currently posted on the web is buried in HTML files suitable for human reading and not for computers to manipulate meaningfully. The semantic Web, an extension of the current web, can be thought of as a globally linked database where information is given well-defined meaning using metadata for better enabling computers and humans to work in close cooperation. The realisation of a Semantic Web will thus make machine reasoning more ubiquitous and powerful, creating an environment where intelligent software agents can roam, carrying out sophisticated tasks for their users.
+Though the original motivation of the semantic web was to constitute the next generation of the WWW, the standards and technologies developed in the process have been found useful in specific realm enterprises as well. From this perspective the Semantic Web can be viewed as a semantically-rich data model that is more expressive than the usual relational data model used in standard databases systems, and is also more adequate to distributed and incomplete resources.
+This course is about the notions, concepts, technologies and modelling techniques that constitute the Semantic Web, whose key distinguishing characteristics will be the support for and use of semantics in new, more effective, more intelligent, ways of managing information and supporting applications.
+",150,"","Primary text:
+Semantic Web for the Working Ontologist (Effective Modeling in RDFS and OWL) 2nd Edition, By Dean Allemang, James Hendler, Elsevier / Morgan Kaufmann, July 2011.
+A Semantic Web Primer (Cooperative Information Systems), 3rd Ed., by Grigoris Antoniou (Author), Paul Groth (Author) et al., 2012.
+Secondary text:
+Semantic Web Programming, John Hebeler, Matthew Fisher, Ryan Blace, Andrew Perez-Lopez, Wiley Publishing, Inc, 2009
+",,DORMANT,0,1,CS
+CS3846,"","","Human-Computer Interaction","",6,"Computer Science","","",15,"","CS1840 or CS2841","","demonstrate an understanding of what HCI is, its principles, challenges, and teamwork development aspects
+build prototypes using different media and technologies
+evaluate the usability and suitability of user interfaces
+undertake HCI tests, namely Web experiments
+explain how perception and cognition influence HCI","This course introduces human-computer interaction aspects and challenges, and addresses the approaches that can be used to create interfaces matching users' needs and expectations.",150,"","<ul><li>Alan Dix et al, Human Computer Interaction. 2003.</li>
+<li>Yvonne Rogers et al, Interaction Design: Beyond Human Computer Interaction. 2011.</li>
+<li>Jakob Nielsen, Prioritizing Web usability. 2006.</li>
+<li>Don Norman, The Design of Everyday Things: Revised and Expanded Edition. 2013.</li>
+<li>Eric Freeman. Head First HTML5 Programming. 2011.</li>
+<li>Jon Duckett, JavaScript and jQuery: Interactive Front-End Web Development. 2014.</li>
+</ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,4,CS
+MT1710,"","",Calculus,"",4,Maths,"","",15,"","","","","",150,"","","",ACTIVE,0,,MT
+IY3612,I112,"","Cyber security","",6,"Information Security",2016-17,"Term 2",15,"",IY2760,"","have an understanding of network robustness and failures, together with key underlying theoretical concepts
+understand critical (information) infrastructures, vulnerabilities, and their dependencies
+appreciate the specific security problems of cyber-physical including SCADA systems and selected infrastructure
+understand complex attacks, analytical models for such attacks, and assurance mechanisms","Week 1: Introduction
+Week 2: Networks and dependencies
+Week 3: Critical infrastructures and interdependencies
+Week 4: Security of Cyber-Physical Systems
+Week 5: Control systems security
+Week 6: Advanced persistent threats
+Week 7: Attack modelling techniques
+Week 8: System assurance
+Week 9: Incident response mechanisms
+Week 10: Offensive cyber operations
+Week 11: Future challenges
+",150,"","J Lopez, R Setola, S Wolthusen (eds.) Critical Information Infrastructures Vol. 7130 of
+Lecture Notes in Computer Science. Springer-Verlag, 2012
+","",ACTIVE,0,0,CS
+CS1822,I100,"","Programming Laboratory","",4,"Computer Science",2019-20,"Term 1, Term 2",30,"","","","program independently to solve a given problem.
+know how to write an individual technical report..
+know how to present a project, both at a practical demonstration and in a formal short presentation.
+have been introduced to a programming environment for a particular event driven or embedded domain such as microprocessor coding, robotics coding, game development or interactive web development.
+work in a group on a programming project.
+","Students in this course will apply programming concepts from the the very basic (variables, control flow, loops, methods) up to advanced concepts (event driven programming, embedded programming) and best practices. The course will follow a blended learning model incorporating lectures, practical exercises, project work and online assessment.
+",300,"","Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 987-0-470-55309-1
+https://inventwithpython.com/
+Ian Millington – Artificial Intelligence for Games
+David Eberly – Game Physics
+Christer Ericsson – Real Time Collision Detection
+J. Kelly: LEGO Mindstorms NXT-G Programming Guide, Technology in Action Press, 2007, ISBN 10: 1590598717
+Brian Bagnell: Maximum Lego NXT: Building Robots with Java Brains, Variant Press 2007, ISBN 10: 097386491
+","",ACTIVE,0,3,CS
+DC1821,I100,"","Programming Laboratory","",4,"Computer Science",2019-20,"Term 1, Term 2",30,"","","","be able to program independently to solve a given problem.
+know how to write an individual technical report..
+know how to present a project, both at a practical demonstration and in a formal short presentation.
+have been introduced to a programming environment for a particular event driven or embedded domain such as microprocessor coding, robotics coding, game development or interactive web development.
+work in a group on an I.T. project.
+","Students in this course will apply programming concepts from the the very basic (variables, control flow, loops, methods) up to advanced concepts (event driven programming, embedded programming) and best practices. The course will follow a blended learning model incorporating lectures, practical exercises, project work and online assessment.
+",300,"","Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 987-0-470-55309-1
+https://inventwithpython.com/
+Ian Millington – Artificial Intelligence for Games
+David Eberly – Game Physics
+Christer Ericsson – Real Time Collision Detection
+J. Kelly: LEGO Mindstorms NXT-G Programming Guide, Technology in Action Press, 2007, ISBN 10: 1590598717
+Brian Bagnell: Maximum Lego NXT: Building Robots with Java Brains, Variant Press 2007, ISBN 10: 097386491
+","",ACTIVE,0,3,DC
+CS1813,"I100, I300","","Software Development","",4,"Computer Science",2017-18,"Term 2",15,CS1811,"","","demonstrate an ability to implement basic algorithms and data structures
+understand and use object-oriented concepts
+appreciate the need for program documentation, testing, readability and modifiability
+develop a simple application based on a design specification
+create a test plan, execute it, and identify faults in an application","This course teaches programming and object-orientation concepts, building on what is taught in CS1811. Students will reinforce their knowledge about program basics (e.g. variables, types, scope, lifetimes), algorithms (e.g. recursion, searching, sorting), data structures (e.g. sets, lists, trees), objects (e.g. classes, dynamic dispatch, interface, inheritance, generics), exceptions and I/O (e.g. streams, file reading, writing and copying). Furthermore, the course also teaches fundamentals of coding best practices.
+In addition, students learn software development best practices, how to perform small scale software development from a specification, and details about the testing process and software evaluation.
+",150,"","Herbert Schildt: Java: a Beginner’s Guide, 4th Edition, McGraw-Hill, 2007, ISBN 0072263849
+Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 987-0-470-55309-1
+","Time allowed: 1 1/2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,2,CS
+CS1820,"","","Computing laboratory (robotics)","",4,"Computer Science","","",15,"",None,"","Programme a mobile robot to execute pre-defined movements
+Understand the operation of basic sensors
+Understand the essentials of real time event-driven programming","To provide a practical approach to programming and the building of computer systems.<br /><br />To introduce elementary robotics concepts<br /><br />To reinforce the earning of elementary programming",150,"","<ul><li>J. Kelly: LEGO Mindstorms NXT-G Programming Guide, Technology in Action Press, 2007, ISBN 10: 1590598717</li>
+<li>Brian Bagnell: Maximum Lego NXT: Building Robots with Java Brains, Variant Press 2007, ISBN 10: 0973864915</li>
+</ul>","",DORMANT,0,2,CS
+CS3822,"","","Full Unit Project in Artificial Intelligence","",6,"Computer Science","","",30,"",CS2800,"","Understand complex ideas and identify solutions to a problem
+Apply scientific and software/hardware techniques to solving a problem
+Analyse the solution to a problem and evaluate the associated results
+Demonstrate the ability to plan, organise and present the project work both in written form and orally
+Understand complex ideas and identify solutions to a problem","<p>To provide the opportunity to demonstrate independence and originality, to plan and organise a large project over a long period, and to put into practice the techniques taught throughout their degree course.</p>
+<p>The topic of the project will be related to artificial intelligence and related to individual project. To show an understanding of legal, social, ethical and professional issues</p>",300,"","C. W. Dawson: The Essence of Computing Projects, A Student's Guide, Prentice Hall, 2000: ISBN-10: 013021972X.<br/>
+M. Berndtsson, J. Hansson, B. Olsson, B. Lundell: Planning and Implementing your Final Year Project - with Success!: A Guide for Students in Computer Science and Information Systems, Springer-Verlag, 2002: ISBN-10: 1852333324.<br/>
+Richard Epstein: The case of the Killer Robot, John Wiley & Sons, 1997:                     ISBN 978-0471138235.","",ACTIVE,1,0,CS
+CS1870,"","","Machine Fundamentals","",4,"Computer Science","","",15,"",None,"","use formal logic to design, reason about and minimise switching circuits
+write basic programs in assembly language
+understand binary representations of signed and unsigned integers
+write regular expressions to describe sets and build deterministic automata to recognise these sets
+use automata to design and reason about sequential flow systems","To explain the theory and use of logic in the description, specification and behaviour of machine processes.<br /><br />To provide insights and skills for dealing with large and infinite objects in a way that allows them to be implemented in a programming environment.<br />",150,"","<ul><li>Rosen: Discrete Mathematics And Its Applications, McGraw Hill, 2006, ISBN 0071244743</li>
+<li>Brookshear: Computer Science An Overview, Addison-Wesley, 2007, ISBN 0321524039</li>
+</ul>","Time allowed: 1 1/2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+CS4563,I300,"","Technology Entrepreneurship","",7,"Computer Science",2018/19,"",15,"","",CS3563,"Develop and think about technology-based ideas for the future.
+Understand the issues and challenges facing technology entrepreneurs.
+Assess and evaluate a technology venture.
+Understand the formation, development, growth and exit stages of technology ventures in detail.
+Have an in-depth and critical understanding of the entrepreneurial process in the context of technology ventures.
+Have a systematic understanding, critical awareness and knowledge of current issues in technology entrepreneurship.","This course gives an introduction into how technology start-ups work, and an insight into how to work for one. It takes students through the venture’s life cycle and explores issues that are unique to entrepreneurs starting science and technology-based ventures. It also provides students with a theoretical as well as practical outlook on issues faced by technology ventures/entrepreneurs. After this course, students should also be able to pitch an idea to potential investors.
+",150,N/A,"Allen, K. 2009. Entrepreneurship for Scientists and Engineers (International ed.): Pearson Prentice Hall.
+Dorf, R. C. & Byers, T. H. 2010. Technology Ventures From Idea to Enterprise (3rd ed.): McGraw Hill.
+Bessant, J. & Tidd, J. 2007. Innovation and entrepreneurship: John Wiley & Sons.
+Burns, R. L. (Ed.). 2005. The business of healthcare innovation: Cambridge University Press.
+George, G. & Bock, A. 2009. Inventing entrepreneurs: Technology innovators and their entrepreneurial journey: Prentice Hall.
+Oakey, R. 2012. High-technology entrepreneurship. Routledge.
+Pearce, R. & Barnes, S. 2006. Raising venture capital: Wiley.
+Seifert, R. W., Leleux, B. F., & Tucci, C. 2008. Nurturing science-based ventures: An international case perspective: Springer.
+Shane, S. 2009. Technology strategy for managers and entrepreneurs: Pearson Prentice Hall.
+Touhill, C. J., Touhill, G. J., & O’Riordan, T. A. 2008. Commercialization of Innovative Technologies: Wiley Inter-science.
+",,WONTRUN,0,0,CS
+CS4920,I460,"","Machine Learning","",7,"Computer Science",2018/19,"Autumn Term",15,"","",CS3920,"Demonstrate advanced knowledge of the theoretical foundations of several key machine learning methods.
+Understand at an advanced level the main advantages and limitations of various approaches to machine learning and specific machine-learning algorithms.
+Have a mastery and be able to implement several machine-learning algorithms.
+Understand, at an advanced level, ways to apply the ideas and algorithms of machine learning in industry, medicine, and other fields.","The aim of the course is to acquaint the students with several key methods and techniques of machine learning.  In particular, it will cover the following topics. Nearest neighbours for classification and regression; interesting distances. Conformal prediction and conformalizing nearest neighbours. Ridge regression and Lasso. Inductive conformal predictors and cross-conformal predictors. Support vector machines for classification and regression. Kernel trick and its applications to the algorithms covered so far. Practically useful kernels. Conformalized versions.
+",150,N/A,"Andreas C. Mueller and Sarah Guido (2016) Introduction to Machine Learning with Python. O'Reilly Media
+Vineeth N. Balasubramanian et al. (2014) Conformal Prediction for Reliable Machine Learning. Elsevier
+Gareth James et al. (2013) An Introduction to Statistical Learning. Springer
+Trevor Hastie et al. (2009) The Elements of Statistical Learning.  Second edition. Springer
+John Shawe-Taylor and Nello Cristianini (2004) Kernel Methods for Pattern Analysis. Cambridge University Press
+Tom M. Mitchell (1997) Machine Learning. McGraw-Hill
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are permitted",DORMANT,0,1,CS
+MT2220,"","","Vector Analysis and Fluids","",5,Maths,"","",-1,"","","","","",-10,"","","",ACTIVE,0,,MT
+CS1803,"","","Introduction to Programming","",4,"Computer Science","","",15,"",None,"","","The goal of this course is to provide:an overall look at the world of programming;knowledge of how computers can be used to solve problems;a hands-on approach to fundamental programming skills.",150,"","<ul><li>Herbert Schildt: Java: a Beginner’s Guide, 4th Edition, McGraw-Hill, 2007, ISBN 0072263849</li>
+<li>Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 987-0-470-55309-1</li>
+</ul>","",DORMANT,0,3,DC
+CS4823,"I120, I160","","MSci Individual Project in Distributed and Networked Systems","",7,"Computer Science",2020/21,"Terms 1 & 2",60,"","","","develop an advanced understanding of complex ideas and identify solutions to a problem
+apply scientific and software/hardware techniques to solving a problem
+analyse the solution to a problem and evaluate the associated results
+demonstrate a mastery of planning, organising and presenting the project work both in written form and orally
+develop an advanced understanding of legal, social, ethical and professional issues","The content of each project is individual. The rules for choosing a project and designing an individual project are detailed in the Project Handbook.
+",600,"","C. W. Dawson: The Essence of Computing Projects, A Student's Guide, Prentice Hall, 2000: ISBN-10: 013021972X
+M. Berndtsson, J. Hansson, B. Olsson, B. Lundell: Planning and Implementing your Final Year Project - with Success!: A Guide for Students in Computer Science and Information Systems, Springer-Verlag, 2002: ISBN-10: 1852333324
+Richard Epstein: The case of the Killer Robot, John Wiley & Sons, 1997: ISBN 978-0471138235.
+",,,0,0,CS
+CS4990,"I410, I430, I460","","Natural Language Processing","",7,"Computer Science",2019/20,"Spring Term",15,"",CS2900,"","Have an advanced understanding of theory of syntax, semantics, and pragmatics
+Have an advanced understanding techniques for basic processing of text corpora
+Have an advanced understanding typical natural language processing tasks
+Implement modern deep learning methods of natural language processing.","The aim of this course is to teach the necessary background knowledge and practical techniques - especially deep learning -  needed to apply natural language processing to large, real-life text-based projects. A brief survey of computational linguistic theory will include notions of syntax, semantics, and pragmatics. Practical techniques for preparing and pre-processing text will be taught in lab sessions. Typical commercial applications of NLP will be surveyed, with practical examples. Standard NLP techniques covered will include: topic modelling and LDA, and construction of word-embeddings.
+Recent recurrent deep learning architectures for text processing will be covered in depth, using examples from the research literature.
+",150,"","Natural Language Processing in Action: understanding, analysing, and generating text with Python, by Hobson and Cole, Springer 2017
+Deep Learning with Natural Language Processing by Li Deng and Yang Liu, Springer, July 2018-06-14
+The Handbook of Computational Linguistics and Natural Language Processing (Blackwell Handbooks in Linguistics) by Alexander Clark, 2012
+Applied Text Analysis with Python, by Bengfort and Bilbro, O'Reilly 2018
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,2,CS
+CS4822,I400,"","MSci Individual Project in Artificial Intelligence","",7,"Computer Science",2017/18,"Terms 1 & 2",60,"",CS2800,"","develop an advanced understanding of complex ideas relating to AI and identify solutions to an AI problem
+apply advanced scientific and software/hardware techniques to solving an AI problem
+analyse the solution to a problem and evaluate the associated results
+demonstrate a mastery of planning, organising and presenting the project work both in written form and orally
+develop an advanced understanding of legal, social, ethical and professional issues","The aim of this project is to further the students' knowledge of a particular artificial intelligence topic and to give them the opportunity of demonstrating their ability of working individually, whilst appling advanced scientific and software/hardware techniques to solving a problem.
+The content of each project is individual. The rules for choosing a project and designing an own project are detailed in the Project Handbook.
+",600,"","C. W. Dawson: The Essence of Computing Projects, A Student's Guide, Prentice Hall, 2000: ISBN-10: 013021972X
+M. Berndtsson, J. Hansson, B. Olsson, B. Lundell: Planning and Implementing your Final Year Project - with Success!: A Guide for Students in Computer Science and Information Systems, Springer-Verlag, 2002: ISBN-10: 1852333324
+Richard Epstein: The case of the Killer Robot, John Wiley & Sons, 1997: ISBN 978-0471138235.
+","",ACTIVE,1,0,CS
+CS2846,"","","Human-Computer Interaction","",5,"Computer Science","","",15,"","CS1840 or CS2841","","demonstrate an understanding of what HCI is, its principles, challenges, and teamwork development aspects
+build prototypes using different media and technologies
+evaluate the usability and suitability of user interfaces
+undertake HCI tests, namely Web experiments
+explain how perception and cognition influence HCI","This course introduces human-computer interaction aspects and challenges, and addresses the approaches that can be used to create interfaces matching users' needs and expectations.",150,"","<ul><li>Alan Dix et al, Human Computer Interaction. 2003.</li>
+<li>Yvonne Rogers et al, Interaction Design: Beyond Human Computer Interaction. 2011.</li>
+<li>Jakob Nielsen, Prioritizing Web usability. 2006.</li>
+<li>Don Norman, The Design of Everyday Things: Revised and Expanded Edition. 2013.</li>
+<li>Eric Freeman. Head First HTML5 Programming. 2011.</li>
+<li>Jon Duckett, JavaScript and jQuery: Interactive Front-End Web Development. 2014.</li>
+</ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,4,CT
+MT1720,"","","Functions of Several Variables","",4,Maths,"","",15,"","","","","",150,"","","",ACTIVE,0,,MT
+MT2800,"","","Linear Algebra and a Group Project","",5,Maths,"","",15,"","","","","",150,"","","",ACTIVE,0,,MT
+DC2845,"","","Data Analytics and Visualisation","",5,"Computer Science","","",15,""," ","",""," ",150,""," "," ",WITHDRAWN,0,1,DC
+CS2800,"","","Software Engineering","",5,"Computer Science","","",15,"","CS1811; CS1812 or CS1813","","understand the software engineering techniques and managerial discipline required to work as part of a team
+understand and use basic object-oriented concepts
+appreciate the need for program documentation, testing, readability and modifiability
+use appropriate tools to support software development: Version control, programming standards, a modern IDE,
+be able to use test driven development to deliver a small scale project.","Introducing software Engineering tools and techniques through practical experience of design and development that enable each individual programmer to contribute effective, working, documented code, as part of a team, in a timely fashion.",150,"","<ul><li>Cary S. Horstmann: Object Oriented Design And Patterns, 2nd Edition, Wiley, 2005, ISBN 978 0471744870</li>
+<li>E. Freeman, E. Freeman: B. Bates and K. Sierra, Head First Design Patterns, O’Reilly, 2004, ISBN 978 0596007126</li>
+</ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+CS2821,I112,"","Systems Programming","",5,"Computer Science",2016-17,"Term 2",15,"",CS2850,"","demonstrate a working understanding of program execution using a simplified model of the main memory hierarchy
+explain the implementation of data structures at the level of memory references
+be able to interact with the operating system via system calls
+understand memory management, interrupts, sockets and basic threading in C
+write simple shell scripts to automate the processing of batch jobs","The aim of this course is to develop an understanding of the interaction between application software and the operating system. The course covers aspects such as the computer model (e.g. CPU/main memory backing store, the pigeon hole model of memory, indexing and pointer hopping, heap management), performance (abstracting performance, counting basic operations, impact of cache), procedural languages (dynamic memory handling in C and in comparison to Java; interrupts, pipes, sockets, file i/o and starting processes in C), and scripting (batch processing of simple shell commands, handling of command line arguments, filesystem navigation, loops and conditionals).
+",150,"","Frantisek Franik: Memory as a Programming Concept in C and C++, Cambridge University Press, 2004 ISBN 10:0521520436 Herbert Schildt: C++ A Beginners Guide. McGraw-Hill 2003 (2nd edition)
+W. R. Stevens, S. A. Rago:  Advanced Programming in the UNIX Environment, Addison-Wesley Professional 2005 (2nd Edition)
+C. Abling, JP Vossen, C. Newham: Bash Cookbook, O'Reilly Media, 2007
+Brian W. Kernighan Dennis M Ritchie: The C programming language, Englewood Cliffs, N. J., Prentice Hall 2nd ed. c1988
+",,,0,0,CS
+CS3821,"","","Full Unit Project","",6,"Computer Science","","",30,"",CS2800,"","understand complex ideas and identify solutions to a problem,
+apply scientific and software/hardware techniques to solving a problem,
+analyse the solution to a problem and evaluate the associated results
+demonstrate the ability to plan, organise and present the project work both in written form and orally,
+understand legal, social, ethical and professional issues.","<p>To provide the opportunity to demonstrate independence and originality, to plan and organise a large project over a long period, and to put into practice the techniques taught throughout their degree course. Related to individual project.</p>
+<p>Legal, social, ethical and professional issues.</p>",300,"","C. W. Dawson: The Essence of Computing Projects, A Student's Guide, Prentice Hall, 2000: ISBN-10: 013021972X<br/>
+M. Berndtsson, J. Hansson, B. Olsson, B. Lundell: Planning and Implementing your Final Year Project - with Success!: A Guide for Students in Computer Science and Information Systems, Springer-Verlag, 2002: ISBN-10: 1852333324</br>
+Richard Epstein: The case of the Killer Robot, John Wiley & Sons, 1997:                      ISBN 978-0471138235.","",ACTIVE,1,0,CS
+CS3510,"","","Functional Programming and Applications","",6,"Computer Science","","",15,"","","","Understand the basic principles of functional programming; its basic ideas, foundations, advantages as compared with imperative programming paradigm
+Master the fundamental programming concepts such as recursion, abstraction, higher-order functions and data types
+Grasp skills in developing elegant, efficient, correct, and reusable programs, using the key features in functional programming languages
+ Understand the advantages and disadvantages of different programming paradigms as compared to each other and, on the basis of this, the basic ideas of combining different programming styles in a uniform paradigm
+ Understand the basic foundational principles of functional programming and some of the advanced issues such as genericity, polymorphism and typing in functional programming","This course introduces the principles of functional programming (FP). Functional programming has become more and more popular in recent years because it promotes code that’s safe, concise, and elegant, and makes it easier to write parallel code for parallel computing.  You will also study how FP may be combined with other programming paradigms (eg, OOP) in languages such as Scala, a language that fuses FP and OOP in a practical package for applications.",150,"","<ul><li>M. Odersky, L. Spoon and B. Venners.  Programming in Scala. 2nd ed. Dec 2010.</li>
+<li>S. Thompson. Haskell: The Craft of Functional Programming. 3rd ed. 2012.</li>
+<li>C.S. Horstmann. Scala for the Impatient. Addison-Wesley 2012</li></ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,1,CS
+CS4950,"I400, I430, I460","","Deep Learning","",7,"Computer Science",2018/19,"Spring Term",15,"",CS2900,"","Demonstrate an advanced understanding of the notions of an artificial neural network, and of learning by minimising a loss function, using training, validation, and test data sets.
+Master computation of loss-gradients for different neural network architectures, and of a range of algorithms for optimisation by gradient descent, as applied in neural networks.
+Demonstrate a good comparative understanding of a range of deep learning architectures.
+Master the basic techniques necessary for gradient optimisation of deep networks, and of some diagnostics needed for determining whether gradient descent is working correctly.
+Apply deep learning algorithms to real-world data and evaluate the results.
+Implement and run deep learning algorithms using appropriate tool-kits.","The aim of the course is to give students an introduction to deep learning that covers neural network optimisation by gradient descent from first principles, and which also gives a broader introduction to a range of advanced architectures, with hands-on implementation.
+The course starts by considering models of artificial neural networks for supervised learning, and introduces notions of activation function, loss function, and computation of loss-gradients using back-propagation with the chain rule. Neural network learning with back-propagation and different gradient descent algorithms will be covered in detail, and visualised in lab-sessions.  Next, the 'disappearing gradient' problem in deep architectures will be raised, and methods for resolving this problem will be discussed. A range of deep architectures will be described for discriminative learning, generative learning and learning of representations, and for reinforcement learning.  Students will implement a deep architecture using a toolkit in a project assignment at the end of the course.
+",150,"","Deep Learning, by Ian Goodfellow, Yoshua Bengio, and Aaron Courville, MIT Press Dec 2016 (already available on web)
+The course will make extensive use of notes, handouts, and freely available material on the web, which is abundant and rapidly changing.
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,2,CS
+CS3760,I100,"","Information Security","",6,"Computer Science",2018/19,"Autumn Term",15,"","",IY2760,"Identify, through the case studies how information security may be influenced by real world design and implementation decisions.
+Demonstrate an understanding of the different cryptographic algorithms, their use, advantages and disadvantages.
+Apply the above identified cryptographic primitives in the review and evaluation of cryptographic protocols.
+Appreciate the rational decisions in the design of a number tokens and secure elements.","The aims of this course include providing a breadth of knowledge in Information Security and providing the background needed to study the subject area at different levels of specialisation.
+Course content:
+Introduction: What is security (covering notions of Confidentiality, Integrity, and Availability)? Security threats and risks. Security management (ISO/IEC 17799). Data Protection legislation.
+Elements of cryptography: Ciphers (DES/AES). Message Authentication codes (MACs). Public key ciphers and digital signatures (RSA).
+Identity verification: use and storage of conventional passwords. Dynamic password schemes. Biometric techniques. Use of tokens (dumb and intelligent), including the use of secure elements such as smart cards and trusted execution environments (TEEs)
+Access control: Access Control Lists, capabilities, security labels (MAC and DAC), and role-based access control.
+CASE STUDY I: electronic payments (EMV). Examine the overall security functionality provided by widely utilised Europay- Mastercard-VISA (EMV) standard.
+Network security concepts: the concepts of security services and security mechanisms (as in ISO 7498-2) firewalls.
+Computer security: viruses, spyware, restricting access.
+Authentication and key distribution: The importance and relatedness of the concepts of key management and entity authentication in a network. Objectives of an entity authentication protocol. Some fundamental protocols (e.g. Kerberos). Using authentication protocols for key distribution, and other approaches to key establishment (including public key certificates and X.509).
+Cyber Physical security, Examine the security provisions, strengths and weaknesses of existing multi-application smart card platforms and operating systems along with the security of embedded systems and tokens.
+CASE STUDY II: Chip migration for financial institutions. Examine the relevant information security, business, design,
+architectural and other factors that may influence the adoption of chip card technology by financial institutions.
+",150,"","D. Gollmann, Computer Security, John Wiley & Sons, 2005 (2nd edition).
+C.P. Pfleeger and S. L. Pfleeger, Security in Computing, Prentice Hall, 2006 (4th edition).
+W. Ford, Computer Communications Security, 1994.
+K. Martin: Everyday Cryptography, Oxford University Press 2012.
+",,,0,0,CS
+CS4504,"I200, I420","","Business Intelligence Systems, Infrastructures and Technologies","",7,"Computer Science",2017-18,"Term 2",15,"",CS2855,"","demonstrate a holistic view of business intelligence systems and their role in the IT environment of modern organizations
+understand end evaluate the concepts, terminology and architectures of Data Warehouses and BI solutions
+understand Data Modelling concepts and provide design solutions using Dimensional Modeling
+know the important elements of business intelligence applications such as Data Analysis, Data Mining and Dashboards; understand and evaluate BI Visualization aspects and the relationship of BI solutions to CRM and ERP systems.
+use industrial business intelligence tools","Business Intelligence (BI) refers to the skills, processes, methodologies, technologies, applications, and practices used in order to leverage (gathering, storing, analyzing) an organization's internal and external information assets to support and improve decision-making. With the advent of Big-Data there is considerably increased demand for skills and knowledge, both conceptual and technological, that can be effectivelly applied to support this new era of Big-Data based decision-making.
+This course aims to provide students with
+(a) a broad understanding of the information assets and the conceptual and technical architectures of information and business intelligence systems in modern organizations
+(b) the necessary background knowledge of, and skills to design, implement and evaluate business intelligence systems and technologies.
+Course Content includes the following topics:
+Introduction to Information Systems & Business Intelligence: Overview of Information Systems and BI Systems, Information Systems and BI Technical Architectures (Logical & Physical aspects), Acquisition models and Business cases.
+Data Warehousing and Dimensional Modelling (Defintions, Concepts, Architectures, Design Processes, Implementation Aspects)
+BI Applications: OLAP, Reports, Dashboards, Data Mining, Visualization and UI design
+Practical Sessions (Surgeries, Labs) on Dimensional Modelling, Reports and Dashboards using BI tools.
+",150,"","1.  R. Sherman: ""Business Intelligence Guidebook, From Data Integration to Analytics"", 1st edition, 2014.
+2. .E.Turban, R.Sharda, D.Delen, D. King: “Business Intelligence: A Managerial Approach”, 2nd edition, 2011.
+3.  R.Kimball, M. Ross:  “The Data Warehouse Toolkit, The Complete Guide to  Dimensional Modeling”, 2nd edition, 2001
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+IY3501,I100,"","Security management","",6,"Information Security",2018/19,"Autumn Term",15,"","",IY4501,"analyse information security risks, strategies and methods
+evaluate security management requirements
+define security treatments to meet identified requirements
+perform ongoing security functions, including internal and external audit","This course will explain the need for effective security management, identify the main elements of security management, and consider the ways in which organisations implement security management.
+The list of topics may vary slightly to reflect developments in the subject but typically will include:
+What is information security management and is it necessary?
+The role of standards in information security management, with emphasis on the ISO/IEC 27000 series.
+Security controls and ISO/IEC 27002.
+Information security risk management.
+Legal and regulatory aspects of information security.
+Internal control, audit and security.
+Incident management and disaster recovery.
+Staff management.
+Procedural issues.
+Failures in information security management.
+Case studies in information security management
+",150,"","Andy Taylor (ed.), David Alexander, Amanda Finch and David Sutton, Information Security Management Principles, 2nd edition, BCS, 2013.
+Steve Purser, A Practical Guide to Managing Information Security, Artech House, 2004.
+ISO/IEC 27000 series standards.
+","",ACTIVE,0,0,CS
+CS4200,I460,"","On-line Machine Learning","",7,"Computer Science",2018/19,"Spring Term",15,"","","","understand and evaluate probabilistic and non-probabilistic on-line learning protocols;
+demonstrate advanced understanding of the prediction with expert advice and reinforcement learning frameworks;
+demonstrate advanced knowledge of methods of Markov models, time series, prediction with expert advice and reinforcement learning;
+analyse the properties of on-line learning algorithms;
+apply on-line algorithms to real-world data and evaluate the results.","The course addresses the on-line framework of machine learning in which the learning system learns and issues predictions or decisions in real time, perhaps in a changing environment. The course teaches protocols, methods and applications of on-line learning.
+Course content:
+Markov chains and their applications; PageRank. Markov chain Monte-Carlo. Hidden Markov models.
+Time series. ARMA model. Kalman filters.
+Prediction with expert advice: learning protocol, loss function, regret.
+Aggregating algorithm, its optimality properties and applications to general loss functions. Sleeping and switching experts.
+Universal algorithms in on-line learning. Applications to portfolio theory: Cover’s universal rebalanced portfolios.
+Reinforcement learning framework, Markov decision process, Q-learning.
+",150,"The course mainly relies on handouts, notes and freely available materials. No book purchases are expected.","C. Bishop, Pattern Recognition and Machine Learning, Springer, 2006
+D. Barber, Bayesian Reasoning and Machine Learning, Cambridge, 2012.
+R. H. Shumway and D. S. Stoffer Time Series Analysis and Its Applications With R Examples, 3rd ed., Springer 2011.
+N. Cesa-Bianchi and G. Lugosi. Prediction, Learning, and Games. Cambridge University Press, 2006.
+R.S.Sutton and A.G.Barto. Reinforcement learning: an introduction, MIT Press, 1998.
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are permitted",ACTIVE,0,2,CS
+CS3220,I150,"","Digital Audio and Applications","",6,"Computer Science",2016-2017,"Term 1",15,"","","","explain digital audio and  the fundamentals of AD/DA conversion
+use Fourier analysis to synthesize and transform sounds in the frequency domain
+demonstrate an understanding lossy and losseless compression algorithms
+explain the basics of digital signal processing (post-processing and effects)
+develop applications of digital audio (music production, noise cancellation, audio enhancement, automatic music generation)
+acquire a basic knowledge of sound perception and  psychoacoustics","Digital audio has many applications, ranging from music production to audio enhancement, or from noise cancellation in mobile phones to automatic music generations for games. These applications share common features that will be covered in this course. Starting with the fundamentals of sound (nature, transmission, volume), students will then learn how to convert sound to and from the digital domain. Once in the digital domain, audio can be manipulated using algorithms from Digital Signal Processing. The course covers some basic DSP algorithms, engaging the students both in audio analysis (amplitude, frequency, pan, etc.) and audio synthesis (additive , FM, etc.). By the end of this course, students should be able to write simple applications that analyse, manipulate and generate sound.
+",150,"","Musimathics, volumes 1 & 2, Gareth Loy, The MIT press, 2011
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",DORMANT,0,4,CS
+CS2865,I130,"","Mathematical Structures","",5,"Computer Science",2017/18,Autumn,15,"","",CS1860,"reason about sets, relations, functions and cardinality
+reason about recursive definitions and prove results by induction
+represent problems and reason about them using graphs
+demonstrate an understanding of basic probability and statistics suitable for use in studying artificial intelligence and information security","The aim of this module is to provide (1) insights and skills in rigor and formal reasoning in a way that allows reasoning about behaviour, correctness and performance in a programming environment; and (2) basic knowledge of the formal structures for program data representation. The course content includes: structures such as sets, relations, functions and cardinality; recursion and proof by induction; graphs; basic probability and statistics.
+",150,"","Rosen: Discrete Mathematics And Its Applications, McGraw Hill, 2006
+Ross and Wright: Discrete Mathematics, Prentice Hall, 2003
+D. Velleman, “How To Prove It”, Cambridge University Press, 2006
+","",ACTIVE,0,0,DC
+IY3609,I112,"","Digital forensics","",6,"Information Security",2016-17,"Term 2",15,"",IY2760,"","understand the concepts of audit and indirect activity records retained by operating systems, particularly in file systems, and  how to retrieve such information
+understand selected network protocols and the collection and derivation of evidence leading to the reconstruction of system and user activity based on network trace information
+understand infiltration and anti-forensics techniques used particularly by malicious software
+apply steganographic and particularly steganalytical methods for different types of media
+understand the retention characteristics of storage systems and non-standard devices such as mobile/smart phones, cloud computing, and vehicular systems","Introduction to forensic science, steps from collecting data to preserving evidence, and a framework for digital forensic evidence collection and processing.
+Fundamentals of host forensics for Microsoft Windows, including kernel architecture, device driver architecture, registry, auditing, and security architecture, file system handling, and reconstruction of file and directory structures on the FAT and NTFS file system families.
+Fundamentals of host forensics for Unix derivatives using the Linux operating system as an exemplar, including kernel and device driver architecture, security and audit mechanisms, file systems and pseudo file systems, and the reconstruction of file and directory structures using UFS and Ext2/3fs as exemplars.
+Foundations of network forensics from data capturing and collection to network file systems and supplementary protocols as well as selected application-layer protocols and techniques used for identifying and reverse-engineering protocols used on networks.
+Introduction to malware including anti-forensics and propagation techniques.
+Introduction to steganographic techniques for images, video, textual data, and audio as well as steganalytical techniques for selected media types and approaches to traitor tracing.
+A survey of non-standard storage mechanisms from retention characteristics to mobile and smart phones and vehicular systems as well as network-based search and storage mechanisms.
+",150,"","K.J. Jones, R. Bejtlich, C. W. Rose: Real Digital Forensics. Addison-Wesley, 2006
+B. Carrier: File System Forensic Analysis. Addison-Wesley, 2005
+D. P. Bovet, M. Cesati: Understanding the Linux Kernel, 3rd ed. O’Reilly, 2006
+M. Russinovich, D.A. Soiomon, A. Ionescu: Windows Internals, 5th ed. Microsoft Press, 2008
+","",ACTIVE,0,0,CS
+MT2630,"","","Graphs and Optimsation","",5,Maths,"","",15,"","","","","",150,"","","",ACTIVE,0,,MT
+CS1860,I130,"","Mathematical Structures","",4,"Computer Science",2017/18,Autumn,15,"","","","reason about sets, relations, functions and cardinality
+reason about recursive definitions and prove results by induction
+represent problems and reason about them using graphs
+understand basic probability and statistics suitable for use in studying artificial intelligence and information security","The aim of this module is to provide (1) insights and skills in rigor and formal reasoning in a way that allows reasoning about behaviour, correctness and performance in a programming environment; and (2) basic knowledge of the formal structures for program data representation. The course content includes: structures such as sets, relations, functions and cardinality; recursion and proof by induction; graphs; basic probability and statistics.
+",150,"","Rosen: Discrete Mathematics And Its Applications, McGraw Hill, 2006
+Ross and Wright: Discrete Mathematics, Prentice Hall, 2003
+D. Velleman, “How To Prove It”, Cambridge University Press, 2006
+","Time allowed: 1 1/2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+CS3750,I115,"","Concurrent and parallel programming","",6,"Computer Science",2014/15,"Term 2",15,"","CS1801,CS2800","","understand the theoretical underpinnings of concurrent programming
+understand deadlock and race conditions in shared states
+understand threaded and message passing paradigms and be familiar with writing software using these paradigms
+implement different algorithms concurrently and understand how their performance varies
+describe wide variety of concurrent platforms, ranging from multi-core processors to PC farms to more widely distributed computing","Aims :- To introduce the principles and practical implementations of concurrent programming, to implement algorithms in a concurrent fashion, and to give an understanding of the variety of different concurrent architectures available
+Content :-
+CSP: events, processes, choice, synchronisation, traces, transition diagrams, interleaving, specification.
+Behaviour of processes: explosion of possible states in concurrent processes in comparison to sequential programming, unexpected traces, deadlock.
+Threading paradigm: implementation in Java, launching threads, shared states and race conditions, locking, conditional locking and deadlock.
+Message Passing paradigm: implementation in MPI, synchronization, broadcasting, one-to-one communication, synchronous and asynchronous communication.
+Algorithms: at least one example of search, sort, graphs and dynamic programming implemented concurrently, limitations of concurrency. Characterisation of parallel algorithms.
+Architectures: SIMD and MIMD, shared and distributed memory. Multi-core processors and supercomputing. Distributed and cloud computing.
+",0,"","Cary S. Horstmann: Big Java, 4th Edition, Wiley, 2007, ISBN 987-0-470-55309-1
+A.Grama,A.Gupta,G.Karypis,V.Kumar: Introduction to Parallel Computing:ISBN-10: 0201648652
+",,,0,0,CS
+CS1830,I100,"","Computing laboratory (games)","",4,"Computer Science",2016-17,"Term 2",15,"","","","Write simple 2D games program
+Understand the role of vectors in game development
+Produce state diagrams and use them in the development of simple games
+Use 2D gaming graphics: sprites, spritesheets and animations
+Understand and program gaming physics: collision detection and handling, gravity and ballistics","During this course, students learn some basic concepts of 2D game design and apply them to the development of simple games. To achieve that goal, they learn about 2D graphics (sprites and spritesheets), animations (loops and sequences) and motion (position, velocity, acceleration). All those concepts require vectors, which are also extensively covered throughout the course. Furthermore, the course introduces basic concepts of game physics, such as collisions gravity and ballistics. The development should follow an object-oriented approach, and that topic is an important component of the course.
+",150,"","Ian Millington – Artificial Intelligence for Games
+Ian Millington – Games Physics Engine Development
+David Eberly – Game Physics
+Christer Ericsson – Real Time Collision Detection
+Extra textbooks are available at the following web sites:
+http://programarcadegames.com
+http://inventwithpython.com
+","",DORMANT,0,3,CS
+CS4825,I300,"","MSci Team Project","",7,"Computer Science",2018/19,"Autumn + Spring",60,"","CS2815,CS3821","","Have a mastery of how to work within a small software company and deliver software within required user specifications.
+Have an ability to apply the practical and analytical skills as a software engineer.
+Exhibit the ability to work co-operatively to deliver a significant piece of work.
+Synthesise information, ideas and practices to provide a quality solution together with an evaluation of that solution.
+Show awareness of wider customer contexts and the identification of problems that such contexts might deliver.
+Exhibit critical self-evaluation of the process of developing a major piece of software.","The main aim of this course is to give extensive experience to students in working in projects for real clients, as part of a team and operating as a company.
+Teams of students will: work in the context of a company where they have specific responsibilities; engage with real clients and determine their requirements for a significant piece of software; devise, estimate, design, implement, test, document and critically evaluate software; present their work and communicate their findings to the client.
+",600,N/A,"Running an Agile Software Development Project, Mike Holcombe, ISBN-10: 0470136693.
+","",ACTIVE,1,0,CS
+CS1801,I100,"","Object oriented programming","",4,"Computer Science",2016-17,"Terms 1 and 2",30,"","","","solve basic programming tasks
+understand and use basic object-oriented concepts
+appreciate the need for program documentation, testing, readability and modifiability","This course teaches programming and object-orientation concepts. Students will learn about program basics (variables, types, scope, lifetimes),  control flow (if-constructs, for-loops, while-loops), data structures (strings, sets, lists, trees, algorithms), objects (classes, dynamic dispatch, interface, inheritance, generics), exceptions (throwing and catching) and file I/O (streams, file reading, writing and copying).
+",300,"","Herbert Schildt: Java: a Beginner’s Guide, 4th Edition, McGraw-Hill, 2007, ISBN 0072263849
+Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 987-0-470-55309-1
+",,,0,0,CS
+IY3821,"","","Full Unit Project in Information Security","",6,"Information Security","","",30,"","CS2800, IY2760, IY2840","","understand complex ideas and identify solutions to an information security problem
+demonstrate the ability to plan, organise and present the project work both in written form and orally
+apply scientific and software/hardware techniques to solving an information security problem
+analyse the solution to a problem and evaluate the associated results
+understand legal, social, ethical and professional issues.
+implement secure solutions to software projects","To provide the opportunity to demonstrate independence and originality, to plan and organise a large project with an Information Security emphasis over a long period, and to put into practice the techniques taught throughout their degree course.",300,"","C. W. Dawson: The Essence of Computing Projects, A Student's Guide, Prentice Hall, 2000: ISBN-10: 013021972X<br/>
+
+M. Berndtsson, J. Hansson, B. Olsson, B. Lundell: Planning and Implementing your Final Year Project - with Success!: A Guide for Students in Computer Science and Information Systems, Springer-Verlag, 2002: ISBN-10: 1852333324","",ACTIVE,1,0,CS
+CS3003,I300,"","IT Project Management","",6,"Computer Science",2018/19,"Autumn Term",15,"","CS2810,CS2815","","Understand the fundamental concepts, terminology and cost elements of IT Projects.
+Apply basic Project Planning techniques.
+Explain the procedures needed to monitor, control and report upon an IT Project.
+Demonstrate an understanding of the steps needed to build and maintain effective development teams.
+Discuss and where appropriate apply the principles of Project Risk Management.
+Explain the ways in which appropriate quality attributes of the products of an IT Project can be assessed and assured.","This course aims to assist students in appreciating the complexity of IT projects, and give insight of how these can be managed.
+Course content:
+Project Management (PM) Fundamentals: fundamental definitions and terminology (e.g. Business Case, Project Constraints/Triangle, Portfolios and Programs Vs Projects, inter-alia,'); Main phases of IT Projects, with emphasis on the basics of requirements elicitation/analysis methods; Unique characteristics of IT projects/products in comparison to other domains; Agile Software Development vis-a-vis “traditional” IT Project Management.
+Budgeting and Estimation aspects: Investment Appraisal methods (TCO, ROI, NPV,'); CAPEX/OPEX costs and depreciation; Estimation approaches/methods; Models of S/W acquisition/licensing and common cost elements in IT projects; Basics of Procurement and Contracts Management.
+Project Organization: Project Governance Structure; Stakeholders Analysis; Role of Project Manager; Best-practices in projects’ organization.
+Basic Processes of a Project, from initiation to closing, with references to relevant industry standards and frameworks, such as PMI, ISO 21500 and Prince2.
+Project Planning: main activities and deliverables, with emphasis on techniques and tools such as Breakdown Structures, Network Analysis and Gantt charts; Project Management toolset demo/short lab.
+Project Monitoring, Control and Implementation Processes: main activities and deliverables, with emphasis on Change Management.
+Fundamentals of Team Management: notion of Team and Team Building (e.g. Tuckman Model,'); Leadership Styles; Fundamental concepts and best-practices in Project and Team Communications, Decision-making, Conflict resolution, Negotiation, Goal-setting, Time and Meetings management; Important principles and rules of thumb in managing software development teams.
+Project Risk Management: fundamental concepts and terminology, the risk management process and related artifacts (e.g. risk register,'); Risk management in IT projects.
+Project Quality: main concepts, tasks and deliverables on project and product quality aspects; IT systems quality factors and key-metrics; Fundamental aspects of IT Testing; Introduction to ISO Quality Management Systems and quality improvement.
+The IT Project Manager Skills, Profession and Code of Ethics: introduction and outline of relevant topics.
+",150,"","Schwalbe, Kathy. Information Technology Project Management. Course Technology, (8th Ed), 2015, ISBN: 1285452348.
+Field, Mike and Keller, Laurie. Project Management. Open University, International Thomson Press, 1998, ISBN: 1861522746.
+Hughes, Bob and Cotterell, Mike. Software Project Management. McGraw-Hill (5th Ed), 2009, ISBN: 0077122798.
+Brooks, Frederick. The Mythical Man-month: Essays on Software Engineering. Addison Wesley (2nd Ed), 1995, ISBN: 0201835959.
+DeMarco, Tom and Lister, Tim. Peopleware: Productive Projects and Teams. Addison Wesley (3rd Ed), 2013, ISBN: 0321934113.
+Additional readings and handouts will be provided on specific topics, e.g. relevant material from the Prince2 Manual and the PMBOK Guide, as well as papers and web resources.
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+CS2810,I300,"","Team Project","",5,"Computer Science",2017-18,"Term 2",15,CS2800,"CS1811,CS1812,CS1813",CS2815,"work in a team to produce a substantial product using software engineering techniques
+apply managerial discipline and a professional attitude
+understand why project cost and effort is hard to estimate and why project quality is hard to prescribe
+design software following an agile process","This course aims to assist students in appreciating the role of the computer professional through the practical experience of developing medium scale software as part of a team.
+Course content:
+The software lifecycle, including: software development, planning and documentation.
+Team development, communication, managing risks and conflicts.
+Practical experience of standard industrial software engineering. Agile project management, use of version control in a team, IDEs, etc.
+A medium scale agile software development project, conducted by teams of students.
+",150,"","Richard Whitehead: Leading a Software Development Team, Addison Wesley, 2001 ISBN 10: 0201675269
+Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 978 0470553091
+Ken Schwaber: Agile Software Development with Scrum.  Pearson Prentice Hall 2002.    ISBN 978 0132074896
+","",ACTIVE,0,0,CS
+CS2900,I100,"","Multi-dimensional Data Processing","",5,"Computer Science",2017/18,"Term 1",15,"","CS1860,CS1830",MT1820,"Demonstrate an understanding of how to carry out vector operations such as dot product, length etc. on vectors in arbitrary dimensions. Demonstrate an understanding of the geometrical interpretation of vectors in 2 and 3 dimensions, and its applications in computer graphics.
+Demonstrate an understanding of linear transformations and their representation as matrices, of the application of matrices to vectors, and of matrix operations and their interpretation in 2, 3 and higher dimensions.
+Apply concepts  such as  matrix rank, transpose, upper and lower diagonal matrices, orthogonality, trace and symmetry.
+Demonstrate an understanding of Principal Components Analysis with SVD and Eigenvalues.
+Demonstrate an understanding of the properties of eigenvalues and eigenvectors, and their construction for a given matrix.
+Throughout all the topics, demostrate an understanding of the application of theoretical concepts and results in various areas of Computer Science.","During this course the student will be introduced to a progression of topics in Linear Algebra, starting from an introduction to vectors and matrices, moving  to Singular Value Decomposition, the solution of linear equations and least squares, and then to eigenvalues and eigenvectors. The emphasis of this course will be computational, and a strong focus will be the Computer Science applications of the theoretical concepts covered.
+",150,"","Linear Algebra, A Modern Introduction, 4th Edition, David Poole, ISBN-13 978-1-285-46324-7
+Schaum's outlines Linear Algebra, Lipschutz and Lipson, McGraw Hill, ISBN-978-0-07-154353-8
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,1,CS
+CS3930,"","","Computational Finance","",6,"Computer Science","","",15,"","A-level Mathematics","","demonstrate an understanding of mathematical and computational models of underlying and derivative securities;
+master techniques for pricing derivatives and for dynamic hedging;
+apply these models and techniques for creating computer programs.","To understand the key role played by the advent of derivatives, financial instruments which facilitate managing financial risks.  To understand pricing derivatives (and associated strategies of dynamic hedging) using advanced computational models are required.",150,"","<ul><li>John Hull, Options, Futures and Other Derivatives, 6th edition, Prentice-Hall, 2007.                    </li>
+<li> ISBN-10: 0131977059 (earlier editions starting from the 2nd are acceptable)</li>
+<li>Paul Wilmott Introduces Quantitative Finance, John Wiley, 2001. ISBN-10: 0471498629</li>
+<li>Paul Wilmott, Sam Howison, and Jeff Dewynne, The Mathematics of Financial Derivatives: A Student Introduction, Cambridge University Press, 1995. ISBN-10: 0521497892</li>
+</ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are permitted",ACTIVE,0,0,CS
+CS3000,"","","Randomness in Computing","",6,"Computer Science",2020/21,"not fixed",15,"","CS1860,CS2860","","explain fundamental concepts, advantages and limits of the use of randomness in efficiency of computation
+demonstrate an understanding of basic concepts in discrete probability such as random variables and expectation, tail distribution, and the probabilistic method.
+demonstrate some understanding of basic concepts in theoretical (computational) learning, such as PAC learning.","This course will provide students with a basic understanding of probabilistic techniques in algorithms and data analysis. The aim will be to allow students to strengthen substantively their basic command of probability as an essential part of modern computing, enabling them to build confidence in probabilistic analysis as used in algorithms, data analysis and machine learning, as well as to expose them to advanced concepts in randomised algorithms and computational complexity.
+The approach of the course will be to couple each part of basic discrete probability with its applications in computing and algorithms, so to cover both the theoretical basics in a sufficiently slow pace, while exemplifying its usage in the practice of algorithmic analysis.
+Topics to be dicussed include:
+Events and Probability with Applications
+Discrete Random Variables and Expectation
+Applications of Discrete Random Variables and Expectation
+Bounding Tail Distribution
+Stronger Bounds on Tail Distribution
+Balls and Bins
+Hashing and Random Graphs
+The Probabilistic Method
+Elements of Statistical Learning
+",150,"","Probability and Computing: Randomization and Probabilistic Techniques in Algorithms and Data Analysis (2nd Edition), by Michael Mitzenmacher, Eli Upfal. Cambridge Press, 2017.
+",,,0,0,CS
+CS4100,I460,"","Data Analysis","",7,"Computer Science",2018/19,"Autumn Term",15,"","","","Develop, validate, evaluate, and use effectively machine learning models and statistical models
+Work with methods and techniques such as clustering, regression, decision trees, and neural networks
+More generally, extract value and insight from data","The aim of the course is to acquaint the students with the main methods and techniques of data analysis.  In particular, it will cover the following topics. Supervised learning: classification, regression, and ensemble methods. Algorithm-independent machine learning. Unsupervised learning and clustering. Exploratory data analysis. Bayesian methods, including Bayes networks and causality.  Applications, such as information retrieval and natural language processing.
+",150,"","James, Witten, Hastie, and Tibshirani, “An Introduction to Statistical Learning: with Applications in R”, Springer, New York, 2013
+Hastie, Tibshirani, and Friedman, “The Elements of Statistical Learning”, second edition, Springer, New York, 2009
+Duda, Hart, and Stork, “Pattern Classification”, second edition, Wiley, New York, 2000
+","Time allowed: 2 hours
+Answer THREE questions
+No credit will be given for attempting any further questions
+Calculators are permitted",ACTIVE,0,1,CS
+CS3480,"","","Software Language Engineering","",6,"Computer Science","","",15,"","CS1811; CS1812 or CS1813; CS2810 or CS2815","","Display a mastery of design and implementation techniques for programming languages
+Display design capability for the following formalisms: general context free parsing, term rewriting, attribute grammars, structural operational semantics
+Explain aspects of implementation techniques for the chosen formalisms
+Understand the industrial context for Domain Specific Languages
+Understand the software engineering context for Domain Specific Languages, especially the design lifecycle","Summary                                                                               
+                                                                                      
+This course studies the design and implementation of programming languages using compact specifications written in formal notations. Students complete a substantial in-course project.
+                                                                                      
+The course complements CS3470. Neither course is a co-requisite for other, but students interested in compilers and code generation would benefit from pursuing both courses.                                                   
+                                                                                      
+Topics covered:                                                                       
+                                                                                      
+Generalised context-free parsing and lexing                                           
+Term rewriting                                                                        
+Attribute grammars                                                                    
+Structural Operational Semantics                                                      
+The ART toolkit                                                                       
+Automatic generation of interpreters from formal specifications                       
+Language design                                                                       
+The Software engineering context for domain specific languages   ",150,"","<ul><li>Software Language Engineering: Creating Domain-Specific Languages Using Metamodels, Anneke Kleppe,Addison-Wesley Professional, 2008, ISBN-10:0-321-55345-4</li>
+<li>Metamodelling for software engineering Cesar Gonzalex-Perez, Brian Henderson-Sellers, wiley Agust 2008, ISBN 978-0-470-03036-3</li>
+</ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,2,CS
+CS1823,I100,"","Programming in Practice","",4,"Computer Science",2018-19,"Term 1, Term 2",30,"","","","program independently to solve a given problem.
+know how to write an individual technical report..
+know how to present a project, both at a practical demonstration and in a formal short presentation.
+have been introduced to a programming environment for a particular event driven or embedded domain such as microprocessor coding, robotics coding, game development or interactive web development.
+work effectively in a group on a significant programming project.
+","Students in this course will apply programming concepts from the the very basic (variables, control flow, loops, methods) up to advanced concepts (event driven programming, embedded programming) and best practices. The course will follow a blended learning model incorporating lectures, practical exercises, project work and online assessment.
+",300,"","Cay S. Horstmann: Big Java, 4th Edition, Wiley, 2010, ISBN 987-0-470-55309-1
+https://inventwithpython.com/
+Ian Millington – Artificial Intelligence for Games
+David Eberly – Game Physics
+Christer Ericsson – Real Time Collision Detection
+J. Kelly: LEGO Mindstorms NXT-G Programming Guide, Technology in Action Press, 2007, ISBN 10: 1590598717
+Brian Bagnell: Maximum Lego NXT: Building Robots with Java Brains, Variant Press 2007, ISBN 10: 097386491
+","",DORMANT,0,3,CS
+CS3870,I130,"","Advanced Algorithms and Complexity (short title Advanced Algorithms)","",6,"Computer Science",2017/18,"Term 1",15,"","CS1801,CS1860,CS2860","","implement and reason about fundamental algorithms for a range of problems
+describe and apply various algorithm design strategies for the construction of efficient algorithms
+understand the significance of NP-complete problems and know ways to deal with them, such as heuristic approaches","This course samples topics from various aspects of algorithms construction and analysis, including the following:
+Graphs, graph algorithms, and applications, e.g., directed and undirected graphs; directed acyclic graphs and acyclic orderings; and connectivity in directed graphs.
+Algorithm design paradigms: General methods for designing and analysing efficient algorithms, such as dynamic programming, a more careful treatment of the divide and conquer method, and general strategies such as backtracking search or greedy approaches.
+Further application areas, such as string algorithms, network flows, and logic problems.
+Complexity and lower bounds: NP-hardness and NP-completeness; problem reductions; conjectural lower bounds, and lower bounds against problems in P; and methods for dealing with NP-complete problems, including heuristic approaches, exact algorithms, and tractable special cases.
+",0,"","T.H. Cormen, C.E. Leiserson, R.L. Rivest and C. Stein, Introduction to Algorithms, 3rd Ed., MIT Press, Cambridge MA, 2009.
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+IY4501,I100,"","Security management","",7,"Information Security",2018/19,"Autumn Term",15,"","",IY3501,"analyse information security risks, strategies and methods
+evaluate security management requirements
+define security treatments to meet identified requirements
+perform ongoing security functions, including internal and external audit","This course will explain the need for effective security management, identify the main elements of security management, and consider the ways in which organisations implement security management.
+The list of topics may vary slightly to reflect developments in the subject but typically will include:
+What is information security management and is it necessary?
+The role of standards in information security management, with emphasis on the ISO/IEC 27000 series.
+Security controls and ISO/IEC 27002.
+Information security risk management.
+Legal and regulatory aspects of information security.
+Internal control, audit and security.
+Incident management and disaster recovery.
+Staff management.
+Procedural issues.
+Failures in information security management.
+Case studies in information security management
+",150,"","Andy Taylor (ed.), David Alexander, Amanda Finch and David Sutton, Information Security Management Principles, 2nd edition, BCS, 2013.
+Steve Purser, A Practical Guide to Managing Information Security, Artech House, 2004.
+ISO/IEC 27000 series standards.
+","",ACTIVE,0,0,CS
+MT3000,"","","Mathematics Project","",6,Maths,"","",-1,"","","","","",-10,"","","",ACTIVE,1,,MT
+IY4610,"","","Security Testing Theory and Practice","",7,"Information Security","","",15,"",IY2760,"","Understand  the legal aspects of carrying out a penetration test and an approach to preparing and managing such an audit.
+Understand, at a deep level,  network protocols; computer system architectures; and application systems.
+Understand  the vulnerabilities in existing protocols, systems, and applications.
+Understand  the security technologies designed to mitigate these vulnerabilities.  
+Understand how these vulnerabilities may be exploited in practice to penetrate a system.","To give students a mastery of Security testing theory and practice",150,"","<ul><li>T. Wilhelm, Professional Penetration Testing, Syngress, 2010.</li>
+<li>S. McClure et al., Hacking Exposed 7: Network Security Secrets and Solutions. McGraw-Hill, 2012.</li>
+<li>A Harper et al., Gray Hat Hacking, 3rd ed. McGraw Hill, 2011.</li>
+<li>R. Stevens, TCP/IP Illustrated, Volume 1: The Protocols, Addison-Wesley, 1994.</li>
+<li>D. Stuttard, M.Pinto. The Web Application Hacker’s Handbook: Finding and Exploiting</li>
+<li>Security Flaws. John Wiley &amp; Sons, 2011. 2nd edition.</li>
+<li>M. Dowd et al., The Art of Software Security Assessment: Identifying and Preventing</li>
+<li>Software Vulnerabilities. Addison Wesley, 2006.</li>
+</ul>","",ACTIVE,0,0,CS
+CS2850,"I110, I112","","Operating Systems","",5,"Computer Science",2017/18,Autumn,15,"","CS1811,CS1812,CS1813","","demonstrate an understanding of the principles of computer operating systems
+evaluate the theory and practice of existing operating systems
+demonstrate a working understanding of program execution, memory hierarchy, and the implementation of data structures
+understand system-level programming aspects such as memory management, interrupts, sockets and basic threading in C
+write simple shell scripts","This course aims to introduce students to the principles of the function and architecture of operating systems, and also to give an understanding of how programs operate at system level. Course content includes:
+Introductory topics: role of an operating system, computer architecture
+Processes and threads: process management and scheduling, inter-process comunication, concurrency
+Memory: partitioning, swapping and paging, caching, virtual memory, page replacement algorithms
+File systems: implementation and maintenance
+UNIX shell: starting programs, input and output streams, pipes, filters, utilities
+System-level programming: memory handling, processes, threads, synchronisation, I/O
+",150,"","Andrew Tanenbaum, Herbert Bos: Modern Operating Systems, Pearson Education Limited, 4th edition, 2015.
+Randal Bryant, David O'Hallaron: Computer Systems: A Programmer's Perspective, Pearson Education Limited, 3rd edition, 2016.
+W. R. Stevens, S. A. Rago:  Advanced Programming in the UNIX Environment, Addison-Wesley Professional 2005 (2nd Edition)
+Brian W. Kernighan Dennis M Ritchie: The C programming language, Englewood Cliffs, N. J., Prentice Hall 2nd ed. c1988
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,2,CS
+CS2847,I400,"","Human-Computer Interaction","",5,"Computer Science",2017-18,"Term 2",15,CS2841,CS1840,"","understand what HCI is, its principles and challenges
+build simple prototypes using different media and technologies
+evaluate the usability and suitability of user interfaces
+undertake HCI tests, namely Web experiments
+understand how perception and cognition influence HCI","This course introduces human-computer interaction aspects and challenges, and addresses the approaches that can be used to create interfaces matching users' needs and expectations.
+Course content includes: introduction to Human-Computer Interaction (definition and history,'); user experience (UX) vs. user interface (UI,'); heuristic evaluation; rapid prototyping; HCI studies/experiments.
+",150,"","Alan Dix et al, Human Computer Interaction. 2003
+Yvonne Rogers et al, Interaction Design: Beyond Human Computer Interaction. 2011.
+Jakob Nielsen, Prioritizing Web usability. 2006.
+Don Norman, The Design of Everyday Things: Revised and Expanded Edition. 2013.
+Eric Freeman. Head First HTML5 Programming. 2011.
+Jon Duckett, JavaScript and jQuery: Interactive Front-End Web Development. 2014.
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,4,DC
+CS3490,I100,"","Computational Optimization","",6,"Computer Science",2018/19,"Spring Term",15,"",CS2860,"","understand fundamental models of computational optimization (CO)
+examine the fundamental algorithms for solving CO problems
+apply theoretical and computational methods to analyse CO algorithms
+further develop algorithmic and mathematical skills","This course will provide students with an understanding of fundamental models of computational optimisation (CO) and important algorithms for solving CO problems; enable students to analyse CO algorithms using theoretical and computational methods; and discuss and compare available software packages for solving CO problems.
+Course content:
+Linear programming (LP) model. Formulating problems as LP problems.
+Graphical solution. Simplex method.
+Duality in LP. Decomposition of LP problems. LP software.
+Integer Programming (IP). IP models. Branch-and-Bound algorithm.
+CO problems. Polynomial-time algorithms. Greedy-type algorithms. Construction heuristics and local search for the TSP.
+Theoretical and computational analysis of heuristics and meta-heuristics.
+",150,"","M.W. Carter, C.C. Price, Operations Research: A Practical Introduction, CRC, 2001 (001.424 CAR)
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,0,CS
+CS1831,I100,"","Computing laboratory (games)","",4,"Computer Science",2016-17,"Term 2",15,"","","","Write simple 2D games program
+Understand the role of vectors in game development
+Produce state diagrams and use them in the development of simple games
+Use 2D gaming graphics: sprites, spritesheets and animations
+Understand and program gaming physics: collision detection and handling, gravity and ballistics","During this course, students learn some basic concepts of 2D game design and apply them to the development of simple games. To achieve that goal, they learn about 2D graphics (sprites and spritesheets), animations (loops and sequences) and motion (position, velocity, acceleration). All those concepts require vectors, which are also extensively covered throughout the course. Furthermore, the course introduces basic concepts of game physics, such as collisions gravity and ballistics. The development should follow an object-oriented approach, and that topic is an important component of the course.
+",150,"","Ian Millington – Artificial Intelligence for Games
+Ian Millington – Games Physics Engine Development
+David Eberly – Game Physics
+Christer Ericsson – Real Time Collision Detection
+Extra textbooks are available at the following web sites:
+http://programarcadegames.com
+http://inventwithpython.com
+","",DORMANT,0,3,CS
+CS3001,"","","Year in Industry","",6,"Computer Science","","",30,"","60% first year average, with 40% or more in all modules. 60% second year average, with 40% or more in all modules.","","appreciate the importance of the impact of IT on commerce and industry focused on improving the efficiency and quality of information on the workforce
+understand imminent industry changes and what effect they will have
+apply their knowledge and understanding to practical situations","To give knowledge of the software tools important for industry and the day-to-day running of a company. To give insight into the managerial skills needed in industry.",300,"",N/A,"",ACTIVE,0,0,CS
+IY4500,"","","MSci Project in Information Security","",7,"Information Security","","",60,"","","","Develop an advanced understanding of complex ideas and the identification of solutions to a problem
+Demonstrate a mastery of planning, organising and presenting project work both in written form and orally
+Apply scientific and software / hardware techniques to solving a problem
+analyse the solution to a problem and evaluate the associated results
+develop an advanced understating of legal, social ethical and professional issues
+implement secure solutions to software projects."," To demonstrate and advanced ability to show independence and originality to plan and organise a large project over a long period and to put into practice the techniques taught throughout their degree course. 
+The content of each project is individual. The rules of choosing a project and designing a student own project is detailed in the project hand book. The topic of the project will be related to Information Security.",600,"","","",ACTIVE,1,0,CS
+CS3250,"","","Visualisation and Exploratory Analysis","",6,"Computer Science","","",15,""," ","","Have some of the skills and wisdom that are needed for open-ended exploratory analysis of data, and for the analytical presentation of the results of statistical analyses
+Understand and be able to construct linear projections of multivariate data; they should also have experience in using some non-linear dimension reduction methods
+have some practical experience of using standard graph visualisation methods and evaluation of results
+Be aware of the dangers of data snooping, through practical experience of this
+Be able to make reasoned choices in representational mode, glyph design, and colour design for presentation graphics","The course aims to teach the principles and arts of statistical visualisation and exploratory analysis of data.",150,"","<ul><li>Visualising data, by William S. Cleveland</li>
+<li>The elements of graphing data by William s. Cleveland</li>
+<li>The visual display of quantitative data, by Edward Tufle</li>
+<li>Envisioning information by Edward Tufle</li>
+</ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",DORMANT,0,1,CS
+CS4980,"I400, I420, I461, I450, I270","","Autonomous Intelligent Systems","",7,"Computer Science",2019/20,"Spring Term",15,"",CS2910,"","Have an advanced understanding of the principles and techniques to design and build autonomous intelligent systems
+Use of knowledge representation languages to build models of core components of an autonomous intelligent system
+Use a high-level programming language (e.g. Python) to efficiently implement algorithms for building autonomous intelligent systems
+Design and build prototypes of autonomous intelligent systems to tackle real-world problems
+Use tools to tackle the new problems in the area of autonomous intelligent systems","This specialist course focuses on acquiring a deep understanding of the principles and techniques that are needed to design and build autonomous intelligent systems (AISs). The course will start with an introduction to AISs and real-world examples of them. It will then cover knowledge representation and engineering techniques based on formal logic. The course will then tackle autonomous decision making techniques, from AI planning to probabilistic reasoning and Markov Decision Processes. The course will then cover reinforcement learning and techniques for cooperation and coordination both between artificial agents and between them and human beings. All these topics will be discussed both from a theoretical point of view, during the lectures, and from a practical point of view, during the labs.
+",150,"","Artificial Intelligence: A Modern Approach (Third edition) by Stuart Russell and Peter Norvig
+Scientific papers on the different topics covered by the course
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",ACTIVE,0,2,CS
+CS3824,"I110, I120, I200, I240, I250","","Project in Computing Technologies","",6,"Computer Science",2018/19,"Terms 1 & 2",60,"","","","understand ideas from a broad set of technologies and identify solutions to a problem
+apply software/hardware techniques to solving a problem
+analyse the solution to a problem and evaluate the associated results
+demonstrate the ability to plan, organise and present the project work both in written form and orally
+understand legal, social, ethical and professional issues","The aim of this project is to provide the opportunity for students to demonstrate responsibility, to plan and organise a broad range of technology-specific work over a long period, and to put into practice some of the techniques they have been taught throughout the programme.
+The content of each project depends on the assigned topic. The rules for choosing a project are detailed in the Project Handbook.
+",600,"","C. W. Dawson: The Essence of Computing Projects, A Student's Guide, Prentice Hall, 2000: ISBN-10: 013021972X
+M. Berndtsson, J. Hansson, B. Olsson, B. Lundell: Planning and Implementing your Final Year Project - with Success!: A Guide for Students in Computer Science and Information Systems, Springer-Verlag, 2002: ISBN-10: 1852333324
+Richard Epstein: The case of the Killer Robot, John Wiley & Sons, 1997: ISBN 978-0471138235.
+","",ACTIVE,1,0,CS
+DC3811,I300,"","Team Project in HCI","",6,"Computer Science",2017-18,"Term 2",15,"",CS2846,"","work in a team to produce a substantial product using software engineering techniques, with a focus on HCI.
+apply managerial discipline and a professional attitude.
+design software to provide good user experience and with usability as one of its main concerns.","The course is practice-led, and exposes students to a medium scale agile software development project in the context of a team. HCI is embedded in this process, being a crucial requirement from day one. Students taking this course will design software with the aim of providing good user experience. Other course content/exercised skills include: communication, managing risks and conflicts, practical experience of standard industrial software engineering agile project management, use of version control in a team, IDEs, etc.
+",150,"","Richard Whitehead: Leading a Software Development Team, Addison Wesley, 2001 ISBN 10: 0201675269
+Cay S. Horstmann: Big Java,4th Edition, Wiley, 2010, ISBN 978 0470553091
+Ken Schwaber: Agile Software Development with Scrum.  Pearson Prentice Hall 2002.    ISBN 978 0132074896
+Alan Dix et al, Human Computer Interaction. 2003
+Yvonne Rogers et al, Interaction Design: Beyond Human Computer Interaction. 2011.
+Jakob Nielsen, Prioritizing Web usability. 2006.
+Don Norman, The Design of Everyday Things: Revised and Expanded Edition. 2013.
+",,ACTIVE,0,2,DC
+CS4910,I300,"","Running a Small Business","",7,"Computer Science",2018/19,"",15,"","",CS3910,"Understand and explain fundamental concepts, terminology and processes of a business and its operating environment.
+Apply basic strategy and financial management techniques.
+Understand, analyze and compare types of Information Systems, architectural paradigms, acquisition models and key software applications of a modern business.
+Comprehend the theoretical foundations of leadership and people management and be able to appraise their applicability in practice.
+Explain and where appropriate apply the principles of Risk Management.","The main aim of this course is to give a good background to students on how to run a small company.
+Course content:
+Introduction – types of Businesses, Organizational Functions/Structures, Business Processes fundamentals.
+Starting a Business – Business Plan, Budgeting and Investment Valuation Methods (e.g. ROI, TCO, NPV), Fund-raising aspects.
+Basics of Strategy and Planning – e.g. Definitions, SWOT Analysis, Porter’s 5 forces, types/elements of plans.
+Business Financial Management – Basics of Accounting, Assets/Liabilities, CAPEX/OPEX, Balance Sheet, P&L, Cash Management, Financial Ratios.
+Capital Raising and the role/services of Banks – e.g. Financial Intermediation, Trade Finance, Payments, Loans, Financial Markets and Instruments.
+Basics of Information Systems – Overview & Landscape, underlying Technology elements, Architectural paradigms, Acquisition methods.
+ERP and Human Resources Management Processes and Systems
+Customer Relationship Management and Marketing concepts, CRM Systems
+Fundamentals of Managing Oneself and Others – e.g. Leadership, Planning, Time and Stress Management, Negotiation, Goal-setting.
+Risk Management and Business Continuity elements
+",150,N/A,"Good small business guide, 7th Edition: How to start and grow your own business, ISBN-10: 1408159597
+Michael Blackstaff, Finance for IT Decision Makers: A Practical Handbook, BCS, ISBN: 1780171226, 2012.
+K.C Laudon, J.P Laudon, Management Information Systems: Managing the Digital Firm, Pearson, ISBN-10: 0133898164.
+HBR's 10 Must Reads for New Managers, Harvard Business Review, ISBN-10: 1633693023, 2017.
+HBR's 10 Must Reads on Managing Yourself, Harvard Business Review, ISBN-10: 1422157997, 2011.
+HBR’s 10 Must Reads on Managing People, Harvard Business Review, ISBN-10: 1422158012, 2011.
+Additional readings and handouts will be provided on specific topics, e.g. on Banks and Financial Services, Risk Management, Leadership, Negotiations, Time Management.
+",,WONTRUN,0,0,CS
+MT2320,"","",Probability,"",5,Maths,"","",-1,"","","","","",-10,"","","",ACTIVE,0,,MT
+CS4821,I100,"","MSci Individual Project","",7,"Computer Science",2017/18,"Terms 1 & 2",60,"",CS2800,"","develop an advanced understanding of complex ideas and identify solutions to a problem
+apply advanced scientific and software/hardware techniques to solving a problem
+analyse the solution to a problem and evaluate the associated results
+demonstrate a mastery of planning, organising and presenting the project work both in written form and orally
+develop an advanced understanding of legal, social, ethical and professional issues","The aim of this project is to further the students' knowledge of a particular computer science topic and to give them the opportunity of demonstrating their ability of working individually, whilst appling advanced scientific and software/hardware techniques to solving a problem.
+The content of each project is individual. The rules for choosing a project and designing an own project are detailed in the Project Handbook.
+",600,"","C. W. Dawson: The Essence of Computing Projects, A Student's Guide, Prentice Hall, 2000: ISBN-10: 013021972X
+M. Berndtsson, J. Hansson, B. Olsson, B. Lundell: Planning and Implementing your Final Year Project - with Success!: A Guide for Students in Computer Science and Information Systems, Springer-Verlag, 2002: ISBN-10: 1852333324
+Richard Epstein: The case of the Killer Robot, John Wiley & Sons, 1997: ISBN 978-0471138235.
+","",ACTIVE,1,0,CS
+MT1810,"","","Number Systems","",4,Maths,"","",15,"","","","","",150,"","","",ACTIVE,0,,MT
+CS3580,"","","Advanced Data Communications","",6,"Computer Science","","",15,"",CS1840,"","explain how multimedia communications work
+describe coding and compressing algorithms for text, image and video
+describe Internet technologies in terms of supporting QoS
+demonstrate an understanding of most common security terms and concepts
+describe modern network security mechanisms and their applications
+explain Internet network management issues and possible solutions","To cover a range of important topics in modern data communications including text, image, audio and video transfer over networking infrastructures and recent trends in network management and network security<br/>
+Introduction:  layering, abstraction, and standards. The ISO/OSI reference model. The Internet reference model.<br/>
+Multimedia communications: multimedia information representation, coding and compression, applications and standards, quality of service (QoS) requirements.<br/>
+Internet: IP addressing, routeing algorithms and routeing protocols, RIP, OSPF, the Internet multicast model, scheduling and queue management.<br/>
+Security in communication networks: security issues, security mechanisms, secure protocols.<br/>
+Network management: network management issues, infrastructure and framework for Internet management.
+",150,"","<ul><li>James F. Kurose and Keith W. Ross: Computer Networking: a top-down approach featuring the Internet, Addison-Wesley: ISBN-10: 0321227352</li><li>Fred Halsall: Multimedia Communications: applications, networks, protocols and standards, Addison-Wesley</li><li>William Stallings: Cryptography and Network Security: principles and practice, Prentice Hall: ISBN-10: 0131873164</li></ul>","Time allowed: 2 hours
+Answer ALL questions
+Calculators are NOT permitted",DORMANT,0,0,CS
+CS3920,I460,"","Machine Learning","",6,"Computer Science",2018/19,"Autumn Term",15,"","","","Demonstrate knowledge of the theoretical background in machine learning methods.
+Have an understanding of the main advantages and limitations of various approaches to machine learning and specific machine-learning algorithms.
+Be able to implement versions of several machine-learning algorithms.
+Have an understanding of some ways to apply the ideas and algorithms of machine learning in industry, medicine and other fields.","The aim of the course is to acquaint the students with several key methods and techniques of machine learning.  In particular, it will cover the following topics. Nearest neighbours for classification and regression; interesting distances. Conformal prediction and conformalizing nearest neighbours. Ridge regression and Lasso. Inductive conformal predictors and cross-conformal predictors. Support vector machines for classification and regression. Kernel trick and its applications to the algorithms covered so far. Practically useful kernels. Conformalized versions.
+",150,N/A,"Andreas C. Mueller and Sarah Guido (2016) Introduction to Machine Learning with Python. O'Reilly Media
+Vineeth N. Balasubramanian et al. (2014) Conformal Prediction for Reliable Machine Learning. Elsevier
+Gareth James et al. (2013) An Introduction to Statistical Learning. Springer
+Trevor Hastie et al. (2009) The Elements of Statistical Learning.  Second edition. Springer
+John Shawe-Taylor and Nello Cristianini (2004) Kernel Methods for Pattern Analysis. Cambridge University Press
+Tom M. Mitchell (1997) Machine Learning. McGraw-Hill
+","Time allowed: 2 hours
+Answer ALL questions
+Calculators are permitted",ACTIVE,0,1,CS

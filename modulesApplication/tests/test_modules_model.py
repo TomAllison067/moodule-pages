@@ -1,15 +1,12 @@
 from django.db.utils import IntegrityError
 from django.test import TransactionTestCase
 
-from modulesApplication.models import Module
+from modulesApplication.database.models import Module
 
 
 class TestModulesModel(TransactionTestCase):
     def setUp(self):
-        self.module1 = Module(mod_code="CS2815", title="Small Enterprise Team Project", year=2, department="CS",
-                              contact_hours=40, exams=0, practical=0, coursework=100, credits=15,
-                              prerequisites="CS1813; CS2800", summary="This is a test summary",
-                              outcomes="To do TDD in our project", status="ACTIVE")
+        self.module1 = Module(mod_code="CS2815", title="Small Enterprise Team Project", level=2, department="CS")
 
     def test_no_module(self):
         """

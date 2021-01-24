@@ -39,7 +39,8 @@ DEBUG = env('DEBUG')
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db()
+    'default': env.db(),
+    'example': env.db('EXAMPLE_DB_URL')
 }
 
 """django-environ finished"""
