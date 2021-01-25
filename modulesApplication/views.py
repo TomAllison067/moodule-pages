@@ -6,15 +6,17 @@ from .models import Module
 # Create your views here.
 def index(request):
     # Querying the database to get a list of modules(by mod_code as that is the primary key) that starts with CS2
-    modules_list = Module.objects.filter(mod_code__startswith='CS2')
+    modules_list = Module.objects.filter(level=5)
     # creating a list to hold dictionaries of module codes and their summaries
     module_summaries = []
 
     for module in modules_list:
-        code = module.mod_code
-        if module.status == 'DORMANT':
+        code = module.mod_code + " - " + module.title
+        if module.status != 'ACTIVE':
             continue
         summary = module.summary
+        if summary == "":
+            summary = "<no description available>"
         # mod_sum is a dictionary to store the mod_code and summary of each module
         mod_sum = {"module_code": code, "summary": summary}
         # module_summaries[code] = summary
