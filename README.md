@@ -37,7 +37,7 @@ test database for any unit testing.
    ```
 5) Give your user privileges on the database: `GRANT ALL PRIVILEGES ON DATABASE foobase TO someusername;`
 6) For testing, Django will create a test database each time, so your user needs to be able to create new databases:
-    `ALTER USE someusername CREATEDB;`
+    `ALTER USER someusername CREATEDB;`
    
 Then, in your local `.env` file:
 ```
