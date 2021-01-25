@@ -1,7 +1,9 @@
+from django.core.exceptions import ValidationError
 from django.db.utils import IntegrityError
 from django.test import TransactionTestCase
 
-from modulesApplication.database.models import Module
+from modulesApplication.database.csv_reader import CsvReader
+from modulesApplication.models import Module
 
 
 class TestModulesModel(TransactionTestCase):
@@ -45,6 +47,16 @@ class TestModulesModel(TransactionTestCase):
         Tests that two modules with the same primary key cannot be put into the database.
         """
         Module.objects.create(mod_code="foo")  # Create the initial module
-        self.assertRaises(IntegrityError, Module.objects.create, mod_code="foo")  # Test the create method
+        self.assertRaises(ValidationError, Module.objects.create, mod_code="foo")  # Test the create method
         m2 = Module(mod_code="foo")
-        self.assertRaises(IntegrityError, m2.save, force_insert=True)  # Test the save method
+        self.assertRaises(ValidationError, m2.save, force_insert=True)  # Test the save method
+
+    def test_read_from_csv_and_save_to_database(self):
+        cr = CsvReader()
+        modules = cr.read_table("modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
+                                Module)
+        self.assertEqual(113, len(modules), "There are 113 modules in the csv file.")
+        for m in modules:
+            m.clean()
+        Module.objects.bulk_create(modules)
+        self.assertEqual(113, Module.objects.count(), "There are 113 modules in the database.")

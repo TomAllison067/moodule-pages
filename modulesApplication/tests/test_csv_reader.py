@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.database.models import Module
+from modulesApplication.models import Module
 
 
 class TestCsvReader(TestCase):
@@ -86,8 +86,8 @@ class TestCsvReader(TestCase):
         """
         # The first module in exported_sqlite3_module_table.csv
         modules = self.cr.read_table(
-            filename="modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
-            model="Module")
+            filepath="modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
+            model_class=Module)
 
         # Django compares quality on primary keys, in this case the module code
         self.assertEqual(self.test_module, modules[0])
@@ -98,7 +98,7 @@ class TestCsvReader(TestCase):
         list of modules it returns should be 113.
         """
         modules = self.cr.read_table(
-            filename="modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
-            model="Module")
+            filepath="modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
+            model_class=Module)
         self.assertEqual(self.MODULES_CSV_ROW_COUNT, len(modules))
 

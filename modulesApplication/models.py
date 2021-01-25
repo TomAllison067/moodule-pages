@@ -1,0 +1,1 @@
+from modulesApplication.database.models.module import Module

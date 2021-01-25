@@ -40,7 +40,7 @@ DEBUG = env('DEBUG')
 
 DATABASES = {
     'default': env.db(),
-    'example': env.db('EXAMPLE_DB_URL')
+    'example': env.db('EXAMPLE_DB_URL', default="sqlite:////tmp/my-tmp-sqlite.db")
 }
 
 """django-environ finished"""
