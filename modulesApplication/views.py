@@ -8,7 +8,6 @@ from .models import Module
 def home(request):
     return render(request, 'modulesApplication/index.html')
 
-
 def index(request):
     # Querying the database to get a list of modules(by mod_code as that is the primary key) that starts with CS2
     modules_list = Module.objects.filter(level=5)
@@ -32,3 +31,8 @@ def index(request):
 
     # using django shortcut that return a HttpResponse when called with a template and context
     return render(request, 'modulesApplication/AllModules.html', context)
+
+def studentLanding(request):
+    return render(request, 'modulesApplication/StudentLandingPage.html')
+def studentChooseModules(request):
+    return render(request, 'modulesApplication/StudentChooseModules.html')

@@ -24,22 +24,32 @@
     }
     </style>
     
-    <h1>MODULES IN YEAR 2</h1>
+    
     <body>
-    {# module_summaries refer to the dictionary passed through with the render request #}
-    {% if module_summaries %}
-        <ul>
-        {% for module in module_summaries %}
-            <button class="accordion">{{ module.module_code }}</button>
-            <div class="panel">{{ module.summary }}</div>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No polls are available.</p>
-    {% endif %}
+        <h1>MODULES IN YEAR 2</h1>
+        <h1>Message to Designers:</h1>
+    <ul>
+        <li>This page just gives some extra information for all of the modules.</li>
+        <li>If you're feeling brave, implementing a search feature and/or formatting the data in the accordion is perfectly fine and no one else will really be working on this page.</li>
+        <li>Note that V already has style tags within this .html for the accordion. Perhaps be wary of how you'll work around this.</li>
+        <li>Don't forget minor things like a back button, or a logo that links to the home/landing page.</li>
+        <li>By the way, the accordion animation that Vellita put in the script tags doesn't work. Worth having a look at.</li>
+    </ul>
+        {# module_summaries refer to the dictionary passed through with the render request #}
+        {% if module_summaries %}
+            <ul>
+            {% for module in module_summaries %}
+                <button class="accordion">{{ module.module_code }}</button>
+                <div class="panel">{{ module.summary }}</div>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
     </body>
     
     {# this script is for the accoridion animation to show the summaries#}
+
     <script>
     var acc = document.getElementsByClassName("accordion");
     var i;
