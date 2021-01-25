@@ -8,4 +8,3 @@ for m in modules:
     m.clean()
 
 Module.objects.bulk_create(modules)
-7
