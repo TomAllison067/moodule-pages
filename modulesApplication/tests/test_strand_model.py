@@ -31,5 +31,11 @@ class MyTestCase(TransactionTestCase):
         same_strand.save()
         self.assertEqual(Strands.objects.count(), 1, "if same record attempted to be inserted, it will not be added")
 
+    def test_avoid_overwrites(self):
+        self.newstrand.save()
+        another_strand = Strands(mod_code=Module.objects.first(), strand='HH')
+        another_strand.save()
+        self.assertEqual(self.newstrand.strand, Strands.objects.first().strand)
+
 
 
