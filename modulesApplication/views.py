@@ -1,9 +1,14 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 from .models import Module
 
 
 # Create your views here.
+def home(request):
+    return render(request, 'modulesApplication/index.html')
+
+
 def index(request):
     # Querying the database to get a list of modules(by mod_code as that is the primary key) that starts with CS2
     modules_list = Module.objects.filter(level=5)
@@ -26,4 +31,4 @@ def index(request):
     context = {'module_summaries': module_summaries}
 
     # using django shortcut that return a HttpResponse when called with a template and context
-    return render(request, 'modulesApplication/index.html', context)
+    return render(request, 'modulesApplication/AllModules.html', context)

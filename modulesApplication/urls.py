@@ -4,5 +4,6 @@ from . import views
 
 app_name = 'modulesApplication'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.home, name='home'),
+    path('AllModules.html', views.index, name='index'),
 ]
