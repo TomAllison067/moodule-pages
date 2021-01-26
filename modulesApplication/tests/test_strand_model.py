@@ -23,7 +23,7 @@ class MyTestCase(TransactionTestCase):
 
     def test_duplicates(self):
         """
-        Test if database will store duplicate values
+        Test to check the database will not store duplicate values
         """
         self.newstrand.save()
         self.assertEqual(Strands.objects.count(), 1, "one record added ")
@@ -31,11 +31,15 @@ class MyTestCase(TransactionTestCase):
         same_strand.save()
         self.assertEqual(Strands.objects.count(), 1, "if same record attempted to be inserted, it will not be added")
 
-    def test_avoid_overwrites(self):
+    def test_same_code_diff_strand(self):
+        """
+        Test so that modules can have multiple strands by having multiple records
+        """
         self.newstrand.save()
         another_strand = Strands(mod_code=Module.objects.first(), strand='HH')
         another_strand.save()
         self.assertEqual(self.newstrand.strand, Strands.objects.first().strand)
+        self.assertEqual(Strands.objects.count(), 2, "if there is 2 object with the same mod_code but different strand")
 
 
 
