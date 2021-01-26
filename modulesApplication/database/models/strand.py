@@ -1,7 +1,5 @@
 from django.core.exceptions import ValidationError
-from django.db import models, IntegrityError
-
-from modulesApplication.database.models.module import Module
+from django.db import models
 
 
 class Strands(models.Model):
@@ -14,8 +12,6 @@ class Strands(models.Model):
         unique_together = ('mod_code', 'strand')
 
     def clean(self, *args, **kwargs):
-        if self.strand_id is None:
-            self.strand_id == Strands.objects.count() + 1
         super().clean()
 
     def save(self, *args, **kwargs):

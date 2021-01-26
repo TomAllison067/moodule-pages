@@ -64,32 +64,32 @@ class MyTestCase(TransactionTestCase):
         # test querying the database to get the strand value of a specific object
         self.assertEqual(Strands.objects.filter(mod_code='CS7432').first().strand, 'CM')
 
-    def test_incorrect_mod_code(self):
-        """
-        Test to see if error thrown is the mod_code in not in Module database
-        """
-        module = Module(mod_code='HS234')
-        #self.assertRaises(ValidationError, Strands(mod_code=module, strand='HS').save)
-
     def test_read_from_csv_and_save_to_database(self):
+        """
+        Test for feature to add valeus from csv file to a database
+        """
         Module.objects.all().delete()
         Strands.objects.all().delete()
 
+        # adding Modules to databse and strands depend on mod_code
         cr = CsvReader()
         modules = cr.read_table("modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
                                 Module)
         for m in modules:
             m.clean()
         Module.objects.bulk_create(modules)
-        print(Module.objects.count())
 
+        # adding Strands to database
         csv_strands = cr.read_table("modulesApplication/tests/resources/exported_strands_table.csv", Strands)
         self.assertEqual(42, len(csv_strands), "There are 42 strands in the csv file.")
 
-        for s in csv_strands:
-            s.clean()
-        for stra in csv_strands:
-            stra.save()
+        module_codes = [m.pk for m in Module.objects.all()]
+        print(module_codes)
+        for strand in csv_strands:
+            if strand.mod_code_id not in module_codes:
+                csv_strands.remove(strand)
+        Strands.objects.bulk_create(csv_strands)
+
         self.assertEqual(40, Strands.objects.count(), "There are 40 strands in the database. 2 mod_code unfound.")
         for cstrand in Strands.objects.all():
             print(cstrand.mod_code, cstrand.strand, cstrand.strand_id)
