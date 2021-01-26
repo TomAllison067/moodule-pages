@@ -1,6 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.test import TransactionTestCase
 
+from modulesApplication.database.csv_reader import CsvReader
 from modulesApplication.models import Strands, Module
 
 
@@ -68,5 +69,27 @@ class MyTestCase(TransactionTestCase):
         Test to see if error thrown is the mod_code in not in Module database
         """
         module = Module(mod_code='HS234')
-        self.assertRaises(ValidationError, Strands(mod_code=module, strand='HS').save)
+        #self.assertRaises(ValidationError, Strands(mod_code=module, strand='HS').save)
 
+    def test_read_from_csv_and_save_to_database(self):
+        Module.objects.all().delete()
+        Strands.objects.all().delete()
+
+        cr = CsvReader()
+        modules = cr.read_table("modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
+                                Module)
+        for m in modules:
+            m.clean()
+        Module.objects.bulk_create(modules)
+        print(Module.objects.count())
+
+        csv_strands = cr.read_table("modulesApplication/tests/resources/exported_strands_table.csv", Strands)
+        self.assertEqual(42, len(csv_strands), "There are 42 strands in the csv file.")
+
+        for s in csv_strands:
+            s.clean()
+        for stra in csv_strands:
+            stra.save()
+        self.assertEqual(40, Strands.objects.count(), "There are 40 strands in the database. 2 mod_code unfound.")
+        for cstrand in Strands.objects.all():
+            print(cstrand.mod_code, cstrand.strand, cstrand.strand_id)
