@@ -9,6 +9,10 @@ class Strands(models.Model):
     class Meta:
         unique_together = ('mod_code', 'strand')
 
+    def clean(self, *args, **kwargs):
+
+        super().clean()
+
     def save(self, *args, **kwargs):
         self.full_clean()
         super().save(*args, **kwargs)

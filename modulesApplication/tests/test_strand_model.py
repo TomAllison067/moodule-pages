@@ -1,4 +1,6 @@
+from django.core.exceptions import ValidationError
 from django.test import TransactionTestCase
+
 from modulesApplication.models import Strands, Module
 
 
@@ -60,3 +62,11 @@ class MyTestCase(TransactionTestCase):
         self.assertEqual(Strands.objects.filter(mod_code='CS7432').first(), third_strand)
         # test querying the database to get the strand value of a specific object
         self.assertEqual(Strands.objects.filter(mod_code='CS7432').first().strand, 'CM')
+
+    def test_incorrect_mod_code(self):
+        """
+        Test to see if error thrown is the mod_code in not in Module database
+        """
+        module = Module(mod_code='HS234')
+        self.assertRaises(ValidationError, Strands(mod_code=module, strand='HS').save)
+
