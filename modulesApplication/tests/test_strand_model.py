@@ -84,12 +84,9 @@ class MyTestCase(TransactionTestCase):
         self.assertEqual(42, len(csv_strands), "There are 42 strands in the csv file.")
 
         module_codes = [m.pk for m in Module.objects.all()]
-        print(module_codes)
         for strand in csv_strands:
             if strand.mod_code_id not in module_codes:
                 csv_strands.remove(strand)
         Strands.objects.bulk_create(csv_strands)
 
         self.assertEqual(40, Strands.objects.count(), "There are 40 strands in the database. 2 mod_code unfound.")
-        for cstrand in Strands.objects.all():
-            print(cstrand.mod_code, cstrand.strand, cstrand.strand_id)
