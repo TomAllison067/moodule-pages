@@ -1,6 +1,8 @@
+/* Google font imports */
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
+/* General - put in this section if there are repeated elements for the pages */
 body {
     background-color: #222;
     margin: 0;
@@ -26,15 +28,16 @@ body {
     padding: 0;
     list-style: none;
     text-decoration: none;
+    color: white;
 }
 
+/* Main page components - section for CSS of index.html */
 .topbar {
     width: 100%;
     height: 40px;
     background:rgb(48, 48, 48);
     z-index: 3;
 }
-
 
 .topbar .title {
     color: #d85f26;
@@ -246,3 +249,9 @@ section {
 .item:target .content {
     max-height: 20em;
 }
+
+/* All Modules components - section for CSS of the AllModules.html */
+
+/* Student Choose Page components - section for CSS of the StudentChooseModules.html */
+
+/* Student Landing Page components - section for CSS of the StudentLandingPage.html */
