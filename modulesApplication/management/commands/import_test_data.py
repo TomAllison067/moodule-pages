@@ -35,7 +35,7 @@ class Command(BaseCommand):
         module_codes = set(m.pk for m in Module.objects.all())
         csv_strands = self.cr.read_table("modulesApplication/tests/resources/exported_strands_table.csv", Strands)
         for strand in csv_strands:
-            if strand.mod_code_id not in module_codes:
+            if strand.module_id not in module_codes:
                 csv_strands.remove(strand)
         Strands.objects.bulk_create(csv_strands)
 
