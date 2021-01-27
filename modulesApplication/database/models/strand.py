@@ -4,12 +4,12 @@ from django.db import models
 
 class Strands(models.Model):
 
-    mod_code = models.ForeignKey('Module', models.DO_NOTHING, db_column='mod_code', blank=False, null=False)
+    module = models.ForeignKey('Module', models.DO_NOTHING, db_column='mod_code', blank=False, null=False)
     strand = models.TextField(blank=False, null=False)
     strand_id = models.AutoField(primary_key=True)
 
     class Meta:
-        unique_together = ('mod_code', 'strand')
+        unique_together = ('module', 'strand')
 
     def clean(self, *args, **kwargs):
         super().clean()
