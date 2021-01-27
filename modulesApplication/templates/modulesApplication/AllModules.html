@@ -40,7 +40,9 @@
             <ul>
             {% for module in module_summaries %}
                 <button class="accordion">{{ module.module_code }}</button>
-                <div class="panel">{{ module.summary }}</div>
+                <div class="panel">{{ module.summary }}
+                 <a href="StudentLandingPage.html"> Find out more... </a>
+                </div>
             {% endfor %}
             </ul>
         {% else %}
