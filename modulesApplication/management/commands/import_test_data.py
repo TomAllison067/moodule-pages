@@ -43,4 +43,5 @@ class Command(BaseCommand):
         clear_database()
         self.insert_modules()
         self.insert_strands()
-        print("Imported {} modules and {} strands successfully.".format(Module.objects.count(), Strands.objects.count()))
+        output = "Imported {} modules and {} strands successfully.".format(Module.objects.count(), Strands.objects.count())
+        self.stdout.write(output)
