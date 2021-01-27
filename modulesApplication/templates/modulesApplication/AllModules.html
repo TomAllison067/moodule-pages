@@ -41,6 +41,9 @@
     </li>
 </ul>
 {# module_summaries refer to the dictionary passed through with the render request #}
+<p>Filter: <select name="year" id="year_filter"><option value=0 >Select Year</option></select></p>
+
+
 {% if module_summaries %}
     <ul>
         {% for year, modules in module_summaries.items %}
@@ -74,5 +77,22 @@
                 panel.style.display = "block";
             }
         });
+    }
+
+    //filtering by year
+    const years = {"All Modules": 0,"Year 1": 1, "Year 2": 2, "Year 3": 3, "Year 4": 4};
+    window.onload = function() {
+        const yearSel = document.getElementById("year_filter");
+        let y = 0;
+
+        for (const x in years){
+        yearSel.options[yearSel.options.length] = new Option(x, x);
+        }
+
+        yearSel.onchange = function(){
+          y = years[this.value]
+          location.href= '/student/all-modules/'+ y;
+
+        }
     }
 </script>

@@ -10,8 +10,10 @@ def index(request):
     return HttpResponseRedirect(reverse('modulesApplication:student-landing'))
 
 
-def all_modules(request):
+def all_modules(request, sort=0):
     modules_list = Module.objects.order_by('level', 'mod_code')
+    if sort != 0:
+        modules_list = modules_list.filter(level=sort+3)
     module_summaries = {}  # A dict of lists of modules separated by year
     for module in modules_list:
         if module.status != 'ACTIVE':
