@@ -12,7 +12,8 @@
         transition: 0.4s;
     }
 
-    .active, .accordion:hover {
+    .active,
+    .accordion:hover {
         background-color: #ccc;
     }
 
@@ -26,38 +27,39 @@
 
 
 <body>
-<h1>MODULES IN ALL YEARS</h1>
-<h1>Message to Designers:</h1>
-<ul>
-    <li>This page just gives some extra information for all of the modules.</li>
-    <li>If you're feeling brave, implementing a search feature and/or formatting the data in the accordion is perfectly
-        fine and no one else will really be working on this page.
-    </li>
-    <li>Note that V already has style tags within this .html for the accordion. Perhaps be wary of how you'll work
-        around this.
-    </li>
-    <li>Don't forget minor things like a back button, or a logo that links to the home/landing page.</li>
-    <li>By the way, the accordion animation that Vellita put in the script tags doesn't work. Worth having a look at.
-    </li>
-</ul>
-{# module_summaries refer to the dictionary passed through with the render request #}
-{% if module_summaries %}
+    <h1>MODULES IN ALL YEARS</h1>
+    <h1>Message to Designers:</h1>
+    <ul>
+        <li>This page just gives some extra information for all of the modules.</li>
+        <li>If you're feeling brave, implementing a search feature and/or formatting the data in the accordion is
+            perfectly
+            fine and no one else will really be working on this page.
+        </li>
+        <li>Note that V already has style tags within this .html for the accordion. Perhaps be wary of how you'll work
+            around this.
+        </li>
+        <li>Don't forget minor things like a back button, or a logo that links to the home/landing page.</li>
+        <li>By the way, the accordion animation that Vellita put in the script tags doesn't work. Worth having a look
+            at.
+        </li>
+    </ul>
+    {# module_summaries refer to the dictionary passed through with the render request #}
+    {% if module_summaries %}
     <ul>
         {% for year, modules in module_summaries.items %}
-            <h2>Year {{ year|add:"-3"}}</h2>
-            {% for module in modules %}
-                <button class="accordion">{{ module.module_code }}</button>
-                <div class="panel">{{ module.summary }}
-                 <a href="StudentLandingPage.html"> Find out more... </a>
-                </div>
-            {% endfor %}
+        <h2>Year {{ year|add:"-3"}}</h2>
+        {% for module in modules %}
+        <button class="accordion">{{ module.module_code }}</button>
+        <div class="panel">{{ module.summary }}
+            <a href="{% url 'modulesApplication:specific-module' module.module_code %}">find out more...</a>
+        </div>
+        {% endfor %}
         {% endfor %}
 
-
     </ul>
-{% else %}
+    {% else %}
     <p>No polls are available.</p>
-{% endif %}
+    {% endif %}
 </body>
 
 {# this script is for the accoridion animation to show the summaries#}

@@ -30,3 +30,14 @@ def landing(request):
 
 def choose_modules(request):
     return render(request, 'modulesApplication/StudentChooseModules.html')
+
+
+def module_details(request, module):
+    current_module = Module.objects.get(pk=module[0:6])
+    context = {'module': module,
+               'details': {'Summary': current_module.summary,
+                           'Learning Outcomes': current_module.learning_outcomes,
+                           'Recommended Reading': current_module.core_reading,
+                           'Exam Format': current_module.exam_format}
+               }
+    return render(request, 'modulesApplication/ModuleDetails.html', context=context)
