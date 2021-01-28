@@ -26,10 +26,10 @@
 </style>
 
 <body>
-  <h1>MORE INFORMATION ABOUT MODULES</h1>
-  {%for detail in details%}
-  <h3>{{detail}}</h3>
-  <p>{{details.detail}}</p>
-  <p></p>
-  {% endfor %}
+  <h1>MORE INFORMATION ABOUT {{module.mod_code}} {{module.title}}</h1>
+    <h3> Summary </h3> <p>{{details.Summary}}</p>
+    <h3> Learning Outcomes </h3> <p>{{details.Learning_Outcomes}}</p>
+    <h3> Recomended Reading </h3> <p>{{details.Recommended_Reading}}</p>
+    <h3> Exam Format </h3> <p>{{details.Exam_Format}}</p>
+      
 </body>

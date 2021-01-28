@@ -36,10 +36,10 @@ def choose_modules(request):
 
 def module_details(request, module):
     current_module = Module.objects.get(pk=module[0:6])
-    context = {'module': module,
+    context = {'module': current_module,
                'details': {'Summary': current_module.summary,
-                           'Learning Outcomes': current_module.learning_outcomes,
-                           'Recommended Reading': current_module.core_reading,
-                           'Exam Format': current_module.exam_format}
+                           'Learning_Outcomes': current_module.learning_outcomes,
+                           'Recommended_Reading': current_module.core_reading,
+                           'Exam_Format': current_module.exam_format}
                }
     return render(request, 'modulesApplication/ModuleDetails.html', context=context)
