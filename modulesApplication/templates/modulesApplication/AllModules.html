@@ -50,7 +50,7 @@
         {% for year, modules in module_summaries.items %}
         <h2>Year {{ year|add:"-3"}}</h2>
         {% for module in modules %}
-        <button class="accordion">{{ module.module_code }}</button>
+        <button class="accordion">{{ module.module_code }} - {{ module.title }}</button>
         <div class="panel">{{ module.summary }}
             <a href="{% url 'modulesApplication:specific-module' module.module_code %}">find out more...</a>
         </div>
