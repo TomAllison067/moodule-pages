@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Yantramanav:wght@900');
 
-/* General - put in this section if there are repeated elements for the pages */
+/* GENERAL - put in this section if there are repeated elements for the pages */
 html, body {
     background-color: #222;
     margin: 0;
@@ -17,7 +17,7 @@ html, body {
     list-style: none;
     text-decoration: none;
     
-    color: black;
+    color: white;
     background-size: cover;
     font-family: 'Nunito', sans-serif;
     height: 100vh;
@@ -37,7 +37,40 @@ html, body {
    min-height: 100%;
 }
 
-/* Scrollbar */ 
+.lp-container {
+    width: 90%;
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.box {
+    margin-top: 50px;
+    height: 200px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 100%;
+    height: 700px;
+    position: relative;
+
+}
+
+.box h2 {
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.box > .box-img {
+    float:left;
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+  }
+
+
+/* SCROLLBAR */ 
 ::-webkit-scrollbar {
     width: 10px;
     z-index: 1000;
