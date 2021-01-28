@@ -42,41 +42,54 @@
     </li>
 </ul>
 {# module_summaries refer to the dictionary passed through with the render request #}
-<p>Filter: <select name="year" id="year_filter"><option value=0 >Select Year</option></select></p>
+<p>Filter: <select name="year" id="year_filter">
+    <option value=0>Select Year</option>
+</select></p>
 
 
 {% if module_summaries %}
     <ul>
         {% for year, modules in module_summaries.items %}
-        <h2>Year {{ year|add:"-3"}}</h2>
-        {% for module in modules %}
-        <button class="accordion">{{ module.module_code }} - {{ module.title }}</button>
-        <div class="panel" disabled="False" id="module">
-            <h4>Summary</h4>
-            <p>{{ module.summary }}</p>
-            <button role="button" id="more_info">find out more...</button>
-            <div hidden="True" id="details">
-            <h4>Learning Outcomes</h4>
-            <p>{{ module.learning_outcomes }}</p>
-            <h4>Recommended Reading</h4>
-            <p>{{ module.recommended_reading }}</p>
-            <h4>Exam Format</h4>
-            <p>{{ module.exam_format }}</p>
-            </div>
-        </div>
-        {% endfor %}
+            <h2>Year {{ year|add:"-3" }}</h2>
+            {% for module in modules %}
+                <button class="accordion">{{ module.module_code }} - {{ module.title }}</button>
+                <div class="panel" disabled="False" id="module">
+                    <h4>Summary</h4>
+                    <p>{{ module.summary }}</p>
+                    <button onclick="myFunction('{{ module.module_code }}')">Click Me</button>
+                    <div class="{{ module.module_code }}" style="display: none;">
+                        <h4>Learning Outcomes</h4>
+                        <p>{{ module.learning_outcomes }}</p>
+                        <h4>Recommended Reading</h4>
+                        <p>{{ module.recommended_reading }}</p>
+                        <h4>Exam Format</h4>
+                        <p>{{ module.exam_format }}</p>
+                    </div>
+                </div>
+            {% endfor %}
         {% endfor %}
 
     </ul>
-    {% else %}
+{% else %}
     <p>No polls are available.</p>
-    {% endif %}
+{% endif %}
 </body>
 
 {# this script is for the accoridion animation to show the summaries#}
 
 <script>
-    var acc = document.getElementsByClassName("accordion");
+    // Display/hide extra info
+    function myFunction(mod_code) {
+    let x = document.getElementsByClassName(mod_code)[0]
+    console.log("Clicked " + mod_code);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+var acc = document.getElementsByClassName("accordion");
     var i;
 
     for (i = 0; i < acc.length; i++) {
@@ -92,27 +105,19 @@
     }
 
     //filtering by year
-    const years = {"All Modules": 0,"Year 1": 1, "Year 2": 2, "Year 3": 3, "Year 4": 4};
-    window.onload = function() {
+    const years = {"All Modules": 0, "Year 1": 1, "Year 2": 2, "Year 3": 3, "Year 4": 4};
+    window.onload = function () {
         const yearSel = document.getElementById("year_filter");
         let y = 0;
 
-        for (const x in years){
-        yearSel.options[yearSel.options.length] = new Option(x, x);
+        for (const x in years) {
+            yearSel.options[yearSel.options.length] = new Option(x, x);
         }
 
-        yearSel.onchange = function(){
-          y = years[this.value]
-          location.href= '/student/all-modules/sort/'+ y;
+        yearSel.onchange = function () {
+            y = years[this.value]
+            location.href = '/student/all-modules/sort/' + y;
 
         }
-    }
-
-    // showing more details of the course
-    const moreInfo = document.getElementById("more_info");
-    moreInfo.onclick = function () {
-        document.getElementById("details").hidden = false;
-        moreInfo.hidden = true;
-
     }
 </script>
