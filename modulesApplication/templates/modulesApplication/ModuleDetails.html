@@ -26,22 +26,10 @@
 </style>
 
 <body>
-<h1>MORE INFORMATION ABOUT MODULES</h1>
-
-{% if module.module_code %}
-    <ul>
-        {% for modules in module_summaries.items %}
-        <h2>Module: {{ module.module_code}}</h2>
-        {% for module.module_codes in modules %}
-        <div class="panel">{{ module.summary }}
-            <a href="{% url 'modulesApplication:student-read-more' %}"> Find out more... </a>
-        </div>
-        {% endfor %}
-        {% endfor %}
-
-
-    </ul>
-    {% else %}
-    <p>No polls are available.</p>
-    {% endif %}
+  <h1>MORE INFORMATION ABOUT MODULES</h1>
+  {%for detail in details%}
+  <h3>{{detail}}</h3>
+  <p>{{details.detail}}</p>
+  <p></p>
+  {% endfor %}
 </body>
