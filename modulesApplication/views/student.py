@@ -18,10 +18,13 @@ def all_modules(request, sort=0):
     for module in modules_list:
         if module.status != 'ACTIVE':
             continue
-        code = module.mod_code
-        title = module.title
         summary = "<no description available>" if module.summary == "" else module.summary
-        mod_sum = {"module_code": code, "title": title, "summary": summary}
+        mod_sum = {"module_code": module.mod_code,
+                   "title": module.title,
+                   "summary": summary,
+                   "learning_outcomes": module.learning_outcomes,
+                   "recommended_reading": module.core_reading,
+                   "exam_format": module.exam_format}
         module_summaries.setdefault(module.level, []).append(mod_sum)  # Creates a list if it doesn't exist and appends
     context = {'module_summaries': module_summaries}
     return render(request, 'modulesApplication/AllModules.html', context=context)

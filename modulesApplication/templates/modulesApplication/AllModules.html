@@ -51,8 +51,18 @@
         <h2>Year {{ year|add:"-3"}}</h2>
         {% for module in modules %}
         <button class="accordion">{{ module.module_code }} - {{ module.title }}</button>
-        <div class="panel">{{ module.summary }}
-            <a href="{% url 'modulesApplication:specific-module' module.module_code %}">find out more...</a>
+        <div class="panel" disabled="False" id="module">
+            <h4>Summary</h4>
+            <p>{{ module.summary }}</p>
+            <button role="button" id="more_info">find out more...</button>
+            <div hidden="True" id="details">
+            <h4>Learning Outcomes</h4>
+            <p>{{ module.learning_outcomes }}</p>
+            <h4>Recommended Reading</h4>
+            <p>{{ module.recommended_reading }}</p>
+            <h4>Exam Format</h4>
+            <p>{{ module.exam_format }}</p>
+            </div>
         </div>
         {% endfor %}
         {% endfor %}
@@ -96,5 +106,13 @@
           location.href= '/student/all-modules/sort/'+ y;
 
         }
+    }
+
+    // showing more details of the course
+    const moreInfo = document.getElementById("more_info");
+    moreInfo.onclick = function () {
+        document.getElementById("details").hidden = false;
+        moreInfo.hidden = true;
+
     }
 </script>
