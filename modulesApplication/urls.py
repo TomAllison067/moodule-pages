@@ -8,9 +8,10 @@ app_name = 'modulesApplication'
 student_patterns = [
     path('all-modules/', views.student.all_modules, name="all-modules"),
     path('all-modules/<str:module>/', views.student.module_details, name="specific-module"),
+    path('all-modules/<int:sort>/', views.student.all_modules, name="filter-modules"),
     path('landing/', views.student.landing, name='student-landing'),
     path('choose/', views.student.choose_modules, name='student-choose-modules'),
-    #path('read-more/', views.student.read_more, name='student-read-more'),
+
 ]
 academic_patterns = []  # example
 office_patterns = []  # example

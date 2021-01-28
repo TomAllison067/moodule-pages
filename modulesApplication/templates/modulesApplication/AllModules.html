@@ -27,24 +27,25 @@
 
 
 <body>
-    <h1>MODULES IN ALL YEARS</h1>
-    <h1>Message to Designers:</h1>
-    <ul>
-        <li>This page just gives some extra information for all of the modules.</li>
-        <li>If you're feeling brave, implementing a search feature and/or formatting the data in the accordion is
-            perfectly
-            fine and no one else will really be working on this page.
-        </li>
-        <li>Note that V already has style tags within this .html for the accordion. Perhaps be wary of how you'll work
-            around this.
-        </li>
-        <li>Don't forget minor things like a back button, or a logo that links to the home/landing page.</li>
-        <li>By the way, the accordion animation that Vellita put in the script tags doesn't work. Worth having a look
-            at.
-        </li>
-    </ul>
-    {# module_summaries refer to the dictionary passed through with the render request #}
-    {% if module_summaries %}
+<h1>MODULES IN ALL YEARS</h1>
+<h1>Message to Designers:</h1>
+<ul>
+    <li>This page just gives some extra information for all of the modules.</li>
+    <li>If you're feeling brave, implementing a search feature and/or formatting the data in the accordion is perfectly
+        fine and no one else will really be working on this page.
+    </li>
+    <li>Note that V already has style tags within this .html for the accordion. Perhaps be wary of how you'll work
+        around this.
+    </li>
+    <li>Don't forget minor things like a back button, or a logo that links to the home/landing page.</li>
+    <li>By the way, the accordion animation that Vellita put in the script tags doesn't work. Worth having a look at.
+    </li>
+</ul>
+{# module_summaries refer to the dictionary passed through with the render request #}
+<p>Filter: <select name="year" id="year_filter"><option value=0 >Select Year</option></select></p>
+
+
+{% if module_summaries %}
     <ul>
         {% for year, modules in module_summaries.items %}
         <h2>Year {{ year|add:"-3"}}</h2>
@@ -78,5 +79,22 @@
                 panel.style.display = "block";
             }
         });
+    }
+
+    //filtering by year
+    const years = {"All Modules": 0,"Year 1": 1, "Year 2": 2, "Year 3": 3, "Year 4": 4};
+    window.onload = function() {
+        const yearSel = document.getElementById("year_filter");
+        let y = 0;
+
+        for (const x in years){
+        yearSel.options[yearSel.options.length] = new Option(x, x);
+        }
+
+        yearSel.onchange = function(){
+          y = years[this.value]
+          location.href= '/student/all-modules/'+ y;
+
+        }
     }
 </script>
