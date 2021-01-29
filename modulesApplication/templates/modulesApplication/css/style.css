@@ -33,42 +33,126 @@ html, body {
     color: white;
 }
 
+/* WRAPPER */
+
 .page-wrapper {
    min-height: 100%;
 }
 
-.lp-container {
-    width: 90%;
-    margin-left: 5%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
-}
+/* SLIDER */
 
-.box {
-    margin-top: 50px;
-    height: 200px;
-    color: white;
-    border: 1px solid white;
-    border-radius: 5px;
+.slider-container {
+    margin: 0 auto;
     width: 100%;
-    height: 700px;
+    height: 300px;
+    display:flex;
+    box-sizing: border-box;
+    background-image: white;
     position: relative;
-
 }
 
-.box h2 {
+.slides {
+    display: flex;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    filter:blur(20px), drop-shadow(50px);
+    width: 100%;
+    height: 100%;
+}
+
+.slide-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#next-btn, #prev-btn {
+    cursor: pointer;
+    background: transparent;
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    color: white;
+}
+
+#next-btn:focus, #prev-btn:focus {
+    outline: none;
+}
+
+.slide-content {
+    position: relative;
+    top: -70%;
+    width: 100%;
+    left: 50px;
+    transform: translateY(-50%);
+    font-size: 60px;
+    color: white;
+}
+
+.slide-content h2 {
+    font-size: 20px;
+}
+
+/* BOXES */
+
+.lp-container {
+    margin: 0 auto;
+    width: 80%;
+    height: 400px;
+    display:flex;
+    box-sizing: border-box;
+    background-image: white;
+    position: relative;
+}
+
+.lp-box {
+    margin: 10px 10px;
+    width: 80%;
+    height: 375px;
+    display:flex;
+    box-sizing: border-box;
+    background-image: linear-gradient(to left, #FFC312, #EE5A24);
+    border-left: white 10px solid;
+    background-size: 200%;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    opacity: 75%;
+    transition: 0.25s;
+}
+
+.lp-box:hover {
+    background-position: right;
+    background-color: #d3d3d3;
+    transform: scale(1.025);
+    opacity: 100%;
+    transition: 0.25s;
+}
+
+.lp-box h2 {
+    font-size: 20px;
     margin-top: 5%;
     margin-left: 5%;
+    position: relative;
 }
 
-.box > .box-img {
-    float:left;
-    width: 100%;
-    height: 75%;
-    object-fit: cover;
-  }
-
+.lp-box a {
+    text-align: justify;
+    border-radius: 5px;
+    position: relative;
+}
 
 /* SCROLLBAR */ 
 ::-webkit-scrollbar {
@@ -86,7 +170,7 @@ html, body {
     border-radius: 10px;
 }
 
-/* Footer */
+/* FOOTER */
 
 .footer {
     background: #303036;
@@ -122,7 +206,7 @@ html, body {
 
 }
 
-/* Main page components - section for CSS of index.html */
+/* MAIN PAGE COMPONENTS - section for CSS of index.html */
 .topbar {
     width: calc(100% - 10px);
     height: 40px;
@@ -143,10 +227,23 @@ html, body {
     font-family: 'Yantramanav', sans-serif;
 }
 
+.avatar {
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+    float: right;
+    margin-right: 10px;
+    object-fit: contain;
+    background-image: linear-gradient(orangered, orange);
+    left: calc(50% - 50px);
+    border-radius: 50%;
+}
+
 .search-box {
     position: absolute;
     top: 17px;
     right: 0px;
+    float: right;
     transform: translate(-50%, -50%);
     background: #2f3640;
     color: #d85f26;
@@ -214,6 +311,7 @@ html, body {
     border-radius: 2%;
 }
 
+/* */
 .sidebar ul a {
     display: block;
     height: 100%;
@@ -236,6 +334,8 @@ ul li:hover a{
 .sidebar ul a i{
     margin-right: 16px;
 }
+
+/* */
 
 #check {
     display: none;
@@ -313,6 +413,7 @@ section {
     overflow: hidden;
 }
 
+/* */
 .btn {
     display: block;
     padding: 16px 20px;
@@ -336,6 +437,7 @@ section {
     margin-right: 10px;
 }
 
+/* */
 .content {
     background: #333;
     color: white;

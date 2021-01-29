@@ -14,28 +14,6 @@
 
 </head>
 
-<!--
-  INSTRUCTIONS FROM KEIRU; DESIGNERS CAN THINK OF OTHER USEFUL IDEAS TOO:
-
-  <h1>Landing Page</h1>
-  <h1>Message to Designers:</h1>
-  <ul>
-    <li>This page will be the landing page for the students.</li>
-    <li>It is up to you whether you would like to have separate landing pages for the different user types or not.</li>
-    <li>Be careful when renaming files if you choose to have one big landing page with different features for different users. File names are closely linked to code in views.py and urls.py.</li>
-  </ul>
-
-  <ul>
-    <li>The landing page(s) are where your NavBars will really come in handy.</li>
-    <li>From here, a student should be able to view their modules, select their modules (Link to a new page), view all modules (Link to a new page) and more that may be implemented in future sprints.</li>
-    <li>Don't expect your landing pages to look entirely complete. Though they should look aesthetic, there is more functionality that we are likely to need and come across later.</li>
-  </ul>
-
-  <hr>
-  <p>If you want to have a page that one of the buttons on the landing page can link to, this will be the link for students to choose their modules.</p>
-  <a href="StudentChooseModules.html">Students Choose modules</a>
--->
-
 <body>
   <div class="page-wrapper">
     <input type="checkbox" id="check">
@@ -62,28 +40,127 @@
           <i class="fas fa-search"></i>
         </a>
       </div>
+
+      <img src="images/slp-box-img.png" class="avatar" alt="avatar">
     </nav>
 
-    <div class="lp-container"> 
-      <div class="box">
-        <h2> my courses </h2>
-        <a href="#" class="btn"><i class="fas fa-home"></i>home</a>
-        <img class="box-img" src="images/slp-box-img.png" alt="logo">
+    <div class="slider-container">
+      <div class="slides">
+        <div class="slide">
+          <img src="images/slider/img-3.png" alt="">
+          <div class="slide-content">
+            <h2> welcome [student name here] </h2>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="images/slider/img-3.png" alt="">
+          <div class="slide-content">
+            <h2> slide test 2</h2>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="images/slider/img-3.png" alt="">
+          <div class="slide-content">
+            <h2> slide test 3</h2>
+          </div>
+        </div>
       </div>
-      <div class="box">
-        <h2> choose modules </h2>
-        <a href="#" class="btn"><i class="fas fa-home"></i>home</a>
-        <img class="box-img" src="images/slp-box-img.png" alt="logo">
+      <div class="slide-controls">
+        <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
       </div>
-      <div class="box">
-        <h2> all courses </h2>
-        <a href="#" class="btn"><i class="fas fa-home"></i>home</a>
-        <img class="box-img" src="images/slp-box-img.png" alt="logo">
-      </div>
-
     </div>
 
+    <div class="lp-container">
+      <div class="lp-box" id="b1">
+        <h2> my courses </h2>
+        <a href="#" class="b-btn"><img class="box-img" src="images/slp-box-imge.png" alt="img"></a>
+      </div>
+      <div class="lp-box" id="b2">
+        <h2> choose modules </h2>
+        <a href="#" class="b-btn"><img class="box-img" src="images/slp-box-imge.png" alt="img"></a>
+      </div>
+      <div class="lp-box" id="b3">
+        <h2> all courses </h2>
+        <a href="#" class="b-btn"><img class="box-img" src="images/slp-box-imge.png" alt=" img"></a>
+      </div>
+    </div>
   </div>
+
+  <script>
+    const slideContainer = document.querySelector('.slider-container');
+    const slide = document.querySelector('.slides');
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const interval = 10000;
+
+    let slides = document.querySelectorAll('.slide');
+    let index = 1;
+    let slideId;
+
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+
+    firstClone.id = 'first-clone';
+    lastClone.id = 'last-clone';
+
+    slide.append(firstClone);
+    slide.prepend(lastClone);
+
+    const slideWidth = slides[index].clientWidth;
+
+    slide.style.transform = `translateX(${-slideWidth * index}px)`;
+
+    console.log(slides);
+
+    const startSlide = () => {
+      slideId = setInterval(() => {
+        moveToNextSlide();
+      }, interval);
+    };
+
+    const getSlides = () => document.querySelectorAll('.slide');
+
+    slide.addEventListener('transitionend', () => {
+      slides = getSlides();
+      if (slides[index].id === firstClone.id) {
+        slide.style.transition = 'none';
+        index = 1;
+        slide.style.transform = `translateX(${-slideWidth * index}px)`;
+      }
+
+      if (slides[index].id === lastClone.id) {
+        slide.style.transition = 'none';
+        index = slides.length - 2;
+        slide.style.transform = `translateX(${-slideWidth * index}px)`;
+      }
+    });
+
+    const moveToNextSlide = () => {
+      slides = getSlides();
+      if (index >= slides.length - 1) return;
+      index++;
+      slide.style.transition = '.7s ease-out';
+      slide.style.transform = `translateX(${-slideWidth * index}px)`;
+    };
+
+    const moveToPreviousSlide = () => {
+      if (index <= 0) return;
+      index--;
+      slide.style.transition = '.7s ease-out';
+      slide.style.transform = `translateX(${-slideWidth * index}px)`;
+    };
+
+    slideContainer.addEventListener('mouseenter', () => {
+      clearInterval(slideId);
+    });
+
+    slideContainer.addEventListener('mouseleave', startSlide);
+    nextBtn.addEventListener('click', moveToNextSlide);
+    prevBtn.addEventListener('click', moveToPreviousSlide);
+
+    startSlide();
+  </script>
 </body>
 
 <!-- FOOTER - links will be added later -->
