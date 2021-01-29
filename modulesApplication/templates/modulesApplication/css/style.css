@@ -41,68 +41,108 @@ html, body {
 
 /* SLIDER */
 
-.slider-container {
-    margin: 0 auto;
+.slider{
+    position: relative;
     width: 100%;
     height: 300px;
-    display:flex;
-    box-sizing: border-box;
-    background-image: white;
-    position: relative;
-}
-
-.slides {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .slides{
+    position: relative;  
+    width: 600%;
+    height: 300px;
     display: flex;
-    height: 100%;
-}
-
-.slide {
-    min-width: 100%;
-}
-
-.slide img {
-    filter:blur(20px), drop-shadow(50px);
+  }
+  
+  .slides input{
+    display: none;
+  }
+  
+  .slide{
+    width: 20%;
+    margin-left: 0;
+    margin-right: 0;
+    transition: 2s;
+  }
+  
+  .slide img{
     width: 100%;
-    height: 100%;
-}
-
-.slide-controls {
+    height: 300px;
+    filter: blur(10px);
+  }
+  
+  /*css for manual slide navigation*/
+  
+  .navigation-manual{
     position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
     width: 100%;
+    margin-top: -40px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#next-btn, #prev-btn {
+    justify-content: center;
+  }
+  
+  .manual-btn{
+    border: 2px solid orangered;
+    padding: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    background: transparent;
-    font-size: 30px;
-    border: none;
-    padding: 10px;
-    color: white;
-}
-
-#next-btn:focus, #prev-btn:focus {
-    outline: none;
-}
-
-.slide-content {
-    position: relative;
-    top: -70%;
+    transition: 1s;
+  }
+  
+  .manual-btn:not(:last-child){
+    margin-right: 40px;
+  }
+  
+  .manual-btn:hover{
+    background: orangered;
+  }
+  
+  #radio1:checked ~ .first{
+    margin-left: 0;
+  }
+  
+  #radio2:checked ~ .first{
+    margin-left: -20%;
+  }
+  
+  #radio3:checked ~ .first{
+    margin-left: -40%;
+  }
+  
+  /*css for automatic navigation*/
+  
+  .navigation-auto{
+    position: absolute;
+    display: flex;
     width: 100%;
-    left: 50px;
-    transform: translateY(-50%);
-    font-size: 60px;
-    color: white;
-}
-
-.slide-content h2 {
-    font-size: 20px;
-}
+    justify-content: center;
+    margin-top: 460px;
+  }
+  
+  .navigation-auto div{
+    border: 2px solid orangered;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+  }
+  
+  .navigation-auto div:not(:last-child){
+    margin-right: 40px;
+  }
+  
+  #radio1:checked ~ .navigation-auto .auto-btn1{
+    background: orangered;
+  }
+  
+  #radio2:checked ~ .navigation-auto .auto-btn2{
+    background: orangered;
+  }
+  
+  #radio3:checked ~ .navigation-auto .auto-btn3{
+    background: orangered;
+  }
 
 /* BOXES */
 
@@ -122,11 +162,11 @@ html, body {
     height: 375px;
     display:flex;
     box-sizing: border-box;
-    background-image: linear-gradient(to left, #FFC312, #EE5A24);
-    border-left: white 10px solid;
-    background-size: 200%;
+    background-image: linear-gradient(to left, #a22402, #760c22, #340505);
+    background: url(../images/buttons/slp-button.png);
+    background-size: cover;
     color: white;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     position: relative;
     opacity: 75%;
@@ -137,6 +177,7 @@ html, body {
     background-position: right;
     background-color: #d3d3d3;
     transform: scale(1.025);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.511);
     opacity: 100%;
     transition: 0.25s;
 }
@@ -149,9 +190,13 @@ html, body {
 }
 
 .lp-box a {
-    text-align: justify;
-    border-radius: 5px;
     position: relative;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    display: block;
 }
 
 /* SCROLLBAR */ 
@@ -289,7 +334,7 @@ html, body {
     top: 40px;
     width: 250px;
     height: 100%;
-    background: #d85f26;
+    background: orangered;
     transition: all .25s ease;
     z-index: 5;
 }
@@ -309,6 +354,7 @@ html, body {
     top: -20px;
     left: calc(50% - 50px);
     border-radius: 2%;
+    filter:contrast(200%);
 }
 
 /* */
@@ -417,7 +463,7 @@ section {
 .btn {
     display: block;
     padding: 16px 20px;
-    background: #d85f26;
+    background: orangered;
     color: white;
     position: relative;
 }
@@ -427,7 +473,7 @@ section {
     position: absolute;
     width: 14px;
     height: 14px;
-    background:#d85f26;
+    background: orangered;
     left: 20px;
     bottom: -7px;
     transform: rotate(45deg);
