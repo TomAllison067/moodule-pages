@@ -39,6 +39,26 @@ html, body {
    min-height: 100%;
 }
 
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.75);
+    filter: blur(5px);
+    z-index: 5;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#overlay:active {
+    display: none;
+}
+
 /* SLIDER */
 
 .slider{
@@ -47,86 +67,114 @@ html, body {
     height: 300px;
     border-radius: 10px;
     overflow: hidden;
-  }
+}
   
-  .slides{
+.slides{
     position: relative;  
     width: 600%;
-    height: 300px;
+    height: 100%;
     display: flex;
-  }
-  
-  .slides input{
+}
+
+.slides input{
     display: none;
-  }
-  
-  .slide{
+}
+
+.slide{
     width: 20%;
     margin-left: 0;
     margin-right: 0;
     transition: 2s;
-  }
-  
-  .slide img{
+}
+
+.slide-content {
+    position: relative;
+    color: black;
+    margin-top: 0px;
+    padding: 60px;
+    display: block;
+    height: 50%;
+    width: 75%;
+}
+
+.slide-content h2 {
+    padding: 5px;
+    color: white;
+    background: #303036;
+    border-top: 5px orangered solid;
+}
+
+.slide-content p {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 7px;
+    border-left: 5px orangered solid;
+    color: white;
+    width: 90%;
+}
+
+
+.slide img{
+    position: absolute;
+    display: block;
     width: 100%;
-    height: 300px;
+    height: 100%;
     filter: blur(10px);
-  }
-  
-  /*css for manual slide navigation*/
-  
-  .navigation-manual{
+}
+
+/*css for manual slide navigation*/
+
+.navigation-manual{
     position: absolute;
     width: 100%;
     margin-top: -40px;
     display: flex;
     justify-content: center;
-  }
-  
-  .manual-btn{
+}
+
+.manual-btn{
     border: 2px solid orangered;
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
     transition: 1s;
-  }
-  
-  .manual-btn:not(:last-child){
+}
+
+.manual-btn:not(:last-child){
     margin-right: 40px;
-  }
-  
-  .manual-btn:hover{
+}
+
+.manual-btn:hover{
     background: orangered;
-  }
-  
-  #radio1:checked ~ .first{
+}
+
+#radio1:checked ~ .first{
     margin-left: 0;
-  }
-  
-  #radio2:checked ~ .first{
+}
+
+#radio2:checked ~ .first{
     margin-left: -20%;
-  }
-  
-  #radio3:checked ~ .first{
+}
+
+#radio3:checked ~ .first{
     margin-left: -40%;
-  }
-  
-  /*css for automatic navigation*/
-  
-  .navigation-auto{
+}
+
+/*css for automatic navigation*/
+
+.navigation-auto{
     position: absolute;
     display: flex;
     width: 100%;
     justify-content: center;
     margin-top: 460px;
-  }
-  
-  .navigation-auto div{
+}
+
+.navigation-auto div{
     border: 2px solid orangered;
     padding: 5px;
     border-radius: 10px;
     transition: 1s;
-  }
+}
   
   .navigation-auto div:not(:last-child){
     margin-right: 40px;
@@ -149,7 +197,7 @@ html, body {
 .lp-container {
     margin: 0 auto;
     width: 80%;
-    height: 400px;
+    height: 50vh;
     display:flex;
     box-sizing: border-box;
     background-image: white;
@@ -157,16 +205,15 @@ html, body {
 }
 
 .lp-box {
-    margin: 10px 10px;
+    margin: 0.25% 0.25%;
     width: 80%;
-    height: 375px;
-    display:flex;
+    height: 100%;
+    display: block;
     box-sizing: border-box;
     background-image: linear-gradient(to left, #a22402, #760c22, #340505);
     background: url(../images/buttons/slp-button.png);
     background-size: cover;
     color: white;
-    border-radius: 15px;
     cursor: pointer;
     position: relative;
     opacity: 75%;
@@ -175,20 +222,115 @@ html, body {
 
 .lp-box:hover {
     background-position: right;
-    background-color: #d3d3d3;
+    background-color: #d3d3d38b;
     transform: scale(1.025);
+    border-radius: 15px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.511);
     opacity: 100%;
     transition: 0.25s;
 }
 
+.lp-box:hover > .lp-content .icon-box p {
+    transform: translateY(0%);
+    opacity: 100%;
+}
+
+.lp-box:hover > h2 {
+    border-radius: 15px 15px 0px 0px;
+    transition: 0.25s;
+}
+
 .lp-box h2 {
-    font-size: 20px;
-    margin-top: 5%;
-    margin-left: 5%;
+    font-size: 17px;
+    text-align: center;
+    border-top: 2px orangered solid;
+    background: rgba(0, 0, 0, 0.65);
+    margin-bottom: 5%;
     position: relative;
 }
 
+.lp-box h3 {
+    margin-top: 5%;
+    margin-left: 5%;
+    padding: 5px;
+    position: relative;
+}
+
+.lp-content {
+    margin-left: 5%;
+    width: 90%;
+    height: 80%;
+    display: block;
+    box-sizing: border-box;
+    background-image: linear-gradient(black, rgb(27, 27, 27));
+    background-size: cover;
+    color: white;
+    font-size: 13px;
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.25s;
+}
+
+.lp-content h2 {
+    margin: 2% 2%;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.lp-content .term-module-list {
+    width: 95%;
+    height: 85%;
+    display: block;
+    overflow-y: scroll;
+}
+
+.lp-content li {
+    margin: 5px 5px;
+    padding: 5px;
+    width: 95%;
+    height: auto;
+    opacity: 100%;
+    display: block;
+    box-sizing: border-box;
+    border-left: 5px orangered solid;
+    background-image: linear-gradient(rgb(27, 27, 27), rgb(45, 45, 45));
+    background-size: cover;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.25s;
+}
+
+.lp-content li a {
+    padding: 5px;
+}
+
+#lpc-cm, #lpc-ac  {
+    display: block;
+    padding: 2%;
+    border-radius: 0px;
+    text-align: center;
+    background: none;
+    margin: 5px 5px;
+    font-size: 15px;
+}
+
+.icon-box > p, .icon-box > p  {
+    opacity: 0%;
+    transform: translateY(150%);
+    transition: transform 0.25s;
+}
+
+#lpc-cm .icon-box, #lpc-ac .icon-box {
+    margin-top: 10px;
+}
+
+#lpc-cm i, #lpc-ac i {
+    font-size: 60px;
+    align-items: center;
+}
 .lp-box a {
     position: relative;
     border-radius: 5px;
@@ -421,6 +563,10 @@ label #cancel {
     left: 250px;
     opacity: 0;
     pointer-events: none;
+}
+
+#check:checked ~ #overlay {
+    display: block;
 }
 
 #check:checked ~ label #cancel {
