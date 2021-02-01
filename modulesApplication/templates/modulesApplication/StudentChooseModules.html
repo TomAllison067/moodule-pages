@@ -59,6 +59,27 @@
 
     <div class="section">
       <div class="middle">
+
+
+
+
+
+
+        <h1>Module Choice Form</h1>
+        <!--{# module_summaries refer to the dictionary passed through with the render request #}-->
+        <p>Please select your degree strand: <br>
+          <select name="strand" id="strand_filter" class="dropdown">
+            <option value=0>Select Strand</option>
+          </select>
+        </p>
+
+        <br><h2>Your Year 1 options:</h2>
+
+
+
+
+
+
       </div>
     </div>
   </div>
@@ -85,3 +106,32 @@
 </div>
 
 </html>
+
+<script>
+  //filtering by year
+    const strands = {"Artificial Intelligence": "AI", "Information Security": "AI", "Software Engineering": "SE", "DNS": "DNS"};
+    window.onload = function () {
+        const strandSel = document.getElementById("strand_filter");
+        let s = 0;
+
+        for (const x in strands) {
+            strandSel.options[strandSel.options.length] = new Option(x, x);
+        }
+
+        strandSel.onchange = function () {
+            s = strands[this.value]
+            location.href = '/student/all-modules/sort/' + s; //TO BE EDITED
+
+        }
+    }
+</script>
+
+<style>
+  .dropdown{
+    color:black !important;
+  }
+
+  option{
+    color:black !important;
+  }
+</style>
