@@ -7,10 +7,9 @@
   <title>moodule | Student Homepage</title>
   <meta name="description" content="TBD">
   <meta name="author" content="TBD">
-  <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/style.css' %}">
+  <link rel= "stylesheet" type="text/css" href="../../static/modulesApplication/css/style.css">
+  <link rel= "stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
 </head>
 
 <body>
@@ -24,12 +23,12 @@
     <!-- SIDEBAR MENU -->
     <div class="sidebar">
       <header>
-        <img class="mainlogo" src="images/mlogo.png" alt="logo">
+        <img class="mainlogo" src="../../static/modulesApplication/css/images/mlogo.png" alt="logo">
       </header>
       <ul>
         <li><a href="#" class="btn"><i class="fas fa-home"></i>home</a></li>
         <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
-        <li><a href="#" class="btn"><i class="fas fa-book-open"></i>all courses</a></li>
+        <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all courses</a></li>
         <li><a href="#" class="btn"><i class="fas fa-book"></i>courses by year</a></li>
       </ul>
     </div>

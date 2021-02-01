@@ -1,68 +1,110 @@
 <style>
     .accordion {
-      background-color: #eee;
-      color: #444;
-      cursor: pointer;
-      padding: 18px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-      transition: 0.4s;
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
     }
-    
-    .active, .accordion:hover {
-      background-color: #ccc;
-    }
-    
-    .panel {
-      padding: 0 18px;
-      display: none;
-      background-color: white;
-      overflow: hidden;
-    }
-    </style>
-    
-    
-    <body>
-        <h1>MODULES IN YEAR 2</h1>
-        <h1>Message to Designers:</h1>
-    <ul>
-        <li>This page just gives some extra information for all of the modules.</li>
-        <li>If you're feeling brave, implementing a search feature and/or formatting the data in the accordion is perfectly fine and no one else will really be working on this page.</li>
-        <li>Note that V already has style tags within this .html for the accordion. Perhaps be wary of how you'll work around this.</li>
-        <li>Don't forget minor things like a back button, or a logo that links to the home/landing page.</li>
-        <li>By the way, the accordion animation that Vellita put in the script tags doesn't work. Worth having a look at.</li>
-    </ul>
-        {# module_summaries refer to the dictionary passed through with the render request #}
-        {% if module_summaries %}
-            <ul>
-            {% for module in module_summaries %}
-                <button class="accordion">{{ module.module_code }}</button>
-                <div class="panel">{{ module.summary }}</div>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <p>No polls are available.</p>
-        {% endif %}
-    </body>
-    
-    {# this script is for the accoridion animation to show the summaries#}
 
-    <script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-    
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
-        } else {
-          panel.style.display = "block";
-        }
-      });
+    .active,
+    .accordion:hover {
+        background-color: #ccc;
     }
-    </script>
+
+    .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: white;
+        overflow: hidden;
+    }
+</style>
+
+
+<body>
+<h1>Modules</h1>
+{# module_summaries refer to the dictionary passed through with the render request #}
+<p>Filter: <select name="year" id="year_filter">
+    <option value=0>Select Year</option>
+</select></p>
+
+
+{% if module_summaries %}
+    <ul>
+        {% for year, modules in module_summaries.items %}
+            <h2>Year {{ year|add:"-3" }}</h2>
+            {% for module in modules %}
+                <button class="accordion">{{ module.module_code }} - {{ module.title }}</button>
+                <div class="panel" disabled="False" id="module">
+                    <h4>Summary</h4>
+                    <p>{{ module.summary }}</p>
+                    <button onclick="myFunction('{{ module.module_code }}')">Click Me</button>
+                    <div class="{{ module.module_code }}" style="display: none;">
+                        <h4>Learning Outcomes</h4>
+                        <p>{{ module.learning_outcomes }}</p>
+                        <h4>Recommended Reading</h4>
+                        <p>{{ module.recommended_reading }}</p>
+                        <h4>Exam Format</h4>
+                        <p>{{ module.exam_format }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+</body>
+
+{# this script is for the accoridion animation to show the summaries#}
+
+<script>
+    // Display/hide extra info
+    function myFunction(mod_code) {
+    let x = document.getElementsByClassName(mod_code)[0]
+    console.log("Clicked " + mod_code);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+
+    //filtering by year
+    const years = {"All Modules": 0, "Year 1": 1, "Year 2": 2, "Year 3": 3, "Year 4": 4};
+    window.onload = function () {
+        const yearSel = document.getElementById("year_filter");
+        let y = 0;
+
+        for (const x in years) {
+            yearSel.options[yearSel.options.length] = new Option(x, x);
+        }
+
+        yearSel.onchange = function () {
+            y = years[this.value]
+            location.href = '/student/all-modules/sort/' + y;
+
+        }
+    }
+</script>

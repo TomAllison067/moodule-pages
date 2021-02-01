@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Yantramanav:wght@900');
 
-/* GENERAL - put in this section if there are repeated elements for the pages */
+/* General - put in this section if there are repeated elements for the pages */
 html, body {
     background-color: #222;
     margin: 0;
@@ -17,12 +17,11 @@ html, body {
     list-style: none;
     text-decoration: none;
     
-    color: white;
+    color: black;
     background-size: cover;
     font-family: 'Nunito', sans-serif;
     height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: auto;
 }
 
 * {
@@ -33,315 +32,11 @@ html, body {
     color: white;
 }
 
-/* WRAPPER */
-
 .page-wrapper {
    min-height: 100%;
 }
 
-#overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.75);
-    filter: blur(5px);
-    z-index: 5;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-#overlay:active {
-    display: none;
-}
-
-/* SLIDER */
-
-.slider{
-    position: relative;
-    width: 100%;
-    height: 300px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-  
-.slides{
-    position: relative;  
-    width: 600%;
-    height: 100%;
-    display: flex;
-}
-
-.slides input{
-    display: none;
-}
-
-.slide{
-    width: 20%;
-    margin-left: 0;
-    margin-right: 0;
-    transition: 2s;
-}
-
-.slide-content {
-    position: relative;
-    color: black;
-    margin-top: 0px;
-    padding: 60px;
-    display: block;
-    height: 50%;
-    width: 75%;
-}
-
-.slide-content h2 {
-    padding: 5px;
-    color: white;
-    background: #303036;
-    border-top: 5px orangered solid;
-}
-
-.slide-content p {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 7px;
-    border-left: 5px orangered solid;
-    color: white;
-    width: 90%;
-}
-
-
-.slide img{
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    filter: blur(10px);
-}
-
-/*css for manual slide navigation*/
-
-.navigation-manual{
-    position: absolute;
-    width: 100%;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-}
-
-.manual-btn{
-    border: 2px solid orangered;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.manual-btn:not(:last-child){
-    margin-right: 40px;
-}
-
-.manual-btn:hover{
-    background: orangered;
-}
-
-#radio1:checked ~ .first{
-    margin-left: 0;
-}
-
-#radio2:checked ~ .first{
-    margin-left: -20%;
-}
-
-#radio3:checked ~ .first{
-    margin-left: -40%;
-}
-
-/*css for automatic navigation*/
-
-.navigation-auto{
-    position: absolute;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-top: 460px;
-}
-
-.navigation-auto div{
-    border: 2px solid orangered;
-    padding: 5px;
-    border-radius: 10px;
-    transition: 1s;
-}
-  
-  .navigation-auto div:not(:last-child){
-    margin-right: 40px;
-  }
-  
-  #radio1:checked ~ .navigation-auto .auto-btn1{
-    background: orangered;
-  }
-  
-  #radio2:checked ~ .navigation-auto .auto-btn2{
-    background: orangered;
-  }
-  
-  #radio3:checked ~ .navigation-auto .auto-btn3{
-    background: orangered;
-  }
-
-/* BOXES */
-
-.lp-container {
-    margin: 0 auto;
-    width: 80%;
-    height: 50vh;
-    display:flex;
-    box-sizing: border-box;
-    background-image: white;
-    position: relative;
-}
-
-.lp-box {
-    margin: 0.25% 0.25%;
-    width: 80%;
-    height: 100%;
-    display: block;
-    box-sizing: border-box;
-    background-image: linear-gradient(to left, #a22402, #760c22, #340505);
-    background: url(../images/buttons/slp-button.png);
-    background-size: cover;
-    color: white;
-    cursor: pointer;
-    position: relative;
-    opacity: 75%;
-    transition: 0.25s;
-}
-
-.lp-box:hover {
-    background-position: right;
-    background-color: #d3d3d38b;
-    transform: scale(1.025);
-    border-radius: 15px;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.511);
-    opacity: 100%;
-    transition: 0.25s;
-}
-
-.lp-box:hover > .lp-content .icon-box p {
-    transform: translateY(0%);
-    opacity: 100%;
-}
-
-.lp-box:hover > h2 {
-    border-radius: 15px 15px 0px 0px;
-    transition: 0.25s;
-}
-
-.lp-box h2 {
-    font-size: 17px;
-    text-align: center;
-    border-top: 2px orangered solid;
-    background: rgba(0, 0, 0, 0.65);
-    margin-bottom: 5%;
-    position: relative;
-}
-
-.lp-box h3 {
-    margin-top: 5%;
-    margin-left: 5%;
-    padding: 5px;
-    position: relative;
-}
-
-.lp-content {
-    margin-left: 5%;
-    width: 90%;
-    height: 80%;
-    display: block;
-    box-sizing: border-box;
-    background-image: linear-gradient(black, rgb(27, 27, 27));
-    background-size: cover;
-    color: white;
-    font-size: 13px;
-    border-radius: 15px;
-    cursor: pointer;
-    position: relative;
-    transition: 0.25s;
-}
-
-.lp-content h2 {
-    margin: 2% 2%;
-    font-size: 15px;
-    padding: 5px;
-}
-
-.lp-content .term-module-list {
-    width: 95%;
-    height: 85%;
-    display: block;
-    overflow-y: scroll;
-}
-
-.lp-content li {
-    margin: 5px 5px;
-    padding: 5px;
-    width: 95%;
-    height: auto;
-    opacity: 100%;
-    display: block;
-    box-sizing: border-box;
-    border-left: 5px orangered solid;
-    background-image: linear-gradient(rgb(27, 27, 27), rgb(45, 45, 45));
-    background-size: cover;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    transition: 0.25s;
-}
-
-.lp-content li a {
-    padding: 5px;
-}
-
-#lpc-cm, #lpc-ac  {
-    display: block;
-    padding: 2%;
-    border-radius: 0px;
-    text-align: center;
-    background: none;
-    margin: 5px 5px;
-    font-size: 15px;
-}
-
-.icon-box > p, .icon-box > p  {
-    opacity: 0%;
-    transform: translateY(150%);
-    transition: transform 0.25s;
-}
-
-#lpc-cm .icon-box, #lpc-ac .icon-box {
-    margin-top: 10px;
-}
-
-#lpc-cm i, #lpc-ac i {
-    font-size: 60px;
-    align-items: center;
-}
-.lp-box a {
-    position: relative;
-    border-radius: 5px;
-    width: 100%;
-    height: auto;
-    top: 0;
-    left: 0;
-    display: block;
-}
-
-/* SCROLLBAR */ 
+/* Scrollbar */ 
 ::-webkit-scrollbar {
     width: 10px;
     z-index: 1000;
@@ -357,7 +52,7 @@ html, body {
     border-radius: 10px;
 }
 
-/* FOOTER */
+/* Footer */
 
 .footer {
     background: #303036;
@@ -367,7 +62,7 @@ html, body {
     font-size: 12px;
 }
 
-.footer .row {
+.footer .footer-content {
     border-top: 2px solid orangered;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -376,7 +71,7 @@ html, body {
     padding: 10px;
 }
 
-.footer .col {
+.footer .footer-item {
     padding: 5px;
     text-align: center;
 }
@@ -393,7 +88,7 @@ html, body {
 
 }
 
-/* MAIN PAGE COMPONENTS - section for CSS of index.html */
+/* Main page components - section for CSS of index.html */
 .topbar {
     width: calc(100% - 10px);
     height: 40px;
@@ -414,23 +109,10 @@ html, body {
     font-family: 'Yantramanav', sans-serif;
 }
 
-.avatar {
-    width: 30px;
-    height: 30px;
-    margin-top: 5px;
-    float: right;
-    margin-right: 10px;
-    object-fit: contain;
-    background-image: linear-gradient(orangered, orange);
-    left: calc(50% - 50px);
-    border-radius: 50%;
-}
-
 .search-box {
     position: absolute;
     top: 17px;
     right: 0px;
-    float: right;
     transform: translate(-50%, -50%);
     background: #2f3640;
     color: #d85f26;
@@ -476,7 +158,7 @@ html, body {
     top: 40px;
     width: 250px;
     height: 100%;
-    background: orangered;
+    background: #d85f26;
     transition: all .25s ease;
     z-index: 5;
 }
@@ -496,10 +178,8 @@ html, body {
     top: -20px;
     left: calc(50% - 50px);
     border-radius: 2%;
-    filter:contrast(200%);
 }
 
-/* */
 .sidebar ul a {
     display: block;
     height: 100%;
@@ -522,8 +202,6 @@ ul li:hover a{
 .sidebar ul a i{
     margin-right: 16px;
 }
-
-/* */
 
 #check {
     display: none;
@@ -565,10 +243,6 @@ label #cancel {
     pointer-events: none;
 }
 
-#check:checked ~ #overlay {
-    display: block;
-}
-
 #check:checked ~ label #cancel {
     left: 25px;
     opacity: 50%;
@@ -605,11 +279,10 @@ section {
     overflow: hidden;
 }
 
-/* */
 .btn {
     display: block;
     padding: 16px 20px;
-    background: orangered;
+    background: #d85f26;
     color: white;
     position: relative;
 }
@@ -619,7 +292,7 @@ section {
     position: absolute;
     width: 14px;
     height: 14px;
-    background: orangered;
+    background:#d85f26;
     left: 20px;
     bottom: -7px;
     transform: rotate(45deg);
@@ -629,7 +302,6 @@ section {
     margin-right: 10px;
 }
 
-/* */
 .content {
     background: #333;
     color: white;
