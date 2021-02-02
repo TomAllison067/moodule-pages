@@ -6,12 +6,14 @@ from unittest.mock import patch
 from django.core.management import call_command
 from django.test import TestCase
 
-from modulesApplication.models import Module, Strands
+from modulesApplication.models import Module, Strands, Programme
+from modulesApplication.tests.resources import expected
 
-MODULES_CSV_COUNT = 113  # The number of modules to be imported from the csv
-STRANDS_CSV_COUNT = 40  # The number of strands to be imported from the csv - 43 minus 3 with non-existing modules = 40
-IMPORT_SUCCESS_MESSAGE = "Imported {} modules and {} strands successfully.\n"\
-    .format(MODULES_CSV_COUNT, STRANDS_CSV_COUNT)
+EXPECTED_MODULES = expected.EXPECTED_MODULES
+EXPECTED_PROGRAMMES = expected.EXPECTED_PROGRAMMES  # The number of programmes in the exported sqlite3 table
+EXPECTED_STRANDS = expected.EXPECTED_STRANDS  # How many strands are in the csv
+IMPORT_SUCCESS_MESSAGE = "Imported {} modules, {} strands and {} degree programmes successfully.\n"\
+    .format(EXPECTED_MODULES, EXPECTED_STRANDS, EXPECTED_PROGRAMMES)
 
 
 class TestCustomCommands(TestCase):
@@ -23,6 +25,7 @@ class TestCustomCommands(TestCase):
         """
         output = StringIO()
         call_command('import_test_data', stdout=output)
-        self.assertEqual(MODULES_CSV_COUNT, Module.objects.count())
-        self.assertEqual(STRANDS_CSV_COUNT, Strands.objects.count())
+        self.assertEqual(EXPECTED_MODULES, Module.objects.count())
+        self.assertEqual(EXPECTED_STRANDS, Strands.objects.count())
+        self.assertEqual(EXPECTED_PROGRAMMES, Programme.objects.count())
         self.assertEqual(IMPORT_SUCCESS_MESSAGE, output.getvalue())

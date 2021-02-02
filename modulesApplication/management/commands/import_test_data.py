@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 
 from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.models import Module, Strands
+from modulesApplication.models import Module, Strands, Programme
 
 
 def clear_database():
@@ -10,6 +10,7 @@ def clear_database():
     """
     Strands.objects.all().delete()
     Module.objects.all().delete()
+    Programme.objects.all().delete()
 
 
 class Command(BaseCommand):
@@ -39,9 +40,18 @@ class Command(BaseCommand):
                 csv_strands.remove(strand)
         Strands.objects.bulk_create(csv_strands)
 
+    def insert_programmes(self):
+        programmes = self.cr.read_table_partial(
+            filepath="modulesApplication/tests/resources/programmes.csv",
+            model_class=Programme
+        )
+        Programme.objects.bulk_create(programmes)
+
     def handle(self, *args, **options):
         clear_database()
         self.insert_modules()
         self.insert_strands()
-        output = "Imported {} modules and {} strands successfully.".format(Module.objects.count(), Strands.objects.count())
+        self.insert_programmes()
+        output = "Imported {} modules, {} strands and {} degree programmes successfully."\
+            .format(Module.objects.count(), Strands.objects.count(), Programme.objects.count())
         self.stdout.write(output)
