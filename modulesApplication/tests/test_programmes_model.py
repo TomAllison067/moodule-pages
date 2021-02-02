@@ -41,3 +41,28 @@ class TestProgrammes(TransactionTestCase):
         with self.assertRaises(IntegrityError):
             Programme.objects.create(prog_code="5678", title="CompSci", level="BSC")
             self.fail("IntegrityError not raised for duplicate programme title.")
+
+    def test_valid_degree_levels_at_database(self):
+        """Test that valid degree levels are saved successfully, and that invalid ones are not.
+        Checked at the database level."""
+        with self.assertRaises(IntegrityError):
+            Programme.objects.create(prog_code="1234", title="CompSci", level="foo")
+            self.fail("IntegrityError not raised for invalid degree title.")
+        self.assertEqual(0, Programme.objects.count())
+        Programme.objects.create(prog_code="1234", title="CompSci", level="bsc")
+        Programme.objects.create(prog_code="5678", title="MastersDegree", level="msci")
+        self.assertEqual(2, Programme.objects.count())
+
+    def test_valid_degree_levels_at_model(self):
+        """Tests that programmes saved at the model/form level have valid degree levels. Objects saved
+        via a ModelForm are subjected to clean(), so this method tests that."""
+        p1 = Programme(prog_code="1234", title="CompSci", level="foo")
+        with self.assertRaises(ValidationError):
+            p1.clean()
+            self.fail("ValidationError not called on invalid degree level.")
+        p1.level = "bsc"
+        p1.clean()
+        p1.level = "msci"
+        p1.clean()
+        p1.save()
+        self.assertEqual(1, Programme.objects.count())

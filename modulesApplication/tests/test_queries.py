@@ -1,3 +1,5 @@
+from io import StringIO
+
 from django.core.management import call_command
 from django.test import TransactionTestCase
 
@@ -18,7 +20,8 @@ class TestQueries(TransactionTestCase):
         :return:
         """
         # Load the test data
-        call_command('import_test_data')
+        output = StringIO()  # Silence the import success message for test purposes
+        call_command('import_test_data', stdout=output)
 
         # All the module codes referenced by the infosec strand
         infosec_strands_foreignkeys = set(Strands.objects.filter(strand="IS").values_list('module', flat=True))
