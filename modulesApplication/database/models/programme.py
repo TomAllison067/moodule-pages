@@ -1,3 +1,4 @@
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -11,5 +12,6 @@ class Programme(models.Model):
     file location: modulesApplication/resources/develop/models.py
     """
     prog_code = models.TextField(primary_key=True)
-    title = models.TextField()
+    title = models.TextField(unique=True)
     level = models.TextField()
+    yini = models.BooleanField(default=False)
