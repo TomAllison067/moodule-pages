@@ -1,0 +1,564 @@
+ucas_code,prog_code,hecos_code,title,level,yini,accreditation,involved_depts,options_text,progression_text,aims,outcomes,costs,fheq_level,status,duration,start_stage,specialisation
+G400,1067,"","BSc Computer Science",BSC,0,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you will take two further non-project CS2xxx or IY2xxx elective courses.
+In the <b>final year</b> you will take six further non-project CS3xxx or IY3xxx elective courses.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education, including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills.","knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications (K);
+understanding of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S);*
+problem identification, analysis and solution using critical assessment and reasoned argument (S);*
+taking responsibility for own learning and developing habits of reflection on that learning (S);*
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S);*
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S); *
+information handling and retrieval (including the use of libraries and computer technology) (S);*
+ability to work autonomously, and to demonstrate time management and organisational skills (S);*","There are no single associated costs greater than £50 per item on this degree programme.",4-6,ACTIVE,3,1,0
+G4G7,1059,"","BSc Computer Science (Artificial Intelligence)",BSC,0,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you will take two further non-project CS2XXX elective courses from the Artificial Intelligence (AI) strand.
+In the <b>third year</b> you will take six further non-project CS3XXX or IY3XXX elective courses, of which at least two must be from the Artificial Intelligence (AI) strand.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education, including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills.","knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications (K);
+understanding of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S);*
+problem identification, analysis and solution using critical assessment and reasoned argument (S);*
+taking responsibility for own learning and developing habits of reflection on that learning (S);*
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S);*
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S); *
+information handling and retrieval (including the use of libraries and computer technology) (S);*
+ability to work autonomously, and to demonstrate time management and organisational skills (S);*","There are no single associated costs greater than £50 per item on this degree programme.",4-6,ACTIVE,3,1,1
+G407,2675,"","BSc Computer Science (Information Security)",BSC,0,"GCHQ, British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.
+GCHQ provisionally certified programme - certification is only given if the student meets all degree programme conditions (e.g. takes, and where appropriate passes, the mandatory course units) as per the programme specification.",N/A,"In the <b>second year</b> you take one further non-project CS2XXX or IY2XXX elective course.
+In the <b>third year</b> you will take one further non-project IY3XXX elective course and two further CS3XXX or IY3XXX elective courses.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education, including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills.","knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications (K);
+understanding of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+an appreciation of the fundamental aspects of cyber security (K);
+an ability to identify and apply appropriate security controls (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S);*
+problem identification, analysis and solution using critical assessment and reasoned argument (S);*
+taking responsibility for own learning and developing habits of reflection on that learning (S);*
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S);*
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S); *
+information handling and retrieval (including the use of libraries and computer technology) (S);*
+ability to work autonomously, and to demonstrate time management and organisational skills (S);*","There are no single associated costs greater than £50 per item on this degree programme.",4-6,ACTIVE,3,1,1
+G464,2843,"","BSc Computer Science (Software Engineering)",BSC,0,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you take one further non-project CS2XXX or IY2XXX elective course.
+In the <b>third year</b> you will take four further CS3XXX or IY3XXX elective courses, of which at least two must be from the Software Engineering (SE) strand.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education, including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills.
+to produce graduates who can work effectively within teams;
+to produce graduates who understand how business value can be delivered to their customers through the software they develop.","knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications (K);
+understanding of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+an understanding of the principles of Software Engineering and the importance of good design (K);
+an understanding of how to work within a team in developing a significant software system (K);
+an understanding of the principles of information security and its context in Computer Science (K);
+an understanding of how to work within a small software company and deliver software within required user specifications (K);
+an understanding of how to provide appropriately costed software which delivers value to a customer (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S);*
+problem identification, analysis and solution using critical assessment and reasoned argument (S);*
+taking responsibility for own learning and developing habits of reflection on that learning (S);*
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S);*
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S); *
+information handling and retrieval (including the use of libraries and computer technology) (S);*
+ability to work autonomously, and to demonstrate time management and organisational skills (S);*
+manage small projects (S)","There are no single associated costs greater than £50 per item on this degree programme.",4-6,ACTIVE,3,1,1
+GG41,1069,"","BSc Computer Science and Mathematics",BSC,0,None,"Department of Mathematics","<b>Year 2 – Computer Science</b>
+In addition to the mandatory courses you must choose one further non-project CS2XXX or IY2XXX course
+<b>Year 2 – Mathematics</b>
+You must choose 30 credits of Mathematics courses (see Mathematics handbook for options)
+<b>Year 3- Computer Science</b>
+You must choose <b>either</b> CS3821 <b>or</b> CS3810
+<b>Plus</b>
+Two or three further non-project CS or IY elective courses – to a total of 60 credits of Computer Science, excluding CS3490 and CS3870.
+<b>Year 3 – Mathematics</b>You must choose 60 credits of Mathematics courses (see Mathematics handbook for options).","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.
+<b>Year in Industry</b> - A year out in industry (CS3001) may be taken between second and final year.
+Students on degree programmes with Year in Industry need to fulfil the requirements set out in the departmental Year in Industry Handbook in order to progress to the placement and be eligible for the degree title.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education, including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills.","knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications (K);
+understanding of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S);*
+problem identification, analysis and solution using critical assessment and reasoned argument (S);*
+taking responsibility for own learning and developing habits of reflection on that learning (S);*
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S);*
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S); *
+information handling and retrieval (including the use of libraries and computer technology) (S);*
+ability to work autonomously, and to demonstrate time management and organisational skills (S);*","There are no single associated costs greater than £50 per item on this degree programme.",4-6,ACTIVE,3,1,0
+G4N2,1062,"","BSc Computer Science with Management",BSC,0,None,N/A,"<b>Year 1 - Management</b>
+You must choose two out of MN1205, MN1305, MN1405 and MN1705 (one per term)
+<b>Year 2 – Computer Science</b>
+In addition to the mandatory courses you must choose one further non-project CS2XXX or IY2XXX course
+<b>Year 2 – Management</b>
+You must choose two out of MN2205, MN2305, MN2405, MN2705 (one per term)
+<b>Year 3- Computer Science</b>
+You must choose <b>either</b> CS3821 <b>or</b> CS3810
+<b>Plus</b>
+four or five further non-project CS3XXX or IY3XXX elective courses-to a total of 90 credits of Computer Science.
+<b>Year 3 – Management</b>
+You must choose 30 credits of Management courses (see Management handbook for options)","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.
+<b>Year in Industry</b> - A year out in industry (CS3001) may be taken between second and final year.
+Students on degree programmes with Year in Industry need to fulfil the requirements set out in the departmental Year in Industry Handbook in order to progress to the placement and be eligible for the degree title.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education, including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills.","knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications (K);
+understanding of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S);*
+problem identification, analysis and solution using critical assessment and reasoned argument (S);*
+taking responsibility for own learning and developing habits of reflection on that learning (S);*
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S);*
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S); *
+information handling and retrieval (including the use of libraries and computer technology) (S);*
+ability to work autonomously, and to demonstrate time management and organisational skills (S);*","There are no single associated costs greater than £50 per item on this degree programme.",4-6,DEFUNCT,3,1,0
+G403,2686,"","MSci Computer Science",MSCI,0,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you take two further non-project CS2XXX or IY2XXX elective courses.
+In the <b>third year</b> you will take eight non-project CS3XXX or IY3XXX elective courses.
+In the <b>final year</b> you will take four further non-project CS4XXX or IY4XXX elective courses.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop a mastery of computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+in a flexible and progressive structure, to develop students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an advanced understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education,  including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills;
+to develop an advanced understanding of knowledge and current awareness of current problems and/or new insights in the area of computing science research.","an advanced knowledge and understanding of the facts, concepts, principles and theories relating to computing and computer applications (K);
+mastery of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+a command of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S*);
+problem identification, analysis and solution using critical assessment and reasoned argument (S*);
+taking responsibility for own learning and developing habits of reflection on that learning (S*);
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S*);
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S*);
+information handling and retrieval (including the use of libraries and computer technology) (S*);
+ability to work autonomously, and to demonstrate time management and organisational skills (S*).","There are no single associated costs greater than £50 per item on this degree programme.",4-7,ACTIVE,4,1,0
+G402,2327,"","BSc Computer Science with a Year in Industry",BSC,1,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you will take two further non-project CS2xxx or IY2xxx elective courses.
+In the <b>final year</b> you will take six further non-project CS3xxx or IY3xxx elective courses.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.
+<b>Year in Industry</b>
+Students taking an industrial year take additional course CS3001 and thus have 150 credits in their final year.
+Students on degree programmes with Year in Industry need to fulfil the requirements set out in the departmental Year in Industry Handbook in order to progress to the placement and be eligible for the degree title.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education, including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills.","knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications (K);
+understanding of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+appreciation of the importance of computing and information technology for commerce and industry and an understanding of expected industry changes and the effects they will have (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S);*
+problem identification, analysis and solution using critical assessment and reasoned argument (S);*
+taking responsibility for own learning and developing habits of reflection on that learning (S);*
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S);*
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S); *
+information handling and retrieval (including the use of libraries and computer technology) (S);*
+ability to work autonomously, and to demonstrate time management and organisational skills (S);*
+ability to apply knowledge and skills in computing to large-scale practical applications (S);","There are no single associated costs greater than £50 per item on this degree programme.
+However, costs incurred by students while on a Year in Industry/Business vary depending on the nature and location of the placement. For further information please contact our Student Fees Office.",4-6,ACTIVE,4,1,0
+G404,2687,"","MSci Computer Science with a Year in Industry",MSCI,1,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you take two further non-project CS2XXX or IY2XXX elective courses.
+In the <b>third year</b> you will take eight non-project CS3XXX or IY3XXX elective courses.
+In the <b>final year</b> you will take four further non-project CS4XXX or IY4XXX elective courses.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.
+<b>Year in Industry</b>
+Students taking an industrial year take additional course CS4001 and thus have 150 credits in their final year.
+Students on degree programmes with Year in Industry need to fulfil the requirements set out in the departmental Year in Industry Handbook in order to progress to the placement and be eligible for the degree title.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop a mastery of computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+in a flexible and progressive structure, to develop students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an advanced understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education,  including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills;
+to develop an advanced understanding of knowledge and current awareness of current problems and/or new insights in the area of computing science research.","an advanced knowledge and understanding of the facts, concepts, principles and theories relating to computing and computer applications (K);
+mastery of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+a command of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+appreciation of the importance of computing and information technology for commerce and industry and an understanding of expected industry changes and the effects they will have (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S*);
+problem identification, analysis and solution using critical assessment and reasoned argument (S*);
+taking responsibility for own learning and developing habits of reflection on that learning (S*);
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S*);
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S*);
+information handling and retrieval (including the use of libraries and computer technology) (S*);
+ability to work autonomously, and to demonstrate time management and organisational skills (S*).
+ability to apply knowledge and skills in computing to large-scale practical applications (S);","There are no single associated costs greater than £50 per item on this degree programme.
+However, costs incurred by students while on a Year in Industry/Business vary depending on the nature and location of the placement. For further information please contact our Student Fees Office.",4-7,ACTIVE,5,1,0
+GG47,2673,"","MSci Computer Science (Artificial Intelligence)",MSCI,0,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you will take two further non-project CS2XXX elective courses from the Artificial Intelligence (AI) strand.
+In the <b>third year</b> you will take eight non-project CS3XXX or IY3XXX elective courses, of which at least two must be from the Artificial Intelligence (AI) strand.
+In the <b>final year</b> you will take four further non-project CS4XXX or IY4XXX elective courses, of which at least two must be from the Artificial Intelligence (AI) strand.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop a mastery of computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+in a flexible and progressive structure, to develop students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an advanced understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education,  including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills;
+to develop an advanced understanding of knowledge and current awareness of current problems and/or new insights in the area of computing science research.","an advanced knowledge and understanding of the facts, concepts, principles and theories relating to computing and computer applications (K);
+mastery of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+a command of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S*);
+problem identification, analysis and solution using critical assessment and reasoned argument (S*);
+taking responsibility for own learning and developing habits of reflection on that learning (S*);
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S*);
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S*);
+information handling and retrieval (including the use of libraries and computer technology) (S*);
+ability to work autonomously, and to demonstrate time management and organisational skills (S*).","There are no single associated costs greater than £50 per item on this degree programme.",4-7,ACTIVE,4,1,1
+G4G8,2446,"","BSc Computer Science (Artificial Intelligence) with a Year in Industry",BSC,1,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you will take two further non-project CS2XXX elective courses from the Artificial Intelligence (AI) strand.
+In the <b>third year</b> you will take six further non-project CS3XXX or IY3XXX elective courses, of which at least two must be from the Artificial Intelligence (AI) strand.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.
+<b>Year in Industry</b>
+Students taking an industrial year take additional course CS3001 and thus have 150 credits in their final year.
+Students on degree programmes with Year in Industry need to fulfil the requirements set out in the departmental Year in Industry Handbook in order to progress to the placement and be eligible for the degree title.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education, including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills.","knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications (K);
+understanding of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+appreciation of the importance of computing and information technology for commerce and industry and an understanding of expected industry changes and the effects they will have (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S);*
+problem identification, analysis and solution using critical assessment and reasoned argument (S);*
+taking responsibility for own learning and developing habits of reflection on that learning (S);*
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S);*
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S); *
+information handling and retrieval (including the use of libraries and computer technology) (S);*
+ability to work autonomously, and to demonstrate time management and organisational skills (S);*
+ability to apply knowledge and skills in computing to large-scale practical applications (S);","There are no single associated costs greater than £50 per item on this degree programme.
+However, costs incurred by students while on a Year in Industry/Business vary depending on the nature and location of the placement. For further information please contact our Student Fees Office.",4-6,ACTIVE,4,1,1
+GG74,2674,"","MSci Computer Science (Artificial Intelligence) with a Year in Industry",MSCI,1,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you will take two further non-project CS2XXX elective courses from the Artificial Intelligence (AI) strand.
+In the <b>third year</b> you will take eight non-project CS3XXX or IY3XXX elective courses, of which at least two must be from the Artificial Intelligence (AI) strand.
+In the <b>final year</b> you will take four further non-project CS4XXX or IY4XXX elective courses, of which at least two must be from the Artificial Intelligence (AI) strand.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.
+<b>Year in Industry</b>
+Students taking an industrial year take additional course CS4001 and thus have 150 credits in their final year.
+Students on degree programmes with Year in Industry need to fulfil the requirements set out in the departmental Year in Industry Handbook in order to progress to the placement and be eligible for the degree title.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop a mastery of computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+in a flexible and progressive structure, to develop students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an advanced understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education,  including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills;
+to develop an advanced understanding of knowledge and current awareness of current problems and/or new insights in the area of computing science research.","an advanced knowledge and understanding of the facts, concepts, principles and theories relating to computing and computer applications (K);
+mastery of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+a command of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+appreciation of the importance of computing and information technology for commerce and industry and an understanding of expected industry changes and the effects they will have (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S*);
+problem identification, analysis and solution using critical assessment and reasoned argument (S*);
+taking responsibility for own learning and developing habits of reflection on that learning (S*);
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S*);
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S*);
+information handling and retrieval (including the use of libraries and computer technology) (S*);
+ability to work autonomously, and to demonstrate time management and organisational skills (S*).
+ability to apply knowledge and skills in computing to large-scale practical applications (S);","There are no single associated costs greater than £50 per item on this degree programme.
+However, costs incurred by students while on a Year in Industry/Business vary depending on the nature and location of the placement. For further information please contact our Student Fees Office.",4-7,ACTIVE,5,1,1
+G500,2677,"","MSci Computer Science (Information Security)",MSCI,0,"GCHQ, British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.
+GCHQ provisionally certified programme - certification is only given if the student meets all degree programme conditions (e.g. takes, and where appropriate passes, the mandatory course units) as per the programme specification.",N/A,"In the <b>second year</b> you take one further non-project CS2XXX or IY2XXX elective course.
+In the <b>third year</b> you will take six further non-project CS3XXX or IY3XXX elective courses, with a maximum of two from the Information Security (IS) strand.
+In the <b>final year</b> you will take one further non-project CS4XXX or IY4XXX elective course.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop a mastery of computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+in a flexible and progressive structure, to develop students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an advanced understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education,  including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills;
+to develop an advanced understanding of knowledge and current awareness of current problems and/or new insights in the area of computing science research.","an advanced knowledge and understanding of the facts, concepts, principles and theories relating to computing and computer applications (K);
+mastery of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+a command of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+a command of the fundamental aspects of cyber security (K);
+a mastery of the identification and appropriate application of security controls (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S*);
+problem identification, analysis and solution using critical assessment and reasoned argument (S*);
+taking responsibility for own learning and developing habits of reflection on that learning (S*);
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S*);
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S*);
+information handling and retrieval (including the use of libraries and computer technology) (S*);
+ability to work autonomously, and to demonstrate time management and organisational skills (S*).","There are no single associated costs greater than £50 per item on this degree programme.",4-7,ACTIVE,4,1,1
+G406,2676,"","BSc Computer Science (Information Security) with a Year in Industry",BSC,1,"GCHQ, British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.
+GCHQ provisionally certified programme - certification is only given if the student meets all degree programme conditions (e.g. takes, and where appropriate passes, the mandatory course units) as per the programme specification.",N/A,"In the <b>second year</b> you take one further non-project CS2XXX or IY2XXX elective course.
+In the <b>third year</b> you will take one further non-project IY3XXX elective course and two further CS3XXX or IY3XXX elective courses.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.
+<b>Year in Industry</b>
+Students taking an industrial year take additional course CS3001 and thus have 150 credits in their final year.
+Students on degree programmes with Year in Industry need to fulfil the requirements set out in the departmental Year in Industry Handbook in order to progress to the placement and be eligible for the degree title.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education, including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills.","knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications (K);
+understanding of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+an appreciation of the fundamental aspects of cyber security (K);
+an ability to identify and apply appropriate security controls (K);
+appreciation of the importance of computing and information technology for commerce and industry and an understanding of expected industry changes and the effects they will have (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S);*
+problem identification, analysis and solution using critical assessment and reasoned argument (S);*
+taking responsibility for own learning and developing habits of reflection on that learning (S);*
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S);*
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S); *
+information handling and retrieval (including the use of libraries and computer technology) (S);*
+ability to work autonomously, and to demonstrate time management and organisational skills (S);*
+ability to apply knowledge and skills in computing to large-scale practical applications (S);","There are no single associated costs greater than £50 per item on this degree programme.
+However, costs incurred by students while on a Year in Industry/Business vary depending on the nature and location of the placement. For further information please contact our Student Fees Office.",4-6,ACTIVE,4,1,1
+G502,2678,"","MSci Computer Science (Information Security) with a Year in Industry",MSCI,1,"GCHQ, British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.
+GCHQ provisionally certified programme - certification is only given if the student meets all degree programme conditions (e.g. takes, and where appropriate passes, the mandatory course units) as per the programme specification.",N/A,"In the <b>second year</b> you take one further non-project CS2XXX or IY2XXX elective course.
+In the <b>third year</b> you will take six further non-project CS3XXX or IY3XXX elective courses, with a maximum of two from the Information Security (IS) strand.
+In the <b>final year</b> you will take one further non-project CS4XXX or IY4XXX elective course.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.
+<b>Year in Industry</b>
+Students taking an industrial year take additional course CS4001 and thus have 150 credits in their final year.
+Students on degree programmes with Year in Industry need to fulfil the requirements set out in the departmental Year in Industry Handbook in order to progress to the placement and be eligible for the degree title.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop a mastery of computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+in a flexible and progressive structure, to develop students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an advanced understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education,  including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills;
+to develop an advanced understanding of knowledge and current awareness of current problems and/or new insights in the area of computing science research.","an advanced knowledge and understanding of the facts, concepts, principles and theories relating to computing and computer applications (K);
+mastery of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+a command of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+a command of the fundamental aspects of cyber security (K);
+a mastery of the identification and appropriate application of security controls (K);
+appreciation of the importance of computing and information technology for commerce and industry and an understanding of expected industry changes and the effects they will have (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S*);
+problem identification, analysis and solution using critical assessment and reasoned argument (S*);
+taking responsibility for own learning and developing habits of reflection on that learning (S*);
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S*);
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S*);
+information handling and retrieval (including the use of libraries and computer technology) (S*);
+ability to work autonomously, and to demonstrate time management and organisational skills (S*).
+ability to apply knowledge and skills in computing to large-scale practical applications (S);","There are no single associated costs greater than £50 per item on this degree programme.
+However, costs incurred by students while on a Year in Industry/Business vary depending on the nature and location of the placement. For further information please contact our Student Fees Office.",4-7,ACTIVE,5,1,1
+G461,2845,"","MSci Computer Science (Software Engineering)",MSCI,0,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you take one further non-project CS2XXX or IY2XXX elective course.
+In the <b>third year</b> you will take four further non-project CS3XXX or IY3XXX elective courses, of which at least two must be from the Software Engineering (SE) strand.
+In the <b>final year</b> you will take four further non-project CS4XXX or IY4XXX elective courses.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop a mastery of computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+in a flexible and progressive structure, to develop students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an advanced understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education,  including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills;
+to develop an advanced understanding of knowledge and current awareness of current problems and/or new insights in the area of computing science research.
+to produce graduates who can work effectively within teams;
+to produce graduates who understand how business value can be delivered to their customers through the software they develop.
+to produce graduates who can understand and work within a small company;","an advanced knowledge and understanding of the facts, concepts, principles and theories relating to computing and computer applications (K);
+mastery of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+a command of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+an advanced understanding of the principles of Software Engineering and the importance of good design (K);
+an advanced understanding of how to work within a team in developing a significant software system (K);
+an understanding of the principles of information security and its context in Computer Science (K);
+a mastery of how to work within a small software company and deliver software within required user specifications (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S*);
+problem identification, analysis and solution using critical assessment and reasoned argument (S*);
+taking responsibility for own learning and developing habits of reflection on that learning (S*);
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S*);
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S*);
+information handling and retrieval (including the use of libraries and computer technology) (S*);
+ability to work autonomously, and to demonstrate time management and organisational skills (S*).
+an ability to apply the practical and analytical skills present in the programme as a whole (K);
+show awareness of wider customer contexts and the identification of problems that such contexts might deliver (K);
+exhibit the ability to work co-operatively to deliver a significant piece of work (K);
+exhibit critical self evaluation of the process (K);
+manage small projects (S)","There are no single associated costs greater than £50 per item on this degree programme.",4-7,ACTIVE,4,1,1
+G462,2844,"","BSc Computer Science (Software Engineering) with a Year in Industry",BSC,1,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you take one further non-project CS2XXX or IY2XXX elective course.
+In the <b>third year</b> you will take four further CS3XXX or IY3XXX elective courses, of which at least two must be from the Software Engineering (SE) strand.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.
+<b>Year in Industry</b>
+Students taking an industrial year take additional course CS3001 and thus have 150 credits in their final year.
+Students on degree programmes with Year in Industry need to fulfil the requirements set out in the departmental Year in Industry Handbook in order to progress to the placement and be eligible for the degree title.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education, including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills.
+to produce graduates who can work effectively within teams;
+to produce graduates who understand how business value can be delivered to their customers through the software they develop.","knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications (K);
+understanding of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+an understanding of the principles of Software Engineering and the importance of good design (K);
+an understanding of how to work within a team in developing a significant software system (K);
+an understanding of the principles of information security and its context in Computer Science (K);
+an understanding of how to work within a small software company and deliver software within required user specifications (K);
+an understanding of how to provide appropriately costed software which delivers value to a customer (K);
+appreciation of the importance of computing and information technology for commerce and industry and an understanding of expected industry changes and the effects they will have (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S);*
+problem identification, analysis and solution using critical assessment and reasoned argument (S);*
+taking responsibility for own learning and developing habits of reflection on that learning (S);*
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S);*
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S); *
+information handling and retrieval (including the use of libraries and computer technology) (S);*
+ability to work autonomously, and to demonstrate time management and organisational skills (S);*
+manage small projects (S)
+ability to apply knowledge and skills in computing to large-scale practical applications (S);","There are no single associated costs greater than £50 per item on this degree programme.
+However, costs incurred by students while on a Year in Industry/Business vary depending on the nature and location of the placement. For further information please contact our Student Fees Office.",4-6,ACTIVE,4,1,1
+G463,2846,"","MSci Computer Science (Software Engineering) with a Year in Industry",MSCI,1,"British Computer Society (BCS), and European Quality Assurance Network for Informatics Education (EQANIE).
+To comply with British Computer Society and EQANIE accreditation requirements students must successfully complete the degree programme and pass the final year project.",N/A,"In the <b>second year</b> you take one further non-project CS2XXX or IY2XXX elective course.
+In the <b>third year</b> you will take four further non-project CS3XXX or IY3XXX elective courses, of which at least two must be from the Software Engineering (SE) strand.
+In the <b>final year</b> you will take four further non-project CS4XXX or IY4XXX elective courses.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.
+<b>Year in Industry</b>
+Students taking an industrial year take additional course CS4001 and thus have 150 credits in their final year.
+Students on degree programmes with Year in Industry need to fulfil the requirements set out in the departmental Year in Industry Handbook in order to progress to the placement and be eligible for the degree title.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop a mastery of computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+in a flexible and progressive structure, to develop students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an advanced understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education,  including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills;
+to develop an advanced understanding of knowledge and current awareness of current problems and/or new insights in the area of computing science research.
+to produce graduates who can work effectively within teams;
+to produce graduates who understand how business value can be delivered to their customers through the software they develop.
+to produce graduates who can understand and work within a small company;","an advanced knowledge and understanding of the facts, concepts, principles and theories relating to computing and computer applications (K);
+mastery of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+a command of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+an advanced understanding of the principles of Software Engineering and the importance of good design (K);
+an advanced understanding of how to work within a team in developing a significant software system (K);
+an understanding of the principles of information security and its context in Computer Science (K);
+a mastery of how to work within a small software company and deliver software within required user specifications (K);
+appreciation of the importance of computing and information technology for commerce and industry and an understanding of expected industry changes and the effects they will have (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S*);
+problem identification, analysis and solution using critical assessment and reasoned argument (S*);
+taking responsibility for own learning and developing habits of reflection on that learning (S*);
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S*);
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S*);
+information handling and retrieval (including the use of libraries and computer technology) (S*);
+ability to work autonomously, and to demonstrate time management and organisational skills (S*).
+an ability to apply the practical and analytical skills present in the programme as a whole (K);
+show awareness of wider customer contexts and the identification of problems that such contexts might deliver (K);
+exhibit the ability to work co-operatively to deliver a significant piece of work (K);
+exhibit critical self evaluation of the process (K);
+manage small projects (S)
+ability to apply knowledge and skills in computing to large-scale practical applications (S);","There are no single associated costs greater than £50 per item on this degree programme.
+However, costs incurred by students while on a Year in Industry/Business vary depending on the nature and location of the placement. For further information please contact our Student Fees Office.",4-7,ACTIVE,5,1,1
+comptech,3424,"","BSc Computing Technologies",BSC,0,None,N/A,"In the <b>second year</b> you will choose one 15 credit elective.  This will normally be from another department.  Approval will be required.
+In the <b>third year</b> you will choose two 15 credit electives which will normally include CS3003 IT Project Management and/or IY3501 Security Management.  A full list will be confirmed with the department during the course choices process.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.
+CS3824 Project in Computing Technologies must be passed in order to qualify for the award.","to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment;
+to develop computing-related cognitive abilities and skills as described in the QAA Computing benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, cost, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates who can work effectively within teams;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education,  including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills;
+to produce graduates who understand how business value can be delivered.","knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications;(K)
+an understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context;(K)
+knowledge of how computers are programmed and used; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers;(K)
+an understanding of the principles of Software Engineering and the importance of good design;(K)
+an understanding of how to work within a team in developing a significant software system;(K)
+an understanding of the principles of information security and its context in Computing Technologies;(K)
+an understanding of how to provide value to a customer;(K)
+ability to deploy appropriate practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, distributed systems and web-based systems) to meet given requirements under practical constraints;(S)
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams;(S)*
+problem identification, analysis and solution using critical assessment and reasoned argument;(S)*
+taking responsibility for own learning and developing habits of reflection on that learning;(S)*
+skills in written communication, project documentation, verbal presentation; numeracy and computation(S)*
+use of information technology (including spreadsheets, databases, word processing, email and WWW);(S)*
+information handling and retrieval (including the use of libraries and computer technology);(S)*
+ability to work autonomously, and to demonstrate time management and organisational skills;(S)*
+manage small projects;(S)","There are no single associated costs greater than £50 per item on this degree programme.",4-6,ACTIVE,3,1,0
+G4T6,3014,"","BSc Computer Science (Distributed and Networked Systems)",BSC,0,None,N/A,,,,,,,DEFUNCT,3,1,1
+G40F,3449,,"BSc Computer Science with Integrated Foundation Year",BSC,0,None,N/A,"In the <b>second year</b> you will take two further non-project CS2xxx or IY2xxx elective courses.
+In the <b>final year</b> you will take six further non-project CS3xxx or IY3xxx elective courses.","For further information on the progression and award requirements for your degree, please refer to Royal Holloway’s Academic Regulations. As part of your degree programme you may also be required to complete a course to develop your academic writing skills. This course does not carry credit but passing it is a requirement to progress to the next year of study.","For the Foundation Year:
+to develop the required skills in mathematical concepts and techniques and for you to apply these concepts to problems in Eng ineering, Computer Science, Maths and
+Physics, in preparation for level 4 study;
+to equip you with the basic experimental, programming or practical techniques required for scientific degrees;
+to start the process of independent project work in science with support of expert academics;
+to put in context scientific knowledge and developments into a wider context of history, society and globalisation.
+Following on to aims for the BSc:
+to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a
+
+Following on to aims for the BSc:
+to produce graduates with the ability to engage in the lifelong learning and with the skills required for a professional career in a computer-based environment or for a research career in Computer Science and related areas;
+to develop computing-related cognitive abilities and skills as described in the QAA Computer Science benchmark statement;
+to develop, in a flexible and progressive structure, students’ knowledge and understanding of essential facts and theory, with the ability to use this knowledge to devise, specify, design, implement, test, document and critically evaluate computer-based systems;
+to develop an understanding of professional and ethical issues involved in the deployment of computer technology;
+to produce graduates with a range of personal attributes relevant to the world beyond higher education, including information retrieval and use, numeracy, the ability to devise and present logical arguments to inform and support actions, and organisational skills.","Foundation Year
+
+Knowledge of and ability to apply mathematics to scientific and computational problems (K, S);
+Working knowledge of at least one high level programming language (K);
+Understanding of applying fundamental computer science technologies to simple problems (S);
+Start to take responsibility and to develop the individual learning, communication and research skills (S)
+
+BSc
+
+knowledge and understanding of the essential facts, concepts, principles and theories relating to computing and computer applications (K);
+understanding of the implications of recent research in Computer Science, artificial intelligence and related fields, and how such research results can be incorporated into computer-based systems (K);
+understanding of the professional, moral and ethical aspects of the use of computer-based systems, and ability to recognise any risks or safety aspects in a given context (K);
+knowledge of how computers are programmed and used; advanced programming; software engineering and team work for developing a significant software system; the fundamental technologies used for artificial intelligence; the functioning of the Internet and the World Wide Web; the main concepts of database technology and design; background theory necessary for a deeper understanding of computing and computers (K);
+depending on their programme of studies, students may also gain a knowledge of the following key practical application technologies: operating systems; graphics; robotics, bioinformatics, information security, applied artificial intelligence and human-computer interfaces; theoretical foundations of algorithms and programming (K);
+ability to deploy appropriate theory, practices and tools for the modelling, specification, design, implementation and evaluation of computer-based systems (including stand-alone computer systems, information systems, embedded systems, distributed systems and web-based systems) to meet given requirements under practical constraints (S);
+employ the research skills needed to investigate a defined topic under supervision, through an extended individual project (S);
+interpersonal skills, including the ability to work as a member of a development team, recognising/respecting the viewpoints of others, recognising the different roles within a team and the different ways of organising teams (S);*
+problem identification, analysis and solution using critical assessment and reasoned argument (S);*
+taking responsibility for own learning and developing habits of reflection on that learning (S);*
+skills in written communication, project documentation, verbal presentation; numeracy and computation (S);*
+use of information technology (including spreadsheets, databases, word processing, email and WWW) (S); *
+information handling and retrieval (including the use of libraries and computer technology) (S);*
+ability to work autonomously, and to demonstrate time management and organisational skills (S);*","There are no single associated costs greater than £50 per item on this degree programme.",3-6,ACTIVE,4,0,0
+GN41,1257,"","BSc Computing and Business",BSC,0,None,,,,,,,,DEFUNCT,3,1,
+G4T7,3015,,"BSc Computer Science (Distributed and Networked Systems) with a Year in Industry",BSC,1,,,,,,,,,DEFUNCT,4,1,
+G4G5,3016,,"MSci Computer Science (Distributed and Networked Sysytems)",MSCI,0,,,,,,,,,DEFUNCT,4,1,
+G4G9,3017,,"MSci Computer Science (Distributed and Networked Systems) with a Year in Industry",MSCI,1,,,,,,,,,DEFUNCT,5,1,
+P304,3047,"","BSc Digital Media, Culture and Technologyy",BSc,0,None,DC,,,,,,3-6,ACTIVE,3,1,

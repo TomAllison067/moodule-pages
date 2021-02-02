@@ -31,7 +31,7 @@ class TestProgrammes(TransactionTestCase):
         Programme.objects.create(prog_code="1068", title="YINI", level="BSC", yini=1)
         self.assertEqual(2, Programme.objects.count(), "Two programmes total.")
         self.assertEqual(1, Programme.objects.filter(yini=1).count(), "Only one programme with YINI.")
-        with self.assertRaises(ValidationError):  # Test the validation of the BooleanField
+        with self.assertRaises(ValidationError):  # Test the validation of the BooleanField, a boolean can be 0 or 1
             Programme.objects.create(prog_code="1079", title="YINI3", level="BSC", yini=3)
 
     def test_unique_title(self):

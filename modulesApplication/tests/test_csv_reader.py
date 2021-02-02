@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.models import Module
+from modulesApplication.models import Module, Strands, Programme
 
 
 class TestCsvReader(TestCase):
@@ -58,6 +58,8 @@ class TestCsvReader(TestCase):
 
     # How many rows of modules are in "exported_sqlite3_module_table.csv". 114 rows, minus 1 header row = 113.
     MODULES_CSV_ROW_COUNT = 113
+    EXPECTED_PROGRAMMES = 26  # The number of programmes in the exported sqlite3 table
+    EXPECTED_STRANDS = 42  # How many strands are in the csv
 
     def test_reads_correct_csv_headers(self):
         """
@@ -101,4 +103,19 @@ class TestCsvReader(TestCase):
             filepath="modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
             model_class=Module)
         self.assertEqual(self.MODULES_CSV_ROW_COUNT, len(modules))
+
+    def test_reads_strands(self):
+        """Tests the correct number of strands are read in."""
+        strands = self.cr.read_table(
+            filepath="modulesApplication/tests/resources/exported_strands_table.csv",
+            model_class=Strands)
+        self.assertEqual(self.EXPECTED_STRANDS, len(strands))
+
+    def test_reads_in_programmes(self):
+        programmes = self.cr.read_table_partial(
+            filepath="modulesApplication/tests/resources/programmes.csv",
+            model_class=Programme
+        )
+        self.assertEqual(self.EXPECTED_PROGRAMMES, len(programmes))
+        self.assertEqual("1067", programmes[0].prog_code)
 

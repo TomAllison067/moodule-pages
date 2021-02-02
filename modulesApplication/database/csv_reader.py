@@ -2,6 +2,9 @@ import csv
 
 from django.db.models.base import ModelBase
 
+from modulesApplication.database.models.programme import Programme
+from modulesApplication.database.models.strand import Strands
+
 
 class CsvReader:
     """
@@ -23,8 +26,7 @@ class CsvReader:
 
     def read_table(self, filepath, model_class: ModelBase):
         """
-        Read a csv file corresponding to one database table, and return a list of appropriate Model objects
-        according to that file.
+        Read ALL HEADERS from a csv file corresponding to one database table into a list of Model objects.
         :param filepath: the path of the csv file to read.
         :param model_class: the type of Model to read in
         :return: A list of Model objects.
@@ -38,5 +40,27 @@ class CsvReader:
                     if value.isnumeric():
                         attributes[key] = int(value)
                 tmp = model_class(*attributes.values())
+                result.append(tmp)
+        return result
+
+    def read_table_partial(self, filepath, model_class):
+        """
+        Read from a csv file into a model, reading only those headers which the model has as a field and no more.
+        :param filepath: the path of the csv file
+        :param model_class: the target model class
+        :return: a list of model objects
+        """
+        result = []
+        with open(file=filepath, newline='', encoding='utf8') as csvfile:
+            reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
+            for row in reader:
+                attributes = row
+                args = {}
+                for key, value in attributes.items():
+                    if value.isnumeric():
+                        attributes[key] = int(value)
+                    if hasattr(model_class, key):
+                        args[key] = value
+                tmp = model_class(*args.values())
                 result.append(tmp)
         return result
