@@ -41,10 +41,21 @@ class TestOptionRule(TransactionTestCase):
         self.assertRaises(IntegrityError, OptionRule.objects.create, prog_code=self.p1, constraint_type="CORE")
 
     def test_constraint_type(self):
-        """"""
+        """ test that constraint has to be one of the choices """
         with self.assertRaises(ValidationError):
             OptionRule.objects.create(prog_code=self.p1, entry_year="2018", stage=2,
                                       constraint_type="anotherfail", mod_code_pattern="IT2345")
             self.fail("Validation error not raised for invalid degree title.")
 
+    def test_feature_grouping_core(self):
+        """ Test trying to group together all core modules"""
+        OptionRule.objects.create(prog_code=self.p1, entry_year="2018", stage=2,
+                                  constraint_type="CORE", mod_code_pattern="AB2345")
+        OptionRule.objects.create(prog_code=self.p1, entry_year="2018", stage=2,
+                                  constraint_type="CORE", mod_code_pattern="YZ0987")
+        OptionRule.objects.create(prog_code=self.p1, entry_year="2018", stage=2,
+                                  constraint_type="CORE", mod_code_pattern="NEW000")
+        self.assertEqual(1, OptionRule.objects.count(),
+                         "multiple objects should group together core modules if in same year, stage and programme")
+        self.assertEqual(OptionRule.objects.get(prog_code="1067").mod_code_pattern, "AB2345, YZ0987, NEW000")
 
