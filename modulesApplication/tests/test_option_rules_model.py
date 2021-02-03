@@ -59,3 +59,10 @@ class TestOptionRule(TransactionTestCase):
                          "multiple objects should group together core modules if in same year, stage and programme")
         self.assertEqual(OptionRule.objects.get(prog_code="1067").mod_code_pattern, "AB2345, YZ0987, NEW000")
 
+    def test_foreign_key(self):
+        """ Test that error thrown is can't find prog_code in Programmes table """
+        p = Programme(prog_code="2844", title="BSc Computer Science (Software Engineering) with a YINI", level="BSC")
+
+        self.assertRaises(IntegrityError, OptionRule.objects.create, prog_code=p, entry_year="2018", stage=2,
+                          constraint_type="CORE", mod_code_pattern="NEW000")
+

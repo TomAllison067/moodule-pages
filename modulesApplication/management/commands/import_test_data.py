@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 
 from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.models import Module, Strands, Programme
+from modulesApplication.models import Module, Strands, Programme, OptionRule
 
 
 def clear_database():
@@ -11,6 +11,7 @@ def clear_database():
     Strands.objects.all().delete()
     Module.objects.all().delete()
     Programme.objects.all().delete()
+    OptionRule.objects.all().delete()
 
 
 class Command(BaseCommand):
@@ -47,11 +48,20 @@ class Command(BaseCommand):
         )
         Programme.objects.bulk_create(programmes)
 
+    def insert_option_rules(self):
+        rules = self.cr.read_table_partial(
+                filepath="modulesApplication/tests/resources/option_rules.csv",
+                model_class=OptionRule
+        )
+        OptionRule.objects.bulk_create(rules)
+
     def handle(self, *args, **options):
         clear_database()
         self.insert_modules()
         self.insert_strands()
         self.insert_programmes()
-        output = "Imported {} modules, {} strands and {} degree programmes successfully."\
-            .format(Module.objects.count(), Strands.objects.count(), Programme.objects.count())
+        self.insert_option_rules()
+        output = "Imported {} modules, {} strands and {} degree programmes {} options_rules successfully."\
+            .format(Module.objects.count(), Strands.objects.count(), Programme.objects.count(),
+                    OptionRule.objects.count())
         self.stdout.write(output)

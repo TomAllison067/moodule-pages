@@ -24,8 +24,8 @@ class OptionRule(models.Model):
     mod_code_pattern = models.TextField(null=False)
 
     def group_core(self):
-        for rule in OptionRule.objects.all():
-            if self.prog_code == rule.prog_code and self.entry_year == rule.entry_year and self.stage == rule.stage:
+        for rule in OptionRule.objects.filter(constraint_type="CORE", prog_code=self.prog_code, entry_year=self.entry_year):
+            if self.stage == rule.stage:
                 rule.mod_code_pattern = rule.mod_code_pattern + ", " + self.mod_code_pattern
                 rule.save(force_update=True)
                 return True
