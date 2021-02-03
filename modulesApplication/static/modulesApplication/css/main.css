@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Yantramanav:wght@900');
 
-/* GENERAL - put in this section if there are repeated elements for the pages */
+/* --[[ General ]] */
 html, body {
     background-color: #222;
     margin: 0;
@@ -33,7 +33,7 @@ html, body {
     color: white;
 }
 
-/* WRAPPER */
+/* --[[ Wrapper ]] */
 
 .page-wrapper {
    min-height: 100%;
@@ -59,7 +59,7 @@ html, body {
     display: none;
 }
 
-/* SLIDER */
+/* --[[ Slider ]] */
 
 .slider{
     position: relative;
@@ -121,7 +121,7 @@ html, body {
     filter: blur(10px);
 }
 
-/*css for manual slide navigation*/
+/* --[[ Slider - Manual Navigation ]] */
 
 .navigation-manual{
     position: absolute;
@@ -159,7 +159,7 @@ html, body {
     margin-left: -40%;
 }
 
-/*css for automatic navigation*/
+/* --[[ Slider - Automatic Navigation ]] */
 
 .navigation-auto{
     position: absolute;
@@ -192,7 +192,7 @@ html, body {
     background: orangered;
   }
 
-/* BOXES */
+/* --[[ Boxes ]] */
 
 .lp-container {
     margin: 0 auto;
@@ -230,17 +230,17 @@ html, body {
     transition: 0.25s;
 }
 
-.lp-box:hover > .lp-content .icon-box p {
+.lp-box:hover > a .lp-content .icon-box p {
     transform: translateY(0%);
     opacity: 100%;
 }
 
-.lp-box:hover > h2 {
+.lp-box:hover > a h2 {
     border-radius: 15px 15px 0px 0px;
     transition: 0.25s;
 }
 
-.lp-box h2 {
+.lp-box a h2 {
     font-size: 17px;
     text-align: center;
     border-top: 2px orangered solid;
@@ -249,7 +249,7 @@ html, body {
     position: relative;
 }
 
-.lp-box h3 {
+.lp-box a .lp-content h3 {
     margin-top: 5%;
     margin-left: 5%;
     padding: 5px;
@@ -272,20 +272,15 @@ html, body {
     transition: 0.25s;
 }
 
-.lp-content h2 {
-    margin: 2% 2%;
-    font-size: 15px;
-    padding: 5px;
-}
-
-.lp-content .term-module-list {
+.lp-box a .lp-content .term-module-list {
+    padding: 2px;
     width: 95%;
-    height: 85%;
+    height: 35vh;
     display: block;
     overflow-y: scroll;
 }
 
-.lp-content li {
+.lp-content .term-module-list li {
     margin: 5px 5px;
     padding: 5px;
     width: 95%;
@@ -303,7 +298,7 @@ html, body {
     transition: 0.25s;
 }
 
-.lp-content li a {
+.lp-content li {
     padding: 5px;
 }
 
@@ -317,7 +312,7 @@ html, body {
     font-size: 15px;
 }
 
-.icon-box > p, .icon-box > p  {
+.icon-box > p  {
     opacity: 0%;
     transform: translateY(150%);
     transition: transform 0.25s;
@@ -325,6 +320,7 @@ html, body {
 
 #lpc-cm .icon-box, #lpc-ac .icon-box {
     margin-top: 10px;
+    margin-left: 9%;
 }
 
 #lpc-cm i, #lpc-ac i {

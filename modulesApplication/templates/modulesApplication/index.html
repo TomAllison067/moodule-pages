@@ -6,23 +6,23 @@
       <meta charset="utf-8">
       <title> moodule </title>
       <meta name="viewport" content="width=device-width, intial-scale=1">
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+      <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/login.css' %}">
+      <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-      <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-      <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-      <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/bootstrap/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/animate/animate.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/css-hamburgers/hamburgers.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/select2/select2.min.css' %}">
       <!--======================================================================================-->
-      <link rel="stylesheet" type="text/css" href="css/main.css">
-      <link rel="stylesheet" type="text/css" href="css/util.css">
-      
+      <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/util.css' %}"> 
    </head>
+
     <body>
       <div class="limiter">
       <nav class="container-login100">
       <div class="wrap-login100">
-      <div class="login100-pic js-tilt" data-tilt> <img src="images/mlogo.png" alt="IMG"> </div>
+      <div class="login100-pic js-tilt" data-tilt> <img src="{% static 'modulesApplication/images/logo/mlogo-login.png' %}" alt="IMG"> </div>
       <form class="login100-form validate-form">
       <span class="login100-form-title">
       Student Login
@@ -52,53 +52,22 @@
 
       <div class="text-center p-t-136">
       <a class="txt2" href="#">
-      CS2815 - Group 37
+      CS2815 - Group 34
       <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
       <!--===============================================================================================-->
-      <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+      <script src="{% static 'modulesApplication/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
       <!--===============================================================================================-->
-      <script src="vendor/bootstrap/js/popper.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+      <script src="{% static 'modulesApplication/vendor/bootstrap/js/popper.js' %}"></script>
+      <script src="{% static 'modulesApplication/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
       <!--===============================================================================================-->
-      <script src="vendor/select2/select2.min.js"></script>
+      <script src="{% static 'modulesApplication/vendor/select2/select2.min.js' %}"></script>
       <!--===============================================================================================-->
-      <script src="vendor/tilt/tilt.jquery.min.js"></script>
-      <script >
+      <script src="{% static 'modulesApplication/vendor/tilt/tilt.jquery.min.js' %}"></script>
+      <script>
          $('.js-tilt').tilt({
          	scale: 1.1
          })
       </script>
       <!--===============================================================================================-->
-      <script src="js/main.js"></script>
-      <!--
-         <label class="title"> moodule</label>
-         <div class="search-box">
-           <input class="search-txt" type="text" name="" placeholder="search">
-           <a class="search-btn" href="#">
-             <i class="fas fa-search"></i>
-           </a> </div>
-         </nav>
-         <div class="content"> </div>
-         </div>-->
-      <!--
-         FOOTER - links will be added later
-         <div class="footer">
-          <div class="row">
-            <div class="col">
-              <li>Royal Holloway, University of London</li>
-              <li>Egham, Surrey, TW20 0EX</li>
-            </div>
-            <div class="col">
-              <li>Terms & Conditions</li>
-              <li>Privacy Policy</li>
-            </div>
-            <div class="col">
-              <li>moodule@gmail.com</li>
-              <li>T: +44 (0)1784 434455</li>
-            </div>
-          </div class="row">
-          &copy; 2021 moodule.com | Designed by CS2815 Group 34
-         </div>
-         </div>
-         -->
+      <script src="{% static 'modulesApplication/js/main.js' %}"></script>
 </html>
