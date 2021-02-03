@@ -1,75 +1,118 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title> moodule </title>
-  <meta name="viewport" content="width=device-width, intial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--======================================================================================-->
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-
-<!--
-  INSTRUCTIONS FROM KEIRU; DESIGNERS CAN THINK OF OTHER USEFUL IDEAS TOO:
-
-  >So this page should have 3 links or buttons allowing people to log in as a student, office member or staff.</li>
-    <li>There should literally be nothing else but maybe a logo on this page, and maybe you'll want to access the link below.</li>
-    <li>Be sure just to focus on the design of it. Please annotate/comment if need be.</li>
-    <li>The actual login system will come later. Likely Sprint2.</li>
-    <li>Also, a nice footer would be v cool.</li>
-
-    <hr>
-  <p>The page below is a link to a list of modules. I.e. the module infomation page.</p>
-  <a href="AllModules.html">Link to all modules</a>
-  <hr>
-  <p>The page below is a link you can use as a landing page once the buttons have been clicked. For testing purposes.
-  </p>
-  <a href="StudentLandingPage.html">Link to (Student) landing page.</a>
--->
-
-<body>
-  <div class="page-wrapper">
-    <nav class="topbar">
-      <label class="title"> moodule</label>
-      <div class="search-box">
-        <input class="search-txt" type="text" name="" placeholder="search">
-        <a class="search-btn" href="#">
-          <i class="fas fa-search"></i>
-        </a>
-      </div>
-    </nav>
-
-    <div class="content">
+   <head>
+      <meta charset="utf-8">
+      <title> moodule </title>
+      <meta name="viewport" content="width=device-width, intial-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+      <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+      <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+      <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+      <!--======================================================================================-->
+      <link rel="stylesheet" type="text/css" href="css/main.css">
+      <link rel="stylesheet" type="text/css" href="css/util.css">
+   </head>
+   <!--
+      INSTRUCTIONS FROM KEIRU; DESIGNERS CAN THINK OF OTHER USEFUL IDEAS TOO:
       
-    </div>
-  </div>
-</body>
-
-<!-- FOOTER - links will be added later -->
-<div class="footer">
-  <div class="row">
-    <div class="col">
-      <li>Royal Holloway, University of London</li>
-      <li>Egham, Surrey, TW20 0EX</li>
-    </div>
-    <div class="col">
-      <li>Terms & Conditions</li>
-      <li>Privacy Policy</li>
-    </div>
-    <div class="col">
-      <li>moodule@gmail.com</li>
-      <li>T: +44 (0)1784 434455</li>
-    </div>
-  </div class="row">
-  &copy; 2021 moodule.com | Designed by CS2815 Group 34
-</div>
-</div>
-
+      >So this page should have 3 links or buttons allowing people to log in as a student, office member or staff.</li>
+        <li>There should literally be nothing else but maybe a logo on this page, and maybe you'll want to access the link below.</li>
+        <li>Be sure just to focus on the design of it. Please annotate/comment if need be.</li>
+        <li>The actual login system will come later. Likely Sprint2.</li>
+        <li>Also, a nice footer would be v cool.</li>
+      
+        <hr>
+      <p>The page below is a link to a list of modules. I.e. the module infomation page.</p>
+      <a href="AllModules.html">Link to all modules</a>
+      <hr>
+      <p>The page below is a link you can use as a landing page once the buttons have been clicked. For testing purposes.
+      </p>
+      <a href="StudentLandingPage.html">Link to (Student) landing page.</a>
+      -->
+   <body>
+      <div class="limiter">
+      <nav class="container-login100">
+      <div class="wrap-login100">
+      <div class="login100-pic js-tilt" data-tilt> <img src="images/mlogo.png" alt="IMG"> </div>
+      <form class="login100-form validate-form">
+      <span class="login100-form-title">
+      Student Login
+      </span>
+      <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@live.rhul.ac.uk">
+         <input class="input100" type="text" name="email" placeholder="Email"> <span class="focus-input100"></span> <span class="symbol-input100">
+         <i class="fa fa-envelope" aria-hidden="true"></i>
+         </span> 
+      </div>
+		  
+      <div class="wrap-input100 validate-input" data-validate="Password is required">
+         <input class="input100" type="password" name="pass" placeholder="Password"> <span class="focus-input100"></span> <span class="symbol-input100">
+         <i class="fa fa-lock" aria-hidden="true"></i>
+         </span> 
+      </div>
+		  
+      <div class="container-login100-form-btn">
+         <button class="login100-form-btn"> Login </button>
+      </div>
+		  
+      <div class="text-center p-t-12"> <span class="txt1">
+         Forgot
+         </span> <a class="txt2" href="#">
+         Username / Password?
+         </a> 
+      </div>
+		
+      <div class="text-center p-t-136">
+      <a class="txt2" href="#">
+      CS2815 - Group 37
+      <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+      <!--===============================================================================================-->	
+      <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+      <!--===============================================================================================-->
+      <script src="vendor/bootstrap/js/popper.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+      <!--===============================================================================================-->
+      <script src="vendor/select2/select2.min.js"></script>
+      <!--===============================================================================================-->
+      <script src="vendor/tilt/tilt.jquery.min.js"></script>
+      <script >
+         $('.js-tilt').tilt({
+         	scale: 1.1
+         })
+      </script>
+      <!--===============================================================================================-->
+      <script src="js/main.js"></script>	
+      <!--
+         <label class="title"> moodule</label>
+         <div class="search-box">
+           <input class="search-txt" type="text" name="" placeholder="search">
+           <a class="search-btn" href="#">
+             <i class="fas fa-search"></i>
+           </a> </div>
+         </nav>
+         <div class="content"> </div>
+         </div>-->
+      <!--
+         FOOTER - links will be added later 
+         <div class="footer">
+          <div class="row">
+            <div class="col">
+              <li>Royal Holloway, University of London</li>
+              <li>Egham, Surrey, TW20 0EX</li>
+            </div>
+            <div class="col">
+              <li>Terms & Conditions</li>
+              <li>Privacy Policy</li>
+            </div>
+            <div class="col">
+              <li>moodule@gmail.com</li>
+              <li>T: +44 (0)1784 434455</li>
+            </div>
+          </div class="row">
+          &copy; 2021 moodule.com | Designed by CS2815 Group 34
+         </div>
+         </div>
+         -->
 </html>
