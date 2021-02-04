@@ -1,7 +1,10 @@
 import csv
 
+from django.db.models import AutoField
 from django.db.models.base import ModelBase
 
+from modulesApplication.database.models.module import Module
+from modulesApplication.database.models.option_rule import OptionRule
 from modulesApplication.database.models.programme import Programme
 from modulesApplication.database.models.strand import Strands
 
@@ -55,12 +58,16 @@ class CsvReader:
             reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
             for row in reader:
                 attributes = row
-                args = {}
+                kwargs = {}
                 for key, value in attributes.items():
                     if value.isnumeric():
                         attributes[key] = int(value)
                     if hasattr(model_class, key):
-                        args[key] = value
-                tmp = model_class(*args.values())
+                        kwargs[key] = value
+                if model_class is OptionRule and kwargs['prog_code']:
+                    # TODO less bad hack
+                    # REALLY HACKY, BAD WAY to import foreign keys of OptionRule.
+                    kwargs['prog_code'] = Programme.objects.get(prog_code=kwargs['prog_code'])
+                tmp = model_class(**kwargs)
                 result.append(tmp)
         return result
