@@ -8,10 +8,11 @@ def clear_database():
     """
     Clear your local database.
     """
+    OptionRule.objects.all().delete()
     Strands.objects.all().delete()
     Module.objects.all().delete()
     Programme.objects.all().delete()
-    OptionRule.objects.all().delete()
+
 
 
 class Command(BaseCommand):
