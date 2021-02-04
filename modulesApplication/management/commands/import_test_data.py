@@ -61,7 +61,7 @@ class Command(BaseCommand):
         self.insert_strands()
         self.insert_programmes()
         self.insert_option_rules()
-        output = "Imported {} modules, {} strands and {} degree programmes {} options_rules successfully."\
+        output = "Imported {} modules, {} strands, {} degree programmes and {} option_rules successfully."\
             .format(Module.objects.count(), Strands.objects.count(), Programme.objects.count(),
                     OptionRule.objects.count())
         self.stdout.write(output)
