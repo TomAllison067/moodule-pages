@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'microsoft_auth',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +84,16 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+
+    {
+        # Template setting for auth
+        'OPTIONS': {
+            'context_processors': [
+                # other context_processors...
+                'microsoft_auth.context_processors.microsoft',
             ],
         },
     },
@@ -127,3 +139,31 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+#Keiru's additions for Microsoft authentication:
+
+
+TEMPLATES = [
+
+]
+
+AUTHENTICATION_BACKENDS = [
+    'microsoft_auth.backends.MicrosoftAuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend' # if you also want to use Django's authentication
+    # I recommend keeping this with at least one database superuser in case of unable to use others
+]
+
+# values you got from step 2 from your Mirosoft app
+MICROSOFT_AUTH_CLIENT_ID = 'your-client-id-from-apps.dev.microsoft.com'
+MICROSOFT_AUTH_CLIENT_SECRET = 'your-client-secret-from-apps.dev.microsoft.com'
+# Tenant ID is also needed for single tenant applications
+# MICROSOFT_AUTH_TENANT_ID = 'your-tenant-id-from-apps.dev.microsoft.com'
+
+# pick one MICROSOFT_AUTH_LOGIN_TYPE value
+# Microsoft authentication
+# include Microsoft Accounts, Office 365 Enterpirse and Azure AD accounts
+MICROSOFT_AUTH_LOGIN_TYPE = 'ma'
+
+# Xbox Live authentication
+MICROSOFT_AUTH_LOGIN_TYPE = 'xbl'  # Xbox Live authentication
