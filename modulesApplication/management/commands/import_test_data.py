@@ -14,7 +14,6 @@ def clear_database():
     Programme.objects.all().delete()
 
 
-
 class Command(BaseCommand):
     """
     A custom Django management command to import the test/development data into your local database.
@@ -51,8 +50,8 @@ class Command(BaseCommand):
 
     def insert_option_rules(self):
         rules = self.cr.read_table_partial(
-                filepath="modulesApplication/tests/resources/option_rules.csv",
-                model_class=OptionRule
+            filepath="modulesApplication/tests/resources/option_rules.csv",
+            model_class=OptionRule
         )
         OptionRule.objects.bulk_create(rules)
 
@@ -62,7 +61,7 @@ class Command(BaseCommand):
         self.insert_strands()
         self.insert_programmes()
         self.insert_option_rules()
-        output = "Imported {} modules, {} strands, {} degree programmes and {} option_rules successfully."\
+        output = "Imported {} modules, {} strands, {} degree programmes and {} option_rules successfully." \
             .format(Module.objects.count(), Strands.objects.count(), Programme.objects.count(),
                     OptionRule.objects.count())
         self.stdout.write(output)
