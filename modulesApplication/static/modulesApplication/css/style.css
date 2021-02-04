@@ -2,7 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Yantramanav:wght@900');
 
+<<<<<<< HEAD
 /* GENERAL - put in this section if there are repeated elements for the pages */
+=======
+/* General - put in this section if there are repeated elements for the pages */
+>>>>>>> origin
 html, body {
     background-color: #222;
     margin: 0;
@@ -16,6 +20,7 @@ html, body {
     height: 100%;
     list-style: none;
     text-decoration: none;
+<<<<<<< HEAD
 
     color: white;
     background-size: cover;
@@ -23,6 +28,14 @@ html, body {
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
+=======
+    
+    color: black;
+    background-size: cover;
+    font-family: 'Nunito', sans-serif;
+    height: 100vh;
+    overflow: auto;
+>>>>>>> origin
 }
 
 * {
@@ -33,12 +46,16 @@ html, body {
     color: white;
 }
 
+<<<<<<< HEAD
 /* WRAPPER */
 
+=======
+>>>>>>> origin
 .page-wrapper {
    min-height: 100%;
 }
 
+<<<<<<< HEAD
 #overlay {
     position: fixed;
     display: none;
@@ -342,6 +359,9 @@ html, body {
 }
 
 /* SCROLLBAR */
+=======
+/* Scrollbar */ 
+>>>>>>> origin
 ::-webkit-scrollbar {
     width: 10px;
     z-index: 1000;
@@ -357,7 +377,11 @@ html, body {
     border-radius: 10px;
 }
 
+<<<<<<< HEAD
 /* FOOTER */
+=======
+/* Footer */
+>>>>>>> origin
 
 .footer {
     background: #303036;
@@ -367,7 +391,11 @@ html, body {
     font-size: 12px;
 }
 
+<<<<<<< HEAD
 .footer .row {
+=======
+.footer .footer-content {
+>>>>>>> origin
     border-top: 2px solid orangered;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -376,7 +404,11 @@ html, body {
     padding: 10px;
 }
 
+<<<<<<< HEAD
 .footer .col {
+=======
+.footer .footer-item {
+>>>>>>> origin
     padding: 5px;
     text-align: center;
 }
@@ -393,7 +425,11 @@ html, body {
 
 }
 
+<<<<<<< HEAD
 /* MAIN PAGE COMPONENTS - section for CSS of index.html */
+=======
+/* Main page components - section for CSS of index.html */
+>>>>>>> origin
 .topbar {
     width: calc(100% - 10px);
     height: 40px;
@@ -414,6 +450,7 @@ html, body {
     font-family: 'Yantramanav', sans-serif;
 }
 
+<<<<<<< HEAD
 .avatar {
     width: 30px;
     height: 30px;
@@ -426,11 +463,16 @@ html, body {
     border-radius: 50%;
 }
 
+=======
+>>>>>>> origin
 .search-box {
     position: absolute;
     top: 17px;
     right: 0px;
+<<<<<<< HEAD
     float: right;
+=======
+>>>>>>> origin
     transform: translate(-50%, -50%);
     background: #2f3640;
     color: #d85f26;
@@ -476,7 +518,11 @@ html, body {
     top: 40px;
     width: 250px;
     height: 100%;
+<<<<<<< HEAD
     background: orangered;
+=======
+    background: #d85f26;
+>>>>>>> origin
     transition: all .25s ease;
     z-index: 5;
 }
@@ -496,10 +542,15 @@ html, body {
     top: -20px;
     left: calc(50% - 50px);
     border-radius: 2%;
+<<<<<<< HEAD
     filter:contrast(200%);
 }
 
 /* */
+=======
+}
+
+>>>>>>> origin
 .sidebar ul a {
     display: block;
     height: 100%;
@@ -523,8 +574,11 @@ ul li:hover a{
     margin-right: 16px;
 }
 
+<<<<<<< HEAD
 /* */
 
+=======
+>>>>>>> origin
 #check {
     display: none;
 }
@@ -565,10 +619,13 @@ label #cancel {
     pointer-events: none;
 }
 
+<<<<<<< HEAD
 #check:checked ~ #overlay {
     display: block;
 }
 
+=======
+>>>>>>> origin
 #check:checked ~ label #cancel {
     left: 25px;
     opacity: 50%;
@@ -605,11 +662,18 @@ section {
     overflow: hidden;
 }
 
+<<<<<<< HEAD
 /* */
 .btn {
     display: block;
     padding: 16px 20px;
     background: orangered;
+=======
+.btn {
+    display: block;
+    padding: 16px 20px;
+    background: #d85f26;
+>>>>>>> origin
     color: white;
     position: relative;
 }
@@ -619,7 +683,11 @@ section {
     position: absolute;
     width: 14px;
     height: 14px;
+<<<<<<< HEAD
     background: orangered;
+=======
+    background:#d85f26;
+>>>>>>> origin
     left: 20px;
     bottom: -7px;
     transform: rotate(45deg);
@@ -629,7 +697,10 @@ section {
     margin-right: 10px;
 }
 
+<<<<<<< HEAD
 /* */
+=======
+>>>>>>> origin
 .content {
     background: #333;
     color: white;
