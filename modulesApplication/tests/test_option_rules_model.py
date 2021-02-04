@@ -66,3 +66,24 @@ class TestOptionRule(TransactionTestCase):
         self.assertRaises(IntegrityError, OptionRule.objects.create, prog_code=p, entry_year="2018", stage=2,
                           constraint_type="CORE", mod_code_pattern="NEW000")
 
+    def test_simple_squash_core(self):
+        # Create three option rules and put them into the database
+        base_rule = OptionRule(prog_code=self.p1, entry_year="2019", stage=1,
+                               constraint_type="CORE", mod_code_pattern="CS1234")
+        other_rule1 = OptionRule(prog_code=self.p1, entry_year="2019", stage=1,
+                                 constraint_type="CORE", mod_code_pattern="F00b4r")
+        other_rule2 = OptionRule(prog_code=self.p1, entry_year="2019", stage=1,
+                                 constraint_type="CORE", mod_code_pattern="wh1zzb4ng")
+
+        OptionRule.objects.bulk_create([base_rule, other_rule1, other_rule2])
+        self.assertEqual(3, OptionRule.objects.count(), "To begin with, there are 3 OptionRules.")
+        total_minmax = OptionRule.objects.count()
+        OptionRule.squash_core_modules(prog_code=self.p1, entry_year="2019", stage=1)
+        self.assertEqual(1, OptionRule.objects.count(), "Redundant OptionRules should be removed from the database.")
+        expected_base_rule = OptionRule.objects.first()
+        self.assertEqual("CS1234, F00b4r, wh1zzb4ng", expected_base_rule.mod_code_pattern,
+                         "The mod_codes of the core modules should be squashed into the first rule's mod_codes")
+        self.assertEqual(total_minmax, expected_base_rule.min_quantity,
+                         "The minimum quantity of core modules a student must take is ALL of the core modules.")
+        self.assertEqual(total_minmax, expected_base_rule.max_quantity,
+                         "The maximum quantity is ALSO all of the core modules.")
