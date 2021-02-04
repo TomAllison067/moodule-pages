@@ -1,0 +1,3 @@
+[submodule "resources/develop/database_gitlab"]
+	path = resources/develop/database_gitlab
+	url = https://gitlab.cim.rhul.ac.uk/uxac009/coursedb
