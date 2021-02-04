@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -30,18 +30,26 @@
 -->
 
 <body>
-  <div class="page-wrapper">
+ <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+<div id="overlay" onclick="quitClick() "></div>
+
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper">
     <input type="checkbox" id="check">
+
+    <!-- SIDEBAR MENU -->
     <div class="sidebar">
-      <header>
-        <img class="mainlogo" src="../../static/modulesApplication/css/images/mlogo.png" alt="logo">
-      </header>
-      <ul>
-        <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a></li>
-        <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
-        <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all courses</a></li>
-        <li><a href="#" class="btn"><i class="fas fa-book"></i>courses by year</a></li>
-      </ul>
+        <header>
+            <img class="mainlogo" src="{% static 'modulesApplication/images/mlogo.png' %}" alt="logo">
+        </header>
+        <ul>
+            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a>
+            </li>
+            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                courses</a></li>
+            <li><a href="#" class="btn"><i class="fas fa-book"></i>courses by year</a></li>
+        </ul>
     </div>
 
     <nav class="topbar">
