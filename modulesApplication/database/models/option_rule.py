@@ -47,6 +47,8 @@ class OptionRule(models.Model):
         all_rules = OptionRule.objects.filter(prog_code=programme, entry_year=entry_year, stage=stage,
                                               constraint_type="CORE")
         count = all_rules.count()
+        if not count:
+            return
         mod_code_pattern = ""
         # Squash!
         separator = ""

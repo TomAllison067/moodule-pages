@@ -2,6 +2,24 @@ from django.core.management.base import BaseCommand, CommandError
 
 from modulesApplication.database.csv_reader import CsvReader
 from modulesApplication.models import Module, Strands, Programme, OptionRule
+import datetime
+
+CURRENT_YEAR = datetime.datetime.now().year
+
+
+def squash_all():
+    """
+    TODO - refactor
+    squashing all the core modules
+    """
+    programmes = set(m for m in Programme.objects.all())
+    for program in programmes:
+        for year in range(2015, CURRENT_YEAR-1):
+            for stage in range(5):
+                if OptionRule.objects.filter(prog_code=program,
+                                             entry_year=year,
+                                             stage=stage).exists():
+                    OptionRule.squash_core_modules(program, year, stage)
 
 
 def clear_database():
@@ -61,6 +79,7 @@ class Command(BaseCommand):
         self.insert_strands()
         self.insert_programmes()
         self.insert_option_rules()
+        squash_all()
         output = "Imported {} modules, {} strands, {} degree programmes and {} option_rules successfully." \
             .format(Module.objects.count(), Strands.objects.count(), Programme.objects.count(),
                     OptionRule.objects.count())
