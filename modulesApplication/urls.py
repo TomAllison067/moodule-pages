@@ -20,6 +20,5 @@ urlpatterns = [
     path('', views.index, name='index'),  # Just redirect to Student's index view for now
     path('student/', include(student_patterns)),
     path('academic/', include(academic_patterns)),
-    path('office/', include(office_patterns))
-    
+    path('office/', include(office_patterns)),
 ]

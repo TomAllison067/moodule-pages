@@ -45,7 +45,6 @@ DATABASES = {
 
 """django-environ finished"""
 ALLOWED_HOSTS = [
-    'example.com',
     'localhost',
     '127.0.0.8000',
     '127.0.0.1',
@@ -147,10 +146,10 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # values you got from step 2 from your Mirosoft app
-MICROSOFT_AUTH_CLIENT_ID = '46fe5405-b1e0-422c-a086-1ca060c341cd'
-MICROSOFT_AUTH_CLIENT_SECRET = 'i_-h0R.-5PKaqxf6ydF0.tFSbdV_vTPT3g'
+MICROSOFT_AUTH_CLIENT_ID = 'c41c55a8-c3dc-4771-ba91-c51ed47b0b47'
+MICROSOFT_AUTH_CLIENT_SECRET = 'tD.XN4~zPV6jH-.140.Qn6Nt5H4pSsF8mF'
 # Tenant ID is also needed for single tenant applications
-# MICROSOFT_AUTH_TENANT_ID = 'your-tenant-id-from-apps.dev.microsoft.com'
+MICROSOFT_AUTH_TENANT_ID = 'f8cdef31-a31e-4b4a-93e4-5f571e91255a'
 
 # pick one MICROSOFT_AUTH_LOGIN_TYPE value
 # Microsoft authentication
