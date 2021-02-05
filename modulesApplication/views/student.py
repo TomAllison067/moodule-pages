@@ -6,8 +6,9 @@ from ..models import Module
 
 
 def index(request):
-    # Redirect to landing.. is this redundant?
-    return HttpResponseRedirect(reverse('modulesApplication:student-landing'))
+    #return HttpResponseRedirect(reverse('modulesApplication:student-landing'))
+    template_name = 'modulesApplication/index.html'
+    return render(request, template_name)
 
 
 def all_modules(request, sort=0):
