@@ -4,8 +4,7 @@ from django.core.management import call_command
 from django.test import TransactionTestCase
 
 from modulesApplication.database import queries as db
-from modulesApplication.database.models.programme import Programme
-from modulesApplication.models import Module, Strands
+from modulesApplication.models import Module, Strands, Programme, OptionRule
 from modulesApplication.tests import utils
 
 
@@ -57,6 +56,7 @@ class TestQueries(TransactionTestCase):
         """Tests that we can get a dictionary of module code patterns for a given degree, entry year and stage 1."""
         utils.read_test_programmes()
         utils.read_test_optionrules()
+
         degree = Programme.objects.get(prog_code='1067')
 
         # TEST 1 - BSc Computer Science, entry year 2019, stage 1
@@ -76,4 +76,17 @@ class TestQueries(TransactionTestCase):
         # TEST 3 - BSc Computer Science, entry year 2019, stage 3
         expected = {'CORE': ['CS3821'], 'OPTS': ['CS3', 'IY3']}
         mod_codes = db.modcode_patterns_by_constraint(degree, '2019', '3')
+        self.assertEqual(expected, mod_codes)
+
+    def test_query_modcodes_squashed(self):
+        """As the above test, but where optional modules have been squashed."""
+        utils.read_test_programmes()
+        utils.read_test_optionrules()
+        degree = Programme.objects.get(prog_code='1067')
+
+        # BSc Compsci, entry year 2019, stage 2 (there are no optional modules in stage 1)
+        expected = {'CORE': ['CS2800', 'CS2810', 'CS2850', 'CS2855', 'CS2860', 'IY2760'],
+                    'OPTS': ['CS2900', 'CS2910', 'IY2840']}
+        OptionRule.squash_opts_modules(utils.read_optional_modules(), programme=degree, entry_year='2019', stage='2')
+        mod_codes = db.modcode_patterns_by_constraint(degree, '2019', '2')
         self.assertEqual(expected, mod_codes)

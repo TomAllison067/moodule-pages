@@ -99,10 +99,7 @@ class TestOptionRule(TransactionTestCase):
         utils.read_test_programmes()
         utils.read_test_optionrules()
         bsc = Programme.objects.get(prog_code='1067')
-        cr = CsvReader()
-        optional_modules = cr.read_dict(
-            'modulesApplication/tests/resources/optional_modules_by_programme.csv')
-
+        optional_modules = utils.read_optional_modules()
         # Stage 2 of BSc Computer Science, 2019
         expected_pattern = "CS2900,CS2910,IY2840"
         OptionRule.squash_opts_modules(optional_modules, programme=bsc, entry_year='2019', stage='2')
