@@ -3,10 +3,12 @@ from io import StringIO
 from django.core.management import call_command
 from django.test import TransactionTestCase
 
+from modulesApplication.database import queries as db
 from modulesApplication.database.csv_reader import CsvReader
 from modulesApplication.database.models.option_rule import OptionRule
 from modulesApplication.database.models.programme import Programme
 from modulesApplication.models import Module, Strands
+from modulesApplication.tests import utils
 
 
 class TestQueries(TransactionTestCase):
@@ -53,35 +55,18 @@ class TestQueries(TransactionTestCase):
         self.assertEqual(dns_modules_pks, dns_strands_foreignkeys,
                          "The primary and foreign keys do not match for the DNS strand.")
 
-    def test_query_modules(self):
-        cr = CsvReader()
-        # Read in the programmes
-        programmes = cr.read_table_partial(
-            filepath="modulesApplication/tests/resources/programmes.csv",
-            model_class=Programme
-        )
-        Programme.objects.bulk_create(programmes)
+    def test_query_core_firstyear_modules(self):
+        """Tests that we can query all the core modules """
+        utils.read_test_programmes()
+        utils.read_test_optionrules()
+        degree = Programme.objects.get(prog_code='1067')
 
-        # Read in the rules
-        rules = cr.read_table_partial(
-            filepath="modulesApplication/tests/resources/option_rules.csv",
-            model_class=OptionRule
-        )
-        OptionRule.objects.bulk_create(rules)
-
-        degree = Programme.objects.get(prog_code='1067')  # Get 'BSc Computer Science'
-
-        # Get the OptionRule for the degree, entry year 2019 stage 1
-        OptionRule.squash_core_modules(programme=degree, entry_year='2019', stage='1')  # Squash cos it's nice
-        degree_options = OptionRule.objects.filter(prog_code=degree, entry_year='2019', stage='1')
-
-        # Put the module codes allowed by the rules into a dict
-        mod_codes = {}
-        for option in degree_options:
-            mod_codes[option.constraint_type] \
-                = mod_codes.get(option.constraint_type, []) + [m for m in option.mod_code_pattern.split(',')]
-
-        # What we know the core and discretionary modules for year 1 Computer Science are
+        # TEST 1 - BSc Computer Science, entry year 2019, stage 1
+        # The expected core and discretionary modules for Computer Science, stage 1, entry year 2019
         expected = {'CORE': ['CS1811', 'CS1840', 'CS1860', 'CS1870', 'CS1890'],
                     'DISC_ALT': ['CS1812', 'CS1813', 'CS1822', 'CS1821']}
+
+        mod_codes = db.mod_codes_by_constraint(degree, '2019', '1')
         self.assertEqual(expected, mod_codes)  # Check we're correct
+
+

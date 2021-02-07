@@ -4,7 +4,9 @@ from django.core.exceptions import ValidationError
 from django.core.management import call_command
 from django.db import IntegrityError
 from django.test import TransactionTestCase
+from . import utils
 
+from modulesApplication.database.csv_reader import CsvReader
 from modulesApplication.models import OptionRule, Programme
 
 
@@ -80,8 +82,8 @@ class TestOptionRule(TransactionTestCase):
                          "The maximum quantity is ALSO all of the core modules.")
 
     def test_complex_squash_core_modules(self):
-        output = StringIO()  # Silence output of import command
-        call_command('import_test_data', stdout=output)
+        utils.read_test_programmes()
+        utils.read_test_optionrules()
         bsc = Programme.objects.get(prog_code='1067')
         original_rules = OptionRule.objects.filter(prog_code=bsc, entry_year='2019', stage='1', constraint_type='CORE')
         self.assertEqual(5, original_rules.count(), "There are five core option rules for 1067 in 2019 to begin with.")

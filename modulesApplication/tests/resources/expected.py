@@ -3,4 +3,4 @@ CSV files. Refactored to here because these numbers were being used in several t
 EXPECTED_PROGRAMMES = 26  # 26 programmes in "programmes.csv"
 EXPECTED_STRANDS = 40  # 42 strands minus 2 invalid ones in "exported_strands_table.csv"
 EXPECTED_MODULES = 113  # 113 modules in "exported_sqlite3_module_table.csv"
-EXPECTED_OPTION_RULES = 2055 # 2055 option rules in "option_rules.csv"
+EXPECTED_OPTION_RULES = 826  # 2055 option rules in "option_rules.csv"
