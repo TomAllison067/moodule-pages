@@ -4,8 +4,6 @@ from django.core.management import call_command
 from django.test import TransactionTestCase
 
 from modulesApplication.database import queries as db
-from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.database.models.option_rule import OptionRule
 from modulesApplication.database.models.programme import Programme
 from modulesApplication.models import Module, Strands
 from modulesApplication.tests import utils
@@ -55,8 +53,8 @@ class TestQueries(TransactionTestCase):
         self.assertEqual(dns_modules_pks, dns_strands_foreignkeys,
                          "The primary and foreign keys do not match for the DNS strand.")
 
-    def test_query_core_firstyear_modules(self):
-        """Tests that we can query all the core modules """
+    def test_query_modcode_patterns(self):
+        """Tests that we can get a dictionary of module code patterns for a given degree, entry year and stage 1."""
         utils.read_test_programmes()
         utils.read_test_optionrules()
         degree = Programme.objects.get(prog_code='1067')
@@ -66,7 +64,16 @@ class TestQueries(TransactionTestCase):
         expected = {'CORE': ['CS1811', 'CS1840', 'CS1860', 'CS1870', 'CS1890'],
                     'DISC_ALT': ['CS1812', 'CS1813', 'CS1822', 'CS1821']}
 
-        mod_codes = db.mod_codes_by_constraint(degree, '2019', '1')
-        self.assertEqual(expected, mod_codes)  # Check we're correct
+        mod_codes = db.modcode_patterns_by_constraint(degree, '2019', '1')
+        self.assertEqual(expected, mod_codes)
 
+        # TEST 2 - BSc Computer Science, entry year 2019, stage 2
+        expected = {'CORE': ['CS2800', 'CS2810', 'CS2850', 'CS2855', 'CS2860', 'IY2760'],
+                    'OPTS': ['CS2', 'IY2']}
+        mod_codes = db.modcode_patterns_by_constraint(degree, '2019', '2')
+        self.assertEqual(expected, mod_codes)
 
+        # TEST 3 - BSc Computer Science, entry year 2019, stage 3
+        expected = {'CORE': ['CS3821'], 'OPTS': ['CS3', 'IY3']}
+        mod_codes = db.modcode_patterns_by_constraint(degree, '2019', '3')
+        self.assertEqual(expected, mod_codes)

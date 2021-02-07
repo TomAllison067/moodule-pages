@@ -1,3 +1,5 @@
+from typing import Dict
+
 from modulesApplication.models import OptionRule, Programme
 
 """
@@ -5,14 +7,16 @@ A set of common queries we may wish to make.
 """
 
 
-def mod_codes_by_constraint(programme: Programme, entry_year: str, stage: str):
+def modcode_patterns_by_constraint(programme: Programme, entry_year: str, stage: str) -> Dict[str, list]:
     """
-    Returns a dict of (constraint_type: mod_codes[]) pairs for a given Programme, entry_year and stage.
+    Returns a dict of (constraint_type: mod_codes_patterns[]) pairs for a given Programme, entry_year and stage.
+
     TODO: this is fairly slow. Can we cache the results somehow?
+
     :param programme: The Programme for which to get the module codes.
     :param entry_year: The entry year of the Programme you wish to query.
     :param stage: The stage of the Programme for which you wish you get the module codes.
-    :return: a dict of (constraint_type: mod_codes[]) pairs.
+    :return: a dict of (constraint_type: mod_code_patterns[]) pairs.
     """
     degree_options = OptionRule.objects.filter(prog_code=programme, entry_year=entry_year, stage=stage)
     mod_codes = {}  # Put the module codes allowed by the rules into a dict
