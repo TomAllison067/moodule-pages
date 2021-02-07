@@ -4,7 +4,9 @@ from django.core.exceptions import ValidationError
 from django.core.management import call_command
 from django.db import IntegrityError
 from django.test import TransactionTestCase
+from . import utils
 
+from modulesApplication.database.csv_reader import CsvReader
 from modulesApplication.models import OptionRule, Programme
 
 
@@ -80,8 +82,8 @@ class TestOptionRule(TransactionTestCase):
                          "The maximum quantity is ALSO all of the core modules.")
 
     def test_complex_squash_core_modules(self):
-        output = StringIO()  # Silence output of import command
-        call_command('import_test_data', stdout=output)
+        utils.read_test_programmes()
+        utils.read_test_optionrules()
         bsc = Programme.objects.get(prog_code='1067')
         original_rules = OptionRule.objects.filter(prog_code=bsc, entry_year='2019', stage='1', constraint_type='CORE')
         self.assertEqual(5, original_rules.count(), "There are five core option rules for 1067 in 2019 to begin with.")
@@ -90,3 +92,24 @@ class TestOptionRule(TransactionTestCase):
         self.assertEqual(1, new_rules.count(), "The five rules have been squashed into one.")
         self.assertEqual("CS1811,CS1840,CS1860,CS1870,CS1890", new_rules[0].mod_code_pattern,
                          "The mod_code_patterns have been squashed into the remaining rule.")
+
+    def test_squash_optional_modules(self):
+        """Tests that we can read optional modules from 'optional_modules_by_programme', and squash them into
+        the relevant OptionRules entries."""
+        utils.read_test_programmes()
+        utils.read_test_optionrules()
+        bsc = Programme.objects.get(prog_code='1067')
+        optional_modules = utils.read_optional_modules()
+        # Stage 2 of BSc Computer Science, 2019
+        expected_pattern = "CS2900,CS2910,IY2840"
+        OptionRule.squash_opts_modules(optional_modules, programme=bsc, entry_year='2019', stage='2')
+        actual_pattern = OptionRule.objects.get(
+            prog_code=bsc, entry_year='2019', stage='2', constraint_type='OPTS').mod_code_pattern
+        self.assertEqual(expected_pattern, actual_pattern)
+
+        # Stage 3 of BSc Computer Science, 2019
+        expected_pattern = "CS3000,CS3003,CS3110,CS3220,CS3250,CS3470,CS3480,CS3490,CS3510,CS3580,CS3750,CS3840,CS3846,CS3870,CS3920,CS3930,CS3940,CS3945,IY3501,IY3606,IY3609,IY3612,IY3660,IY3840"
+        OptionRule.squash_opts_modules(optional_modules, programme=bsc, entry_year='2019', stage='3')
+        actual_pattern = OptionRule.objects.get(
+            prog_code=bsc, entry_year='2019', stage='3', constraint_type='OPTS').mod_code_pattern
+        self.assertMultiLineEqual(expected_pattern, actual_pattern)

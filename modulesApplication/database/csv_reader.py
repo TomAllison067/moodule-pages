@@ -71,3 +71,13 @@ class CsvReader:
                 tmp = model_class(**kwargs)
                 result.append(tmp)
         return result
+
+    def read_dict(self, file):
+        """
+        Read a csv file and return a list of dicts.
+        :param file the csv file to read
+        :return: a list of dicts of header/value pairs
+        """
+        with open(file, newline='', encoding='utf8') as csvfile:
+            reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
+            return list(reader)

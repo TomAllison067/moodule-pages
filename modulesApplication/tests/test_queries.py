@@ -3,10 +3,9 @@ from io import StringIO
 from django.core.management import call_command
 from django.test import TransactionTestCase
 
-from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.database.models.option_rule import OptionRule
-from modulesApplication.database.models.programme import Programme
-from modulesApplication.models import Module, Strands
+from modulesApplication.database import queries as db
+from modulesApplication.models import Module, Strands, Programme, OptionRule
+from modulesApplication.tests import utils
 
 
 class TestQueries(TransactionTestCase):
@@ -53,35 +52,41 @@ class TestQueries(TransactionTestCase):
         self.assertEqual(dns_modules_pks, dns_strands_foreignkeys,
                          "The primary and foreign keys do not match for the DNS strand.")
 
-    def test_query_modules(self):
-        cr = CsvReader()
-        # Read in the programmes
-        programmes = cr.read_table_partial(
-            filepath="modulesApplication/tests/resources/programmes.csv",
-            model_class=Programme
-        )
-        Programme.objects.bulk_create(programmes)
+    def test_query_modcode_patterns(self):
+        """Tests that we can get a dictionary of module code patterns for a given degree, entry year and stage 1."""
+        utils.read_test_programmes()
+        utils.read_test_optionrules()
 
-        # Read in the rules
-        rules = cr.read_table_partial(
-            filepath="modulesApplication/tests/resources/option_rules.csv",
-            model_class=OptionRule
-        )
-        OptionRule.objects.bulk_create(rules)
+        degree = Programme.objects.get(prog_code='1067')
 
-        degree = Programme.objects.get(prog_code='1067')  # Get 'BSc Computer Science'
-
-        # Get the OptionRule for the degree, entry year 2019 stage 1
-        OptionRule.squash_core_modules(programme=degree, entry_year='2019', stage='1')  # Squash cos it's nice
-        degree_options = OptionRule.objects.filter(prog_code=degree, entry_year='2019', stage='1')
-
-        # Put the module codes allowed by the rules into a dict
-        mod_codes = {}
-        for option in degree_options:
-            mod_codes[option.constraint_type] \
-                = mod_codes.get(option.constraint_type, []) + [m for m in option.mod_code_pattern.split(',')]
-
-        # What we know the core and discretionary modules for year 1 Computer Science are
+        # TEST 1 - BSc Computer Science, entry year 2019, stage 1
+        # The expected core and discretionary modules for Computer Science, stage 1, entry year 2019
         expected = {'CORE': ['CS1811', 'CS1840', 'CS1860', 'CS1870', 'CS1890'],
                     'DISC_ALT': ['CS1812', 'CS1813', 'CS1822', 'CS1821']}
-        self.assertEqual(expected, mod_codes)  # Check we're correct
+
+        mod_codes = db.modcode_patterns_by_constraint(degree, '2019', '1')
+        self.assertEqual(expected, mod_codes)
+
+        # TEST 2 - BSc Computer Science, entry year 2019, stage 2
+        expected = {'CORE': ['CS2800', 'CS2810', 'CS2850', 'CS2855', 'CS2860', 'IY2760'],
+                    'OPTS': ['CS2', 'IY2']}
+        mod_codes = db.modcode_patterns_by_constraint(degree, '2019', '2')
+        self.assertEqual(expected, mod_codes)
+
+        # TEST 3 - BSc Computer Science, entry year 2019, stage 3
+        expected = {'CORE': ['CS3821'], 'OPTS': ['CS3', 'IY3']}
+        mod_codes = db.modcode_patterns_by_constraint(degree, '2019', '3')
+        self.assertEqual(expected, mod_codes)
+
+    def test_query_modcodes_squashed(self):
+        """As the above test, but where optional modules have been squashed."""
+        utils.read_test_programmes()
+        utils.read_test_optionrules()
+        degree = Programme.objects.get(prog_code='1067')
+
+        # BSc Compsci, entry year 2019, stage 2 (there are no optional modules in stage 1)
+        expected = {'CORE': ['CS2800', 'CS2810', 'CS2850', 'CS2855', 'CS2860', 'IY2760'],
+                    'OPTS': ['CS2900', 'CS2910', 'IY2840']}
+        OptionRule.squash_opts_modules(utils.read_optional_modules(), programme=degree, entry_year='2019', stage='2')
+        mod_codes = db.modcode_patterns_by_constraint(degree, '2019', '2')
+        self.assertEqual(expected, mod_codes)
