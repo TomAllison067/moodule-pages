@@ -92,3 +92,16 @@ class TestOptionRule(TransactionTestCase):
         self.assertEqual(1, new_rules.count(), "The five rules have been squashed into one.")
         self.assertEqual("CS1811,CS1840,CS1860,CS1870,CS1890", new_rules[0].mod_code_pattern,
                          "The mod_code_patterns have been squashed into the remaining rule.")
+
+    def test_squash_optional_modules(self):
+        """Tests that we can read optional modules from 'optional_modules_by_programme', and squash them into
+        the relevant OptionRules entries."""
+        self.fail("Not yet implemented")
+        utils.read_test_programmes()
+        utils.read_test_optionrules()
+        bsc = Programme.objects.get(prog_code='1067')
+        OptionRule.squash_opts_modules(programme=bsc, entry_year='2019', stage='2')
+        expected_pattern = "CS2900,CS2910,IY2840"
+        actual_pattern = OptionRule.objects.get(
+            prog_code=bsc, entry_year='2019', stage='2', constraint_type='OPTS').mod_code_pattern
+        self.assertEqual(expected_pattern, actual_pattern)

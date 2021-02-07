@@ -69,3 +69,7 @@ class OptionRule(models.Model):
             print("Unknown error: unable to squash all core modules for programme {}, entry year {} stage {}"
                   .format(programme.prog_code, entry_year, stage))
             return False
+
+    @classmethod
+    def squash_opts_modules(cls, programme, entry_year, stage, file):
+        pass
