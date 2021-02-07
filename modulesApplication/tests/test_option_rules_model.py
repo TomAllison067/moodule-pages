@@ -100,7 +100,10 @@ class TestOptionRule(TransactionTestCase):
         utils.read_test_programmes()
         utils.read_test_optionrules()
         bsc = Programme.objects.get(prog_code='1067')
-        OptionRule.squash_opts_modules(programme=bsc, entry_year='2019', stage='2')
+        cr = CsvReader()
+        optional_modules = cr.read_dict(
+            'modulesApplication/tests/resources/optional_modules_by_programme.csv')
+        OptionRule.squash_opts_modules(optional_modules, programme=bsc, entry_year='2019', stage='2')
         expected_pattern = "CS2900,CS2910,IY2840"
         actual_pattern = OptionRule.objects.get(
             prog_code=bsc, entry_year='2019', stage='2', constraint_type='OPTS').mod_code_pattern

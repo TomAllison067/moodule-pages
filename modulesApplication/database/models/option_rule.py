@@ -71,5 +71,5 @@ class OptionRule(models.Model):
             return False
 
     @classmethod
-    def squash_opts_modules(cls, programme, entry_year, stage, file):
-        pass
+    def squash_opts_modules(cls, optional_modules, programme, entry_year, stage):
+        print(optional_modules)
