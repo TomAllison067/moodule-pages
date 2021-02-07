@@ -96,15 +96,23 @@ class TestOptionRule(TransactionTestCase):
     def test_squash_optional_modules(self):
         """Tests that we can read optional modules from 'optional_modules_by_programme', and squash them into
         the relevant OptionRules entries."""
-        self.fail("Not yet implemented")
         utils.read_test_programmes()
         utils.read_test_optionrules()
         bsc = Programme.objects.get(prog_code='1067')
         cr = CsvReader()
         optional_modules = cr.read_dict(
             'modulesApplication/tests/resources/optional_modules_by_programme.csv')
-        OptionRule.squash_opts_modules(optional_modules, programme=bsc, entry_year='2019', stage='2')
+
+        # Stage 2 of BSc Computer Science, 2019
         expected_pattern = "CS2900,CS2910,IY2840"
+        OptionRule.squash_opts_modules(optional_modules, programme=bsc, entry_year='2019', stage='2')
         actual_pattern = OptionRule.objects.get(
             prog_code=bsc, entry_year='2019', stage='2', constraint_type='OPTS').mod_code_pattern
         self.assertEqual(expected_pattern, actual_pattern)
+
+        # Stage 3 of BSc Computer Science, 2019
+        expected_pattern = "CS3000,CS3003,CS3110,CS3220,CS3250,CS3470,CS3480,CS3490,CS3510,CS3580,CS3750,CS3840,CS3846,CS3870,CS3920,CS3930,CS3940,CS3945,IY3501,IY3606,IY3609,IY3612,IY3660,IY3840"
+        OptionRule.squash_opts_modules(optional_modules, programme=bsc, entry_year='2019', stage='3')
+        actual_pattern = OptionRule.objects.get(
+            prog_code=bsc, entry_year='2019', stage='3', constraint_type='OPTS').mod_code_pattern
+        self.assertMultiLineEqual(expected_pattern, actual_pattern)
