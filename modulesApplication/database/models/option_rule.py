@@ -117,15 +117,19 @@ class OptionRule(models.Model):
         :param optional_modules: a list of dicts containing prog_code and mod_code.
         """
         for program in optional_modules:
-            for stage in range(1, 5):
+            for stage in range(1, 6):
                 # entry year is not includes when filtered as it will be the same for each year
                 # this assumption is made on the basis the optional_modules_by_programme didn't specify for each year
                 original_rule = OptionRule.objects.filter(prog_code=program, stage=stage, constraint_type='OPTS')
                 if not original_rule:
                     continue
-                prefixes = tuple(original_rule.first().mod_code_pattern.split(","))
-                new_pattern = [x for x in optional_modules[program] if x.startswith(prefixes)]
-                for rule in original_rule:
-                    rule.mod_code_pattern = ','.join(new_pattern)
-                    rule.save()
-
+                prefixes_set = set()
+                for x in original_rule:
+                    prefixes_set.add(x.mod_code_pattern)
+                for prefix in prefixes_set:
+                    prefixes = tuple(prefix.split(","))
+                    new_pattern = [x for x in optional_modules[program] if x.startswith(prefixes)]
+                    new_pattern = prefixes if not new_pattern else new_pattern
+                    for rule in OptionRule.objects.filter(prog_code=program, stage=stage, constraint_type='OPTS', mod_code_pattern=prefix):
+                        rule.mod_code_pattern = ','.join(new_pattern)
+                        rule.save()

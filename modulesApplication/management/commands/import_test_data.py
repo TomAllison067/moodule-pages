@@ -15,7 +15,7 @@ def squash_all():
     programmes = set(m for m in Programme.objects.all())
     for program in programmes:
         for year in range(2015, CURRENT_YEAR-1):
-            for stage in range(5):
+            for stage in range(1, 6):
                 if OptionRule.objects.filter(prog_code=program,
                                              entry_year=year,
                                              stage=stage).exists():
@@ -30,6 +30,22 @@ def clear_database():
     Strands.objects.all().delete()
     Module.objects.all().delete()
     Programme.objects.all().delete()
+
+
+def all_optional_modules():
+    """
+    take the dictionary created in from reading optional_modules_by_programmes.csv
+    creates a new dictionary, key = prog_code  and value = all optional mod_codes in prog_code
+    """
+    programme_codes = set(m.pk for m in Programme.objects.all())
+
+    cr = CsvReader()
+    optional_modules = cr.read_dict('modulesApplication/tests/resources/optional_modules_by_programme.csv')
+    programme_options = {}
+    for programme in programme_codes:
+        programme_modules_list = [x["mod_code"] for x in optional_modules if programme in x["prog_code"]]
+        programme_options[programme] = programme_modules_list
+    return programme_options
 
 
 class Command(BaseCommand):
@@ -80,6 +96,8 @@ class Command(BaseCommand):
         self.insert_programmes()
         self.insert_option_rules()
         squash_all()
+        programme_opt_modules = all_optional_modules()
+        OptionRule.squash_all_opts_modules_alt(programme_opt_modules)
         output = "Imported {} modules, {} strands, {} degree programmes and {} option_rules successfully." \
             .format(Module.objects.count(), Strands.objects.count(), Programme.objects.count(),
                     OptionRule.objects.count())
