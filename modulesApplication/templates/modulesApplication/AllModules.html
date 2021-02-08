@@ -1,82 +1,131 @@
-<style>
-    .accordion {
-        background-color: #eee;
-        color: #444;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-        transition: 0.4s;
-    }
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" )>
 
-    .active,
-    .accordion:hover {
-        background-color: #ccc;
-    }
 
-    .panel {
-        padding: 0 18px;
-        display: none;
-        background-color: white;
-        overflow: hidden;
-    }
-</style>
+<head>
+    <meta charset="utf-8">
+    <title>moodule | Student Homepage</title>
+    <meta name="description" content="TBD">
+    <meta name="author" content="TBD">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
+</head>
 
 <body>
-<h1>Modules</h1>
-{# module_summaries refer to the dictionary passed through with the render request #}
-<p>Filter: <select name="year" id="year_filter">
-    <option value=0>Select Year</option>
-</select></p>
+<!-- you can delete anything from here to the other comment like this if you do not like it,
+i was just trying to help but only the top bar and the footer look good" -->
 
 
-{% if module_summaries %}
-    <ul>
-        {% for year, modules in module_summaries.items %}
-            <h2>Year {{ year|add:"-3" }}</h2>
-            {% for module in modules %}
-                <button class="accordion">{{ module.module_code }} - {{ module.title }}</button>
-                <div class="panel" disabled="False" id="module">
-                    <h4>Summary</h4>
-                    <p>{{ module.summary }}</p>
-                    <button onclick="myFunction('{{ module.module_code }}')">Click Me</button>
-                    <div class="{{ module.module_code }}" style="display: none;">
-                        <h4>Learning Outcomes</h4>
-                        <p>{{ module.learning_outcomes }}</p>
-                        <h4>Recommended Reading</h4>
-                        <p>{{ module.recommended_reading }}</p>
-                        <h4>Exam Format</h4>
-                        <p>{{ module.exam_format }}</p>
+<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+<div id="overlay" onclick="quitClick() "></div>
+
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper">
+    <input type="checkbox" id="check">
+    <!-- SIDEBAR MENU -->
+    <div class="sidebar">
+        <header>
+            <img class="mainlogo" src="{% static 'modulesApplication/images/mlogo.png' %}" alt="logo">
+        </header>
+        <ul>
+            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a></li>
+            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all courses</a></li>
+            <li><a href="#" class="btn"><i class="fas fa-book"></i>courses by year</a></li>
+        </ul>
+    </div>
+    <!-- TOP BAR -->
+    <nav class="topbar">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+        </label>
+        <label class="title"> moodule</label>
+        <div class="search-box">
+            <input class="search-txt" type="text" name="" placeholder="search">
+            <a class="search-btn" href="#">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
+
+        <img src="{% static 'modulesApplication/images/slp-box-img.png' %}" class="avatar" alt="avatar">
+    </nav>
+
+    <!-- here ends my attempt
+    at designing the page -->
+
+    <h1>All Modules</h1>
+    {# module_summaries refer to the dictionary passed through with the render request #}
+    <p>Filter: <select class="filter" name="year" id="year_filter">
+        <option value=0>Select Year</option>
+    </select>
+    </p>
+
+
+    {% if module_summaries %}
+        <ul>
+            {% for year, modules in module_summaries.items %}
+                <h2>Year {{ year|add:"-3" }}</h2>
+                {% for module in modules %}
+                    <button class="accordion">{{ module.module_code }} - {{ module.title }}</button>
+                    <div class="panel" disabled="False" id="module">
+                        <h4>Summary</h4>
+                        <p>{{ module.summary }}</p>
+                        <button onclick="myFunction('{{ module.module_code }}')">Click Me</button>
+                        <div class="{{ module.module_code }}" style="display: none;">
+                            <h4>Learning Outcomes</h4>
+                            <p>{{ module.learning_outcomes }}</p>
+                            <h4>Recommended Reading</h4>
+                            <p>{{ module.recommended_reading }}</p>
+                            <h4>Exam Format</h4>
+                            <p>{{ module.exam_format }}</p>
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
 
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
 </body>
+
+<div class="footer">
+    <div class="row">
+        <div class="col">
+            <li>Royal Holloway, University of London</li>
+            <li>Egham, Surrey, TW20 0EX</li>
+        </div>
+        <div class="col">
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+        </div>
+        <div class="col">
+            <li>moodule@gmail.com</li>
+            <li>T: +44 (0)1784 434455</li>
+        </div>
+    </div class="row">
+    &copy; 2021 moodule.com | Designed by CS2815 Group 34
+</div>
+</div>
+</html>
 
 {# this script is for the accoridion animation to show the summaries#}
 
 <script>
     // Display/hide extra info
     function myFunction(mod_code) {
-    let x = document.getElementsByClassName(mod_code)[0]
-    console.log("Clicked " + mod_code);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
+        let x = document.getElementsByClassName(mod_code)[0]
+        console.log("Clicked " + mod_code);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
     }
-}
 
-var acc = document.getElementsByClassName("accordion");
+    var acc = document.getElementsByClassName("accordion");
     var i;
 
     for (i = 0; i < acc.length; i++) {
@@ -108,3 +157,35 @@ var acc = document.getElementsByClassName("accordion");
         }
     }
 </script>
+<style>
+
+    .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+
+    .active,
+    .accordion:hover {
+        background-color: #ccc;
+    }
+
+    .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: grey;
+        overflow: hidden;
+    }
+
+    .filter {
+        background-color: #1d2124;
+    }
+</style>
+

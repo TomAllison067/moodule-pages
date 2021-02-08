@@ -10,7 +10,7 @@ student_patterns = [
     path('all-modules/<str:module>/', views.student.module_details, name="specific-module"),
     path('all-modules/sort/<int:sort>/', views.student.all_modules, name="filter-modules"),
     path('landing/', views.student.landing, name='student-landing'),
-    path('choose/', views.student.choose_modules, name='student-choose-modules'),
+    path('choose-modules/', views.student.choose_modules, name='choose-modules'),
 
 ]
 academic_patterns = []  # example
