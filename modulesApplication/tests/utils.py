@@ -42,11 +42,14 @@ def read_optional_modules():
         'modulesApplication/tests/resources/optional_modules_by_programme.csv')
     return optional_modules
 
+
 def all_optional_modules():
-   # programme_codes = set(m.pk for m in Programme.objects.all())
-    programme_codes = {'3449', '2676', '2673', '2845', '3015', '1062', '1069', '2446', '2675', '1067', '2686', '2327',
-                       '2687', '3014', '3017', '2843', '3047', '1257', '2844', '2846', '1059', '2677', '3424', '2678',
-                       '2674', '3016'}
+    """
+    take the dictionary created in from reading optional_modules_by_programmes.csv
+    creates a new dictionary, key = prog_code  and value = all optional mod_codes in prog_code
+    """
+    programme_codes = set(m.pk for m in Programme.objects.all())
+
     optional_modules = read_optional_modules()
     programme_options = {}
     for programme in programme_codes:

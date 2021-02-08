@@ -99,3 +99,33 @@ class OptionRule(models.Model):
         original_rule.mod_code_pattern = new_pattern
         original_rule.save()
 
+    @classmethod
+    def squash_all_opts_modules_alt(cls, optional_modules):
+        """
+        Takes a list of dict objects containing prog_code and all the optional mod_code in that programme and attempts
+         to squash them into the OPTS option_rules for the provided programme.
+
+         in utils(modulesApplication/database/models/option_rule.py) there is a function all_optional_modules()
+         that creates the dictionary with the prog_code as the key and the value of all the mod_codes across the stages
+
+         Example input: {'1067': ['CS2900', 'CS2910', 'CS3000', 'CS3003', 'CS3110',...],
+                         '1059': ['CS3003', 'CS3110', 'CS3220', 'CS3250', 'CS3470',...],
+                         '2327': ['CS2910', 'CS3000', 'CS3003', 'CS3110', 'CS3220',...]
+                          ... }
+
+         The OPTS option rule for this would then have mod_code pattern 'CS2900,CS2910,IY2840'.
+        :param optional_modules: a list of dicts containing prog_code and mod_code.
+        """
+        for program in optional_modules:
+            for stage in range(1, 5):
+                # entry year is not includes when filtered as it will be the same for each year
+                # this assumption is made on the basis the optional_modules_by_programme didn't specify for each year
+                original_rule = OptionRule.objects.filter(prog_code=program, stage=stage, constraint_type='OPTS')
+                if not original_rule:
+                    continue
+                prefixes = tuple(original_rule.first().mod_code_pattern.split(","))
+                new_pattern = [x for x in optional_modules[program] if x.startswith(prefixes)]
+                for rule in original_rule:
+                    rule.mod_code_pattern = ','.join(new_pattern)
+                    rule.save()
+
