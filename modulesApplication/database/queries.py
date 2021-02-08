@@ -27,24 +27,60 @@ def modcode_patterns_by_constraint(programme: Programme, entry_year: str, stage:
 
 
 def get_programme_info(prog_code: str, entry_year):
-    programme = Programme.objects.get(prog_code=prog_code)
-    stages = 3
-    if programme.level == "MSC":
+    """
+    TODO the output is just BEGGING to be made into a proper class, not just some haphazard dict!
+
+    Given a programme code and an entry year, returns a Dict object containing information about that Programme's
+    modules and constraints.
+
+    An example output:
+    info['programme'] - the corresponding Programme object
+    info['entry_year'] - a String of the entry year
+    info['modules'] - A mapping of stages to constraint types to a list of Module objects, for example:
+        {'stage1': {'DISC_ALT': [<Module: Module object (CS1812)>, <Module: Module object (CS1813)>, ....
+    info['rules'] - A mapping of stages to OptionRule objects, for example:
+        {'stage1': [<OptionRule: OptionRule object (14539)>, <OptionRule: OptionRule object (14540)>, ....
+
+    note: info['modules'] contains modules belonging to OPTS, CORE and DISC_ALT patterns only - other rule constraints
+    seem best left just as rules (e.g., MAX_STRANDS just tells how many
+
+    :param prog_code: A string of the programme code to query
+    :param entry_year: A string of the entry year
+    :return: A dictionary containing programme info
+    """
+    programme = Programme.objects.get(prog_code=prog_code)  # The Programme object we are analysing
+    stages = 3  # All degrees have 3 stages to begin with.
+    if programme.level.upper() == "MSCI":
         stages += 1
     if programme.yini:
         stages += 1
-    patterns = {}
-    for i in range(1, stages + 1):
-        patterns["stage{}".format(i)] = modcode_patterns_by_constraint(
-            programme=programme, entry_year=entry_year, stage='{}'.format(i)
-        )
-    modules = {stage: {} for stage in patterns.keys()}
-    for stage, constraints in patterns.items():
-        for constraint, codes in constraints.items():
-            modules[stage][constraint] = [Module.objects.get(mod_code=mc) for mc in codes]
-    programme_info = {
+    info = {  # This will get sent to the template.
         'programme': programme,
-        'modules': modules,
-        'entry_year': entry_year
+        'entry_year': entry_year,
+        'modules': {},  # A list of module objects (used to display on the frontend)
+        'rules': {}  # A list of OptionRule objects (used for validation)
     }
-    return programme_info
+    print("STAGES ", stages)
+    # Populate the dict with the rules and modules from stage 1 until the last stage
+    for stage in range(1, stages + 1):
+        stage_key = 'stage{}'.format(stage)
+
+        # All the OptionRules for this stage
+        rules = OptionRule.objects.filter(prog_code=programme,
+                                          entry_year=entry_year,
+                                          stage=str(stage))
+        info['rules'][stage_key] = [rule for rule in rules]
+
+        # Next, populate the modules
+        info['modules'][stage_key] = {}
+
+        # For each OptionRule, split the mod_code_patterns and query a list of Module objects applicable for this degree
+        for rule in rules:
+            # Other constraints eg MAX_STRAND just specify rules, and should not be queried.
+            if rule.constraint_type in ["CORE", "OPTS", "DISC_ALT"]:
+                modules = [Module.objects.get(mod_code=mc) for mc in rule.mod_code_pattern.split(",") or None]
+                info['modules'][stage_key][rule.constraint_type] = \
+                    info['modules'][stage_key].get(rule.constraint_type, []) + modules
+
+        print(info['rules'])
+    return info
