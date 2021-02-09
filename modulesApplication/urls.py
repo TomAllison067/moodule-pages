@@ -21,8 +21,4 @@ urlpatterns = [
     path('student/', include(student_patterns)),
     path('academic/', include(academic_patterns)),
     path('office/', include(office_patterns)),
-
-    # URL Paths for Authentication
-    path('signin', views.index, name='signin'),
-    path('signout', views.index, name='signout'),
 ]
