@@ -1,5 +1,5 @@
 from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.models import Programme, OptionRule, Module, Strands
+from modulesApplication.models import Programme, OptionRule, Module, Strands, OptionalModule
 from modulesApplication.management.commands.import_test_data import Command
 
 """
@@ -47,7 +47,7 @@ def read_test_optionrules():
     OptionRule.objects.bulk_create(rules)
 
 
-def read_optional_modules():
+def read_optional_modules_dict():
     """
     Reads in the list of optional modules exported from the sqlite3 database view optional_modules_by_programme.
     """
@@ -57,6 +57,18 @@ def read_optional_modules():
     return optional_modules
 
 
+def read_optional_modules():
+    """
+    Reads the list of optional modules exported from the sqlite3 database view optional_models_by_programme
+    into OptionalModule objects.
+    """
+    optional_modules = read_optional_modules_dict()
+    for m in optional_modules:
+        OptionalModule.objects.create(
+            prog_code=Programme.objects.get(prog_code=m['prog_code']),
+            mod_code=Module.objects.get(mod_code=m['mod_code']))
+
+
 def all_optional_modules():
     """
     take the dictionary created in from reading optional_modules_by_programmes.csv
@@ -64,7 +76,7 @@ def all_optional_modules():
     """
     programme_codes = set(m.pk for m in Programme.objects.all())
 
-    optional_modules = read_optional_modules()
+    optional_modules = read_optional_modules_dict()
     programme_options = {}
     for programme in programme_codes:
         programme_modules_list = [x["mod_code"] for x in optional_modules if programme in x["prog_code"]]
