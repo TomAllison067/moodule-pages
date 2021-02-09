@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'microsoft_auth',
+    #'microsoft_auth',
 ]
 
 SITE_ID = 1
@@ -90,7 +90,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'microsoft_auth.context_processors.microsoft',
+                #'microsoft_auth.context_processors.microsoft',
             ],
         },
     },
@@ -138,23 +138,23 @@ STATIC_URL = '/static/'
 
 
 #Keiru's additions for Microsoft authentication:
-
-AUTHENTICATION_BACKENDS = [
-    'microsoft_auth.backends.MicrosoftAuthenticationBackend',
-    'django.contrib.auth.backends.ModelBackend' # if you also want to use Django's authentication
-    # I recommend keeping this with at least one database superuser in case of unable to use others
-]
-
-# values you got from step 2 from your Mirosoft app
-MICROSOFT_AUTH_CLIENT_ID = 'c41c55a8-c3dc-4771-ba91-c51ed47b0b47'
-MICROSOFT_AUTH_CLIENT_SECRET = 'tD.XN4~zPV6jH-.140.Qn6Nt5H4pSsF8mF'
-# Tenant ID is also needed for single tenant applications
-MICROSOFT_AUTH_TENANT_ID = 'f8cdef31-a31e-4b4a-93e4-5f571e91255a'
-
-# pick one MICROSOFT_AUTH_LOGIN_TYPE value
-# Microsoft authentication
-# include Microsoft Accounts, Office 365 Enterprise and Azure AD accounts
-MICROSOFT_AUTH_LOGIN_TYPE = 'ma'
-
-# Xbox Live authentication
-#MICROSOFT_AUTH_LOGIN_TYPE = 'xbl'  # Xbox Live authentication
+#
+# AUTHENTICATION_BACKENDS = [
+#     'microsoft_auth.backends.MicrosoftAuthenticationBackend',
+#     'django.contrib.auth.backends.ModelBackend' # if you also want to use Django's authentication
+#     # I recommend keeping this with at least one database superuser in case of unable to use others
+# ]
+#
+# # values you got from step 2 from your Mirosoft app
+# MICROSOFT_AUTH_CLIENT_ID = 'c41c55a8-c3dc-4771-ba91-c51ed47b0b47'
+# MICROSOFT_AUTH_CLIENT_SECRET = 'tD.XN4~zPV6jH-.140.Qn6Nt5H4pSsF8mF'
+# # Tenant ID is also needed for single tenant applications
+# MICROSOFT_AUTH_TENANT_ID = 'f8cdef31-a31e-4b4a-93e4-5f571e91255a'
+#
+# # pick one MICROSOFT_AUTH_LOGIN_TYPE value
+# # Microsoft authentication
+# # include Microsoft Accounts, Office 365 Enterprise and Azure AD accounts
+# MICROSOFT_AUTH_LOGIN_TYPE = 'ma'
+#
+# # Xbox Live authentication
+# #MICROSOFT_AUTH_LOGIN_TYPE = 'xbl'  # Xbox Live authentication

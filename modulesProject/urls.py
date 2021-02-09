@@ -22,6 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # URL Path for Microsoft Authentication
-    path('microsoft/', include('microsoft_auth.urls', namespace='microsoft')),
+    #path('microsoft/', include('microsoft_auth.urls', namespace='microsoft')),
 
 ]
