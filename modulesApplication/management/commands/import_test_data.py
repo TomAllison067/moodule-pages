@@ -1,8 +1,9 @@
-from django.core.management.base import BaseCommand, CommandError
+import datetime
+
+from django.core.management.base import BaseCommand
 
 from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.models import Module, Strands, Programme, OptionRule
-import datetime
+from modulesApplication.models import Module, Strands, Programme, OptionRule, OptionalModule
 
 CURRENT_YEAR = datetime.datetime.now().year
 
@@ -14,7 +15,7 @@ def squash_all():
     """
     programmes = set(m for m in Programme.objects.all())
     for program in programmes:
-        for year in range(2015, CURRENT_YEAR-1):
+        for year in range(2015, CURRENT_YEAR - 1):
             for stage in range(1, 6):
                 if OptionRule.objects.filter(prog_code=program,
                                              entry_year=year,
@@ -26,6 +27,7 @@ def clear_database():
     """
     Clear your local database.
     """
+    OptionalModule.objects.all().delete()
     OptionRule.objects.all().delete()
     Strands.objects.all().delete()
     Module.objects.all().delete()
@@ -73,11 +75,25 @@ class Command(BaseCommand):
         )
         OptionRule.objects.bulk_create(rules)
 
+    def insert_optional_modules(self):
+        """
+        Reads the list of optional modules exported from the sqlite3 database view optional_models_by_programme
+        into OptionalModule objects.
+        """
+        cr = CsvReader()
+        optional_modules = cr.read_dict(
+            'modulesApplication/tests/resources/optional_modules_by_programme.csv')
+        for m in optional_modules:
+            OptionalModule.objects.create(
+                prog_code=Programme.objects.get(prog_code=m['prog_code']),
+                mod_code=Module.objects.get(mod_code=m['mod_code']))
+
     def handle(self, *args, **options):
         clear_database()
         self.insert_modules()
         self.insert_strands()
         self.insert_programmes()
+        self.insert_optional_modules()
         self.insert_option_rules()
         squash_all()
         output = "Imported {} modules, {} strands, {} degree programmes and {} option_rules successfully." \
