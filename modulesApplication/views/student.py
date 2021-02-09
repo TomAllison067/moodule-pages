@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
-from ..models import Module
+from ..database import queries as db
+from ..models import Module, Programme
 
 
 def index(request):
@@ -28,6 +29,11 @@ def all_modules(request, sort=0):
         module_summaries.setdefault(module.level, []).append(mod_sum)  # Creates a list if it doesn't exist and appends
     context = {'module_summaries': module_summaries}
     return render(request, 'modulesApplication/AllModules.html', context=context)
+
+
+def modules_by_programme(request, prog_code, entry_year='2019'):
+    context = db.get_programme_info(prog_code, entry_year)
+    return render(request, 'modulesApplication/foo.html', context=context)
 
 
 def landing(request):

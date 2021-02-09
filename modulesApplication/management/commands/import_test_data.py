@@ -15,7 +15,7 @@ def squash_all():
     programmes = set(m for m in Programme.objects.all())
     for program in programmes:
         for year in range(2015, CURRENT_YEAR-1):
-            for stage in range(5):
+            for stage in range(1, 6):
                 if OptionRule.objects.filter(prog_code=program,
                                              entry_year=year,
                                              stage=stage).exists():

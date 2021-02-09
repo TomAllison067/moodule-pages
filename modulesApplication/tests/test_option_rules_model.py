@@ -92,3 +92,6 @@ class TestOptionRule(TransactionTestCase):
         self.assertEqual(1, new_rules.count(), "The five rules have been squashed into one.")
         self.assertEqual("CS1811,CS1840,CS1860,CS1870,CS1890", new_rules[0].mod_code_pattern,
                          "The mod_code_patterns have been squashed into the remaining rule.")
+
+
+

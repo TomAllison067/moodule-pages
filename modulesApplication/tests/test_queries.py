@@ -4,8 +4,7 @@ from django.core.management import call_command
 from django.test import TransactionTestCase
 
 from modulesApplication.database import queries as db
-from modulesApplication.database.models.programme import Programme
-from modulesApplication.models import Module, Strands
+from modulesApplication.models import Module, Strands, Programme, OptionRule
 from modulesApplication.tests import utils
 
 
@@ -57,6 +56,7 @@ class TestQueries(TransactionTestCase):
         """Tests that we can get a dictionary of module code patterns for a given degree, entry year and stage 1."""
         utils.read_test_programmes()
         utils.read_test_optionrules()
+
         degree = Programme.objects.get(prog_code='1067')
 
         # TEST 1 - BSc Computer Science, entry year 2019, stage 1

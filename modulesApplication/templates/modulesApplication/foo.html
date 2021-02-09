@@ -1,0 +1,47 @@
+<h1>{{ programme.title }} - {{ entry_year }}</h1>
+{% if modules %}
+    {% for stage, constraints in modules.items %}
+        <h2> Stage {{ stage|slice:"-1:" }}</h2>
+        {% if constraints.CORE %}
+            <h3>Core modules</h3>
+            <ul>
+                {% for module in constraints.CORE %}
+                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if constraints.OPTS %}
+            <h3>Optional modules</h3>
+            <ul>
+                {% for module in constraints.OPTS %}
+                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if constraints.DISC_ALT %}
+            <h3>Discretionary alternatives</h3>
+            <ul>
+                {% for module in constraints.DISC_ALT %}
+                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if constraints.STRAND %}
+            <h3>Strand</h3>
+            <ul>
+                {% for module in constraints.STRAND %}
+                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if constraints.CREDITS %}
+            <h3>Credits</h3>
+            <ul>
+            {% for module in constraints.CREDITS %}
+                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
