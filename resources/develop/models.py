@@ -1,9 +1,34 @@
+# This is an auto-generated Django model module.
+# You'll have to do the following manually to clean this up:
+#   * Rearrange models' order
+#   * Make sure each model has one field with primary_key=True
+#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
+#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
+# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
 
+class AssessmentComponents(models.Model):
+    mod_code = models.TextField(blank=True, null=True)
+    set_order = models.IntegerField(blank=True, null=True)
+    name = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    weight = models.IntegerField(blank=True, null=True)
+    length = models.TextField(blank=True, null=True)
+    units_of_length = models.TextField(blank=True, null=True)
+    must_pass = models.TextField(blank=True, null=True)
+    marked_out_of = models.TextField(blank=True, null=True)
+    kis_category = models.TextField(blank=True, null=True)
+    final_assessment = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'assessment_components'
+
+
 class AssociatedAwards(models.Model):
-    ucas_code1 = models.ForeignKey('Programmes', models.DO_NOTHING, db_column='ucas_code1', blank=True, null=True, related_name='ucas_code1')
-    ucas_code2 = models.ForeignKey('Programmes', models.DO_NOTHING, db_column='ucas_code2', blank=True, null=True, related_name='ucas_code2')
+    ucas_code1 = models.ForeignKey('Programmes', models.DO_NOTHING, db_column='ucas_code1', blank=True, null=True)
+    ucas_code2 = models.ForeignKey('Programmes', models.DO_NOTHING, db_column='ucas_code2', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -31,6 +56,21 @@ class Coursework(models.Model):
         db_table = 'coursework'
 
 
+class FormativeAssessments(models.Model):
+    mod_code = models.TextField(blank=True, null=True)
+    set_order = models.IntegerField(blank=True, null=True)
+    activity = models.TextField(blank=True, null=True)
+    length = models.TextField(blank=True, null=True)
+    units_of_length = models.TextField(blank=True, null=True)
+    must_pass = models.TextField(blank=True, null=True)
+    marked_out_of = models.TextField(blank=True, null=True)
+    mode_of_feedback = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'formative_assessments'
+
+
 class Leaders(models.Model):
     mod_code = models.TextField(blank=True, null=True)
     initials = models.TextField(blank=True, null=True)
@@ -42,9 +82,18 @@ class Leaders(models.Model):
         db_table = 'leaders'
 
 
+class ModuleOptionKeys(models.Model):
+    mod_code = models.ForeignKey('Modules', models.DO_NOTHING, db_column='mod_code', blank=True, null=True)
+    option_key = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'module_option_keys'
+
+
 class ModuleVariants(models.Model):
-    major_code = models.ForeignKey('Modules', models.DO_NOTHING, db_column='major_code', blank=True, null=True, related_name='major_code')
-    minor_code = models.ForeignKey('Modules', models.DO_NOTHING, db_column='minor_code', blank=True, null=True, related_name='minor_code')
+    major_code = models.ForeignKey('Modules', models.DO_NOTHING, db_column='major_code', blank=True, null=True)
+    minor_code = models.ForeignKey('Modules', models.DO_NOTHING, db_column='minor_code', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -52,38 +101,37 @@ class ModuleVariants(models.Model):
 
 
 class Modules(models.Model):
-    mod_code = models.TextField(blank=True, null=False, primary_key=True)
+    mod_code = models.TextField(unique=True, blank=True, null=True)
+    jacs_code = models.TextField(blank=True, null=True)
     hecos_code = models.TextField(blank=True, null=True)
     title = models.TextField(blank=True, null=True)
-    year = models.IntegerField(blank=True, null=True)
+    short_title = models.TextField(blank=True, null=True)
+    level = models.IntegerField(blank=True, null=True)
     department = models.TextField(blank=True, null=True)
-    contact_hours = models.IntegerField(blank=True, null=True)
-    exams = models.IntegerField(blank=True, null=True)
-    practical = models.IntegerField(blank=True, null=True)
-    coursework = models.IntegerField(blank=True, null=True)
+    with_effect_from = models.TextField(blank=True, null=True)
+    availability_terms = models.TextField(blank=True, null=True)
     credits = models.IntegerField(blank=True, null=True)
+    corequisites = models.TextField(blank=True, null=True)
     prerequisites = models.TextField(blank=True, null=True)
+    banned_combinations = models.TextField(blank=True, null=True)
+    learning_outcomes = models.TextField(blank=True, null=True)
     summary = models.TextField(blank=True, null=True)
-    outcomes = models.TextField(blank=True, null=True)
-    methods = models.TextField(blank=True, null=True)
-    bibliography = models.TextField(blank=True, null=True)
-    formative = models.TextField(blank=True, null=True)
-    summative = models.TextField(blank=True, null=True)
+    notional_learning_hours = models.TextField(blank=True, null=True)
+    books_to_purchase = models.TextField(blank=True, null=True)
+    core_reading = models.TextField(blank=True, null=True)
     exam_format = models.TextField(blank=True, null=True)
     status = models.TextField(blank=True, null=True)
     project = models.BooleanField(blank=True, null=True)
     lab_hours = models.IntegerField(blank=True, null=True)
+    deg_prog = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'modules'
 
-    def __str__(self):
-        return self.mod_code
-
 
 class OptionRules(models.Model):
-    rule_id = models.IntegerField(blank=True, null=True)
+    rule_id = models.AutoField(blank=True, null=True)
     prog_code = models.ForeignKey('Programmes', models.DO_NOTHING, db_column='prog_code', blank=True, null=True)
     entry_year = models.TextField(blank=True, null=True)
     stage = models.IntegerField(blank=True, null=True)
@@ -100,7 +148,7 @@ class OptionRules(models.Model):
 
 
 class People(models.Model):
-    id = models.TextField(blank=True, null=False, primary_key=True)
+    id = models.TextField(blank=True, null=True)
     name = models.TextField(blank=True, null=True)
     email = models.TextField(blank=True, null=True)
 
@@ -109,9 +157,18 @@ class People(models.Model):
         db_table = 'people'
 
 
+class ProgrammeOptionKeys(models.Model):
+    prog_code = models.ForeignKey('Programmes', models.DO_NOTHING, db_column='prog_code', blank=True, null=True)
+    option_key = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'programme_option_keys'
+
+
 class Programmes(models.Model):
-    ucas_code = models.TextField(blank=True, null=True)
-    prog_code = models.TextField(blank=True, null=True)
+    ucas_code = models.TextField(unique=True, blank=True, null=True)
+    prog_code = models.TextField(unique=True, blank=True, null=True)
     hecos_code = models.TextField(blank=True, null=True)
     title = models.TextField(blank=True, null=True)
     level = models.TextField(blank=True, null=True)
@@ -134,20 +191,6 @@ class Programmes(models.Model):
         db_table = 'programmes'
 
 
-class AssessmentComponents(models.Model):
-    mod_code = models.ForeignKey(Modules, models.DO_NOTHING, db_column='mod_code', blank=True, null=True)
-    set_order = models.IntegerField(blank=True, null=True)
-    name = models.TextField(blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    pcnt = models.TextField(blank=True, null=True)
-    len = models.TextField(blank=True, null=True)
-    must_pass = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'assessment_components'
-
-
 class Strands(models.Model):
     mod_code = models.ForeignKey(Modules, models.DO_NOTHING, db_column='mod_code', blank=True, null=True)
     strand = models.TextField(blank=True, null=True)
@@ -155,6 +198,20 @@ class Strands(models.Model):
     class Meta:
         managed = False
         db_table = 'strands'
+
+
+class TeachingActivities(models.Model):
+    mod_code = models.TextField(blank=True, null=True)
+    activity_name = models.TextField(blank=True, null=True)
+    kis_category = models.TextField(blank=True, null=True)
+    length_mins = models.TextField(blank=True, null=True)
+    num_weeks = models.TextField(blank=True, null=True)
+    times_per_week = models.TextField(blank=True, null=True)
+    total_hours = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'teaching_activities'
 
 
 class ValidationYear(models.Model):
