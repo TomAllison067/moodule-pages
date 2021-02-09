@@ -24,3 +24,7 @@ class ProgrammeInfo:
 
     def get_modules(self, stage):
         return self.__modules_dict["stage{}".format(stage)]
+
+    @property
+    def modules_dict(self):
+        return self.__modules_dict

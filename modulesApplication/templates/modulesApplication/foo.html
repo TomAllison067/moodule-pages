@@ -1,47 +1,30 @@
-<h1>{{ programme.title }} - {{ entry_year }}</h1>
-{% if modules %}
-    {% for stage, constraints in modules.items %}
-        <h2> Stage {{ stage|slice:"-1:" }}</h2>
-        {% if constraints.CORE %}
-            <h3>Core modules</h3>
+<!-- This is a dummy template to test ProgrammeInfo objects. Please feel free to improve if you
+find a use for it! -->
+<h1> {{ info.programme.title }} - {{ info.entry_year }} </h1>
+{% for k, v in info.modules_dict.items %}
+    <h2> Stage {{ k|slice:"-1:" }}</h2>
+    {% for constraint, list in v.items %}
+        {% if constraint != "DISC_ALT" %}
+            <h3> {{ constraint|upper }}</h3>
             <ul>
-                {% for module in constraints.CORE %}
-                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+                {% for module in list %}
+                    <li>
+                        {{ module.mod_code }} {{ module.title }}
+                    </li>
                 {% endfor %}
             </ul>
+        {% else %}
+            <h3> {{ constraint|upper }}</h3>
+            {% for sublist in list %}
+                <p>One of...</p>
+                <ul>
+            {% for module in sublist %}
+                <li>
+                {{ module.title }}
+                </li>
+            {% endfor %}
+                </ul>
+            {% endfor %}
         {% endif %}
-        {% if constraints.OPTS %}
-            <h3>Optional modules</h3>
-            <ul>
-                {% for module in constraints.OPTS %}
-                    <li>{{ module.mod_code }} - {{ module.title }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        {% if constraints.DISC_ALT %}
-            <h3>Discretionary alternatives</h3>
-            <ul>
-                {% for module in constraints.DISC_ALT %}
-                    <li>{{ module.mod_code }} - {{ module.title }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        {% if constraints.STRAND %}
-            <h3>Strand</h3>
-            <ul>
-                {% for module in constraints.STRAND %}
-                    <li>{{ module.mod_code }} - {{ module.title }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        {% if constraints.CREDITS %}
-            <h3>Credits</h3>
-            <ul>
-            {% for module in constraints.CREDITS %}
-                    <li>{{ module.mod_code }} - {{ module.title }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-
     {% endfor %}
-{% endif %}
+{% endfor %}

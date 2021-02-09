@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
-from ..database import queries as db
 from ..models import Module, Programme
+from ..programmeInfo import factory
 
 
 def index(request):
@@ -32,7 +32,8 @@ def all_modules(request, sort=0):
 
 
 def modules_by_programme(request, prog_code, entry_year='2019'):
-    context = db.get_programme_info(prog_code, entry_year)
+    prog_info = factory.get_programme_info(prog_code, entry_year)
+    context = {'info': prog_info}
     return render(request, 'modulesApplication/foo.html', context=context)
 
 
