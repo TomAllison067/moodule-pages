@@ -21,6 +21,17 @@ def populate_core_modules(modules_dict: Dict, programme: Programme, stages: int,
         modules_dict[stage_key]["CORE"] = modules
 
 
+def populate_disc_alt_modules(modules_dict, programme, entry_year):
+    stage_key = "stage1"
+    rules = OptionRule.objects.filter(prog_code=programme,
+                                      entry_year=entry_year,
+                                      stage='1',
+                                      constraint_type="DISC_ALT")
+    patterns = [rule.mod_code_pattern for rule in rules]
+    modules = [[Module.objects.get(mod_code=mc) for mc in pattern.split(",")] for pattern in patterns]
+    modules_dict[stage_key]['DISC_ALT'] = modules
+
+
 def get_programme_info(prog_code: str, entry_year: str) -> ProgrammeInfo:
     programme = Programme.objects.get(prog_code=prog_code)
     stages = 3
@@ -30,4 +41,5 @@ def get_programme_info(prog_code: str, entry_year: str) -> ProgrammeInfo:
         stages += 1
     modules_dict = {}
     populate_core_modules(modules_dict, programme, stages, entry_year)
+    populate_disc_alt_modules(modules_dict, programme, entry_year)
     return ProgrammeInfo(programme, stages, entry_year, modules_dict)

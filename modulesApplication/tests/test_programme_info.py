@@ -60,9 +60,11 @@ class TestProgrammeInfo(TestCase):
         stage3_modules = {'CORE': [Module.objects.get(pk=mc) for mc in stage3_patterns['CORE']]}
         self.assertEqual(stage3_modules['CORE'], p.get_modules(stage=3)['CORE'])
 
-    # @classmethod
-    # def tearDownClass(cls):
-    #     Programme.objects.all().delete()
-    #     Module.objects.all().delete()
-    #     OptionRule.objects.all().delete()
-    #     super(TestProgrammeInfo, cls).tearDownClass()
+    def test_disc_alt_modules(self):
+        """Test that a new ProgrammeInfo object has the correct discretionary alternative modules,
+        available in stage 1 only."""
+        p = factory.get_programme_info(prog_code='1067', entry_year='2019')
+        stage1_patterns = {'DISC_ALT': ['CS1812,CS1813', 'CS1822,CS1821']}
+        stage1_modules = {'DISC_ALT': [[Module.objects.get(mod_code=mc) for mc in pattern.split(",")]
+                                       for pattern in stage1_patterns['DISC_ALT']]}
+        self.assertEqual(stage1_modules['DISC_ALT'], p.get_modules(stage=1)['DISC_ALT'])
