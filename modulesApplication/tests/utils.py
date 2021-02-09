@@ -1,5 +1,6 @@
 from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.models import Programme, OptionRule
+from modulesApplication.models import Programme, OptionRule, Module, Strands
+from modulesApplication.management.commands.import_test_data import Command
 
 """
 A set of utility functions to be used in unit tests.
@@ -18,6 +19,19 @@ def read_test_programmes():
         model_class=Programme
     )
     Programme.objects.bulk_create(programmes)
+
+
+def read_test_modules():
+    """
+    Insert modules from the sqlite3 csv into your local database.
+    """
+    c = Command()
+    c.insert_modules()
+
+
+def read_test_strands():
+    c = Command()
+    c.insert_strands()
 
 
 def read_test_optionrules():

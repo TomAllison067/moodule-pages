@@ -93,41 +93,5 @@ class TestOptionRule(TransactionTestCase):
         self.assertEqual("CS1811,CS1840,CS1860,CS1870,CS1890", new_rules[0].mod_code_pattern,
                          "The mod_code_patterns have been squashed into the remaining rule.")
 
-    def test_squash_optional_modules(self):
-        """Tests that we can read optional modules from 'optional_modules_by_programme', and squash them into
-        the relevant OptionRules entries."""
-        utils.read_test_programmes()
-        utils.read_test_optionrules()
-        bsc = Programme.objects.get(prog_code='1067')
-        optional_modules = utils.read_optional_modules()
-        # Stage 2 of BSc Computer Science, 2019
-        expected_pattern = "CS2900,CS2910,IY2840"
-        OptionRule.squash_opts_modules(optional_modules, programme=bsc, entry_year='2019', stage='2')
-        actual_pattern = OptionRule.objects.get(
-            prog_code=bsc, entry_year='2019', stage='2', constraint_type='OPTS').mod_code_pattern
-        self.assertEqual(expected_pattern, actual_pattern)
 
-        # Stage 3 of BSc Computer Science, 2019
-        expected_pattern = "CS3000,CS3003,CS3110,CS3220,CS3250,CS3470,CS3480,CS3490,CS3510,CS3580,CS3750,CS3840,CS3846,CS3870,CS3920,CS3930,CS3940,CS3945,IY3501,IY3606,IY3609,IY3612,IY3660,IY3840"
-        OptionRule.squash_opts_modules(optional_modules, programme=bsc, entry_year='2019', stage='3')
-        actual_pattern = OptionRule.objects.get(
-            prog_code=bsc, entry_year='2019', stage='3', constraint_type='OPTS').mod_code_pattern
-        self.assertMultiLineEqual(expected_pattern, actual_pattern)
 
-    def test_squash_all_optional(self):
-        """
-        Creating an alternative way to squash the optional modules
-        """
-        OptionRule.objects.create(prog_code=self.p1, entry_year="2015", stage=2, constraint_type="OPTS",
-                                  min_quantity=2, max_quantity=2, mod_code_pattern="CS2,IY2")
-        OptionRule.objects.create(prog_code=self.p1, entry_year="2015", stage=3, constraint_type="OPTS",
-                                  min_quantity=6, max_quantity=6, mod_code_pattern="CS3,IY3")
-
-        program_modules = utils.all_optional_modules()
-
-        OptionRule.squash_all_opts_modules_alt(program_modules)
-        expected_result = "CS2900,CS2910,IY2840"
-        self.assertEqual(expected_result, OptionRule.objects.get(prog_code=self.p1, entry_year="2015", stage=2, constraint_type="OPTS").mod_code_pattern)
-
-        expected_result = "CS3000,CS3003,CS3110,CS3220,CS3250,CS3470,CS3480,CS3490,CS3510,CS3580,CS3750,CS3840,CS3846,CS3870,CS3920,CS3930,CS3940,CS3945,IY3501,IY3606,IY3609,IY3612,IY3660,IY3840"
-        self.assertEqual(expected_result, OptionRule.objects.get(prog_code=self.p1, entry_year="2015", stage=3, constraint_type="OPTS").mod_code_pattern)

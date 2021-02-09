@@ -77,16 +77,3 @@ class TestQueries(TransactionTestCase):
         expected = {'CORE': ['CS3821'], 'OPTS': ['CS3', 'IY3']}
         mod_codes = db.modcode_patterns_by_constraint(degree, '2019', '3')
         self.assertEqual(expected, mod_codes)
-
-    def test_query_modcodes_squashed(self):
-        """As the above test, but where optional modules have been squashed."""
-        utils.read_test_programmes()
-        utils.read_test_optionrules()
-        degree = Programme.objects.get(prog_code='1067')
-
-        # BSc Compsci, entry year 2019, stage 2 (there are no optional modules in stage 1)
-        expected = {'CORE': ['CS2800', 'CS2810', 'CS2850', 'CS2855', 'CS2860', 'IY2760'],
-                    'OPTS': ['CS2900', 'CS2910', 'IY2840']}
-        OptionRule.squash_opts_modules(utils.read_optional_modules(), programme=degree, entry_year='2019', stage='2')
-        mod_codes = db.modcode_patterns_by_constraint(degree, '2019', '2')
-        self.assertEqual(expected, mod_codes)
