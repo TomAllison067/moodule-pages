@@ -12,7 +12,7 @@ class TestProgrammeInfo(TestCase):
 
     def test_programme_object(self):
         """Test that a new ProgrammeInfo is instantiated with the correct Programme object."""
-        p = factory.get_programme_info(prog_code='1067')
+        p = factory.get_programme_info(prog_code='1067', entry_year='2019')
         expected = Programme.objects.get(prog_code='1067')
         self.assertEqual(expected, p.programme)
 
@@ -20,17 +20,23 @@ class TestProgrammeInfo(TestCase):
         """Test that a new ProgrammeInfo object is given the correct number of stages"""
 
         # BSc Computer Science
-        p = factory.get_programme_info(prog_code='1067')
+        p = factory.get_programme_info(prog_code='1067', entry_year='2019')
         self.assertEqual(3, p.stages, "A standard BSc with no masters or YINI has three stages.")
 
         # BSc Computer Science (Year in Industry)
-        p = factory.get_programme_info(prog_code='2327')
+        p = factory.get_programme_info(prog_code='2327', entry_year='2019')
         self.assertEqual(4, p.stages, "A BSc with a YINI has 4 stages.")
 
         # MSCi Computer Science
-        p = factory.get_programme_info(prog_code='2686')
+        p = factory.get_programme_info(prog_code='2686', entry_year='2019')
         self.assertEqual(4, p.stages, "An MSCi with no YINI has 4 stages.")
 
         # MSCi Computer Science with YINI
-        p = factory.get_programme_info(prog_code='2687')
+        p = factory.get_programme_info(prog_code='2687', entry_year='2019')
         self.assertEqual(5, p.stages, "An MSCi with YINI has 5 stages.")
+
+    def test_entry_year(self):
+        """Test that a new ProgrammeInfo object has the correct entry year."""
+        p = factory.get_programme_info(prog_code='1067', entry_year='2019')
+        expected = '2019'
+        self.assertEqual(expected, p.entry_year)
