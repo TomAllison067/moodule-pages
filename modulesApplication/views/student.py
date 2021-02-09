@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
-from ..database import queries as db
 from ..models import Module, Programme
 
 
@@ -32,7 +31,7 @@ def all_modules(request, sort=0):
 
 
 def modules_by_programme(request, prog_code, entry_year='2019'):
-    context = db.get_programme_info(prog_code, entry_year)
+    context = []
     return render(request, 'modulesApplication/foo.html', context=context)
 
 
