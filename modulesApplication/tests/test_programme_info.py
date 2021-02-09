@@ -68,3 +68,32 @@ class TestProgrammeInfo(TestCase):
         stage1_modules = {'DISC_ALT': [[Module.objects.get(mod_code=mc) for mc in pattern.split(",")]
                                        for pattern in stage1_patterns['DISC_ALT']]}
         self.assertEqual(stage1_modules['DISC_ALT'], p.get_modules(stage=1)['DISC_ALT'])
+
+    def test_optional_modules(self):
+        """
+        Tests a ProgrammeInfo has the correct optional modules. Correct optional modules are those that match
+        the relevant OptionRule mod_code_pattern AND are matched in the OptionalModules table.
+        Only applies to stage 2 upwards.
+        """
+        utils.read_optional_modules()
+
+        # BSc Computer Science with YINI
+        p = factory.get_programme_info(prog_code='2327', entry_year='2019')
+        expected1 = {Module.objects.get(pk='CS2900'), Module.objects.get(pk='CS2910'), Module.objects.get(pk='IY2840')}
+        self.assertEqual(expected1, set(p.get_modules(stage=2)['OPTS']))  # Year 2
+
+        expected2_modcodes = ['IY3840',
+                              'IY3606', 'CS3940', 'CS3945', 'CS3470', 'IY3660', 'CS3840', 'CS3110', 'CS3846', 'IY3612',
+                              'CS3510', 'IY3501', 'CS3220', 'IY3609', 'CS3750', 'CS3003', 'CS3930', 'CS3000', 'CS3480',
+                              'CS3870', 'CS3490', 'CS3250', 'CS3580', 'CS3920']
+        expected2 = set([Module.objects.get(pk=m) for m in expected2_modcodes])
+        self.assertEqual(expected2, set(p.get_modules(stage=4)['OPTS']))  # Year 3 (2327 has YINI for stage 2)
+
+        # MSCi Computer Science - Stage 4
+        p = factory.get_programme_info(prog_code='2686', entry_year='2019')
+        expected3_modcodes = ['CS4860', 'CS4915', 'CS4870', 'IY4523', 'CS4580', 'IY4606', 'IY4609', 'CS4234', 'CS4220',
+                              'IY4612', 'CS4490', 'CS4250', 'CS4945', 'CS4563', 'CS4920', 'CS4990', 'CS4950', 'CS4504',
+                              'CS4200', 'CS4100', 'IY4501', 'IY4610', 'CS4980', 'CS4910']
+        expected3 = set([Module.objects.get(pk=m) for m in expected3_modcodes])
+        self.assertEqual(expected3, set(p.get_modules(stage=4)['OPTS']))
+
