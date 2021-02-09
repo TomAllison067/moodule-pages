@@ -33,7 +33,7 @@ def populate_disc_alt_modules(modules_dict, programme, entry_year):
 
 
 def populate_opts_modules(modules_dict, programme, stages, entry_year):
-    for stage in range(2, stages + 1):
+    for stage in range(2, stages + 1):  # Optional modules start from stage 2
         stage_key = "stage{}".format(stage)
         modules_dict[stage_key] = modules_dict.get(stage_key, {})
         rules = OptionRule.objects.filter(prog_code=programme,
@@ -50,6 +50,24 @@ def populate_opts_modules(modules_dict, programme, stages, entry_year):
         modules_dict[stage_key]['OPTS'] = modules
 
 
+def populate_strand_modules(modules_dict, programme, stages, entry_year):
+    for stage in range(2, stages + 1):  # strand modules start from stage 2
+        stage_key = "stage{}".format(stage)
+        modules_dict[stage_key] = modules_dict.get(stage_key, {})
+        rules = OptionRule.objects.filter(prog_code=programme,
+                                          entry_year=entry_year,
+                                          stage=str(stage),
+                                          constraint_type="STRAND").first()
+        if rules:
+            strand = rules.mod_code_pattern.split(",")[0]
+            patterns = rules.mod_code_pattern.split(",")[1:]
+            modules = []
+            for pattern in patterns:
+                query = Module.objects.filter(strands__strand=strand, mod_code__startswith=pattern)
+                modules += [module for module in query]
+            modules_dict[stage_key]['STRAND'] = modules
+
+
 def get_programme_info(prog_code: str, entry_year: str) -> ProgrammeInfo:
     programme = Programme.objects.get(prog_code=prog_code)
     stages = 3
@@ -61,4 +79,5 @@ def get_programme_info(prog_code: str, entry_year: str) -> ProgrammeInfo:
     populate_core_modules(modules_dict, programme, stages, entry_year)
     populate_disc_alt_modules(modules_dict, programme, entry_year)
     populate_opts_modules(modules_dict, programme, stages, entry_year)
+    populate_strand_modules(modules_dict, programme, stages, entry_year)
     return ProgrammeInfo(programme, stages, entry_year, modules_dict)

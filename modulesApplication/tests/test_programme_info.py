@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.test import TransactionTestCase, TestCase
 
 import modulesApplication.programmeInfo.factory as factory
@@ -12,6 +13,7 @@ class TestProgrammeInfo(TestCase):
         utils.read_test_programmes()
         utils.read_test_optionrules()
         utils.read_test_modules()
+        utils.read_optional_modules()
         super(TestProgrammeInfo, cls).setUpClass()
 
     def test_programme_object(self):
@@ -75,7 +77,6 @@ class TestProgrammeInfo(TestCase):
         the relevant OptionRule mod_code_pattern AND are matched in the OptionalModules table.
         Only applies to stage 2 upwards.
         """
-        utils.read_optional_modules()
 
         # BSc Computer Science with YINI
         p = factory.get_programme_info(prog_code='2327', entry_year='2019')
@@ -97,3 +98,25 @@ class TestProgrammeInfo(TestCase):
         expected3 = set([Module.objects.get(pk=m) for m in expected3_modcodes])
         self.assertEqual(expected3, set(p.get_modules(stage=4)['OPTS']))
 
+    def test_strand_modules(self):
+        """
+        Tests a ProgrammeInfo has the correct optional modules corresponding to a certain strand.
+        """
+        # MSCi Computer Science (Artifical Intelligence) with YINI
+        p = factory.get_programme_info(prog_code='2674', entry_year='2019')
+        expected1 = set([m for m in Module.objects.filter(mod_code__startswith='CS2', strands__strand='AI')])
+        expected2 = set([m for m in
+                         Module.objects.filter(
+                             Q(strands__strand='AI') &
+                             (Q(mod_code__startswith='CS3') |
+                              Q(mod_code__startswith='IY3'))
+                         )])
+        expected3 = set([m for m in
+                         Module.objects.filter(
+                             Q(strands__strand='AI') &
+                             (Q(mod_code__startswith='CS4') |
+                              Q(mod_code__startswith='IY4'))
+                         )])
+        self.assertEqual(expected1, set(p.get_modules(stage=2)['STRAND']))
+        self.assertEqual(expected2, set(p.get_modules(stage=3)['STRAND']))
+        self.assertEqual(expected3, set(p.get_modules(stage=5)['STRAND']))
