@@ -26,6 +26,22 @@
                 {% endfor %}
             </ul>
         {% endif %}
+        {% if constraints.STRAND %}
+            <h3>Strand</h3>
+            <ul>
+                {% for module in constraints.STRAND %}
+                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if constraints.CREDITS %}
+            <h3>Credits</h3>
+            <ul>
+            {% for module in constraints.CREDITS %}
+                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
     {% endfor %}
 {% endif %}

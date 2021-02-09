@@ -1,6 +1,6 @@
 from typing import Dict
 
-from modulesApplication.models import OptionRule, Programme, Module
+from modulesApplication.models import OptionRule, Programme, Module, Strands
 
 """
 A set of common queries we may wish to make.
@@ -29,6 +29,8 @@ def modcode_patterns_by_constraint(programme: Programme, entry_year: str, stage:
 def get_programme_info(prog_code: str, entry_year):
     """
     TODO the output is just BEGGING to be made into a proper class, not just some haphazard dict!
+    TODO REFACTOR THIS IS TERRIBLE - Put the main keys as programme, year, stage. Process each rule individually.
+    TODO just everything tbh
 
     Given a programme code and an entry year, returns a Dict object containing information about that Programme's
     modules and constraints.
@@ -41,8 +43,6 @@ def get_programme_info(prog_code: str, entry_year):
     info['rules'] - A mapping of stages to OptionRule objects, for example:
         {'stage1': [<OptionRule: OptionRule object (14539)>, <OptionRule: OptionRule object (14540)>, ....
 
-    note: info['modules'] contains modules belonging to OPTS, CORE and DISC_ALT patterns only - other rule constraints
-    seem best left just as rules (e.g., MAX_STRANDS just tells how many
 
     :param prog_code: A string of the programme code to query
     :param entry_year: A string of the entry year
@@ -74,13 +74,21 @@ def get_programme_info(prog_code: str, entry_year):
         # Next, populate the modules
         info['modules'][stage_key] = {}
 
+        # TODO ask the waiter to take this spaghetti back
         # For each OptionRule, split the mod_code_patterns and query a list of Module objects applicable for this degree
         for rule in rules:
-            # Other constraints eg MAX_STRAND just specify rules, and should not be queried.
-            if rule.constraint_type in ["CORE", "OPTS", "DISC_ALT"]:
-                modules = [Module.objects.get(mod_code=mc) for mc in rule.mod_code_pattern.split(",") or None]
+            if rule.constraint_type in ["CORE", "OPTS", "DISC_ALT", "STRAND", "CREDITS"]:
+                modules = []
+                patterns = rule.mod_code_pattern.split(",")
+                for pattern in patterns:
+                    if rule.constraint_type == "STRAND":
+                        strand = patterns[0]
+                        query = Module.objects.filter(mod_code__startswith=pattern, strands__strand=strand)
+                    else:
+                        query = Module.objects.filter(mod_code__startswith=pattern)
+                    for module in query:
+                        modules.append(module)
                 info['modules'][stage_key][rule.constraint_type] = \
                     info['modules'][stage_key].get(rule.constraint_type, []) + modules
-
         print(info['rules'])
     return info
