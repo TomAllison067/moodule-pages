@@ -46,13 +46,8 @@ def choose_modules(request):
 
 
 def choose_specific_modules(request, prog_code, stage):
-    current_programme = prog_code
-    entry_year = '2019'
-    print(prog_code)
-    context = {'programme': current_programme,
-               'title': current_programme.title,
-               'stage': stage,
-               'year' : entry_year}
+    info = factory.get_programme_info(prog_code, entry_year='2019')
+    context = {'info': info}
 
     return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
 
