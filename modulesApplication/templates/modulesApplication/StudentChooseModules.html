@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
 
@@ -64,29 +64,31 @@
             </a>
         </div>
     </nav>
-    <form id="form_id" onsubmit="submitFunc()">
+    <form id="form_id" action="{% url 'modulesApplication:choose-modules' %}" method="POST">
+        {% csrf_token %}
         <div class="section">
             <div class="middle">
 
                 <h1>Module Choice Form</h1>
-                <p>Please select your degree programme: <br>
-                    <select name="programme" id="programme_filter" class="dropdown">
-                        <option value=0>Select Programme</option>
-                    </select>
-                </p>
-                <p>Please select your degree stage: <br>
-                    <select name="stage" id="stage_filter" class="dropdown">
-                        <option value=0> Select Stage</option>
-                    </select>
-                </p>
+                <label for="programme_filter">Please select your degree programme: </label>
+                <br>
+                <select name="programme" id="programme_filter" class="dropdown">
+                    <option value="" selected disabled>Choose here...</option>
+                </select>
+                <br>
+                <label for="stage_filter"> Please select your degree stage: </label>
+                <br>
+                <select name="stage" id="stage_filter" class="dropdown">
+                    <option value="" selected disabled>Choose here...</option>
+                </select>
+                <br>
                 <input type="submit" value="Confirm">
                 <br>
             </div>
         </div>
-        </form>
+    </form>
 </div>
 </body>
-
 
 
 <!-- FOOTER - links will be added later -->
@@ -141,10 +143,10 @@
     };
 
     const stage = {
-        "Year one": "1",
-        "Year two": "2",
-        "Year three": "3",
-        "Year four": "4"
+        "Year One": "1",
+        "Year Two": "2",
+        "Year Three": "3",
+        "Year Four": "4"
     };
     window.onload = function () {
         const programSel = document.getElementById("programme_filter");
@@ -152,24 +154,13 @@
         const stageSel = document.getElementById("stage_filter");
         let s = 0;
 
-        for (const x in programmes) {
-            programSel.options[programSel.options.length] = new Option(x, x);
+        for (let key in programmes) {
+            console.log(programmes[key])
+            programSel.options[programSel.options.length] = new Option(key, programmes[key]);
         }
-        for (const x in stage) {
-            stageSel.options[stageSel.options.length] = new Option(x, x);
+        for (let key in stage) {
+            stageSel.options[stageSel.options.length] = new Option(key, stage[key]);
         }
-
-        programSel.onchange = function () {
-            p = programmes[this.value]
-        }
-        stageSel.onchange = function () {
-            s = stage[this.value]
-        }
-
-    }
-    function submitFunc() {
-         document.getElementById("form_id").submit();
-         location.href = 'student/choose-modules/' + p + s;
     }
 
 </script>
@@ -182,6 +173,7 @@
     option {
         color: black !important;
     }
+
     input {
         background-color: orangered;
     }
