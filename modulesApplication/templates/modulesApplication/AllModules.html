@@ -69,23 +69,23 @@ i was just trying to help but only the top bar and the footer look good" -->
         {% if module_summaries %}
         <ul>
             {% for year, modules in module_summaries.items %}
-            <h2>Year {{ year|add:"-3" }}</h2>
-            {% for module in modules %}
-            <button class="accordion">{{ module.module_code }} - {{ module.title }}</button>
-            <div class="panel" disabled="False" id="module">
-                <h4>Summary</h4>
-                <p>{{ module.summary }}</p>
-                <button onclick="myFunction('{{ module.module_code }}')">Click Me</button>
-                <div class="{{ module.module_code }}" style="display: none;">
-                    <h4>Learning Outcomes</h4>
-                    <p>{{ module.learning_outcomes }}</p>
-                    <h4>Recommended Reading</h4>
-                    <p>{{ module.recommended_reading }}</p>
-                    <h4>Exam Format</h4>
-                    <p>{{ module.exam_format }}</p>
-                </div>
-            </div>
-            {% endfor %}
+                <h2>Year {{ year|add:"-3" }}</h2>
+                {% for module in modules %}
+                    <button class="accordion">{{ module.module_code }} - {{ module.title }}</button>
+                    <div class="panel" disabled="False" id="module">
+                        <h4>Summary</h4>
+                        <p>{{ module.summary }}</p>
+                        <button style= "background-color: #ff4500" onclick="myFunction('{{ module.module_code }}')"> Find out more ..</button>
+                        <div class="{{ module.module_code }}" style="display: none;">
+                            <h4>Learning Outcomes</h4>
+                            <p>{{ module.learning_outcomes }}</p>
+                            <h4>Recommended Reading</h4>
+                            <p>{{ module.recommended_reading }}</p>
+                            <h4>Exam Format</h4>
+                            <p>{{ module.exam_format }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
             {% endfor %}
 
         </ul>

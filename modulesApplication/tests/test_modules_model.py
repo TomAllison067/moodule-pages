@@ -21,11 +21,11 @@ class TestModulesModel(TransactionTestCase):
         """
         Tests that a new module can be created, saved in the database, and then queried.
         """
-        m = self.module1
+        m = Module(mod_code="foobar", title="baz")
         m.save()
-        q = Module.objects.filter(pk="CS2815").first()
+        q = Module.objects.get(pk="foobar")
         self.assertIsNotNone(q, "The newly created Module object is null.")
-        self.assertEqual("CS2815", q.mod_code)
+        self.assertEqual("foobar", q.mod_code)
 
     def test_no_mod_code_throws_value_error(self):
         """

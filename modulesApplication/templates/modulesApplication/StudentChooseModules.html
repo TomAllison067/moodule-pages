@@ -3,11 +3,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Choose Modules</title>
-  <meta name="description" content="TBD">
-  <meta name="author" content="TBD">
+    <title>Choose Modules</title>
+    <meta name="description" content="TBD">
+    <meta name="author" content="TBD">
 
   <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
   <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
@@ -39,111 +39,152 @@
   <div class="page-wrapper">
     <input type="checkbox" id="check">
 
-        <!-- SIDEBAR MENU -->
-        <div class="sidebar">
-            <header>
-                <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
-            </header>
-            <ul>
-                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a></li>
-                <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
-                <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-                        courses</a></li>
-            </ul>
-        </div>
-
-        <!-- TOP BAR -->
-        <nav class="topbar">
-            <label for="check">
-                <i class="fas fa-bars" id="btn"></i>
-            </label>
-            <label class="title"> moodule</label>
-            <div class="search-box">
-                <input class="search-txt" type="text" name="" placeholder="search">
-                <a class="search-btn" href="#">
-                    <i class="fas fa-search"></i>
-                </a>
-            </div>
-
-            <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
-        </nav>
-
-    <div class="section">
-      <div class="middle">
-
-
-
-
-
-
-        <h1>Module Choice Form</h1>
-        <!--{# module_summaries refer to the dictionary passed through with the render request #}-->
-        <p>Please select your degree strand: <br>
-          <select name="strand" id="strand_filter" class="dropdown">
-            <option value=0>Select Strand</option>
-          </select>
-        </p>
-
-        <br>
-        <h2>Your Year 1 options:</h2>
-
-
-
-
-
-
-      </div>
+    <!-- SIDEBAR MENU -->
+    <div class="sidebar">
+        <header>
+            <img class="mainlogo" src="{% static 'modulesApplication/images/mlogo.png' %}" alt="logo">
+        </header>
+        <ul>
+            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a>
+            </li>
+            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                courses</a></li>
+            <li><a href="#" class="btn"><i class="fas fa-book"></i>courses by year</a></li>
+        </ul>
     </div>
-  </div>
+
+    <nav class="topbar">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+        </label>
+        <label class="title"> moodule</label>
+        <div class="search-box">
+            <input class="search-txt" type="text" name="" placeholder="search">
+            <a class="search-btn" href="#">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
+    </nav>
+    <form id="form_id" onsubmit="submitFunc()">
+        <div class="section">
+            <div class="middle">
+
+                <h1>Module Choice Form</h1>
+                <p>Please select your degree programme: <br>
+                    <select name="programme" id="programme_filter" class="dropdown">
+                        <option value=0>Select Programme</option>
+                    </select>
+                </p>
+                <p>Please select your degree stage: <br>
+                    <select name="stage" id="stage_filter" class="dropdown">
+                        <option value=0> Select Stage</option>
+                    </select>
+                </p>
+                <input type="submit" value="Confirm">
+                <br>
+            </div>
+        </div>
+        </form>
+</div>
 </body>
+
+
 
 <!-- FOOTER - links will be added later -->
 <div class="footer">
-  <div class="row">
-    <div class="col">
-      <li>Royal Holloway, University of London</li>
-      <li>Egham, Surrey, TW20 0EX</li>
-    </div>
-    <div class="col">
-      <li>Terms & Conditions</li>
-      <li>Privacy Policy</li>
-    </div>
-    <div class="col">
-      <li>moodule@gmail.com</li>
-      <li>T: +44 (0)1784 434455</li>
-    </div>
-  </div class="row">
-  &copy; 2021 moodule.com | Designed by CS2815 Group 34
+    <div class="row">
+        <div class="col">
+            <li>Royal Holloway, University of London</li>
+            <li>Egham, Surrey, TW20 0EX</li>
+        </div>
+        <div class="col">
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+        </div>
+        <div class="col">
+            <li>moodule@gmail.com</li>
+            <li>T: +44 (0)1784 434455</li>
+        </div>
+    </div class="row">
+    &copy; 2021 moodule.com | Designed by CS2815 Group 34
 </div>
 </div>
-
 </html>
 
 <script>
-  //filtering by year
-  const strands = { "Artificial Intelligence": "AI", "Information Security": "AI", "Software Engineering": "SE", "DNS": "DNS" };
-  window.onload = function () {
-    const strandSel = document.getElementById("strand_filter");
-    let s = 0;
+    //from programmes table : title,prog_code
+    const programmes = {
+        "BSc Computer Science": "1067",
+        "BSc Computer Science with a Year in Industry": "2327",
+        "BSc Computer Science (Artificial Intelligence)": "1059",
+        "BSc Computer Science (Artificial Intelligence) with a Year in Industry": "2446",
+        "BSc Computer Science (Information Security)": "2675",
+        "BSc Computer Science (Information Security) with a Year in Industry": "2676",
+        "BSc Computer Science (Software Engineering)": "2843",
+        "BSc Computer Science (Software Engineering) with a Year in Industry": "2844",
+        "BSc Computer Science (Distributed and Networked Systems)": "3014",
+        "BSc Computer Science (Distributed and Networked Systems) with a Year in Industry": "3015",
+        "BSc Computer Science and Mathematics": "1069",
+        "BSc Computer Science with Management": "1062",
+        "BSc Computing Technologies": "3424",
+        "BSc Computing and Business": "1257",
+        "BSc Computer Science with Integrated Foundation Year": "3449",
+        "MSci Computer Science": "2686",
+        "MSci Computer Science with a Year in Industry": "2687",
+        "MSci Computer Science (Artificial Intelligence)": "2673",
+        "MSci Computer Science (Artificial Intelligence) with a Year in Industry": "2674",
+        "MSci Computer Science (Information Security)": "2677",
+        "MSci Computer Science (Information Security) with a Year in Industry": "2678",
+        "MSci Computer Science (Software Engineering)": "2845",
+        "MSci Computer Science (Software Engineering) with a Year in Industry": "2846",
+        "MSci Computer Science (Distributed and Networked Systems)": "3016",
+        "MSci Computer Science (Distributed and Networked Systems) with a Year in Industry": "3017"
+    };
 
-    for (const x in strands) {
-      strandSel.options[strandSel.options.length] = new Option(x, x);
+    const stage = {
+        "Year one": "1",
+        "Year two": "2",
+        "Year three": "3",
+        "Year four": "4"
+    };
+    window.onload = function () {
+        const programSel = document.getElementById("programme_filter");
+        let p = 0;
+        const stageSel = document.getElementById("stage_filter");
+        let s = 0;
+
+        for (const x in programmes) {
+            programSel.options[programSel.options.length] = new Option(x, x);
+        }
+        for (const x in stage) {
+            stageSel.options[stageSel.options.length] = new Option(x, x);
+        }
+
+        programSel.onchange = function () {
+            p = programmes[this.value]
+        }
+        stageSel.onchange = function () {
+            s = stage[this.value]
+        }
+
+    }
+    function submitFunc() {
+         document.getElementById("form_id").submit();
+         location.href = 'student/choose-modules/' + p + s;
     }
 
-    strandSel.onchange = function () {
-      s = strands[this.value]
-      location.href = '/student/all-modules/sort/' + s; //TO BE EDITED
-
-    }
-  }
 </script>
 
 <style>
-  .dropdown {
-    color: black !important;
-  }
+    .dropdown {
+        color: black !important;
+    }
 
-  option {
-    color: black !important;
-  }
+    option {
+        color: black !important;
+    }
+    input {
+        background-color: orangered;
+    }
 </style>

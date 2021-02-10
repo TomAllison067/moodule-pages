@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
-from ..models import Module
+from ..models import Module, Programme
+from ..programmeInfo import factory
 
 
 def index(request):
@@ -13,7 +14,7 @@ def index(request):
 def all_modules(request, sort=0):
     modules_list = Module.objects.order_by('level', 'mod_code')
     if sort != 0:
-        modules_list = modules_list.filter(level=sort+3)
+        modules_list = modules_list.filter(level=sort + 3)
     module_summaries = {}  # A dict of lists of modules separated by year
     for module in modules_list:
         if module.status != 'ACTIVE':
@@ -30,6 +31,12 @@ def all_modules(request, sort=0):
     return render(request, 'modulesApplication/AllModules.html', context=context)
 
 
+def modules_by_programme(request, prog_code, entry_year='2019'):
+    prog_info = factory.get_programme_info(prog_code, entry_year)
+    context = {'info': prog_info}
+    return render(request, 'modulesApplication/foo.html', context=context)
+
+
 def landing(request):
     return render(request, 'modulesApplication/StudentLandingPage.html')
 
@@ -38,8 +45,16 @@ def choose_modules(request):
     return render(request, 'modulesApplication/StudentChooseModules.html')
 
 
+def choose_specific_modules(request, prog_code, stage):
+    info = factory.get_programme_info(prog_code, entry_year='2019')
+    context = {'info': info}
+
+    return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
+
+
 def module_details(request, module):
     current_module = Module.objects.get(pk=module)
+
     context = {'module': current_module,
                'details': {'Summary': current_module.summary,
                            'Learning_Outcomes': current_module.learning_outcomes,
