@@ -2,6 +2,7 @@
 {% load static %}
 <html lang="en">
 
+<head>
 <title>moodule | Student Homepage</title>
 <meta name="description" content="TBD">
 <meta name="author" content="TBD">
@@ -9,7 +10,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
 <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-
 </head>
 
 <body>
@@ -30,7 +30,6 @@
                 <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
                 <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
                         courses</a></li>
-                <li><a href="#" class="btn"><i class="fas fa-book"></i>courses by year</a></li>
             </ul>
         </div>
 

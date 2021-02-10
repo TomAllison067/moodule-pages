@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
 
@@ -8,8 +9,9 @@
   <meta name="description" content="TBD">
   <meta name="author" content="TBD">
 
-  <link rel= "stylesheet" type="text/css" href="../../static/modulesApplication/css/style.css">
-  <link rel= "stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
 </head>
 
@@ -30,40 +32,41 @@
 -->
 
 <body>
- <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
-<div id="overlay" onclick="quitClick() "></div>
+  <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+  <div id="overlay" onclick="quitClick() "></div>
 
-<!-- PAGE WRAPPER -->
-<div class="page-wrapper">
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
     <input type="checkbox" id="check">
 
-    <!-- SIDEBAR MENU -->
-    <div class="sidebar">
-        <header>
-            <img class="mainlogo" src="{% static 'modulesApplication/images/mlogo.png' %}" alt="logo">
-        </header>
-        <ul>
-            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a>
-            </li>
-            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
-            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-                courses</a></li>
-            <li><a href="#" class="btn"><i class="fas fa-book"></i>courses by year</a></li>
-        </ul>
-    </div>
+        <!-- SIDEBAR MENU -->
+        <div class="sidebar">
+            <header>
+                <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
+            </header>
+            <ul>
+                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a></li>
+                <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+                <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                        courses</a></li>
+            </ul>
+        </div>
 
-    <nav class="topbar">
-      <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-      </label>
-      <label class="title"> moodule</label>
-      <div class="search-box">
-        <input class="search-txt" type="text" name="" placeholder="search">
-        <a class="search-btn" href="#">
-          <i class="fas fa-search"></i>
-        </a>
-      </div>
-    </nav>
+        <!-- TOP BAR -->
+        <nav class="topbar">
+            <label for="check">
+                <i class="fas fa-bars" id="btn"></i>
+            </label>
+            <label class="title"> moodule</label>
+            <div class="search-box">
+                <input class="search-txt" type="text" name="" placeholder="search">
+                <a class="search-btn" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+
+            <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
+        </nav>
 
     <div class="section">
       <div class="middle">
@@ -81,7 +84,8 @@
           </select>
         </p>
 
-        <br><h2>Your Year 1 options:</h2>
+        <br>
+        <h2>Your Year 1 options:</h2>
 
 
 
@@ -117,29 +121,29 @@
 
 <script>
   //filtering by year
-    const strands = {"Artificial Intelligence": "AI", "Information Security": "AI", "Software Engineering": "SE", "DNS": "DNS"};
-    window.onload = function () {
-        const strandSel = document.getElementById("strand_filter");
-        let s = 0;
+  const strands = { "Artificial Intelligence": "AI", "Information Security": "AI", "Software Engineering": "SE", "DNS": "DNS" };
+  window.onload = function () {
+    const strandSel = document.getElementById("strand_filter");
+    let s = 0;
 
-        for (const x in strands) {
-            strandSel.options[strandSel.options.length] = new Option(x, x);
-        }
-
-        strandSel.onchange = function () {
-            s = strands[this.value]
-            location.href = '/student/all-modules/sort/' + s; //TO BE EDITED
-
-        }
+    for (const x in strands) {
+      strandSel.options[strandSel.options.length] = new Option(x, x);
     }
+
+    strandSel.onchange = function () {
+      s = strands[this.value]
+      location.href = '/student/all-modules/sort/' + s; //TO BE EDITED
+
+    }
+  }
 </script>
 
 <style>
-  .dropdown{
-    color:black !important;
+  .dropdown {
+    color: black !important;
   }
 
-  option{
-    color:black !important;
+  option {
+    color: black !important;
   }
 </style>
