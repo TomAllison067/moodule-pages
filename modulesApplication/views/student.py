@@ -46,17 +46,20 @@ def choose_modules(request):
 
 
 def choose_specific_modules(request, prog_code, stage):
-    current_programme = Programme.objects.get(pk=prog_code)
+    current_programme = prog_code
+    entry_year = '2019'
     print(prog_code)
     context = {'programme': current_programme,
-               'prog_code': current_programme.prog_code,
-               'title' : current_programme.title,
-               'stage': stage}
+               'title': current_programme.title,
+               'stage': stage,
+               'year' : entry_year}
+
     return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
 
 
 def module_details(request, module):
     current_module = Module.objects.get(pk=module)
+
     context = {'module': current_module,
                'details': {'Summary': current_module.summary,
                            'Learning_Outcomes': current_module.learning_outcomes,
