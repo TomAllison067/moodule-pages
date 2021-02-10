@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <h1> Your chosen programme is: {{ info.programme.title }} - Entry year: {{ info.entry_year }}</h1>
+<head>
+    <title>{{ info.programme.title }} - {{ info.entry_year }}</title>
+</head>
+<body>
+
+    <h1> Your chosen programme is: {{ info.programme.title }} - Entry year: {{ info.entry_year }}</h1>
     <meta charset="UTF-8">
     {% for k, v in info.modules_dict.items %}
         {% if k == stage %}
@@ -37,8 +42,5 @@
         {% endfor %}
         {% endif %}
     {% endfor %}
-</head>
-<body>
-
 </body>
 </html>
