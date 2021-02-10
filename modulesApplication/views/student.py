@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
 from ..models import Module, Programme
+from ..programmeInfo import factory
 
 
 def index(request):
@@ -28,6 +29,12 @@ def all_modules(request, sort=0):
         module_summaries.setdefault(module.level, []).append(mod_sum)  # Creates a list if it doesn't exist and appends
     context = {'module_summaries': module_summaries}
     return render(request, 'modulesApplication/AllModules.html', context=context)
+
+
+def modules_by_programme(request, prog_code, entry_year='2019'):
+    prog_info = factory.get_programme_info(prog_code, entry_year)
+    context = {'info': prog_info}
+    return render(request, 'modulesApplication/foo.html', context=context)
 
 
 def landing(request):
