@@ -58,7 +58,7 @@ def choose_specific_modules(request, prog_code, stage):
     except Programme.DoesNotExist:
         raise Http404
     context = {'info': info,
-               'stage': stage}
+               'stage': "stage{}".format(stage)}
     return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
 
 

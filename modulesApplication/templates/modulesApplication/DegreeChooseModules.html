@@ -3,6 +3,7 @@
 <head> <h1> Your chosen programme is: {{ info.programme.title }} - Entry year: {{ info.entry_year }}</h1>
     <meta charset="UTF-8">
     {% for k, v in info.modules_dict.items %}
+        {% if k == stage %}
         <!-- Stages -->
         <h2> Stage {{ k|slice:"-1:" }}</h2>
         {% for constraint, list in v.items %}
@@ -34,6 +35,7 @@
                 {% endfor %}
             {% endif %}
         {% endfor %}
+        {% endif %}
     {% endfor %}
 </head>
 <body>
