@@ -21,4 +21,8 @@ urlpatterns = [
     path('student/', include(student_patterns)),
     path('academic/', include(academic_patterns)),
     path('office/', include(office_patterns)),
+
+    # Authentication links
+    path('signin', views.index, name='signin'),
+    path('signout', views.index, name='signout'),
 ]

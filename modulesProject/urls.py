@@ -21,7 +21,7 @@ urlpatterns = [
     path('', include('modulesApplication.urls')),  # import the urls from our app
     path('admin/', admin.site.urls),
 
-    # URL Path for Microsoft Authentication
+    # URLs Path for Microsoft Authentication
     #path('microsoft/', include('microsoft_auth.urls', namespace='microsoft')),
 
 ]
