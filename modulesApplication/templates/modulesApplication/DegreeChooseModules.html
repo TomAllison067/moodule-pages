@@ -7,6 +7,7 @@
     <meta name="description" content="TBD">
     <meta name="author" content="TBD">
     <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/choosemodules.css' %}">
     <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 </head>
@@ -29,49 +30,82 @@
         border-radius: 5px;
         margin: 5px;
     }
+
+    form#form_id input[type = "submit"] {
+        background: orangered;
+        width: 80px;
+        height: 30px;
+        margin-top: 15px;
+        font-size: 15px;
+        padding: 3px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        font-family: 'Nunito', sans-serif;
+        transition: 0.15s;
+    }
+
+    form#form_id input[type = "submit"]:hover {
+        background: rgb(255, 121, 63);
+        border: 2px white solid;
+        width: 90px;
+    }
 </style>
 
 <body>
+{% if messages %}
+    <div class="alert alert-primary" style="display:block; margin: auto;">
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
 
-<h1 style="text-align: center;"> Your chosen programme is: {{ info.programme.title }} - Entry
-    year: {{ info.entry_year }}</h1>
-{% for k, v in info.modules_dict.items %}
-    {% if k == stage %}
-        <form id="module-selection-form" action="{% url 'modulesApplication:submit-selection' %}" method="POST">
-            {% csrf_token %}
+<h1 style="text-align: center; margin-top: 3rem"> Your chosen programme is: {{ info.programme.title }} - Entry year: {{ info.entry_year }}</h1>
+<form id="module-selection-form" action="{% url 'modulesApplication:submit-selection' %}" method="POST">
+    {% csrf_token %}
+    {% for k, v in info.modules_dict.items %}
+        {% if k == stage %}
             <h2 style="text-align: center;"> Stage {{ k|slice:"-1:" }}</h2>
             <div class="grid">
-                <!-- Terms -->
-                {% for term, constraints in v.items %}
-                    <div class="grid-cell">
-                        <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
-                        {% for constraint, modules in constraints.items %}
-                            {% if modules|length > 0 %}
-                                <h4>{{ constraint }}</h4>
-                                {% if constraint != "DISC_ALT" %}
-                                    <ul>
-                                        {% for module in modules %}
-                                            <li><label for="{{ module.mod_code }}">{{ module.mod_code }}
-                                                - {{ module.title }}</label>
-                                                <input type="checkbox" id="{{ module.mod_code }}"
-                                                       value="{{ module.mod_code }}"></li>
-                                        {% endfor %}
-                                    </ul>
-                                {% endif %}
-                            {% else %}
-                                {% for sublist in modules %}
-                                    <h5>One of...</h5>
-                                    {% for module in sublist %}
-                                        <li>{{ module.mod_code }} - {{ module.title }}</li>
+            <!-- Terms -->
+            {% for term, constraints in v.items %}
+                <div class="grid-cell">
+                    <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
+                    {% for constraint, modules in constraints.items %}
+                        {% if modules|length > 0 %}
+                            <h4>{{ constraint }}</h4>
+                            {% if constraint != "DISC_ALT" %}
+                                <ul>
+                                    {% for module in modules %}
+                                        <li><label for="{{ module.mod_code }}">{{ module.mod_code }}
+                                            - {{ module.title }}</label>
+                                            <input type="checkbox" id="{{ module.mod_code }}"
+                                                   value="{{ module }}" name="module-selections"
+                                                   class="module-checkbox"></li>
                                     {% endfor %}
+                                </ul>
+
+                        {% else %}
+                            {% for sublist in modules %}
+                                <h5>One of...</h5>
+                                {% for module in sublist %}
+                                    <li>{{ module.mod_code }} - {{ module.title }}</li>
                                 {% endfor %}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                {% endfor %}
-                <input type="submit">
-        </form>
-    {% endif %}
-{% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% endfor %}
+    <input type="hidden" name="stage" value="{{ stage|slice:"-1:" }}">
+    <input type="hidden" name="prog_code" value="{{ info.programme.prog_code }}">
+    <input class="submit-btn" style="display: block; margin: auto;" type="submit">
+</form>
 </body>
 

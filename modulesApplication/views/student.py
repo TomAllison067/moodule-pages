@@ -1,8 +1,9 @@
+from django.contrib import messages
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 
-from ..models import Module, Programme
+from ..models import Module, Programme, ModuleSelection
 from ..programmeInfo import factory
 
 
@@ -65,6 +66,17 @@ def choose_specific_modules(request, prog_code, stage):
 
 def submit_selection(request):
     if request.method == "POST":
+        student_id = request.POST.get('student-id')
+        stage = request.POST.get('stage')
+        modules = request.POST.getlist('module-selections')
+        if student_id is None:
+            messages.add_message(request, messages.ERROR, "ERROR: Please enter your student id.")
+            return HttpResponseRedirect(reverse("modulesApplication:choose-specific-modules",
+                                                kwargs={'prog_code': request.POST.get('prog_code'),
+                                                        'stage': request.POST.get('stage')}
+                                                ), messages)
+        print(student_id, stage, modules)
+        selection = ModuleSelection.objects.create(student_id=student_id, stage=stage, status='PENDING')
         return HttpResponseRedirect(reverse("modulesApplication:student-landing"))
     else:
         raise Http404

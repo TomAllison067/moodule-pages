@@ -186,6 +186,7 @@ form#form_id select option {
     font-family: 'Nunito', sans-serif;
 }
 
+.submit-btn,
 form#form_id input[type = "submit"]  {
     background: orangered;
     width: 80px;
@@ -200,6 +201,7 @@ form#form_id input[type = "submit"]  {
     transition: 0.15s;
 }
 
+.submit-btn:hover,
 form#form_id input[type = "submit"]:hover {
     background: rgb(255, 121, 63);
     border: 2px white solid;
@@ -469,6 +471,19 @@ label #cancel {
     margin-right: 10px;
 }
 
+.alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.alert-primary {
+    color: #084298;
+    background-color: #1d51a5;
+    border-color: #b6d4fe;
+}
 /* All Modules components - section for CSS of the AllModules.html */
 
 /* Student Choose Page components - section for CSS of the StudentChooseModules.html */
