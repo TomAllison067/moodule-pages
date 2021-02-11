@@ -11,7 +11,9 @@ student_patterns = [
     path('all-modules/sort/<int:sort>/', views.student.all_modules, name="filter-modules"),
     path('landing/', views.student.landing, name='student-landing'),
     path('choose-modules/', views.student.choose_modules, name='choose-modules'),
-    path('choose-modules/<str:prog_code>/<str:stage>/', views.student.choose_specific_modules, name='choose-specific-modules'),
+path('choose-modules/submitted/<str:student_id>/<str:stage>', views.student.submitted, name='submitted'),
+    path('choose-modules/<str:prog_code>/<str:stage>/',
+         views.student.choose_specific_modules, name='choose-specific-modules'),
     path('choose-modules/submit/', views.student.submit_selection, name='submit-selection'),
     path('foo/<str:prog_code>/', views.student.modules_by_programme, name='foo')
 ]

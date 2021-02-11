@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.http import HttpResponseRedirect, Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
 from ..models import Module, Programme, ModuleSelection
@@ -67,19 +67,35 @@ def choose_specific_modules(request, prog_code, stage):
 def submit_selection(request):
     if request.method == "POST":
         student_id = request.POST.get('student-id')
-        stage = request.POST.get('stage')
-        modules = request.POST.getlist('module-selections')
-        if student_id is None:
+        if student_id == "" or student_id is None:
             messages.add_message(request, messages.ERROR, "ERROR: Please enter your student id.")
             return HttpResponseRedirect(reverse("modulesApplication:choose-specific-modules",
                                                 kwargs={'prog_code': request.POST.get('prog_code'),
                                                         'stage': request.POST.get('stage')}
                                                 ), messages)
-        print(student_id, stage, modules)
-        selection = ModuleSelection.objects.create(student_id=student_id, stage=stage, status='PENDING')
-        return HttpResponseRedirect(reverse("modulesApplication:student-landing"))
+        stage = request.POST.get('stage')
+        mod_codes = request.POST.getlist('module-selections')
+        selection, created = ModuleSelection.objects.get_or_create(student_id=student_id, stage=stage, status="PENDING")
+        for m in mod_codes:
+            module = Module.objects.get(mod_code=m)
+            module.selections.add(selection)
+        print(selection)
+        print([m.title for m in selection.module_set.all()])
+        print("Count:", ModuleSelection.objects.count())
+        return HttpResponseRedirect(reverse("modulesApplication:submitted",
+                                            kwargs={'student_id': student_id,
+                                                    'stage': stage}))
     else:
         raise Http404
+
+
+def submitted(request, student_id, stage):
+    print(student_id)
+    selection = get_object_or_404(ModuleSelection, student_id=student_id, stage=stage, status="PENDING")
+    modules = selection.module_set.all()
+    context = {'selection': selection,
+               'modules': modules}
+    return render(request, 'modulesApplication/ViewStudentSelection.html', context=context)
 
 
 def module_details(request, module):

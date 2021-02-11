@@ -63,7 +63,8 @@
     </div>
 {% endif %}
 
-<h1 style="text-align: center; margin-top: 3rem"> Your chosen programme is: {{ info.programme.title }} - Entry year: {{ info.entry_year }}</h1>
+<h1 style="text-align: center; margin-top: 3rem"> Your chosen programme is: {{ info.programme.title }} - Entry
+    year: {{ info.entry_year }}</h1>
 <form id="module-selection-form" action="{% url 'modulesApplication:submit-selection' %}" method="POST">
     {% csrf_token %}
     {% for k, v in info.modules_dict.items %}
@@ -83,19 +84,23 @@
                                         <li><label for="{{ module.mod_code }}">{{ module.mod_code }}
                                             - {{ module.title }}</label>
                                             <input type="checkbox" id="{{ module.mod_code }}"
-                                                   value="{{ module }}" name="module-selections"
+                                                   value="{{ module.mod_code }}" name="module-selections"
                                                    class="module-checkbox"></li>
                                     {% endfor %}
                                 </ul>
 
-                        {% else %}
-                            {% for sublist in modules %}
-                                <h5>One of...</h5>
-                                {% for module in sublist %}
-                                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+                            {% else %}
+                                {% for sublist in modules %}
+                                    <h5>One of...</h5>
+                                    {% for module in sublist %}
+                                        <li><label for="{{ module.mod_code }}">{{ module.mod_code }}
+                                            - {{ module.title }}</label>
+                                            <input type="checkbox" id="{{ module.mod_code }}"
+                                                   value="{{ module.mod_code }}" name="module-selections"
+                                                   class="module-checkbox"></li>
+                                    {% endfor %}
                                 {% endfor %}
-                            {% endfor %}
-                        {% endif %}
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -105,6 +110,9 @@
     {% endfor %}
     <input type="hidden" name="stage" value="{{ stage|slice:"-1:" }}">
     <input type="hidden" name="prog_code" value="{{ info.programme.prog_code }}">
+    <label style="display:block; margin:auto; text-align: center;" for="student-id">Student ID:<br>
+        <input style="display:block; margin:auto; color: black;" type="text" id="student-id" name="student-id" value=""><br>
+    </label>
     <input class="submit-btn" style="display: block; margin: auto;" type="submit">
 </form>
 </body>
