@@ -37,34 +37,40 @@
     year: {{ info.entry_year }}</h1>
 {% for k, v in info.modules_dict.items %}
     {% if k == stage %}
-        <h2 style="text-align: center;"> Stage {{ k|slice:"-1:" }}</h2>
-
-        <div class="grid">
-        <!-- Terms -->
-        {% for term, constraints in v.items %}
-            <div class="grid-cell">
-                <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
-                {% for constraint, modules in constraints.items %}
-                    {% if modules|length > 0 %}
-                        <h4>{{ constraint }}</h4>
-                        {% if constraint != "DISC_ALT" %}
-                            <ul>
-                                {% for module in modules %}
-                                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+        <form id="module-selection-form" action="{% url 'modulesApplication:submit-selection' %}" method="POST">
+            {% csrf_token %}
+            <h2 style="text-align: center;"> Stage {{ k|slice:"-1:" }}</h2>
+            <div class="grid">
+                <!-- Terms -->
+                {% for term, constraints in v.items %}
+                    <div class="grid-cell">
+                        <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
+                        {% for constraint, modules in constraints.items %}
+                            {% if modules|length > 0 %}
+                                <h4>{{ constraint }}</h4>
+                                {% if constraint != "DISC_ALT" %}
+                                    <ul>
+                                        {% for module in modules %}
+                                            <li><label for="{{ module.mod_code }}">{{ module.mod_code }}
+                                                - {{ module.title }}</label>
+                                                <input type="checkbox" id="{{ module.mod_code }}"
+                                                       value="{{ module.mod_code }}"></li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            {% else %}
+                                {% for sublist in modules %}
+                                    <h5>One of...</h5>
+                                    {% for module in sublist %}
+                                        <li>{{ module.mod_code }} - {{ module.title }}</li>
+                                    {% endfor %}
                                 {% endfor %}
-                            </ul>
-                        {% endif %}
-                    {% else %}
-                        {% for sublist in modules %}
-                            <h5>One of...</h5>
-                            {% for module in sublist %}
-                                <li>{{ module.mod_code }} - {{ module.title }}</li>
-                            {% endfor %}
+                            {% endif %}
                         {% endfor %}
-                    {% endif %}
+                    </div>
                 {% endfor %}
-            </div>
-        {% endfor %}
+                <input type="submit">
+        </form>
     {% endif %}
 {% endfor %}
 </body>

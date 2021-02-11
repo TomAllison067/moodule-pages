@@ -53,13 +53,20 @@ def choose_modules(request):
 
 
 def choose_specific_modules(request, prog_code, stage):
-    try:
-        info = factory.get_programme_info(prog_code, entry_year='2019')
-    except Programme.DoesNotExist:
+    if request.method == "GET":
+        try:
+            info = factory.get_programme_info(prog_code, entry_year='2019')
+        except Programme.DoesNotExist:
+            raise Http404
+        context = {'info': info,
+                   'stage': "stage{}".format(stage)}
+        return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
+
+def submit_selection(request):
+    if request.method == "POST":
+        return HttpResponseRedirect(reverse("modulesApplication:student-landing"))
+    else:
         raise Http404
-    context = {'info': info,
-               'stage': "stage{}".format(stage)}
-    return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
 
 
 def module_details(request, module):
