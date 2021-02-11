@@ -19,7 +19,7 @@ academic_patterns = []  # example
 office_patterns = []  # example
 
 urlpatterns = [
-    path('', auths.index, name='index'),  # Just redirect to Student's index view for now
+    path('', auths.index, name='index'),  # Redirect to homepage.
     path('student/', include(student_patterns)),
     path('academic/', include(academic_patterns)),
     path('office/', include(office_patterns)),
