@@ -11,16 +11,38 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 </head>
 
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+        grid-gap: 1px;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .grid-cell {
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 5px;
+    }
+</style>
+
 <body>
 
-<h1> Your chosen programme is: {{ info.programme.title }} - Entry year: {{ info.entry_year }}</h1>
+<h1 style="text-align: center;"> Your chosen programme is: {{ info.programme.title }} - Entry year: {{ info.entry_year }}</h1>
 {% for k, v in info.modules_dict.items %}
     {% if k == stage %}
-        <h2> Stage {{ k|slice:"-1:" }}</h2>
+        <h2 style="text-align: center;"> Stage {{ k|slice:"-1:" }}</h2>
         <!-- Stages -->
+        <div class="grid">
         {% for constraint, list in v.items %}
             <!-- Modules by local constraint type (CORE, DISC_ALT, OPTS, STRAND) - DISC_ALT has a slightly different
             format -->
+            <div class="grid-cell">
             {% if constraint != "DISC_ALT" %}
                 {% if list|length > 0 %}
                     <h3> {{ constraint|upper }}</h3>
@@ -46,7 +68,10 @@
                     </ul>
                 {% endfor %}
             {% endif %}
+            </div>
         {% endfor %}
+        </div>
     {% endif %}
 {% endfor %}
 </body>
+
