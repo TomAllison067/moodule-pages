@@ -4,5 +4,5 @@ redirect: "http://localhost:8000/callback"
 scopes:
   - user.read
   - mailboxsettings.read
-  - calendars.readwrite
+  #- calendars.readwrite
 authority: "https://login.microsoftonline.com/common"

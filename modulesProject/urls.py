@@ -14,14 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.shortcuts import redirect
 from django.urls import include, path
+from modulesApplication import views
 
 urlpatterns = [
     path('', include('modulesApplication.urls')),  # import the urls from our app
     path('admin/', admin.site.urls),
 
-    # URLs Path for Microsoft Authentication
-    #path('microsoft/', include('microsoft_auth.urls', namespace='microsoft')),
-
+    # Authentication links
+    path('signin', views.sign_in, name='signin'),
+    path('signout', views.index, name='signout'),
+    path('callback', views.callback, name='callback'),
 ]

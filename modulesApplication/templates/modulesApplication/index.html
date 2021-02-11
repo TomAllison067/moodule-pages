@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!--{%  load static %}-->
 
 <!--<!DOCTYPE html>-->
@@ -121,6 +121,19 @@
     />
     {% load static %}
 <!--    <link rel="stylesheet" href="{% static 'tutorial/app.css' %}">-->
+
+      <meta charset="utf-8">
+  <title> moodule </title>
+  <meta name="viewport" content="width=device-width, intial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/login.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  <link rel="stylesheet" type="text/css"
+    href="{% static 'modulesApplication/vendor/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/animate/animate.css' %}">
+  <link rel="stylesheet" type="text/css"
+    href="{% static 'modulesApplication/vendor/css-hamburgers/hamburgers.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/select2/select2.min.css' %}">
   </head>
 
   <body>
@@ -207,25 +220,11 @@
     <a href="{% url 'modulesApplication:signin' %}" class="btn btn-primary btn-large">Click here to sign in</a>
   {% endif %}
 </div>
-=======
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
 
-<head>
-  <meta charset="utf-8">
-  <title> moodule </title>
-  <meta name="viewport" content="width=device-width, intial-scale=1">
-  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/login.css' %}">
-  <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-  <link rel="stylesheet" type="text/css"
-    href="{% static 'modulesApplication/vendor/bootstrap/css/bootstrap.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/animate/animate.css' %}">
-  <link rel="stylesheet" type="text/css"
-    href="{% static 'modulesApplication/vendor/css-hamburgers/hamburgers.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/select2/select2.min.css' %}">
+
   <!--======================================================================================-->
 <!--  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">-->
 <!--  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/util.css' %}">-->
@@ -293,8 +292,6 @@
     <!--===============================================================================================-->
     <script src="{% static 'modulesApplication/js/main.js' %}"></script>
   </div>
-
->>>>>>> develop
 
   </body>
 </html>
