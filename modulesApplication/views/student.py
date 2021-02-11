@@ -6,12 +6,6 @@ from ..models import Module, Programme
 from ..programmeInfo import factory
 
 
-# def index(request):
-#     #return HttpResponseRedirect(reverse('modulesApplication:student-landing'))
-#     template_name = 'modulesApplication/index.html'
-#     return render(request, template_name)
-
-
 def all_modules(request, sort=0):
     modules_list = Module.objects.order_by('level', 'mod_code')
     if sort != 0:

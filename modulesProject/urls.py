@@ -23,6 +23,6 @@ urlpatterns = [
 
     # Authentication links
     path('signin', views.sign_in, name='signin'),
-    path('signout', views.index, name='signout'),
+    path('signout', views.sign_out, name='signout'),
     path('callback', views.callback, name='callback'),
 ]

@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from modulesApplication.auth_helper import get_sign_in_flow, get_token_from_code
+from modulesApplication.auth_helper import get_sign_in_flow, get_token_from_code, store_user, remove_user_and_token, \
+    get_token
+from modulesApplication.graph_helper import *
 
 
 # Authentication views:
@@ -42,6 +44,19 @@ def sign_in(request):
 def callback(request):
     # Make the token request
     result = get_token_from_code(request)
-    # Temporary! Save the response in an error so it's displayed
-    request.session['flash_error'] = {'message': 'Token retrieved', 'debug': format(result)}
-    return HttpResponseRedirect(reverse('index'))
+
+    # Get the user's profile
+    user = get_user(result['access_token'])
+
+    # Store user
+    store_user(request, user)
+    return HttpResponseRedirect(reverse('modulesApplication:index'))
+
+
+# Signout Views
+
+def sign_out(request):
+    # Clear out the user and token
+    remove_user_and_token(request)
+
+    return HttpResponseRedirect(reverse('modulesApplication:index'))

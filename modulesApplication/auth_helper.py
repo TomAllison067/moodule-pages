@@ -4,7 +4,7 @@ import os
 import time
 
 # Load the oauth_settings.yml file
-stream = open('oauth_settings.yml', 'r')
+stream = open('modulesApplication/oauth_settings.yml', 'r')
 settings = yaml.load(stream, yaml.SafeLoader)
 
 
@@ -55,3 +55,38 @@ def get_token_from_code(request):
     save_cache(request, cache)
 
     return result
+
+
+def store_user(request, user):
+    try:
+        request.session['user'] = {
+            'is_authenticated': True,
+            'name': user['displayName'],
+            'email': user['mail'] if (user['mail'] != None) else user['userPrincipalName'],
+            'timeZone': user['mailboxSettings']['timeZone']
+        }
+    except Exception as e:
+        print(e)
+
+
+def get_token(request):
+    cache = load_cache(request)
+    auth_app = get_msal_app(cache)
+
+    accounts = auth_app.get_accounts()
+    if accounts:
+        result = auth_app.acquire_token_silent(
+            settings['scopes'],
+            account=accounts[0])
+
+        save_cache(request, cache)
+
+        return result['access_token']
+
+
+def remove_user_and_token(request):
+    if 'token_cache' in request.session:
+        del request.session['token_cache']
+
+    if 'user' in request.session:
+        del request.session['user']
