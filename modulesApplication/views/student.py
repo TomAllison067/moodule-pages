@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 
 from ..models import Module, Programme
@@ -42,13 +42,23 @@ def landing(request):
 
 
 def choose_modules(request):
+    if request.method == "POST":
+        prog_code = request.POST.get('programme')
+        stage = request.POST.get('stage')
+        if prog_code is None or stage is None:
+            return HttpResponseRedirect(reverse("modulesApplication:choose-modules"))
+        url = reverse('modulesApplication:choose-specific-modules', kwargs={'prog_code': prog_code, 'stage': stage})
+        return HttpResponseRedirect(url)
     return render(request, 'modulesApplication/StudentChooseModules.html')
 
 
 def choose_specific_modules(request, prog_code, stage):
-    info = factory.get_programme_info(prog_code, entry_year='2019')
-    context = {'info': info}
-
+    try:
+        info = factory.get_programme_info(prog_code, entry_year='2019')
+    except Programme.DoesNotExist:
+        raise Http404
+    context = {'info': info,
+               'stage': "stage{}".format(stage)}
     return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
 
 

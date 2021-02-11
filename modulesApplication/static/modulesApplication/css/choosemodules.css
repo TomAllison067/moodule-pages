@@ -142,21 +142,21 @@ html, body {
     font-size: 60px;
 }
 
-#form_id {
-    width: 100%;
+.form-box #form_id {
+    width: 90%;
     height: 100%;
     color: black;
     font-family: 'Nunito', sans-serif;
 }
 
-#form_id h1 {
+form#form_id h1 {
     font-size: 30px;
     border-bottom: 2px solid orangered;
     margin-top: 10px;
     margin-bottom: 15px;
 }
 
-#form_id p .dropdown {
+form#form_id .dropdown {
     padding: 3px;
     border-radius: 5px;
     margin-top: 2px;
@@ -170,14 +170,14 @@ html, body {
     transition: 0.15s;
 }
 
-#form_id p .dropdown:hover {
+form#form_id .dropdown:hover {
     width: 77%;
     background: rgb(255, 255, 255, 0.5);
     color: black;
     border-left: 5px white solid;
 }
 
-#form_id p select option {
+form#form_id select option {
     padding: 3px;
     border-radius: 5px;
     font-size: 14px;
@@ -186,7 +186,7 @@ html, body {
     font-family: 'Nunito', sans-serif;
 }
 
-#form_id input[type = "submit"]  {
+form#form_id input[type = "submit"]  {
     background: orangered;
     width: 80px;
     height: 30px;
@@ -200,7 +200,7 @@ html, body {
     transition: 0.15s;
 }
 
-#form_id input[type = "submit"]:hover {
+form#form_id input[type = "submit"]:hover {
     background: rgb(255, 121, 63);
     border: 2px white solid;
     width: 90px;
