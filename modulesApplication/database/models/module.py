@@ -1,7 +1,7 @@
 from django.db import models
+from modulesApplication.models import ModuleSelection
 
 
-# Create your models here.
 class Module(models.Model):
     """
     Represents a Module - eg cs2815 (hooray) or cs1860 (boo)
@@ -29,6 +29,7 @@ class Module(models.Model):
     project = models.BooleanField(blank=True, null=True)
     lab_hours = models.IntegerField(blank=True, null=True)
     deg_progs = models.TextField(blank=True, null=True)
+    selections = models.ManyToManyField(ModuleSelection)
 
     def clean(self, *args, **kwargs):
         if self.mod_code is None or self.mod_code == "":

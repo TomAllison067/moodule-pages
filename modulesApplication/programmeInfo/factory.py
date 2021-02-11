@@ -69,6 +69,8 @@ def populate_opts_modules(modules_dict, programme, stages, entry_year):
 def populate_strand_modules(modules_dict, programme, stages, entry_year):
     for stage in range(2, stages + 1):  # strand modules start from stage 2
         stage_key = "stage{}".format(stage)
+        modules_dict[stage_key]['term1']['STRAND'] = []
+        modules_dict[stage_key]['term2']['STRAND'] = []
         rules = OptionRule.objects.filter(prog_code=programme,
                                           entry_year=entry_year,
                                           stage=str(stage),
