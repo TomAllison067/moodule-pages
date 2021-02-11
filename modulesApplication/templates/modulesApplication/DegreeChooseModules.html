@@ -83,7 +83,7 @@
                                 {% for module in modules %}
                                         <li><input type="checkbox" id="{{ module.mod_code }}"
                                                    value="{{ module.mod_code }}" name="module-selections"
-                                                   class="module-checkbox" checked disabled>
+                                                   class="module-checkbox" checked hidden>
                                             <label for="{{ module.mod_code }}">{{ module.mod_code }}
                                             - {{ module.title }}</label>
                                             </li>
