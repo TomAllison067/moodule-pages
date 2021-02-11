@@ -120,3 +120,8 @@ class TestCsvReader(TestCase):
         self.assertEqual(self.EXPECTED_PROGRAMMES, len(programmes))
         self.assertEqual("1067", programmes[0].prog_code)
 
+    def test_read_dict(self):
+        expected = [{'foo': 'a', 'bar': 'b', 'baz': 'c', 'bang': 'd'},
+                    {'foo': 'this', 'bar': 'is', 'baz': 'a', 'bang': 'test'}]
+        actual = self.cr.read_dict("modulesApplication/tests/resources/simple_csv.csv")
+        self.assertEqual(expected, actual)

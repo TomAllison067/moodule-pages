@@ -8,62 +8,65 @@
     <title>moodule | Student Homepage</title>
     <meta name="description" content="TBD">
     <meta name="author" content="TBD">
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
 </head>
 
 <body>
-<!-- you can delete anything from here to the other comment like this if you do not like it,
+    <!-- you can delete anything from here to the other comment like this if you do not like it,
 i was just trying to help but only the top bar and the footer look good" -->
 
 
-<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
-<div id="overlay" onclick="quitClick() "></div>
+    <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+    <div id="overlay" onclick="quitClick() "></div>
 
-<!-- PAGE WRAPPER -->
-<div class="page-wrapper">
-    <input type="checkbox" id="check">
-    <!-- SIDEBAR MENU -->
-    <div class="sidebar">
-        <header>
-            <img class="mainlogo" src="{% static 'modulesApplication/images/mlogo.png' %}" alt="logo">
-        </header>
-        <ul>
-            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a></li>
-            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
-            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all courses</a></li>
-            <li><a href="#" class="btn"><i class="fas fa-book"></i>courses by year</a></li>
-        </ul>
-    </div>
-    <!-- TOP BAR -->
-    <nav class="topbar">
-        <label for="check">
-            <i class="fas fa-bars" id="btn"></i>
-        </label>
-        <label class="title"> moodule</label>
-        <div class="search-box">
-            <input class="search-txt" type="text" name="" placeholder="search">
-            <a class="search-btn" href="#">
-                <i class="fas fa-search"></i>
-            </a>
+    <!-- PAGE WRAPPER -->
+    <div class="page-wrapper">
+        <input type="checkbox" id="check">
+
+        <!-- SIDEBAR MENU -->
+        <div class="sidebar">
+            <header>
+                <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
+            </header>
+            <ul>
+                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a></li>
+                <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+                <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                        courses</a></li>
+            </ul>
         </div>
 
-        <img src="{% static 'modulesApplication/images/slp-box-img.png' %}" class="avatar" alt="avatar">
-    </nav>
+        <!-- TOP BAR -->
+        <nav class="topbar">
+            <label for="check">
+                <i class="fas fa-bars" id="btn"></i>
+            </label>
+            <label class="title"> moodule</label>
+            <div class="search-box">
+                <input class="search-txt" type="text" name="" placeholder="search">
+                <a class="search-btn" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
 
-    <!-- here ends my attempt
+            <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
+        </nav>
+
+        <!-- here ends my attempt
     at designing the page -->
 
-    <h1>All Modules</h1>
-    {# module_summaries refer to the dictionary passed through with the render request #}
-    <p>Filter: <select class="filter" name="year" id="year_filter">
-        <option value=0>Select Year</option>
-    </select>
-    </p>
+        <h1>All Modules</h1>
+        {# module_summaries refer to the dictionary passed through with the render request #}
+        <p>Filter: <select class="filter" name="year" id="year_filter">
+                <option value=0>Select Year</option>
+            </select>
+        </p>
 
 
-    {% if module_summaries %}
+        {% if module_summaries %}
         <ul>
             {% for year, modules in module_summaries.items %}
                 <h2>Year {{ year|add:"-3" }}</h2>
@@ -72,7 +75,7 @@ i was just trying to help but only the top bar and the footer look good" -->
                     <div class="panel" disabled="False" id="module">
                         <h4>Summary</h4>
                         <p>{{ module.summary }}</p>
-                        <button onclick="myFunction('{{ module.module_code }}')">Click Me</button>
+                        <button style= "background-color: #ff4500" onclick="myFunction('{{ module.module_code }}')"> Find out more ..</button>
                         <div class="{{ module.module_code }}" style="display: none;">
                             <h4>Learning Outcomes</h4>
                             <p>{{ module.learning_outcomes }}</p>
@@ -86,9 +89,9 @@ i was just trying to help but only the top bar and the footer look good" -->
             {% endfor %}
 
         </ul>
-    {% else %}
+        {% else %}
         <p>No polls are available.</p>
-    {% endif %}
+        {% endif %}
 </body>
 
 <div class="footer">
@@ -109,6 +112,7 @@ i was just trying to help but only the top bar and the footer look good" -->
     &copy; 2021 moodule.com | Designed by CS2815 Group 34
 </div>
 </div>
+
 </html>
 
 {# this script is for the accoridion animation to show the summaries#}
@@ -141,7 +145,7 @@ i was just trying to help but only the top bar and the footer look good" -->
     }
 
     //filtering by year
-    const years = {"All Modules": 0, "Year 1": 1, "Year 2": 2, "Year 3": 3, "Year 4": 4};
+    const years = { "All Modules": 0, "Year 1": 1, "Year 2": 2, "Year 3": 3, "Year 4": 4 };
     window.onload = function () {
         const yearSel = document.getElementById("year_filter");
         let y = 0;
@@ -157,35 +161,3 @@ i was just trying to help but only the top bar and the footer look good" -->
         }
     }
 </script>
-<style>
-
-    .accordion {
-        background-color: #eee;
-        color: #444;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-        transition: 0.4s;
-    }
-
-    .active,
-    .accordion:hover {
-        background-color: #ccc;
-    }
-
-    .panel {
-        padding: 0 18px;
-        display: none;
-        background-color: grey;
-        overflow: hidden;
-    }
-
-    .filter {
-        background-color: #1d2124;
-    }
-</style>
-

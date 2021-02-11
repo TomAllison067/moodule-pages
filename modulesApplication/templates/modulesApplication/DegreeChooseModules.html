@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>{{ info.programme.title }} - {{ info.entry_year }}</title>
+    <meta name="description" content="TBD">
+    <meta name="author" content="TBD">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+</head>
+
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+        grid-gap: 1px;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .grid-cell {
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 5px;
+    }
+</style>
+
+<body>
+
+<h1 style="text-align: center;"> Your chosen programme is: {{ info.programme.title }} - Entry
+    year: {{ info.entry_year }}</h1>
+{% for k, v in info.modules_dict.items %}
+    {% if k == stage %}
+        <h2 style="text-align: center;"> Stage {{ k|slice:"-1:" }}</h2>
+
+        <div class="grid">
+        <!-- Terms -->
+        {% for term, constraints in v.items %}
+            <div class="grid-cell">
+                <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
+                {% for constraint, modules in constraints.items %}
+                    {% if modules|length > 0 %}
+                        <h4>{{ constraint }}</h4>
+                        {% if constraint != "DISC_ALT" %}
+                            <ul>
+                                {% for module in modules %}
+                                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% else %}
+                        {% for sublist in modules %}
+                            <h5>One of...</h5>
+                            {% for module in sublist %}
+                                <li>{{ module.mod_code }} - {{ module.title }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+</body>
+

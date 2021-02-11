@@ -1,0 +1,881 @@
+prog_code,prog_title,mod_code,mod_title
+1067,BSc Computer Science,CS2900,Multi-dimensional Data Processing
+1067,BSc Computer Science,CS2910,Artificial Intelligence
+1067,BSc Computer Science,CS3000,Randomness in Computing
+1067,BSc Computer Science,CS3003,IT Project Management
+1067,BSc Computer Science,CS3110,Bioinformatics
+1067,BSc Computer Science,CS3220,Digital Audio and Applications
+1067,BSc Computer Science,CS3250,Visualisation and Exploratory Analysis
+1067,BSc Computer Science,CS3470,Compilers and Code Generation
+1067,BSc Computer Science,CS3480,Software Language Engineering
+1067,BSc Computer Science,CS3490,Computational Optimization
+1067,BSc Computer Science,CS3510,Functional Programming and Applications
+1067,BSc Computer Science,CS3580,Advanced Data Communications
+1067,BSc Computer Science,CS3750,Concurrent and parallel programming
+1067,BSc Computer Science,CS3840,Interconnected devices
+1067,BSc Computer Science,CS3846,Human-Computer Interaction
+1067,BSc Computer Science,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+1067,BSc Computer Science,CS3920,Machine Learning
+1067,BSc Computer Science,CS3930,Computational Finance
+1067,BSc Computer Science,CS3940,Intelligent agents and multi-agent systems
+1067,BSc Computer Science,CS3945,Semantic Web
+1067,BSc Computer Science,IY2840,Computer and network security
+1067,BSc Computer Science,IY3501,Security management
+1067,BSc Computer Science,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+1067,BSc Computer Science,IY3609,Digital forensics
+1067,BSc Computer Science,IY3612,Cyber security
+1067,BSc Computer Science,IY3660,Applications of Cryptography
+1067,BSc Computer Science,IY3840,Malicious Software
+1059,BSc Computer Science (Artificial Intelligence),CS2900,Multi-dimensional Data Processing
+1059,BSc Computer Science (Artificial Intelligence),CS2910,Artificial Intelligence
+1059,BSc Computer Science (Artificial Intelligence),CS3000,Randomness in Computing
+1059,BSc Computer Science (Artificial Intelligence),CS3003,IT Project Management
+1059,BSc Computer Science (Artificial Intelligence),CS3110,Bioinformatics
+1059,BSc Computer Science (Artificial Intelligence),CS3220,Digital Audio and Applications
+1059,BSc Computer Science (Artificial Intelligence),CS3250,Visualisation and Exploratory Analysis
+1059,BSc Computer Science (Artificial Intelligence),CS3470,Compilers and Code Generation
+1059,BSc Computer Science (Artificial Intelligence),CS3480,Software Language Engineering
+1059,BSc Computer Science (Artificial Intelligence),CS3490,Computational Optimization
+1059,BSc Computer Science (Artificial Intelligence),CS3510,Functional Programming and Applications
+1059,BSc Computer Science (Artificial Intelligence),CS3580,Advanced Data Communications
+1059,BSc Computer Science (Artificial Intelligence),CS3750,Concurrent and parallel programming
+1059,BSc Computer Science (Artificial Intelligence),CS3840,Interconnected devices
+1059,BSc Computer Science (Artificial Intelligence),CS3846,Human-Computer Interaction
+1059,BSc Computer Science (Artificial Intelligence),CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+1059,BSc Computer Science (Artificial Intelligence),CS3920,Machine Learning
+1059,BSc Computer Science (Artificial Intelligence),CS3930,Computational Finance
+1059,BSc Computer Science (Artificial Intelligence),CS3940,Intelligent agents and multi-agent systems
+1059,BSc Computer Science (Artificial Intelligence),CS3945,Semantic Web
+1059,BSc Computer Science (Artificial Intelligence),IY2840,Computer and network security
+1059,BSc Computer Science (Artificial Intelligence),IY3501,Security management
+1059,BSc Computer Science (Artificial Intelligence),IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+1059,BSc Computer Science (Artificial Intelligence),IY3609,Digital forensics
+1059,BSc Computer Science (Artificial Intelligence),IY3612,Cyber security
+1059,BSc Computer Science (Artificial Intelligence),IY3660,Applications of Cryptography
+1059,BSc Computer Science (Artificial Intelligence),IY3840,Malicious Software
+2675,BSc Computer Science (Information Security),CS2900,Multi-dimensional Data Processing
+2675,BSc Computer Science (Information Security),CS2910,Artificial Intelligence
+2675,BSc Computer Science (Information Security),CS3000,Randomness in Computing
+2675,BSc Computer Science (Information Security),CS3003,IT Project Management
+2675,BSc Computer Science (Information Security),CS3110,Bioinformatics
+2675,BSc Computer Science (Information Security),CS3220,Digital Audio and Applications
+2675,BSc Computer Science (Information Security),CS3250,Visualisation and Exploratory Analysis
+2675,BSc Computer Science (Information Security),CS3470,Compilers and Code Generation
+2675,BSc Computer Science (Information Security),CS3480,Software Language Engineering
+2675,BSc Computer Science (Information Security),CS3490,Computational Optimization
+2675,BSc Computer Science (Information Security),CS3510,Functional Programming and Applications
+2675,BSc Computer Science (Information Security),CS3580,Advanced Data Communications
+2675,BSc Computer Science (Information Security),CS3750,Concurrent and parallel programming
+2675,BSc Computer Science (Information Security),CS3840,Interconnected devices
+2675,BSc Computer Science (Information Security),CS3846,Human-Computer Interaction
+2675,BSc Computer Science (Information Security),CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2675,BSc Computer Science (Information Security),CS3920,Machine Learning
+2675,BSc Computer Science (Information Security),CS3930,Computational Finance
+2675,BSc Computer Science (Information Security),CS3940,Intelligent agents and multi-agent systems
+2675,BSc Computer Science (Information Security),CS3945,Semantic Web
+2675,BSc Computer Science (Information Security),IY2840,Computer and network security
+2675,BSc Computer Science (Information Security),IY3501,Security management
+2675,BSc Computer Science (Information Security),IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2675,BSc Computer Science (Information Security),IY3609,Digital forensics
+2675,BSc Computer Science (Information Security),IY3612,Cyber security
+2675,BSc Computer Science (Information Security),IY3660,Applications of Cryptography
+2675,BSc Computer Science (Information Security),IY3840,Malicious Software
+2843,BSc Computer Science (Software Engineering),CS2900,Multi-dimensional Data Processing
+2843,BSc Computer Science (Software Engineering),CS2910,Artificial Intelligence
+2843,BSc Computer Science (Software Engineering),CS3000,Randomness in Computing
+2843,BSc Computer Science (Software Engineering),CS3003,IT Project Management
+2843,BSc Computer Science (Software Engineering),CS3110,Bioinformatics
+2843,BSc Computer Science (Software Engineering),CS3220,Digital Audio and Applications
+2843,BSc Computer Science (Software Engineering),CS3250,Visualisation and Exploratory Analysis
+2843,BSc Computer Science (Software Engineering),CS3470,Compilers and Code Generation
+2843,BSc Computer Science (Software Engineering),CS3480,Software Language Engineering
+2843,BSc Computer Science (Software Engineering),CS3490,Computational Optimization
+2843,BSc Computer Science (Software Engineering),CS3510,Functional Programming and Applications
+2843,BSc Computer Science (Software Engineering),CS3580,Advanced Data Communications
+2843,BSc Computer Science (Software Engineering),CS3750,Concurrent and parallel programming
+2843,BSc Computer Science (Software Engineering),CS3840,Interconnected devices
+2843,BSc Computer Science (Software Engineering),CS3846,Human-Computer Interaction
+2843,BSc Computer Science (Software Engineering),CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2843,BSc Computer Science (Software Engineering),CS3920,Machine Learning
+2843,BSc Computer Science (Software Engineering),CS3930,Computational Finance
+2843,BSc Computer Science (Software Engineering),CS3940,Intelligent agents and multi-agent systems
+2843,BSc Computer Science (Software Engineering),CS3945,Semantic Web
+2843,BSc Computer Science (Software Engineering),IY2840,Computer and network security
+2843,BSc Computer Science (Software Engineering),IY3501,Security management
+2843,BSc Computer Science (Software Engineering),IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2843,BSc Computer Science (Software Engineering),IY3609,Digital forensics
+2843,BSc Computer Science (Software Engineering),IY3612,Cyber security
+2843,BSc Computer Science (Software Engineering),IY3660,Applications of Cryptography
+2843,BSc Computer Science (Software Engineering),IY3840,Malicious Software
+1069,BSc Computer Science and Mathematics,CS2850,Operating Systems
+1069,BSc Computer Science and Mathematics,CS2855,Databases
+1069,BSc Computer Science and Mathematics,CS2910,Artificial Intelligence
+1069,BSc Computer Science and Mathematics,CS3000,Randomness in Computing
+1069,BSc Computer Science and Mathematics,CS3003,IT Project Management
+1069,BSc Computer Science and Mathematics,CS3110,Bioinformatics
+1069,BSc Computer Science and Mathematics,CS3220,Digital Audio and Applications
+1069,BSc Computer Science and Mathematics,CS3250,Visualisation and Exploratory Analysis
+1069,BSc Computer Science and Mathematics,CS3470,Compilers and Code Generation
+1069,BSc Computer Science and Mathematics,CS3480,Software Language Engineering
+1069,BSc Computer Science and Mathematics,CS3510,Functional Programming and Applications
+1069,BSc Computer Science and Mathematics,CS3580,Advanced Data Communications
+1069,BSc Computer Science and Mathematics,CS3750,Concurrent and parallel programming
+1069,BSc Computer Science and Mathematics,CS3810,Half Unit Project
+1069,BSc Computer Science and Mathematics,CS3821,Full Unit Project
+1069,BSc Computer Science and Mathematics,CS3840,Interconnected devices
+1069,BSc Computer Science and Mathematics,CS3846,Human-Computer Interaction
+1069,BSc Computer Science and Mathematics,CS3920,Machine Learning
+1069,BSc Computer Science and Mathematics,CS3930,Computational Finance
+1069,BSc Computer Science and Mathematics,CS3940,Intelligent agents and multi-agent systems
+1069,BSc Computer Science and Mathematics,CS3945,Semantic Web
+1069,BSc Computer Science and Mathematics,IY2760,Introduction to Information Security
+1069,BSc Computer Science and Mathematics,IY2840,Computer and network security
+1069,BSc Computer Science and Mathematics,IY3501,Security management
+1069,BSc Computer Science and Mathematics,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+1069,BSc Computer Science and Mathematics,IY3609,Digital forensics
+1069,BSc Computer Science and Mathematics,IY3612,Cyber security
+1069,BSc Computer Science and Mathematics,IY3660,Applications of Cryptography
+1069,BSc Computer Science and Mathematics,IY3840,Malicious Software
+1069,BSc Computer Science and Mathematics,MT2220,Vector Analysis and Fluids
+1069,BSc Computer Science and Mathematics,MT2320,Probability
+1069,BSc Computer Science and Mathematics,MT2860,Groups and Group Functions
+1069,BSc Computer Science and Mathematics,MT3000,Mathematics Project
+1069,BSc Computer Science and Mathematics,MT3110,Number Theory
+1069,BSc Computer Science and Mathematics,MT3130,Complexity Theory
+1062,BSc Computer Science with Management,CS2900,Multi-dimensional Data Processing
+1062,BSc Computer Science with Management,CS2910,Artificial Intelligence
+1062,BSc Computer Science with Management,CS3000,Randomness in Computing
+1062,BSc Computer Science with Management,CS3003,IT Project Management
+1062,BSc Computer Science with Management,CS3110,Bioinformatics
+1062,BSc Computer Science with Management,CS3220,Digital Audio and Applications
+1062,BSc Computer Science with Management,CS3250,Visualisation and Exploratory Analysis
+1062,BSc Computer Science with Management,CS3470,Compilers and Code Generation
+1062,BSc Computer Science with Management,CS3480,Software Language Engineering
+1062,BSc Computer Science with Management,CS3490,Computational Optimization
+1062,BSc Computer Science with Management,CS3510,Functional Programming and Applications
+1062,BSc Computer Science with Management,CS3580,Advanced Data Communications
+1062,BSc Computer Science with Management,CS3750,Concurrent and parallel programming
+1062,BSc Computer Science with Management,CS3840,Interconnected devices
+1062,BSc Computer Science with Management,CS3846,Human-Computer Interaction
+1062,BSc Computer Science with Management,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+1062,BSc Computer Science with Management,CS3920,Machine Learning
+1062,BSc Computer Science with Management,CS3930,Computational Finance
+1062,BSc Computer Science with Management,CS3940,Intelligent agents and multi-agent systems
+1062,BSc Computer Science with Management,CS3945,Semantic Web
+1062,BSc Computer Science with Management,IY2840,Computer and network security
+1062,BSc Computer Science with Management,IY3501,Security management
+1062,BSc Computer Science with Management,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+1062,BSc Computer Science with Management,IY3609,Digital forensics
+1062,BSc Computer Science with Management,IY3612,Cyber security
+1062,BSc Computer Science with Management,IY3660,Applications of Cryptography
+1062,BSc Computer Science with Management,IY3840,Malicious Software
+2686,MSci Computer Science,CS2900,Multi-dimensional Data Processing
+2686,MSci Computer Science,CS2910,Artificial Intelligence
+2686,MSci Computer Science,CS3000,Randomness in Computing
+2686,MSci Computer Science,CS3003,IT Project Management
+2686,MSci Computer Science,CS3110,Bioinformatics
+2686,MSci Computer Science,CS3220,Digital Audio and Applications
+2686,MSci Computer Science,CS3250,Visualisation and Exploratory Analysis
+2686,MSci Computer Science,CS3470,Compilers and Code Generation
+2686,MSci Computer Science,CS3480,Software Language Engineering
+2686,MSci Computer Science,CS3490,Computational Optimization
+2686,MSci Computer Science,CS3510,Functional Programming and Applications
+2686,MSci Computer Science,CS3580,Advanced Data Communications
+2686,MSci Computer Science,CS3750,Concurrent and parallel programming
+2686,MSci Computer Science,CS3840,Interconnected devices
+2686,MSci Computer Science,CS3846,Human-Computer Interaction
+2686,MSci Computer Science,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2686,MSci Computer Science,CS3920,Machine Learning
+2686,MSci Computer Science,CS3930,Computational Finance
+2686,MSci Computer Science,CS3940,Intelligent agents and multi-agent systems
+2686,MSci Computer Science,CS3945,Semantic Web
+2686,MSci Computer Science,IY2840,Computer and network security
+2686,MSci Computer Science,IY3501,Security management
+2686,MSci Computer Science,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2686,MSci Computer Science,IY3609,Digital forensics
+2686,MSci Computer Science,IY3612,Cyber security
+2686,MSci Computer Science,IY3660,Applications of Cryptography
+2686,MSci Computer Science,IY3840,Malicious Software
+2327,BSc Computer Science with a Year in Industry,CS2900,Multi-dimensional Data Processing
+2327,BSc Computer Science with a Year in Industry,CS2910,Artificial Intelligence
+2327,BSc Computer Science with a Year in Industry,CS3000,Randomness in Computing
+2327,BSc Computer Science with a Year in Industry,CS3003,IT Project Management
+2327,BSc Computer Science with a Year in Industry,CS3110,Bioinformatics
+2327,BSc Computer Science with a Year in Industry,CS3220,Digital Audio and Applications
+2327,BSc Computer Science with a Year in Industry,CS3250,Visualisation and Exploratory Analysis
+2327,BSc Computer Science with a Year in Industry,CS3470,Compilers and Code Generation
+2327,BSc Computer Science with a Year in Industry,CS3480,Software Language Engineering
+2327,BSc Computer Science with a Year in Industry,CS3490,Computational Optimization
+2327,BSc Computer Science with a Year in Industry,CS3510,Functional Programming and Applications
+2327,BSc Computer Science with a Year in Industry,CS3580,Advanced Data Communications
+2327,BSc Computer Science with a Year in Industry,CS3750,Concurrent and parallel programming
+2327,BSc Computer Science with a Year in Industry,CS3840,Interconnected devices
+2327,BSc Computer Science with a Year in Industry,CS3846,Human-Computer Interaction
+2327,BSc Computer Science with a Year in Industry,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2327,BSc Computer Science with a Year in Industry,CS3920,Machine Learning
+2327,BSc Computer Science with a Year in Industry,CS3930,Computational Finance
+2327,BSc Computer Science with a Year in Industry,CS3940,Intelligent agents and multi-agent systems
+2327,BSc Computer Science with a Year in Industry,CS3945,Semantic Web
+2327,BSc Computer Science with a Year in Industry,IY2840,Computer and network security
+2327,BSc Computer Science with a Year in Industry,IY3501,Security management
+2327,BSc Computer Science with a Year in Industry,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2327,BSc Computer Science with a Year in Industry,IY3609,Digital forensics
+2327,BSc Computer Science with a Year in Industry,IY3612,Cyber security
+2327,BSc Computer Science with a Year in Industry,IY3660,Applications of Cryptography
+2327,BSc Computer Science with a Year in Industry,IY3840,Malicious Software
+2687,MSci Computer Science with a Year in Industry,CS2900,Multi-dimensional Data Processing
+2687,MSci Computer Science with a Year in Industry,CS2910,Artificial Intelligence
+2687,MSci Computer Science with a Year in Industry,CS3000,Randomness in Computing
+2687,MSci Computer Science with a Year in Industry,CS3003,IT Project Management
+2687,MSci Computer Science with a Year in Industry,CS3110,Bioinformatics
+2687,MSci Computer Science with a Year in Industry,CS3220,Digital Audio and Applications
+2687,MSci Computer Science with a Year in Industry,CS3250,Visualisation and Exploratory Analysis
+2687,MSci Computer Science with a Year in Industry,CS3470,Compilers and Code Generation
+2687,MSci Computer Science with a Year in Industry,CS3480,Software Language Engineering
+2687,MSci Computer Science with a Year in Industry,CS3490,Computational Optimization
+2687,MSci Computer Science with a Year in Industry,CS3510,Functional Programming and Applications
+2687,MSci Computer Science with a Year in Industry,CS3580,Advanced Data Communications
+2687,MSci Computer Science with a Year in Industry,CS3750,Concurrent and parallel programming
+2687,MSci Computer Science with a Year in Industry,CS3840,Interconnected devices
+2687,MSci Computer Science with a Year in Industry,CS3846,Human-Computer Interaction
+2687,MSci Computer Science with a Year in Industry,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2687,MSci Computer Science with a Year in Industry,CS3920,Machine Learning
+2687,MSci Computer Science with a Year in Industry,CS3930,Computational Finance
+2687,MSci Computer Science with a Year in Industry,CS3940,Intelligent agents and multi-agent systems
+2687,MSci Computer Science with a Year in Industry,CS3945,Semantic Web
+2687,MSci Computer Science with a Year in Industry,IY2840,Computer and network security
+2687,MSci Computer Science with a Year in Industry,IY3501,Security management
+2687,MSci Computer Science with a Year in Industry,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2687,MSci Computer Science with a Year in Industry,IY3609,Digital forensics
+2687,MSci Computer Science with a Year in Industry,IY3612,Cyber security
+2687,MSci Computer Science with a Year in Industry,IY3660,Applications of Cryptography
+2687,MSci Computer Science with a Year in Industry,IY3840,Malicious Software
+2673,MSci Computer Science (Artificial Intelligence),CS2900,Multi-dimensional Data Processing
+2673,MSci Computer Science (Artificial Intelligence),CS2910,Artificial Intelligence
+2673,MSci Computer Science (Artificial Intelligence),CS3000,Randomness in Computing
+2673,MSci Computer Science (Artificial Intelligence),CS3003,IT Project Management
+2673,MSci Computer Science (Artificial Intelligence),CS3110,Bioinformatics
+2673,MSci Computer Science (Artificial Intelligence),CS3220,Digital Audio and Applications
+2673,MSci Computer Science (Artificial Intelligence),CS3250,Visualisation and Exploratory Analysis
+2673,MSci Computer Science (Artificial Intelligence),CS3470,Compilers and Code Generation
+2673,MSci Computer Science (Artificial Intelligence),CS3480,Software Language Engineering
+2673,MSci Computer Science (Artificial Intelligence),CS3490,Computational Optimization
+2673,MSci Computer Science (Artificial Intelligence),CS3510,Functional Programming and Applications
+2673,MSci Computer Science (Artificial Intelligence),CS3580,Advanced Data Communications
+2673,MSci Computer Science (Artificial Intelligence),CS3750,Concurrent and parallel programming
+2673,MSci Computer Science (Artificial Intelligence),CS3840,Interconnected devices
+2673,MSci Computer Science (Artificial Intelligence),CS3846,Human-Computer Interaction
+2673,MSci Computer Science (Artificial Intelligence),CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2673,MSci Computer Science (Artificial Intelligence),CS3920,Machine Learning
+2673,MSci Computer Science (Artificial Intelligence),CS3930,Computational Finance
+2673,MSci Computer Science (Artificial Intelligence),CS3940,Intelligent agents and multi-agent systems
+2673,MSci Computer Science (Artificial Intelligence),CS3945,Semantic Web
+2673,MSci Computer Science (Artificial Intelligence),IY2840,Computer and network security
+2673,MSci Computer Science (Artificial Intelligence),IY3501,Security management
+2673,MSci Computer Science (Artificial Intelligence),IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2673,MSci Computer Science (Artificial Intelligence),IY3609,Digital forensics
+2673,MSci Computer Science (Artificial Intelligence),IY3612,Cyber security
+2673,MSci Computer Science (Artificial Intelligence),IY3660,Applications of Cryptography
+2673,MSci Computer Science (Artificial Intelligence),IY3840,Malicious Software
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS2900,Multi-dimensional Data Processing
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS2910,Artificial Intelligence
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3000,Randomness in Computing
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3003,IT Project Management
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3110,Bioinformatics
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3220,Digital Audio and Applications
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3250,Visualisation and Exploratory Analysis
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3470,Compilers and Code Generation
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3480,Software Language Engineering
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3490,Computational Optimization
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3510,Functional Programming and Applications
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3580,Advanced Data Communications
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3750,Concurrent and parallel programming
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3840,Interconnected devices
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3846,Human-Computer Interaction
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3920,Machine Learning
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3930,Computational Finance
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3940,Intelligent agents and multi-agent systems
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,CS3945,Semantic Web
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,IY2840,Computer and network security
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,IY3501,Security management
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,IY3609,Digital forensics
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,IY3612,Cyber security
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,IY3660,Applications of Cryptography
+2446,BSc Computer Science (Artificial Intelligence) with a Year in Industry,IY3840,Malicious Software
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS2900,Multi-dimensional Data Processing
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS2910,Artificial Intelligence
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3000,Randomness in Computing
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3003,IT Project Management
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3110,Bioinformatics
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3220,Digital Audio and Applications
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3250,Visualisation and Exploratory Analysis
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3470,Compilers and Code Generation
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3480,Software Language Engineering
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3490,Computational Optimization
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3510,Functional Programming and Applications
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3580,Advanced Data Communications
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3750,Concurrent and parallel programming
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3840,Interconnected devices
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3846,Human-Computer Interaction
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3920,Machine Learning
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3930,Computational Finance
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3940,Intelligent agents and multi-agent systems
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS3945,Semantic Web
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY2840,Computer and network security
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY3501,Security management
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY3609,Digital forensics
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY3612,Cyber security
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY3660,Applications of Cryptography
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY3840,Malicious Software
+2677,MSci Computer Science (Information Security),CS2900,Multi-dimensional Data Processing
+2677,MSci Computer Science (Information Security),CS2910,Artificial Intelligence
+2677,MSci Computer Science (Information Security),CS3000,Randomness in Computing
+2677,MSci Computer Science (Information Security),CS3003,IT Project Management
+2677,MSci Computer Science (Information Security),CS3110,Bioinformatics
+2677,MSci Computer Science (Information Security),CS3220,Digital Audio and Applications
+2677,MSci Computer Science (Information Security),CS3250,Visualisation and Exploratory Analysis
+2677,MSci Computer Science (Information Security),CS3470,Compilers and Code Generation
+2677,MSci Computer Science (Information Security),CS3480,Software Language Engineering
+2677,MSci Computer Science (Information Security),CS3490,Computational Optimization
+2677,MSci Computer Science (Information Security),CS3510,Functional Programming and Applications
+2677,MSci Computer Science (Information Security),CS3580,Advanced Data Communications
+2677,MSci Computer Science (Information Security),CS3750,Concurrent and parallel programming
+2677,MSci Computer Science (Information Security),CS3840,Interconnected devices
+2677,MSci Computer Science (Information Security),CS3846,Human-Computer Interaction
+2677,MSci Computer Science (Information Security),CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2677,MSci Computer Science (Information Security),CS3920,Machine Learning
+2677,MSci Computer Science (Information Security),CS3930,Computational Finance
+2677,MSci Computer Science (Information Security),CS3940,Intelligent agents and multi-agent systems
+2677,MSci Computer Science (Information Security),CS3945,Semantic Web
+2677,MSci Computer Science (Information Security),IY2840,Computer and network security
+2677,MSci Computer Science (Information Security),IY3501,Security management
+2677,MSci Computer Science (Information Security),IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2677,MSci Computer Science (Information Security),IY3609,Digital forensics
+2677,MSci Computer Science (Information Security),IY3612,Cyber security
+2677,MSci Computer Science (Information Security),IY3660,Applications of Cryptography
+2677,MSci Computer Science (Information Security),IY3840,Malicious Software
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS2900,Multi-dimensional Data Processing
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS2910,Artificial Intelligence
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3000,Randomness in Computing
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3003,IT Project Management
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3110,Bioinformatics
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3220,Digital Audio and Applications
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3250,Visualisation and Exploratory Analysis
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3470,Compilers and Code Generation
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3480,Software Language Engineering
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3490,Computational Optimization
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3510,Functional Programming and Applications
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3580,Advanced Data Communications
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3750,Concurrent and parallel programming
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3840,Interconnected devices
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3846,Human-Computer Interaction
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3920,Machine Learning
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3930,Computational Finance
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3940,Intelligent agents and multi-agent systems
+2676,BSc Computer Science (Information Security) with a Year in Industry,CS3945,Semantic Web
+2676,BSc Computer Science (Information Security) with a Year in Industry,IY2840,Computer and network security
+2676,BSc Computer Science (Information Security) with a Year in Industry,IY3501,Security management
+2676,BSc Computer Science (Information Security) with a Year in Industry,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2676,BSc Computer Science (Information Security) with a Year in Industry,IY3609,Digital forensics
+2676,BSc Computer Science (Information Security) with a Year in Industry,IY3612,Cyber security
+2676,BSc Computer Science (Information Security) with a Year in Industry,IY3660,Applications of Cryptography
+2676,BSc Computer Science (Information Security) with a Year in Industry,IY3840,Malicious Software
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS2900,Multi-dimensional Data Processing
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS2910,Artificial Intelligence
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3000,Randomness in Computing
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3003,IT Project Management
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3110,Bioinformatics
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3220,Digital Audio and Applications
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3250,Visualisation and Exploratory Analysis
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3470,Compilers and Code Generation
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3480,Software Language Engineering
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3490,Computational Optimization
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3510,Functional Programming and Applications
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3580,Advanced Data Communications
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3750,Concurrent and parallel programming
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3840,Interconnected devices
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3846,Human-Computer Interaction
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3920,Machine Learning
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3930,Computational Finance
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3940,Intelligent agents and multi-agent systems
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS3945,Semantic Web
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY2840,Computer and network security
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY3501,Security management
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY3609,Digital forensics
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY3612,Cyber security
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY3660,Applications of Cryptography
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY3840,Malicious Software
+2845,MSci Computer Science (Software Engineering),CS2900,Multi-dimensional Data Processing
+2845,MSci Computer Science (Software Engineering),CS2910,Artificial Intelligence
+2845,MSci Computer Science (Software Engineering),CS3000,Randomness in Computing
+2845,MSci Computer Science (Software Engineering),CS3003,IT Project Management
+2845,MSci Computer Science (Software Engineering),CS3110,Bioinformatics
+2845,MSci Computer Science (Software Engineering),CS3220,Digital Audio and Applications
+2845,MSci Computer Science (Software Engineering),CS3250,Visualisation and Exploratory Analysis
+2845,MSci Computer Science (Software Engineering),CS3470,Compilers and Code Generation
+2845,MSci Computer Science (Software Engineering),CS3480,Software Language Engineering
+2845,MSci Computer Science (Software Engineering),CS3490,Computational Optimization
+2845,MSci Computer Science (Software Engineering),CS3510,Functional Programming and Applications
+2845,MSci Computer Science (Software Engineering),CS3580,Advanced Data Communications
+2845,MSci Computer Science (Software Engineering),CS3750,Concurrent and parallel programming
+2845,MSci Computer Science (Software Engineering),CS3840,Interconnected devices
+2845,MSci Computer Science (Software Engineering),CS3846,Human-Computer Interaction
+2845,MSci Computer Science (Software Engineering),CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2845,MSci Computer Science (Software Engineering),CS3920,Machine Learning
+2845,MSci Computer Science (Software Engineering),CS3930,Computational Finance
+2845,MSci Computer Science (Software Engineering),CS3940,Intelligent agents and multi-agent systems
+2845,MSci Computer Science (Software Engineering),CS3945,Semantic Web
+2845,MSci Computer Science (Software Engineering),IY2840,Computer and network security
+2845,MSci Computer Science (Software Engineering),IY3501,Security management
+2845,MSci Computer Science (Software Engineering),IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2845,MSci Computer Science (Software Engineering),IY3609,Digital forensics
+2845,MSci Computer Science (Software Engineering),IY3612,Cyber security
+2845,MSci Computer Science (Software Engineering),IY3660,Applications of Cryptography
+2845,MSci Computer Science (Software Engineering),IY3840,Malicious Software
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS2900,Multi-dimensional Data Processing
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS2910,Artificial Intelligence
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3000,Randomness in Computing
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3003,IT Project Management
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3110,Bioinformatics
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3220,Digital Audio and Applications
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3250,Visualisation and Exploratory Analysis
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3470,Compilers and Code Generation
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3480,Software Language Engineering
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3490,Computational Optimization
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3510,Functional Programming and Applications
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3580,Advanced Data Communications
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3750,Concurrent and parallel programming
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3840,Interconnected devices
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3846,Human-Computer Interaction
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3920,Machine Learning
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3930,Computational Finance
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3940,Intelligent agents and multi-agent systems
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,CS3945,Semantic Web
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,IY2840,Computer and network security
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,IY3501,Security management
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,IY3609,Digital forensics
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,IY3612,Cyber security
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,IY3660,Applications of Cryptography
+2844,BSc Computer Science (Software Engineering) with a Year in Industry,IY3840,Malicious Software
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS2900,Multi-dimensional Data Processing
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS2910,Artificial Intelligence
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3000,Randomness in Computing
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3003,IT Project Management
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3110,Bioinformatics
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3220,Digital Audio and Applications
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3250,Visualisation and Exploratory Analysis
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3470,Compilers and Code Generation
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3480,Software Language Engineering
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3490,Computational Optimization
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3510,Functional Programming and Applications
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3580,Advanced Data Communications
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3750,Concurrent and parallel programming
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3840,Interconnected devices
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3846,Human-Computer Interaction
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3920,Machine Learning
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3930,Computational Finance
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3940,Intelligent agents and multi-agent systems
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS3945,Semantic Web
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY2840,Computer and network security
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY3501,Security management
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY3609,Digital forensics
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY3612,Cyber security
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY3660,Applications of Cryptography
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY3840,Malicious Software
+3424,BSc Computing Technologies,CS2900,Multi-dimensional Data Processing
+3424,BSc Computing Technologies,CS2910,Artificial Intelligence
+3424,BSc Computing Technologies,CS3000,Randomness in Computing
+3424,BSc Computing Technologies,CS3003,IT Project Management
+3424,BSc Computing Technologies,CS3110,Bioinformatics
+3424,BSc Computing Technologies,CS3220,Digital Audio and Applications
+3424,BSc Computing Technologies,CS3250,Visualisation and Exploratory Analysis
+3424,BSc Computing Technologies,CS3470,Compilers and Code Generation
+3424,BSc Computing Technologies,CS3480,Software Language Engineering
+3424,BSc Computing Technologies,CS3490,Computational Optimization
+3424,BSc Computing Technologies,CS3510,Functional Programming and Applications
+3424,BSc Computing Technologies,CS3580,Advanced Data Communications
+3424,BSc Computing Technologies,CS3750,Concurrent and parallel programming
+3424,BSc Computing Technologies,CS3840,Interconnected devices
+3424,BSc Computing Technologies,CS3846,Human-Computer Interaction
+3424,BSc Computing Technologies,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+3424,BSc Computing Technologies,CS3920,Machine Learning
+3424,BSc Computing Technologies,CS3930,Computational Finance
+3424,BSc Computing Technologies,CS3940,Intelligent agents and multi-agent systems
+3424,BSc Computing Technologies,CS3945,Semantic Web
+3424,BSc Computing Technologies,IY2840,Computer and network security
+3424,BSc Computing Technologies,IY3501,Security management
+3424,BSc Computing Technologies,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+3424,BSc Computing Technologies,IY3609,Digital forensics
+3424,BSc Computing Technologies,IY3612,Cyber security
+3424,BSc Computing Technologies,IY3660,Applications of Cryptography
+3424,BSc Computing Technologies,IY3840,Malicious Software
+3014,BSc Computer Science (Distributed and Networked Systems),CS2900,Multi-dimensional Data Processing
+3014,BSc Computer Science (Distributed and Networked Systems),CS2910,Artificial Intelligence
+3014,BSc Computer Science (Distributed and Networked Systems),CS3000,Randomness in Computing
+3014,BSc Computer Science (Distributed and Networked Systems),CS3003,IT Project Management
+3014,BSc Computer Science (Distributed and Networked Systems),CS3110,Bioinformatics
+3014,BSc Computer Science (Distributed and Networked Systems),CS3220,Digital Audio and Applications
+3014,BSc Computer Science (Distributed and Networked Systems),CS3250,Visualisation and Exploratory Analysis
+3014,BSc Computer Science (Distributed and Networked Systems),CS3470,Compilers and Code Generation
+3014,BSc Computer Science (Distributed and Networked Systems),CS3480,Software Language Engineering
+3014,BSc Computer Science (Distributed and Networked Systems),CS3490,Computational Optimization
+3014,BSc Computer Science (Distributed and Networked Systems),CS3510,Functional Programming and Applications
+3014,BSc Computer Science (Distributed and Networked Systems),CS3580,Advanced Data Communications
+3014,BSc Computer Science (Distributed and Networked Systems),CS3750,Concurrent and parallel programming
+3014,BSc Computer Science (Distributed and Networked Systems),CS3840,Interconnected devices
+3014,BSc Computer Science (Distributed and Networked Systems),CS3846,Human-Computer Interaction
+3014,BSc Computer Science (Distributed and Networked Systems),CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+3014,BSc Computer Science (Distributed and Networked Systems),CS3920,Machine Learning
+3014,BSc Computer Science (Distributed and Networked Systems),CS3930,Computational Finance
+3014,BSc Computer Science (Distributed and Networked Systems),CS3940,Intelligent agents and multi-agent systems
+3014,BSc Computer Science (Distributed and Networked Systems),CS3945,Semantic Web
+3014,BSc Computer Science (Distributed and Networked Systems),IY2840,Computer and network security
+3014,BSc Computer Science (Distributed and Networked Systems),IY3501,Security management
+3014,BSc Computer Science (Distributed and Networked Systems),IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+3014,BSc Computer Science (Distributed and Networked Systems),IY3609,Digital forensics
+3014,BSc Computer Science (Distributed and Networked Systems),IY3612,Cyber security
+3014,BSc Computer Science (Distributed and Networked Systems),IY3660,Applications of Cryptography
+3014,BSc Computer Science (Distributed and Networked Systems),IY3840,Malicious Software
+3449,BSc Computer Science with Integrated Foundation Year,CS2900,Multi-dimensional Data Processing
+3449,BSc Computer Science with Integrated Foundation Year,CS2910,Artificial Intelligence
+3449,BSc Computer Science with Integrated Foundation Year,CS3000,Randomness in Computing
+3449,BSc Computer Science with Integrated Foundation Year,CS3003,IT Project Management
+3449,BSc Computer Science with Integrated Foundation Year,CS3110,Bioinformatics
+3449,BSc Computer Science with Integrated Foundation Year,CS3220,Digital Audio and Applications
+3449,BSc Computer Science with Integrated Foundation Year,CS3250,Visualisation and Exploratory Analysis
+3449,BSc Computer Science with Integrated Foundation Year,CS3470,Compilers and Code Generation
+3449,BSc Computer Science with Integrated Foundation Year,CS3480,Software Language Engineering
+3449,BSc Computer Science with Integrated Foundation Year,CS3490,Computational Optimization
+3449,BSc Computer Science with Integrated Foundation Year,CS3510,Functional Programming and Applications
+3449,BSc Computer Science with Integrated Foundation Year,CS3580,Advanced Data Communications
+3449,BSc Computer Science with Integrated Foundation Year,CS3750,Concurrent and parallel programming
+3449,BSc Computer Science with Integrated Foundation Year,CS3840,Interconnected devices
+3449,BSc Computer Science with Integrated Foundation Year,CS3846,Human-Computer Interaction
+3449,BSc Computer Science with Integrated Foundation Year,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+3449,BSc Computer Science with Integrated Foundation Year,CS3920,Machine Learning
+3449,BSc Computer Science with Integrated Foundation Year,CS3930,Computational Finance
+3449,BSc Computer Science with Integrated Foundation Year,CS3940,Intelligent agents and multi-agent systems
+3449,BSc Computer Science with Integrated Foundation Year,CS3945,Semantic Web
+3449,BSc Computer Science with Integrated Foundation Year,IY2840,Computer and network security
+3449,BSc Computer Science with Integrated Foundation Year,IY3501,Security management
+3449,BSc Computer Science with Integrated Foundation Year,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+3449,BSc Computer Science with Integrated Foundation Year,IY3609,Digital forensics
+3449,BSc Computer Science with Integrated Foundation Year,IY3612,Cyber security
+3449,BSc Computer Science with Integrated Foundation Year,IY3660,Applications of Cryptography
+3449,BSc Computer Science with Integrated Foundation Year,IY3840,Malicious Software
+1257,BSc Computing and Business,CS2900,Multi-dimensional Data Processing
+1257,BSc Computing and Business,CS2910,Artificial Intelligence
+1257,BSc Computing and Business,CS3000,Randomness in Computing
+1257,BSc Computing and Business,CS3003,IT Project Management
+1257,BSc Computing and Business,CS3110,Bioinformatics
+1257,BSc Computing and Business,CS3220,Digital Audio and Applications
+1257,BSc Computing and Business,CS3250,Visualisation and Exploratory Analysis
+1257,BSc Computing and Business,CS3470,Compilers and Code Generation
+1257,BSc Computing and Business,CS3480,Software Language Engineering
+1257,BSc Computing and Business,CS3490,Computational Optimization
+1257,BSc Computing and Business,CS3510,Functional Programming and Applications
+1257,BSc Computing and Business,CS3580,Advanced Data Communications
+1257,BSc Computing and Business,CS3750,Concurrent and parallel programming
+1257,BSc Computing and Business,CS3840,Interconnected devices
+1257,BSc Computing and Business,CS3846,Human-Computer Interaction
+1257,BSc Computing and Business,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+1257,BSc Computing and Business,CS3920,Machine Learning
+1257,BSc Computing and Business,CS3930,Computational Finance
+1257,BSc Computing and Business,CS3940,Intelligent agents and multi-agent systems
+1257,BSc Computing and Business,CS3945,Semantic Web
+1257,BSc Computing and Business,IY2840,Computer and network security
+1257,BSc Computing and Business,IY3501,Security management
+1257,BSc Computing and Business,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+1257,BSc Computing and Business,IY3609,Digital forensics
+1257,BSc Computing and Business,IY3612,Cyber security
+1257,BSc Computing and Business,IY3660,Applications of Cryptography
+1257,BSc Computing and Business,IY3840,Malicious Software
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS2900,Multi-dimensional Data Processing
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS2910,Artificial Intelligence
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3000,Randomness in Computing
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3003,IT Project Management
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3110,Bioinformatics
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3220,Digital Audio and Applications
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3250,Visualisation and Exploratory Analysis
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3470,Compilers and Code Generation
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3480,Software Language Engineering
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3490,Computational Optimization
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3510,Functional Programming and Applications
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3580,Advanced Data Communications
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3750,Concurrent and parallel programming
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3840,Interconnected devices
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3846,Human-Computer Interaction
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3920,Machine Learning
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3930,Computational Finance
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3940,Intelligent agents and multi-agent systems
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3945,Semantic Web
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,IY2840,Computer and network security
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3501,Security management
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3609,Digital forensics
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3612,Cyber security
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3660,Applications of Cryptography
+3015,BSc Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3840,Malicious Software
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS2900,Multi-dimensional Data Processing
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS2910,Artificial Intelligence
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3000,Randomness in Computing
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3003,IT Project Management
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3110,Bioinformatics
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3220,Digital Audio and Applications
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3250,Visualisation and Exploratory Analysis
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3470,Compilers and Code Generation
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3480,Software Language Engineering
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3490,Computational Optimization
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3510,Functional Programming and Applications
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3580,Advanced Data Communications
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3750,Concurrent and parallel programming
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3840,Interconnected devices
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3846,Human-Computer Interaction
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3920,Machine Learning
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3930,Computational Finance
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3940,Intelligent agents and multi-agent systems
+3016,MSci Computer Science (Distributed and Networked Sysytems),CS3945,Semantic Web
+3016,MSci Computer Science (Distributed and Networked Sysytems),IY2840,Computer and network security
+3016,MSci Computer Science (Distributed and Networked Sysytems),IY3501,Security management
+3016,MSci Computer Science (Distributed and Networked Sysytems),IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+3016,MSci Computer Science (Distributed and Networked Sysytems),IY3609,Digital forensics
+3016,MSci Computer Science (Distributed and Networked Sysytems),IY3612,Cyber security
+3016,MSci Computer Science (Distributed and Networked Sysytems),IY3660,Applications of Cryptography
+3016,MSci Computer Science (Distributed and Networked Sysytems),IY3840,Malicious Software
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS2900,Multi-dimensional Data Processing
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS2910,Artificial Intelligence
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3000,Randomness in Computing
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3003,IT Project Management
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3110,Bioinformatics
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3220,Digital Audio and Applications
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3250,Visualisation and Exploratory Analysis
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3470,Compilers and Code Generation
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3480,Software Language Engineering
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3490,Computational Optimization
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3510,Functional Programming and Applications
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3580,Advanced Data Communications
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3750,Concurrent and parallel programming
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3840,Interconnected devices
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3846,Human-Computer Interaction
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3870,Advanced Algorithms and Complexity (short title Advanced Algorithms)
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3920,Machine Learning
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3930,Computational Finance
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3940,Intelligent agents and multi-agent systems
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,CS3945,Semantic Web
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,IY2840,Computer and network security
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3501,Security management
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3606,"Smart Cards, RFIDs and Embedded Systems Security"
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3609,Digital forensics
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3612,Cyber security
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3660,Applications of Cryptography
+3017,MSci Computer Science (Distributed and Networked Systems) with a Year in Industry,IY3840,Malicious Software
+3047,"BSc Digital Media, Culture and Technologyy",CS2847,Human-Computer Interaction
+3047,"BSc Digital Media, Culture and Technologyy",CS2890,Software Design
+3047,"BSc Digital Media, Culture and Technologyy",DC2845,Data Analytics and Visualisation
+3047,"BSc Digital Media, Culture and Technologyy",DC3760,Information Security
+3047,"BSc Digital Media, Culture and Technologyy",DC3811,Team Project in HCI
+2686,MSci Computer Science,CS4100,Data Analysis
+2686,MSci Computer Science,CS4200,On-line Machine Learning
+2686,MSci Computer Science,CS4220,Digital Audio and Applications
+2686,MSci Computer Science,CS4234,Large-Scale Data Storage and Processing
+2686,MSci Computer Science,CS4250,Visualisation and Exploratory Analysis
+2686,MSci Computer Science,CS4490,Computational Optimization
+2686,MSci Computer Science,CS4504,"Business Intelligence Systems, Infrastructures and Technologies"
+2686,MSci Computer Science,CS4563,Technology Entrepreneurship
+2686,MSci Computer Science,CS4580,Advanced Data Communications
+2686,MSci Computer Science,CS4860,Advanced distributed systems and Communication Networks
+2686,MSci Computer Science,CS4870,Wireless sensor and actuator networks
+2686,MSci Computer Science,CS4910,Running a Small Business
+2686,MSci Computer Science,CS4915,"Standards, IP and Technology"
+2686,MSci Computer Science,CS4920,Machine Learning
+2686,MSci Computer Science,CS4945,Semantic Web
+2686,MSci Computer Science,CS4950,Deep Learning
+2686,MSci Computer Science,CS4980,Autonomous Intelligent Systems
+2686,MSci Computer Science,CS4990,Natural Language Processing
+2686,MSci Computer Science,IY4501,Security management
+2686,MSci Computer Science,IY4523,Secure business architectures
+2686,MSci Computer Science,IY4606,"Smart Cards, RFIDs and Embedded Systems Security"
+2686,MSci Computer Science,IY4609,Digital forensics
+2686,MSci Computer Science,IY4610,Security Testing Theory and Practice
+2686,MSci Computer Science,IY4612,Cyber security
+2687,MSci Computer Science with a Year in Industry,CS4100,Data Analysis
+2687,MSci Computer Science with a Year in Industry,CS4200,On-line Machine Learning
+2687,MSci Computer Science with a Year in Industry,CS4220,Digital Audio and Applications
+2687,MSci Computer Science with a Year in Industry,CS4234,Large-Scale Data Storage and Processing
+2687,MSci Computer Science with a Year in Industry,CS4250,Visualisation and Exploratory Analysis
+2687,MSci Computer Science with a Year in Industry,CS4490,Computational Optimization
+2687,MSci Computer Science with a Year in Industry,CS4504,"Business Intelligence Systems, Infrastructures and Technologies"
+2687,MSci Computer Science with a Year in Industry,CS4563,Technology Entrepreneurship
+2687,MSci Computer Science with a Year in Industry,CS4580,Advanced Data Communications
+2687,MSci Computer Science with a Year in Industry,CS4860,Advanced distributed systems and Communication Networks
+2687,MSci Computer Science with a Year in Industry,CS4870,Wireless sensor and actuator networks
+2687,MSci Computer Science with a Year in Industry,CS4910,Running a Small Business
+2687,MSci Computer Science with a Year in Industry,CS4915,"Standards, IP and Technology"
+2687,MSci Computer Science with a Year in Industry,CS4920,Machine Learning
+2687,MSci Computer Science with a Year in Industry,CS4945,Semantic Web
+2687,MSci Computer Science with a Year in Industry,CS4950,Deep Learning
+2687,MSci Computer Science with a Year in Industry,CS4980,Autonomous Intelligent Systems
+2687,MSci Computer Science with a Year in Industry,CS4990,Natural Language Processing
+2687,MSci Computer Science with a Year in Industry,IY4501,Security management
+2687,MSci Computer Science with a Year in Industry,IY4523,Secure business architectures
+2687,MSci Computer Science with a Year in Industry,IY4606,"Smart Cards, RFIDs and Embedded Systems Security"
+2687,MSci Computer Science with a Year in Industry,IY4609,Digital forensics
+2687,MSci Computer Science with a Year in Industry,IY4610,Security Testing Theory and Practice
+2687,MSci Computer Science with a Year in Industry,IY4612,Cyber security
+2673,MSci Computer Science (Artificial Intelligence),CS4100,Data Analysis
+2673,MSci Computer Science (Artificial Intelligence),CS4200,On-line Machine Learning
+2673,MSci Computer Science (Artificial Intelligence),CS4220,Digital Audio and Applications
+2673,MSci Computer Science (Artificial Intelligence),CS4234,Large-Scale Data Storage and Processing
+2673,MSci Computer Science (Artificial Intelligence),CS4250,Visualisation and Exploratory Analysis
+2673,MSci Computer Science (Artificial Intelligence),CS4490,Computational Optimization
+2673,MSci Computer Science (Artificial Intelligence),CS4504,"Business Intelligence Systems, Infrastructures and Technologies"
+2673,MSci Computer Science (Artificial Intelligence),CS4563,Technology Entrepreneurship
+2673,MSci Computer Science (Artificial Intelligence),CS4580,Advanced Data Communications
+2673,MSci Computer Science (Artificial Intelligence),CS4860,Advanced distributed systems and Communication Networks
+2673,MSci Computer Science (Artificial Intelligence),CS4870,Wireless sensor and actuator networks
+2673,MSci Computer Science (Artificial Intelligence),CS4910,Running a Small Business
+2673,MSci Computer Science (Artificial Intelligence),CS4915,"Standards, IP and Technology"
+2673,MSci Computer Science (Artificial Intelligence),CS4920,Machine Learning
+2673,MSci Computer Science (Artificial Intelligence),CS4945,Semantic Web
+2673,MSci Computer Science (Artificial Intelligence),CS4950,Deep Learning
+2673,MSci Computer Science (Artificial Intelligence),CS4980,Autonomous Intelligent Systems
+2673,MSci Computer Science (Artificial Intelligence),CS4990,Natural Language Processing
+2673,MSci Computer Science (Artificial Intelligence),IY4501,Security management
+2673,MSci Computer Science (Artificial Intelligence),IY4523,Secure business architectures
+2673,MSci Computer Science (Artificial Intelligence),IY4606,"Smart Cards, RFIDs and Embedded Systems Security"
+2673,MSci Computer Science (Artificial Intelligence),IY4609,Digital forensics
+2673,MSci Computer Science (Artificial Intelligence),IY4610,Security Testing Theory and Practice
+2673,MSci Computer Science (Artificial Intelligence),IY4612,Cyber security
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4100,Data Analysis
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4200,On-line Machine Learning
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4220,Digital Audio and Applications
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4234,Large-Scale Data Storage and Processing
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4250,Visualisation and Exploratory Analysis
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4490,Computational Optimization
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4504,"Business Intelligence Systems, Infrastructures and Technologies"
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4563,Technology Entrepreneurship
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4580,Advanced Data Communications
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4860,Advanced distributed systems and Communication Networks
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4870,Wireless sensor and actuator networks
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4910,Running a Small Business
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4915,"Standards, IP and Technology"
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4920,Machine Learning
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4945,Semantic Web
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4950,Deep Learning
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4980,Autonomous Intelligent Systems
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,CS4990,Natural Language Processing
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY4501,Security management
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY4523,Secure business architectures
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY4606,"Smart Cards, RFIDs and Embedded Systems Security"
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY4609,Digital forensics
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY4610,Security Testing Theory and Practice
+2674,MSci Computer Science (Artificial Intelligence) with a Year in Industry,IY4612,Cyber security
+2677,MSci Computer Science (Information Security),CS4100,Data Analysis
+2677,MSci Computer Science (Information Security),CS4200,On-line Machine Learning
+2677,MSci Computer Science (Information Security),CS4220,Digital Audio and Applications
+2677,MSci Computer Science (Information Security),CS4234,Large-Scale Data Storage and Processing
+2677,MSci Computer Science (Information Security),CS4250,Visualisation and Exploratory Analysis
+2677,MSci Computer Science (Information Security),CS4490,Computational Optimization
+2677,MSci Computer Science (Information Security),CS4504,"Business Intelligence Systems, Infrastructures and Technologies"
+2677,MSci Computer Science (Information Security),CS4563,Technology Entrepreneurship
+2677,MSci Computer Science (Information Security),CS4580,Advanced Data Communications
+2677,MSci Computer Science (Information Security),CS4860,Advanced distributed systems and Communication Networks
+2677,MSci Computer Science (Information Security),CS4870,Wireless sensor and actuator networks
+2677,MSci Computer Science (Information Security),CS4910,Running a Small Business
+2677,MSci Computer Science (Information Security),CS4915,"Standards, IP and Technology"
+2677,MSci Computer Science (Information Security),CS4920,Machine Learning
+2677,MSci Computer Science (Information Security),CS4945,Semantic Web
+2677,MSci Computer Science (Information Security),CS4950,Deep Learning
+2677,MSci Computer Science (Information Security),CS4980,Autonomous Intelligent Systems
+2677,MSci Computer Science (Information Security),CS4990,Natural Language Processing
+2677,MSci Computer Science (Information Security),IY4501,Security management
+2677,MSci Computer Science (Information Security),IY4523,Secure business architectures
+2677,MSci Computer Science (Information Security),IY4606,"Smart Cards, RFIDs and Embedded Systems Security"
+2677,MSci Computer Science (Information Security),IY4609,Digital forensics
+2677,MSci Computer Science (Information Security),IY4610,Security Testing Theory and Practice
+2677,MSci Computer Science (Information Security),IY4612,Cyber security
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4100,Data Analysis
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4200,On-line Machine Learning
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4220,Digital Audio and Applications
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4234,Large-Scale Data Storage and Processing
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4250,Visualisation and Exploratory Analysis
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4490,Computational Optimization
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4504,"Business Intelligence Systems, Infrastructures and Technologies"
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4563,Technology Entrepreneurship
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4580,Advanced Data Communications
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4860,Advanced distributed systems and Communication Networks
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4870,Wireless sensor and actuator networks
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4910,Running a Small Business
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4915,"Standards, IP and Technology"
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4920,Machine Learning
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4945,Semantic Web
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4950,Deep Learning
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4980,Autonomous Intelligent Systems
+2678,MSci Computer Science (Information Security) with a Year in Industry,CS4990,Natural Language Processing
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY4501,Security management
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY4523,Secure business architectures
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY4606,"Smart Cards, RFIDs and Embedded Systems Security"
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY4609,Digital forensics
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY4610,Security Testing Theory and Practice
+2678,MSci Computer Science (Information Security) with a Year in Industry,IY4612,Cyber security
+2845,MSci Computer Science (Software Engineering),CS4100,Data Analysis
+2845,MSci Computer Science (Software Engineering),CS4200,On-line Machine Learning
+2845,MSci Computer Science (Software Engineering),CS4220,Digital Audio and Applications
+2845,MSci Computer Science (Software Engineering),CS4234,Large-Scale Data Storage and Processing
+2845,MSci Computer Science (Software Engineering),CS4250,Visualisation and Exploratory Analysis
+2845,MSci Computer Science (Software Engineering),CS4490,Computational Optimization
+2845,MSci Computer Science (Software Engineering),CS4504,"Business Intelligence Systems, Infrastructures and Technologies"
+2845,MSci Computer Science (Software Engineering),CS4563,Technology Entrepreneurship
+2845,MSci Computer Science (Software Engineering),CS4580,Advanced Data Communications
+2845,MSci Computer Science (Software Engineering),CS4860,Advanced distributed systems and Communication Networks
+2845,MSci Computer Science (Software Engineering),CS4870,Wireless sensor and actuator networks
+2845,MSci Computer Science (Software Engineering),CS4910,Running a Small Business
+2845,MSci Computer Science (Software Engineering),CS4915,"Standards, IP and Technology"
+2845,MSci Computer Science (Software Engineering),CS4920,Machine Learning
+2845,MSci Computer Science (Software Engineering),CS4945,Semantic Web
+2845,MSci Computer Science (Software Engineering),CS4950,Deep Learning
+2845,MSci Computer Science (Software Engineering),CS4980,Autonomous Intelligent Systems
+2845,MSci Computer Science (Software Engineering),CS4990,Natural Language Processing
+2845,MSci Computer Science (Software Engineering),IY4501,Security management
+2845,MSci Computer Science (Software Engineering),IY4523,Secure business architectures
+2845,MSci Computer Science (Software Engineering),IY4606,"Smart Cards, RFIDs and Embedded Systems Security"
+2845,MSci Computer Science (Software Engineering),IY4609,Digital forensics
+2845,MSci Computer Science (Software Engineering),IY4610,Security Testing Theory and Practice
+2845,MSci Computer Science (Software Engineering),IY4612,Cyber security
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4100,Data Analysis
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4200,On-line Machine Learning
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4220,Digital Audio and Applications
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4234,Large-Scale Data Storage and Processing
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4250,Visualisation and Exploratory Analysis
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4490,Computational Optimization
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4504,"Business Intelligence Systems, Infrastructures and Technologies"
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4563,Technology Entrepreneurship
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4580,Advanced Data Communications
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4860,Advanced distributed systems and Communication Networks
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4870,Wireless sensor and actuator networks
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4910,Running a Small Business
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4915,"Standards, IP and Technology"
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4920,Machine Learning
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4945,Semantic Web
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4950,Deep Learning
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4980,Autonomous Intelligent Systems
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,CS4990,Natural Language Processing
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY4501,Security management
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY4523,Secure business architectures
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY4606,"Smart Cards, RFIDs and Embedded Systems Security"
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY4609,Digital forensics
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY4610,Security Testing Theory and Practice
+2846,MSci Computer Science (Software Engineering) with a Year in Industry,IY4612,Cyber security

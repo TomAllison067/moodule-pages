@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Choose Modules</title>
-  <meta name="description" content="TBD">
-  <meta name="author" content="TBD">
+    <title>Choose Modules</title>
+    <meta name="description" content="TBD">
+    <meta name="author" content="TBD">
 
-  <link rel= "stylesheet" type="text/css" href="../../static/modulesApplication/css/style.css">
-  <link rel= "stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/choosemodules.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
 </head>
 
@@ -30,116 +31,172 @@
 -->
 
 <body>
- <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
-<div id="overlay" onclick="quitClick() "></div>
+  <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+  <div id="overlay" onclick="quitClick() "></div>
 
-<!-- PAGE WRAPPER -->
-<div class="page-wrapper">
-    <input type="checkbox" id="check">
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+        <input type="checkbox" id="check">
 
-    <!-- SIDEBAR MENU -->
-    <div class="sidebar">
-        <header>
-            <img class="mainlogo" src="{% static 'modulesApplication/images/mlogo.png' %}" alt="logo">
-        </header>
-        <ul>
-            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a>
-            </li>
-            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
-            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-                courses</a></li>
-            <li><a href="#" class="btn"><i class="fas fa-book"></i>courses by year</a></li>
-        </ul>
+        <!-- SIDEBAR MENU -->
+        <div class="sidebar">
+            <header>
+                <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
+            </header>
+            <ul>
+                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a></li>
+                <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+                <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                        courses</a></li>
+            </ul>
+        </div>
+
+        <!-- TOP BAR -->
+        <nav class="topbar">
+            <label for="check">
+                <i class="fas fa-bars" id="btn"></i>
+            </label>
+            <label class="title"> moodule</label>
+            <div class="search-box">
+                <input class="search-txt" type="text" name="" placeholder="search">
+                <a class="search-btn" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+
+            <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
+        </nav>
+
+        <!-- IMAGE BAR -->
+        <div class="image-box">
+            <div class="ib-content">
+                <h2> <i class="fas fa-book-open"></i> choose modules</h2> <br>
+            </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="form-box">
+            <div class="icon-img">
+                <i class="fas fa-book-open"></i>
+            </div>
+
+            <form id="form_id" action="{% url 'modulesApplication:choose-modules' %}" method="POST">
+                {% csrf_token %}
+                <h1>Module Choice Form</h1>
+                <label for="programme_filter">Please select your degree programme: </label>
+                <br>
+
+                <select name="programme" id="programme_filter" class="dropdown">
+                    <option value="" selected disabled>Choose here...</option>
+                </select>
+
+                <br>
+
+                <label for="stage_filter"> Please select your degree stage: </label>
+                <br>
+
+                <select name="stage" id="stage_filter" class="dropdown">
+                    <option value="" selected disabled>Choose here...</option>
+                </select>
+
+                <br>
+
+                <input type="submit" value="confirm">
+                <br>
+            </form>  
+
+        </div>    
     </div>
-
-    <nav class="topbar">
-      <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-      </label>
-      <label class="title"> moodule</label>
-      <div class="search-box">
-        <input class="search-txt" type="text" name="" placeholder="search">
-        <a class="search-btn" href="#">
-          <i class="fas fa-search"></i>
-        </a>
-      </div>
-    </nav>
-
-    <div class="section">
-      <div class="middle">
-
-
-
-
-
-
-        <h1>Module Choice Form</h1>
-        <!--{# module_summaries refer to the dictionary passed through with the render request #}-->
-        <p>Please select your degree strand: <br>
-          <select name="strand" id="strand_filter" class="dropdown">
-            <option value=0>Select Strand</option>
-          </select>
-        </p>
-
-        <br><h2>Your Year 1 options:</h2>
-
-
-
-
-
-
-      </div>
-    </div>
-  </div>
 </body>
 
 <!-- FOOTER - links will be added later -->
 <div class="footer">
-  <div class="row">
-    <div class="col">
-      <li>Royal Holloway, University of London</li>
-      <li>Egham, Surrey, TW20 0EX</li>
-    </div>
-    <div class="col">
-      <li>Terms & Conditions</li>
-      <li>Privacy Policy</li>
-    </div>
-    <div class="col">
-      <li>moodule@gmail.com</li>
-      <li>T: +44 (0)1784 434455</li>
-    </div>
-  </div class="row">
-  &copy; 2021 moodule.com | Designed by CS2815 Group 34
+    <div class="row">
+        <div class="col">
+            <li>Royal Holloway, University of London</li>
+            <li>Egham, Surrey, TW20 0EX</li>
+        </div>
+        <div class="col">
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+        </div>
+        <div class="col">
+            <li>moodule@gmail.com</li>
+            <li>T: +44 (0)1784 434455</li>
+        </div>
+    </div class="row">
+    &copy; 2021 moodule.com | Designed by CS2815 Group 34
 </div>
 </div>
-
 </html>
 
+<!-- MENU OVERLAY SCRIPT -->
 <script>
-  //filtering by year
-    const strands = {"Artificial Intelligence": "AI", "Information Security": "AI", "Software Engineering": "SE", "DNS": "DNS"};
-    window.onload = function () {
-        const strandSel = document.getElementById("strand_filter");
-        let s = 0;
+    var checkbox = document.querySelector("input[type=checkbox]");
 
-        for (const x in strands) {
-            strandSel.options[strandSel.options.length] = new Option(x, x);
+    checkbox.addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById("overlay").style.transition = '0.5s';
+            document.getElementById("overlay").style.display = "block";
+        } else {
+            document.getElementById("overlay").style.transition = '0.5s';
+            document.getElementById("overlay").style.display = "none";
         }
-
-        strandSel.onchange = function () {
-            s = strands[this.value]
-            location.href = '/student/all-modules/sort/' + s; //TO BE EDITED
-
-        }
-    }
+    });
 </script>
 
-<style>
-  .dropdown{
-    color:black !important;
-  }
+<!-- DROPDOWN SCRIPT -->
+<script>
+    //from programmes table : title,prog_code
+    const programmes = {
+        "BSc Computer Science": "1067",
+        "BSc Computer Science with a Year in Industry": "2327",
+        "BSc Computer Science (Artificial Intelligence)": "1059",
+        "BSc Computer Science (Artificial Intelligence) with a Year in Industry": "2446",
+        "BSc Computer Science (Information Security)": "2675",
+        "BSc Computer Science (Information Security) with a Year in Industry": "2676",
+        "BSc Computer Science (Software Engineering)": "2843",
+        "BSc Computer Science (Software Engineering) with a Year in Industry": "2844",
+        "BSc Computer Science (Distributed and Networked Systems)": "3014",
+        "BSc Computer Science (Distributed and Networked Systems) with a Year in Industry": "3015",
+        "BSc Computer Science and Mathematics": "1069",
+        "BSc Computer Science with Management": "1062",
+        "BSc Computing Technologies": "3424",
+        "BSc Computing and Business": "1257",
+        "BSc Computer Science with Integrated Foundation Year": "3449",
+        "MSci Computer Science": "2686",
+        "MSci Computer Science with a Year in Industry": "2687",
+        "MSci Computer Science (Artificial Intelligence)": "2673",
+        "MSci Computer Science (Artificial Intelligence) with a Year in Industry": "2674",
+        "MSci Computer Science (Information Security)": "2677",
+        "MSci Computer Science (Information Security) with a Year in Industry": "2678",
+        "MSci Computer Science (Software Engineering)": "2845",
+        "MSci Computer Science (Software Engineering) with a Year in Industry": "2846",
+        "MSci Computer Science (Distributed and Networked Systems)": "3016",
+        "MSci Computer Science (Distributed and Networked Systems) with a Year in Industry": "3017"
+    };
 
-  option{
-    color:black !important;
-  }
-</style>
+    const stage = {
+        "Year One": "1",
+        "Year Two": "2",
+        "Year Three": "3",
+        "Year Four": "4",
+        "Year Five": "5"
+    };
+    window.onload = function () {
+        const programSel = document.getElementById("programme_filter");
+        let p = 0;
+        const stageSel = document.getElementById("stage_filter");
+        let s = 0;
+
+        for (let key in programmes) {
+            console.log(programmes[key])
+            programSel.options[programSel.options.length] = new Option(key, programmes[key]);
+        }
+        for (let key in stage) {
+            stageSel.options[stageSel.options.length] = new Option(key, stage[key]);
+        }
+    }
+
+</script>
+

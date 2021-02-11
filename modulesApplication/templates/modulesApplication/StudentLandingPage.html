@@ -3,173 +3,176 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>moodule | Student Homepage</title>
-    <meta name="description" content="TBD">
-    <meta name="author" content="TBD">
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/style.css' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+<title>moodule | Student Homepage</title>
+<meta name="description" content="TBD">
+<meta name="author" content="TBD">
 
+<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+<link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 </head>
 
 <body>
-<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
-<div id="overlay" onclick="quitClick() "></div>
+    <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+    <div id="overlay" onclick=""></div>
 
-<!-- PAGE WRAPPER -->
-<div class="page-wrapper">
-    <input type="checkbox" id="check">
+    <!-- PAGE WRAPPER -->
+    <div class="page-wrapper">
+        <input type="checkbox" id="check">
 
-    <!-- SIDEBAR MENU -->
-    <div class="sidebar">
-        <header>
-            <img class="mainlogo" src="{% static 'modulesApplication/images/mlogo.png' %}" alt="logo">
-        </header>
-        <ul>
-            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a>
-            </li>
-            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
-            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-                courses</a></li>
-            <li><a href="#" class="btn"><i class="fas fa-book"></i>courses by year</a></li>
-        </ul>
-    </div>
-
-    <!-- TOP BAR -->
-    <nav class="topbar">
-        <label for="check">
-            <i class="fas fa-bars" id="btn"></i>
-        </label>
-        <label class="title"> moodule</label>
-        <div class="search-box">
-            <input class="search-txt" type="text" name="" placeholder="search">
-            <a class="search-btn" href="#">
-                <i class="fas fa-search"></i>
-            </a>
+        <!-- SIDEBAR MENU -->
+        <div class="sidebar">
+            <header>
+                <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
+            </header>
+            <ul>
+                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a></li>
+                <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+                <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                        courses</a></li>
+            </ul>
         </div>
 
-        <img src="{% static 'modulesApplication/images/slp-box-img.png' %}" class="avatar" alt="avatar">
-    </nav>
-
-    <!-- IMAGE SLIDER -->
-    <div class="slider">
-        <div class="slides">
-
-            <!--RADIO BUTTONS -->
-            <input type="radio" name="radio-btn" id="radio1">
-            <input type="radio" name="radio-btn" id="radio2">
-            <input type="radio" name="radio-btn" id="radio3">
-
-            <!-- SLIDE IMAGES -->
-            <div class="slide first">
-                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
-                <div class="slide-content">
-                    <h2> welcome to moodule </h2> <br>
-                    <p> This is your online learning environment to access information about your chosen course with the
-                        given modules for the academic year 20/21.</p>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
-                <div class="slide-content">
-                    <h2> welcome to moodule </h2> <br>
-                    <p> This is your online learning environment to access information about your chosen course with the
-                        given modules for the academic year 20/21.</p>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
-                <div class="slide-content">
-                    <h2> welcome to moodule </h2> <br>
-                    <p> This is your online learning environment to access information about your chosen course with the
-                        given modules for the academic year 20/21.</p>
-                </div>
+        <!-- TOP BAR -->
+        <nav class="topbar">
+            <label for="check">
+                <i class="fas fa-bars" id="btn"></i>
+            </label>
+            <label class="title"> moodule</label>
+            <div class="search-box">
+                <input class="search-txt" type="text" name="" placeholder="search">
+                <a class="search-btn" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
             </div>
 
-            <!-- AUTOMATIC NAVIGATION OF SLIDES-->
-            <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-            </div>
+            <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
+        </nav>
 
-        </div>
-        <!--MANUAL NAVIGATION OF SLIDES-->
-        <div class="navigation-manual">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
-        </div>
-    </div>
+        <!-- IMAGE SLIDER -->
+        <div class="slider">
+            <div class="slides">
 
-    <!-- AUTOMATIC NAVIGATION SCRIPT-->
-    <script>
-        var counter = 1;
-        setInterval(function () {
-            document.getElementById('radio' + counter).checked = true;
-            counter++;
-            if (counter > 4) {
-                counter = 1;
-            }
-        }, 15000);
-    </script>
+                <!--RADIO BUTTONS -->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
 
-    <!-- MENU OVERLAY SCRIPT -->
-    <script>
-        var checkbox = document.querySelector("input[type=checkbox]");
-
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                document.getElementById("overlay").style.transition = '0.5s';
-                document.getElementById("overlay").style.display = "block";
-            } else {
-                document.getElementById("overlay").style.transition = '0.5s';
-                document.getElementById("overlay").style.display = "none";
-            }
-        });
-    </script>
-
-    <!-- LANDING PAGE CONTAINER -->
-    <div class="lp-container">
-
-        <!-- MY COURSES BOX -->
-        <div class="lp-box" id="lpc-bl">
-            <h2> my courses</h2>
-            <a href="#" class="b-btn"></a>
-            <div class="lp-content">
-                <h3> this term </h3>
-                <!-- MESSAGE FOR THOSE HANDLING THE DATABASE (from neka):
-
-                  the li's are examples of what the listed modules would look like.
-                  should be a query request of the current stage and term of the student's
-                  modules (if they have been chosen).
-
-                  My assumption is that this will not be tested over an extensive time period,
-                  so we may be able to assume the CURRENT stage and term to be Year 1, Term 1;
-                  however it is good to still hold something to track the stage of time.
-
-                  Format of each listed item should be:
-                  [the module code]: [the module name]
-                  (these should be retrieved by the database)
-                -->
-                <div class="term-module-list">
-                    <li><i class="fas fa-book-reader"></i> CS3480: Software Language Engineering</li>
-                    <li><i class="fas fa-book-reader"></i> CS3490: Computational Optimisation</li>
-                    <li><i class="fas fa-book-reader"></i> CS3510: Functional Programming and Applications</li>
-                    <li><i class="fas fa-book-reader"></i> CS3846: Human-Computer Interaction</li>
-                    <li><i class="fas fa-book-reader"></i> IY3501: Security Management</li>
-                    <li><i class="fas fa-book-reader"></i> IY3606: Smart Cards/Token Security and Applications</li>
-                    <li><i class="fas fa-book-reader"></i> IY3609: Digital Forensics</li>
-                    <li><i class="fas fa-book-reader"></i> IY3612: Cyber Security</li>
-                    <li><i class="fas fa-book-reader"></i> IY3840: Malicious Software</li>
+                <!-- SLIDE IMAGES -->
+                <div class="slide first">
+                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                    <div class="slide-content">
+                        <h2> welcome to moodule </h2> <br>
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
+                    </div>
                 </div>
+                <div class="slide">
+                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                    <div class="slide-content">
+                        <h2> welcome to moodule </h2> <br>
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                    <div class="slide-content">
+                        <h2> welcome to moodule </h2> <br>
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
+                    </div>
+                </div>
+
+                <!-- AUTOMATIC NAVIGATION OF SLIDES-->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                </div>
+
+            </div>
+            <!--MANUAL NAVIGATION OF SLIDES-->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
             </div>
         </div>
+
+        <!-- AUTOMATIC NAVIGATION SCRIPT-->
+        <script>
+            var counter = 1;
+            setInterval(function () {
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if (counter > 4) {
+                    counter = 1;
+                }
+            }, 15000);
+        </script>
+
+        <!-- MENU OVERLAY SCRIPT -->
+        <script>
+            var checkbox = document.querySelector("input[type=checkbox]");
+
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    document.getElementById("overlay").style.transition = '0.5s';
+                    document.getElementById("overlay").style.display = "block";
+                } else {
+                    document.getElementById("overlay").style.transition = '0.5s';
+                    document.getElementById("overlay").style.display = "none";
+                }
+            });
+        </script>
+
+        <!-- LANDING PAGE CONTAINER -->
+        <div class="lp-container">
+
+            <!-- MY COURSES BOX -->
+            <div class="lp-box" id="lpc-bl">
+                <a href="#" class="b-btn">
+                    <h2> my courses</h2>
+                    <div class="lp-content">
+                        <h3> this term </h3>
+                        <!-- MESSAGE FOR THOSE HANDLING THE DATABASE (from neka):
+
+                    the li's are examples of what the listed modules would look like.
+                    should be a query request of the current stage and term of the student's
+                    modules (if they have been chosen).
+
+                    My assumption is that this will not be tested over an extensive time period,
+                    so we may be able to assume the CURRENT stage and term to be Year 1, Term 1;
+                    however it is good to still hold something to track the stage of time.
+
+                    Format of each listed item should be:
+                    [the module code]: [the module name]
+                    (these should be retrieved by the database)
+                    -->
+                        <div class="term-module-list">
+                            <li><i class="fas fa-book-reader"></i> CS3480: Software Language Engineering</li>
+                            <li><i class="fas fa-book-reader"></i> CS3490: Computational Optimisation</li>
+                            <li><i class="fas fa-book-reader"></i> CS3510: Functional Programming and Applications</li>
+                            <li><i class="fas fa-book-reader"></i> CS3846: Human-Computer Interaction</li>
+                            <li><i class="fas fa-book-reader"></i> IY3501: Security Management</li>
+                            <li><i class="fas fa-book-reader"></i> IY3606: Smart Cards/Token Security and Applications
+                            </li>
+                            <li><i class="fas fa-book-reader"></i> IY3609: Digital Forensics</li>
+                            <li><i class="fas fa-book-reader"></i> IY3612: Cyber Security</li>
+                            <li><i class="fas fa-book-reader"></i> IY3840: Malicious Software</li>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
         <!-- CHOOSE MODULES BOX -->
         <div class="lp-box" id="lpb-cm">
-            <h2> choose modules </h2>
             <a href="{% url 'modulesApplication:choose-modules' %}" class="b-btn">
+                <h2> choose modules </h2>
                 <div class="lp-content" id="lpc-cm">
                     <div class="icon-box">
                         <i class="fas fa-book-open"></i> <br>
@@ -182,25 +185,24 @@
             </a>
         </div>
 
-        <!-- ALL COURSES BOX -->
-        <div class="lp-box" id="lpb-ac">
-            <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
-                <h2> all courses </h2>
-
-                <div class="lp-content" id="lpc-ac">
-                    <div class="icon-box">
-                        <i class="fas fa-book"></i> <br>
-                        <br>
-                        <hr class="solid">
-                        <br>
-                        <p> view the complete degree specification and requirements for all the available courses </p>
+            <!-- ALL COURSES BOX -->
+            <div class="lp-box" id="lpb-ac">
+                <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
+                    <h2> all courses </h2>
+                    <div class="lp-content" id="lpc-ac">
+                        <div class="icon-box">
+                            <i class="fas fa-book"></i> <br>
+                            <br>
+                            <hr class="solid">
+                            <br>
+                            <p> view the complete degree specification and requirements for all the available courses
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
-
-</div>
 </body>
 
 <!-- FOOTER - links will be added later -->

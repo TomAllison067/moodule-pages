@@ -1,0 +1,36 @@
+<!-- This is a dummy template to test ProgrammeInfo objects. Please feel free to improve if you
+find a use for it! -->
+<h1> {{ info.programme.title }} - {{ info.entry_year }} </h1>
+{% for k, v in info.modules_dict.items %}
+    <!-- Stages -->
+    <h2> Stage {{ k|slice:"-1:" }}</h2>
+    {% for constraint, list in v.items %}
+        <!-- Modules by local constraint type (CORE, DISC_ALT, OPTS, STRAND) - DISC_ALT has a slightly different
+        format -->
+        {% if constraint != "DISC_ALT" %}
+            {% if list|length > 0 %}
+                <h3> {{ constraint|upper }}</h3>
+                <ul>
+                    {% for module in list %}
+                        <li>
+                            {{ module.mod_code }} {{ module.title }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% else %}
+            <!-- DISC_ALT -->
+            <h3> {{ constraint|upper }}</h3>
+            {% for sublist in list %}
+                <p>One of...</p>
+                <ul>
+                    {% for module in sublist %}
+                        <li>
+                            {{ module.mod_code }} {{ module.title }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
