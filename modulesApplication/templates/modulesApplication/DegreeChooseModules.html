@@ -81,11 +81,12 @@
                             {% if constraint != "DISC_ALT" %}
                                 <ul>
                                     {% for module in modules %}
-                                        <li><label for="{{ module.mod_code }}">{{ module.mod_code }}
-                                            - {{ module.title }}</label>
-                                            <input type="checkbox" id="{{ module.mod_code }}"
+                                        <li><input type="checkbox" id="{{ module.mod_code }}"
                                                    value="{{ module.mod_code }}" name="module-selections"
-                                                   class="module-checkbox"></li>
+                                                   class="module-checkbox" onclick="selectOption('{{ module.mod_code }}')">
+                                            <label for="{{ module.mod_code }}">{{ module.mod_code }}
+                                            - {{ module.title }}</label>
+                                            </li>
                                     {% endfor %}
                                 </ul>
 
@@ -116,4 +117,21 @@
     <input class="submit-btn" style="display: block; margin: auto;" type="submit">
 </form>
 </body>
+<script>
+    function selectOption(mod_code) {
+        const query = '[id="' + mod_code + '"]'
+        const bothElements = document.querySelectorAll(query);
+        if (bothElements[0].checked == true){
+            bothElements[1].disabled = true;
+        }else{
+            bothElements[1].disabled = false;
+        }
+        if (bothElements[1].checked == true){
+            bothElements[0].disabled = true;
+        }else{
+            bothElements[0].disabled = false;
+        }
 
+
+}
+</script>
