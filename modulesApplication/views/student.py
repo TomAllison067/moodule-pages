@@ -62,6 +62,7 @@ def choose_specific_modules(request, prog_code, stage):
                    'stage': "stage{}".format(stage)}
         return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
 
+
 def submit_selection(request):
     if request.method == "POST":
         return HttpResponseRedirect(reverse("modulesApplication:student-landing"))
