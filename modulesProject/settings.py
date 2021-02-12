@@ -17,7 +17,6 @@ from pathlib import Path
 import environ  # Let's use django-environ to handle our environment variables
 import os
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -50,7 +49,6 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -63,8 +61,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 ]
-
-#SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -114,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -128,8 +123,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Authentication (?)
+SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ['state']
+SESSION_COOKIE_SECURE = False
