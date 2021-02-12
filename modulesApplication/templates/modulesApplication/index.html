@@ -42,8 +42,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a href="{% url 'modulesApplication:index' %}"
-                       class="nav-link{% if request.resolver_match.view_name == 'home' %} active{% endif %}">Home</a>
+                    <a href="{% url 'modulesApplication:student-landing' %}"
+                       class="nav-link{% if request.resolver_match.view_name == 'index' %} active{% endif %}">Debug</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item" data-turbolinks="false">
