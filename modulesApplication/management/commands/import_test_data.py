@@ -3,7 +3,7 @@ import datetime
 from django.core.management.base import BaseCommand
 
 from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.models import Module, Strands, Programme, OptionRule, OptionalModule
+from modulesApplication.models import Module, Strands, Programme, OptionRule, OptionalModule, People
 
 CURRENT_YEAR = datetime.datetime.now().year
 
@@ -32,6 +32,7 @@ def clear_database():
     Strands.objects.all().delete()
     Module.objects.all().delete()
     Programme.objects.all().delete()
+    People.objects.all().delete()
 
 
 class Command(BaseCommand):
@@ -88,6 +89,15 @@ class Command(BaseCommand):
                 prog_code=Programme.objects.get(prog_code=m['prog_code']),
                 mod_code=Module.objects.get(mod_code=m['mod_code']))
 
+    def insert_people(self):
+        """Insert all the People into the database."""
+        cr = CsvReader()
+        people = cr.read_table_partial(
+            'modulesApplication/tests/resources/main_people.csv',
+            People
+        )
+        People.objects.bulk_create(people)
+
     def handle(self, *args, **options):
         clear_database()
         self.insert_modules()
@@ -95,6 +105,7 @@ class Command(BaseCommand):
         self.insert_programmes()
         self.insert_optional_modules()
         self.insert_option_rules()
+        self.insert_people()
         squash_all()
         output = "Imported {} modules, {} strands, {} degree programmes and {} option_rules successfully." \
             .format(Module.objects.count(), Strands.objects.count(), Programme.objects.count(),
