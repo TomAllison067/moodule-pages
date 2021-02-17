@@ -3,7 +3,7 @@ import datetime
 from django.core.management.base import BaseCommand
 
 from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.models import Module, Strands, Programme, OptionRule, OptionalModule
+from modulesApplication.models import Module, Strands, Programme, OptionRule, OptionalModule, People, CourseLeader
 
 CURRENT_YEAR = datetime.datetime.now().year
 
@@ -32,6 +32,8 @@ def clear_database():
     Strands.objects.all().delete()
     Module.objects.all().delete()
     Programme.objects.all().delete()
+    People.objects.all().delete()
+    CourseLeader.objects.all().delete()
 
 
 class Command(BaseCommand):
@@ -88,6 +90,35 @@ class Command(BaseCommand):
                 prog_code=Programme.objects.get(prog_code=m['prog_code']),
                 mod_code=Module.objects.get(mod_code=m['mod_code']))
 
+    def insert_people(self):
+        """Insert all the People into the database."""
+        cr = CsvReader()
+        people = cr.read_table_partial(
+            'modulesApplication/tests/resources/main_people.csv',
+            People
+        )
+        People.objects.bulk_create(people)
+
+    def insert_course_leaders(self):
+        cr = CsvReader()
+        course_leaders = cr.read_dict(
+            'modulesApplication/tests/resources/main_leaders.csv',
+        )
+        objects = []
+        for cl in course_leaders:
+            try:
+                objects.append(CourseLeader(
+                    module=Module.objects.get(mod_code=cl['module']),
+                    person=People.objects.get(id=cl['person']),
+                    leader=bool(cl['leader']),
+                    term=cl['term']
+                ))
+            except People.DoesNotExist:
+                print("Error importing CourseLeader on following row: ")
+                print(cl)
+                print("Continueing...")
+        CourseLeader.objects.bulk_create(objects)
+
     def handle(self, *args, **options):
         clear_database()
         self.insert_modules()
@@ -95,8 +126,12 @@ class Command(BaseCommand):
         self.insert_programmes()
         self.insert_optional_modules()
         self.insert_option_rules()
+        self.insert_people()
+        self.insert_course_leaders()
         squash_all()
-        output = "Imported {} modules, {} strands, {} degree programmes and {} option_rules successfully." \
-            .format(Module.objects.count(), Strands.objects.count(), Programme.objects.count(),
-                    OptionRule.objects.count())
+        output = "Imported {} modules, {} strands, {} programmes, {} optional modules, {} option rules, {} people, " \
+                 "{} course leaders." \
+            .format(Module.objects.count(), Strands.objects.count(),
+                    Programme.objects.count(), OptionalModule.objects.count(),
+                    OptionRule.objects.count(), People.objects.count(), CourseLeader.objects.count())
         self.stdout.write(output)
