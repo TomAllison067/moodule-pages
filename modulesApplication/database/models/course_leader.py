@@ -13,6 +13,7 @@ class CourseLeader(models.Model):
     person = models.ForeignKey('People', models.CASCADE)
     leader = models.BooleanField()
     term = models.TextField()
+    id = models.AutoField(primary_key=True)  # Automatic ID - needed since Django doesn't support composite keys
 
     class Meta:
-        unique_together = ('module', 'person')
+        unique_together = ('module', 'person')  # The "composite key" though not officially supported
