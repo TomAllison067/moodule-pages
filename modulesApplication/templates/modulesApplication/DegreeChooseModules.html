@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <title>{{ info.programme.title }} - {{ info.entry_year }}</title>
@@ -77,39 +77,43 @@
                     <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
                     {% for constraint, modules in constraints.items %}
                         {% if modules|length > 0 %}
+                            <br>
                             <h4>{{ constraint }}</h4>
                             {% if constraint == "CORE" %}
                                 <!-- for Core modules, modules are selected and disabled-->
                                 {% for module in modules %}
-                                        <li><input type="checkbox" id="{{ module.mod_code }}"
-                                                   value="{{ module.mod_code }}" name="module-selections"
-                                                   class="module-checkbox" checked hidden>
-                                            <label for="{{ module.mod_code }}">{{ module.mod_code }}
+                                    <li><input type="checkbox" id="{{ module.mod_code }}"
+                                               value="{{ module.mod_code }}" name="module-selections"
+                                               class="module-checkbox" checked hidden>
+                                        <label for="{{ module.mod_code }}">{{ module.mod_code }}
                                             - {{ module.title }}</label>
-                                            </li>
-                                    {% endfor %}
+                                    </li>
+                                {% endfor %}
                             {% elif constraint != "DISC_ALT" %}
                                 <ul>
                                     {% for module in modules %}
                                         <li><input type="checkbox" id="{{ module.mod_code }}"
                                                    value="{{ module.mod_code }}" name="module-selections"
-                                                   class="module-checkbox" onclick="selectOption('{{ module.mod_code }}')">
+                                                   class="module-checkbox"
+                                                   onclick="selectOption('{{ module.mod_code }}')">
                                             <label for="{{ module.mod_code }}">{{ module.mod_code }}
-                                            - {{ module.title }}</label>
-                                            </li>
+                                                - {{ module.title }}</label>
+                                        </li>
                                     {% endfor %}
                                 </ul>
 
                             {% else %}
+                                <p><em>The following modules may be taken in place of another at the discretion of the
+                                    department.</em></p>
+                                <br>
                                 {% for sublist in modules %}
-                                    <h5>One of...</h5>
-                                    {% for module in sublist %}
-                                        <li><label for="{{ module.mod_code }}">{{ module.mod_code }}
-                                            - {{ module.title }}</label>
-                                            <input type="checkbox" id="{{ module.mod_code }}"
-                                                   value="{{ module.mod_code }}" name="module-selections"
-                                                   class="module-checkbox"></li>
-                                    {% endfor %}
+                                    <li>
+                                        <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }} - {{ sublist.1.title }}
+                                            instead of {{ sublist.0.mod_code }}</label>
+                                        <input type="checkbox" id="{{ sublist.1.mod_code }}"
+                                               value="{{ sublist.1.mod_code }}" name="module-selections"
+                                               class="module-checkbox">
+                                    </li>
                                 {% endfor %}
                             {% endif %}
                         {% endif %}
@@ -132,15 +136,15 @@
     function selectOption(mod_code) {
         const query = '[id="' + mod_code + '"]'
         const bothElements = document.querySelectorAll(query);
-        if (bothElements[0].checked === true){
+        if (bothElements[0].checked === true) {
             bothElements[1].disabled = true;
-        }else{
+        } else {
             bothElements[1].disabled = false;
         }
-        if (bothElements[1].checked === true){
+        if (bothElements[1].checked === true) {
             bothElements[0].disabled = true;
-        }else{
+        } else {
             bothElements[0].disabled = false;
         }
-}
+    }
 </script>
