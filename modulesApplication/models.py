@@ -5,6 +5,7 @@ from modulesApplication.database.models.programme import Programme
 from modulesApplication.database.models.option_rule import OptionRule
 from modulesApplication.database.models.optional_module import OptionalModule
 from modulesApplication.database.models.people import People
+from modulesApplication.database.models.course_leader import CourseLeader
 
 """ 
 We have created a separate file for each model and place it into a folder(file location below) 
