@@ -4,6 +4,7 @@ from modulesApplication.database.models.strand import Strands
 from modulesApplication.database.models.programme import Programme
 from modulesApplication.database.models.option_rule import OptionRule
 from modulesApplication.database.models.optional_module import OptionalModule
+from modulesApplication.database.models.people import People
 
 """ 
 We have created a separate file for each model and place it into a folder(file location below) 
