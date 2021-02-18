@@ -95,13 +95,16 @@ i was just trying to help but only the top bar and the footer look good" -->
                     <div class="{{ module.module_code }}" style="display: none;">
                         <br>
                         <h4>Learning Outcomes</h4>
-                        <p>{{ module.learning_outcomes }}</p>
+                        <p>{{ module.learning_outcomes }}.</p>
                         <h4>Recommended Reading</h4>
                         <p>{{ module.recommended_reading }}</p>
                         <h4>Exam Format</h4>
                         <p>{{ module.exam_format }}</p>
                         <h4>Course Leaders</h4>
-                        <p>{{ module.course_leaders }}</p>
+                        {% for leader in module.course_leaders %}
+                        <p>- {{ leader }}</p>
+                        {% endfor %}
+
                     </div>
                     <br><br>
                     <hr>

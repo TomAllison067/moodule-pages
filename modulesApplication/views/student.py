@@ -22,9 +22,9 @@ def all_modules(request, sort=0):
         course_leaders = CourseLeader.objects.filter(module=this_module)
         people = []
         for cl in course_leaders:
-            people.append(cl.person)
+            people.append(cl.person.name)
 
-        people = "No listed course leaders" if len(people) == 0 else people
+        people = ["No listed course leaders"] if len(people) == 0 else people
         summary = "<no description available>" if module.summary == "" else module.summary
         mod_sum = {"module_code": module.mod_code,
                    "title": module.title,
