@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from modulesApplication.views import *
+from modulesApplication.views import student, office, auths
 
 app_name = 'modulesApplication'
 
@@ -19,7 +19,10 @@ student_patterns = [
     path('foo/<str:prog_code>/', student.modules_by_programme, name='foo')
 ]
 academic_patterns = []  # example
-office_patterns = []  # example
+office_patterns = [
+    path('all/', office.landing, name="landing"),
+    path('csvfiles/', office.csv_file, name="csv")
+]  # example
 
 urlpatterns = [
     path('', auths.index, name='index'),  # Redirect to homepage.
