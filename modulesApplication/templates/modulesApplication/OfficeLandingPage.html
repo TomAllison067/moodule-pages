@@ -134,15 +134,18 @@
         <div class="lp-box" id="lpb-cm">
 
             {#<!--            The contents of the href are: {% url '#'%} without the full stop of course-->#}
-            <a href="{% url 'modulesApplication:csv-downloads' %}" class="b-btn">
+            <a href="" class="b-btn">
                 <h2> View (Not sure what they have to view yet) </h2>
                 <div class="lp-content" id="lpc-cm">
-                    <div class="icon-box">
-                        <i class="fas fa-book-open"></i> <br>
-                        <br>
-                        <hr class="solid">
-                        <br>
-                        <p> More details on the Office staff tasks here. </p>
+                    <div class="lp-content">
+                        <h3> download csv</h3>
+                        <div class="term-module-list">
+                            <ul>
+                                <li><a href="{% url 'modulesApplication:csv' 'Programme' %}"><i class="fas fa-book-reader"></i> Programme</a></li>
+                                <li><a href="{% url 'modulesApplication:csv' 'Module'%}"> <i class="fas fa-book-reader"></i> Module</a></li>
+                                <li><a href="{% url 'modulesApplication:csv' 'ModuleSelection'%}" ><i class="fas fa-book-reader"></i> Student request status</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </a>
