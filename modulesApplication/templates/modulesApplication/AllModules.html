@@ -66,14 +66,14 @@ i was just trying to help but only the top bar and the footer look good" -->
         </div>
     </div>
 
-    <div class="form-box">
+    <form id="form_id" class="form-box">
         <div class="icon-img">
             <i class="fas fa-book-open"></i>
         </div>
 
         {# module_summaries refer to the dictionary passed through with the render request #}
         <label>Filter by:</label>
-        <select class="dropdown" name="year" id="year_filter">
+        <select class="dropdown2" name="year" id="year_filter">
             <option value=0>Select Year</option>
         </select>
         </p>
@@ -88,11 +88,13 @@ i was just trying to help but only the top bar and the footer look good" -->
                 <div class="panel" disabled="False" id="module">
                     <h4>Summary</h4>
                     <p>{{ module.summary }}</p>
+                    <br>
                     <button class="moreInfoButton" onclick="myFunction('{{ module.module_code }}')"> Find out
                         more
                         ..
                     </button>
                     <div class="{{ module.module_code }}" style="display: none;">
+                        <br>
                         <h4>Learning Outcomes</h4>
                         <p>{{ module.learning_outcomes }}</p>
                         <h4>Recommended Reading</h4>
@@ -111,7 +113,7 @@ i was just trying to help but only the top bar and the footer look good" -->
         {% else %}
         <p>No polls are available.</p>
         {% endif %}
-    </div>
+    </form>
 </div>
 </body>
 

@@ -183,6 +183,20 @@ form#form_id .dropdown {
     transition: 0.15s;
 }
 
+form#form_id .dropdown2 {
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 2px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    width: 40%;
+    background: rgb(38, 38, 38);
+    border-left: 5px orangered solid;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    transition: 0.15s;
+}
+
 form#form_id .dropdown:hover {
     width: 77%;
     background: rgb(255, 255, 255);
