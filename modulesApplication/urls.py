@@ -19,7 +19,10 @@ student_patterns = [
     path('foo/<str:prog_code>/', student.modules_by_programme, name='foo')
 ]
 academic_patterns = []  # example
-office_patterns = []  # example
+
+office_patterns = [
+    path('landing/', office.landing, name='office-landing'),
+]
 
 urlpatterns = [
     path('', auths.index, name='index'),  # Redirect to homepage.
