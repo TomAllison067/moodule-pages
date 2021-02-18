@@ -23,6 +23,8 @@ html, body {
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
+
+
 }
 
 * {
@@ -32,6 +34,8 @@ html, body {
     text-decoration: none;
     color: white;
 }
+
+
 
 /* --[[ Wrapper ]] */
 
@@ -395,6 +399,7 @@ html, body {
     height: 40px;
     background: #303036;
     z-index: 5;
+    display: inline-block;
     overflow: hidden;
     position: fixed;
 }
@@ -410,23 +415,23 @@ html, body {
     font-family: 'Yantramanav', sans-serif;
 }
 
-.avatar {
-    width: 30px;
-    height: 30px;
-    margin-top: 5px;
-    float: right;
-    margin-right: 10px;
-    object-fit: contain;
-    background-image: linear-gradient(orangered, orange);
-    left: calc(50% - 50px);
-    border-radius: 50%;
+.avatar-box {
+    position: relative;
+    margin: 5px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+.avatar-box a {
+    position: absolute;
 }
 
 .search-box {
     position: absolute;
+    display: inline-block;
     top: 17px;
     right: 0px;
-    float: right;
     transform: translate(-50%, -50%);
     background: #2f3640;
     color: #d85f26;

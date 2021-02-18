@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <title> homepage </title>
+    <meta name="description" content="TBD">
+    <meta name="author" content="TBD">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+</head>
+
+<body>
+    <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+    <div id="overlay" onclick=""></div>
+
+    <!-- PAGE WRAPPER -->
+    <div class="page-wrapper">
+        <input type="checkbox" id="check">
+
+        <!-- SIDEBAR MENU -->
+        <div class="sidebar">
+            <header>
+                <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
+            </header>
+
+            <ul>
+                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+                            class="fas fa-home"></i>home</a></li>
+                <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+                <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                        courses</a></li>
+            </ul>
+        </div>
+
+        <!-- TOP BAR -->
+        <nav class="topbar">
+            <label for="check">
+                <i class="fas fa-bars" id="btn"></i>
+            </label>
+
+            <label class="title"> moodule</label>
+
+            <div class="search-box">
+                <input class="search-txt" type="text" name="" placeholder="search">
+                <a class="search-btn" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+
+            <div class="avatar-box">
+                dodksoqkdo
+                <a href="#"> <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}"> </a>
+            </div>
+        </nav>
+        <!-- 
+                <div class="avatar-box">
+                <a href="#"> <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}"></a>
+            <div>
+            <ul class="navbar-nav justify-content-end">
+                          Details about the login dropdown in the horizontal navbar.
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link avatar-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        {% if user.avatar %}
+                        <img src="{{ user.avatar }}" class="rounded-circle align-self-center mr-2" style="width: 32px;">
+                        {% else %}
+                        <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}"
+                             class="rounded-circle align-self-center mr-2" style="width: 32px;">
+                        {% endif %}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <h5 class="dropdown-item-text mb-0">{{ user.name }}</h5>
+                        <p class="dropdown-item-text text-muted mb-0">{{ user.email }}</p>
+                        <div class="dropdown-divider"></div>
+                        <a href="{% url 'signout' %}" class="dropdown-item">Sign Out</a>
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a href="{% url 'signin' %}" class="nav-link">Sign In</a>
+                </li>
+                {% endif %}
+            </ul>
+
+        -->
+
+        <!-- MENU OVERLAY SCRIPT -->
+        <script>
+            var checkbox = document.querySelector("input[type=checkbox]");
+
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    document.getElementById("overlay").style.transition = '0.5s';
+                    document.getElementById("overlay").style.display = "block";
+                } else {
+                    document.getElementById("overlay").style.transition = '0.5s';
+                    document.getElementById("overlay").style.display = "none";
+                }
+            });
+        </script>
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+<!-- FOOTER - links will be added later -->
+<div class="footer">
+    <div class="row">
+        <div class="col">
+            <li>Royal Holloway, University of London</li>
+            <li>Egham, Surrey, TW20 0EX</li>
+        </div>
+        <div class="col">
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+        </div>
+        <div class="col">
+            <li>moodule@gmail.com</li>
+            <li>T: +44 (0)1784 434455</li>
+        </div>
+    </div class="row">
+    &copy; 2021 moodule.com | Designed by CS2815 Group 34
+</div>
+</div>
+
+</html>
