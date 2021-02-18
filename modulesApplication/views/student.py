@@ -3,25 +3,45 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from ..models import Module, Programme, ModuleSelection
+from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
 from ..programmeInfo import factory
 
 
 def all_modules(request, sort=0):
     modules_list = Module.objects.order_by('level', 'mod_code')
+
     if sort != 0:
         modules_list = modules_list.filter(level=sort + 3)
     module_summaries = {}  # A dict of lists of modules separated by year
     for module in modules_list:
         if module.status != 'ACTIVE':
             continue
+
+        # Collecting Course Leader Information
+        this_module = Module.objects.get(pk=module.mod_code)
+        course_leaders = CourseLeader.objects.filter(module=this_module)
+
+        people = []
+        if course_leaders.count() > 0:  # If we have course leaders for this module, append their names
+            for cl in course_leaders:
+                people.append(cl.person.name)
+        else:  # If we couldn't find any, see if this module is a variant of another
+            try:
+                variant_leaders = CourseLeader.objects.filter(module=ModuleVariant.objects.get(minor=this_module).major)
+            except ModuleVariant.DoesNotExist:
+                variant_leaders = None
+            if variant_leaders:
+                people = [vl.person.name for vl in variant_leaders]
+
+        people = ["No listed course leaders"] if len(people) == 0 else people
         summary = "<no description available>" if module.summary == "" else module.summary
         mod_sum = {"module_code": module.mod_code,
                    "title": module.title,
                    "summary": summary,
                    "learning_outcomes": module.learning_outcomes,
                    "recommended_reading": module.core_reading,
-                   "exam_format": module.exam_format}
+                   "exam_format": module.exam_format,
+                   "course_leaders": people}
         module_summaries.setdefault(module.level, []).append(mod_sum)  # Creates a list if it doesn't exist and appends
     context = {'module_summaries': module_summaries}
     return render(request, 'modulesApplication/AllModules.html', context=context)

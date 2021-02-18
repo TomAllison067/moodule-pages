@@ -5,7 +5,11 @@ from ..models import Module, Programme, ModuleSelection
 
 
 def landing(request):
-    return render(request, 'officePages/OfficeLanding.html')
+    return render(request, 'modulesApplication/OfficeLandingPage.html')
+
+
+def csv(request):
+    return render(request, 'modulesApplication/OfficeCsvDownloads.html')
 
 
 def csv_file(request, model_class):

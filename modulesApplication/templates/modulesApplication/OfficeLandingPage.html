@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <title>Office Landing Page</title>
+    <meta name="description" content="TBD">
+    <meta name="author" content="TBD">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+</head>
+
+<body>
+<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+<div id="overlay" onclick=""></div>
+
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper">
+    <input type="checkbox" id="check">
+
+    <!-- SIDEBAR MENU -->
+    <div class="sidebar">
+        <header>
+            <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
+        </header>
+        <ul>
+            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a>
+            </li>
+            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                courses</a></li>
+        </ul>
+    </div>
+
+    <!-- TOP BAR -->
+    <nav class="topbar">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+        </label>
+        <label class="title"> moodule</label>
+        <div class="search-box">
+            <input class="search-txt" type="text" name="" placeholder="search">
+            <a class="search-btn" href="#">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
+
+        <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
+    </nav>
+
+    <!-- IMAGE SLIDER -->
+    <div class="slider">
+        <div class="slides">
+
+            <!--RADIO BUTTONS -->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+
+            <!-- SLIDE IMAGES -->
+            <div class="slide first">
+                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                <div class="slide-content">
+                    <h2> Welcome to moodule </h2> <br>
+                    <p> This is the online learning environment to access information about students' chosen courses
+                        with
+                        the given modules for the academic year 20/21.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                <div class="slide-content">
+                    <h2> Welcome to moodule </h2> <br>
+                    <p> Insert Standard Text here</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                <div class="slide-content">
+                    <h2> Welcome to moodule </h2> <br>
+                    <p> Insert Standard Text here</p>
+                </div>
+            </div>
+
+            <!-- AUTOMATIC NAVIGATION OF SLIDES-->
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+            </div>
+
+        </div>
+        <!--MANUAL NAVIGATION OF SLIDES-->
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+        </div>
+    </div>
+
+    <!-- AUTOMATIC NAVIGATION SCRIPT-->
+    <script>
+        var counter = 1;
+        setInterval(function () {
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if (counter > 4) {
+                counter = 1;
+            }
+        }, 15000);
+    </script>
+
+    <!-- MENU OVERLAY SCRIPT -->
+    <script>
+        var checkbox = document.querySelector("input[type=checkbox]");
+
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                document.getElementById("overlay").style.transition = '0.5s';
+                document.getElementById("overlay").style.display = "block";
+            } else {
+                document.getElementById("overlay").style.transition = '0.5s';
+                document.getElementById("overlay").style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- LANDING PAGE CONTAINER -->
+    <div class="lp-container">
+
+        <!-- VIEW STUDENTS BOX -->
+        <div class="lp-box" id="lpb-cm">
+
+            {#<!--            The contents of the href are: {% url '#'%} without the full stop of course-->#}
+            <a href="{% url 'modulesApplication:csv-downloads' %}" class="b-btn">
+                <h2> View (Not sure what they have to view yet) </h2>
+                <div class="lp-content" id="lpc-cm">
+                    <div class="icon-box">
+                        <i class="fas fa-book-open"></i> <br>
+                        <br>
+                        <hr class="solid">
+                        <br>
+                        <p> More details on the Office staff tasks here. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- ALL COURSES BOX -->
+        <div class="lp-box" id="lpb-ac">
+            <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
+                <h2> all courses </h2>
+                <div class="lp-content" id="lpc-ac">
+                    <div class="icon-box">
+                        <i class="fas fa-book"></i> <br>
+                        <br>
+                        <hr class="solid">
+                        <br>
+                        <p> view the complete degree specification and requirements for all the available courses
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+
+<!-- FOOTER - links will be added later -->
+<div class="footer">
+    <div class="row">
+        <div class="col">
+            <li>Royal Holloway, University of London</li>
+            <li>Egham, Surrey, TW20 0EX</li>
+        </div>
+        <div class="col">
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+        </div>
+        <div class="col">
+            <li>moodule@gmail.com</li>
+            <li>T: +44 (0)1784 434455</li>
+        </div>
+    </div class="row">
+    &copy; 2021 moodule.com | Designed by CS2815 Group 34
+</div>
+</div>
+
+</html>
