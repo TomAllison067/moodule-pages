@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from ..models import Module, Programme, ModuleSelection, CourseLeader
+from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
 from ..programmeInfo import factory
 
 
@@ -20,9 +20,18 @@ def all_modules(request, sort=0):
         # Collecting Course Leader Information
         this_module = Module.objects.get(pk=module.mod_code)
         course_leaders = CourseLeader.objects.filter(module=this_module)
+
         people = []
-        for cl in course_leaders:
-            people.append(cl.person.name)
+        if course_leaders.count() > 0:  # If we have course leaders for this module, append their names
+            for cl in course_leaders:
+                people.append(cl.person.name)
+        else:  # If we couldn't find any, see if this module is a variant of another
+            try:
+                variant_leaders = CourseLeader.objects.filter(module=ModuleVariant.objects.get(minor=this_module).major)
+            except ModuleVariant.DoesNotExist:
+                variant_leaders = None
+            if variant_leaders:
+                people = [vl.person.name for vl in variant_leaders]
 
         people = ["No listed course leaders"] if len(people) == 0 else people
         summary = "<no description available>" if module.summary == "" else module.summary
