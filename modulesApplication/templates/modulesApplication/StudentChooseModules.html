@@ -8,9 +8,9 @@
     <meta name="description" content="TBD">
     <meta name="author" content="TBD">
 
-  <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/choosemodules.css' %}">
-  <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/choosemodules.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
 </head>
 
@@ -31,82 +31,83 @@
 -->
 
 <body>
-  <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
-  <div id="overlay" onclick="quitClick() "></div>
+<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+<div id="overlay" onclick="quitClick() "></div>
 
-  <!-- PAGE WRAPPER -->
-  <div class="page-wrapper">
-        <input type="checkbox" id="check">
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper">
+    <input type="checkbox" id="check">
 
-        <!-- SIDEBAR MENU -->
-        <div class="sidebar">
-            <header>
-                <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
-            </header>
-            <ul>
-                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a></li>
-                <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
-                <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-                        courses</a></li>
-            </ul>
-        </div>
-
-        <!-- TOP BAR -->
-        <nav class="topbar">
-            <label for="check">
-                <i class="fas fa-bars" id="btn"></i>
-            </label>
-            <label class="title"> moodule</label>
-            <div class="search-box">
-                <input class="search-txt" type="text" name="" placeholder="search">
-                <a class="search-btn" href="#">
-                    <i class="fas fa-search"></i>
-                </a>
-            </div>
-
-            <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
-        </nav>
-
-        <!-- IMAGE BAR -->
-        <div class="image-box">
-            <div class="ib-content">
-                <h2> <i class="fas fa-book-open"></i> choose modules</h2> <br>
-            </div>
-        </div>
-
-        <!-- FORM -->
-        <div class="form-box">
-            <div class="icon-img">
-                <i class="fas fa-book-open"></i>
-            </div>
-
-            <form id="form_id" action="{% url 'modulesApplication:choose-modules' %}" method="POST">
-                {% csrf_token %}
-                <h1>Module Choice Form</h1>
-                <label for="programme_filter">Please select your degree programme: </label>
-                <br>
-
-                <select name="programme" id="programme_filter" class="dropdown">
-                    <option value="" selected disabled>Choose here...</option>
-                </select>
-
-                <br>
-
-                <label for="stage_filter"> Please select your degree stage: </label>
-                <br>
-
-                <select name="stage" id="stage_filter" class="dropdown">
-                    <option value="" selected disabled>Choose here...</option>
-                </select>
-
-                <br>
-
-                <input type="submit" value="confirm">
-                <br>
-            </form>  
-
-        </div>    
+    <!-- SIDEBAR MENU -->
+    <div class="sidebar">
+        <header>
+            <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
+        </header>
+        <ul>
+            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a>
+            </li>
+            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                courses</a></li>
+        </ul>
     </div>
+
+    <!-- TOP BAR -->
+    <nav class="topbar">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+        </label>
+        <label class="title"> moodule</label>
+        <div class="search-box">
+            <input class="search-txt" type="text" name="" placeholder="search">
+            <a class="search-btn" href="#">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
+
+        <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
+    </nav>
+
+    <!-- IMAGE BAR -->
+    <div class="image-box">
+        <div class="ib-content">
+            <h2><i class="fas fa-book-open"></i> choose modules</h2> <br>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-box">
+        <div class="icon-img">
+            <i class="fas fa-book-open"></i>
+        </div>
+
+        <form id="form_id" action="{% url 'modulesApplication:choose-modules' %}" method="POST">
+            {% csrf_token %}
+            <h1>Module Choice Form</h1>
+            <label for="programme_filter">Please select your degree programme: </label>
+            <br>
+
+            <select name="programme" id="programme_filter" class="dropdown">
+                <option value="" selected disabled>Choose here...</option>
+            </select>
+
+            <br>
+
+            <label for="stage_filter"> Please select your degree stage: </label>
+            <br>
+
+            <select name="stage" id="stage_filter" class="dropdown">
+                <option value="" selected disabled>Choose here...</option>
+            </select>
+
+            <br>
+
+            <input type="submit" value="confirm">
+            <br>
+        </form>
+
+    </div>
+</div>
 </body>
 
 <!-- FOOTER - links will be added later -->
@@ -176,10 +177,32 @@
         "MSci Computer Science (Distributed and Networked Systems) with a Year in Industry": "3017"
     };
 
-    const programmes_stage ={
-        "1067":"3","1059":"3", "2675":"3", "2843":"3","3014":"3","1069":"3","1062":"3","3424":"3", "1257":"3",
-        "2327":"4","2844":"4","2676":"4","3015":"4","2446":"4","3449":"4","2686":"4","2673":"4","2677":"4", "2845":"4","3016":"4",
-        "2687":"5","2678":"5","2674":"5","2846":"5","3017":"5"
+    const programmes_stage = {
+        "1067": "3",
+        "1059": "3",
+        "2675": "3",
+        "2843": "3",
+        "3014": "3",
+        "1069": "3",
+        "1062": "3",
+        "3424": "3",
+        "1257": "3",
+        "2327": "4",
+        "2844": "4",
+        "2676": "4",
+        "3015": "4",
+        "2446": "4",
+        "3449": "4",
+        "2686": "4",
+        "2673": "4",
+        "2677": "4",
+        "2845": "4",
+        "3016": "4",
+        "2687": "5",
+        "2678": "5",
+        "2674": "5",
+        "2846": "5",
+        "3017": "5"
     }
     const stage = {
         "Year One": "1",
@@ -199,18 +222,13 @@
         }
     }
 
-    {% comment %}
-    functionality to only display the stage according to the programmes
-    e.g. BSc Computer Science shows Year 1-3
-    where as MSci Computer Science (Artificial Intelligence) with a Year in Industry shows Year 1-5
-    {% endcomment %}
-    programSel.onchange = function() {
+    programSel.onchange = function () {
         programme = programSel.value
         stageSel.length = 1;
         for (let key in stage) {
             console.log(programmes_stage[key])
             stageSel.options[stageSel.options.length] = new Option(key, stage[key]);
-            if (stage[key] == programmes_stage[programme]){
+            if (stage[key] == programmes_stage[programme]) {
                 break
             }
         }
