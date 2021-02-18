@@ -23,4 +23,5 @@ class TestCustomCommands(TestCase):
         self.assertEqual(expected.EXPECTED_OPTION_RULES, OptionRule.objects.count())
         self.assertEqual(expected.EXPECTED_PEOPLE, People.objects.count())
         self.assertEqual(expected.EXPECTED_COURSE_LEADERS, CourseLeader.objects.count())
+        self.assertEqual(expected.EXPECTED_MODULE_VARIANTS, ModuleVariant.objects.count())
 
