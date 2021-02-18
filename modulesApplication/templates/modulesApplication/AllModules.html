@@ -66,7 +66,7 @@ i was just trying to help but only the top bar and the footer look good" -->
         </div>
     </div>
 
-    <form id="form_id" class="form-box">
+    <div class="form-box">
         <div class="icon-img">
             <i class="fas fa-book-open"></i>
         </div>
@@ -90,8 +90,7 @@ i was just trying to help but only the top bar and the footer look good" -->
                     <p>{{ module.summary }}</p>
                     <br>
                     <button class="moreInfoButton" onclick="myFunction('{{ module.module_code }}')"> Find out
-                        more
-                        ..
+                        more...
                     </button>
                     <div class="{{ module.module_code }}" style="display: none;">
                         <br>
@@ -113,7 +112,7 @@ i was just trying to help but only the top bar and the footer look good" -->
         {% else %}
         <p>No polls are available.</p>
         {% endif %}
-    </form>
+    </div>
 </div>
 </body>
 
@@ -139,7 +138,6 @@ i was just trying to help but only the top bar and the footer look good" -->
 
 </html>
 
-{# this script is for the accoridion animation to show the summaries#}
 
 <script>
     // Display/hide extra info
@@ -152,21 +150,6 @@ i was just trying to help but only the top bar and the footer look good" -->
             x.style.display = "none";
         }
     }
-
-    // var acc = document.getElementsByClassName("accordion");
-    // var i;
-    //
-    // for (i = 0; i < acc.length; i++) {
-    //     acc[i].addEventListener("click", function () {
-    //         this.classList.toggle("active");
-    //         var panel = this.nextElementSibling;
-    //         if (panel.style.display === "block") {
-    //             panel.style.display = "none";
-    //         } else {
-    //             panel.style.display = "block";
-    //         }
-    //     });
-    // }
 
     //filtering by year
     const years = {"All Modules": 0, "Year 1": 1, "Year 2": 2, "Year 3": 3, "Year 4": 4};
@@ -181,7 +164,6 @@ i was just trying to help but only the top bar and the footer look good" -->
         yearSel.onchange = function () {
             y = years[this.value]
             location.href = '/student/all-modules/sort/' + y;
-
         }
     }
 </script>

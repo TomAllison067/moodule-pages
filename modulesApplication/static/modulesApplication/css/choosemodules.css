@@ -183,20 +183,6 @@ form#form_id .dropdown {
     transition: 0.15s;
 }
 
-form#form_id .dropdown2 {
-    padding: 3px;
-    border-radius: 5px;
-    margin-top: 2px;
-    font-size: 13px;
-    margin-bottom: 15px;
-    width: 40%;
-    background: rgb(38, 38, 38);
-    border-left: 5px orangered solid;
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    transition: 0.15s;
-}
-
 form#form_id .dropdown:hover {
     width: 77%;
     background: rgb(255, 255, 255);
@@ -204,7 +190,7 @@ form#form_id .dropdown:hover {
     border-left: 5px white solid;
 }
 
-form#form_id select option {
+form#form_id select option, select option {
     padding: 3px;
     border-radius: 5px;
     font-size: 14px;
@@ -286,7 +272,27 @@ form#form_id input[type = "submit"]:hover {
     bottom: 0;
     left: 0;
     padding-top: 20px;
+}
 
+.dropdown2 {
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 2px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    width: 40%;
+    background: rgb(38, 38, 38);
+    border-left: 5px orangered solid;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    transition: 0.15s;
+}
+
+.dropdown2:hover {
+    width: 42%;
+    background: rgb(255, 255, 255);
+    color: black;
+    border-left: 5px white solid;
 }
 
 /* MAIN PAGE COMPONENTS - section for CSS of index.html */
