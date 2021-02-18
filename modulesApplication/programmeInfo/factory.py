@@ -34,9 +34,13 @@ def populate_disc_alt_modules(modules_dict, programme, entry_year):
                                       stage='1',
                                       constraint_type="DISC_ALT")
     patterns = [rule.mod_code_pattern for rule in rules]
-
-    modules = [[Module.objects.get(mod_code=mc) for mc in pattern.split(",")] for pattern in patterns]
-    modules_dict[stage_key]['term2']['DISC_ALT'] = modules
+    modules_dict[stage_key]['term2']['DISC_ALT'] = []
+    for pattern in patterns:
+        codes = pattern.split(",")
+        core_module = Module.objects.get(mod_code=codes[0])
+        discretionary_module = Module.objects.get(mod_code=codes[1])
+        modules_dict[stage_key]['term2']['CORE'].append(core_module)
+        modules_dict[stage_key]['term2']['DISC_ALT'].append([core_module, discretionary_module])
 
 
 def populate_opts_modules(modules_dict, programme, stages, entry_year):

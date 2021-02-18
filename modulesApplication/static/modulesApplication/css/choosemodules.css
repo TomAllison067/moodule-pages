@@ -13,7 +13,7 @@ html, body {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100%;
+    /*height: 100%;*/
     list-style: none;
     text-decoration: none;
 
@@ -31,6 +31,19 @@ html, body {
     list-style: none;
     text-decoration: none;
     color: white;
+}
+
+/*Styling for All Modules Table*/
+
+.moduleLabels{
+    color: orangered;
+}
+
+.moreInfoButton{
+    background-color: #ff4500;
+    border-radius: 10px;
+    width: 20%;
+    height: 30px;
 }
 
 /* --[[ WRAPPER ]]-- */
@@ -76,7 +89,7 @@ html, body {
 .ib-content {
     position: relative;
     color: black;
-    margin-top: 0px;
+    margin-top: 0;
     padding: 50px;
     display: block;
     height: 50%;
@@ -85,35 +98,35 @@ html, body {
 
 .ib-content h2 {
     padding: 5px;
-    margin: 15px 0px;
+    margin: 15px 0;
     font-size: 20px;
     color: white;
-    background: rgba(30,30,30);
+    background: rgba(30,30,30,0);
     border-left: 5px orangered solid;
     border-radius: 5px;
 }
 
 .ib-content h2 i {
-    margin: 0px 15px;
+    margin: 0 15px;
     color: white;
 }
 
 @keyframes ib-gradient {
     0% {
-        background-position: 0% 50%;
+        background-position: 0 50%;
     }
     50% {
         background-position: 100% 50%;
     }
     100% {
-        background-position: 0% 50%;
+        background-position: 0 50%;
     }
 }
 
 /* --[[ FORM ]]-- */
 
 .form-box {
-    margin: 10% 10%;
+    margin: 5% 10%;
     padding: 20px;
     width: 80%;
     height: 80%;
@@ -172,12 +185,12 @@ form#form_id .dropdown {
 
 form#form_id .dropdown:hover {
     width: 77%;
-    background: rgb(255, 255, 255, 0.5);
+    background: rgb(255, 255, 255);
     color: black;
     border-left: 5px white solid;
 }
 
-form#form_id select option {
+form#form_id select option, select option {
     padding: 3px;
     border-radius: 5px;
     font-size: 14px;
@@ -256,10 +269,30 @@ form#form_id input[type = "submit"]:hover {
     height: 50px;
     text-align: center;
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     padding-top: 20px;
+}
 
+.dropdown2 {
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 2px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    width: 40%;
+    background: rgb(38, 38, 38);
+    border-left: 5px orangered solid;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    transition: 0.15s;
+}
+
+.dropdown2:hover {
+    width: 42%;
+    background: rgb(255, 255, 255);
+    color: black;
+    border-left: 5px white solid;
 }
 
 /* MAIN PAGE COMPONENTS - section for CSS of index.html */
@@ -278,7 +311,7 @@ form#form_id input[type = "submit"]:hover {
     position: absolute;
     top: 5px;
     color:orangered;
-    font: bold;
+    /*font: bold;*/
     font-weight: 800;
     font-size: 25px;
     margin-left: 80px;
@@ -300,7 +333,7 @@ form#form_id input[type = "submit"]:hover {
 .search-box {
     position: absolute;
     top: 17px;
-    right: 0px;
+    right: 0;
     float: right;
     transform: translate(-50%, -50%);
     background: #2f3640;
@@ -421,7 +454,7 @@ label #cancel {
     font-size: 18px;
     color: white;
     padding: 6px 12px;
-    transition: all .25 ease;
+    /*transition: all .25 ease;*/
 }
 
 #check:checked ~ .sidebar {
