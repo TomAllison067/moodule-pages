@@ -20,8 +20,8 @@ student_patterns = [
 ]
 academic_patterns = []  # example
 office_patterns = [
-    path('all/', office.landing, name="landing"),
-    path('csvfiles/', office.csv_file, name="csv")
+    path('', office.landing, name="landing"),
+    path('csvfiles/<str:model_class>/', office.csv_file, name="csv")
 ]  # example
 
 urlpatterns = [
