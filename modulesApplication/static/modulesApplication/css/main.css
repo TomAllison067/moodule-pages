@@ -280,6 +280,7 @@ html, body {
 
 .lp-content {
     margin-left: 5%;
+    padding: 10px;
     width: 90%;
     height: 80%;
     display: block;
@@ -303,8 +304,8 @@ html, body {
 }
 
 .lp-content .term-module-list li {
-    margin: 5px 5px;
     padding: 5px;
+    margin: 10px auto;
     width: 95%;
     height: auto;
     opacity: 100%;
@@ -330,7 +331,7 @@ html, body {
     border-radius: 0;
     text-align: center;
     background: none;
-    margin: 5px 5px;
+    margin: 5px auto;
     font-size: 15px;
 }
 
