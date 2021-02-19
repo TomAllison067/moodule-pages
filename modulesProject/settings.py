@@ -138,15 +138,13 @@ SITE_ID = 1
 """DJANGO AUTHENTICATION SETTINGS"""
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  # Django's default auth backend
-    'social_core.backends.azuread_tenant.AzureADOAuth2'  # Microsoft OAuth
+    'social_core.backends.azuread_tenant.AzureADTenantOAuth2'  # Microsoft OAuth
 )
 LOGIN_REDIRECT_URL = '/'  # Upon login, redirect to index
 LOGOUT_REDIRECT_URL = '/'  # Upon signout, redirect to index
 
 # Recommended by python-social-auth at https://python-social-auth.readthedocs.io/en/latest/configuration/django.html#
 # SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-SOCIAL_AUTH_AZUREAD_OAUTH2_KEY=env('AZURE_CLIENT_ID')
-SOCIAL_AUTH_AZUREAD_OAUTH2_SECRET = env('AZURE_VALUE')
 SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_TENANT_ID = env('AZURE_TENANT_ID')
 SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_KEY = env('AZURE_CLIENT_ID')
 SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_SECRET = env('AZURE_VALUE')
