@@ -20,9 +20,4 @@ from modulesApplication import views
 urlpatterns = [
     path('', include('modulesApplication.urls')),  # import the urls from our app
     path('admin/', admin.site.urls),
-
-    # Authentication links
-    path('signin', views.sign_in, name='signin'),
-    path('signout', views.sign_out, name='signout'),
-    path('callback', views.callback, name='callback'),
 ]

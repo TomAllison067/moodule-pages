@@ -9,8 +9,7 @@ from modulesApplication.graph_helper import *
 # Authentication views:
 
 def index(request):
-    context = initialize_context(request)
-    return render(request, 'modulesApplication/index.html', context)
+    return render(request, 'modulesApplication/index.html')
 
 
 def initialize_context(request):

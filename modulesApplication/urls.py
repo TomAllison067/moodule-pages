@@ -25,10 +25,16 @@ office_patterns = [
     path('csvfiles/<str:model_class>/', office.csv_file, name="csv")
 ]
 
+auth_patterns = [
+    path('signin', auths.sign_in, name='signin'),
+    path('signout', auths.sign_out, name='signout'),
+    path('callback', auths.callback, name='callback'),
+]
+
 urlpatterns = [
     path('', auths.index, name='index'),  # Redirect to homepage.
+    path('auth/', include(auth_patterns)),
     path('student/', include(student_patterns)),
     path('academic/', include(academic_patterns)),
     path('office/', include(office_patterns)),
-
 ]

@@ -58,13 +58,13 @@
             <ul>
                 <li class="username"> {{ user.name }}</li>
                 <li class="email"> {{ user.email }}</li>
-                <li class="sign-out"><a href="{% url 'signout' %}"> <i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                <li class="sign-out"><a href="{% url 'modulesApplication:signout' %}"> <i class="fas fa-sign-out-alt"></i> Sign Out</a>
                 </li>
             </ul>
         </div>
         {% else %}
         <div class="sign-in">
-            <a href="{% url 'signin' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
+            <a href="{% url 'modulesApplication:signin' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
         </div>
         {% endif %}
     </nav>
@@ -82,7 +82,7 @@
             <i class="fas fa-sign-in-alt"> </i> Student Landing Page
         </a>
         {% else %}
-        <a href="{% url 'signin' %}">
+        <a href="{% url 'modulesApplication:signin' %}">
             <i class="fas fa-sign-in-alt"> </i> Sign In
         </a>
         {% endif %}

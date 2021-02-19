@@ -76,7 +76,7 @@
         </div>
         {% else %}
         <div class="sign-in">
-            <a href="{% url 'signin' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
+            <a href="{% url 'modulesApplication:signin' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
         </div>
         {% endif %}
     </nav>
@@ -100,21 +100,9 @@
     }
 
     </script>
-    {% if user.is_authenticated %}
         {% block content %}
         {% endblock %}
-    {% else %}
-    <!-- PAGE WRAPPER -->
-    <div class="main-content">
-        <script>changeStyle()</script>
-        <br>
-        <h2>You need to login to view this page.</h2>
-        <br>
-        <a href="{% url 'signin' %}">
-            <i class="fas fa-sign-in-alt"> </i> Sign In
-        </a>
-    </div>
-    {% endif %}
+
 </div>
 </body>
 

@@ -49,8 +49,7 @@ def all_modules(request, sort=0):
 
 
 def landing(request):
-    context = auths.initialize_context(request)
-    return render(request, 'modulesApplication/StudentLandingPage.html', context)
+    return render(request, 'modulesApplication/StudentLandingPage.html')
 
 
 def choose_modules(request):
