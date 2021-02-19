@@ -46,7 +46,11 @@ def callback(request):
     result = get_token_from_code(request)
 
     # Get the user's profile
-    user = get_user(result['access_token'])
+    try:
+        user = get_user(result['access_token'])
+    except:
+        return render(request, 'modulesApplication/index.html')
+
 
     # Store user
     store_user(request, user)

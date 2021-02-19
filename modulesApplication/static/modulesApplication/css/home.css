@@ -156,12 +156,19 @@ html, body {
 }
 
 .footer .row {
-    border-top: 2px solid orangered;
+    border-top: 2px solid #ff4500;
     display: grid;
     grid-template-columns: auto auto auto;
     height: 75px;
     color: white;
     padding: 10px;
+}
+
+.footer .finalrow {
+    border-top: 2px solid orangered;
+    color: white;
+    padding: 10px 10px 0 10px;
+    text-align: center;
 }
 
 .footer .col {
