@@ -2,10 +2,12 @@ from django.shortcuts import render
 
 from ..programmeInfo import csv_converter
 from ..models import Module, Programme, ModuleSelection
+from modulesApplication.views import auths
 
 
 def landing(request):
-    return render(request, 'modulesApplication/OfficeLandingPage.html')
+    context = auths.initialize_context(request)
+    return render(request, 'modulesApplication/OfficeLandingPage.html', context)
 
 
 def csv(request):
