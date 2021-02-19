@@ -128,8 +128,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Authentication (?)
-SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ['state']
-SESSION_COOKIE_SECURE = False
-
-SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+# https://docs.djangoproject.com/en/3.1/ref/contrib/sites/#enabling-the-sites-framework
+# Use the sites framework for Django authentication. Need to look at this later.
+SITE_ID = 1

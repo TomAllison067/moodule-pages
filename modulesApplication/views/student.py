@@ -1,9 +1,9 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from modulesApplication.views import auths
 from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
 from ..programmeInfo import factory
 
@@ -48,6 +48,7 @@ def all_modules(request, sort=0):
     return render(request, 'modulesApplication/AllModules.html', context=context)
 
 
+@login_required
 def landing(request):
     return render(request, 'modulesApplication/StudentLandingPage.html')
 

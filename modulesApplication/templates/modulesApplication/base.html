@@ -68,7 +68,7 @@
                 <li class="username"> {{ user.name }}</li>
                 <li class="email"> {{ user.email }}</li>
                 <li class="sign-out">
-                    <a href="{% url 'signout' %}">
+                    <a href="{% url 'logout' %}">
                         <i class="fas fa-sign-out-alt"></i> Sign Out
                     </a>
                 </li>
@@ -76,7 +76,7 @@
         </div>
         {% else %}
         <div class="sign-in">
-            <a href="{% url 'modulesApplication:signin' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
+            <a href="{% url 'login' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
         </div>
         {% endif %}
     </nav>

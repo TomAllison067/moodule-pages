@@ -64,7 +64,7 @@
         </div>
         {% else %}
         <div class="sign-in">
-            <a href="{% url 'modulesApplication:signin' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
+            <a href="{% url 'login' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
         </div>
         {% endif %}
     </nav>
@@ -82,7 +82,7 @@
             <i class="fas fa-sign-in-alt"> </i> Student Landing Page
         </a>
         {% else %}
-        <a href="{% url 'modulesApplication:signin' %}">
+        <a href="{% url 'login' %}">
             <i class="fas fa-sign-in-alt"> </i> Sign In
         </a>
         {% endif %}

@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 from ..programmeInfo import csv_converter
 from ..models import Module, Programme, ModuleSelection
-from modulesApplication.views import auths
 
 
 def landing(request):
