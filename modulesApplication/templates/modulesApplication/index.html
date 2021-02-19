@@ -77,7 +77,7 @@
         <hr>
         <br>
         {% if user.is_authenticated %}
-        <h4>Welcome {{ user.name }}!</h4>
+        <h4>Welcome {{ user.name }}!</h4><br>
         <a href="{% url 'modulesApplication:student-landing' %}">
             <i class="fas fa-sign-in-alt"> </i> Student Landing Page
         </a>
