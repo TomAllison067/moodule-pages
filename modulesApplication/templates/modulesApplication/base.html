@@ -19,6 +19,7 @@
     <!-- PAGE WRAPPER -->
     <div class="page-wrapper">
         <input type="checkbox" id="check">
+        <input type="checkbox" id="avatar-check">
 
         <!-- SIDEBAR MENU -->
         <div class="sidebar">
@@ -50,43 +51,30 @@
                 </a>
             </div>
 
+            {% if user.is_authenticated %}
             <div class="avatar-box">
-                dodksoqkdo
-                <a href="#"> <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}"> </a>
+                <label for="avatar-check">
+                    {% if user.avatar %}
+                    <img src="{{ user.avatar }}"> 
+                    {% else %}
+                    <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}"> 
+                    {% endif %}
+                </label>
             </div>
-        </nav>
-        <!-- 
-                <div class="avatar-box">
-                <a href="#"> <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}"></a>
-            <div>
-            <ul class="navbar-nav justify-content-end">
-                          Details about the login dropdown in the horizontal navbar.
-                {% if user.is_authenticated %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link avatar-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                       aria-haspopup="true" aria-expanded="false">
-                        {% if user.avatar %}
-                        <img src="{{ user.avatar }}" class="rounded-circle align-self-center mr-2" style="width: 32px;">
-                        {% else %}
-                        <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}"
-                             class="rounded-circle align-self-center mr-2" style="width: 32px;">
-                        {% endif %}
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <h5 class="dropdown-item-text mb-0">{{ user.name }}</h5>
-                        <p class="dropdown-item-text text-muted mb-0">{{ user.email }}</p>
-                        <div class="dropdown-divider"></div>
-                        <a href="{% url 'signout' %}" class="dropdown-item">Sign Out</a>
-                    </div>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a href="{% url 'signin' %}" class="nav-link">Sign In</a>
-                </li>
-                {% endif %}
-            </ul>
 
-        -->
+            <div class="dropdown-ab-menu">
+                <ul>
+                    <li class="username"> {{ user.name }} </li>
+                    <li class="email"> {{ user.email }} </li>
+                    <li class="sign-out"> <a href="{% url 'signout' %}"> <i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
+                </ul>  
+            </div>
+            {% else %}
+            <div class="sign-in">
+                <a href="{% url 'signin' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
+            </div>
+            {% endif %}
+        </nav>
 
         <!-- MENU OVERLAY SCRIPT -->
         <script>
