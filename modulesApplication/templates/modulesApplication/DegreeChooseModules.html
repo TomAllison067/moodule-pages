@@ -73,6 +73,7 @@
             <div class="grid">
             <!-- Terms -->
             {% for term, constraints in v.items %}
+                {% if term != 'unknown' %}
                 <div class="grid-cell">
                     <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
                     {% for constraint, modules in constraints.items %}
@@ -119,6 +120,7 @@
                         {% endif %}
                     {% endfor %}
                 </div>
+                {% endif %}
             {% endfor %}
         {% endif %}
     </div>

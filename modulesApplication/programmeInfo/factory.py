@@ -1,7 +1,18 @@
 from typing import Dict
 
-from modulesApplication.models import Programme, OptionRule, Module
+from modulesApplication.models import Programme, OptionRule, Module, CourseLeader, ModuleVariant
 from .programme_info import ProgrammeInfo
+
+
+def get_term(module: Module):
+    course_leaders = CourseLeader.objects.filter(module=module)
+    if not course_leaders.exists():
+        try:
+            course_leaders = CourseLeader.objects.filter(module=ModuleVariant.objects.get(minor=module).major)
+        except ModuleVariant.DoesNotExist:
+            course_leaders = None
+    term = course_leaders.first().term if course_leaders else "Unknown"
+    return term
 
 
 def populate_core_modules(modules_dict: Dict, programme: Programme, stages: int, entry_year: str):
@@ -13,18 +24,23 @@ def populate_core_modules(modules_dict: Dict, programme: Programme, stages: int,
                                           constraint_type="CORE")
         modules_dict[stage_key]['term1']['CORE'] = []
         modules_dict[stage_key]['term2']['CORE'] = []
+        modules_dict[stage_key]['unknown']['CORE'] = []
         for rule in rules:
             patterns = rule.mod_code_pattern.split(",")
             for pattern in patterns:
                 query = Module.objects.filter(mod_code__startswith=pattern)
                 for module in query:
-                    if module.availability_terms in ["Term 1", "Autumn", "Autumn Term"]:
-                        modules_dict[stage_key]['term1']['CORE'] += [module]
-                    elif module.availability_terms in ["Term 2", "Spring", "Spring Term"]:
-                        modules_dict[stage_key]['term2']['CORE'] += [module]
-                    else:
-                        modules_dict[stage_key]['term1']['CORE'] += [module]
-                        modules_dict[stage_key]['term2']['CORE'] += [module]
+                    if module.status == "ACTIVE":
+                        term = get_term(module)
+                        if term == "1":
+                            modules_dict[stage_key]['term1']['CORE'] += [module]
+                        elif term == "2":
+                            modules_dict[stage_key]['term2']['CORE'] += [module]
+                        elif term.upper() == "BOTH":
+                            modules_dict[stage_key]['term1']['CORE'] += [module]
+                            modules_dict[stage_key]['term2']['CORE'] += [module]
+                        else:
+                            modules_dict[stage_key]['unknown']['CORE'] += [module]
 
 
 def populate_disc_alt_modules(modules_dict, programme, entry_year):
@@ -48,6 +64,7 @@ def populate_opts_modules(modules_dict, programme, stages, entry_year):
         stage_key = "stage{}".format(stage)
         modules_dict[stage_key]['term1']['OPTS'] = []
         modules_dict[stage_key]['term2']['OPTS'] = []
+        modules_dict[stage_key]['unknown']['OPTS'] = []
         rules = OptionRule.objects.filter(prog_code=programme,
                                           entry_year=entry_year,
                                           stage=str(stage),
@@ -58,16 +75,17 @@ def populate_opts_modules(modules_dict, programme, stages, entry_year):
             for pattern in patterns:
                 query = Module.objects.filter(mod_code__startswith=pattern)
                 for module in query:
-                    if module in optional_modules:
-                        if module.availability_terms in ["Term 1", "Autumn", "Autumn Term"]:
+                    if module.status == "ACTIVE" and module in optional_modules:
+                        term = get_term(module)
+                        if term == "1":
                             modules_dict[stage_key]['term1']['OPTS'] += [module]
-                        elif module.availability_terms in ["Term 2", "Spring", "Spring Term"]:
+                        elif term == "2":
+                            modules_dict[stage_key]['term2']['OPTS'] += [module]
+                        elif term.upper() == "BOTH":
+                            modules_dict[stage_key]['term1']['OPTS'] += [module]
                             modules_dict[stage_key]['term2']['OPTS'] += [module]
                         else:
-                            modules_dict[stage_key]['term1']['OPTS'] += [module]
-                            modules_dict[stage_key]['term2']['OPTS'] += [module]
-        #         modules += [module for module in query if module in optional_modules]
-        # modules_dict[stage_key]['OPTS'] = modules
+                            modules_dict[stage_key]['unknown']['OPTS'] += [module]
 
 
 def populate_strand_modules(modules_dict, programme, stages, entry_year):
@@ -75,6 +93,7 @@ def populate_strand_modules(modules_dict, programme, stages, entry_year):
         stage_key = "stage{}".format(stage)
         modules_dict[stage_key]['term1']['STRAND'] = []
         modules_dict[stage_key]['term2']['STRAND'] = []
+        modules_dict[stage_key]['unknown']['STRAND'] = []
         rules = OptionRule.objects.filter(prog_code=programme,
                                           entry_year=entry_year,
                                           stage=str(stage),
@@ -85,13 +104,17 @@ def populate_strand_modules(modules_dict, programme, stages, entry_year):
             for pattern in patterns:
                 query = Module.objects.filter(strands__strand=strand, mod_code__startswith=pattern)
                 for module in query:
-                    if module.availability_terms in ["Term 1", "Autumn", "Autumn Term"]:
-                        modules_dict[stage_key]['term1']['STRAND'] += [module]
-                    elif module.availability_terms in ["Term 2", "Spring", "Spring Term"]:
-                        modules_dict[stage_key]['term2']['STRAND'] += [module]
-                    else:
-                        modules_dict[stage_key]['term1']['STRAND'] += [module]
-                        modules_dict[stage_key]['term2']['STRAND'] += [module]
+                    if module.status == "ACTIVE":
+                        term = get_term(module)
+                        if term == "1":
+                            modules_dict[stage_key]['term1']['STRAND'] += [module]
+                        elif term == "2":
+                            modules_dict[stage_key]['term2']['STRAND'] += [module]
+                        elif term.upper() == "BOTH":
+                            modules_dict[stage_key]['term1']['STRAND'] += [module]
+                            modules_dict[stage_key]['term2']['STRAND'] += [module]
+                        else:
+                            modules_dict[stage_key]['unknown']['STRAND'] += [module]
 
 
 def get_programme_info(prog_code: str, entry_year: str) -> ProgrammeInfo:
@@ -103,8 +126,10 @@ def get_programme_info(prog_code: str, entry_year: str) -> ProgrammeInfo:
         stages += 1
     terms = 2
     modules_dict = {"stage{}".format(stage):
-                    {"term{}".format(term): {} for term in range(1, terms + 1)}
+                        {"term{}".format(term): {} for term in range(1, terms + 1)}
                     for stage in range(1, stages + 1)}
+    for stage in range(1, stages + 1):
+        modules_dict["stage{}".format(stage)]['unknown'] = {}
     populate_core_modules(modules_dict, programme, stages, entry_year)
     populate_disc_alt_modules(modules_dict, programme, entry_year)
     populate_opts_modules(modules_dict, programme, stages, entry_year)
