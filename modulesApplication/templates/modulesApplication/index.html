@@ -41,7 +41,7 @@
             <i class="fas fa-bars" id="btn"></i>
         </label>
 
-        <label class="title"> moodule</label>
+        <a href="{% url 'modulesApplication:index' %}"><label class="title"> moodule</label></a>
 
         {% if user.is_authenticated %}
         <div class="avatar-box">
