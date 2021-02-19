@@ -17,7 +17,7 @@
 <div id="overlay" onclick=""></div>
 
 <!-- PAGE WRAPPER -->
-<div class="page-wrapper">
+<div class="page-wrapper" id="wrapper">
     <input type="checkbox" id="check">
     <input type="checkbox" id="avatar-check">
 
@@ -94,15 +94,21 @@
                 document.getElementById("overlay").style.display = "none";
             }
         });
+
+    function changeStyle() {
+        document.getElementById("wrapper").className = "page-wrapper2";
+    }
+
     </script>
     {% if user.is_authenticated %}
-    {% block content %}
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
     {% else %}
     <!-- PAGE WRAPPER -->
     <div class="main-content">
+        <script>changeStyle()</script>
         <br>
-        <h2>You need to login to see this page.</h2>
+        <h2>You need to login to view this page.</h2>
         <br>
         <a href="{% url 'signin' %}">
             <i class="fas fa-sign-in-alt"> </i> Sign In

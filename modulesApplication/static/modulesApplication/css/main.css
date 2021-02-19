@@ -35,11 +35,29 @@ html, body {
 }
 
 
-
 /* --[[ Wrapper ]] */
 
 .page-wrapper {
-   min-height: 100%;
+    min-height: 100%;
+}
+
+.page-wrapper2 {
+    min-height: 100%;
+    background: linear-gradient(-50deg, orange, orangered, purple);
+    background-size: 400% 400%;
+    animation: ib-gradient 20s ease infinite;
+}
+
+@keyframes ib-gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }
 
 #overlay {
@@ -51,7 +69,7 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.85);
+    background-color: rgba(0, 0, 0, 0.85);
     z-index: 5;
     cursor: pointer;
     transition: 0.5s;
@@ -63,7 +81,7 @@ html, body {
 
 /* --[[ Slider ]] */
 
-.slider{
+.slider {
     position: relative;
     width: 100%;
     height: 300px;
@@ -72,18 +90,18 @@ html, body {
     overflow: hidden;
 }
 
-.slides{
+.slides {
     position: relative;
     width: 600%;
     height: 100%;
     display: flex;
 }
 
-.slides input{
+.slides input {
     display: none;
 }
 
-.slide{
+.slide {
     width: 20%;
     margin-left: 0;
     margin-right: 0;
@@ -116,7 +134,7 @@ html, body {
 }
 
 
-.slide img{
+.slide img {
     position: absolute;
     display: block;
     width: 100%;
@@ -126,7 +144,7 @@ html, body {
 
 /* --[[ Slider - Manual Navigation ]] */
 
-.navigation-manual{
+.navigation-manual {
     position: absolute;
     width: 100%;
     margin-top: -40px;
@@ -134,7 +152,7 @@ html, body {
     justify-content: center;
 }
 
-.manual-btn{
+.manual-btn {
     border: 2px solid orangered;
     padding: 5px;
     border-radius: 10px;
@@ -142,29 +160,29 @@ html, body {
     transition: 1s;
 }
 
-.manual-btn:not(:last-child){
+.manual-btn:not(:last-child) {
     margin-right: 40px;
 }
 
-.manual-btn:hover{
+.manual-btn:hover {
     background: orangered;
 }
 
-#radio1:checked ~ .first{
+#radio1:checked ~ .first {
     margin-left: 0;
 }
 
-#radio2:checked ~ .first{
+#radio2:checked ~ .first {
     margin-left: -20%;
 }
 
-#radio3:checked ~ .first{
+#radio3:checked ~ .first {
     margin-left: -40%;
 }
 
 /* --[[ Slider - Automatic Navigation ]] */
 
-.navigation-auto{
+.navigation-auto {
     position: absolute;
     display: flex;
     width: 100%;
@@ -172,28 +190,28 @@ html, body {
     margin-top: 460px;
 }
 
-.navigation-auto div{
+.navigation-auto div {
     border: 2px solid orangered;
     padding: 5px;
     border-radius: 10px;
     transition: 1s;
 }
 
-  .navigation-auto div:not(:last-child){
+.navigation-auto div:not(:last-child) {
     margin-right: 40px;
-  }
+}
 
-  #radio1:checked ~ .navigation-auto .auto-btn1{
+#radio1:checked ~ .navigation-auto .auto-btn1 {
     background: orangered;
-  }
+}
 
-  #radio2:checked ~ .navigation-auto .auto-btn2{
+#radio2:checked ~ .navigation-auto .auto-btn2 {
     background: orangered;
-  }
+}
 
-  #radio3:checked ~ .navigation-auto .auto-btn3{
+#radio3:checked ~ .navigation-auto .auto-btn3 {
     background: orangered;
-  }
+}
 
 /* --[[ Boxes ]] */
 
@@ -201,7 +219,7 @@ html, body {
     margin: 0 auto;
     width: 80%;
     height: 50vh;
-    display:flex;
+    display: flex;
     box-sizing: border-box;
     /*background-image: white;*/
     position: relative;
@@ -304,7 +322,7 @@ html, body {
     padding: 5px;
 }
 
-#lpc-cm, #lpc-ac  {
+#lpc-cm, #lpc-ac {
     display: block;
     padding: 2%;
     border-radius: 0;
@@ -314,7 +332,7 @@ html, body {
     font-size: 15px;
 }
 
-.icon-box > p  {
+.icon-box > p {
     opacity: 0;
     transform: translateY(150%);
     transition: transform 0.25s;
@@ -329,6 +347,7 @@ html, body {
     font-size: 60px;
     align-items: center;
 }
+
 .lp-box a {
     position: relative;
     border-radius: 5px;
@@ -413,7 +432,7 @@ html, body {
 .topbar .title {
     position: absolute;
     top: 5px;
-    color:orangered;
+    color: orangered;
     /*font: bold;*/
     font-weight: 800;
     font-size: 25px;
@@ -448,10 +467,10 @@ html, body {
     position: absolute;
     margin: 0;
     transform: translate(-29%, -37.5%);
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     transition: 0.35s;
 }
 
@@ -524,8 +543,9 @@ html, body {
     color: rgb(25, 25, 25);
     font-weight: bold;
     font-size: 20px;
-    
+
 }
+
 .dropdown-ab-menu ul .email {
     padding-left: 2px;
     margin-left: 3px;
@@ -535,20 +555,20 @@ html, body {
 }
 
 .dropdown-ab-menu ul .sign-out {
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     padding: 2px;
     border-top: 4px solid black;
 }
 
 .dropdown-ab-menu ul .sign-out a {
     display: block;
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     width: 100%;
     margin-left: 10px;
 }
 
 .dropdown-ab-menu ul .sign-out a i {
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
 }
 
 .dropdown-ab-menu ul .sign-out:hover {
@@ -583,7 +603,7 @@ html, body {
 }
 
 #avatar-check:checked ~ .topbar .avatar-box {
-    background-image: linear-gradient(rgb(255,255,255), rgb(235,235,235));
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(235, 235, 235));
     transition: 0.25s;
 }
 
@@ -661,7 +681,7 @@ html, body {
     top: 20px;
     left: calc(50% - 50px);
     border-radius: 2%;
-    filter:contrast(200%);
+    filter: contrast(200%);
 }
 
 /* */
@@ -674,17 +694,17 @@ html, body {
     color: white;
     padding-left: 20px;
     box-sizing: border-box;
-    border-top: 1px solid rgba(255,255,255,.1);
+    border-top: 1px solid rgba(255, 255, 255, .1);
     border-bottom: 4px solid rgb(38, 38, 38);
     transition: all .25s;
 }
 
-.sidebar ul li:hover a{
+.sidebar ul li:hover a {
     padding-left: 35px;
     background: #ff905d;
 }
 
-.sidebar ul a i{
+.sidebar ul a i {
     margin-right: 16px;
 }
 
@@ -770,26 +790,20 @@ label #cancel {
     transform: rotate(45deg);
 }
 
-.btn i{
+.btn i {
     margin-right: 10px;
 }
 
 
 .main-content {
     padding: 10px;
-    /*width: 600px;*/
-    /*height: 400px;*/
+    width: 600px;
+    height: 400px;
     position: absolute;
     color: white;
     top: 50%;
     left: 50%;
     margin: -200px 0 0 -300px;
-
-
-   background: linear-gradient(-50deg, orange, orangered, purple);
-   background-size: 400% 400%;
-   animation: ib-gradient 20s ease infinite;
-   /*min-height: 100%;*/
 }
 
 .main-content h1 {
