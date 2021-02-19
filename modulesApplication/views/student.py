@@ -3,9 +3,9 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
+from modulesApplication.views import auths
 from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
 from ..programmeInfo import factory
-from modulesApplication.views import auths
 
 
 def all_modules(request, sort=0):
@@ -46,12 +46,6 @@ def all_modules(request, sort=0):
         module_summaries.setdefault(module.level, []).append(mod_sum)  # Creates a list if it doesn't exist and appends
     context = {'module_summaries': module_summaries}
     return render(request, 'modulesApplication/AllModules.html', context=context)
-
-
-def modules_by_programme(request, prog_code, entry_year='2019'):
-    prog_info = factory.get_programme_info(prog_code, entry_year)
-    context = {'info': prog_info}
-    return render(request, 'modulesApplication/foo.html', context)
 
 
 def landing(request):
@@ -125,4 +119,3 @@ def module_details(request, module):
                            'Exam_Format': current_module.exam_format}
                }
     return render(request, 'modulesApplication/ModuleDetails.html', context=context)
-
