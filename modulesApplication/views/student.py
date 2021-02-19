@@ -5,6 +5,7 @@ from django.urls import reverse
 
 from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
 from ..programmeInfo import factory
+from modulesApplication.views import auths
 
 
 def all_modules(request, sort=0):
@@ -54,7 +55,8 @@ def modules_by_programme(request, prog_code, entry_year='2019'):
 
 
 def landing(request):
-    return render(request, 'modulesApplication/StudentLandingPage.html')
+    context = auths.initialize_context(request)
+    return render(request, 'modulesApplication/StudentLandingPage.html', context)
 
 
 def choose_modules(request):
