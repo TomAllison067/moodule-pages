@@ -50,7 +50,7 @@ def callback(request):
 
     # Store user
     store_user(request, user)
-    return HttpResponseRedirect(reverse('modulesApplication:index'))
+    return HttpResponseRedirect(reverse('modulesApplication:student-landing'))
 
 
 # Signout Views
