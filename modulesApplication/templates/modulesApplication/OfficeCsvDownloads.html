@@ -12,6 +12,11 @@
     <button><a href="{% url 'modulesApplication:csv' 'ModuleSelection'%}" class="model">Student request status</a></button>
 {#    <li><a href="{% url 'modulesApplication:csv' 'selections' %}" class="model">Student choices</a></li>  #}
 </ul>
+<form action="{% url 'modulesApplication:csv-downloads' %}" method="post", enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="submit"/>
+</form>
 <p id="para"></p>
 </body>
 </html>

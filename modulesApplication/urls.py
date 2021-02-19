@@ -1,4 +1,6 @@
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 from modulesApplication.views import student, office, auths
 
@@ -24,7 +26,7 @@ office_patterns = [
     path('landing/', office.landing, name='office-landing'),
     path('csvfiles/', office.csv, name="csv-downloads"),
     path('csvfiles/<str:model_class>/', office.csv_file, name="csv")
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = [
     path('', auths.index, name='index'),  # Redirect to homepage.

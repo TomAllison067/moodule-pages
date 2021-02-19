@@ -133,3 +133,6 @@ SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ['state']
 SESSION_COOKIE_SECURE = False
 
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
+MEDIA_URL = '/resources/'
