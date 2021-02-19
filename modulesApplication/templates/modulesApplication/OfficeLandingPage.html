@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% extends "modulesApplication/base.html" %}
 {% load static %}
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <title>Office Landing Page</title>
@@ -21,6 +21,7 @@
 <div class="page-wrapper">
     <input type="checkbox" id="check">
 
+    {% block content %}
     <!-- SIDEBAR MENU -->
     <div class="sidebar">
         <header>
@@ -171,25 +172,9 @@
     </div>
 </div>
 </body>
+{% endblock %}
 
 <!-- FOOTER - links will be added later -->
-<div class="footer">
-    <div class="row">
-        <div class="col">
-            <li>Royal Holloway, University of London</li>
-            <li>Egham, Surrey, TW20 0EX</li>
-        </div>
-        <div class="col">
-            <li>Terms & Conditions</li>
-            <li>Privacy Policy</li>
-        </div>
-        <div class="col">
-            <li>moodule@gmail.com</li>
-            <li>T: +44 (0)1784 434455</li>
-        </div>
-    </div class="row">
-    &copy; 2021 moodule.com | Designed by CS2815 Group 34
-</div>
 </div>
 
 </html>
