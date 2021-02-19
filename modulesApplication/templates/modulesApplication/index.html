@@ -13,91 +13,92 @@
 </head>
 
 <body>
-    <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
-    <div id="overlay" onclick=""></div>
+<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+<div id="overlay" onclick=""></div>
 
-    <!-- PAGE WRAPPER -->
-    <div class="page-wrapper">
-        <input type="checkbox" id="check">
-        <input type="checkbox" id="avatar-check">
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper">
+    <input type="checkbox" id="check">
+    <input type="checkbox" id="avatar-check">
 
-        <!-- SIDEBAR MENU -->
-        <div class="sidebar">
-            <header>
-                <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
-            </header>
+    <!-- SIDEBAR MENU -->
+    <div class="sidebar">
+        <header>
+            <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
+        </header>
 
+        <ul>
+            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+                    class="fas fa-home"></i>student landing</a></li>
+            <li><a href="{% url 'modulesApplication:office-landing' %}" class="btn"><i
+                    class="fas fa-home"></i>office landing</a></li>
+        </ul>
+    </div>
+
+    <!-- TOP BAR -->
+    <nav class="topbar">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+        </label>
+
+        <label class="title"> moodule</label>
+
+        {% if user.is_authenticated %}
+        <div class="avatar-box">
+            <label for="avatar-check">
+                {% if user.avatar %}
+                <img src="{{ user.avatar }}">
+                {% else %}
+                <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}">
+                {% endif %}
+            </label>
+        </div>
+
+        <div class="dropdown-ab-menu">
             <ul>
-                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
-                            class="fas fa-home"></i>student landing</a></li>
-                <li><a href="{% url 'modulesApplication:office-landing' %}" class="btn"><i
-                                class="fas fa-home"></i>office landing</a></li>
+                <li class="username"> {{ user.name }}</li>
+                <li class="email"> {{ user.email }}</li>
+                <li class="sign-out"><a href="{% url 'signout' %}"> <i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                </li>
             </ul>
         </div>
-
-        <!-- TOP BAR -->
-        <nav class="topbar">
-            <label for="check">
-                <i class="fas fa-bars" id="btn"></i>
-            </label>
-
-            <label class="title"> moodule</label>
-
-            {% if user.is_authenticated %}
-            <div class="avatar-box">
-                <label for="avatar-check">
-                    {% if user.avatar %}
-                    <img src="{{ user.avatar }}"> 
-                    {% else %}
-                    <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}"> 
-                    {% endif %}
-                </label>
-            </div>
-
-            <div class="dropdown-ab-menu">
-                <ul>
-                    <li class="username"> {{ user.name }} </li>
-                    <li class="email"> {{ user.email }} </li>
-                    <li class="sign-out"> <a href="{% url 'signout' %}"> <i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
-                </ul>  
-            </div>
-            {% else %}
-            <div class="sign-in">
-                <a href="{% url 'signin' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
-            </div>
-            {% endif %}
-        </nav>
-
-        <!-- MAIN PAGE -->
-        <div class="main-content">
-            <h1>moodule</h1>
-            <p>This is a temporary homepage with a working Log-in system. The above navbar has yet to be
-                integrated into our main system.</p> <br>
-            <hr>
-            <br>
-            {% if user.is_authenticated %}
-            <h4>Welcome {{ user.name }}!</h4>
-            <p>Head to the student landing page via the navbar!</p>
-            {% else %}
-            <a href="{% url 'signin' %}" class="btn btn-primary btn-large">Click here to sign in</a>
-            {% endif %}
+        {% else %}
+        <div class="sign-in">
+            <a href="{% url 'signin' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
         </div>
+        {% endif %}
+    </nav>
 
-        <!-- MENU OVERLAY SCRIPT -->
-        <script>
-            var checkbox = document.querySelector("input[type=checkbox]");
-
-            checkbox.addEventListener('change', function () {
-                if (this.checked) {
-                    document.getElementById("overlay").style.transition = '0.5s';
-                    document.getElementById("overlay").style.display = "block";
-                } else {
-                    document.getElementById("overlay").style.transition = '0.5s';
-                    document.getElementById("overlay").style.display = "none";
-                }
-            });
-        </script>
+    <!-- MAIN PAGE -->
+    <div class="main-content">
+        <h1>moodule</h1>
+        <p>This is a temporary homepage with a working Log-in system. The above navbar has yet to be
+            integrated into our main system.</p> <br>
+        <hr>
+        <br>
+        {% if user.is_authenticated %}
+        <h4>Welcome {{ user.name }}!</h4>
+        <p>Head to the student landing page via the navbar!</p>
+        {% else %}
+        <a href="{% url 'signin' %}" class="btn btn-primary btn-large">Click here to sign in</a>
+        {% endif %}
     </div>
+
+    <!-- MENU OVERLAY SCRIPT -->
+    <script>
+        var checkbox = document.querySelector("input[type=checkbox]");
+
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                document.getElementById("overlay").style.transition = '0.5s';
+                document.getElementById("overlay").style.display = "block";
+            } else {
+                document.getElementById("overlay").style.transition = '0.5s';
+                document.getElementById("overlay").style.display = "none";
+            }
+        });
+    </script>
+</div>
 </body>
 
 <!-- FOOTER - links will be added later -->
@@ -115,9 +116,10 @@
             <li>moodule@gmail.com</li>
             <li>T: +44 (0)1784 434455</li>
         </div>
-    </div class="row">
-    &copy; 2021 moodule.com | Designed by CS2815 Group 34
-</div>
+        <div class="row">
+            &copy; 2021 moodule.com | Designed by CS2815 Group 34
+        </div>
+    </div>
 </div>
 
 </html>
