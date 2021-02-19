@@ -533,6 +533,7 @@ html, body {
 }
 
 .dropdown-ab-menu ul .sign-out a {
+    display: block;
     color:rgb(0, 0, 0);
     width: 100%;
     margin-left: 10px;
@@ -574,7 +575,7 @@ html, body {
 }
 
 #avatar-check:checked ~ .topbar .avatar-box {
-    background-image: linear-gradient(black, grey);
+    background-image: linear-gradient(rgb(255,255,255), rgb(235,235,235));
     transition: 0.25s;
 }
 
