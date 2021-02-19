@@ -803,7 +803,7 @@ label #cancel {
     width: 600px;
     height: 400px;
     position: absolute;
-    color: white;
+    color: black;
     top: 50%;
     left: 50%;
     margin: -200px 0 0 -300px;
