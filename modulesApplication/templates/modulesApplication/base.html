@@ -13,91 +13,105 @@
 </head>
 
 <body>
-    <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
-    <div id="overlay" onclick=""></div>
+<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+<div id="overlay" onclick=""></div>
 
-    <!-- PAGE WRAPPER -->
-    <div class="page-wrapper">
-        <input type="checkbox" id="check">
-        <input type="checkbox" id="avatar-check">
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper">
+    <input type="checkbox" id="check">
+    <input type="checkbox" id="avatar-check">
 
-        <!-- SIDEBAR MENU -->
-        <div class="sidebar">
-            <header>
-                <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
-            </header>
+    <!-- SIDEBAR MENU -->
+    <div class="sidebar">
+        <header>
+            <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
+        </header>
 
-            <ul>
-                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
-                            class="fas fa-home"></i>home</a></li>
-                <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose modules</a></li>
-                <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-                        courses</a></li>
-            </ul>
+        <ul>
+            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+                    class="fas fa-home"></i>home</a></li>
+            <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
+                modules</a></li>
+            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                courses</a></li>
+        </ul>
+    </div>
+
+    <!-- TOP BAR -->
+    <nav class="topbar">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+        </label>
+
+        <label class="title"> moodule</label>
+
+        <div class="search-box">
+            <input class="search-txt" type="text" name="" placeholder="search">
+            <a class="search-btn" href="#">
+                <i class="fas fa-search"></i>
+            </a>
         </div>
 
-        <!-- TOP BAR -->
-        <nav class="topbar">
-            <label for="check">
-                <i class="fas fa-bars" id="btn"></i>
+        {% if user.is_authenticated %}
+        <div class="avatar-box">
+            <label for="avatar-check">
+                {% if user.avatar %}
+                <img src="{{ user.avatar }}">
+                {% else %}
+                <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}">
+                {% endif %}
             </label>
+        </div>
 
-            <label class="title"> moodule</label>
+        <div class="dropdown-ab-menu">
+            <ul>
+                <li class="username"> {{ user.name }}</li>
+                <li class="email"> {{ user.email }}</li>
+                <li class="sign-out">
+                    <a href="{% url 'signout' %}">
+                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </a>
+                </li>
+            </ul>
+        </div>
+        {% else %}
+        <div class="sign-in">
+            <a href="{% url 'signin' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
+        </div>
+        {% endif %}
+    </nav>
 
-            <div class="search-box">
-                <input class="search-txt" type="text" name="" placeholder="search">
-                <a class="search-btn" href="#">
-                    <i class="fas fa-search"></i>
-                </a>
-            </div>
+    <!-- MENU OVERLAY SCRIPT -->
+    <script>
+        var checkbox = document.querySelector("input[type=checkbox]");
 
-            {% if user.is_authenticated %}
-            <div class="avatar-box">
-                <label for="avatar-check">
-                    {% if user.avatar %}
-                    <img src="{{ user.avatar }}"> 
-                    {% else %}
-                    <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}"> 
-                    {% endif %}
-                </label>
-            </div>
-
-            <div class="dropdown-ab-menu">
-                <ul>
-                    <li class="username"> {{ user.name }} </li>
-                    <li class="email"> {{ user.email }} </li>
-                    <li class="sign-out"> 
-                        <a href="{% url 'signout' %}"> 
-                            <i class="fas fa-sign-out-alt"></i> Sign Out
-                        </a>
-                    </li>
-                </ul>  
-            </div>
-            {% else %}
-            <div class="sign-in">
-                <a href="{% url 'signin' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
-            </div>
-            {% endif %}
-        </nav>
-
-        <!-- MENU OVERLAY SCRIPT -->
-        <script>
-            var checkbox = document.querySelector("input[type=checkbox]");
-
-            checkbox.addEventListener('change', function () {
-                if (this.checked) {
-                    document.getElementById("overlay").style.transition = '0.5s';
-                    document.getElementById("overlay").style.display = "block";
-                } else {
-                    document.getElementById("overlay").style.transition = '0.5s';
-                    document.getElementById("overlay").style.display = "none";
-                }
-            });
-        </script>
-
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                document.getElementById("overlay").style.transition = '0.5s';
+                document.getElementById("overlay").style.display = "block";
+            } else {
+                document.getElementById("overlay").style.transition = '0.5s';
+                document.getElementById("overlay").style.display = "none";
+            }
+        });
+    </script>
+    {% if user.is_authenticated %}
         {% block content %}
         {% endblock %}
+    {% else %}
+    <!-- PAGE WRAPPER -->
+    <div class="page-wrapper2"></div>
+        <div class="main-content">
+            <br>
+            <h2>You need to login to see this page.</h2>
+            <br>
+            <a href="{% url 'signin' %}">
+                <i class="fas fa-sign-in-alt"> </i> Sign In
+            </a>
+        </div>
     </div>
+    {% endif %}
+</div>
 </body>
 
 <!-- FOOTER - links will be added later -->
@@ -115,9 +129,10 @@
             <li>moodule@gmail.com</li>
             <li>T: +44 (0)1784 434455</li>
         </div>
-    </div class="row">
-    &copy; 2021 moodule.com | Designed by CS2815 Group 34
-</div>
+        <div class="row">
+            &copy; 2021 moodule.com | Designed by CS2815 Group 34
+        </div>
+    </div>
 </div>
 
 </html>

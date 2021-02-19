@@ -78,7 +78,9 @@
         <br>
         {% if user.is_authenticated %}
         <h4>Welcome {{ user.name }}!</h4>
-        <p>Head to the student landing page via the navbar!</p>
+        <a href="{% url 'modulesApplication:student-landing' %}">
+            <i class="fas fa-sign-in-alt"> </i> Student Landing Page
+        </a>
         {% else %}
         <a href="{% url 'signin' %}">
             <i class="fas fa-sign-in-alt"> </i> Sign In
