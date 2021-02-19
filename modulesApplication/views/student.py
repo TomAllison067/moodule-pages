@@ -8,6 +8,7 @@ from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVar
 from ..programmeInfo import factory
 
 
+@login_required
 def all_modules(request, sort=0):
     modules_list = Module.objects.order_by('level', 'mod_code')
 
@@ -53,6 +54,7 @@ def landing(request):
     return render(request, 'modulesApplication/StudentLandingPage.html')
 
 
+@login_required
 def choose_modules(request):
     if request.method == "POST":
         prog_code = request.POST.get('programme')
@@ -64,6 +66,7 @@ def choose_modules(request):
     return render(request, 'modulesApplication/StudentChooseModules.html')
 
 
+@login_required
 def choose_specific_modules(request, prog_code, stage):
     if request.method == "GET":
         try:
@@ -75,6 +78,7 @@ def choose_specific_modules(request, prog_code, stage):
         return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
 
 
+@login_required
 def submit_selection(request):
     if request.method == "POST":
         student_id = request.POST.get('student-id')
@@ -100,6 +104,7 @@ def submit_selection(request):
         raise Http404
 
 
+@login_required
 def submitted(request, student_id, stage):
     print(student_id)
     selection = get_object_or_404(ModuleSelection, student_id=student_id, stage=stage, status="PENDING")
@@ -109,6 +114,7 @@ def submitted(request, student_id, stage):
     return render(request, 'modulesApplication/ViewStudentSelection.html', context=context)
 
 
+@login_required
 def module_details(request, module):
     current_module = Module.objects.get(pk=module)
 

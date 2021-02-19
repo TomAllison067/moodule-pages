@@ -13,11 +13,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 """
 
-from pathlib import Path
-import environ  # Let's use django-environ to handle our environment variables
 import os
+from pathlib import Path
 
+import environ  # Let's use django-environ to handle our environment variables
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.urls import reverse
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 """Importing environment variables with django-environ
@@ -131,3 +133,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.1/ref/contrib/sites/#enabling-the-sites-framework
 # Use the sites framework for Django authentication. Need to look at this later.
 SITE_ID = 1
+
+"""DJANGO AUTHENTICATION SETTINGS"""
+LOGIN_REDIRECT_URL = '/'  # Upon login, redirect to index
+LOGOUT_REDIRECT_URL = '/'  # Upon signout, redirect to index
