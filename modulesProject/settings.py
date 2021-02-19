@@ -145,6 +145,6 @@ LOGOUT_REDIRECT_URL = '/'  # Upon signout, redirect to index
 
 # Recommended by python-social-auth at https://python-social-auth.readthedocs.io/en/latest/configuration/django.html#
 # SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_TENANT_ID = env('AZURE_TENANT_ID')
-SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_KEY = env('AZURE_CLIENT_ID')
-SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_SECRET = env('AZURE_VALUE')
+SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_TENANT_ID = env('AZURE_TENANT_ID', default="not the tenant id")
+SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_KEY = env('AZURE_CLIENT_ID', default="not the client id")
+SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_SECRET = env('AZURE_VALUE', default="not the client secret")
