@@ -1,9 +1,10 @@
 import datetime
 
 from django.core.management.base import BaseCommand
+from django.db import IntegrityError
 
 from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.models import Module, Strands, Programme, OptionRule, OptionalModule, People, CourseLeader
+from modulesApplication.models import *
 
 CURRENT_YEAR = datetime.datetime.now().year
 
@@ -34,6 +35,7 @@ def clear_database():
     Programme.objects.all().delete()
     People.objects.all().delete()
     CourseLeader.objects.all().delete()
+    ModuleVariant.objects.all().delete()
 
 
 class Command(BaseCommand):
@@ -119,6 +121,24 @@ class Command(BaseCommand):
                 print("Continueing...")
         CourseLeader.objects.bulk_create(objects)
 
+    def insert_module_variants(self):
+        cr = CsvReader()
+        module_variants = cr.read_dict(
+            'modulesApplication/tests/resources/main_module_variants.csv',
+        )
+        objects = []
+        for variant in module_variants:
+            try:
+                objects.append(ModuleVariant(
+                    major=Module.objects.get(mod_code=variant['major']),
+                    minor=Module.objects.get(mod_code=variant['minor'])
+                ))
+            except Module.DoesNotExist:
+                print("Unable to find module/s for ModuleVariant on following row:")
+                print(variant)
+                print("Continueing...")
+        ModuleVariant.objects.bulk_create(objects, ignore_conflicts=True)
+
     def handle(self, *args, **options):
         clear_database()
         self.insert_modules()
@@ -128,10 +148,12 @@ class Command(BaseCommand):
         self.insert_option_rules()
         self.insert_people()
         self.insert_course_leaders()
+        self.insert_module_variants()
         squash_all()
         output = "Imported {} modules, {} strands, {} programmes, {} optional modules, {} option rules, {} people, " \
-                 "{} course leaders." \
+                 "{} course leaders, {} module variants." \
             .format(Module.objects.count(), Strands.objects.count(),
                     Programme.objects.count(), OptionalModule.objects.count(),
-                    OptionRule.objects.count(), People.objects.count(), CourseLeader.objects.count())
+                    OptionRule.objects.count(), People.objects.count(), CourseLeader.objects.count(),
+                    ModuleVariant.objects.count())
         self.stdout.write(output)

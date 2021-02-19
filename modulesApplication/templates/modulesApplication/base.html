@@ -7,7 +7,7 @@
     <meta name="description" content="TBD">
     <meta name="author" content="TBD">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
     <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 </head>
@@ -17,7 +17,7 @@
 <div id="overlay" onclick=""></div>
 
 <!-- PAGE WRAPPER -->
-<div class="page-wrapper">
+<div class="page-wrapper" id="wrapper">
     <input type="checkbox" id="check">
     <input type="checkbox" id="avatar-check">
 
@@ -29,9 +29,11 @@
 
         <ul>
             <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
-                    class="fas fa-home"></i>student landing</a></li>
-            <li><a href="{% url 'modulesApplication:office-landing' %}" class="btn"><i
-                    class="fas fa-home"></i>office landing</a></li>
+                    class="fas fa-home"></i>home</a></li>
+            <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
+                modules</a></li>
+            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                courses</a></li>
         </ul>
     </div>
 
@@ -42,6 +44,13 @@
         </label>
 
         <a href="{% url 'modulesApplication:index' %}"><label class="title"> moodule</label></a>
+
+        <div class="search-box">
+            <input class="search-txt" type="text" name="" placeholder="search">
+            <a class="search-btn" href="#">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
 
         {% if user.is_authenticated %}
         <div class="avatar-box">
@@ -58,7 +67,10 @@
             <ul>
                 <li class="username"> {{ user.name }}</li>
                 <li class="email"> {{ user.email }}</li>
-                <li class="sign-out"><a href="{% url 'logout' %}"> <i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                <li class="sign-out">
+                    <a href="{% url 'logout' %}">
+                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </a>
                 </li>
             </ul>
         </div>
@@ -68,25 +80,6 @@
         </div>
         {% endif %}
     </nav>
-
-    <!-- MAIN PAGE -->
-    <div class="main-content">
-        <h1>moodule</h1>
-        <p>This is a temporary homepage with a working Log-in system. The above navbar has yet to be
-            integrated into our main system.</p> <br>
-        <hr>
-        <br>
-        {% if user.is_authenticated %}
-        <h4>Welcome {{ user.name }}!</h4><br>
-        <a href="{% url 'modulesApplication:student-landing' %}">
-            <i class="fas fa-sign-in-alt"> </i> Student Landing Page
-        </a>
-        {% else %}
-        <a href="{% url 'login' %}">
-            <i class="fas fa-sign-in-alt"> </i> Sign In
-        </a>
-        {% endif %}
-    </div>
 
     <!-- MENU OVERLAY SCRIPT -->
     <script>
@@ -101,7 +94,15 @@
                 document.getElementById("overlay").style.display = "none";
             }
         });
+
+    function changeStyle() {
+        document.getElementById("wrapper").className = "page-wrapper2";
+    }
+
     </script>
+        {% block content %}
+        {% endblock %}
+
 </div>
 </body>
 
