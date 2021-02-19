@@ -279,8 +279,8 @@ html, body {
 }
 
 .lp-content {
-    margin-left: 5%;
-    padding: 10px;
+    margin: auto;
+    /*padding: 10px 5px;*/
     width: 90%;
     height: 80%;
     display: block;
