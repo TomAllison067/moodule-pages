@@ -3,7 +3,7 @@ from django.test import TransactionTestCase, TestCase
 
 import modulesApplication.programmeInfo.factory as factory
 from modulesApplication.models import Programme, Module, OptionRule
-from . import utils
+from modulesApplication.tests import utils
 
 
 class TestProgrammeInfo(TestCase):

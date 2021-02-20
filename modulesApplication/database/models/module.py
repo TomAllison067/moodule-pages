@@ -43,3 +43,4 @@ class Module(models.Model):
         This also validates objects created with the Module.objects.create() method"""
         self.full_clean()
         super().save(*args, **kwargs)
+
