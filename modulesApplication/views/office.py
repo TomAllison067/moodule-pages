@@ -1,18 +1,21 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from ..programmeInfo import csv_converter
 from ..models import Module, Programme, ModuleSelection
 
 
+@login_required
 def landing(request):
-    context = auths.initialize_context(request)
-    return render(request, 'modulesApplication/OfficeLandingPage.html', context)
+    return render(request, 'modulesApplication/OfficeLandingPage.html')
 
 
+@login_required
 def csv(request):
     return render(request, 'modulesApplication/OfficeCsvDownloads.html')
 
 
+@login_required
 def csv_file(request, model_class):
     models = [Module, Programme, ModuleSelection]
     for model in models:
