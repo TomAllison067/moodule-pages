@@ -1,9 +1,10 @@
-from django.test import TestCase
+from django.test import TestCase, tag
 
 import modulesApplication.programmeInfo.factory as factory
 from modulesApplication.models import Programme
 
 
+@tag('unit', 'slow')
 class TestProgrammeInfo(TestCase):
     """
     A class to test the ProgrammeInfo object and whether it is created proprely by its factory.

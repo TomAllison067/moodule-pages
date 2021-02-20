@@ -1,10 +1,11 @@
-from django.test import TestCase
+from django.test import tag, TestCase
 
 from modulesApplication.database.csv_reader import CsvReader
 from modulesApplication.models import Module, Strands, Programme
 from modulesApplication.tests.resources import expected
 
 
+@tag('integration')
 class TestCsvReader(TestCase):
     """
     This tests that the csv reader can read in correct headers csv file.
@@ -122,7 +123,7 @@ class TestCsvReader(TestCase):
 
     def test_read_dict(self):
         exp = [{'foo': 'a', 'bar': 'b', 'baz': 'c', 'bang': 'd'},
-                    {'foo': 'this', 'bar': 'is', 'baz': 'a', 'bang': 'test'}]
+               {'foo': 'this', 'bar': 'is', 'baz': 'a', 'bang': 'test'}]
         actual = self.cr.read_dict("modulesApplication/tests/resources/simple_csv.csv")
         self.assertEqual(exp, actual)
 

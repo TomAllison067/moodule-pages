@@ -1,9 +1,10 @@
 from django.core.exceptions import ValidationError
-from django.test import TransactionTestCase
+from django.test import TransactionTestCase, tag
 
 from modulesApplication.models import Module
 
 
+@tag('unit')
 class TestModulesModel(TransactionTestCase):
 
     def test_no_mod_code_throws_value_error(self):

@@ -1,9 +1,10 @@
 from django.db import IntegrityError
-from django.test import TestCase
+from django.test import TestCase, tag
 
 from modulesApplication.models import CourseLeader, Module, People
 
 
+@tag('unit')
 class TestCourseLeader(TestCase):
     def setUp(self):
         self.professor = People.objects.create(id="TA", name="Tom Allison", email="foo@bar.com")
@@ -20,5 +21,3 @@ class TestCourseLeader(TestCase):
         CourseLeader.objects.create(module=self.module, person=self.professor, leader=True, term="1")
         with self.assertRaises(IntegrityError):
             CourseLeader.objects.create(module=self.module, person=self.professor, leader=False, term="2")
-
-

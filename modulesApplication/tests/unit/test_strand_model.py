@@ -1,11 +1,10 @@
-from django.core.exceptions import ValidationError
-from django.test import TransactionTestCase, TestCase
+from django.test import TestCase, tag
 
-from modulesApplication.database.csv_reader import CsvReader
 from modulesApplication.models import Strands, Module
 
 
-class MyTestCase(TestCase):
+@tag('unit')
+class TestStrandModel(TestCase):
 
     def test_empty(self):
         """
@@ -45,7 +44,3 @@ class MyTestCase(TestCase):
 
         self.assertEqual(Strands.objects.count(), 2, "if there is 2 object with the same module but different strand")
         self.assertNotEqual(Strands.objects.first().strand, Strands.objects.filter(module='CS2815').last().strand)
-
-
-
-

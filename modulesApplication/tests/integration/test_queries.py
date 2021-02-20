@@ -1,8 +1,9 @@
-from django.test import TestCase
+from django.test import TestCase, tag
 
 from modulesApplication.models import Strands, Module
 
 
+@tag('integration')
 class TestQueries(TestCase):
     def test_db_strand_query(self):
         """

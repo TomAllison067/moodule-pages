@@ -1,8 +1,9 @@
-from django.test import TestCase
+from django.test import TestCase, tag
 
 from modulesApplication.models import ModuleSelection, Module
 
 
+@tag('unit')
 class TestModuleSelection(TestCase):
     def test_simple_selection(self):
         selection = ModuleSelection.objects.create(student_id='1234', stage='1', status='PENDING')
