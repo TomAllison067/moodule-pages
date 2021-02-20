@@ -126,7 +126,7 @@ def get_programme_info(prog_code: str, entry_year: str) -> ProgrammeInfo:
         stages += 1
     terms = 2
     modules_dict = {"stage{}".format(stage):
-                        {"term{}".format(term): {} for term in range(1, terms + 1)}
+                    {"term{}".format(term): {} for term in range(1, terms + 1)}
                     for stage in range(1, stages + 1)}
     for stage in range(1, stages + 1):
         modules_dict["stage{}".format(stage)]['unknown'] = {}
