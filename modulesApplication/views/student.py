@@ -91,8 +91,10 @@ def submit_selection(request):
         stage = request.POST.get('stage')
         mod_codes = request.POST.getlist('module-selections')
         entry_year = request.POST.get('entry_year')
+        prog_code = request.POST.get('prog_code')
+        programme = Programme.objects.get(pk=prog_code)
         selection, created = ModuleSelection.objects.get_or_create(
-            student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING")
+            student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme)
         for m in mod_codes:
             module = Module.objects.get(mod_code=m)
             module.selected_in.add(selection)
@@ -102,16 +104,19 @@ def submit_selection(request):
         return HttpResponseRedirect(reverse("modulesApplication:submitted",
                                             kwargs={'student_id': student_id,
                                                     'stage': stage,
-                                                    'entry_year': entry_year}))
+                                                    'entry_year': entry_year,
+                                                    'prog_code': prog_code}))
     else:
         raise Http404
 
 
 @login_required
-def submitted(request, student_id, stage, entry_year):
+def submitted(request, student_id, stage, entry_year, prog_code):
     print(student_id)
+    programme = Programme.objects.get(pk=prog_code)
     selection = get_object_or_404(
-        ModuleSelection, student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING")
+        ModuleSelection,
+        student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme)
     modules = selection.module_set.all()
     context = {'selection': selection,
                'modules': modules}

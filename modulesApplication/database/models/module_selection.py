@@ -8,3 +8,4 @@ class ModuleSelection(models.Model):
     stage = models.IntegerField(null=False)
     entry_year = models.TextField(default=str(datetime.now().year))
     status = models.TextField()
+    programme = models.ForeignKey('Programme', models.CASCADE, default=None)
