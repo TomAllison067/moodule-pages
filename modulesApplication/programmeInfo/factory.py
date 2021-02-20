@@ -36,7 +36,7 @@ def populate_core_modules(modules_dict: Dict, programme: Programme, stages: int,
                             modules_dict[stage_key]['term1']['CORE'] += [module]
                         elif term == "2":
                             modules_dict[stage_key]['term2']['CORE'] += [module]
-                        elif term.upper() == "BOTH":
+                        elif term.upper() == "BOTH" or module.title.upper() == "YEAR IN INDUSTRY":
                             modules_dict[stage_key]['term1']['CORE'] += [module]
                             modules_dict[stage_key]['term2']['CORE'] += [module]
                         else:
