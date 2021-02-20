@@ -127,6 +127,7 @@
     {% endfor %}
     <input type="hidden" name="stage" value="{{ stage|slice:"-1:" }}">
     <input type="hidden" name="prog_code" value="{{ info.programme.prog_code }}">
+    <input type="hidden" name="entry_year" value="{{ info.entry_year }}">
     <label style="display:block; margin:auto; text-align: center;" for="student-id">Student ID:<br>
         <input style="display:block; margin:auto; color: black;" type="text" id="student-id" name="student-id" value=""><br>
     </label>

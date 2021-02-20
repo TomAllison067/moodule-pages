@@ -90,7 +90,9 @@ def submit_selection(request):
                                                 ), messages)
         stage = request.POST.get('stage')
         mod_codes = request.POST.getlist('module-selections')
-        selection, created = ModuleSelection.objects.get_or_create(student_id=student_id, stage=stage, status="PENDING")
+        entry_year = request.POST.get('entry_year')
+        selection, created = ModuleSelection.objects.get_or_create(
+            student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING")
         for m in mod_codes:
             module = Module.objects.get(mod_code=m)
             module.selections.add(selection)
