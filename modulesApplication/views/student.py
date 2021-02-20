@@ -95,21 +95,23 @@ def submit_selection(request):
             student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING")
         for m in mod_codes:
             module = Module.objects.get(mod_code=m)
-            module.selections.add(selection)
+            module.selected_in.add(selection)
         print(selection)
         print([m.title for m in selection.module_set.all()])
         print("Count:", ModuleSelection.objects.count())
         return HttpResponseRedirect(reverse("modulesApplication:submitted",
                                             kwargs={'student_id': student_id,
-                                                    'stage': stage}))
+                                                    'stage': stage,
+                                                    'entry_year': entry_year}))
     else:
         raise Http404
 
 
 @login_required
-def submitted(request, student_id, stage):
+def submitted(request, student_id, stage, entry_year):
     print(student_id)
-    selection = get_object_or_404(ModuleSelection, student_id=student_id, stage=stage, status="PENDING")
+    selection = get_object_or_404(
+        ModuleSelection, student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING")
     modules = selection.module_set.all()
     context = {'selection': selection,
                'modules': modules}
