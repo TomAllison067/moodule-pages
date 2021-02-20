@@ -1,10 +1,11 @@
 from django.core.exceptions import ValidationError
 from django.db.utils import IntegrityError
-from django.test import TransactionTestCase
+from django.test import TransactionTestCase, tag
 
 from modulesApplication.models import OptionRule, Programme
 
 
+@tag('integration')
 class TestOptionRule(TransactionTestCase):
     """
     Tests to create Option_rules table

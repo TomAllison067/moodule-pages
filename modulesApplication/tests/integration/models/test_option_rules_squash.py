@@ -1,9 +1,10 @@
-from django.test import TestCase
+from django.test import TestCase, tag
 
 from modulesApplication.models import OptionRule, Programme
 from modulesApplication.tests import utils
 
 
+@tag('integration', 'slow')
 class TestOptionRulesSquash(TestCase):
 
     def test_simple_squash_core_modules(self):

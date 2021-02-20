@@ -1,12 +1,14 @@
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError
-from django.test import TransactionTestCase
+from django.test import TransactionTestCase, tag
 
 from modulesApplication.models import Programme
 
 
+@tag('integration')
 class TestProgrammes(TransactionTestCase):
     """Test cases for the Programmes data model."""
+
     def test_no_duplicate_pks(self):
         """Tests that the primary key constraint behaves as expected."""
         Programme.objects.create(prog_code="1067", title="BSc Computer Science", level="BSC")
