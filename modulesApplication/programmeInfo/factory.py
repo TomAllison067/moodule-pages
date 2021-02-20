@@ -122,7 +122,7 @@ def get_programme_info(prog_code: str, entry_year: str) -> ProgrammeInfo:
     stages = 3
     if programme.yini:
         stages += 1
-    if programme.level == "MSCI":
+    if programme.level.upper() == "MSCI":
         stages += 1
     terms = 2
     modules_dict = {"stage{}".format(stage):

@@ -8,13 +8,13 @@ class TestQueries(TestCase):
         """
         Test to query and access values in the database
         """
-        newstrand = Strands.objects.create(module=Module.objects.first(), strand='CM')
-
-        Strands(module=Module.objects.first(),
+        m = Module.objects.create(mod_code="fake")
+        Strands.objects.create(module=m, strand='CM')
+        self.assertEqual(1, Strands.objects.count(), "One strands added.")
+        Strands(module=m,
                 strand='HH').save()  # saving new strand object, total number of record should be 2
-
-        new_module = Module(mod_code='CS7432')  # new Module object
-        new_module.save()  # saving new Module
+        self.assertEqual(2, Strands.objects.count(), "Two strands added.")
+        new_module = Module.objects.create(mod_code='CS7432')  # new Module object
         third_strand = Strands(module=new_module, strand='CM')  # new stand object
         third_strand.save()  # saving a new strand from the new module, total records should be 3 now
 
