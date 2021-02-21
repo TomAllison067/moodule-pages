@@ -1,30 +1,80 @@
-{% extends "modulesApplication/base.html" %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
 
-{% block title %} Choose Modules {% endblock %} <!-- Set the title -->
+    <title>Choose Modules</title>
+    <meta name="description" content="TBD">
+    <meta name="author" content="TBD">
 
-{% block css %}
-    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/choosemodules.css' %}">
-    {{ block.super }} <!-- Call the remainder of the CSS from base.html -->
-{% endblock %}
+    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
-<!-- Student links -->
-{% block sidebar-links %}
-    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
-            class="fas fa-home"></i>home</a></li>
-    <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
-        modules</a></li>
-    <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-        courses</a></li>
-{% endblock %}
+</head>
 
-<!-- Page content -->
-{% block content %}
+<!--
+  INSTRUCTIONS FROM KEIRU; DESIGNERS CAN THINK OF OTHER USEFUL IDEAS TOO:
+
+  <h1>Students Choose their modules here.</h1>
+  <h1>Message to Designers:</h1>
+  <ul>
+    <li>Please add basic UI to this page. (Footer, header, navbar, etc.) Kiki and I will be working on this page to allow students to choose modules.</li>
+  </ul>
+  <hr>
+  <h1>Message to Developers:</h1>
+  <ul>
+      <li>We can do this! :D</li>
+  </ul>
+
+-->
+
+<body>
+<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+<div id="overlay" onclick="quitClick() "></div>
+
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper">
+    <input type="checkbox" id="check">
+
+    <!-- SIDEBAR MENU -->
+    <div class="sidebar">
+        <header>
+            <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
+        </header>
+        <ul>
+            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a>
+            </li>
+            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                courses</a></li>
+        </ul>
+    </div>
+
+    <!-- TOP BAR -->
+    <nav class="topbar">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+        </label>
+        <label class="title"> moodule</label>
+        <div class="search-box">
+            <input class="search-txt" type="text" name="" placeholder="search">
+            <a class="search-btn" href="#">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
+
+        <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
+    </nav>
+
+    <!-- IMAGE BAR -->
     <div class="image-box">
         <div class="ib-content">
             <h2><i class="fas fa-book-open"></i> choose modules</h2> <br>
         </div>
     </div>
+
     <!-- FORM -->
     <div class="form-box">
         <div class="icon-img">
@@ -55,94 +105,133 @@
             <input type="submit" value="confirm">
             <br>
         </form>
+
     </div>
+</div>
+</body>
 
-    <!-- DROPDOWN SCRIPT -->
-    <script>
-        //from programmes table : title,prog_code
-        const programmes = {
-            "BSc Computer Science": "1067",
-            "BSc Computer Science with a Year in Industry": "2327",
-            "BSc Computer Science (Artificial Intelligence)": "1059",
-            "BSc Computer Science (Artificial Intelligence) with a Year in Industry": "2446",
-            "BSc Computer Science (Information Security)": "2675",
-            "BSc Computer Science (Information Security) with a Year in Industry": "2676",
-            "BSc Computer Science (Software Engineering)": "2843",
-            "BSc Computer Science (Software Engineering) with a Year in Industry": "2844",
-            "BSc Computer Science (Distributed and Networked Systems)": "3014",
-            "BSc Computer Science (Distributed and Networked Systems) with a Year in Industry": "3015",
-            "BSc Computer Science and Mathematics": "1069",
-            "BSc Computer Science with Management": "1062",
-            "BSc Computing Technologies": "3424",
-            "BSc Computing and Business": "1257",
-            "BSc Computer Science with Integrated Foundation Year": "3449",
-            "MSci Computer Science": "2686",
-            "MSci Computer Science with a Year in Industry": "2687",
-            "MSci Computer Science (Artificial Intelligence)": "2673",
-            "MSci Computer Science (Artificial Intelligence) with a Year in Industry": "2674",
-            "MSci Computer Science (Information Security)": "2677",
-            "MSci Computer Science (Information Security) with a Year in Industry": "2678",
-            "MSci Computer Science (Software Engineering)": "2845",
-            "MSci Computer Science (Software Engineering) with a Year in Industry": "2846",
-            "MSci Computer Science (Distributed and Networked Systems)": "3016",
-            "MSci Computer Science (Distributed and Networked Systems) with a Year in Industry": "3017"
-        };
+<!-- FOOTER - links will be added later -->
+<div class="footer">
+    <div class="row">
+        <div class="col">
+            <li>Royal Holloway, University of London</li>
+            <li>Egham, Surrey, TW20 0EX</li>
+        </div>
+        <div class="col">
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+        </div>
+        <div class="col">
+            <li>moodule@gmail.com</li>
+            <li>T: +44 (0)1784 434455</li>
+        </div>
+        <div class="row">
+            &copy; 2021 moodule.com | Designed by CS2815 Group 34
+        </div>
+</html>
 
-        const programmes_stage = {
-            "1067": "3",
-            "1059": "3",
-            "2675": "3",
-            "2843": "3",
-            "3014": "3",
-            "1069": "3",
-            "1062": "3",
-            "3424": "3",
-            "1257": "3",
-            "2327": "4",
-            "2844": "4",
-            "2676": "4",
-            "3015": "4",
-            "2446": "4",
-            "3449": "4",
-            "2686": "4",
-            "2673": "4",
-            "2677": "4",
-            "2845": "4",
-            "3016": "4",
-            "2687": "5",
-            "2678": "5",
-            "2674": "5",
-            "2846": "5",
-            "3017": "5"
+<!-- MENU OVERLAY SCRIPT -->
+<script>
+    var checkbox = document.querySelector("input[type=checkbox]");
+
+    checkbox.addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById("overlay").style.transition = '0.5s';
+            document.getElementById("overlay").style.display = "block";
+        } else {
+            document.getElementById("overlay").style.transition = '0.5s';
+            document.getElementById("overlay").style.display = "none";
         }
-        const stage = {
-            "Year One": "1",
-            "Year Two": "2",
-            "Year Three": "3",
-            "Year Four": "4",
-            "Year Five": "5"
-        };
+    });
+</script>
 
-        const programSel = document.getElementById("programme_filter");
-        const stageSel = document.getElementById("stage_filter");
+<!-- DROPDOWN SCRIPT -->
+<script>
+    //from programmes table : title,prog_code
+    const programmes = {
+        "BSc Computer Science": "1067",
+        "BSc Computer Science with a Year in Industry": "2327",
+        "BSc Computer Science (Artificial Intelligence)": "1059",
+        "BSc Computer Science (Artificial Intelligence) with a Year in Industry": "2446",
+        "BSc Computer Science (Information Security)": "2675",
+        "BSc Computer Science (Information Security) with a Year in Industry": "2676",
+        "BSc Computer Science (Software Engineering)": "2843",
+        "BSc Computer Science (Software Engineering) with a Year in Industry": "2844",
+        "BSc Computer Science (Distributed and Networked Systems)": "3014",
+        "BSc Computer Science (Distributed and Networked Systems) with a Year in Industry": "3015",
+        "BSc Computer Science and Mathematics": "1069",
+        "BSc Computer Science with Management": "1062",
+        "BSc Computing Technologies": "3424",
+        "BSc Computing and Business": "1257",
+        "BSc Computer Science with Integrated Foundation Year": "3449",
+        "MSci Computer Science": "2686",
+        "MSci Computer Science with a Year in Industry": "2687",
+        "MSci Computer Science (Artificial Intelligence)": "2673",
+        "MSci Computer Science (Artificial Intelligence) with a Year in Industry": "2674",
+        "MSci Computer Science (Information Security)": "2677",
+        "MSci Computer Science (Information Security) with a Year in Industry": "2678",
+        "MSci Computer Science (Software Engineering)": "2845",
+        "MSci Computer Science (Software Engineering) with a Year in Industry": "2846",
+        "MSci Computer Science (Distributed and Networked Systems)": "3016",
+        "MSci Computer Science (Distributed and Networked Systems) with a Year in Industry": "3017"
+    };
 
-        window.onload = function () {
-            for (let key in programmes) {
-                console.log(programmes[key])
-                programSel.options[programSel.options.length] = new Option(key, programmes[key]);
+    const programmes_stage = {
+        "1067": "3",
+        "1059": "3",
+        "2675": "3",
+        "2843": "3",
+        "3014": "3",
+        "1069": "3",
+        "1062": "3",
+        "3424": "3",
+        "1257": "3",
+        "2327": "4",
+        "2844": "4",
+        "2676": "4",
+        "3015": "4",
+        "2446": "4",
+        "3449": "4",
+        "2686": "4",
+        "2673": "4",
+        "2677": "4",
+        "2845": "4",
+        "3016": "4",
+        "2687": "5",
+        "2678": "5",
+        "2674": "5",
+        "2846": "5",
+        "3017": "5"
+    }
+    const stage = {
+        "Year One": "1",
+        "Year Two": "2",
+        "Year Three": "3",
+        "Year Four": "4",
+        "Year Five": "5"
+    };
+
+    const programSel = document.getElementById("programme_filter");
+    const stageSel = document.getElementById("stage_filter");
+
+    window.onload = function () {
+        for (let key in programmes) {
+            console.log(programmes[key])
+            programSel.options[programSel.options.length] = new Option(key, programmes[key]);
+        }
+    }
+
+    programSel.onchange = function () {
+        let programme = programSel.value
+        stageSel.length = 1;
+        for (let key in stage) {
+            console.log(programmes_stage[key])
+            stageSel.options[stageSel.options.length] = new Option(key, stage[key]);
+            if (stage[key] === programmes_stage[programme]) {
+                break
             }
         }
+    }
 
-        programSel.onchange = function () {
-            let programme = programSel.value
-            stageSel.length = 1;
-            for (let key in stage) {
-                console.log(programmes_stage[key])
-                stageSel.options[stageSel.options.length] = new Option(key, stage[key]);
-                if (stage[key] === programmes_stage[programme]) {
-                    break
-                }
-            }
-        }
-    </script>
-{% endblock %}
+</script>
+
