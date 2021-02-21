@@ -1,0 +1,67 @@
+.page-wrapper2 {
+    background: linear-gradient(to right, rgb(170, 170, 170), rgb(220, 220, 220), rgb(170, 170, 170));
+}
+
+.form-title {
+    display: block;
+    padding-top: 100px;
+    text-align: center;
+    color: black;
+}
+
+.form-title h1 {
+    color: black;
+}
+
+.form-content * {
+    color: black;
+}
+
+.grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 0.3fr));
+    grid-gap: 1px;
+    max-width: 100%;
+    padding: 0 1rem;
+}
+
+.grid-cell {
+
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.cell-title {
+    align-self: center;
+    position: relative;
+    margin-top: 0;
+}
+
+.cell-content {
+    align-self: center;
+    justify-self: center;
+}
+
+form#module-selection-form input[type = "submit"] {
+    background: orangered;
+    width: 80px;
+    height: 30px;
+    margin-top: 15px;
+    font-size: 15px;
+    padding: 3px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    transition: 0.15s;
+}
+
+form#module-selection-form input[type = "submit"]:hover {
+    background: rgb(255, 121, 63);
+    border: 2px white solid;
+    width: 90px;
+}

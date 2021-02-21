@@ -18,7 +18,7 @@
 <div id="overlay" onclick=""></div>
 
 <!-- PAGE WRAPPER -->
-<div class="page-wrapper" id="wrapper">
+<div class="not-wrapper" id="wrapper">
     <input type="checkbox" id="check">
     <input type="checkbox" id="avatar-check">
 
@@ -103,13 +103,15 @@
 
     </script>
     <!-- CONTENT GOES HERE -->
-    {% block content %}
 
-    {% endblock %}
 
 </div>
 
+<div class="page-wrapper2">
+    {% block content %}
 
+    {% endblock %}
+</div>
 <!-- FOOTER - links will be added later -->
 <div class="footer">
     <div class="row">
