@@ -3,13 +3,14 @@
 <html lang="en">
 
 <head>
-    <title> homepage </title>
+    <title>{% block title %}homepage{% endblock %}</title>
     <meta name="description" content="TBD">
     <meta name="author" content="TBD">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
-    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+        <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
+    {% endblock %}
 </head>
 
 <body>
@@ -26,14 +27,13 @@
         <header>
             <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
         </header>
-
         <ul>
-            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
-                    class="fas fa-home"></i>home</a></li>
-            <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
-                modules</a></li>
-            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-                courses</a></li>
+            {% block sidebar-links %} <!-- Let the links be subclassed if provided, otherwise this is the default.-->
+                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+                        class="fas fa-home"></i>student landing</a></li>
+                <li><a href="{% url 'modulesApplication:office-landing' %}" class="btn"><i
+                        class="fas fa-home"></i>office landing</a></li>
+            {% endblock %}
         </ul>
     </div>
 
@@ -46,44 +46,46 @@
         <a href="{% url 'modulesApplication:index' %}"><label class="title"> moodule</label></a>
 
         <div class="search-box">
-            <input class="search-txt" type="text" name="" placeholder="search">
+            <label for="search-box" style="display: none;">Search</label>
+            <input class="search-txt" type="text" id="search-box" placeholder="search">
             <a class="search-btn" href="#">
                 <i class="fas fa-search"></i>
             </a>
         </div>
 
         {% if user.is_authenticated %}
-        <div class="avatar-box">
-            <label for="avatar-check">
-                {% if user.avatar %}
-                <img src="{{ user.avatar }}">
-                {% else %}
-                <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}">
-                {% endif %}
-            </label>
-        </div>
+            <div class="avatar-box">
+                <label for="avatar-check">
+                    {% if user.avatar %}
+                        <img src="{{ user.avatar }}" alt="The user's avatar.">
+                    {% else %}
+                        <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}"
+                             alt="The Moodule logo.">
+                    {% endif %}
+                </label>
+            </div>
 
-        <div class="dropdown-ab-menu">
-            <ul>
-                <li class="username"> {{ user.name }}</li>
-                <li class="email"> {{ user.email }}</li>
-                <li class="sign-out">
-                    <a href="{% url 'logout' %}">
-                        <i class="fas fa-sign-out-alt"></i> Sign Out
-                    </a>
-                </li>
-            </ul>
-        </div>
+            <div class="dropdown-ab-menu">
+                <ul>
+                    <li class="username"> {{ user.username }}</li>
+                    <li class="email"> {{ user.email }}</li>
+                    <li class="sign-out">
+                        <a href="{% url 'logout' %}">
+                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                        </a>
+                    </li>
+                </ul>
+            </div>
         {% else %}
-        <div class="sign-in">
-            <a href="{% url 'login' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
-        </div>
+            <div class="sign-in">
+                <a href="{% url 'login' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
+            </div>
         {% endif %}
     </nav>
 
     <!-- MENU OVERLAY SCRIPT -->
     <script>
-        var checkbox = document.querySelector("input[type=checkbox]");
+        let checkbox = document.querySelector("input[type=checkbox]");
 
         checkbox.addEventListener('change', function () {
             if (this.checked) {
@@ -95,36 +97,45 @@
             }
         });
 
-    function changeStyle() {
-        document.getElementById("wrapper").className = "page-wrapper2";
-    }
+        function changeStyle() {
+            document.getElementById("wrapper").className = "page-wrapper2";
+        }
 
     </script>
-        {% block content %}
-        {% endblock %}
+    <!-- CONTENT GOES HERE -->
+    {% block content %}
+
+    {% endblock %}
 
 </div>
-</body>
+
 
 <!-- FOOTER - links will be added later -->
 <div class="footer">
     <div class="row">
         <div class="col">
-            <li>Royal Holloway, University of London</li>
-            <li>Egham, Surrey, TW20 0EX</li>
+            <ul>
+                <li>Royal Holloway, University of London</li>
+                <li>Egham, Surrey, TW20 0EX</li>
+            </ul>
         </div>
         <div class="col">
-            <li>Terms & Conditions</li>
-            <li>Privacy Policy</li>
+            <ul>
+                <li>Terms & Conditions</li>
+                <li>Privacy Policy</li>
+            </ul>
         </div>
         <div class="col">
-            <li>moodule@gmail.com</li>
-            <li>T: +44 (0)1784 434455</li>
+            <ul>
+
+                <li>moodule@gmail.com</li>
+                <li>T: +44 (0)1784 434455</li>
+            </ul>
         </div>
     </div>
     <div class="finalrow">
         &copy; 2021 moodule.com | Designed by CS2815 Group 34
     </div>
 </div>
-
+</body>
 </html>

@@ -1,163 +1,161 @@
-<!DOCTYPE html>
 {% extends "modulesApplication/base.html" %}
 {% load static %}
-<html lang="en">
 
-<head>
-    <title>Student Homepage</title>
-    <meta name="description" content="TBD">
-    <meta name="author" content="TBD">
+{% block title %}Student Homepage{% endblock %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
-    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-</head>
 
-<body>
-<!-- PAGE WRAPPER -->
-<div class="page-wrapper">
+{% block sidebar-links %}
+    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+            class="fas fa-home"></i>home</a></li>
+    <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
+        modules</a></li>
+    <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+        courses</a></li>
+{% endblock %}
 
-    {% block content %}
-    <!-- IMAGE SLIDER -->
-    <div class="slider">
-        <div class="slides">
+{% block content %}
+    <div class="page-wrapper">
+        <!-- IMAGE SLIDER -->
+        <div class="slider">
+            <div class="slides">
 
-            <!--RADIO BUTTONS -->
-            <input type="radio" name="radio-btn" id="radio1">
-            <input type="radio" name="radio-btn" id="radio2">
-            <input type="radio" name="radio-btn" id="radio3">
+                <!--RADIO BUTTONS -->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
 
-            <!-- SLIDE IMAGES -->
-            <div class="slide first">
-                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
-                <div class="slide-content">
-                    <h2> Welcome to moodule </h2> <br>
-                    <p> This is your online learning environment to access information about your chosen course with
-                        the
-                        given modules for the academic year 20/21.</p>
+                <!-- SLIDE IMAGES -->
+                <div class="slide first">
+                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                    <div class="slide-content">
+                        <h2> Welcome to moodule </h2> <br>
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
-                <div class="slide-content">
-                    <h2> Welcome to moodule </h2> <br>
-                    <p> This is your online learning environment to access information about your chosen course with
-                        the
-                        given modules for the academic year 20/21.</p>
+                <div class="slide">
+                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                    <div class="slide-content">
+                        <h2> Welcome to moodule </h2> <br>
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
-                <div class="slide-content">
-                    <h2> Welcome to moodule </h2> <br>
-                    <p> This is your online learning environment to access information about your chosen course with
-                        the
-                        given modules for the academic year 20/21.</p>
+                <div class="slide">
+                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                    <div class="slide-content">
+                        <h2> Welcome to moodule </h2> <br>
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- AUTOMATIC NAVIGATION OF SLIDES-->
-            <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-            </div>
+                <!-- AUTOMATIC NAVIGATION OF SLIDES-->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                </div>
 
+            </div>
+            <!--MANUAL NAVIGATION OF SLIDES-->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+            </div>
         </div>
-        <!--MANUAL NAVIGATION OF SLIDES-->
-        <div class="navigation-manual">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
+
+        <!-- LANDING PAGE CONTAINER -->
+        <div class="lp-container">
+
+            <!-- MY COURSES BOX -->
+            <div class="lp-box" id="lpc-bl">
+                <a href="#" class="b-btn">
+                    <h2> my courses</h2>
+                    <div class="lp-content">
+                        <h3> This term </h3>
+                        <!-- MESSAGE FOR THOSE HANDLING THE DATABASE (from neka):
+
+                    the li's are examples of what the listed modules would look like.
+                    should be a query request of the current stage and term of the student's
+                    modules (if they have been chosen).
+
+                    My assumption is that this will not be tested over an extensive time period,
+                    so we may be able to assume the CURRENT stage and term to be Year 1, Term 1;
+                    however it is good to still hold something to track the stage of time.
+
+                    Format of each listed item should be:
+                    [the module code]: [the module name]
+                    (these should be retrieved by the database)
+                    -->
+                        <div class="term-module-list">
+                            <ul>
+                                <li><i class="fas fa-book-reader"></i> CS3480: Software Language Engineering</li>
+                                <li><i class="fas fa-book-reader"></i> CS3490: Computational Optimisation</li>
+                                <li><i class="fas fa-book-reader"></i> CS3510: Functional Programming and Applications
+                                </li>
+                                <li><i class="fas fa-book-reader"></i> CS3846: Human-Computer Interaction</li>
+                                <li><i class="fas fa-book-reader"></i> IY3501: Security Management</li>
+                                <li><i class="fas fa-book-reader"></i> IY3606: Smart Cards/Token Security and
+                                    Applications
+                                </li>
+                                <li><i class="fas fa-book-reader"></i> IY3609: Digital Forensics</li>
+                                <li><i class="fas fa-book-reader"></i> IY3612: Cyber Security</li>
+                                <li><i class="fas fa-book-reader"></i> IY3840: Malicious Software</li>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- CHOOSE MODULES BOX -->
+            <div class="lp-box" id="lpb-cm">
+                <a href="{% url 'modulesApplication:choose-modules' %}" class="b-btn">
+                    <h2> choose modules </h2>
+                    <div class="lp-content" id="lpc-cm">
+                        <div class="icon-box">
+                            <i class="fas fa-book-open"></i> <br>
+                            <br>
+                            <hr class="solid">
+                            <br>
+                            <p> choose the available modules for each term, based on the choice of your course </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ALL COURSES BOX -->
+            <div class="lp-box" id="lpb-ac">
+                <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
+                    <h2> all courses </h2>
+                    <div class="lp-content" id="lpc-ac">
+                        <div class="icon-box">
+                            <i class="fas fa-book"></i> <br>
+                            <br>
+                            <hr class="solid">
+                            <br>
+                            <p> view the complete degree specification and requirements for all the available courses
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
+
+        <!-- AUTOMATIC NAVIGATION SCRIPT-->
+        <script>
+            let counter = 1;
+            setInterval(function () {
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if (counter > 4) {
+                    counter = 1;
+                }
+            }, 15000);
+        </script>
     </div>
-
-    <!-- LANDING PAGE CONTAINER -->
-    <div class="lp-container">
-
-        <!-- MY COURSES BOX -->
-        <div class="lp-box" id="lpc-bl">
-            <a href="#" class="b-btn">
-                <h2> my courses</h2>
-                <div class="lp-content">
-                    <h3> This term </h3>
-                    <!-- MESSAGE FOR THOSE HANDLING THE DATABASE (from neka):
-
-                the li's are examples of what the listed modules would look like.
-                should be a query request of the current stage and term of the student's
-                modules (if they have been chosen).
-
-                My assumption is that this will not be tested over an extensive time period,
-                so we may be able to assume the CURRENT stage and term to be Year 1, Term 1;
-                however it is good to still hold something to track the stage of time.
-
-                Format of each listed item should be:
-                [the module code]: [the module name]
-                (these should be retrieved by the database)
-                -->
-                    <div class="term-module-list">
-                        <li><i class="fas fa-book-reader"></i> CS3480: Software Language Engineering</li>
-                        <li><i class="fas fa-book-reader"></i> CS3490: Computational Optimisation</li>
-                        <li><i class="fas fa-book-reader"></i> CS3510: Functional Programming and Applications</li>
-                        <li><i class="fas fa-book-reader"></i> CS3846: Human-Computer Interaction</li>
-                        <li><i class="fas fa-book-reader"></i> IY3501: Security Management</li>
-                        <li><i class="fas fa-book-reader"></i> IY3606: Smart Cards/Token Security and Applications
-                        </li>
-                        <li><i class="fas fa-book-reader"></i> IY3609: Digital Forensics</li>
-                        <li><i class="fas fa-book-reader"></i> IY3612: Cyber Security</li>
-                        <li><i class="fas fa-book-reader"></i> IY3840: Malicious Software</li>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- CHOOSE MODULES BOX -->
-        <div class="lp-box" id="lpb-cm">
-            <a href="{% url 'modulesApplication:choose-modules' %}" class="b-btn">
-                <h2> choose modules </h2>
-                <div class="lp-content" id="lpc-cm">
-                    <div class="icon-box">
-                        <i class="fas fa-book-open"></i> <br>
-                        <br>
-                        <hr class="solid">
-                        <br>
-                        <p> choose the available modules for each term, based on the choice of your course </p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- ALL COURSES BOX -->
-        <div class="lp-box" id="lpb-ac">
-            <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
-                <h2> all courses </h2>
-                <div class="lp-content" id="lpc-ac">
-                    <div class="icon-box">
-                        <i class="fas fa-book"></i> <br>
-                        <br>
-                        <hr class="solid">
-                        <br>
-                        <p> view the complete degree specification and requirements for all the available courses
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-
-    <!-- AUTOMATIC NAVIGATION SCRIPT-->
-    <script>
-        var counter = 1;
-        setInterval(function () {
-            document.getElementById('radio' + counter).checked = true;
-            counter++;
-            if (counter > 4) {
-                counter = 1;
-            }
-        }, 15000);
-    </script>
-
-    {% endblock %}
-</div>
-</body>
-</html>
+{% endblock %}
