@@ -4,6 +4,31 @@ from modulesApplication.models import ModuleSelection, OptionRule, Strands
 class SelectionValidator:
     """
     A SelectionValidator can be used to validate whether a given ModuleSelection is valid or not.
+
+    Validation is (attempted) performed as such:
+
+    1. First, it checks that the correct number of CORE modules are selected. It assumes there is one CORE OptionRule,
+    which has all the mod_code_patterns for the CORE modules and the correct min/max quantity (min and max are
+    probably the same number).
+
+    2. Next, it checks the DISC_ALT rules. DISC_ALT OptionRules specify two modules, one as the default and one
+    as the discretionary alternative. It checks that one OR the other is selected. The selection is invalid if
+    both or neither modules are selected.
+
+    3. Next, it checks the STRAND rules. A selection is invalid if not enough STRAND modules are selected. If
+    too many are selected, the 'extra' STRAND modules are not checked against STRAND rules. Instead, they are
+    'carried over' into the OPTS check. For example, somebody on the AI course must select exactly two AI modules
+    in third year, but still has optional modules to select (some of which may happen to be AI modules as well),
+    and although this is over the quantity specified by the STRAND OptionRule it is still a valid selection.
+
+    4. Finally, it checks the OPTS rules. Any remaining modules are optional choices, and some of these optional
+    choices may be carried-over STRAND modules. If not enough or too many such modules are selected, the selection
+    is invalid.
+
+    As modules are "validated", they are added to a set and removed from the initial selected set. As a safety-net,
+    a selection is invalid if there are any modules remaining in this initial set (because the user may have selected
+    too many, or the module might be a 'rogue' module, or some other unforeseen bug - either way, any remaining
+    modules are invalid).
     """
 
     def __init__(self, selection: ModuleSelection):
