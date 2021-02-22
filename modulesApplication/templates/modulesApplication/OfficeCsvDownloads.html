@@ -5,6 +5,7 @@
     <title>Welcome Admininistration</title>
 </head>
 <body>
+
 <h2>Download csv files</h2>
 <ul>
     <button><a href="{% url 'modulesApplication:csv' 'Programme' %}" class="model">Programmes</a></button>
@@ -17,6 +18,8 @@
     {{ form }}
     <input type="submit" value="submit"/>
 </form>
-<p id="para"></p>
+{% if message %}
+    <p id="para">{{ message }}</p>
+{% endif %}
 </body>
 </html>

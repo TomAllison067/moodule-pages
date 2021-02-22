@@ -18,12 +18,15 @@ def csv(request):
 
         if form.is_valid():
             form.process_data(request.FILES['data_file'], request.POST['model'])
-            print(request.POST['model'])
-            # print(UploadedFile(request.FILES['data_file']).name)
-            return HttpResponseRedirect('/success/url/')
+            # print(request.POST['model'])
+            message = "database sucessfully updated"
+            return render(request, 'modulesApplication/OfficeCsvDownloads.html', {'form': CsvUploadForm(), 'message': message})
+
+
     else:
         form = CsvUploadForm()
-    return render(request, 'modulesApplication/OfficeCsvDownloads.html', {'form': form})
+        message  = ""
+    return render(request, 'modulesApplication/OfficeCsvDownloads.html', {'form': form, 'message': message})
 
 
 def csv_file(request, model_class):
