@@ -1,6 +1,7 @@
 from django.urls import path, include
 
 from modulesApplication.views import *
+
 app_name = 'modulesApplication'
 
 # All the student urls
@@ -10,7 +11,8 @@ student_patterns = [
     path('all-modules/sort/<int:sort>/', student.all_modules, name="filter-modules"),
     path('landing/', student.landing, name='student-landing'),
     path('choose-modules/', student.choose_modules, name='choose-modules'),
-    path('choose-modules/submitted/<str:student_id>/<str:stage>', student.submitted, name='submitted'),
+    path('choose-modules/submitted/<str:student_id>/<str:prog_code>/<str:entry_year>/<str:stage>',
+         student.submitted, name='submitted'),
     path('choose-modules/<str:prog_code>/<str:stage>/',
          student.choose_specific_modules, name='choose-specific-modules'),
     path('choose-modules/submit/', student.submit_selection, name='submit-selection'),

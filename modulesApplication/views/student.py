@@ -6,6 +6,7 @@ from django.urls import reverse
 
 from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
 from ..programmeInfo import factory
+from ..programmeInfo.selection_validator import SelectionValidator
 
 
 @login_required
@@ -89,25 +90,41 @@ def submit_selection(request):
                                                         'stage': request.POST.get('stage')}
                                                 ), messages)
         stage = request.POST.get('stage')
-        mod_codes = request.POST.getlist('module-selections')
-        selection, created = ModuleSelection.objects.get_or_create(student_id=student_id, stage=stage, status="PENDING")
+        mod_codes = set(request.POST.getlist('module-selections'))
+        print("POST form mod codes", mod_codes)
+        entry_year = request.POST.get('entry_year')
+        prog_code = request.POST.get('prog_code')
+        programme = Programme.objects.get(pk=prog_code)
+        ModuleSelection.objects.filter(student_id=student_id, stage=stage, entry_year=entry_year,
+                                       programme=programme).delete()
+        selection = ModuleSelection.objects.create(
+            student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme)
         for m in mod_codes:
             module = Module.objects.get(mod_code=m)
-            module.selections.add(selection)
-        print(selection)
-        print([m.title for m in selection.module_set.all()])
-        print("Count:", ModuleSelection.objects.count())
-        return HttpResponseRedirect(reverse("modulesApplication:submitted",
-                                            kwargs={'student_id': student_id,
-                                                    'stage': stage}))
+            module.selected_in.add(selection)
+        if SelectionValidator(selection).validate():
+            return HttpResponseRedirect(reverse("modulesApplication:submitted",
+                                                kwargs={'student_id': student_id,
+                                                        'stage': stage,
+                                                        'entry_year': entry_year,
+                                                        'prog_code': prog_code}))
+        else:
+            messages.add_message(request, messages.ERROR, "ERROR: Invalid selection.")
+            return HttpResponseRedirect(reverse("modulesApplication:choose-specific-modules",
+                                                kwargs={'prog_code': request.POST.get('prog_code'),
+                                                        'stage': request.POST.get('stage')}
+                                                ), messages)
     else:
         raise Http404
 
 
 @login_required
-def submitted(request, student_id, stage):
+def submitted(request, student_id, stage, entry_year, prog_code):
     print(student_id)
-    selection = get_object_or_404(ModuleSelection, student_id=student_id, stage=stage, status="PENDING")
+    programme = Programme.objects.get(pk=prog_code)
+    selection = get_object_or_404(
+        ModuleSelection,
+        student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme)
     modules = selection.module_set.all()
     context = {'selection': selection,
                'modules': modules}

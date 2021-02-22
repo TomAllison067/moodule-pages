@@ -18,7 +18,6 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="form-title">
         <h1> Your chosen programme is: {{ info.programme.title }} - Entry
             year: {{ info.entry_year }}</h1>
@@ -67,19 +66,19 @@
                                                         </li>
                                                     {% endfor %}
                                                 </ul>
-
                                             {% else %}
                                                 <p><em>The following modules may be taken in place of another at the
                                                     discretion of the
                                                     department.</em></p>
                                                 {% for sublist in modules %}
                                                     <li>
-                                                        <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }}
-                                                            - {{ sublist.1.title }}
-                                                            instead of {{ sublist.0.mod_code }}</label>
+                                                        <p>Instead of {{ sublist.0.mod_code }}:</p>
                                                         <input type="checkbox" id="{{ sublist.1.mod_code }}"
                                                                value="{{ sublist.1.mod_code }}" name="module-selections"
-                                                               class="module-checkbox">
+                                                               class="module-checkbox"
+                                                               onclick="selectDict_Alt({{ sublist.0.mod_code }}, {{ sublist.1.mod_code }})">
+                                                        <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }}
+                                                            - {{ sublist.1.title }} </label>
                                                     </li>
                                                 {% endfor %}
                                             {% endif %}
@@ -94,6 +93,7 @@
             </div>
             <input type="hidden" name="stage" value="{{ stage|slice:"-1:" }}">
             <input type="hidden" name="prog_code" value="{{ info.programme.prog_code }}">
+            <input type="hidden" name="entry_year" value="{{ info.entry_year }}">
             <label style="display:block; margin:auto; text-align: center;" for="student-id">Student ID:<br>
                 <input style="display:block; margin:auto; color: black;" type="text" id="student-id" name="student-id"
                        value=""><br>
@@ -114,6 +114,12 @@
             const bothElements = document.querySelectorAll(query);
             bothElements[1].disabled = bothElements[0].checked === true;
             bothElements[0].disabled = bothElements[1].checked === true;
+        }
+
+        function selectDict_Alt(initial, other) {
+            console.log(initial)
+            console.log(other)
+            initial.checked = initial.checked !== true;
         }
     </script>
 {% endblock %}
