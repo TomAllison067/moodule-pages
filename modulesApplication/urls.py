@@ -13,7 +13,7 @@ student_patterns = [
     path('choose-modules/', student.choose_modules, name='choose-modules'),
     path('choose-modules/submitted/<str:student_id>/<str:prog_code>/<str:entry_year>/<str:stage>',
          student.submitted, name='submitted'),
-    path('choose-modules/<str:prog_code>/<str:stage>/',
+    path('choose-modules/<str:prog_code>/<str:stage>/<str:entry_year>',
          student.choose_specific_modules, name='choose-specific-modules'),
     path('choose-modules/submit/', student.submit_selection, name='submit-selection'),
 ]

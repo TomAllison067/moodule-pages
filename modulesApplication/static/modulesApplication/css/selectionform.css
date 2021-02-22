@@ -9,7 +9,7 @@
     color: black;
 }
 
-.form-title h1 {
+.form-title h1, h2 {
     color: black;
 }
 
@@ -17,6 +17,10 @@
     color: black;
 }
 
+.rules * {
+    color: black;
+    text-align: center;
+}
 .grid {
     display: grid;
     justify-content: center;

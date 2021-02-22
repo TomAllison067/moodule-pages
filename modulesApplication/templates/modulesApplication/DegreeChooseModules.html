@@ -21,20 +21,58 @@
     <div class="form-title">
         <h1> Your chosen programme is: {{ info.programme.title }} - Entry
             year: {{ info.entry_year }}</h1>
+        <h2 style="text-align: center;"> Stage {{ stage|slice:"-1:" }}</h2>
     </div>
+    <div class="rules">
+        {% for k, v in info.rules_dict.items %}
+            {% if k == stage %}
+                <p>
+                    You are required to take:
+                </p>
+                <ul>
+                    {% for constraint, rules in v.items %}
+                        {% if constraint == 'CORE' %}
+                            {% for rule in rules %}
+                                <li>{{ rule.max_quantity }} core {% if rule.max_quantity == 1 %}module, which
+                                    is {% else %}modules, which are {% endif %}selected by default.
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                        {% if constraint == 'STRAND' %}
+                            {% for rule in rules %}
+                                <li>{{ rule.max_quantity }} modules beginning with {{ strand_prefixes.0 }}
+                                    {% if strand_prefixes|length == 2 %}
+                                        or {{ strand_prefixes.1 }}
+                                    {% endif %}
+                                    from the {{ strand }} strand.
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                        {% if constraint == 'OPTS' %}
+                            {% for rule in rules %}
+                                <li>{{ rule.max_quantity }} optional modules beginning with {{ opts_prefixes.0 }}
+                                    {% if opts_prefixes|length == 2 %}
+                                        or {{ opts_prefixes.1 }}{% endif %}.
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <br>
+    <hr>
     <div class="form-content">
         <form id="module-selection-form" action="{% url 'modulesApplication:submit-selection' %}" method="POST">
             {% csrf_token %}
             {% for k, v in info.modules_dict.items %}
                 {% if k == stage %}
-                    <h2 style="text-align: center;"> Stage {{ k|slice:"-1:" }}</h2>
-                    <br>
-                    <hr>
                     <div class="grid">
                     <!-- Terms -->
                     {% for term, constraints in v.items %}
                         {% if term != 'unknown' %}
-                            <div class="grid-cell">
+                            <div class="grid-cell" id="{{ term }}">
                                 <div class="cell-title">
                                     <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
                                 </div>
