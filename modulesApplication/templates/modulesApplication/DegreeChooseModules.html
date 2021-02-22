@@ -74,52 +74,55 @@
             <!-- Terms -->
             {% for term, constraints in v.items %}
                 {% if term != 'unknown' %}
-                <div class="grid-cell">
-                    <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
-                    {% for constraint, modules in constraints.items %}
-                        {% if modules|length > 0 %}
-                            <br>
-                            <h4>{{ constraint }}</h4>
-                            {% if constraint == "CORE" %}
-                                <!-- for Core modules, modules are selected and disabled-->
-                                {% for module in modules %}
-                                    <li><input type="checkbox" id="{{ module.mod_code }}"
-                                               value="{{ module.mod_code }}" name="module-selections"
-                                               class="module-checkbox" checked hidden>
-                                        <label for="{{ module.mod_code }}">{{ module.mod_code }}
-                                            - {{ module.title }}</label>
-                                    </li>
-                                {% endfor %}
-                            {% elif constraint != "DISC_ALT" %}
-                                <ul>
+                    <div class="grid-cell">
+                        <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
+                        {% for constraint, modules in constraints.items %}
+                            {% if modules|length > 0 %}
+                                <br>
+                                <h4>{{ constraint }}</h4>
+                                {% if constraint == "CORE" %}
+                                    <!-- for Core modules, modules are selected and disabled-->
                                     {% for module in modules %}
                                         <li><input type="checkbox" id="{{ module.mod_code }}"
                                                    value="{{ module.mod_code }}" name="module-selections"
-                                                   class="module-checkbox"
-                                                   onclick="selectOption('{{ module.mod_code }}')">
+                                                   class="module-checkbox" checked hidden>
                                             <label for="{{ module.mod_code }}">{{ module.mod_code }}
                                                 - {{ module.title }}</label>
                                         </li>
                                     {% endfor %}
-                                </ul>
+                                {% elif constraint != "DISC_ALT" %}
+                                    <ul>
+                                        {% for module in modules %}
+                                            <li><input type="checkbox" id="{{ module.mod_code }}"
+                                                       value="{{ module.mod_code }}" name="module-selections"
+                                                       class="module-checkbox"
+                                                       onclick="selectOption('{{ module.mod_code }}')">
+                                                <label for="{{ module.mod_code }}">{{ module.mod_code }}
+                                                    - {{ module.title }}</label>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
 
-                            {% else %}
-                                <p><em>The following modules may be taken in place of another at the discretion of the
-                                    department.</em></p>
-                                <br>
-                                {% for sublist in modules %}
-                                    <li>
-                                        <p>Instead of {{ sublist.0.mod_code }}:</p>
-                                        <input type="checkbox" id="{{ sublist.1.mod_code }}"
-                                               value="{{ sublist.1.mod_code }}" name="module-selections"
-                                               class="module-checkbox" onclick="selectDict_Alt({{ sublist.0.mod_code}}, {{sublist.1.mod_code }})">
-                                        <label for="{{ sublist.1.mod_code }}" >{{ sublist.1.mod_code }} - {{ sublist.1.title }} </label>
-                                    </li>
-                                {% endfor %}
+                                {% else %}
+                                    <p><em>The following modules may be taken in place of another at the discretion of
+                                        the
+                                        department.</em></p>
+                                    <br>
+                                    {% for sublist in modules %}
+                                        <li>
+                                            <p>Instead of {{ sublist.0.mod_code }}:</p>
+                                            <input type="checkbox" id="{{ sublist.1.mod_code }}"
+                                                   value="{{ sublist.1.mod_code }}" name="module-selections"
+                                                   class="module-checkbox"
+                                                   onclick="selectDict_Alt({{ sublist.0.mod_code }}, {{ sublist.1.mod_code }})">
+                                            <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }}
+                                                - {{ sublist.1.title }} </label>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                </div>
+                        {% endfor %}
+                    </div>
                 {% endif %}
             {% endfor %}
         {% endif %}
@@ -139,24 +142,13 @@
     function selectOption(mod_code) {
         const query = '[id="' + mod_code + '"]'
         const bothElements = document.querySelectorAll(query);
-        if (bothElements[0].checked === true) {
-            bothElements[1].disabled = true;
-        } else {
-            bothElements[1].disabled = false;
-        }
-        if (bothElements[1].checked === true) {
-            bothElements[0].disabled = true;
-        } else {
-            bothElements[0].disabled = false;
-        }
+        bothElements[1].disabled = bothElements[0].checked === true;
+        bothElements[0].disabled = bothElements[1].checked === true;
     }
+
     function selectDict_Alt(initial, other) {
         console.log(initial)
         console.log(other)
-        if (initial.checked == true){
-            initial.checked = false
-        }else{
-            initial.checked = true
-        }
+        initial.checked = initial.checked !== true;
     }
 </script>
