@@ -40,9 +40,11 @@ class SelectionValidator:
             count = 0
             core_rule = self._rules['CORE'][0]
             patterns = set(core_rule.mod_code_pattern.split(","))
+            checked = set()
             for mod_code in self._modules_selected:
                 if mod_code in patterns:
                     count += 1
+            self._modules_selected = self._modules_selected.difference(checked)
             return core_rule.min_quantity <= count <= core_rule.max_quantity
         return True
 
@@ -56,10 +58,16 @@ class SelectionValidator:
                 patterns = rule.mod_code_pattern.split(",")
                 core = patterns[0]
                 alt = patterns[1]
+                checked = set()
                 if core in self._modules_selected and alt in self._modules_selected:
                     return False  # If both are selected, this is invalid.
-                elif not (core in self._modules_selected or alt in self._modules_selected):
-                    return False  # If neither are selected, this is invalid.
+                elif core in self._modules_selected:
+                    checked.add(core)
+                elif alt in self._modules_selected:
+                    checked.add(alt)
+                else:
+                    return False  # If neither are in, this is invalid.
+                self._modules_selected = self._modules_selected.difference(checked)
         return True  # If there are no DISC_ALT rules, then this check passes by default.
 
     def validate_strand_rules(self):
@@ -71,9 +79,12 @@ class SelectionValidator:
                 patterns = rule.mod_code_pattern.split(",")
                 strand = patterns[0]
                 mod_code_patterns = tuple(set(patterns[1:]))
+                checked = set()
                 for mod_code in self._modules_selected:
                     if mod_code.startswith(mod_code_patterns) and Strands.objects.get(module=mod_code, strand=strand):
                         count += 1
+                        checked.add(mod_code)
                 if not rule.min_quantity <= count <= rule.max_quantity:
                     return False
+                self._modules_selected = self._modules_selected.difference(checked)
         return True

@@ -9,16 +9,9 @@ class TestSelectionValidator(TestCase):
     def test_simple_selection_is_valid(self):
         """Assert that a simple made up stage 1 selection is correct - i.e, core modules."""
         p1 = Programme.objects.create(prog_code="p1", level="BSc")
-        valid_selection = ModuleSelection.objects.create(
+        selection = ModuleSelection.objects.create(
             student_id="foo",
             stage=1,
-            entry_year="2019",
-            status="PENDING",
-            programme=p1
-        )
-        invalid_selection = ModuleSelection.objects.create(
-            student_id="bar",
-            stage="1",
             entry_year="2019",
             status="PENDING",
             programme=p1
@@ -39,15 +32,13 @@ class TestSelectionValidator(TestCase):
         )
 
         # The valid selection contains both core modules.
-        cm1.selected_in.add(valid_selection)
-        cm2.selected_in.add(valid_selection)
+        cm1.selected_in.add(selection)
+        cm2.selected_in.add(selection)
 
-        # The invalid selection contains only one of the core modules.
-        validator = SelectionValidator(valid_selection)
-        self.assertTrue(validator.validate(), "A valid selection should return True.")
+        self.assertTrue(SelectionValidator(selection).validate(), "A valid selection should return True.")
 
-        validator = SelectionValidator(invalid_selection)
-        self.assertFalse(validator.validate(), "An invalid selection should return False.")
+        cm2.selected_in.remove(selection)
+        self.assertFalse(SelectionValidator(selection).validate(), "An invalid selection should return False.")
 
     def test_simple_selection_with_disc_alts(self):
         p1 = Programme.objects.create(prog_code="p1", level="BSc")
@@ -132,4 +123,4 @@ class TestSelectionValidator(TestCase):
                         "A selection with the correct number of strand modules is valid.")
         ai3.selected_in.add(selection)
         self.assertFalse(SelectionValidator(selection).validate(),
-                        "A selection with too many strand modules is invalid.")
+                         "A selection with too many strand modules is invalid.")
