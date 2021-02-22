@@ -21,6 +21,10 @@
     color: black;
     text-align: center;
 }
+
+.rules ul.bulletpoint {
+    list-style-type: circle;
+}
 .grid {
     display: grid;
     justify-content: center;

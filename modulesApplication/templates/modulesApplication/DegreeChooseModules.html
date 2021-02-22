@@ -33,14 +33,14 @@
                     {% for constraint, rules in v.items %}
                         {% if constraint == 'CORE' %}
                             {% for rule in rules %}
-                                <li>{{ rule.max_quantity }} core {% if rule.max_quantity == 1 %}module, which
+                                <li>• {{ rule.max_quantity }} core {% if rule.max_quantity == 1 %}module, which
                                     is {% else %}modules, which are {% endif %}selected by default.
                                 </li>
                             {% endfor %}
                         {% endif %}
-                        {% if constraint == 'STRAND' %}
+                        {% if constraint == 'STRAND' and strand != None %}
                             {% for rule in rules %}
-                                <li>{{ rule.max_quantity }} modules beginning with {{ strand_prefixes.0 }}
+                                <li>• {{ rule.max_quantity }} modules beginning with {{ strand_prefixes.0 }}
                                     {% if strand_prefixes|length == 2 %}
                                         or {{ strand_prefixes.1 }}
                                     {% endif %}
@@ -50,7 +50,7 @@
                         {% endif %}
                         {% if constraint == 'OPTS' %}
                             {% for rule in rules %}
-                                <li>{{ rule.max_quantity }} optional modules beginning with {{ opts_prefixes.0 }}
+                                <li>• {{ rule.max_quantity }} optional modules beginning with {{ opts_prefixes.0 }}
                                     {% if opts_prefixes|length == 2 %}
                                         or {{ opts_prefixes.1 }}{% endif %}.
                                 </li>

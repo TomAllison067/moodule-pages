@@ -135,7 +135,8 @@ def submit_selection(request):
             messages.add_message(request, messages.ERROR, "ERROR: Invalid selection.")
             return HttpResponseRedirect(reverse("modulesApplication:choose-specific-modules",
                                                 kwargs={'prog_code': request.POST.get('prog_code'),
-                                                        'stage': request.POST.get('stage')}
+                                                        'stage': request.POST.get('stage'),
+                                                        'entry_year': entry_year}
                                                 ), messages)
     else:
         raise Http404
