@@ -80,6 +80,7 @@ def choose_specific_modules(request, prog_code, stage, entry_year):
             raise Http404
         strand = strand_prefixes = ''
         opts_prefixes = ''
+        # TODO: Make this more general (eg Maths + CompSci have more than one rule for this bit) + put it in factory?
         if int(stage) > 1:
             try:
                 strand_pattern = OptionRule.objects.get(prog_code=prog_code, constraint_type='STRAND',

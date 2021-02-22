@@ -11,7 +11,7 @@ def get_term(module: Module):
             course_leaders = CourseLeader.objects.filter(module=ModuleVariant.objects.get(minor=module).major)
         except ModuleVariant.DoesNotExist:
             course_leaders = None
-    term = course_leaders.first().term if course_leaders else "Unknown"
+    term = course_leaders.first().term if course_leaders else "unknown"
     return term
 
 
@@ -79,8 +79,8 @@ def populate_opts_modules(modules_dict, rules_dict, programme, stages, entry_yea
                 query = Module.objects.filter(mod_code__startswith=pattern)
                 for module in query:
                     if module.status == "ACTIVE" and module in optional_modules \
-                            and (module not in modules_dict[stage_key]['term1']['CORE'] or module not in
-                                 modules_dict[stage_key]['term2']['CORE']):
+                            and not (module in modules_dict[stage_key]['term1']['CORE'] or module in
+                                     modules_dict[stage_key]['term2']['CORE']):
                         term = get_term(module)
                         if term == "1":
                             modules_dict[stage_key]['term1']['OPTS'] += [module]
@@ -110,8 +110,8 @@ def populate_strand_modules(modules_dict, rules_dict, programme, stages, entry_y
             for pattern in patterns:
                 query = Module.objects.filter(strands__strand=strand, mod_code__startswith=pattern)
                 for module in query:
-                    if module.status == "ACTIVE" and (
-                            module not in modules_dict[stage_key]['term1']['CORE'] or module not in
+                    if module.status == "ACTIVE" and not (
+                            module in modules_dict[stage_key]['term1']['CORE'] or module in
                             modules_dict[stage_key]['term2']['CORE']):
                         term = get_term(module)
                         if term == "1":
