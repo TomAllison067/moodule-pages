@@ -1,6 +1,6 @@
 from django.test import TestCase, tag
 
-from modulesApplication.models import ModuleSelection, Programme, Module, OptionRule
+from modulesApplication.models import ModuleSelection, Programme, Module, OptionRule, Strands
 from modulesApplication.programmeInfo.selection_validator import SelectionValidator
 
 
@@ -103,3 +103,33 @@ class TestSelectionValidator(TestCase):
         alt_m1.selected_in.add(selection)
         self.assertFalse(SelectionValidator(selection).validate(),
                          "A selection with core modules but both of DISC_ALT should return False.")
+
+    def test_simple_strand_selection(self):
+        """Tests the Strand OptionRules. This test covers STRAND modules without any OPTS patterns, i.e., stage 2.
+        Stage 3 & beyond may have crossover between OPTS and STRAND modules, which is covered in later tests."""
+        p1 = Programme.objects.create(prog_code="p1", level="BSc")
+        ai1 = Module.objects.create(mod_code="cs21", title="Artificial Intelligence")
+        ai2 = Module.objects.create(mod_code="cs22", title="Artificial Unintelligence")
+        ai3 = Module.objects.create(mod_code="cs23", title="Artificial Redundancy")
+        Strands.objects.create(module=ai1, strand="AI")
+        Strands.objects.create(module=ai2, strand="AI")
+        Strands.objects.create(module=ai3, strand="AI")
+        OptionRule.objects.create(
+            prog_code=p1, mod_code_pattern="AI,cs2,iy2", constraint_type="STRAND", stage=2, entry_year='2019',
+            min_quantity=2, max_quantity=2)
+        selection = ModuleSelection.objects.create(
+            student_id="foo",
+            stage=2,
+            entry_year="2019",
+            status="PENDING",
+            programme=p1
+        )
+        ai1.selected_in.add(selection)
+        self.assertFalse(SelectionValidator(selection).validate(),
+                         "A selection with too few strand modules is valid.")
+        ai2.selected_in.add(selection)
+        self.assertTrue(SelectionValidator(selection).validate(),
+                        "A selection with the correct number of strand modules is valid.")
+        ai3.selected_in.add(selection)
+        self.assertFalse(SelectionValidator(selection).validate(),
+                        "A selection with too many strand modules is invalid.")
