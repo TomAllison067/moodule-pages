@@ -109,11 +109,11 @@
                                 <br>
                                 {% for sublist in modules %}
                                     <li>
-                                        <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }} - {{ sublist.1.title }}
-                                            instead of {{ sublist.0.mod_code }}</label>
+                                        <p>Instead of {{ sublist.0.mod_code }}:</p>
                                         <input type="checkbox" id="{{ sublist.1.mod_code }}"
                                                value="{{ sublist.1.mod_code }}" name="module-selections"
-                                               class="module-checkbox">
+                                               class="module-checkbox" onclick="selectDict_Alt({{ sublist.0.mod_code}}, {{sublist.1.mod_code }})">
+                                        <label for="{{ sublist.1.mod_code }}" >{{ sublist.1.mod_code }} - {{ sublist.1.title }} </label>
                                     </li>
                                 {% endfor %}
                             {% endif %}
@@ -148,6 +148,15 @@
             bothElements[0].disabled = true;
         } else {
             bothElements[0].disabled = false;
+        }
+    }
+    function selectDict_Alt(initial, other) {
+        console.log(initial)
+        console.log(other)
+        if (initial.checked == true){
+            initial.checked = false
+        }else{
+            initial.checked = true
         }
     }
 </script>
