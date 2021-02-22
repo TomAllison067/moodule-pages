@@ -29,7 +29,7 @@ class SelectionValidator:
         :return: True if the modules selected are valid for the student's degree, entry year and stage.
         False otherwise.
         """
-        return self.validate_core_rules()
+        return self.validate_core_rules() and self.validate_disc_alt_rules()
 
     def validate_core_rules(self) -> bool:
         count = 0
@@ -39,3 +39,19 @@ class SelectionValidator:
             if mod_code in patterns:
                 count += 1
         return core_rule.min_quantity <= count <= core_rule.max_quantity
+
+    def validate_disc_alt_rules(self) -> bool:
+        rules = self._rules.get('DISC_ALT')
+        if rules:
+            for rule in rules:
+                count = 0
+                patterns = rule.mod_code_pattern.split(",")
+                core = patterns[0]
+                alt = patterns[1]
+                if core in self._modules_selected:
+                    count += 1
+                if alt in self._modules_selected:
+                    count += 1
+                if not rule.min_quantity <= count <= rule.max_quantity:
+                    return False
+        return True
