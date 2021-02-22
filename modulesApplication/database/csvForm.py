@@ -3,7 +3,8 @@ import csv
 from django import forms
 import io
 from ..models import Programme, Module, ModuleSelection, People
-from modulesApplication.database.csv_reader import CsvReader
+from ..programmeInfo import csv_converter
+
 
 # MODEL_CHOICES =(
 #     ("Programme", Programme),
@@ -28,7 +29,10 @@ class CsvUploadForm(forms.Form):
     def process_data(self, file, model):
 
         model_class = models[model]
-        model_class.objects.all().delete()
+        # model_class.objects.all().delete()
+        headers = (csv_converter.get_headers(model_class))
+        headers.remove(model_class._meta.pk.name)
+
         result = []
         f = io.TextIOWrapper(file)
         reader = csv.DictReader(f, delimiter=',', quotechar='"')
@@ -39,4 +43,5 @@ class CsvUploadForm(forms.Form):
                     attributes[key] = int(value)
             tmp = model_class(*attributes.values())
             result.append(tmp)
-        model_class.objects.bulk_create(result)
+        for field in headers:
+            model_class.objects.bulk_update(result, [field])
