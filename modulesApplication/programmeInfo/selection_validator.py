@@ -29,7 +29,8 @@ class SelectionValidator:
         :return: True if the modules selected are valid for the student's degree, entry year and stage.
         False otherwise.
         """
-        return self.validate_core_rules() and self.validate_disc_alt_rules() and self.validate_strand_rules()
+        return self.validate_core_rules() and self.validate_disc_alt_rules() and self.validate_strand_rules() and \
+            self.validate_opts_rules()
 
     def validate_core_rules(self) -> bool:
         """Validates the modules selected against the CORE OptionRules."""
@@ -82,6 +83,23 @@ class SelectionValidator:
                 checked = set()
                 for mod_code in self._modules_selected:
                     if mod_code.startswith(mod_code_patterns) and Strands.objects.get(module=mod_code, strand=strand):
+                        count += 1
+                        checked.add(mod_code)
+                if not rule.min_quantity <= count <= rule.max_quantity:
+                    return False
+                self._modules_selected = self._modules_selected.difference(checked)
+        return True
+
+    def validate_opts_rules(self):
+        """Validate the OPTS rules."""
+        rules = self._rules.get('OPTS')
+        if rules:
+            for rule in rules:
+                count = 0
+                mod_code_patterns = tuple(set(rule.mod_code_pattern.split(",")))
+                checked = set()
+                for mod_code in self._modules_selected:
+                    if mod_code.startswith(mod_code_patterns):
                         count += 1
                         checked.add(mod_code)
                 if not rule.min_quantity <= count <= rule.max_quantity:
