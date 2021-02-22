@@ -10,6 +10,7 @@ class SelectionValidator:
         self._selection = selection
         self._rules = self.get_rules()
         self._modules_selected = set([m.mod_code for m in self._selection.module_set.all()])
+        self._confirmed = set()
 
     def get_rules(self):
         query = OptionRule.objects.filter(
@@ -29,8 +30,9 @@ class SelectionValidator:
         :return: True if the modules selected are valid for the student's degree, entry year and stage.
         False otherwise.
         """
-        return self.validate_core_rules() and self.validate_disc_alt_rules() and self.validate_strand_rules() and \
-            self.validate_opts_rules()
+        valid = self.validate_core_rules() and self.validate_disc_alt_rules() and self.validate_strand_rules() and \
+            self.validate_opts_rules() and len(self._modules_selected) == 0
+        return valid
 
     def validate_core_rules(self) -> bool:
         """Validates the modules selected against the CORE OptionRules."""
@@ -41,11 +43,11 @@ class SelectionValidator:
             count = 0
             core_rule = self._rules['CORE'][0]
             patterns = set(core_rule.mod_code_pattern.split(","))
-            checked = set()
             for mod_code in self._modules_selected:
                 if mod_code in patterns:
                     count += 1
-            self._modules_selected = self._modules_selected.difference(checked)
+                    self._confirmed.add(mod_code)
+            self._modules_selected = self._modules_selected.difference(self._confirmed)
             return core_rule.min_quantity <= count <= core_rule.max_quantity
         return True
 
@@ -59,16 +61,15 @@ class SelectionValidator:
                 patterns = rule.mod_code_pattern.split(",")
                 core = patterns[0]
                 alt = patterns[1]
-                checked = set()
                 if core in self._modules_selected and alt in self._modules_selected:
                     return False  # If both are selected, this is invalid.
                 elif core in self._modules_selected:
-                    checked.add(core)
+                    self._confirmed.add(core)
                 elif alt in self._modules_selected:
-                    checked.add(alt)
+                    self._confirmed.add(alt)
                 else:
                     return False  # If neither are in, this is invalid.
-                self._modules_selected = self._modules_selected.difference(checked)
+                self._modules_selected = self._modules_selected.difference(self._confirmed)
         return True  # If there are no DISC_ALT rules, then this check passes by default.
 
     def validate_strand_rules(self):
@@ -80,14 +81,15 @@ class SelectionValidator:
                 patterns = rule.mod_code_pattern.split(",")
                 strand = patterns[0]
                 mod_code_patterns = tuple(set(patterns[1:]))
-                checked = set()
                 for mod_code in self._modules_selected:
-                    if mod_code.startswith(mod_code_patterns) and Strands.objects.get(module=mod_code, strand=strand):
+                    if mod_code.startswith(mod_code_patterns)\
+                            and Strands.objects.filter(module__mod_code__startswith=mod_code, strand=strand)\
+                            and count + 1 <= rule.max_quantity:  # Any overlaps will be checked by OPTS.
                         count += 1
-                        checked.add(mod_code)
+                        self._confirmed.add(mod_code)
                 if not rule.min_quantity <= count <= rule.max_quantity:
                     return False
-                self._modules_selected = self._modules_selected.difference(checked)
+                self._modules_selected = self._modules_selected.difference(self._confirmed)
         return True
 
     def validate_opts_rules(self):
@@ -97,12 +99,11 @@ class SelectionValidator:
             for rule in rules:
                 count = 0
                 mod_code_patterns = tuple(set(rule.mod_code_pattern.split(",")))
-                checked = set()
                 for mod_code in self._modules_selected:
                     if mod_code.startswith(mod_code_patterns):
                         count += 1
-                        checked.add(mod_code)
+                        self._confirmed.add(mod_code)
                 if not rule.min_quantity <= count <= rule.max_quantity:
                     return False
-                self._modules_selected = self._modules_selected.difference(checked)
+                self._modules_selected = self._modules_selected.difference(self._confirmed)
         return True

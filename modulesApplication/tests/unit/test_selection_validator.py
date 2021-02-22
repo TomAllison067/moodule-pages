@@ -88,9 +88,9 @@ class TestSelectionValidator(TestCase):
         self.assertFalse(SelectionValidator(self.selection).validate(),
                          "A selection with core modules but both of DISC_ALT should return False.")
 
-    def test_simple_strand_selection(self):
-        """Tests the Strand OptionRules. This test covers STRAND modules without any OPTS patterns, i.e., stage 2.
-        Stage 3 & beyond may have crossover between OPTS and STRAND modules, which is covered in later tests."""
+    def test_strand_selection(self):
+        """Tests the Strand OptionRules. This test begins with a simple selection of only STRANDS modules,
+        and then tests whether extra STRAND modules can successfully 'spill over' into OPTS."""
         ai1 = Module.objects.create(mod_code="cs21", title="Artificial Intelligence")
         ai2 = Module.objects.create(mod_code="cs22", title="Artificial Unintelligence")
         ai3 = Module.objects.create(mod_code="iy23", title="Artificial Redundancy")
@@ -101,14 +101,33 @@ class TestSelectionValidator(TestCase):
             prog_code=self.p1, mod_code_pattern="AI,cs2,iy2", constraint_type="STRAND", stage=1, entry_year='2019',
             min_quantity=2, max_quantity=2)
         ai1.selected_in.add(self.selection)
+
+        # Not selecting enough STRAND modules should return False.
         self.assertFalse(SelectionValidator(self.selection).validate(),
                          "A selection with too few strand modules is valid.")
+
+        # Selecting the correct number of STRAND modules should return True.
         ai2.selected_in.add(self.selection)
         self.assertTrue(SelectionValidator(self.selection).validate(),
                         "A selection with the correct number of strand modules is valid.")
+
+        # Selecting too many STRAND modules with no further OPTS rules to accommodate the extra returns False.
         ai3.selected_in.add(self.selection)
         self.assertFalse(SelectionValidator(self.selection).validate(),
-                         "A selection with too many strand modules is invalid.")
+                         "A selection with too many strand modules is invalid if extra are not also in OPTS.")
+
+        # Adding an OPTS option rule should now cover the extra STRANDS module.
+        OptionRule.objects.create(
+            prog_code=self.p1, mod_code_pattern="cs2,iy2", constraint_type="OPTS", stage=1, entry_year='2019',
+            min_quantity=1, max_quantity=1
+        )
+        self.assertTrue(SelectionValidator(self.selection).validate(),
+                        "A selection with too many strand modules is VALID if the remainder is in opts.")
+
+        # Finally, another optional module will go over the OPTS quantity and so should return false.
+        extra_opts = Module.objects.create(mod_code="cs2manymodules", title="aint gonna need it")
+        extra_opts.selected_in.add(self.selection)
+        self.assertFalse(SelectionValidator(self.selection).validate())
 
     def test_simple_opts_selection(self):
         """Tests that a selection of simple OPTS modules is correct, not considering any STRANDS that may overlap."""
