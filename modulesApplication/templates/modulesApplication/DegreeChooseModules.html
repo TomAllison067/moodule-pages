@@ -63,7 +63,7 @@
     </div>
     <br>
     <hr>
-    <div class="form-content" onload="foo()">
+    <div class="form-content">
         <form id="module-selection-form" action="{% url 'modulesApplication:submit-selection' %}" method="POST">
             {% csrf_token %}
             {% for k, v in info.modules_dict.items %}
@@ -71,64 +71,65 @@
                     <div class="grid">
                     <!-- Terms -->
                     {% for term, constraints in v.items %}
-                        <div class="grid-cell" id="{{ term }}">
-                            <div class="cell-title">
-                                {% if term != 'unknown' %}
-                                    <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
-                                {% else %}
-                                    <h3>Unknown</h3>
-                                {% endif %}
-                            </div>
-                            <div class="cell-content">
-                                {% for constraint, modules in constraints.items %}
-                                    {% if modules|length > 0 %}
-                                        <br>
-                                        <h4>{{ constraint }}</h4>
-                                        {% if constraint == "CORE" %}
-                                            <!-- for Core modules, modules are selected and disabled-->
-                                            {% for module in modules %}
-                                                <li><input type="checkbox"
-                                                           id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
-                                                           value="{{ module.mod_code }}" name="module-selections"
-                                                           class="module-checkbox" checked hidden>
-                                                    <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
-                                                        - {{ module.title }}</label>
-                                                </li>
-                                            {% endfor %}
-                                        {% elif constraint != "DISC_ALT" %}
-                                            <ul>
+                        {% if constraints.has_modules %}
+                            <div class="grid-cell" id="{{ term }}">
+                                <div class="cell-title">
+                                    {% if term != 'unknown' %}
+                                        <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
+                                    {% else %}
+                                        <h3>Unknown</h3>
+                                    {% endif %}
+                                </div>
+                                <div class="cell-content">
+                                    {% for constraint, modules in constraints.items %}
+                                        {% if modules|length > 0 %}
+                                            <br>
+                                            <h4>{{ constraint }}</h4>
+                                            {% if constraint == "CORE" %}
+                                                <!-- for Core modules, modules are selected and disabled-->
                                                 {% for module in modules %}
                                                     <li><input type="checkbox"
                                                                id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
-                                                               value="{{ module.mod_code }}"
-                                                               name="module-selections"
-                                                               class="module-checkbox">
+                                                               value="{{ module.mod_code }}" name="module-selections"
+                                                               class="module-checkbox" checked hidden>
                                                         <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
                                                             - {{ module.title }}</label>
                                                     </li>
                                                 {% endfor %}
-                                            </ul>
-                                        {% else %}
-                                            <p><em>The following modules may be taken in place of another at the
-                                                discretion of the
-                                                department.</em></p>
-                                            {% for sublist in modules %}
-                                                <li>
-                                                    <p>Instead of {{ sublist.0.mod_code }}:</p>
-                                                    <input type="checkbox" id="{{ sublist.1.mod_code }}"
-                                                           value="{{ sublist.1.mod_code }}" name="module-selections"
-                                                           class="module-checkbox"
-                                                           onclick="selectDict_Alt({{ sublist.0.mod_code }}, {{ sublist.1.mod_code }})">
-                                                    <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }}
-                                                        - {{ sublist.1.title }} </label>
-                                                </li>
-                                            {% endfor %}
+                                            {% elif constraint != "DISC_ALT" %}
+                                                <ul>
+                                                    {% for module in modules %}
+                                                        <li><input type="checkbox"
+                                                                   id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
+                                                                   value="{{ module.mod_code }}"
+                                                                   name="module-selections"
+                                                                   class="module-checkbox">
+                                                            <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
+                                                                - {{ module.title }}</label>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% else %}
+                                                <p><em>The following modules may be taken in place of another at the
+                                                    discretion of the
+                                                    department.</em></p>
+                                                {% for sublist in modules %}
+                                                    <li>
+                                                        <p>Instead of {{ sublist.0.mod_code }}:</p>
+                                                        <input type="checkbox" id="{{ sublist.1.mod_code }}"
+                                                               value="{{ sublist.1.mod_code }}" name="module-selections"
+                                                               class="module-checkbox"
+                                                               onclick="selectDict_Alt({{ sublist.0.mod_code }}, {{ sublist.1.mod_code }})">
+                                                        <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }}
+                                                            - {{ sublist.1.title }} </label>
+                                                    </li>
+                                                {% endfor %}
+                                            {% endif %}
                                         {% endif %}
-                                    {% endif %}
-                                {% endfor %}
+                                    {% endfor %}
+                                </div>
                             </div>
-                        </div>
-
+                        {% endif %}
                     {% endfor %}
                 {% endif %}
             {% endfor %}
@@ -151,21 +152,29 @@
         </form>
     </div>
     <script>
+        // Initial modules selected per term
         let term1Count = 0;
         let term2Count = 0;
 
+        // Add selectOption event listener to all non-core modules
         const notCoreCheckboxes = document.querySelectorAll("input[type='checkbox']:not([id$='CORE'])");
         for (let i = 0; i < notCoreCheckboxes.length; i++) {
             notCoreCheckboxes[i].addEventListener("click", selectOption);
         }
 
+        // Get all core modules (disabled checkboxes ticked by default) and add them to relevant term count
         const coreCheckboxes = document.querySelectorAll("input[type='checkbox'][id$='CORE']");
-        for (let i = 0; i < coreCheckboxes.length; i++){
+        for (let i = 0; i < coreCheckboxes.length; i++) {
             let term = coreCheckboxes[i].id.split('-')[1];
             if (term === "term1") term1Count++;
             else if (term === "term2") term2Count++;
         }
 
+        /**
+         * Handles selecting a module. It increments/decrements the relevant counter of selected modules by term, and
+         * also handles selecting/deselecting duplicate modules (i.e, OPTS modules that are also STRAND and vice versa).
+         * @param event the event fired by a checkbox being clicked on.
+         */
         function selectOption(event) {
             let thisBox = event.currentTarget;
             let mod_code = thisBox.value;
