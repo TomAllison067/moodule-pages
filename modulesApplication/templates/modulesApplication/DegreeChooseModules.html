@@ -1,5 +1,4 @@
 {% extends "modulesApplication/base.html" %}
-
 {% block title %}{{ info.programme.title }} - {{ info.entry_year }}{% endblock %}
 
 {% block css %}
@@ -54,6 +53,11 @@
                                     {% if opts_prefixes|length == 2 %}
                                         or {{ opts_prefixes.1 }}{% endif %}.
                                 </li>
+                            {% endfor %}
+                        {% endif %}
+                        {% if constraint == 'DISC_ALT' %}
+                            {% for rule in rules %}
+                                <li> • {{rule.mod_code_pattern|slice:":6" }} as a further core module, or {{ rule.mod_code_pattern|slice:"7:"}} at the discretion of the department.</li>
                             {% endfor %}
                         {% endif %}
                     {% endfor %}
