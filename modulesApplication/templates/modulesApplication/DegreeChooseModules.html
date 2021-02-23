@@ -63,7 +63,7 @@
     </div>
     <br>
     <hr>
-    <div class="form-content">
+    <div class="form-content" onload="foo()">
         <form id="module-selection-form" action="{% url 'modulesApplication:submit-selection' %}" method="POST">
             {% csrf_token %}
             {% for k, v in info.modules_dict.items %}
@@ -87,22 +87,23 @@
                                         {% if constraint == "CORE" %}
                                             <!-- for Core modules, modules are selected and disabled-->
                                             {% for module in modules %}
-                                                <li><input type="checkbox" id="{{ module.mod_code }}"
+                                                <li><input type="checkbox"
+                                                           id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
                                                            value="{{ module.mod_code }}" name="module-selections"
                                                            class="module-checkbox" checked hidden>
-                                                    <label for="{{ module.mod_code }}">{{ module.mod_code }}
+                                                    <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
                                                         - {{ module.title }}</label>
                                                 </li>
                                             {% endfor %}
                                         {% elif constraint != "DISC_ALT" %}
                                             <ul>
                                                 {% for module in modules %}
-                                                    <li><input type="checkbox" id="{{ module.mod_code }}"
+                                                    <li><input type="checkbox"
+                                                               id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
                                                                value="{{ module.mod_code }}"
                                                                name="module-selections"
-                                                               class="module-checkbox"
-                                                               onclick="selectOption('{{ module.mod_code }}')">
-                                                        <label for="{{ module.mod_code }}">{{ module.mod_code }}
+                                                               class="module-checkbox">
+                                                        <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
                                                             - {{ module.title }}</label>
                                                     </li>
                                                 {% endfor %}
@@ -150,11 +151,44 @@
         </form>
     </div>
     <script>
-        function selectOption(mod_code) {
-            const query = '[id="' + mod_code + '"]'
-            const bothElements = document.querySelectorAll(query);
-            bothElements[1].disabled = bothElements[0].checked === true;
-            bothElements[0].disabled = bothElements[1].checked === true;
+        let term1Count = 0;
+        let term2Count = 0;
+
+        const notCoreCheckboxes = document.querySelectorAll("input[type='checkbox']:not([id$='CORE'])");
+        for (let i = 0; i < notCoreCheckboxes.length; i++) {
+            notCoreCheckboxes[i].addEventListener("click", selectOption);
+        }
+
+        const coreCheckboxes = document.querySelectorAll("input[type='checkbox'][id$='CORE']");
+        for (let i = 0; i < coreCheckboxes.length; i++){
+            let term = coreCheckboxes[i].id.split('-')[1];
+            if (term === "term1") term1Count++;
+            else if (term === "term2") term2Count++;
+        }
+
+        function selectOption(event) {
+            let thisBox = event.currentTarget;
+            let mod_code = thisBox.value;
+            const query = '[id^="' + mod_code + '"]'  // Wildcard matches all checkboxes with starting ID of this mod code
+            const elements = document.querySelectorAll(query);
+            let term = thisBox.id.split('-')[1];
+            if (thisBox.checked && ((term === "term1" && term1Count === 4) || (term === "term2" && term2Count === 4))) {
+                console.log("here");
+                thisBox.checked = false;
+            } else {
+                if (elements.length === 2) {  // Some modules don't have duplicates, causing errors in console
+                    elements[1].disabled = elements[0].checked === true;
+                    elements[0].disabled = elements[1].checked === true;
+                }
+                if (term === "term1") {
+                    term1Count = thisBox.checked ? term1Count + 1 : term1Count - 1;
+                    console.log(term + " : " + term1Count);
+                }
+                if (term === "term2") {
+                    term2Count = thisBox.checked ? term2Count + 1 : term2Count - 1;
+                    console.log(term + " : " + term2Count);
+                }
+            }
         }
 
         function selectDict_Alt(initial, other) {
