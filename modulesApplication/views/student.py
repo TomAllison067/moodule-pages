@@ -119,8 +119,8 @@ def submit_selection(request):
         entry_year = request.POST.get('entry_year')
         prog_code = request.POST.get('prog_code')
         programme = Programme.objects.get(pk=prog_code)
-        ModuleSelection.objects.filter(student_id=student_id, stage=stage, entry_year=entry_year,
-                                       programme=programme).delete()
+        ModuleSelection.objects.filter(
+            student_id=student_id).delete()  # Delete any existing selections (should only be one!)
         selection = ModuleSelection.objects.create(
             student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme)
         for m in mod_codes:
@@ -153,6 +153,21 @@ def submitted(request, student_id, stage, entry_year, prog_code):
     modules = selection.module_set.all()
     context = {'selection': selection,
                'modules': modules}
+    return render(request, 'modulesApplication/ViewStudentSelection.html', context=context)
+
+
+@login_required
+def my_selection(request):
+    """A view for the student to see their current ModuleSelection object."""
+    selection = get_object_or_404(
+        ModuleSelection,
+        student_id=request.user.id
+    )
+    modules = selection.module_set.all()
+    context = {
+        'selection': selection,
+        'modules': modules
+    }
     return render(request, 'modulesApplication/ViewStudentSelection.html', context=context)
 
 

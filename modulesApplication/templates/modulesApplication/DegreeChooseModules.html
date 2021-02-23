@@ -14,6 +14,8 @@
         modules</a></li>
     <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
         courses</a></li>
+    <li><a href="{% url 'modulesApplication:my-selection' %}" class="btn"><i class="fas fa-book-open"></i>my
+        selection</a></li>
 {% endblock %}
 
 {% block content %}
@@ -57,7 +59,9 @@
                         {% endif %}
                         {% if constraint == 'DISC_ALT' %}
                             {% for rule in rules %}
-                                <li> • {{rule.mod_code_pattern|slice:":6" }} as a further core module, or {{ rule.mod_code_pattern|slice:"7:"}} at the discretion of the department.</li>
+                                <li> • {{ rule.mod_code_pattern|slice:":6" }} as a further core module,
+                                    or {{ rule.mod_code_pattern|slice:"7:" }} at the discretion of the department.
+                                </li>
                             {% endfor %}
                         {% endif %}
                     {% endfor %}
@@ -141,9 +145,10 @@
             <input type="hidden" name="stage" value="{{ stage|slice:"-1:" }}">
             <input type="hidden" name="prog_code" value="{{ info.programme.prog_code }}">
             <input type="hidden" name="entry_year" value="{{ info.entry_year }}">
-            <label style="display:block; margin:auto; text-align: center;" for="student-id">Student ID:<br>
-                <input style="display:block; margin:auto; color: black;" type="text" id="student-id" name="student-id"
-                       value=""><br>
+            <label style="display:block; margin:auto; text-align: center;" for="student-id">Student
+                ID: {{ user.id }}<br>
+                <input type="hidden" id="student-id" name="student-id"
+                       value="{{ user.id }}"><br>
             </label>
             {% if messages %}
                 {% for message in messages %}

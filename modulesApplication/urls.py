@@ -16,6 +16,7 @@ student_patterns = [
     path('choose-modules/<str:prog_code>/<str:stage>/<str:entry_year>',
          student.choose_specific_modules, name='choose-specific-modules'),
     path('choose-modules/submit/', student.submit_selection, name='submit-selection'),
+    path('my-selection', student.my_selection, name='my-selection')
 ]
 
 academic_patterns = []  # example
