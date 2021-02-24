@@ -1,9 +1,47 @@
-<h1>Student ID: {{ selection.student_id }} </h1>
-<h2>Stage: {{ selection.stage }}</h2>
-<h3>Status: {{ selection.status }}</h3>
-<ul>
-{% for module in modules %}
-    <li>{{ module.mod_code }} - {{ module.title }}</li>
-    {% endfor %}
-</ul>
+{% extends "modulesApplication/base.html" %}
 
+{% block title %} My Selection {% endblock %}
+
+{% block sidebar-links %}
+    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+            class="fas fa-home"></i>home</a></li>
+    <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
+        modules</a></li>
+    <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+        courses</a></li>
+    <li><a href="{% url 'modulesApplication:my-selection' %}" class="btn"><i class="fas fa-book-open"></i>my
+        selection</a></li>
+{% endblock %}
+
+{% block content %}
+    <style>
+        .page-wrapper2 {
+            background: linear-gradient(to right, rgb(170, 170, 170), rgb(220, 220, 220), rgb(170, 170, 170));
+        }
+
+        * {
+            color: black;
+        }
+
+        h1, h2, h3, h4 {
+            color: black !important;
+        }
+    </style>
+    <div class="main-content">
+        <h2>Student ID: {{ selection.student_id }} </h2>
+        <h3>Selection ID: {{ selection.id }}</h3>
+        <hr>
+        <h3>Degree Title: {{ selection.programme.title }}</h3>
+        <h3>Stage: {{ selection.stage }}</h3>
+        <h3>Entry year: {{ selection.entry_year }}</h3>
+        <hr>
+        <h3>Status: {{ selection.status }}</h3>
+        <hr>
+        <h4>Modules selected: </h4>
+        <ul>
+            {% for module in modules %}
+                <li>{{ module.mod_code }} - {{ module.title }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

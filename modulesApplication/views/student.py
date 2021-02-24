@@ -4,8 +4,9 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
+from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant, OptionRule
 from ..programmeInfo import factory
+from ..programmeInfo.selection_validator import SelectionValidator
 
 
 @login_required
@@ -59,22 +60,46 @@ def choose_modules(request):
     if request.method == "POST":
         prog_code = request.POST.get('programme')
         stage = request.POST.get('stage')
+        entry_year = request.POST.get('entry_year') or '2019'
         if prog_code is None or stage is None:
             return HttpResponseRedirect(reverse("modulesApplication:choose-modules"))
-        url = reverse('modulesApplication:choose-specific-modules', kwargs={'prog_code': prog_code, 'stage': stage})
+        url = reverse('modulesApplication:choose-specific-modules',
+                      kwargs={'prog_code': prog_code,
+                              'stage': stage,
+                              'entry_year': entry_year})
         return HttpResponseRedirect(url)
     return render(request, 'modulesApplication/StudentChooseModules.html')
 
 
 @login_required
-def choose_specific_modules(request, prog_code, stage):
+def choose_specific_modules(request, prog_code, stage, entry_year):
     if request.method == "GET":
         try:
-            info = factory.get_programme_info(prog_code, entry_year='2019')
+            info = factory.get_programme_info(prog_code, entry_year=entry_year)
         except Programme.DoesNotExist:
             raise Http404
+        strand = strand_prefixes = ''
+        opts_prefixes = ''
+        # TODO: Make this more general (eg Maths + CompSci have more than one rule for this bit) + put it in factory?
+        if int(stage) > 1:
+            try:
+                strand_pattern = OptionRule.objects.get(prog_code=prog_code, constraint_type='STRAND',
+                                                        entry_year=entry_year, stage=stage).mod_code_pattern.split(',')
+                strand = strand_pattern[0]
+                strand_prefixes = strand_pattern[1:]
+            except OptionRule.DoesNotExist:
+                strand = strand_prefixes = None
+            try:
+                opts_prefixes = OptionRule.objects.get(prog_code=prog_code, constraint_type='OPTS',
+                                                       entry_year=entry_year, stage=stage).mod_code_pattern.split(',')
+            except OptionRule.DoesNotExist:
+                opts_prefixes = None
         context = {'info': info,
-                   'stage': "stage{}".format(stage)}
+                   'stage': "stage{}".format(stage),
+                   'strand': strand,
+                   'strand_prefixes': strand_prefixes,
+                   'opts_prefixes': opts_prefixes
+                   }
         return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
 
 
@@ -89,28 +114,60 @@ def submit_selection(request):
                                                         'stage': request.POST.get('stage')}
                                                 ), messages)
         stage = request.POST.get('stage')
-        mod_codes = request.POST.getlist('module-selections')
-        selection, created = ModuleSelection.objects.get_or_create(student_id=student_id, stage=stage, status="PENDING")
+        mod_codes = set(request.POST.getlist('module-selections'))
+        print("POST form mod codes", mod_codes)
+        entry_year = request.POST.get('entry_year')
+        prog_code = request.POST.get('prog_code')
+        programme = Programme.objects.get(pk=prog_code)
+        ModuleSelection.objects.filter(
+            student_id=student_id).delete()  # Delete any existing selections (should only be one!)
+        selection = ModuleSelection.objects.create(
+            student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme)
         for m in mod_codes:
             module = Module.objects.get(mod_code=m)
-            module.selections.add(selection)
-        print(selection)
-        print([m.title for m in selection.module_set.all()])
-        print("Count:", ModuleSelection.objects.count())
-        return HttpResponseRedirect(reverse("modulesApplication:submitted",
-                                            kwargs={'student_id': student_id,
-                                                    'stage': stage}))
+            module.selected_in.add(selection)
+        if SelectionValidator(selection).validate():
+            return HttpResponseRedirect(reverse("modulesApplication:submitted",
+                                                kwargs={'student_id': student_id,
+                                                        'stage': stage,
+                                                        'entry_year': entry_year,
+                                                        'prog_code': prog_code}))
+        else:
+            messages.add_message(request, messages.ERROR, "ERROR: Invalid selection.")
+            return HttpResponseRedirect(reverse("modulesApplication:choose-specific-modules",
+                                                kwargs={'prog_code': request.POST.get('prog_code'),
+                                                        'stage': request.POST.get('stage'),
+                                                        'entry_year': entry_year}
+                                                ), messages)
     else:
         raise Http404
 
 
 @login_required
-def submitted(request, student_id, stage):
+def submitted(request, student_id, stage, entry_year, prog_code):
     print(student_id)
-    selection = get_object_or_404(ModuleSelection, student_id=student_id, stage=stage, status="PENDING")
+    programme = Programme.objects.get(pk=prog_code)
+    selection = get_object_or_404(
+        ModuleSelection,
+        student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme)
     modules = selection.module_set.all()
     context = {'selection': selection,
                'modules': modules}
+    return render(request, 'modulesApplication/ViewStudentSelection.html', context=context)
+
+
+@login_required
+def my_selection(request):
+    """A view for the student to see their current ModuleSelection object."""
+    selection = get_object_or_404(
+        ModuleSelection,
+        student_id=request.user.id
+    )
+    modules = selection.module_set.all()
+    context = {
+        'selection': selection,
+        'modules': modules
+    }
     return render(request, 'modulesApplication/ViewStudentSelection.html', context=context)
 
 

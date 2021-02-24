@@ -125,10 +125,9 @@
             <li>moodule@gmail.com</li>
             <li>T: +44 (0)1784 434455</li>
         </div>
-    </div class="row">
-    &copy; 2021 moodule.com | Designed by CS2815 Group 34
-</div>
-</div>
+        <div class="row">
+            &copy; 2021 moodule.com | Designed by CS2815 Group 34
+        </div>
 </html>
 
 <!-- MENU OVERLAY SCRIPT -->
@@ -223,16 +222,25 @@
     }
 
     programSel.onchange = function () {
-        programme = programSel.value
+        let programme = programSel.value
         stageSel.length = 1;
         for (let key in stage) {
             console.log(programmes_stage[key])
             stageSel.options[stageSel.options.length] = new Option(key, stage[key]);
-            if (stage[key] == programmes_stage[programme]) {
+            if (stage[key] === programmes_stage[programme]) {
                 break
             }
         }
     }
+    window.addEventListener("pageshow", function (event) {
+        let reloaded = event.persisted ||
+            (typeof window.performance != "undefined"&&
+                              window.performance.navigation.type >= 2);
+        if (reloaded) {
+            // Handle page restore.
+            window.location.reload();
+        }
+    });
 
 </script>
 

@@ -1,12 +1,13 @@
 from io import StringIO
 
 from django.core.management import call_command
-from django.test import TestCase
+from django.test import tag, TestCase
 
 from modulesApplication.models import *
 from modulesApplication.tests.resources import expected
 
 
+@tag('slow', 'integration')
 class TestCustomCommands(TestCase):
     def test_import_test_data(self):
         """
@@ -24,4 +25,3 @@ class TestCustomCommands(TestCase):
         self.assertEqual(expected.EXPECTED_PEOPLE, People.objects.count())
         self.assertEqual(expected.EXPECTED_COURSE_LEADERS, CourseLeader.objects.count())
         self.assertEqual(expected.EXPECTED_MODULE_VARIANTS, ModuleVariant.objects.count())
-
