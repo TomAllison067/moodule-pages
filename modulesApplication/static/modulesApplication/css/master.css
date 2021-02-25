@@ -4,7 +4,7 @@
 
 /* --[[ HTML, BODY ]]-- */
 html, body {
-    background: white;
+    background: linear-gradient(rgb(196, 196, 196), rgb(180, 180, 180) );
     margin: 0;
     padding: 0;
 
@@ -41,7 +41,6 @@ html, body {
 
 .page-wrapper2 {
     min-height: 100%;
-    background: linear-gradient(rgb(196, 196, 196), rgb(180, 180, 180) );
     background-size: 400% 400%;
 }
 
@@ -352,7 +351,7 @@ html, body {
     color: white;
     text-align: center;
     line-height: 70px;
-    background: rgb(38, 38, 38);
+    background: rgb(15, 15, 15);
     user-select: none;
 }
 
@@ -375,7 +374,7 @@ html, body {
     padding-left: 20px;
     box-sizing: border-box;
     border-top: 1px solid rgba(255, 255, 255, .1);
-    border-bottom: 4px solid rgb(38, 38, 38);
+    border-bottom: 4px solid rgb(15, 15, 15);
     transition: all .25s;
 }
 

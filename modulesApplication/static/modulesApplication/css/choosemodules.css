@@ -20,13 +20,11 @@
 
 .image-box{
     position: relative;
-    background: linear-gradient(-50deg, orange, orangered, purple);
+    background: linear-gradient(-50deg, rgb(155, 101, 0), rgb(137, 36, 0), rgb(38, 0, 38));
     background-size: 400% 400%;
     opacity: 100%;
     width: 100%;
     height: 120px;
-    animation: ib-gradient 10s ease infinite;
-    border-radius: 5px;
     overflow: hidden;
 }
 
@@ -43,7 +41,7 @@
 .ib-content h2 {
     padding: 5px;
     margin: 15px 0;
-    font-size: 20px;
+    font-size: 26px;
     color: white;
     background: rgba(30,30,30,0);
     border-left: 5px orangered solid;
@@ -74,11 +72,12 @@
     padding: 20px;
     width: 80%;
     height: 80%;
-    background: rgba(0,0,0, 0.55);
+    background: rgba(130, 130, 130, 0.25);
     position: relative;
     border-radius: 5px;
     box-sizing: border-box;
     border-top: 5px solid orangered;
+    color: black;
 }
 
 .icon-img {
@@ -109,15 +108,27 @@
 form#form_id h1 {
     font-size: 30px;
     border-bottom: 2px solid orangered;
+    color: black;
     margin-top: 10px;
     margin-bottom: 15px;
+}
+
+form#form_id .ul h2 {
+    color: black;
+}
+
+
+
+form#form_id label {
+    font-size: 17px;
+    color: black;
 }
 
 form#form_id .dropdown {
     padding: 3px;
     border-radius: 5px;
     margin-top: 2px;
-    font-size: 14px;
+    font-size: 18px;
     margin-bottom: 15px;
     width: 75%;
     background: rgb(38, 38, 38);
@@ -137,7 +148,7 @@ form#form_id .dropdown:hover {
 form#form_id select option, select option {
     padding: 3px;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 18px;
     background: rgb(38, 38, 38);
     color: white;
     font-family: 'Nunito', sans-serif;
@@ -147,9 +158,9 @@ form#form_id select option, select option {
 form#form_id input[type = "submit"]  {
     background: orangered;
     width: 80px;
-    height: 30px;
+    height: 33px;
     margin-top: 15px;
-    font-size: 15px;
+    font-size: 18px;
     padding: 3px;
     border-radius: 5px;
     border: none;
