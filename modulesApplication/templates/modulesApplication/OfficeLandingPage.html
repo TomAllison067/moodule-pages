@@ -1,149 +1,144 @@
-<!DOCTYPE html>
 {% extends "modulesApplication/base.html" %}
 {% load static %}
-<html lang="en" xmlns="http://www.w3.org/1999/html">
 
-<head>
-    <title>Office Landing Page</title>
-    <meta name="description" content="TBD">
-    <meta name="author" content="TBD">
+{% block title %}Office Landing Page{% endblock %}
 
+{% block css %}
+    {{ block.super }}
+    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
-    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-</head>
-
-<body>
-<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
-<div id="overlay" onclick=""></div>
-
-<!-- PAGE WRAPPER -->
-<div class="page-wrapper">
-
-    {% block content %}
-    <!-- IMAGE SLIDER -->
-    <div class="slider">
-        <div class="slides">
-
-            <!--RADIO BUTTONS -->
-            <input type="radio" name="radio-btn" id="radio1">
-            <input type="radio" name="radio-btn" id="radio2">
-            <input type="radio" name="radio-btn" id="radio3">
-
-            <!-- SLIDE IMAGES -->
-            <div class="slide first">
-                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
-                <div class="slide-content">
-                    <h2> Welcome to moodule </h2> <br>
-                    <p> This is the online learning environment to access information about students' chosen courses
-                        with
-                        the given modules for the academic year 20/21.</p>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
-                <div class="slide-content">
-                    <h2> Welcome to moodule </h2> <br>
-                    <p> Insert Standard Text here</p>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
-                <div class="slide-content">
-                    <h2> Welcome to moodule </h2> <br>
-                    <p> Insert Standard Text here</p>
-                </div>
-            </div>
-
-            <!-- AUTOMATIC NAVIGATION OF SLIDES-->
-            <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-            </div>
-
-        </div>
-        <!--MANUAL NAVIGATION OF SLIDES-->
-        <div class="navigation-manual">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
-        </div>
-    </div>
-
-    <!-- AUTOMATIC NAVIGATION SCRIPT-->
-    <script>
-        var counter = 1;
-        setInterval(function () {
-            document.getElementById('radio' + counter).checked = true;
-            counter++;
-            if (counter > 4) {
-                counter = 1;
-            }
-        }, 15000);
-    </script>
-
-    <!-- MENU OVERLAY SCRIPT -->
-    <script>
-        var checkbox = document.querySelector("input[type=checkbox]");
-
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                document.getElementById("overlay").style.transition = '0.5s';
-                document.getElementById("overlay").style.display = "block";
-            } else {
-                document.getElementById("overlay").style.transition = '0.5s';
-                document.getElementById("overlay").style.display = "none";
-            }
-        });
-    </script>
-
-    <!-- LANDING PAGE CONTAINER -->
-    <div class="lp-container">
-
-        <!-- VIEW STUDENTS & CSVs BOX -->
-        <div class="lp-box" id="lpb-cm">
-
-            {#<!--            The contents of the href are: {% url '#'%} without the full stop of course--> #}
-            <a href="" class="b-btn">
-                <h2> Downloadable CSVs </h2>
-                <div class="lp-content" id="lpc-cm">
-                    <div class="lp-content" style="padding: 10px;">
-
-                        <div class="term-module-list">
-                            <ul>
-                                <li><a href="{% url 'modulesApplication:csv' 'Programme' %}">All Programmes</a></li>
-                                <li><a href="{% url 'modulesApplication:csv' 'Module'%}"> All Modules</a></li>
-                                <li><a href="{% url 'modulesApplication:csv' 'ModuleSelection'%}">Student module change
-                                    requests</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- ALL COURSES BOX -->
-        <div class="lp-box" id="lpb-ac">
-            <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
-                <h2> All courses </h2>
-                <div class="lp-content" id="lpc-ac">
-                    <div class="icon-box">
-                        <i class="fas fa-book"></i> <br>
-                        <br>
-                        <hr class="solid">
-                        <br>
-                        <p> View the complete degree specification and requirements for all the available courses
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-</body>
 {% endblock %}
 
-</div>
 
-</html>
+{% block sidebar-links %}
+    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+            class="fas fa-home"></i>home</a></li>
+    <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
+        modules</a></li>
+    <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+        courses</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- IMAGE SLIDER -->
+        <div class="slider">
+            <div class="slides">
+
+                <!--RADIO BUTTONS -->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+
+                <!-- SLIDE IMAGES -->
+                <div class="slide first">
+                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                    <div class="slide-content">
+                        <h2> Welcome to moodule </h2> <br>
+                        <p> This is the online learning environment to access information about students' chosen courses
+                            with
+                            the given modules for the academic year 20/21.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                    <div class="slide-content">
+                        <h2> Welcome to moodule </h2> <br>
+                        <p> Insert Standard Text here</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
+                    <div class="slide-content">
+                        <h2> Welcome to moodule </h2> <br>
+                        <p> Insert Standard Text here</p>
+                    </div>
+                </div>
+
+                <!-- AUTOMATIC NAVIGATION OF SLIDES-->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                </div>
+
+            </div>
+            <!--MANUAL NAVIGATION OF SLIDES-->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+            </div>
+        </div>
+
+        <!-- AUTOMATIC NAVIGATION SCRIPT-->
+        <script>
+            var counter = 1;
+            setInterval(function () {
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if (counter > 4) {
+                    counter = 1;
+                }
+            }, 15000);
+        </script>
+
+        <!-- MENU OVERLAY SCRIPT -->
+        <script>
+            var checkbox = document.querySelector("input[type=checkbox]");
+
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    document.getElementById("overlay").style.transition = '0.5s';
+                    document.getElementById("overlay").style.display = "block";
+                } else {
+                    document.getElementById("overlay").style.transition = '0.5s';
+                    document.getElementById("overlay").style.display = "none";
+                }
+            });
+        </script>
+
+        <!-- LANDING PAGE CONTAINER -->
+        <div class="lp-container">
+
+            <!-- VIEW STUDENTS & CSVs BOX -->
+            <div class="lp-box" id="lpb-cm">
+
+                {#<!--            The contents of the href are: {% url '#'%} without the full stop of course--> #}
+                <a href="" class="b-btn">
+                    <h2> Downloadable CSVs </h2>
+                    <div class="lp-content" id="lpc-cm">
+                        <div class="lp-content" style="padding: 10px;">
+
+                            <div class="term-module-list">
+                                <ul>
+                                    <li><a href="{% url 'modulesApplication:csv' 'Programme' %}">All Programmes</a></li>
+                                    <li><a href="{% url 'modulesApplication:csv' 'Module'%}"> All Modules</a></li>
+                                    <li><a href="{% url 'modulesApplication:csv' 'ModuleSelection'%}">Student module change
+                                        requests</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ALL COURSES BOX -->
+            <div class="lp-box" id="lpb-ac">
+                <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
+                    <h2> All courses </h2>
+                    <div class="lp-content" id="lpc-ac">
+                        <div class="icon-box">
+                            <i class="fas fa-book"></i> <br>
+                            <br>
+                            <hr class="solid">
+                            <br>
+                            <p> View the complete degree specification and requirements for all the available courses
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
