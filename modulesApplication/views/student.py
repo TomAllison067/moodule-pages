@@ -72,7 +72,7 @@ def choose_modules(request):
 
 
 @login_required
-def choose_specific_modules(request, prog_code, stage, entry_year):
+def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites=None, banned_combination = None):
     if request.method == "GET":
         try:
             info = factory.get_programme_info(prog_code, entry_year=entry_year)
@@ -80,6 +80,13 @@ def choose_specific_modules(request, prog_code, stage, entry_year):
             raise Http404
         strand = strand_prefixes = ''
         opts_prefixes = ''
+        try:
+            modules_list = Module.objects.order_by('level', 'mod_code')
+            for module in modules_list:
+                prerequisites = module.prerequisites
+                banned_combinations = module.banned_combinations
+        except Module.DoesNotExist:
+            prerequisites = None
         # TODO: Make this more general (eg Maths + CompSci have more than one rule for this bit) + put it in factory?
         if int(stage) > 1:
             try:
@@ -98,7 +105,9 @@ def choose_specific_modules(request, prog_code, stage, entry_year):
                    'stage': "stage{}".format(stage),
                    'strand': strand,
                    'strand_prefixes': strand_prefixes,
-                   'opts_prefixes': opts_prefixes
+                   'opts_prefixes': opts_prefixes,
+                   'prerequisites' : prerequisites,
+                   'banned_combinations' : banned_combinations
                    }
         return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
 
