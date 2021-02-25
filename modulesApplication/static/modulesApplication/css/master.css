@@ -388,7 +388,7 @@ html, body {
     margin-right: 16px;
 }
 
-#check {
+#sidebar-checkbox {
     display: none;
 }
 
@@ -418,21 +418,21 @@ label #cancel {
     transition: all .25s ease;
 }
 
-#check:checked ~ .sidebar {
+#sidebar-checkbox:checked ~ .sidebar {
     left: 0;
 }
 
-#check:checked ~ label #btn {
+#sidebar-checkbox:checked ~ label #btn {
     left: 250px;
     opacity: 0;
     pointer-events: none;
 }
 
-#check:checked ~ #overlay {
+#sidebar-checkbox:checked ~ #overlay {
     display: block;
 }
 
-#check:checked ~ label #cancel {
+#sidebar-checkbox:checked ~ label #cancel {
     left: 25px;
     opacity: 50%;
 }

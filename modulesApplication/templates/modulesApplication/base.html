@@ -19,7 +19,7 @@
 
 <!-- PAGE WRAPPER -->
 <div class="not-wrapper" id="wrapper">
-    <input type="checkbox" id="check">
+    <input type="checkbox" id="sidebar-checkbox">
     <input type="checkbox" id="avatar-check">
 
     <!-- SIDEBAR MENU -->
@@ -39,7 +39,7 @@
 
     <!-- TOP BAR -->
     <nav class="topbar">
-        <label for="check">
+        <label for="sidebar-checkbox">
             <i class="fas fa-bars" id="btn"></i>
         </label>
 
@@ -85,7 +85,7 @@
 
     <!-- MENU OVERLAY SCRIPT -->
     <script>
-        let checkbox = document.querySelector("input[type=checkbox]");
+        let checkbox = document.querySelector("#sidebar-checkbox");
 
         checkbox.addEventListener('change', function () {
             if (this.checked) {
