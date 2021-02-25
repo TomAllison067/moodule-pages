@@ -127,7 +127,7 @@
                                                         <input type="checkbox" id="{{ sublist.1.mod_code }}"
                                                                value="{{ sublist.1.mod_code }}" name="module-selections"
                                                                class="module-checkbox"
-                                                               onclick="selectDict_Alt({{ sublist.0.mod_code }}, {{ sublist.1.mod_code }})">
+                                                               onclick="selectDict_Alt('{{ sublist.0.mod_code }}', {{ sublist.1.mod_code }})">
                                                         <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }}
                                                             - {{ sublist.1.title }} </label>
                                                     </li>
@@ -209,10 +209,10 @@
             }
         }
 
-        function selectDict_Alt(initial, other) {
-            console.log(initial)
-            console.log(other)
-            initial.checked = initial.checked !== true;
+        function selectDict_Alt(initial) {
+            const query = '[id^="' + initial + '"]'  // Wildcard matches all checkboxes with starting ID of this mod code
+            let cBox = document.querySelector(query);
+            cBox.click()  // call selectOption on the disabled core module checkbox, thus unselecting/selecting it as required.
         }
     </script>
 {% endblock %}
