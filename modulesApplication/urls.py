@@ -24,7 +24,8 @@ academic_patterns = []  # example
 office_patterns = [
     path('landing/', office.landing, name='office-landing'),
     path('csvfiles/', office.csv, name="csv-downloads"),
-    path('csvfiles/<str:model_class>/', office.csv_file, name="csv")
+    path('csvfiles/<str:model_class>/', office.csv_file, name="csv"),
+    path('office/print_student_selections/', office.print_student_selections, name="print-student-selections")
 ]
 
 urlpatterns = [

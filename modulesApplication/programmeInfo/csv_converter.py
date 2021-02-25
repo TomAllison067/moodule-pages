@@ -1,7 +1,9 @@
 import csv
 
-from django.utils import timezone
 from django.http import HttpResponse
+from django.utils import timezone
+
+from modulesApplication.models import ModuleSelection
 
 
 def get_headers(model_class):
@@ -21,4 +23,23 @@ def model_to_csv(model_class):
         writer.writerow(member)
     response['Content-Disposition'] = f'attachment; filename={filename}'
 
+    return response
+
+
+def csv_student_selections():
+    queryset = ModuleSelection.objects.all()
+    model = queryset.model
+    model_fields = model._meta.fields + model._meta.many_to_many
+    field_names = [field.name for field in model_fields] + ['module_codes']
+
+    response = HttpResponse(content_type='text.csv')
+    filename = f'moduleSelections-{timezone.now():%Y-%m-%d_%H-%M-%S}.csv'
+    response['Content-Disposition'] = f'attachment; filename={filename}'
+
+    writer = csv.writer(response)
+    writer.writerow(field_names)
+    for i in range(len(queryset)):
+        mod_codes = [m.mod_code for m in queryset[i].module_set.all()]
+        writer.writerow(
+            list(queryset.values_list()[i]) + [mod_codes])
     return response
