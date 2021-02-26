@@ -1,4 +1,5 @@
 {% extends "modulesApplication/base.html" %}
+
 {% block title %}{{ info.programme.title }} - {{ info.entry_year }}{% endblock %}
 
 {% block css %}
@@ -8,78 +9,86 @@
 {% endblock %}
 
 {% block sidebar-links %}
-    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
-            class="fas fa-home"></i>home</a></li>
+    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a></li>
     <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
         modules</a></li>
     <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
         courses</a></li>
-    <li><a href="{% url 'modulesApplication:my-selection' %}" class="btn"><i class="fas fa-book-open"></i>my
-        selection</a></li>
 {% endblock %}
 
 {% block content %}
-    <div class="form-title">
-        <h1> Your chosen programme is: {{ info.programme.title }} - Entry
-            year: {{ info.entry_year }}</h1>
-        <h2 style="text-align: center;"> Stage {{ stage|slice:"-1:" }}</h2>
-    </div>
-    <div class="rules">
-        {% for k, v in info.rules_dict.items %}
-            {% if k == stage %}
-                <p>
-                    You are required to take:
-                </p>
-                <ul>
-                    {% for constraint, rules in v.items %}
-                        {% if constraint == 'CORE' %}
-                            {% for rule in rules %}
-                                <li>• {{ rule.max_quantity }} core {% if rule.max_quantity == 1 %}module, which
-                                    is {% else %}modules, which are {% endif %}selected by default.
-                                </li>
-                            {% endfor %}
-                        {% endif %}
-                        {% if constraint == 'STRAND' and strand != None %}
-                            {% for rule in rules %}
-                                <li>• {{ rule.max_quantity }} modules beginning with {{ strand_prefixes.0 }}
-                                    {% if strand_prefixes|length == 2 %}
-                                        or {{ strand_prefixes.1 }}
-                                    {% endif %}
-                                    from the {{ strand }} strand.
-                                </li>
-                            {% endfor %}
-                        {% endif %}
-                        {% if constraint == 'OPTS' %}
-                            {% for rule in rules %}
-                                <li>• {{ rule.max_quantity }} optional modules beginning with {{ opts_prefixes.0 }}
-                                    {% if opts_prefixes|length == 2 %}
-                                        or {{ opts_prefixes.1 }}{% endif %}.
-                                </li>
-                            {% endfor %}
-                        {% endif %}
-                        {% if constraint == 'DISC_ALT' %}
-                            {% for rule in rules %}
-                                <li> • {{ rule.mod_code_pattern|slice:":6" }} as a further core module,
-                                    or {{ rule.mod_code_pattern|slice:"7:" }} at the discretion of the department.
-                                </li>
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endfor %}
+    <div class="image-box">
+        <div class="ib-content">
+            <h2><i class="fas fa-book-open"></i> Your chosen programme is: </h2> <br>
+        </div>
     </div>
     <br>
-    <hr>
     <div class="form-content">
+        <div class="icon-img">
+            <i class="fas fa-book-open"></i>
+        </div>
+
         <form id="module-selection-form" action="{% url 'modulesApplication:submit-selection' %}" method="POST">
+            <div class="form-title">
+                <h1> {{ info.programme.title }} - Entry
+                    year: {{ info.entry_year }}
+                    <br> Stage {{ stage|slice:"-1:" }}</h1>
+            </div>
+            <div class="rules">
+                {% for k, v in info.rules_dict.items %}
+                    {% if k == stage %}
+                        <p>
+                            Requirements:
+                        </p>
+                        <ul>
+                            {% for constraint, rules in v.items %}
+                                {% if constraint == 'CORE' %}
+                                    {% for rule in rules %}
+                                        <li>• {{ rule.max_quantity }} core {% if rule.max_quantity == 1 %}module, which
+                                            is {% else %}modules, which are {% endif %}selected by default.
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if constraint == 'STRAND' and strand != None %}
+                                    {% for rule in rules %}
+                                        <li>• {{ rule.max_quantity }} modules beginning with {{ strand_prefixes.0 }}
+                                            {% if strand_prefixes|length == 2 %}
+                                                or {{ strand_prefixes.1 }}
+                                            {% endif %}
+                                            from the {{ strand }} strand.
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if constraint == 'OPTS' %}
+                                    {% for rule in rules %}
+                                        <li>• {{ rule.max_quantity }} optional modules beginning
+                                            with {{ opts_prefixes.0 }}
+                                            {% if opts_prefixes|length == 2 %}
+                                                or {{ opts_prefixes.1 }}{% endif %}.
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if constraint == 'DISC_ALT' %}
+                                    {% for rule in rules %}
+                                        <li> • {{ rule.mod_code_pattern|slice:":6" }} as a further core module,
+                                            or {{ rule.mod_code_pattern|slice:"7:" }} at the discretion of the
+                                            department.
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
             {% csrf_token %}
             {% for k, v in info.modules_dict.items %}
                 {% if k == stage %}
                     <div class="grid">
                     <!-- Terms -->
                     {% for term, constraints in v.items %}
-                        {% if constraints.has_modules %}
+                        {% if term != 'unknown' %}
                             <div class="grid-cell" id="{{ term }}">
                                 <div class="cell-title">
                                     {% if term != 'unknown' %}
@@ -96,11 +105,13 @@
                                             {% if constraint == "CORE" %}
                                                 <!-- for Core modules, modules are selected and disabled-->
                                                 {% for module in modules %}
-                                                    <div class="myDiv" >
-                                                    <li><input type="checkbox"
-                                                               id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
-                                                               value="{{ module.mod_code }}" name="module-selections"
-                                                               class="module-checkbox" checked hidden>
+                                                     <div class="myDiv" >
+                                                    <li id="cc-core"><input type="checkbox"
+                                                                            id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
+                                                                            value="{{ module.mod_code }}"
+                                                                            name="module-selections"
+                                                                            class="module-checkbox"
+                                                                            checked hidden>
                                                         <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
                                                             - {{ module.title }}</label>
                                                     </li>
@@ -110,12 +121,13 @@
                                             {% elif constraint != "DISC_ALT" %}
                                                 <ul>
                                                     {% for module in modules %}
-                                                        <div class="myDiv" >
-                                                        <li><input type="checkbox"
-                                                                   id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
-                                                                   value="{{ module.mod_code }}"
-                                                                   name="module-selections"
-                                                                   class="module-checkbox">
+                                                         <div class="myDiv" >
+                                                        <li id="cc-opts"><input type="checkbox"
+                                                                                id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
+                                                                                value="{{ module.mod_code }}"
+                                                                                name="module-selections"
+                                                                                class="module-checkbox"
+                                                        >
                                                             <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
                                                                 - {{ module.title }}</label>
                                                         </li>
@@ -124,17 +136,17 @@
                                                     {% endfor %}
                                                 </ul>
                                             {% else %}
-                                                <p><em>The following modules may be taken in place of another at the
+                                                <p id="disc-alt-msg"><em>The following modules may be taken in place of
+                                                    another at the
                                                     discretion of the
                                                     department.</em></p>
                                                 {% for sublist in modules %}
-                                                    <div class="myDiv" >
-                                                    <li>
+                                                    <li id="cc-disc-alt">
                                                         <p>Instead of {{ sublist.0.mod_code }}:</p>
                                                         <input type="checkbox" id="{{ sublist.1.mod_code }}"
                                                                value="{{ sublist.1.mod_code }}" name="module-selections"
                                                                class="module-checkbox"
-                                                               onclick="selectDict_Alt({{ sublist.0.mod_code }}, {{ sublist.1.mod_code }})">
+                                                               onclick="selectDict_Alt('{{ sublist.0.mod_code }}', {{ sublist.1.mod_code }})">
                                                         <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }}
                                                             - {{ sublist.1.title }} </label>
                                                     </li>
@@ -154,18 +166,22 @@
             <input type="hidden" name="stage" value="{{ stage|slice:"-1:" }}">
             <input type="hidden" name="prog_code" value="{{ info.programme.prog_code }}">
             <input type="hidden" name="entry_year" value="{{ info.entry_year }}">
-            <label style="display:block; margin:auto; text-align: center;" for="student-id">Student
-                ID: {{ user.id }}<br>
-                <input type="hidden" id="student-id" name="student-id"
-                       value="{{ user.id }}"><br>
-            </label>
-            {% if messages %}
-                {% for message in messages %}
-                    <strong><span
-                            style="display: block; padding-top: 1px; margin-bottom: 10px; text-align: center; color: red;">{{ message }}</span></strong>
-                {% endfor %}
-            {% endif %}
-            <input class="submit-btn" style="display: block; margin: auto;" type="submit">
+
+            <div class="submit-box">
+                <label style="display:block; margin:auto; text-align: center;" for="student-id">Student
+                    ID: {{ user.id }}<br>
+                    <input style="display:block; margin:auto; color: white;" type="hidden" id="student-id"
+                           name="student-id"
+                           value="{{ user.id }}"><br>
+                </label>
+                {% if messages %}
+                    {% for message in messages %}
+                        <strong><span
+                                style="display: block; padding-top: 1px; margin-bottom: 10px; text-align: center; color: red;">{{ message }}</span></strong>
+                    {% endfor %}
+                {% endif %}
+                <input class="submit-btn" style="display: block; margin: auto;" type="submit">
+            </div>
 
         </form>
     </div>
@@ -227,9 +243,10 @@
             }
         }
 
-        function selectDict_Alt(initial, other) {
-            console.log(initial)
-            console.log(other)
-            initial.checked = initial.checked !== true;
+        function selectDict_Alt(initial) {
+            const query = '[id^="' + initial + '"]'  // Wildcard matches all checkboxes with starting ID of this mod code
+            let cBox = document.querySelector(query);
+            cBox.click()  // call selectOption on the disabled core module checkbox, thus unselecting/selecting it as required.
         }
+    </script>
 {% endblock %}
