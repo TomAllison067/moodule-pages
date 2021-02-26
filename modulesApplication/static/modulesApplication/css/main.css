@@ -619,7 +619,7 @@ html, body {
     top: 20px;
     right: 0;
     transform: translate(-50%, -50%);
-    background: #2f3640;
+    background: #003049;
     color: #d85f26;
     height: 12px;
     border-radius: 5px;
@@ -636,7 +636,7 @@ html, body {
     width: 20px;
     height: 12px;
     border-radius: 20%;
-    background: #2f3640;
+    background: #003049;
     display: flex;
     justify-content: center;
     align-items: center;
