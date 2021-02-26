@@ -13,11 +13,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 """
 
-from pathlib import Path
-import environ  # Let's use django-environ to handle our environment variables
 import os
+from pathlib import Path
 
+import environ  # Let's use django-environ to handle our environment variables
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.urls import reverse
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 """Importing environment variables with django-environ
@@ -60,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -128,11 +131,26 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Authentication (?)
-SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ['state']
-SESSION_COOKIE_SECURE = False
+# https://docs.djangoproject.com/en/3.1/ref/contrib/sites/#enabling-the-sites-framework
+# Use the sites framework for Django authentication. Need to look at this later.
+SITE_ID = 1
+
 
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
 MEDIA_URL = '/resources/'
+
+"""DJANGO AUTHENTICATION SETTINGS"""
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',  # Django's default auth backend
+    'social_core.backends.azuread_tenant.AzureADTenantOAuth2'  # Microsoft OAuth
+)
+LOGIN_REDIRECT_URL = '/'  # Upon login, redirect to index
+LOGOUT_REDIRECT_URL = '/'  # Upon signout, redirect to index
+
+# Recommended by python-social-auth at https://python-social-auth.readthedocs.io/en/latest/configuration/django.html#
+# SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_TENANT_ID = env('AZURE_TENANT_ID', default="not the tenant id")
+SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_KEY = env('AZURE_CLIENT_ID', default="not the client id")
+SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_SECRET = env('AZURE_VALUE', default="not the client secret")

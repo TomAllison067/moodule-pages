@@ -4,7 +4,7 @@
 
 /* --[[ General ]] */
 html, body {
-    background: linear-gradient(to right, rgb(180, 180, 180), rgb(250, 250, 250), rgb(180, 180, 180));
+    background: white;
     margin: 0;
     padding: 0;
 
@@ -13,7 +13,7 @@ html, body {
     bottom: 0;
     left: 0;
     right: 0;
-    /*height: 100%;*/
+    height: 100%;
     list-style: none;
     text-decoration: none;
 
@@ -25,7 +25,6 @@ html, body {
     overflow-y: auto;
 
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -35,16 +34,14 @@ html, body {
 }
 
 
-/* --[[ Wrapper ]] */
-.page-wrapper {
-    min-height: 100%;
-}
 
-.page-wrapper2 {
-    min-height: 100%;
-    background: linear-gradient(-50deg, orange, orangered, purple);
-    background-size: 400% 400%;
-    animation: ib-gradient 20s ease infinite;
+/* --[[ Wrapper ]] */
+
+.page-wrapper {
+   background: linear-gradient(-50deg, orange, orangered, purple);
+   background-size: 400% 400%;
+   animation: ib-gradient 20s ease infinite;
+   min-height: 100%;
 }
 
 @keyframes ib-gradient {
@@ -68,7 +65,7 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0,0,0,0.85);
     z-index: 5;
     cursor: pointer;
     transition: 0.5s;
@@ -78,286 +75,58 @@ html, body {
     display: none;
 }
 
-/* --[[ Slider ]] */
 
-.slider {
-    position: relative;
-    width: 100%;
-    height: 300px;
-    border-radius: 10px;
-    border-bottom: 3px solid orangered;
-    overflow: hidden;
-}
+/* MAIN */
 
-.slides {
-    position: relative;
-    width: 600%;
-    height: 100%;
-    display: flex;
-}
-
-.slides input {
-    display: none;
-}
-
-.slide {
-    width: 20%;
-    margin-left: 0;
-    margin-right: 0;
-    transition: 2s;
-}
-
-.slide-content {
-    position: relative;
-    color: black;
-    margin-top: 0;
-    padding: 60px;
-    display: block;
-    height: 50%;
-    width: 75%;
-}
-
-.slide-content h2 {
-    padding: 5px;
+.main-content {
+    padding: 10px;
+    width: 600px;
+    height: 400px;
+    position: absolute;
     color: white;
+    top: 50%;
+    left: 50%;
+    margin: -200px 0 0 -300px;
+}
+
+.main-content h1 {
+    font-size: 80px;
+    font-weight: bolder;
+    color: white;
+}
+
+.main-content h4 {
+    font-size: 30px;
+    font-weight: bolder;
+    color: white;
+}
+
+.main-content p {
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+}
+
+.main-content a {
+    padding: 5px;
+    margin-left: 5px;
+    display: block;
+    height: 30px;
+    width: 300px;
     background: #141414;
-    border-top: 5px orangered solid;
-}
-
-.slide-content p {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 7px;
-    border-left: 5px orangered solid;
-    color: white;
-    width: 90%;
-}
-
-
-.slide img {
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    filter: blur(4px);
-}
-
-/* --[[ Slider - Manual Navigation ]] */
-
-.navigation-manual {
-    position: absolute;
-    width: 100%;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-}
-
-.manual-btn {
-    border: 2px solid orangered;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.manual-btn:not(:last-child) {
-    margin-right: 40px;
-}
-
-.manual-btn:hover {
-    background: orangered;
-}
-
-#radio1:checked ~ .first {
-    margin-left: 0;
-}
-
-#radio2:checked ~ .first {
-    margin-left: -20%;
-}
-
-#radio3:checked ~ .first {
-    margin-left: -40%;
-}
-
-/* --[[ Slider - Automatic Navigation ]] */
-
-.navigation-auto {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-top: 460px;
-}
-
-.navigation-auto div {
-    border: 2px solid orangered;
-    padding: 5px;
-    border-radius: 10px;
-    transition: 1s;
-}
-
-.navigation-auto div:not(:last-child) {
-    margin-right: 40px;
-}
-
-#radio1:checked ~ .navigation-auto .auto-btn1 {
-    background: orangered;
-}
-
-#radio2:checked ~ .navigation-auto .auto-btn2 {
-    background: orangered;
-}
-
-#radio3:checked ~ .navigation-auto .auto-btn3 {
-    background: orangered;
-}
-
-/* --[[ Boxes ]] */
-
-.lp-container {
-    margin: 0 auto;
-    width: 80%;
-    height: 50vh;
-    display: flex;
-    box-sizing: border-box;
-    /*background-image: white;*/
-    position: relative;
-}
-
-.lp-box {
-    margin: 0.25% 0.4%;
-    width: 80%;
-    height: 100%;
-    display: block;
-    box-sizing: border-box;
-    /*background-image: linear-gradient(to left, #a22402, #760c22, #340505);*/
-    background: url(../images/buttons/slp-button.png);
-    background-size: cover;
-    color: white;
-    cursor: pointer;
-    position: relative;
-    opacity: 90%;
-    transition: 0.25s;
-    border-radius: 15px;
-}
-
-.lp-box:hover {
-    background-position: right;
-    transform: scale(1.025);
-    border-radius: 15px;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.511);
-    opacity: 100%;
-    transition: 0.25s;
-}
-
-.lp-box:hover > a .lp-content .icon-box p {
-    transform: translateY(0%);
-    opacity: 100%;
-}
-
-.lp-box:hover > a h2 {
-    border-radius: 15px 15px 0 0;
-    transition: 0.25s;
-}
-
-.lp-box a h2 {
-    font-size: 17px;
-    text-align: center;
-    border-top: 2px orangered solid;
-    background: rgba(0, 0, 0, 0.65);
-    margin-bottom: 5%;
-    position: relative;
-    border-radius: 15px 15px 0 0;
-}
-
-.lp-box a .lp-content h3 {
-    margin-top: 5%;
-    margin-left: 5%;
-    padding: 5px;
-    position: relative;
-}
-
-.lp-content {
-    margin: auto;
-    /*padding: 10px 5px;*/
-    width: 90%;
-    height: 80%;
-    display: block;
-    box-sizing: border-box;
-    background-image: linear-gradient(black, rgb(27, 27, 27));
-    background-size: cover;
-    color: white;
-    font-size: 13px;
-    border-radius: 15px;
-    cursor: pointer;
-    position: relative;
-    transition: 0.25s;
-}
-
-.lp-box a .lp-content .term-module-list {
-    padding: 2px;
-    width: 95%;
-    height: 35vh;
-    display: block;
-    overflow-y: scroll;
-}
-
-.lp-content .term-module-list li {
-    padding: 5px;
-    margin: 10px auto;
-    width: 95%;
-    height: auto;
-    opacity: 100%;
-    display: block;
-    box-sizing: border-box;
-    border-left: 5px orangered solid;
-    background-image: linear-gradient(rgb(27, 27, 27), rgb(45, 45, 45));
-    background-size: cover;
-    color: white;
     border-radius: 5px;
-    cursor: pointer;
-    position: relative;
+    border-left: 5px solid orangered;
+    font-size: 20px;
     transition: 0.25s;
 }
 
-.lp-content li {
-    padding: 5px;
+.main-content i {
+    margin-right: 10px;
 }
 
-#lpc-cm, #lpc-ac {
-    display: block;
-    padding: 2%;
-    border-radius: 0;
-    text-align: center;
-    background: none;
-    margin: 5px auto;
-    font-size: 15px;
-}
-
-.icon-box > p {
-    opacity: 0;
-    transform: translateY(150%);
-    transition: transform 0.25s;
-}
-
-#lpc-cm .icon-box, #lpc-ac .icon-box {
-    margin-top: 10px;
-    margin-left: 9%;
-}
-
-#lpc-cm i, #lpc-ac i {
-    font-size: 60px;
-    align-items: center;
-}
-
-.lp-box a {
-    position: relative;
-    border-radius: 5px;
-    width: 100%;
-    height: auto;
-    top: 0;
-    left: 0;
-    display: block;
+.main-content a:hover {
+    background: #282828;
+    margin-left: 20px;
 }
 
 /* SCROLLBAR */
@@ -381,25 +150,24 @@ html, body {
 .footer {
     background: #141414;
     color: #d3d3d3;
-    /*height: 125px;*/
+    height: 125px;
     position: relative;
     font-size: 12px;
 }
 
 .footer .row {
-    border-top: 2px solid orangered;
+    border-top: 2px solid #ff4500;
     display: grid;
     grid-template-columns: auto auto auto;
-    height: auto;
+    height: 75px;
     color: white;
     padding: 10px;
-    text-align: center;
 }
 
 .footer .finalrow {
     border-top: 2px solid orangered;
     color: white;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
     text-align: center;
 }
 
@@ -414,8 +182,8 @@ html, body {
     height: 50px;
     text-align: center;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 0px;
+    left: 0px;
     padding-top: 20px;
 
 }
@@ -434,8 +202,8 @@ html, body {
 .topbar .title {
     position: absolute;
     top: 5px;
-    color: orangered;
-    /*font: bold;*/
+    color:orangered;
+    font: bold;
     font-weight: 800;
     font-size: 25px;
     margin-left: 80px;
@@ -447,7 +215,7 @@ html, body {
     width: 16px;
     height: 12px;
     top: 19px;
-    right: 0;
+    right: 0px;
     transform: translate(-50%, -50%);
     background-image: linear-gradient(to right, orange 0%, orangered 51%, orange 100%);
     background-size: 200% auto;
@@ -459,25 +227,25 @@ html, body {
 
 .avatar-box label {
     position: relative;
-    top: 0;
+    top: 0px;
 }
 
 .avatar-box label img {
-    /*position: relative;*/
+    position: relative;
     height: 40px;
     width: 40px;
     position: absolute;
-    margin: 0;
+    margin: 0px;
     transform: translate(-29%, -37.5%);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
     transition: 0.35s;
 }
 
 .avatar-box:hover {
-    background-image: linear-gradient(to right, rgb(152, 99, 0) 0%, rgb(143, 38, 0) 51%, rgb(152, 99, 0) 100%);
+    background-image: linear-gradient(to right, rgb(152, 99, 0) 0%, rgb(143, 38, 0) 51%, (152, 99, 0) 100%);
     background-position: right center;
 }
 
@@ -517,7 +285,7 @@ html, body {
 }
 
 .sign-in:hover {
-    background-image: linear-gradient(to right, rgb(152, 99, 0) 0%, rgb(143, 38, 0) 51%, rgb(152, 99, 0) 100%);
+    background-image: linear-gradient(to right, rgb(152, 99, 0) 0%, rgb(143, 38, 0) 51%, (152, 99, 0) 100%);
     background-position: right center;
     color: white;
 }
@@ -534,7 +302,7 @@ html, body {
     width: 260px;
     height: 94px;
     background: rgb(250, 250, 250);
-    border-radius: 0 0 3px 3px;
+    border-radius: 0px 0px 3px 3px;
     transform: translate(150%, 40%);
     display: block;
 }
@@ -545,9 +313,8 @@ html, body {
     color: rgb(25, 25, 25);
     font-weight: bold;
     font-size: 20px;
-
+    
 }
-
 .dropdown-ab-menu ul .email {
     padding-left: 2px;
     margin-left: 3px;
@@ -557,20 +324,19 @@ html, body {
 }
 
 .dropdown-ab-menu ul .sign-out {
-    color: rgb(0, 0, 0);
+    color:rgb(0, 0, 0);
     padding: 2px;
     border-top: 4px solid black;
 }
 
 .dropdown-ab-menu ul .sign-out a {
-    display: block;
-    color: rgb(0, 0, 0);
+    color:rgb(0, 0, 0);
     width: 100%;
     margin-left: 10px;
 }
 
 .dropdown-ab-menu ul .sign-out a i {
-    color: rgb(0, 0, 0);
+    color:rgb(0, 0, 0);
 }
 
 .dropdown-ab-menu ul .sign-out:hover {
@@ -605,7 +371,7 @@ html, body {
 }
 
 #avatar-check:checked ~ .topbar .avatar-box {
-    background-image: linear-gradient(rgb(255, 255, 255), rgb(235, 235, 235));
+    background-image: linear-gradient(black, grey);
     transition: 0.25s;
 }
 
@@ -617,7 +383,7 @@ html, body {
 .search-box {
     position: absolute;
     top: 20px;
-    right: 0;
+    right: 0px;
     transform: translate(-50%, -50%);
     background: #2f3640;
     color: #d85f26;
@@ -651,7 +417,7 @@ html, body {
     padding: 0;
     color: white;
     font-family: 'Nunito', sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     transition: 0.25s;
     line-height: 15px;
     width: 100px;
@@ -683,7 +449,7 @@ html, body {
     top: 20px;
     left: calc(50% - 50px);
     border-radius: 2%;
-    filter: contrast(200%);
+    filter:contrast(200%);
 }
 
 /* */
@@ -692,21 +458,21 @@ html, body {
     height: 100%;
     width: 100%;
     line-height: 25px;
-    font-size: 15px;
+    font-size: 16px;
     color: white;
     padding-left: 20px;
     box-sizing: border-box;
-    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-top: 1px solid rgba(255,255,255,.1);
     border-bottom: 4px solid rgb(38, 38, 38);
     transition: all .25s;
 }
 
-.sidebar ul li:hover a {
+.sidebar ul li:hover a{
     padding-left: 35px;
     background: #ff905d;
 }
 
-.sidebar ul a i {
+.sidebar ul a i{
     margin-right: 16px;
 }
 
@@ -739,7 +505,7 @@ label #cancel {
     font-size: 18px;
     color: white;
     padding: 6px 12px;
-    transition: all .25s ease;
+    transition: all .25 ease;
 }
 
 #check:checked ~ .sidebar {
@@ -792,64 +558,7 @@ label #cancel {
     transform: rotate(45deg);
 }
 
-.btn i {
+.btn i{
     margin-right: 10px;
 }
 
-
-.main-content {
-    padding: 10px;
-    width: 600px;
-    height: 400px;
-    position: absolute;
-    color: black;
-    top: 50%;
-    left: 50%;
-    margin: -200px 0 0 -300px;
-}
-
-.main-content h1 {
-    font-size: 80px;
-    font-weight: bolder;
-    color: white;
-}
-
-.main-content h4 {
-    font-size: 30px;
-    font-weight: bolder;
-    color: white;
-}
-
-.main-content p {
-    font-size: 20px;
-    font-weight: bolder;
-    color: white;
-}
-
-.main-content a {
-    padding: 5px;
-    margin-left: 5px;
-    display: block;
-    height: 30px;
-    width: 300px;
-    background: #141414;
-    border-radius: 5px;
-    border-left: 5px solid orangered;
-    font-size: 20px;
-    transition: 0.25s;
-}
-
-.main-content i {
-    margin-right: 10px;
-}
-
-.main-content a:hover {
-    background: #282828;
-    margin-left: 20px;
-}
-
-/* All Modules components - section for CSS of the AllModules.html */
-
-/* Student Choose Page components - section for CSS of the StudentChooseModules.html */
-
-/* Student Landing Page components - section for CSS of the StudentLandingPage.html */

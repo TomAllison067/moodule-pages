@@ -1,54 +1,20 @@
-<!DOCTYPE html>
+{% extends "modulesApplication/base.html" %}
 {% load static %}
-<html lang="en">
 
-<head>
-<title>moodule | Student Homepage</title>
-<meta name="description" content="TBD">
-<meta name="author" content="TBD">
+{% block title %}Student Homepage{% endblock %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
-<link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-</head>
 
-<body>
-    <!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
-    <div id="overlay" onclick=""></div>
+{% block sidebar-links %}
+    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+            class="fas fa-home"></i>home</a></li>
+    <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
+        modules</a></li>
+    <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+        courses</a></li>
+{% endblock %}
 
-    <!-- PAGE WRAPPER -->
+{% block content %}
     <div class="page-wrapper">
-        <input type="checkbox" id="check">
-
-        <!-- SIDEBAR MENU -->
-        <div class="sidebar">
-            <header>
-                <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
-            </header>
-            <ul>
-                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a></li>
-                <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
-                <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-                        courses</a></li>
-            </ul>
-        </div>
-
-        <!-- TOP BAR -->
-        <nav class="topbar">
-            <label for="check">
-                <i class="fas fa-bars" id="btn"></i>
-            </label>
-            <label class="title"> moodule</label>
-            <div class="search-box">
-                <input class="search-txt" type="text" name="" placeholder="search">
-                <a class="search-btn" href="#">
-                    <i class="fas fa-search"></i>
-                </a>
-            </div>
-
-            <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
-        </nav>
-
         <!-- IMAGE SLIDER -->
         <div class="slider">
             <div class="slides">
@@ -103,33 +69,6 @@
             </div>
         </div>
 
-        <!-- AUTOMATIC NAVIGATION SCRIPT-->
-        <script>
-            var counter = 1;
-            setInterval(function () {
-                document.getElementById('radio' + counter).checked = true;
-                counter++;
-                if (counter > 4) {
-                    counter = 1;
-                }
-            }, 15000);
-        </script>
-
-        <!-- MENU OVERLAY SCRIPT -->
-        <script>
-            var checkbox = document.querySelector("input[type=checkbox]");
-
-            checkbox.addEventListener('change', function () {
-                if (this.checked) {
-                    document.getElementById("overlay").style.transition = '0.5s';
-                    document.getElementById("overlay").style.display = "block";
-                } else {
-                    document.getElementById("overlay").style.transition = '0.5s';
-                    document.getElementById("overlay").style.display = "none";
-                }
-            });
-        </script>
-
         <!-- LANDING PAGE CONTAINER -->
         <div class="lp-container">
 
@@ -138,7 +77,7 @@
                 <a href="#" class="b-btn">
                     <h2> my courses</h2>
                     <div class="lp-content">
-                        <h3> this term </h3>
+                        <h3> This term </h3>
                         <!-- MESSAGE FOR THOSE HANDLING THE DATABASE (from neka):
 
                     the li's are examples of what the listed modules would look like.
@@ -154,36 +93,40 @@
                     (these should be retrieved by the database)
                     -->
                         <div class="term-module-list">
-                            <li><i class="fas fa-book-reader"></i> CS3480: Software Language Engineering</li>
-                            <li><i class="fas fa-book-reader"></i> CS3490: Computational Optimisation</li>
-                            <li><i class="fas fa-book-reader"></i> CS3510: Functional Programming and Applications</li>
-                            <li><i class="fas fa-book-reader"></i> CS3846: Human-Computer Interaction</li>
-                            <li><i class="fas fa-book-reader"></i> IY3501: Security Management</li>
-                            <li><i class="fas fa-book-reader"></i> IY3606: Smart Cards/Token Security and Applications
-                            </li>
-                            <li><i class="fas fa-book-reader"></i> IY3609: Digital Forensics</li>
-                            <li><i class="fas fa-book-reader"></i> IY3612: Cyber Security</li>
-                            <li><i class="fas fa-book-reader"></i> IY3840: Malicious Software</li>
+                            <ul>
+                                <li><i class="fas fa-book-reader"></i> CS3480: Software Language Engineering</li>
+                                <li><i class="fas fa-book-reader"></i> CS3490: Computational Optimisation</li>
+                                <li><i class="fas fa-book-reader"></i> CS3510: Functional Programming and Applications
+                                </li>
+                                <li><i class="fas fa-book-reader"></i> CS3846: Human-Computer Interaction</li>
+                                <li><i class="fas fa-book-reader"></i> IY3501: Security Management</li>
+                                <li><i class="fas fa-book-reader"></i> IY3606: Smart Cards/Token Security and
+                                    Applications
+                                </li>
+                                <li><i class="fas fa-book-reader"></i> IY3609: Digital Forensics</li>
+                                <li><i class="fas fa-book-reader"></i> IY3612: Cyber Security</li>
+                                <li><i class="fas fa-book-reader"></i> IY3840: Malicious Software</li>
+                            </ul>
                         </div>
                     </div>
                 </a>
             </div>
 
-        <!-- CHOOSE MODULES BOX -->
-        <div class="lp-box" id="lpb-cm">
-            <a href="{% url 'modulesApplication:choose-modules' %}" class="b-btn">
-                <h2> choose modules </h2>
-                <div class="lp-content" id="lpc-cm">
-                    <div class="icon-box">
-                        <i class="fas fa-book-open"></i> <br>
-                        <br>
-                        <hr class="solid">
-                        <br>
-                        <p> choose the available modules for each term, based on the choice of your course </p>
+            <!-- CHOOSE MODULES BOX -->
+            <div class="lp-box" id="lpb-cm">
+                <a href="{% url 'modulesApplication:choose-modules' %}" class="b-btn">
+                    <h2> choose modules </h2>
+                    <div class="lp-content" id="lpc-cm">
+                        <div class="icon-box">
+                            <i class="fas fa-book-open"></i> <br>
+                            <br>
+                            <hr class="solid">
+                            <br>
+                            <p> choose the available modules for each term, based on the choice of your course </p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
 
             <!-- ALL COURSES BOX -->
             <div class="lp-box" id="lpb-ac">
@@ -202,27 +145,17 @@
                 </a>
             </div>
         </div>
+
+        <!-- AUTOMATIC NAVIGATION SCRIPT-->
+        <script>
+            let counter = 1;
+            setInterval(function () {
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if (counter > 4) {
+                    counter = 1;
+                }
+            }, 15000);
+        </script>
     </div>
-</body>
-
-<!-- FOOTER - links will be added later -->
-<div class="footer">
-    <div class="row">
-        <div class="col">
-            <li>Royal Holloway, University of London</li>
-            <li>Egham, Surrey, TW20 0EX</li>
-        </div>
-        <div class="col">
-            <li>Terms & Conditions</li>
-            <li>Privacy Policy</li>
-        </div>
-        <div class="col">
-            <li>moodule@gmail.com</li>
-            <li>T: +44 (0)1784 434455</li>
-        </div>
-    </div class="row">
-    &copy; 2021 moodule.com | Designed by CS2815 Group 34
-</div>
-</div>
-
-</html>
+{% endblock %}

@@ -1,9 +1,10 @@
 from django.db import IntegrityError
-from django.test import TestCase
+from django.test import TestCase, tag
 
 from modulesApplication.models import Module, ModuleVariant
 
 
+@tag('unit')
 class TestModuleVariants(TestCase):
     def setUp(self):
         self.module1 = Module.objects.create(mod_code="1234")

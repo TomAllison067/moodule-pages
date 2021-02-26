@@ -29,7 +29,7 @@ class Module(models.Model):
     project = models.BooleanField(blank=True, null=True)
     lab_hours = models.IntegerField(blank=True, null=True)
     deg_progs = models.TextField(blank=True, null=True)
-    selections = models.ManyToManyField(ModuleSelection)
+    selected_in = models.ManyToManyField(ModuleSelection)
 
     def clean(self, *args, **kwargs):
         if self.mod_code is None or self.mod_code == "":
@@ -43,3 +43,4 @@ class Module(models.Model):
         This also validates objects created with the Module.objects.create() method"""
         self.full_clean()
         super().save(*args, **kwargs)
+

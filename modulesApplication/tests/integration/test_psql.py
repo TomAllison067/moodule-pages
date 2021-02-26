@@ -1,10 +1,10 @@
 import environ
 from django.db import connections
 from django.db.utils import OperationalError, ConnectionDoesNotExist
-from django.test import TestCase
+from django.test import TestCase, tag
 
 
-# Create your tests here.
+@tag('integration')
 class TestPostgres(TestCase):
     """
     Tests the psql connection.

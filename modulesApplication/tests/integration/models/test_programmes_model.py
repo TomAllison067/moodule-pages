@@ -1,27 +1,18 @@
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError
-from django.test import TransactionTestCase
+from django.test import TransactionTestCase, tag
 
 from modulesApplication.models import Programme
 
 
+@tag('integration')
 class TestProgrammes(TransactionTestCase):
     """Test cases for the Programmes data model."""
-    def test_one_programme_saved(self):
-        """Tests programme saving."""
-        Programme.objects.create(prog_code="1067", title="BSc Computer Science", level="BSC")
-        self.assertEqual(1, Programme.objects.count(), "One programme saves successfully.")
 
     def test_no_duplicate_pks(self):
         """Tests that the primary key constraint behaves as expected."""
         Programme.objects.create(prog_code="1067", title="BSc Computer Science", level="BSC")
         self.assertRaises(IntegrityError, Programme.objects.create, prog_code="1067", title="Fake", level="BSC")
-
-    def test_two_programmes(self):
-        """Tests programme saving."""
-        Programme.objects.create(prog_code="1067", title="BSc Computer Science", level="BSC")
-        Programme.objects.create(prog_code="1059", title="BSc Computer Science (Artificial Intelligence)", level="BSC")
-        self.assertEqual(2, Programme.objects.count(), "Two programmes save successfully.")
 
     def test_yini(self):
         """
@@ -60,9 +51,3 @@ class TestProgrammes(TransactionTestCase):
         with self.assertRaises(ValidationError):
             p1.clean()
             self.fail("ValidationError not called on invalid degree level.")
-        p1.level = "bsc"
-        p1.clean()
-        p1.level = "msci"
-        p1.clean()
-        p1.save()
-        self.assertEqual(1, Programme.objects.count())

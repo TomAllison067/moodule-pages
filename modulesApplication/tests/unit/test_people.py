@@ -1,9 +1,10 @@
 from django.db import IntegrityError
-from django.test import TestCase
+from django.test import TestCase, tag
 
 from modulesApplication.models import People
 
 
+@tag('unit')
 class TestPeople(TestCase):
     def test_simple_person(self):
         """Test simple functionality."""
