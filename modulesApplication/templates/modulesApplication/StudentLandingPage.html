@@ -3,6 +3,12 @@
 
 {% block title %}Student Homepage{% endblock %}
 
+{% block css %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+{% endblock %}
+
 
 {% block sidebar-links %}
     <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
@@ -11,6 +17,8 @@
         modules</a></li>
     <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
         courses</a></li>
+    <li><a href="{% url 'modulesApplication:my-selection' %}" class="btn"><i class="fas fa-book-open"></i>my
+        selection</a></li>
 {% endblock %}
 
 {% block content %}

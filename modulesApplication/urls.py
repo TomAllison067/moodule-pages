@@ -18,6 +18,7 @@ student_patterns = [
     path('choose-modules/<str:prog_code>/<str:stage>/<str:entry_year>',
          student.choose_specific_modules, name='choose-specific-modules'),
     path('choose-modules/submit/', student.submit_selection, name='submit-selection'),
+    path('my-selection', student.my_selection, name='my-selection')
 ]
 
 academic_patterns = []  # example
@@ -25,8 +26,9 @@ academic_patterns = []  # example
 office_patterns = [
     path('landing/', office.landing, name='office-landing'),
     path('csvfiles/', office.csv, name="csv-downloads"),
-    path('csvfiles/<str:model_class>/', office.csv_file, name="csv")
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('csvfiles/<str:model_class>/', office.csv_file, name="csv"),
+    path('office/print_student_selections/', office.print_student_selections, name="print-student-selections")
+]
 
 urlpatterns = [
     path('', index, name='index'),  # Redirect to homepage.
