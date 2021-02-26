@@ -87,6 +87,7 @@ def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites
                 banned_combinations = module.banned_combinations
         except Module.DoesNotExist:
             prerequisites = None
+            banned_combinations = None
         # TODO: Make this more general (eg Maths + CompSci have more than one rule for this bit) + put it in factory?
         if int(stage) > 1:
             try:
@@ -106,8 +107,8 @@ def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites
                    'strand': strand,
                    'strand_prefixes': strand_prefixes,
                    'opts_prefixes': opts_prefixes,
-                   'prerequisites' : prerequisites,
-                   'banned_combinations' : banned_combinations
+                   'prerequisites': prerequisites,
+                   'banned_combinations': banned_combinations
                    }
         return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
 

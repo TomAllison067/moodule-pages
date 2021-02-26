@@ -105,7 +105,7 @@
                                                             - {{ module.title }}</label>
                                                     </li>
                                                     </div>
-                                                        <div class="hide">Prerequisite modules: {{ module.prerequisites }}, Cannot be taken with: {{ module.banned_combinations}} </div>
+                                                        <div class="hide">Prerequisite modules: {{ module.prerequisites }} <br> Cannot be taken with: {{ module.banned_combinations}} </div>
                                                 {% endfor %}
                                             {% elif constraint != "DISC_ALT" %}
                                                 <ul>
@@ -120,7 +120,7 @@
                                                                 - {{ module.title }}</label>
                                                         </li>
                                                         </div>
-                                                        <div class="hide">Prerequisite modules: {{ module.prerequisites }}, Cannot be taken with: {{ module.banned_combinations}} </div>
+                                                        <div class="hide">Prerequisite modules: {{ module.prerequisites }} <br> Cannot be taken with: {{ module.banned_combinations}} </div>
                                                     {% endfor %}
                                                 </ul>
                                             {% else %}
@@ -139,7 +139,7 @@
                                                             - {{ sublist.1.title }} </label>
                                                     </li>
                                                     </div>
-                                                    <div class="hide">Prerequisite modules: {{ module.prerequisites }}, Cannot be taken with: {{ module.banned_combinations}} </div>
+                                                    <div class="hide">Prerequisite modules: {{ module.prerequisites }} <br> Cannot be taken with: {{ module.banned_combinations}} </div>
                                                 {% endfor %}
                                             {% endif %}
                                         {% endif %}
