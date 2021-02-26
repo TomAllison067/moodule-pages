@@ -6,7 +6,7 @@
 {% block css %}
     {{ block.super }}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/choosemodules.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/allmodules.css' %}">
 {% endblock %}
 
 
@@ -35,7 +35,7 @@
 
         {# module_summaries refer to the dictionary passed through with the render request #}
         <label>Filter by:</label>
-        <select class="dropdown2" name="year" id="year_filter">
+        <select class="dropdown" name="year" id="year_filter">
             <option value=0>Select Year</option>
         </select>
         </p>
@@ -44,11 +44,12 @@
         {% if module_summaries %}
         <ul>
             {% for year, modules in module_summaries.items %}
-            <h2>Year {{ year|add:"-3" }}</h2>
+            <h2 class="yearLabel">Year {{ year|add:"-3" }}</h2>
+            <br>
                 {% for module in modules %}
                 <label class="moduleLabels">{{ module.module_code }} - {{ module.title }}</label>
                 <div class="panel" disabled="False" id="module">
-                    <h4>Summary</h4>
+                    <br> <h4>Summary</h4>
                     <p>{{ module.summary }}</p>
                     <br>
                     <button class="moreInfoButton" onclick="myFunction('{{ module.module_code }}')"> Find out

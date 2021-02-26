@@ -195,7 +195,7 @@
     transition: 0.25s;
 }
 
-.cell-content ul li input[type = "checkbox"] {
+.module-checkbox {
     border: 2px solid orangered;
     padding: 5px;
     border-radius: 10px;
@@ -203,7 +203,7 @@
     transition: 0.25s;
 }
 
-.cell-content ul li input[type = "checkbox"]:hover {
+.module-checkbox:hover {
     background: orangered;
 }
 
