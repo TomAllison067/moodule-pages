@@ -45,22 +45,14 @@
 
         <a href="{% url 'modulesApplication:index' %}"><label class="title"> moodule</label></a>
 
-<!--        <div class="search-box">
+       <div class="search-box">
             <label for="search-box" style="display: none;">Search</label>
             <input class="search-txt" type="text" id="search-box" placeholder="search">
             <a class="search-btn" href="#">
                 <i class="fas fa-search"></i>
             </a>
-        </div>-->
+        </div>
 		
-		<form id="content">
-			<input type="text" name="input" class="input" id="search-input">
-			<button type="reset" class="search" id="search-btn"></button>
-			<a class="search" href="#">
-				<i class="fas fa-search"></i>
-			</a>
-		</form>
-
         {% if user.is_authenticated %}
             <div class="avatar-box">
                 <label for="avatar-check">
