@@ -192,7 +192,7 @@ html, body {
 .topbar {
     width: calc(100% - 10px);
     height: 42px;
-    background: #141414;
+    background: #f9e0ae;
     z-index: 5;
     display: inline-block;
     overflow: visible;
