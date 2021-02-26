@@ -14,13 +14,20 @@ def get_headers(model_class):
 
 
 def model_to_csv(model_class):
+    # creating a unique filename for the csv
     if model_class is ModuleSelection:
         return csv_student_selections()  # Hacky lame fix for now - sorry V, i was super tired when i did this! - tom :)
-    headers = get_headers(model_class)
+
     filename = f'{model_class.__name__}-{timezone.now():%Y-%m-%d_%H-%M-%S}.csv'
     response = HttpResponse(content_type='text/csv')
+
+    # initialising the csv writer
     writer = csv.writer(response)
+    # get the headers to write to the top of the csv file
+    headers = get_headers(model_class)
     writer.writerow(headers)
+
+    # getting all the objects from the database and writing each line to the csv
     for member in model_class.objects.all().values_list(*headers):
         writer.writerow(member)
     response['Content-Disposition'] = f'attachment; filename={filename}'

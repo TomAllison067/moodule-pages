@@ -70,6 +70,7 @@
                 <label for="radio3" class="manual-btn"></label>
             </div>
         </div>
+
         <!-- AUTOMATIC NAVIGATION SCRIPT-->
         <script>
             var counter = 1;
@@ -104,7 +105,7 @@
             <div class="lp-box" id="lpb-cm">
 
                 {#<!--            The contents of the href are: {% url '#'%} without the full stop of course--> #}
-                <a href="" class="b-btn">
+                <a href="{% url 'modulesApplication:csv-downloads' %}" class="b-btn">
                     <h2> Downloadable CSVs </h2>
                     <div class="lp-content" id="lpc-cm">
                         <div class="lp-content" style="padding: 10px;">
