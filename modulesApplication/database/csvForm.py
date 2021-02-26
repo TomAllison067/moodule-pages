@@ -5,19 +5,19 @@ import io
 from ..models import Programme, Module, ModuleSelection, People
 from ..programmeInfo import csv_converter
 
-
 MODEL_CHOICES = (
     (1, "Programme"),
     (2, "Module"),
     (3, "Module Selection"),
     (4, "People")
 )
-models = {'1': Programme, '2': Module, '3': ModuleSelection, '4':People}
+models = {'1': Programme, '2': Module, '3': ModuleSelection, '4': People}
 
 
 class CsvUploadForm(forms.Form):
     data_file = forms.FileField()
     model = forms.ChoiceField(choices=MODEL_CHOICES)
+    model.widget.attrs.update({'class': "dropdown2", 'required': 'required'})
 
     def process_data(self, file, model):
 

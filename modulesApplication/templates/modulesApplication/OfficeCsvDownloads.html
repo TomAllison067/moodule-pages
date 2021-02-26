@@ -1,25 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome Admininistration</title>
-</head>
-<body>
+    <meta charset="utf-8">
 
-<h2>Download csv files</h2>
-<ul>
-    <button><a href="{% url 'modulesApplication:csv' 'Programme' %}" class="model">Programmes</a></button>
-    <button><a href="{% url 'modulesApplication:csv' 'Module'%}" class="model">Modules</a></button>
-    <button><a href="{% url 'modulesApplication:csv' 'ModuleSelection'%}" class="model">Student request status</a></button>
-{#    <li><a href="{% url 'modulesApplication:csv' 'selections' %}" class="model">Student choices</a></li>  #}
-</ul>
-<form action="{% url 'modulesApplication:csv-downloads' %}" method="post", enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="submit"/>
-</form>
-{% if message %}
-    <p id="para">{{ message }}</p>
-{% endif %}
+    <title>Office Csv Files</title>
+    <meta name="description" content="TBD">
+    <meta name="author" content="TBD">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/choosemodules.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
+</head>
+
+<body>
+<!-- you can delete anything from here to the other comment like this if you do not like it,
+i was just trying to help but only the top bar and the footer look good" -->
+
+
+<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
+<div id="overlay" onclick="quitClick() "></div>
+
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper">
+    <input type="checkbox" id="check">
+
+    <!-- SIDEBAR MENU -->
+    <div class="sidebar">
+        <header>
+            <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
+        </header>
+        <ul>
+            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a>
+            </li>
+            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
+            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+                courses</a></li>
+        </ul>
+    </div>
+
+    <!-- TOP BAR -->
+    <nav class="topbar">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+        </label>
+        <label class="title"> moodule</label>
+        <div class="search-box">
+            <input class="search-txt" type="text" name="" placeholder="search">
+            <a class="search-btn" href="#">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
+
+        <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
+    </nav>
+
+    <!-- here ends my attempt
+    at designing the page -->
+
+    <!-- IMAGE BAR -->
+    <div class="image-box">
+        <div class="ib-content">
+            <h2><i class="fas fa-book-open"></i> Csv Downloads and Uploads</h2> <br>
+        </div>
+    </div>
+
+    <div class="form-box">
+        <div class="icon-img">
+            <i class="fas fa-book-open"></i>
+        </div>
+
+
+        </p>
+
+        <ul>
+            <h2>Csv downloads</h2>
+            <div class="panel" disabled="False" id="module">
+                <ul>
+                    <button class="moreInfoButton"><a href="{% url 'modulesApplication:csv' 'Programme' %}">Programmes</a></button>
+                    <button class="moreInfoButton"><a href="{% url 'modulesApplication:csv' 'Module' %}">Modules</a></button>
+                    <button class="moreInfoButton"><a href="{% url 'modulesApplication:csv' 'People' %}">Course leaders</a></button>
+                    <button class="moreInfoButton"><a href="{% url 'modulesApplication:csv' 'ModuleSelection' %}">Student request
+                        status</a></button>
+                    {#    <li><a href="{% url 'modulesApplication:csv' 'selections' %}" class="model">Student choices</a></li>  #}
+                </ul>
+            <h2>Csv Uploads </h2>
+                <form action="{% url 'modulesApplication:csv-downloads' %}" method="post" ,
+                      enctype="multipart/form-data" class="form_csv">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input class="moreInfoButton" type="submit" value="submit"/>
+                </form>
+                {% if message %}
+                    <p id="para">{{ message }}</p>
+                {% endif %}
+
+            </div>
+
+        </ul>
+
+    </div>
+</div>
 </body>
+
+<div class="footer">
+    <div class="row">
+        <div class="col">
+            <li>Royal Holloway, University of London</li>
+            <li>Egham, Surrey, TW20 0EX</li>
+        </div>
+        <div class="col">
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+        </div>
+        <div class="col">
+            <li>moodule@gmail.com</li>
+            <li>T: +44 (0)1784 434455</li>
+        </div>
+        <div class="row">
+            &copy; 2021 moodule.com | Designed by CS2815 Group 34
+        </div>
+    </div>
+</div>
+
 </html>

@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from ..programmeInfo import csv_converter
-from ..models import Module, Programme, ModuleSelection
+from ..models import Module, Programme, ModuleSelection, People
 from ..database.csvForm import CsvUploadForm
 from modulesApplication.database.csv_reader import CsvReader
 
@@ -24,13 +24,13 @@ def csv(request):
             return render(request, 'modulesApplication/OfficeCsvDownloads.html', {'form': CsvUploadForm(), 'message': message})
     else:
         form = CsvUploadForm()
-        message  = ""
+        message= ""
     return render(request, 'modulesApplication/OfficeCsvDownloads.html', {'form': form, 'message': message})
 
 
 @login_required
 def csv_file(request, model_class):
-    models = [Module, Programme, ModuleSelection]
+    models = [Module, Programme, ModuleSelection, People]
     for model in models:
         if model.__name__ == model_class:
             model_class = model
