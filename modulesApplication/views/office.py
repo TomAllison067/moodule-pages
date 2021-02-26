@@ -21,11 +21,14 @@ def csv(request):
             form.process_data(request.FILES['data_file'], request.POST['model'])
             # print(request.POST['model'])
             message = "database successfully updated"
-            return render(request, 'modulesApplication/OfficeCsvDownloads.html', {'form': CsvUploadForm(), 'message': message})
+        else:
+            message = "ERROR updating database"
+        return render(request, 'modulesApplication/OfficeCsvDownloads.html',
+                          {'form': CsvUploadForm(), 'message': message})
+
     else:
         form = CsvUploadForm()
-        message= ""
-    return render(request, 'modulesApplication/OfficeCsvDownloads.html', {'form': form, 'message': message})
+    return render(request, 'modulesApplication/OfficeCsvDownloads.html', {'form': form})
 
 
 @login_required

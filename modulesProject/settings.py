@@ -138,8 +138,8 @@ SITE_ID = 1
 
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
-MEDIA_URL = '/resources/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
+# MEDIA_URL = '/resources/'
 
 """DJANGO AUTHENTICATION SETTINGS"""
 AUTHENTICATION_BACKENDS = (
