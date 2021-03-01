@@ -2,7 +2,7 @@
 
 {% block title %}{{ info.programme.title }} - {{ info.entry_year }}{% endblock %}
 
-{% block css %}
+{% block head_css %}
     {{ block.super }}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/selectionform.css' %}">
