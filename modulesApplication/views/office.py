@@ -7,7 +7,7 @@ from ..database.csvForm import CsvUploadForm
 
 @login_required
 def landing(request):
-    return render(request, 'modulesApplication/OfficeLandingPage.html')
+    return render(request, 'modulesApplication/office/OfficeLandingPage.html')
 
 
 @login_required
@@ -21,12 +21,12 @@ def csv(request):
             message = "database successfully updated"
         else:
             message = "ERROR updating database"
-        return render(request, 'modulesApplication/OfficeCsvDownloads.html',
-                          {'form': CsvUploadForm(), 'message': message})
+        return render(request, 'modulesApplication/office/OfficeCsvDownloads.html',
+                      {'form': CsvUploadForm(), 'message': message})
 
     else:
         form = CsvUploadForm()
-    return render(request, 'modulesApplication/OfficeCsvDownloads.html', {'form': form})
+    return render(request, 'modulesApplication/office/OfficeCsvDownloads.html', {'form': form})
 
 
 @login_required

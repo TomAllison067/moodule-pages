@@ -1,4 +1,4 @@
-{% extends "modulesApplication/base.html" %}
+{% extends "modulesApplication/base_student.html" %}
 {% load static %}
 
 {% block title %}Student Homepage{% endblock %}
@@ -9,17 +9,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
 {% endblock %}
 
-
-{% block sidebar-links %}
-    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
-            class="fas fa-home"></i>home</a></li>
-    <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
-        modules</a></li>
-    <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-        courses</a></li>
-    <li><a href="{% url 'modulesApplication:my-selection' %}" class="btn"><i class="fas fa-book-open"></i>my
-        selection</a></li>
-{% endblock %}
 
 {% block content %}
     <div class="page-wrapper">

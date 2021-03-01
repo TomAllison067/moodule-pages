@@ -47,12 +47,12 @@ def all_modules(request, sort=0):
                    "course_leaders": people}
         module_summaries.setdefault(module.level, []).append(mod_sum)  # Creates a list if it doesn't exist and appends
     context = {'module_summaries': module_summaries}
-    return render(request, 'modulesApplication/AllModules.html', context=context)
+    return render(request, 'modulesApplication/student/AllModules.html', context=context)
 
 
 @login_required
 def landing(request):
-    return render(request, 'modulesApplication/StudentLandingPage.html')
+    return render(request, 'modulesApplication/student/StudentLandingPage.html')
 
 
 @login_required
@@ -68,7 +68,7 @@ def choose_modules(request):
                               'stage': stage,
                               'entry_year': entry_year})
         return HttpResponseRedirect(url)
-    return render(request, 'modulesApplication/StudentChooseModules.html')
+    return render(request, 'modulesApplication/student/StudentChooseModules.html')
 
 
 @login_required
@@ -110,7 +110,7 @@ def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites
                    'prerequisites': prerequisites,
                    'banned_combinations': banned_combinations
                    }
-        return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
+        return render(request, 'modulesApplication/student/DegreeChooseModules.html', context=context)
 
 
 @login_required
@@ -163,7 +163,7 @@ def submitted(request, student_id, stage, entry_year, prog_code):
     modules = selection.module_set.all()
     context = {'selection': selection,
                'modules': modules}
-    return render(request, 'modulesApplication/ViewStudentSelection.html', context=context)
+    return render(request, 'modulesApplication/student/ViewStudentSelection.html', context=context)
 
 
 @login_required
@@ -178,7 +178,7 @@ def my_selection(request):
         'selection': selection,
         'modules': modules
     }
-    return render(request, 'modulesApplication/ViewStudentSelection.html', context=context)
+    return render(request, 'modulesApplication/student/ViewStudentSelection.html', context=context)
 
 
 @login_required
@@ -191,4 +191,4 @@ def module_details(request, module):
                            'Recommended_Reading': current_module.core_reading,
                            'Exam_Format': current_module.exam_format}
                }
-    return render(request, 'modulesApplication/ModuleDetails.html', context=context)
+    return render(request, 'modulesApplication/student/ModuleDetails.html', context=context)
