@@ -1,3 +1,4 @@
+<<<<<<< HEAD:modulesApplication/templates/modulesApplication/student/ModuleDetails.html
 <style>
   .accordion {
     background-color: #eee;
@@ -32,3 +33,39 @@
     <h3> Recomended Reading </h3> <p>{{details.Recommended_Reading}}</p>
     <h3> Exam Format </h3> <p>{{details.Exam_Format}}</p>
 </body>
+=======
+<style>
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+
+  .active,
+  .accordion:hover {
+    background-color: #ccc;
+  }
+
+  .panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+  }
+</style>
+
+<body>
+  <h1>MORE INFORMATION ABOUT {{module.mod_code}} {{module.title}}</h1>
+    <h3> Summary </h3> <p>{{details.Summary}}</p>
+    <h3> Learning Outcomes </h3> <p>{{details.Learning_Outcomes}}</p>
+    <h3> Recomended Reading </h3> <p>{{details.Recommended_Reading}}</p>
+    <h3> Exam Format </h3> <p>{{details.Exam_Format}}</p>
+</body>
+>>>>>>> 4050e863744cb898419b7efddbcbae39203c67a4:modulesApplication/templates/modulesApplication/ModuleDetails.html
