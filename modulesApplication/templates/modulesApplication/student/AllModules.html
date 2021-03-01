@@ -3,10 +3,10 @@
 
 {% block title %}All Modules{% endblock %}
 
-{% block css %}
+{% block head_css %}
     {{ block.super }}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/choosemodules.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/allmodules.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -24,45 +24,47 @@
         </div>
 
         {# module_summaries refer to the dictionary passed through with the render request #}
-        <label for="year_filter">Filter by:</label>
-        <select style=background-color:orangered; class="dropdown2" name="year" id="year_filter">
+        <label for="year_filter">Filter by:</label> 
+        <select class="dropdown" name="year" id="year_filter">
             <option value=0>Select Year</option>
         </select>
-
+        <br>
 
 
         {% if module_summaries %}
             <ul>
                 {% for year, modules in module_summaries.items %}
-                    <h2>Year {{ year|add:"-3" }}</h2>
+                    <br> <h2>Year {{ year|add:"-3" }}</h2>
+                    <br>
                     {% for module in modules %}
-                        <label class="moduleLabels">{{ module.module_code }} - {{ module.title }}</label>
-                        <div class="panel" disabled="False" id="module">
-                            <h4>Summary</h4>
-                            <p>{{ module.summary }}</p>
-                            <br>
-                            <button style=background-color:orangered; class="moreInfoButton"
-                                    onclick="myFunction('{{ module.module_code }}')"> Find out
-                                more...
-                            </button>
-                            <div class="{{ module.module_code }}" style="display: none;">
+                            <label class="moduleLabels">{{ module.module_code }} - {{ module.title }}</label>
+                            <div class="panel" disabled="False" id="module">
                                 <br>
-                                <h4>Learning Outcomes</h4>
-                                <p>{{ module.learning_outcomes }}.</p>
-                                <h4>Recommended Reading</h4>
-                                <p>{{ module.recommended_reading }}</p>
-                                <h4>Exam Format</h4>
-                                <p>{{ module.exam_format }}</p>
-                                <h4>Course Leaders</h4>
-                                {% for leader in module.course_leaders %}
-                                    <p>- {{ leader }}</p>
-                                {% endfor %}
+                                <h4>Summary</h4>
+                                <p>{{ module.summary }}</p>
+                                <br>
+                                <button style=background-color:orangered; class="moreInfoButton"
+                                        onclick="myFunction('{{ module.module_code }}')"> Find out
+                                    more...
+                                </button>
+                                <div class="{{ module.module_code }}" style="display: none;">
+                                    <br>
+                                    <h4>Learning Outcomes</h4>
+                                    <p>{{ module.learning_outcomes }}.</p>
+                                    <br><h4>Recommended Reading</h4>
+                                    <p>{{ module.recommended_reading }}</p>
+                                    <br><h4>Exam Format</h4>
+                                    <p>{{ module.exam_format }}</p>
+                                    <br><h4>Course Leaders</h4>
+                                    {% for leader in module.course_leaders %}
+                                        <p>- {{ leader }}</p>
+                                    {% endfor %}
 
+                                </div>
+                                <br><br>
+                                <hr>
+                                <br>
                             </div>
-                            <br><br>
-                            <hr>
-                            <br>
-                        </div>
                     {% endfor %}
                 {% endfor %}
 

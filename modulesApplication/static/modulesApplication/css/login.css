@@ -548,7 +548,7 @@ iframe {
 .topbar {
     width: calc(100% - 10px);
     height: 40px;
-    background: #303036;
+    background: #f9e0ae;
     z-index: 5;
     overflow: hidden;
     position: fixed;
