@@ -1,5 +1,5 @@
 /* --[[ IMAGE BOX -- */
-.image-box{
+.image-box {
     position: relative;
     background: linear-gradient(-50deg, rgb(155, 101, 0), rgb(137, 36, 0), rgb(38, 0, 38));
     background-size: 200% 300%;
@@ -24,7 +24,7 @@
     margin: 15px 0;
     font-size: 26px;
     color: white;
-    background: rgba(30,30,30,0);
+    background: rgba(30, 30, 30, 0);
     border-left: 5px orangered solid;
 }
 
@@ -42,7 +42,7 @@
 .form-title h1 {
     margin-left: 20px;
     font-size: 26px;
-    color: white;
+    color: black;
 }
 
 .form-content * {
@@ -94,8 +94,7 @@
 }
 
 .rules {
-    margin: 5px 5px;
-    margin-left: 20px;
+    margin: 5px 5px 5px 20px;
     border-bottom: 2px solid orangered;
 }
 
@@ -118,6 +117,7 @@
 .rules ul.bulletpoint {
     list-style-type: circle;
 }
+
 .grid {
     display: grid;
     justify-content: center;
@@ -220,11 +220,9 @@
 
 form#module-selection-form .submit-box {
     height: 100%;
-    padding: 10px;
-    padding-bottom: 20px;
+    padding: 10px 10px 20px;
     width: 30%;
-    margin: 0px auto;
-    margin-top: 15px;
+    margin: 15px auto 0;
     color: white;
     border-radius: 5px;
 }
@@ -237,7 +235,6 @@ form#module-selection-form .submit-box label {
 
 form#module-selection-form .submit-box label input[type = "text"] {
     background: #2f3640;
-    color: #d85f26;
     height: auto;
     width: 200px;
     font-size: 18px;
@@ -248,12 +245,6 @@ form#module-selection-form .submit-box label input[type = "text"] {
     color: white;
     border-left: 5px solid orangered;
     transition: 0.25s;
-}
-
-form#module-selection-form .submit-box label input[type = "text"]:focus {
-    width: 220px;
-    border: 1px white solid;
-    font-size: 18px;
 }
 
 form#module-selection-form .submit-box input[type = "submit"] {
