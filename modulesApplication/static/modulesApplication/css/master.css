@@ -1,288 +1,84 @@
-/* Google font imports */
+/* --[[ GOOGLE FONT IMPORTS ]]-- */
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Yantramanav:wght@900');
 
-/* --[[ SLIDER ]] */
+/* --[[ HTML, BODY ]]-- */
+html, body {
+    background: linear-gradient(rgb(196, 196, 196), rgb(180, 180, 180) );
+    margin: 0;
+    padding: 0;
 
-.slider {
-    position: relative;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    list-style: none;
+    text-decoration: none;
+
+    color: white;
+    background-size: cover;
+    font-family: 'Nunito', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* * */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+/* --[[ WRAPPER ]]-- */
+.page-wrapper {
+    min-height: 100%;
+}
+
+.page-wrapper2 {
+    min-height: 100%;
+    background-size: 400% 400%;
+}
+
+@keyframes ib-gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/* --[[ OVERLAY - SIDEBAR ACTIVATED ]]-- */
+
+.overlay {
+    position: fixed;
+    display: none;
     width: 100%;
-    height: 300px;
-    border-radius: 10px;
-    border-bottom: 3px solid orangered;
-    overflow: hidden;
-}
-
-.slides {
-    position: relative;
-    width: 600%;
     height: 100%;
-    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 5;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
-.slides input {
+#overlay:active {
     display: none;
 }
 
-.slide {
-    width: 20%;
-    margin-left: 0;
-    margin-right: 0;
-    transition: 2s;
-}
+/* --[[ SCROLLBAR ]]-- */
 
-.slide-content {
-    position: relative;
-    color: black;
-    margin-top: 0;
-    padding: 60px;
-    display: block;
-    height: 50%;
-    width: 75%;
-}
-
-.slide-content h2 {
-    padding: 5px;
-    color: white;
-    background: #141414;
-    border-top: 5px orangered solid;
-}
-
-.slide-content p {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 7px;
-    border-left: 5px orangered solid;
-    color: white;
-    width: 90%;
-}
-
-
-.slide img {
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    filter: blur(4px);
-}
-
-/* --[[ SLIDER - MANUAL NAVIGATION ]] */
-
-.navigation-manual {
-    position: absolute;
-    width: 100%;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-}
-
-.manual-btn {
-    border: 2px solid orangered;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.25s;
-}
-
-.manual-btn:not(:last-child) {
-    margin-right: 40px;
-}
-
-.manual-btn:hover {
-    background: orangered;
-}
-
-#radio1:checked ~ .first {
-    margin-left: 0;
-}
-
-#radio2:checked ~ .first {
-    margin-left: -20%;
-}
-
-#radio3:checked ~ .first {
-    margin-left: -40%;
-}
-
-/* --[[ SLIDER - AUTOMATIC NAVIGATION ]] */
-
-.navigation-auto {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-top: 460px;
-}
-
-.navigation-auto div {
-    border: 2px solid orangered;
-    padding: 5px;
-    border-radius: 10px;
-    transition: 1s;
-}
-
-.navigation-auto div:not(:last-child) {
-    margin-right: 40px;
-}
-
-#radio1:checked ~ .navigation-auto .auto-btn1 {
-    background: orangered;
-}
-
-#radio2:checked ~ .navigation-auto .auto-btn2 {
-    background: orangered;
-}
-
-#radio3:checked ~ .navigation-auto .auto-btn3 {
-    background: orangered;
-}
-
-/* --[[ BOXES ]] */
-
-.lp-container {
-    margin: 0 auto;
-    width: 80%;
-    height: 50vh;
-    display: flex;
-    box-sizing: border-box;
-    position: relative;
-}
-
-.lp-box {
-    margin: 0.25% 0.4%;
-    width: 80%;
-    height: 100%;
-    display: block;
-    box-sizing: border-box;
-    background: url(../images/buttons/slp-button.png);
-    background-size: cover;
-    color: white;
-    cursor: pointer;
-    position: relative;
-    opacity: 90%;
-    transition: 0.25s;
-    border-radius: 15px;
-}
-
-.lp-box:hover {
-    background-position: right;
-    transform: scale(1.025);
-    border-radius: 15px;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.511);
-    opacity: 100%;
-    transition: 0.25s;
-}
-
-.lp-box:hover > a .lp-content .icon-box p {
-    transform: translateY(0%);
-    opacity: 100%;
-}
-
-.lp-box:hover > a h2 {
-    border-radius: 15px 15px 0 0;
-    transition: 0.25s;
-}
-
-.lp-box a h2 {
-    font-size: 18px;
-    text-align: center;
-    border-top: 2px orangered solid;
-    background: rgba(0, 0, 0, 0.65);
-    margin-bottom: 5%;
-    position: relative;
-    border-radius: 15px 15px 0 0;
-}
-
-.lp-box a .lp-content h3 {
-    margin-top: 5%;
-    margin-left: 5%;
-    padding: 5px;
-    position: relative;
-}
-
-.lp-content {
-    margin: auto;
-    width: 90%;
-    height: 80%;
-    display: block;
-    box-sizing: border-box;
-    background-image: linear-gradient(black, rgb(27, 27, 27));
-    background-size: cover;
-    color: white;
-    font-size: 18px;
-    border-radius: 15px;
-    cursor: pointer;
-    position: relative;
-    transition: 0.25s;
-}
-
-.lp-box a .lp-content .term-module-list {
-    padding: 2px;
-    width: 95%;
-    height: 35vh;
-    display: block;
-    overflow-y: scroll;
-}
-
-.lp-content .term-module-list li {
-    padding: 5px;
-    margin: 10px auto;
-    width: 95%;
-    height: auto;
-    opacity: 100%;
-    display: block;
-    box-sizing: border-box;
-    border-left: 5px orangered solid;
-    background-image: linear-gradient(rgb(27, 27, 27), rgb(45, 45, 45));
-    background-size: cover;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    transition: 0.25s;
-}
-
-.lp-content li {
-    padding: 5px;
-}
-
-#lpc-cm, #lpc-ac {
-    display: block;
-    padding: 2%;
-    border-radius: 0;
-    text-align: center;
-    background: none;
-    margin: 5px auto;
-    font-size: 18px;
-}
-
-.icon-box > p {
-    opacity: 0;
-    transform: translateY(150%);
-    transition: transform 0.25s;
-}
-
-#lpc-cm .icon-box, #lpc-ac .icon-box {
-    margin-top: 10px;
-    margin-left: 9%;
-}
-
-#lpc-cm i, #lpc-ac i {
-    font-size: 60px;
-    align-items: center;
-}
-
-.lp-box a {
-    position: relative;
-    border-radius: 5px;
-    width: 100%;
-    height: auto;
-    top: 0;
-    left: 0;
-    display: block;
-}
-<<<<<<< HEAD
-
-/* SCROLLBAR */
 ::-webkit-scrollbar {
     width: 10px;
     z-index: 1000;
@@ -298,55 +94,12 @@
     border-radius: 10px;
 }
 
-/* FOOTER */
+/* --[[ TOPBAR ]]-- */
 
-.footer {
-    background: #141414;
-    color: #d3d3d3;
-    /*height: 125px;*/
-    position: relative;
-    font-size: 12px;
-}
-
-.footer .row {
-    border-top: 2px solid orangered;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    height: auto;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
-.footer .finalrow {
-    border-top: 2px solid orangered;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
-.footer .col {
-    padding: 5px;
-    text-align: center;
-}
-
-.footer .footer-bottom {
-    background: #343a40;
-    color: #686868;
-    height: 50px;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding-top: 20px;
-
-}
-
-/* MAIN PAGE COMPONENTS - section for CSS of index.html */
 .topbar {
     width: calc(100% - 10px);
     height: 42px;
-    background: #FBB122;
+    background: #141414;
     z-index: 5;
     display: inline-block;
     overflow: visible;
@@ -356,13 +109,14 @@
 .topbar .title {
     position: absolute;
     top: 5px;
-    color: #003049;
-    /*font: bold;*/
+    color: orangered;
     font-weight: 800;
     font-size: 25px;
     margin-left: 80px;
     font-family: 'Yantramanav', sans-serif;
 }
+
+/* --[[ TB: AVATAR BOX ]]-- */
 
 .avatar-box {
     position: absolute;
@@ -385,7 +139,6 @@
 }
 
 .avatar-box label img {
-    /*position: relative;*/
     height: 40px;
     width: 40px;
     position: absolute;
@@ -448,6 +201,7 @@
     color: white;
 }
 
+/* --[[ TB: AVATAR BOX DROPDOWN MENU ]]-- */
 
 .dropdown-ab-menu {
     color: rgb(25, 25, 25);
@@ -536,12 +290,13 @@
     transition: 0.25s;
 }
 
+/* --[[ TB: SEARCH BOX ]]-- */
 .search-box {
     position: absolute;
     top: 20px;
     right: 0;
     transform: translate(-50%, -50%);
-    background: #003049;
+    background: #2f3640;
     color: #d85f26;
     height: 12px;
     border-radius: 5px;
@@ -558,7 +313,7 @@
     width: 20px;
     height: 12px;
     border-radius: 20%;
-    background: #003049;
+    background: #2f3640;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -573,20 +328,20 @@
     padding: 0;
     color: white;
     font-family: 'Nunito', sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     transition: 0.25s;
     line-height: 15px;
     width: 100px;
 }
 
-
+/* --[[ SIDEBAR ]]-- */
 .sidebar {
     position: fixed;
     left: -250px;
     top: 40px;
     width: 250px;
     height: 100%;
-    background: #f77f00;
+    background: orangered;
     transition: all .25s ease;
     z-index: 5;
 }
@@ -596,7 +351,7 @@
     color: white;
     text-align: center;
     line-height: 70px;
-    background: rgb(38, 38, 38);
+    background: rgb(15, 15, 15);
     user-select: none;
 }
 
@@ -609,33 +364,30 @@
     filter: contrast(200%);
 }
 
-/* */
 .sidebar ul a {
     display: block;
     height: 100%;
     width: 100%;
     line-height: 25px;
-    font-size: 15px;
+    font-size: 16px;
     color: white;
     padding-left: 20px;
     box-sizing: border-box;
     border-top: 1px solid rgba(255, 255, 255, .1);
-    border-bottom: 4px solid rgb(38, 38, 38);
+    border-bottom: 4px solid rgb(15, 15, 15);
     transition: all .25s;
 }
 
 .sidebar ul li:hover a {
     padding-left: 35px;
-    background: #fcbf49;
+    background: #ff905d;
 }
 
 .sidebar ul a i {
     margin-right: 16px;
 }
 
-/* */
-
-#check {
+#sidebar-checkbox {
     display: none;
 }
 
@@ -665,37 +417,27 @@ label #cancel {
     transition: all .25s ease;
 }
 
-#check:checked ~ .sidebar {
+#sidebar-checkbox:checked ~ .sidebar {
     left: 0;
 }
 
-#check:checked ~ label #btn {
+#sidebar-checkbox:checked ~ label #btn {
     left: 250px;
     opacity: 0;
     pointer-events: none;
 }
 
-#check:checked ~ #overlay {
+#sidebar-checkbox:checked ~ #overlay {
     display: block;
 }
 
-#check:checked ~ label #cancel {
+#sidebar-checkbox:checked ~ label #cancel {
     left: 25px;
     opacity: 50%;
 }
 
-.list {
-    width: 800px;
-    border-radius: 8px;
-    overflow: hidden;
-}
+/* --[[ SB - BUTTONS ]]-- */
 
-.item {
-    border-top: 1px solid #d85f26;
-    overflow: hidden;
-}
-
-/* */
 .btn {
     display: block;
     padding: 16px 20px;
@@ -719,6 +461,7 @@ label #cancel {
     margin-right: 10px;
 }
 
+/* --[[ MAIN-CONTENT ]-- */
 
 .main-content {
     padding: 10px;
@@ -771,10 +514,45 @@ label #cancel {
     margin-left: 20px;
 }
 
-/* All Modules components - section for CSS of the AllModules.html */
+/* --[[ FOOTER ]]-- */
 
-/* Student Choose Page components - section for CSS of the StudentChooseModules.html */
+.footer {
+    background: #141414;
+    color: #d3d3d3;
+    position: relative;
+    font-size: 12px;
+}
 
-/* Student Landing Page components - section for CSS of the StudentLandingPage.html */
-=======
->>>>>>> 4050e863744cb898419b7efddbcbae39203c67a4
+.footer .row {
+    border-top: 2px solid orangered;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    height: auto;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer .finalrow {
+    border-top: 2px solid orangered;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer .col {
+    padding: 5px;
+    text-align: center;
+}
+
+.footer .footer-bottom {
+    background: #343a40;
+    color: #686868;
+    height: 50px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-top: 20px;
+
+}

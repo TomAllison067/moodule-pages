@@ -47,12 +47,12 @@ def all_modules(request, sort=0):
                    "course_leaders": people}
         module_summaries.setdefault(module.level, []).append(mod_sum)  # Creates a list if it doesn't exist and appends
     context = {'module_summaries': module_summaries}
-    return render(request, 'modulesApplication/AllModules.html', context=context)
+    return render(request, 'modulesApplication/student/AllModules.html', context=context)
 
 
 @login_required
 def landing(request):
-    return render(request, 'modulesApplication/StudentLandingPage.html')
+    return render(request, 'modulesApplication/student/StudentLandingPage.html')
 
 
 @login_required
@@ -68,11 +68,11 @@ def choose_modules(request):
                               'stage': stage,
                               'entry_year': entry_year})
         return HttpResponseRedirect(url)
-    return render(request, 'modulesApplication/StudentChooseModules.html')
+    return render(request, 'modulesApplication/student/StudentChooseModules.html')
 
 
 @login_required
-def choose_specific_modules(request, prog_code, stage, entry_year):
+def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites=None, banned_combination = None):
     if request.method == "GET":
         try:
             info = factory.get_programme_info(prog_code, entry_year=entry_year)
@@ -80,6 +80,14 @@ def choose_specific_modules(request, prog_code, stage, entry_year):
             raise Http404
         strand = strand_prefixes = ''
         opts_prefixes = ''
+        try:
+            modules_list = Module.objects.order_by('level', 'mod_code')
+            for module in modules_list:
+                prerequisites = module.prerequisites
+                banned_combinations = module.banned_combinations
+        except Module.DoesNotExist:
+            prerequisites = None
+            banned_combinations = None
         # TODO: Make this more general (eg Maths + CompSci have more than one rule for this bit) + put it in factory?
         if int(stage) > 1:
             try:
@@ -98,9 +106,11 @@ def choose_specific_modules(request, prog_code, stage, entry_year):
                    'stage': "stage{}".format(stage),
                    'strand': strand,
                    'strand_prefixes': strand_prefixes,
-                   'opts_prefixes': opts_prefixes
+                   'opts_prefixes': opts_prefixes,
+                   'prerequisites': prerequisites,
+                   'banned_combinations': banned_combinations
                    }
-        return render(request, 'modulesApplication/DegreeChooseModules.html', context=context)
+        return render(request, 'modulesApplication/student/DegreeChooseModules.html', context=context)
 
 
 @login_required
@@ -119,8 +129,8 @@ def submit_selection(request):
         entry_year = request.POST.get('entry_year')
         prog_code = request.POST.get('prog_code')
         programme = Programme.objects.get(pk=prog_code)
-        ModuleSelection.objects.filter(student_id=student_id, stage=stage, entry_year=entry_year,
-                                       programme=programme).delete()
+        ModuleSelection.objects.filter(
+            student_id=student_id).delete()  # Delete any existing selections (should only be one!)
         selection = ModuleSelection.objects.create(
             student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme)
         for m in mod_codes:
@@ -153,7 +163,22 @@ def submitted(request, student_id, stage, entry_year, prog_code):
     modules = selection.module_set.all()
     context = {'selection': selection,
                'modules': modules}
-    return render(request, 'modulesApplication/ViewStudentSelection.html', context=context)
+    return render(request, 'modulesApplication/student/ViewStudentSelection.html', context=context)
+
+
+@login_required
+def my_selection(request):
+    """A view for the student to see their current ModuleSelection object."""
+    selection = get_object_or_404(
+        ModuleSelection,
+        student_id=request.user.id
+    )
+    modules = selection.module_set.all()
+    context = {
+        'selection': selection,
+        'modules': modules
+    }
+    return render(request, 'modulesApplication/student/ViewStudentSelection.html', context=context)
 
 
 @login_required
@@ -166,4 +191,4 @@ def module_details(request, module):
                            'Recommended_Reading': current_module.core_reading,
                            'Exam_Format': current_module.exam_format}
                }
-    return render(request, 'modulesApplication/ModuleDetails.html', context=context)
+    return render(request, 'modulesApplication/student/ModuleDetails.html', context=context)

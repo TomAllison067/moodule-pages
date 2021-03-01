@@ -5,15 +5,48 @@
 
 /* --[[ ALL MODULES TABLE ]]-- */
 
+
+label, p {
+    font-size: 18px;
+    color: black;
+}
+
+h2 {
+    font-size: 24px;
+    color: black;
+}
+
+h4 {
+    font-size: 22px;
+    color: black;
+}
+.yearLabel {
+    padding: 5px;
+}
+
 .moduleLabels{
-    color: orangered;
+    padding: 5px;
+    background: rgb(5,5,5);
+    border-top: 5px solid orangered;
+    border-radius: 2px;
+    color: white;
+    width: 400px;
 }
 
 .moreInfoButton{
     background-color: #ff4500;
+    color: white;
     border-radius: 10px;
+    border: none;
+    font-size: 18px;
     width: 20%;
     height: 30px;
+    transition: 0.25s;
+}
+
+.moreInfoButton:hover {
+    width: 22%;
+    border: 2px solid white;
 }
 
 /* --[[ IMAGE BAR ]]-- */
@@ -98,14 +131,7 @@
     font-size: 60px;
 }
 
-.form-box #form_id {
-    width: 90%;
-    height: 100%;
-    color: black;
-    font-family: 'Nunito', sans-serif;
-}
-
-form#form_id h1 {
+.form-box h1 {
     font-size: 30px;
     border-bottom: 2px solid orangered;
     color: black;
@@ -113,7 +139,7 @@ form#form_id h1 {
     margin-bottom: 15px;
 }
 
-form#form_id .ul h2 {
+.form-box .ul h2 {
     color: black;
 }
 
@@ -124,25 +150,27 @@ form#form_id label {
     color: black;
 }
 
-form#form_id .dropdown {
+label {
+    font-size: 18px;
+}
+.form-box .dropdown {
     padding: 3px;
     border-radius: 5px;
     margin-top: 2px;
     font-size: 18px;
     margin-bottom: 15px;
-    width: 75%;
-    background: rgb(38, 38, 38);
+    width: 25%;
+    background: rgb(5,5,5);
     border-left: 5px orangered solid;
     color: white;
     font-family: 'Nunito', sans-serif;
     transition: 0.15s;
 }
 
-form#form_id .dropdown:hover {
-    width: 77%;
-    background: rgb(255, 255, 255);
+.form-box .dropdown:hover { 
+    width: 27%;
+    background: rgb(255, 255, 255, 0.5);
     color: black;
-    border-left: 5px white solid;
 }
 
 form#form_id select option, select option {

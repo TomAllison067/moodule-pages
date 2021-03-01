@@ -1,151 +1,67 @@
-<!DOCTYPE html>
+{% extends "modulesApplication/base.html" %}
 {% load static %}
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="utf-8">
 
-    <title>Choose Modules</title>
-    <meta name="description" content="TBD">
-    <meta name="author" content="TBD">
+{% block title %}Choose Modules{% endblock %}
 
+{% block head_css %}
+    {{ block.super }}
+    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/choosemodules.css' %}">
-    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+{% endblock %}
 
-</head>
+{% block sidebar-links %}
+    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+            class="fas fa-home"></i>home</a></li>
+    <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
+        modules</a></li>
+    <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+        courses</a></li>
+{% endblock %}
 
-<!--
-  INSTRUCTIONS FROM KEIRU; DESIGNERS CAN THINK OF OTHER USEFUL IDEAS TOO:
-
-  <h1>Students Choose their modules here.</h1>
-  <h1>Message to Designers:</h1>
-  <ul>
-    <li>Please add basic UI to this page. (Footer, header, navbar, etc.) Kiki and I will be working on this page to allow students to choose modules.</li>
-  </ul>
-  <hr>
-  <h1>Message to Developers:</h1>
-  <ul>
-      <li>We can do this! :D</li>
-  </ul>
-
--->
-
-<body>
-<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
-<div id="overlay" onclick="quitClick() "></div>
-
-<!-- PAGE WRAPPER -->
-<div class="page-wrapper">
-    <input type="checkbox" id="check">
-
-    <!-- SIDEBAR MENU -->
-    <div class="sidebar">
-        <header>
-            <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
-        </header>
-        <ul>
-            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a>
-            </li>
-            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
-            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-                courses</a></li>
-        </ul>
-    </div>
-
-    <!-- TOP BAR -->
-    <nav class="topbar">
-        <label for="check">
-            <i class="fas fa-bars" id="btn"></i>
-        </label>
-        <label class="title"> moodule</label>
-        <div class="search-box">
-            <input class="search-txt" type="text" name="" placeholder="search">
-            <a class="search-btn" href="#">
-                <i class="fas fa-search"></i>
-            </a>
+{% block content %}
+    <div class="page-wrapper">
+        <!-- IMAGE BAR -->
+        <div class="image-box">
+            <div class="ib-content">
+                <h2><i class="fas fa-book-open"></i> choose modules</h2> <br>
+            </div>
         </div>
 
-        <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
-    </nav>
+        <!-- FORM -->
+        <div class="form-box">
+            <div class="icon-img">
+                <i class="fas fa-book-open"></i>
+            </div>
 
-    <!-- IMAGE BAR -->
-    <div class="image-box">
-        <div class="ib-content">
-            <h2><i class="fas fa-book-open"></i> choose modules</h2> <br>
+            <form id="form_id" action="{% url 'modulesApplication:choose-modules' %}" method="POST">
+                {% csrf_token %}
+                <h1>Module Choice Form</h1>
+                <label for="programme_filter">Please select your degree programme: </label>
+                <br>
+
+                <select name="programme" id="programme_filter" class="dropdown">
+                    <option value="" selected disabled>Choose here...</option>
+                </select>
+
+                <br>
+
+                <label for="stage_filter"> Please select your degree stage: </label>
+                <br>
+
+                <select name="stage" id="stage_filter" class="dropdown">
+                    <option value="" selected disabled>Choose here...</option>
+                </select>
+
+                <br>
+
+                <input type="submit" value="confirm">
+                <br>
+            </form>
+
         </div>
-    </div>
-
-    <!-- FORM -->
-    <div class="form-box">
-        <div class="icon-img">
-            <i class="fas fa-book-open"></i>
-        </div>
-
-        <form id="form_id" action="{% url 'modulesApplication:choose-modules' %}" method="POST">
-            {% csrf_token %}
-            <h1>Module Choice Form</h1>
-            <label for="programme_filter">Please select your degree programme: </label>
-            <br>
-
-            <select name="programme" id="programme_filter" class="dropdown">
-                <option value="" selected disabled>Choose here...</option>
-            </select>
-
-            <br>
-
-            <label for="stage_filter"> Please select your degree stage: </label>
-            <br>
-
-            <select name="stage" id="stage_filter" class="dropdown">
-                <option value="" selected disabled>Choose here...</option>
-            </select>
-
-            <br>
-
-            <input type="submit" value="confirm">
-            <br>
-        </form>
-
-    </div>
-</div>
-</body>
-
-<!-- FOOTER - links will be added later -->
-<div class="footer">
-    <div class="row">
-        <div class="col">
-            <li>Royal Holloway, University of London</li>
-            <li>Egham, Surrey, TW20 0EX</li>
-        </div>
-        <div class="col">
-            <li>Terms & Conditions</li>
-            <li>Privacy Policy</li>
-        </div>
-        <div class="col">
-            <li>moodule@gmail.com</li>
-            <li>T: +44 (0)1784 434455</li>
-        </div>
-        <div class="row">
-            &copy; 2021 moodule.com | Designed by CS2815 Group 34
-        </div>
-</html>
-
-<!-- MENU OVERLAY SCRIPT -->
-<script>
-    var checkbox = document.querySelector("input[type=checkbox]");
-
-    checkbox.addEventListener('change', function () {
-        if (this.checked) {
-            document.getElementById("overlay").style.transition = '0.5s';
-            document.getElementById("overlay").style.display = "block";
-        } else {
-            document.getElementById("overlay").style.transition = '0.5s';
-            document.getElementById("overlay").style.display = "none";
-        }
-    });
-</script>
-
-<!-- DROPDOWN SCRIPT -->
+    </div>    
+    
+    <!-- DROPDOWN SCRIPT -->
 <script>
     //from programmes table : title,prog_code
     const programmes = {
@@ -243,4 +159,5 @@
     });
 
 </script>
+{% endblock %}
 

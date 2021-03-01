@@ -1,71 +1,33 @@
-<!DOCTYPE html>
+{% extends "modulesApplication/base.html" %}
 {% load static %}
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="utf-8">
 
-    <title>All Modules</title>
-    <meta name="description" content="TBD">
-    <meta name="author" content="TBD">
+{% block title %}All Modules{% endblock %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/choosemodules.css' %}">
-    <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-
-</head>
-
-<body>
-<!-- you can delete anything from here to the other comment like this if you do not like it,
-i was just trying to help but only the top bar and the footer look good" -->
+{% block base_css %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/allmodules.css' %}">
+{% endblock %}
 
 
-<!-- OVERLAY (FOR DARKENED PAGE WHEN MENU SELECTED)-->
-<div id="overlay" onclick="quitClick() "></div>
+{% block sidebar-links %}
+    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+            class="fas fa-home"></i>home</a></li>
+    <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
+        modules</a></li>
+    <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+        courses</a></li>
+{% endblock %}
 
-<!-- PAGE WRAPPER -->
-<div class="page-wrapper">
-    <input type="checkbox" id="check">
-
-    <!-- SIDEBAR MENU -->
-    <div class="sidebar">
-        <header>
-            <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
-        </header>
-        <ul>
-            <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i class="fas fa-home"></i>home</a>
-            </li>
-            <li><a href="#" class="btn"><i class="fas fa-book-reader"></i>my courses</a></li>
-            <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
-                courses</a></li>
-        </ul>
-    </div>
-
-    <!-- TOP BAR -->
-    <nav class="topbar">
-        <label for="check">
-            <i class="fas fa-bars" id="btn"></i>
-        </label>
-        <label class="title"> moodule</label>
-        <div class="search-box">
-            <input class="search-txt" type="text" name="" placeholder="search">
-            <a class="search-btn" href="#">
-                <i class="fas fa-search"></i>
-            </a>
-        </div>
-
-        <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}" class="avatar" alt="avatar">
-    </nav>
-
-    <!-- here ends my attempt
-    at designing the page -->
-
-    <!-- IMAGE BAR -->
-    <div class="image-box">
+{% block content %}
+     <!-- IMAGE BAR -->
+     <div class="image-box">
         <div class="ib-content">
             <h2><i class="fas fa-book-open"></i> All Modules</h2> <br>
         </div>
     </div>
 
+    <!-- FORM BOX -->
     <div class="form-box">
         <div class="icon-img">
             <i class="fas fa-book-open"></i>
@@ -73,7 +35,7 @@ i was just trying to help but only the top bar and the footer look good" -->
 
         {# module_summaries refer to the dictionary passed through with the render request #}
         <label>Filter by:</label>
-        <select class="dropdown2" name="year" id="year_filter">
+        <select class="dropdown" name="year" id="year_filter">
             <option value=0>Select Year</option>
         </select>
         </p>
@@ -82,11 +44,12 @@ i was just trying to help but only the top bar and the footer look good" -->
         {% if module_summaries %}
         <ul>
             {% for year, modules in module_summaries.items %}
-            <h2>Year {{ year|add:"-3" }}</h2>
+            <h2 class="yearLabel">Year {{ year|add:"-3" }}</h2>
+            <br>
                 {% for module in modules %}
                 <label class="moduleLabels">{{ module.module_code }} - {{ module.title }}</label>
                 <div class="panel" disabled="False" id="module">
-                    <h4>Summary</h4>
+                    <br> <h4>Summary</h4>
                     <p>{{ module.summary }}</p>
                     <br>
                     <button class="moreInfoButton" onclick="myFunction('{{ module.module_code }}')"> Find out
@@ -118,57 +81,33 @@ i was just trying to help but only the top bar and the footer look good" -->
         <p>No polls are available.</p>
         {% endif %}
     </div>
-</div>
-</body>
 
-<div class="footer">
-    <div class="row">
-        <div class="col">
-            <li>Royal Holloway, University of London</li>
-            <li>Egham, Surrey, TW20 0EX</li>
-        </div>
-        <div class="col">
-            <li>Terms & Conditions</li>
-            <li>Privacy Policy</li>
-        </div>
-        <div class="col">
-            <li>moodule@gmail.com</li>
-            <li>T: +44 (0)1784 434455</li>
-        </div>
-        <div class="row">
-            &copy; 2021 moodule.com | Designed by CS2815 Group 34
-        </div>
-    </div>
-</div>
-
-</html>
-
-
-<script>
-    // Display/hide extra info
-    function myFunction(mod_code) {
-        let x = document.getElementsByClassName(mod_code)[0]
-        console.log("Clicked " + mod_code);
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
+    <script>
+        // Display/hide extra info
+        function myFunction(mod_code) {
+            let x = document.getElementsByClassName(mod_code)[0]
+            console.log("Clicked " + mod_code);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
         }
-    }
-
-    //filtering by year
-    const years = {"All Modules": 0, "Year 1": 1, "Year 2": 2, "Year 3": 3, "Year 4": 4};
-    window.onload = function () {
-        const yearSel = document.getElementById("year_filter");
-        let y = 0;
-
-        for (const x in years) {
-            yearSel.options[yearSel.options.length] = new Option(x, x);
+    
+        //filtering by year
+        const years = {"All Modules": 0, "Year 1": 1, "Year 2": 2, "Year 3": 3, "Year 4": 4};
+        window.onload = function () {
+            const yearSel = document.getElementById("year_filter");
+            let y = 0;
+    
+            for (const x in years) {
+                yearSel.options[yearSel.options.length] = new Option(x, x);
+            }
+    
+            yearSel.onchange = function () {
+                y = years[this.value]
+                location.href = '/student/all-modules/sort/' + y;
+            }
         }
-
-        yearSel.onchange = function () {
-            y = years[this.value]
-            location.href = '/student/all-modules/sort/' + y;
-        }
-    }
-</script>
+    </script>
+{% endblock %}

@@ -135,6 +135,12 @@ STATIC_URL = '/static/'
 # Use the sites framework for Django authentication. Need to look at this later.
 SITE_ID = 1
 
+
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
+# MEDIA_URL = '/resources/'
+
 """DJANGO AUTHENTICATION SETTINGS"""
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  # Django's default auth backend

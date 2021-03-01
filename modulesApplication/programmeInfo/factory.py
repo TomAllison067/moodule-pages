@@ -35,13 +35,18 @@ def populate_core_modules(modules_dict: Dict, rules_dict: Dict, programme: Progr
                         term = get_term(module)
                         if term == "1":
                             modules_dict[stage_key]['term1']['CORE'] += [module]
+                            modules_dict[stage_key]['term1']['has_modules'] = True
                         elif term == "2":
                             modules_dict[stage_key]['term2']['CORE'] += [module]
+                            modules_dict[stage_key]['term2']['has_modules'] = True
                         elif term.upper() == "BOTH" or module.title.upper() == "YEAR IN INDUSTRY":
                             modules_dict[stage_key]['term1']['CORE'] += [module]
                             modules_dict[stage_key]['term2']['CORE'] += [module]
+                            modules_dict[stage_key]['term1']['has_modules'] = True
+                            modules_dict[stage_key]['term2']['has_modules'] = True
                         else:
                             modules_dict[stage_key]['unknown']['CORE'] += [module]
+                            modules_dict[stage_key]['unknown']['has_modules'] = True
 
 
 def populate_disc_alt_modules(modules_dict, rules_dict, programme, entry_year):
@@ -91,6 +96,7 @@ def populate_opts_modules(modules_dict, rules_dict, programme, stages, entry_yea
                             modules_dict[stage_key]['term2']['OPTS'] += [module]
                         else:
                             modules_dict[stage_key]['unknown']['OPTS'] += [module]
+                            modules_dict[stage_key]['unknown']['has_modules'] = True
 
 
 def populate_strand_modules(modules_dict, rules_dict, programme, stages, entry_year):
@@ -123,6 +129,7 @@ def populate_strand_modules(modules_dict, rules_dict, programme, stages, entry_y
                             modules_dict[stage_key]['term2']['STRAND'] += [module]
                         else:
                             modules_dict[stage_key]['unknown']['STRAND'] += [module]
+                            modules_dict[stage_key]['unknown']['has_modules'] = True
 
 
 def get_strand(rules_dict):
