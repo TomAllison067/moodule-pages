@@ -78,8 +78,6 @@ def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites
             info = factory.get_programme_info(prog_code, entry_year=entry_year)
         except Programme.DoesNotExist:
             raise Http404
-        strand = strand_prefixes = ''
-        opts_prefixes = ''
         try:
             modules_list = Module.objects.order_by('level', 'mod_code')
             for module in modules_list:
@@ -88,25 +86,8 @@ def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites
         except Module.DoesNotExist:
             prerequisites = None
             banned_combinations = None
-        # TODO: Make this more general (eg Maths + CompSci have more than one rule for this bit) + put it in factory?
-        if int(stage) > 1:
-            try:
-                strand_pattern = OptionRule.objects.get(prog_code=prog_code, constraint_type='STRAND',
-                                                        entry_year=entry_year, stage=stage).mod_code_pattern.split(',')
-                strand = strand_pattern[0]
-                strand_prefixes = strand_pattern[1:]
-            except OptionRule.DoesNotExist:
-                strand = strand_prefixes = None
-            try:
-                opts_prefixes = OptionRule.objects.get(prog_code=prog_code, constraint_type='OPTS',
-                                                       entry_year=entry_year, stage=stage).mod_code_pattern.split(',')
-            except OptionRule.DoesNotExist:
-                opts_prefixes = None
         context = {'info': info,
                    'stage': "stage{}".format(stage),
-                   'strand': strand,
-                   'strand_prefixes': strand_prefixes,
-                   'opts_prefixes': opts_prefixes,
                    'prerequisites': prerequisites,
                    'banned_combinations': banned_combinations
                    }

@@ -1,4 +1,4 @@
-{% extends "modulesApplication/base.html" %}
+{% extends "modulesApplication/base_student.html" %}
 
 {% block title %}{{ info.programme.title }} - {{ info.entry_year }}{% endblock %}
 
@@ -41,23 +41,30 @@
                                     </li>
                                 {% endfor %}
                             {% endif %}
-                            {% if constraint == 'STRAND' and strand != None %}
+                            {% if constraint == 'STRAND' and info.strand != None %}
                                 {% for rule in rules %}
-                                    <li>• {{ rule.max_quantity }} modules beginning with {{ strand_prefixes.0 }}
-                                        {% if strand_prefixes|length == 2 %}
-                                            or {{ strand_prefixes.1 }}
+                                    <li>• {{ rule.max_quantity }} modules beginning
+                                        with {{ rule.mod_code_pattern|slice:"3:6" }}
+                                        {% if rule.mod_code_pattern|length >= 7 %}
+                                            or {{ rule.mod_code_pattern|slice:"7:" }}
                                         {% endif %}
-                                        from the {{ strand }} strand.
+                                        from the {{ info.strand }} strand.
                                     </li>
                                 {% endfor %}
                             {% endif %}
                             {% if constraint == 'OPTS' %}
                                 {% for rule in rules %}
-                                    <li>• {{ rule.max_quantity }} optional modules beginning
-                                        with {{ opts_prefixes.0 }}
-                                        {% if opts_prefixes|length == 2 %}
-                                            or {{ opts_prefixes.1 }}{% endif %}.
-                                    </li>
+                                    {% if rule.mod_code_pattern|length >= 4 %}
+                                        <li>• {{ rule.max_quantity }} optional modules beginning
+                                            with {{ rule.mod_code_pattern|slice:":3" }}
+                                            or {{ rule.mod_code_pattern|slice:"4:" }}.
+                                        </li>
+                                    {% else %}
+                                        <li>• {{ rule.max_quantity }} optional modules beginning
+                                            with {{ rule.mod_code_pattern|slice:":3" }}.
+                                        </li>
+                                    {% endif %}
+
                                 {% endfor %}
                             {% endif %}
                             {% if constraint == 'DISC_ALT' %}
@@ -112,7 +119,7 @@
                                                     {% if constraint == 'OPTS' %}
                                                         <h4>Optional Modules</h4>
                                                     {% elif constraint == 'STRAND' %}
-                                                        <h4>Modules on the {{ strand }} strand</h4>
+                                                        <h4>Modules on the {{ info.strand }} strand</h4>
                                                     {% endif %}
                                                     {% for module in modules %}
                                                         <li id="cc-opts"><input type="checkbox"

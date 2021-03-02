@@ -149,7 +149,7 @@ def get_programme_info(prog_code: str, entry_year: str) -> ProgrammeInfo:
         stages += 1
     terms = 2
     modules_dict = {"stage{}".format(stage):
-                        {"term{}".format(term): {} for term in range(1, terms + 1)}
+                    {"term{}".format(term): {} for term in range(1, terms + 1)}
                     for stage in range(1, stages + 1)}
     rules_dict = {"stage{}".format(stage): {} for stage in range(1, stages + 1)}
     for stage in range(1, stages + 1):
@@ -158,4 +158,9 @@ def get_programme_info(prog_code: str, entry_year: str) -> ProgrammeInfo:
     populate_disc_alt_modules(modules_dict, rules_dict, programme, entry_year)
     populate_opts_modules(modules_dict, rules_dict, programme, stages, entry_year)
     populate_strand_modules(modules_dict, rules_dict, programme, stages, entry_year)
-    return ProgrammeInfo(programme, stages, entry_year, modules_dict, rules_dict)
+    strand = str()
+    if stages >= 2:
+        rule = OptionRule.objects.filter(prog_code=programme, constraint_type="STRAND", stage=2,
+                                         entry_year=entry_year).first()
+        strand = rule.mod_code_pattern.split(',')[0] if rule is not None else None
+    return ProgrammeInfo(programme, stages, entry_year, modules_dict, rules_dict, strand)

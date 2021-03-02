@@ -47,6 +47,7 @@ class SelectionValidator:
         for rule in query:
             rules[rule.constraint_type] = rules.get(rule.constraint_type, [])
             rules[rule.constraint_type].append(rule)
+        print(rules['OPTS'])
         return rules
 
     def validate(self) -> bool:
@@ -56,7 +57,7 @@ class SelectionValidator:
         False otherwise.
         """
         valid = self.validate_core_rules() and self.validate_disc_alt_rules() and self.validate_strand_rules() and \
-            self.validate_opts_rules() and len(self._modules_selected) == 0
+                self.validate_opts_rules() and len(self._modules_selected) == 0
         return valid
 
     def validate_core_rules(self) -> bool:
@@ -107,12 +108,13 @@ class SelectionValidator:
                 strand = patterns[0]
                 mod_code_patterns = tuple(set(patterns[1:]))
                 for mod_code in self._modules_selected:
-                    if mod_code.startswith(mod_code_patterns)\
-                            and Strands.objects.filter(module__mod_code__startswith=mod_code, strand=strand)\
+                    if mod_code.startswith(mod_code_patterns) \
+                            and Strands.objects.filter(module__mod_code__startswith=mod_code, strand=strand) \
                             and count + 1 <= rule.max_quantity:  # Any overlaps will be checked by OPTS.
                         count += 1
                         self._confirmed.add(mod_code)
                 if not rule.min_quantity <= count <= rule.max_quantity:
+                    print("Failed on strand")
                     return False
                 self._modules_selected = self._modules_selected.difference(self._confirmed)
         return True
@@ -125,10 +127,14 @@ class SelectionValidator:
                 count = 0
                 mod_code_patterns = tuple(set(rule.mod_code_pattern.split(",")))
                 for mod_code in self._modules_selected:
+                    if count == rule.max_quantity:
+                        # Handles degrees with multiple opts rules with different quantities
+                        break
                     if mod_code.startswith(mod_code_patterns):
                         count += 1
                         self._confirmed.add(mod_code)
                 if not rule.min_quantity <= count <= rule.max_quantity:
+                    print("Failed on opts", rule, rule.min_quantity, rule.max_quantity)
                     return False
                 self._modules_selected = self._modules_selected.difference(self._confirmed)
         return True
