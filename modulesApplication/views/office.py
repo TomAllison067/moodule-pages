@@ -42,3 +42,11 @@ def csv_file(request, model_class):
 @login_required()
 def print_student_selections(request):
     return csv_converter.csv_student_selections()
+
+@login_required
+def selection_requests(request):
+    return render(request, 'modulesApplication/office/SelectionRequests.html')
+
+@login_required
+def archived_selection_requests(request):
+    return render(request, 'modulesApplication/office/ArchivedSelectionRequests.html')
