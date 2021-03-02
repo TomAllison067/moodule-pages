@@ -96,6 +96,7 @@
                                             {% if modules|length > 0 %}
                                                 {% if constraint == "CORE" %} <!-- CORE MODULES -->
                                                     <!-- for Core modules, modules are selected and disabled-->
+                                                    <h4>Core Modules</h4>
                                                     {% for module in modules %}
                                                         <li id="cc-core"><input type="checkbox"
                                                                                 id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
@@ -108,6 +109,11 @@
                                                         </li>
                                                     {% endfor %} <!-- END OF CORE MODULES -->
                                                 {% elif constraint != 'DISC_ALT' %} <!-- OTHER MODULES -->
+                                                    {% if constraint == 'OPTS' %}
+                                                        <h4>Optional Modules</h4>
+                                                    {% elif constraint == 'STRAND' %}
+                                                        <h4>Modules on the {{ strand }} strand</h4>
+                                                    {% endif %}
                                                     {% for module in modules %}
                                                         <li id="cc-opts"><input type="checkbox"
                                                                                 id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
@@ -120,7 +126,7 @@
                                                         </li>
                                                     {% endfor %}
                                                 {% else %}
-
+                                                    <h4>Discretionary Alternatives</h4>
                                                     <p id="disc-alt-msg"><em>The following modules may be taken in
                                                         place
                                                         of
@@ -223,6 +229,11 @@
             }
         }
 
+        /**
+         * Called when a disc_alt checkbox is clicked. All this does is search for the corresponding core module and
+         * click on it (thus deselecting/re-selecting as appropriate) when the disc_alt checkbox is clicked.
+         * @param initial the mod_code of the initial/core module
+         */
         function selectDiscAlt(initial) {
             const query = '[id^="' + initial + '"]'  // Wildcard matches all checkboxes with starting ID of this mod code
             console.log(query)
