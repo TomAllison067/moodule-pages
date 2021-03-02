@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	
+<!--
+	Office Landing Page
+-->
+
+<head>
+    <title>{% block title %}Office Homepage{% endblock title %}</title>
+    <meta name="description" content="TBD">
+    <meta name="author" content="TBD">
+    {% block head_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/office.css' %}">
+    {% endblock head_css %}
+</head>
+	
+<div class="grid-container">
+  <header class="header"></header>
+  <aside class="sidenav"></aside>
+  <main class="main"></main>
+  <footer class="footer"></footer>
+</div>
+</html>
