@@ -24,11 +24,157 @@
         <div class="icon-img">
             <i class="fas fa-book-open"></i>
         </div>
+        <table class="form-box">
+            <tr>
+                {% for header in headers %}
+                    <th>{{ header }}</th>
+                {% endfor %}
+                <th>More info</th>
+            </tr>
+            {% for selection in selections_list %}
+                <tr>
+                <th>{{ selection.id }}</th>
+                <th>{{ selection.student_id }}</th>
+                <th>{{ selection.stage }}</th>
+                <th>{{ selection.entry_year }}</th>
+                <th>{{ selection.status }}</th>
+                <th>{{ selection.programme_id }}</th>
+                <th><button class="submit-btn" onclick="openForm('{{ selection.id }}')">approve/deny</button></th>
+                </tr>
+            {% endfor %}
+        </table>
+
+    <div id="modalOne" class="modal">
+        <div class="modal-content">
+          <a class="close" onclick="closeForm()">&times;</a>
+          <form action="/">
+            <h2>Selection </h2>
+            <table class="details">
+            <tr>
+                <th><label for="student_name"><b>Student Name</b></label></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th><label for="student_name"><b>Student Number</b></label></th>
+                <th>123</th>
+            </tr>
+            <tr>
+                <th><label for="student_name"><b>Student Degree</b></label></th>
+                <th>1067</th>
+            </tr>
+            <tr>
+                <th><label for="student_name"><b>Entry Year</b></label></th>
+                <th>2019</th>
+            </tr>
+            <tr>
+                <th><label for="student_name"><b>Modules choices</b></label></th>
+                <th>CS2900</th>
+            </tr>
+
+            </table>
+            <button type="button" class="Abtn"  href="/">Approve</button>
+            <button type="button" class="Dbtn"  href="/">Deny</button>
+
+          </form>
+        </div>
+    </div>
+
+        {% comment %}{% for selections in selections_list %}
+            <ul>
+                <button class="ib-content">
+                    {{ selections.student_id }}
+                </button>
+            </ul>
+        {% endfor %}{% endcomment %}
 
         <!--        Content for the Selection requests goes here.-->
 
     </div>
 </div>
+<style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 8;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .modal-content{
+          margin: auto;
+          width: 50%;
+          padding: 10px;
+      }
+      form {
+        padding: 25px;
+        margin: 25px;
+        box-shadow: 0 2px 5px #f5f5f5;
+        background: #90948e;
+      }
+      .Abtn {
+        width: 40%;
+        padding: 10px;
+        align:left;
+        border: none;
+        background: #20a115;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        opacity: 0.8;
+      }
+      .Dbtn {
+        width: 40%;
+        padding: 10px;
+        align:right;
+        border: none;
+        background: #ff0000;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        opacity: 0.7;
+      }
+      .Abtn:hover,
+      .Dbtn:hover{
+        opacity: 1;
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+</style>
+<script>
+    function openForm(selected) {
+        let form_details={}
+        {% for select in selections_list %}
+            {% if select.id == selected %}
+                form_details = {
+                'student_id': '{{ selectstudent_id }}',
+                'stage':{{ selection.stage }},
+                'entry_year': {{ selection.entry_year }},
+                'status': {{ selection.status }},
+                'programme': {{ selection.programme }}
+                };
+            {% endif %}
+            console.log(form_details)
+        {% endfor %}
 
+        document.getElementById("modalOne").style.display = "block";
+
+    }
+    function closeForm() {
+        document.getElementById("modalOne").style.display = "none";
+    }
+</script>
 {% endblock %}
 
