@@ -1,3 +1,5 @@
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
@@ -48,6 +50,17 @@ def print_student_selections(request):
 
 @login_required
 def selection_requests(request):
+    if request.method == "POST":
+        selection_id = request.POST.get('selection_id')
+        selection = ModuleSelection.objects.get(id=selection_id)
+        if 'Approved' in request.POST:
+            selection.status = "APPROVED"
+            print('APPROVED')
+            ModuleSelection
+        if 'Denied' in request.POST:
+            selection.status = "DENIED"
+            print('DENIED')
+        selection.save(update_fields=['status'])
     headers = csv_converter.get_headers(ModuleSelection)
     selections_list = list(ModuleSelection.objects.filter(status='PENDING').values())
     for selection in selections_list:
@@ -58,9 +71,9 @@ def selection_requests(request):
             selection['student_name'] = User.objects.get(id=selection['student_id']).first_name
         except User.DoesNotExist:
             selection['student_name'] = None
-    print(selections_list)
     context = {'headers': headers,
-               'selections_list': selections_list}
+               'selections_list': selections_list,
+               'list_of_selections': json.dumps(selections_list)}
     return render(request, 'modulesApplication/office/SelectionRequests.html', context)
 
 
