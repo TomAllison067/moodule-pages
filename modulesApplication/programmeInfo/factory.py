@@ -1,7 +1,16 @@
+import operator
 from typing import Dict
 
 from modulesApplication.models import Programme, OptionRule, Module, CourseLeader, ModuleVariant
 from .programme_info import ProgrammeInfo
+
+
+def sort_alphanumerically(modules_dict):
+    for term in modules_dict.keys():
+        for constraint_type, modules_list in modules_dict[term].items():
+            if constraint_type != 'DISC_ALT':
+                modules_dict[term][constraint_type] = sorted(modules_dict[term][constraint_type],
+                                                             key=operator.attrgetter('mod_code'))
 
 
 def get_programme_info(prog_code: str, entry_year: str, stage: int) -> ProgrammeInfo:
@@ -18,13 +27,15 @@ def get_programme_info(prog_code: str, entry_year: str, stage: int) -> Programme
     populate_strand_modules(modules_dict, rules_dict, programme, stage, entry_year)
     strand = get_strand(entry_year, programme, stage)
     modules_to_set(modules_dict)
+    sort_alphanumerically(modules_dict)
     return ProgrammeInfo(programme, stage, entry_year, modules_dict, rules_dict, strand)
 
 
 def modules_to_set(modules_dict):
     for term in modules_dict.keys():
         for constraint_type, modules_list in modules_dict[term].items():
-            modules_dict[term][constraint_type] = set(modules_dict[term][constraint_type])
+            if constraint_type != 'DISC_ALT':
+                modules_dict[term][constraint_type] = set(modules_dict[term][constraint_type])
 
 
 def get_term(module: Module):
@@ -50,7 +61,7 @@ def populate_core_modules(modules_dict: Dict, rules_dict: Dict, programme: Progr
     for rule in rules:
         patterns = rule.mod_code_pattern.split(",")
         for pattern in patterns:
-            query = Module.objects.filter(mod_code__startswith=pattern)
+            query = Module.objects.filter(mod_code__startswith=pattern).order_by('mod_code')
             for module in query:
                 if module.status == "ACTIVE":
                     term = get_term(module)
@@ -90,7 +101,7 @@ def populate_opts_modules(modules_dict, rules_dict, programme, stage, entry_year
                                       stage=str(stage),
                                       constraint_type="OPTS")
     rules_dict['OPTS'] = [rule for rule in rules]
-    optional_modules = [m for m in Module.objects.filter(optionalmodule__prog_code=programme)]
+    optional_modules = [m for m in Module.objects.filter(optionalmodule__prog_code=programme).order_by('mod_code')]
     for rule in rules:
         patterns = rule.mod_code_pattern.split(",")
         for pattern in patterns:
@@ -124,7 +135,7 @@ def populate_strand_modules(modules_dict, rules_dict, programme, stage, entry_ye
         strand = rules.mod_code_pattern.split(",")[0]
         patterns = rules.mod_code_pattern.split(",")[1:]
         for pattern in patterns:
-            query = Module.objects.filter(strands__strand=strand, mod_code__startswith=pattern)
+            query = Module.objects.filter(strands__strand=strand, mod_code__startswith=pattern).order_by('mod_code')
             for module in query:
                 if module.status == "ACTIVE" and not (
                         module in modules_dict['term1']['CORE'] or module in
