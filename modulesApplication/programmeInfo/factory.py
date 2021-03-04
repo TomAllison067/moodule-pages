@@ -13,6 +13,12 @@ def sort_alphanumerically(modules_dict):
                                                              key=operator.attrgetter('mod_code'))
 
 
+def populate_has_modules(modules_dict):
+    for term in modules_dict.keys():
+        for constraint_type, modules_list in modules_dict[term].items():
+            pass
+
+
 def get_programme_info(prog_code: str, entry_year: str, stage: int) -> ProgrammeInfo:
     """The factory method to build and return a new ProgrammeInfo object. ProgrammeInfo objects hold information
     about a degree programme's modules and optsrules for a given entry year and stage."""
@@ -21,6 +27,9 @@ def get_programme_info(prog_code: str, entry_year: str, stage: int) -> Programme
                     'term2': {},
                     'unknown': {}}
     rules_dict = {}
+    has_modules = {'term1': True,
+                   'term2': False,
+                   'unknown': False}
     populate_core_modules(modules_dict, rules_dict, programme, stage, entry_year)
     populate_disc_alt_modules(modules_dict, rules_dict, programme, stage, entry_year)
     populate_opts_modules(modules_dict, rules_dict, programme, stage, entry_year)
@@ -28,7 +37,8 @@ def get_programme_info(prog_code: str, entry_year: str, stage: int) -> Programme
     strand = get_strand(entry_year, programme, stage)
     modules_to_set(modules_dict)
     sort_alphanumerically(modules_dict)
-    return ProgrammeInfo(programme, stage, entry_year, modules_dict, rules_dict, strand)
+    populate_has_modules(modules_dict)
+    return ProgrammeInfo(programme, stage, entry_year, modules_dict, rules_dict, strand, has_modules)
 
 
 def modules_to_set(modules_dict):
@@ -55,9 +65,6 @@ def populate_core_modules(modules_dict: Dict, rules_dict: Dict, programme: Progr
                                       stage=str(stage),
                                       constraint_type="CORE")
     rules_dict['CORE'] = [rule for rule in rules] if rules else None
-    modules_dict['term1']['CORE'] = []
-    modules_dict['term2']['CORE'] = []
-    modules_dict['unknown']['CORE'] = []
     for rule in rules:
         patterns = rule.mod_code_pattern.split(",")
         for pattern in patterns:
@@ -66,14 +73,14 @@ def populate_core_modules(modules_dict: Dict, rules_dict: Dict, programme: Progr
                 if module.status == "ACTIVE":
                     term = get_term(module)
                     if term == "1":
-                        modules_dict['term1']['CORE'] += [module]
+                        modules_dict['term1']['CORE'] = modules_dict['term1'].get('CORE', []) + [module]
                     elif term == "2":
-                        modules_dict['term2']['CORE'] += [module]
+                        modules_dict['term2']['CORE'] = modules_dict['term2'].get('CORE', []) + [module]
                     elif term.upper() == "BOTH" or module.title.upper() == "YEAR IN INDUSTRY":
-                        modules_dict['term1']['CORE'] += [module]
-                        modules_dict['term2']['CORE'] += [module]
+                        modules_dict['term1']['CORE'] = modules_dict['term1'].get('CORE', []) + [module]
+                        modules_dict['term2']['CORE'] = modules_dict['term2'].get('CORE', []) + [module]
                     else:
-                        modules_dict['unknown']['CORE'] += [module]
+                        modules_dict['unknown']['CORE'] = modules_dict['unknown'].get('CORE', []) + [module]
 
 
 def populate_disc_alt_modules(modules_dict, rules_dict, programme, stage, entry_year):
@@ -81,21 +88,19 @@ def populate_disc_alt_modules(modules_dict, rules_dict, programme, stage, entry_
                                       entry_year=entry_year,
                                       stage=stage,
                                       constraint_type="DISC_ALT")
-    rules_dict['DISC_ALT'] = [rule for rule in rules] if rules else None
-    patterns = [rule.mod_code_pattern for rule in rules]
-    modules_dict['term2']['DISC_ALT'] = []
-    for pattern in patterns:
-        codes = pattern.split(",")
-        core_module = Module.objects.get(mod_code=codes[0])
-        discretionary_module = Module.objects.get(mod_code=codes[1])
-        modules_dict['term2']['CORE'].append(core_module)
-        modules_dict['term2']['DISC_ALT'].append([core_module, discretionary_module])
+    if rules:
+        rules_dict['DISC_ALT'] = [rule for rule in rules]
+        patterns = [rule.mod_code_pattern for rule in rules]
+        modules_dict['term2']['DISC_ALT'] = []
+        for pattern in patterns:
+            codes = pattern.split(",")
+            core_module = Module.objects.get(mod_code=codes[0])
+            discretionary_module = Module.objects.get(mod_code=codes[1])
+            modules_dict['term2']['CORE'].append(core_module)
+            modules_dict['term2']['DISC_ALT'].append([core_module, discretionary_module])
 
 
 def populate_opts_modules(modules_dict, rules_dict, programme, stage, entry_year):
-    modules_dict['term1']['OPTS'] = []
-    modules_dict['term2']['OPTS'] = []
-    modules_dict['unknown']['OPTS'] = []
     rules = OptionRule.objects.filter(prog_code=programme,
                                       entry_year=entry_year,
                                       stage=str(stage),
@@ -112,20 +117,17 @@ def populate_opts_modules(modules_dict, rules_dict, programme, stage, entry_year
                                  modules_dict['term2']['CORE']):
                     term = get_term(module)
                     if term == "1":
-                        modules_dict['term1']['OPTS'] += [module]
+                        modules_dict['term1']['OPTS'] = modules_dict['term1'].get('OPTS', []) + [module]
                     elif term == "2":
-                        modules_dict['term2']['OPTS'] += [module]
+                        modules_dict['term2']['OPTS'] = modules_dict['term2'].get('OPTS', []) + [module]
                     elif term.upper() == "BOTH":
-                        modules_dict['term1']['OPTS'] += [module]
-                        modules_dict['term2']['OPTS'] += [module]
+                        modules_dict['term1']['OPTS'] = modules_dict['term1'].get('OPTS', []) + [module]
+                        modules_dict['term2']['OPTS'] = modules_dict['term2'].get('OPTS', []) + [module]
                     else:
-                        modules_dict['unknown']['OPTS'] += [module]
+                        modules_dict['unknown']['OPTS'] = modules_dict['unknown'].get('OPTS', []) + [module]
 
 
 def populate_strand_modules(modules_dict, rules_dict, programme, stage, entry_year):
-    modules_dict['term1']['STRAND'] = []
-    modules_dict['term2']['STRAND'] = []
-    modules_dict['unknown']['STRAND'] = []
     rules = OptionRule.objects.filter(prog_code=programme,
                                       entry_year=entry_year,
                                       stage=str(stage),
@@ -142,14 +144,14 @@ def populate_strand_modules(modules_dict, rules_dict, programme, stage, entry_ye
                         modules_dict['term2']['CORE']):
                     term = get_term(module)
                     if term == "1":
-                        modules_dict['term1']['STRAND'] += [module]
+                        modules_dict['term1']['STRAND'] = modules_dict['term1'].get('STRAND', []) + [module]
                     elif term == "2":
-                        modules_dict['term2']['STRAND'] += [module]
+                        modules_dict['term2']['STRAND'] = modules_dict['term2'].get('STRAND', []) + [module]
                     elif term.upper() == "BOTH":
-                        modules_dict['term1']['STRAND'] += [module]
-                        modules_dict['term2']['STRAND'] += [module]
+                        modules_dict['term1']['STRAND'] = modules_dict['term1'].get('STRAND', []) + [module]
+                        modules_dict['term2']['STRAND'] = modules_dict['term2'].get('STRAND', []) + [module]
                     else:
-                        modules_dict['unknown']['STRAND'] += [module]
+                        modules_dict['unknown']['STRAND'] = modules_dict['unknown'].get('STRAND', []) + [module]
 
 
 def get_strand(entry_year, programme, stage):
