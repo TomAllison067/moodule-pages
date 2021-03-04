@@ -47,7 +47,6 @@ class SelectionValidator:
         for rule in query:
             rules[rule.constraint_type] = rules.get(rule.constraint_type, [])
             rules[rule.constraint_type].append(rule)
-        print(rules['OPTS'])
         return rules
 
     def validate(self) -> bool:
@@ -57,7 +56,7 @@ class SelectionValidator:
         False otherwise.
         """
         valid = self.validate_core_rules() and self.validate_disc_alt_rules() and self.validate_strand_rules() and \
-                self.validate_opts_rules() and len(self._modules_selected) == 0
+            self.validate_opts_rules() and len(self._modules_selected) == 0
         return valid
 
     def validate_core_rules(self) -> bool:
