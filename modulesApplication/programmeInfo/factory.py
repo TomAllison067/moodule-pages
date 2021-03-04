@@ -5,6 +5,8 @@ from .programme_info import ProgrammeInfo
 
 
 def get_programme_info(prog_code: str, entry_year: str, stage: int) -> ProgrammeInfo:
+    """The factory method to build and return a new ProgrammeInfo object. ProgrammeInfo objects hold information
+    about a degree programme's modules and optsrules for a given entry year and stage."""
     programme = Programme.objects.get(prog_code=prog_code)
     modules_dict = {'term1': {},
                     'term2': {},
