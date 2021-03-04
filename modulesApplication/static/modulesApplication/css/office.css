@@ -1,6 +1,7 @@
 /* Simple dashboard grid CSS */
 
 /* Assign grid instructions to our parent grid container */
+
 .grid-container {
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -15,20 +16,28 @@
 /* Give every child element its grid name */
 .header {
   grid-area: header;
-  background-color: #648ca6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: #f9813a;
 }
 
 .sidenav {
   grid-area: sidenav;
-  background-color: #394263;
+  background-color: #1a1c20;
 }
 
 .main {
   grid-area: main;
-  background-color: #8fd4d9;
+  background-color: #fcf1f1;
 }
 
 .footer {
   grid-area: footer;
-  background-color: #648ca6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: #f9813a;
 }
