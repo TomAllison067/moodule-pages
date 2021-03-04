@@ -59,24 +59,24 @@
                     <input hidden id="selection_id" name="selection_id" value="te">
                     <table class="details">
                         <tr>
-                            <th><label for="student_name"><b>Student Name</b></label></th>
-                            <th id="student_name">EXAMPLE</th>
+                            <td><b>Student Name</b></td>
+                            <td id="student_name">**EXAMPLE**</td>
                         </tr>
                         <tr>
-                            <th><label for="student_id"><b>Student Number</b></label></th>
-                            <th id="student_id">012345</th>
+                            <td><b>Student Number</b></td>
+                            <td id="student_id">012345</td>
                         </tr>
                         <tr>
-                            <th><label for="programme"><b>Student Degree</b></label></th>
-                            <th id="programme">1067</th>
+                            <td><b>Student Degree</b></td>
+                            <td id="programme">1067</td>
                         </tr>
                         <tr>
-                            <th><label for="entry_year"><b>Entry Year</b></label></th>
-                            <th id="entry_year" name="entry_year" value="2021">2000</th>
+                            <td><b>Entry Year</b></td>
+                            <td id="entry_year">2000</td>
                         </tr>
                         <tr>
-                            <th><label for="modules"><b>Modules choices</b></label></th>
-                            <th id="modules">CS2900</th>
+                            <td><b>Modules choices</b></td>
+                            <td id="modules">CS2900</td>
                         </tr>
 
                     </table>
@@ -98,103 +98,105 @@
 
     </div>
 </div>
-    <style>
-        /* th-table headers;
-         make the background darker and have a pointer*/
-        .form-box th {
-            cursor: pointer;
-            background-color: #2e3133;
-        }
+<style>
+    /* th-table headers;
+     make the background darker and have a pointer*/
+    .form-box th {
+        cursor: pointer;
+        background-color: #2e3133;
+    }
 
-        /* \25b4 - the arrow in the table header show the ascending column
-        margin-left; for the gap between header name and arrow */
+    /* \25b4 - the arrow in the table header show the ascending column
+    margin-left; for the gap between header name and arrow */
 
-        .form-box .th-sort-asc::after {
-            content: "\25b4";
-            margin-left: 5px;
-        }
+    .form-box .th-sort-asc::after {
+        content: "\25b4";
+        margin-left: 5px;
+    }
 
-        /* \25be - the arrow in the table header show the descending column
-        margin-left; for the gap between header name and arrow */
-        .form-box .th-sort-desc::after {
-            content: "\25be";
-            margin-left: 5px;
-        }
+    /* \25be - the arrow in the table header show the descending column
+    margin-left; for the gap between header name and arrow */
+    .form-box .th-sort-desc::after {
+        content: "\25be";
+        margin-left: 5px;
+    }
 
-        /* change the opacity of the table headers if asc/desc */
-        .form-box .th-sort-asc,
-        .form-box .th-sort-desc {
-            background: rgba(0, 0, 0, 0.3);
-        }
+    /* change the opacity of the table headers if asc/desc */
+    .form-box .th-sort-asc,
+    .form-box .th-sort-desc {
+        background: rgba(0, 0, 0, 0.3);
+    }
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 8;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
+    /* modal- darken page behind the form when approve/deny pops up  */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 5;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
 
-        .modal-content {
-            margin: auto;
-            width: 50%;
-            padding: 10px;
-        }
+    /* the div for the approve/deny form */
+    .modal-content {
+        margin: 10% auto auto;
+        width: 50%;
+        padding: 10px;
+    }
 
-        form {
-            padding: 25px;
-            margin: 25px;
-            box-shadow: 0 2px 5px #f5f5f5;
-            background: #90948e;
-        }
+    form {
+        padding: 25px;
+        margin: 25px;
+        box-shadow: 0 2px 5px #f5f5f5;
+        background: #90948e;
+    }
 
-        .Abtn {
-            width: 40%;
-            padding: 10px;
-            align: left;
-            border: none;
-            background: #20a115;
-            font-size: 16px;
-            font-weight: 400;
-            color: #fff;
-            opacity: 0.7;
-        }
+    .Abtn {
+        width: 40%;
+        padding: 10px;
+        align: left;
+        border: none;
+        background: #20a115;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        opacity: 0.7;
+    }
 
-        .Dbtn {
-            width: 40%;
-            padding: 10px;
-            align: right;
-            border: none;
-            background: #ff0000;
-            font-size: 16px;
-            font-weight: 400;
-            color: #fff;
-            opacity: 0.7;
-        }
+    .Dbtn {
+        width: 40%;
+        padding: 10px;
+        align: right;
+        border: none;
+        background: #ff0000;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        opacity: 0.7;
+    }
 
-        .Abtn:hover,
-        .Dbtn:hover {
-            opacity: 1;
-        }
+    .Abtn:hover,
+    .Dbtn:hover {
+        opacity: 1;
+    }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+    .close:hover,
+    .close:focus {
+        color: rgba(0,0,0,0.6);
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
 
 
 {% autoescape off %}
@@ -240,7 +242,10 @@
             const sortedRows = rows.sort((a, b) => {
                 let aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
                 let bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
-
+                if (!isNaN(aColText)){
+                    aColText = parseInt(aColText)
+                    bColText = parseInt(bColText)
+                }
                 return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
             });
 
