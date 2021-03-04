@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant, OptionRule
+from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
 from ..programmeInfo import factory
 from ..programmeInfo.selection_validator import SelectionValidator
 
@@ -72,10 +72,10 @@ def choose_modules(request):
 
 
 @login_required
-def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites=None, banned_combination = None):
+def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites=None, banned_combination=None):
     if request.method == "GET":
         try:
-            info = factory.get_programme_info(prog_code, entry_year=entry_year)
+            info = factory.get_programme_info(prog_code, stage=int(stage), entry_year=entry_year)
         except Programme.DoesNotExist:
             raise Http404
         try:
