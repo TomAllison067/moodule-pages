@@ -9,3 +9,5 @@ class ModuleSelection(models.Model):
     entry_year = models.TextField(default=str(datetime.now().year))
     status = models.TextField()
     programme = models.ForeignKey('Programme', models.CASCADE, default=None)
+    date_requested = models.DateTimeField(null=True)
+    last_modified = models.DateTimeField(null=True)

@@ -1,5 +1,7 @@
+import datetime
 import json
 
+from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
@@ -53,6 +55,7 @@ def selection_requests(request):
     if request.method == "POST":
         selection_id = request.POST.get('selection_id')
         selection = ModuleSelection.objects.get(id=selection_id)
+        selection.last_modified = datetime.datetime.now()
         if 'Approved' in request.POST:
             selection.status = "APPROVED"
             print('APPROVED')
@@ -60,9 +63,10 @@ def selection_requests(request):
         if 'Denied' in request.POST:
             selection.status = "DENIED"
             print('DENIED')
-        selection.save(update_fields=['status'])
+        selection.save(update_fields=['status', 'last_modified'])
 
     headers = csv_converter.get_headers(ModuleSelection)
+    headers.remove('last_modified')
     selection_list = ModuleSelection.objects.filter(status='PENDING')
     selections_list = list(selection_list.values())
     for selection in selections_list:
@@ -75,7 +79,7 @@ def selection_requests(request):
             selection['student_name'] = None
     context = {'headers': headers,
                'selections_list': selections_list,
-               'list_of_selections': json.dumps(selections_list)}
+               'list_of_selections': json.dumps(selections_list, cls=DjangoJSONEncoder)}
     return render(request, 'modulesApplication/office/SelectionRequests.html', context)
 
 

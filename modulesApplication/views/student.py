@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+import datetime
 
 from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
 from ..programmeInfo import factory
@@ -110,10 +111,12 @@ def submit_selection(request):
         entry_year = request.POST.get('entry_year')
         prog_code = request.POST.get('prog_code')
         programme = Programme.objects.get(pk=prog_code)
+        print(datetime.datetime.now())
         ModuleSelection.objects.filter(
             student_id=student_id).delete()  # Delete any existing selections (should only be one!)
         selection = ModuleSelection.objects.create(
-            student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme)
+            student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme,
+            date_requested=datetime.datetime.now())
         for m in mod_codes:
             module = Module.objects.get(mod_code=m)
             module.selected_in.add(selection)
