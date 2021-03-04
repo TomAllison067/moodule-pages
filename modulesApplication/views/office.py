@@ -61,8 +61,10 @@ def selection_requests(request):
             selection.status = "DENIED"
             print('DENIED')
         selection.save(update_fields=['status'])
+
     headers = csv_converter.get_headers(ModuleSelection)
-    selections_list = list(ModuleSelection.objects.filter(status='PENDING').values())
+    selection_list = ModuleSelection.objects.filter(status='PENDING')
+    selections_list = list(selection_list.values())
     for selection in selections_list:
         selected = ModuleSelection.objects.get(id=selection['id'])
         modules = [m.mod_code for m in selected.module_set.all()]
