@@ -11,3 +11,4 @@ class ModuleSelection(models.Model):
     programme = models.ForeignKey('Programme', models.CASCADE, default=None)
     date_requested = models.DateTimeField(null=True)
     last_modified = models.DateTimeField(null=True)
+    comments = models.TextField(null=True)

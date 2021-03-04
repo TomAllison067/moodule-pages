@@ -56,6 +56,9 @@ def selection_requests(request):
         selection_id = request.POST.get('selection_id')
         selection = ModuleSelection.objects.get(id=selection_id)
         selection.last_modified = datetime.datetime.now()
+        selection.comments = request.POST.get('comment')
+        print(request.POST.get('comment'))
+
         if 'Approved' in request.POST:
             selection.status = "APPROVED"
             print('APPROVED')
@@ -63,10 +66,11 @@ def selection_requests(request):
         if 'Denied' in request.POST:
             selection.status = "DENIED"
             print('DENIED')
-        selection.save(update_fields=['status', 'last_modified'])
+        selection.save(update_fields=['status', 'last_modified', 'comments'])
 
     headers = csv_converter.get_headers(ModuleSelection)
     headers.remove('last_modified')
+    headers.remove('comments')
     selection_list = ModuleSelection.objects.filter(status='PENDING')
     selections_list = list(selection_list.values())
     for selection in selections_list:
