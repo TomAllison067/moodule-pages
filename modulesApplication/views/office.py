@@ -104,8 +104,10 @@ def archived_selection_requests(request):
             selection.status = 'DENIED'
         else:
             selection.status = 'APPROVED'
-        selection.comments = request.POST.get('comment')
-        selection.save(update_fields=['status', 'last_modified', 'comments'])
+        if request.POST.get('comment') is not "":
+            selection.comments = request.POST.get('comment')
+            selection.save(update_fields=['status', 'last_modified', 'comments'])
+        selection.save(update_fields=['status', 'last_modified'])
 
     selections_list = ModuleSelection.objects.exclude(status='PENDING')
     selections_list = selections_extra_details(selections_list)
