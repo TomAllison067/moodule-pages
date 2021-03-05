@@ -144,8 +144,10 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 """DJANGO AUTHENTICATION SETTINGS"""
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  # Django's default auth backend
+    'django_auth_ldap.backend.LDAPBackend'  # LDAP Backend
     'social_core.backends.azuread_tenant.AzureADTenantOAuth2'  # Microsoft OAuth
 )
+
 LOGIN_REDIRECT_URL = '/'  # Upon login, redirect to index
 LOGOUT_REDIRECT_URL = '/'  # Upon signout, redirect to index
 
