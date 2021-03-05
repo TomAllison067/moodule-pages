@@ -51,6 +51,16 @@
   background-color: #fcf1f1;
 }
 
+.main-header {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px;
+	padding: 20px;
+	height: 150px; /* Force height */
+	background-color: #fcf1f1;
+	color: slategray;
+}
+
 .footer {
   grid-area: footer;
   display: flex;
