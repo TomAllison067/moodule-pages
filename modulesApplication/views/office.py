@@ -72,7 +72,6 @@ def selection_requests(request):
         selection = ModuleSelection.objects.get(id=selection_id)
         selection.last_modified = datetime.datetime.now()
         selection.comments = request.POST.get('comment')
-        print(request.POST.get('comment'))
 
         if 'Approved' in request.POST:
             selection.status = "APPROVED"
@@ -96,10 +95,22 @@ def selection_requests(request):
 
 @login_required
 def archived_selection_requests(request):
+    if request.method == "POST":
+        selection_id = request.POST.get('selection_id')
+        selection = ModuleSelection.objects.get(id=selection_id)
+        selection.last_modified = datetime.datetime.now()
+
+        if selection.status == 'APPROVED':
+            selection.status = 'DENIED'
+        else:
+            selection.status = 'APPROVED'
+        selection.comments = request.POST.get('comment')
+        selection.save(update_fields=['status', 'last_modified', 'comments'])
+
     selections_list = ModuleSelection.objects.exclude(status='PENDING')
     selections_list = selections_extra_details(selections_list)
     headers = csv_converter.get_headers(ModuleSelection)
     context = {'headers': headers,
                'selections_list': selections_list,
                'list_of_selections': json.dumps(selections_list, cls=DjangoJSONEncoder)}
-    return render(request, 'modulesApplication/office/ArchivedSelectionRequests.html')
+    return render(request, 'modulesApplication/office/ArchivedSelectionRequests.html', context)
