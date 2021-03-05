@@ -50,6 +50,21 @@ def print_student_selections(request):
     return csv_converter.csv_student_selections()
 
 
+def selections_extra_details(query_set):
+    selections_list = list(query_set.values())
+    for selection in selections_list:
+        selected = ModuleSelection.objects.get(id=selection['id'])
+        modules = [m.mod_code for m in selected.module_set.all()]
+        selection['modules'] = modules
+        try:
+            selection['student_name'] = User.objects.get(id=selection['student_id']).first_name
+            selection['programme_name'] = Programme.objects.get(prog_code=selection['programme_id']).title
+        except User.DoesNotExist:
+            selection['student_name'] = None
+        except Programme.DoesNotExist:
+            selection['programme_name'] = None
+    return selections_list
+
 @login_required
 def selection_requests(request):
     if request.method == "POST":
@@ -71,16 +86,8 @@ def selection_requests(request):
     headers = csv_converter.get_headers(ModuleSelection)
     headers.remove('last_modified')
     headers.remove('comments')
-    selection_list = ModuleSelection.objects.filter(status='PENDING')
-    selections_list = list(selection_list.values())
-    for selection in selections_list:
-        selected = ModuleSelection.objects.get(id=selection['id'])
-        modules = [m.mod_code for m in selected.module_set.all()]
-        selection['modules'] = modules
-        try:
-            selection['student_name'] = User.objects.get(id=selection['student_id']).first_name
-        except User.DoesNotExist:
-            selection['student_name'] = None
+    query_set = ModuleSelection.objects.filter(status='PENDING')
+    selections_list = selections_extra_details(query_set)
     context = {'headers': headers,
                'selections_list': selections_list,
                'list_of_selections': json.dumps(selections_list, cls=DjangoJSONEncoder)}
@@ -89,4 +96,10 @@ def selection_requests(request):
 
 @login_required
 def archived_selection_requests(request):
+    selections_list = ModuleSelection.objects.exclude(status='PENDING')
+    selections_list = selections_extra_details(selections_list)
+    headers = csv_converter.get_headers(ModuleSelection)
+    context = {'headers': headers,
+               'selections_list': selections_list,
+               'list_of_selections': json.dumps(selections_list, cls=DjangoJSONEncoder)}
     return render(request, 'modulesApplication/office/ArchivedSelectionRequests.html')
