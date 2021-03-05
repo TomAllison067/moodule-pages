@@ -104,6 +104,7 @@ html, body {
     display: inline-block;
     overflow: visible;
     position: fixed;
+    justify-content: space-between;
 }
 
 .topbar .title {

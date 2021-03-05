@@ -147,20 +147,8 @@
 
 /* --[[ BOXES ]] */
 
-.lp-container {
-    margin: 0 auto;
-    width: 80%;
-    height: 50vh;
-    display: flex;
-    box-sizing: border-box;
-    column-count: 3;
-    position: relative;
-}
-
 .lp-box {
     margin: 0.25% 0.4%;
-    width: 80%;
-    height: 100%;
     display: block;
     box-sizing: border-box;
     background: url(../images/buttons/slp-button-b.png);
@@ -228,7 +216,7 @@
 .lp-box a .lp-content .term-module-list {
     padding: 2px;
     width: 95%;
-    height: 35vh;
+    height: 85%; 
     display: block;
     overflow-y: scroll;
 }
@@ -238,9 +226,9 @@
     margin: 10px auto;
     width: 95%;
     height: auto;
+    box-sizing: border-box;
     opacity: 100%;
     display: block;
-    box-sizing: border-box;
     border-left: 5px orange solid;
     background-image: linear-gradient(rgb(27, 27, 27), rgb(45, 45, 45));
     background-size: cover;
@@ -253,16 +241,6 @@
 
 .lp-content li {
     padding: 5px;
-}
-
-#lpc-cm, #lpc-ac {
-    display: block;
-    padding: 2%;
-    border-radius: 0;
-    text-align: center;
-    background: none;
-    margin: 5px auto;
-    font-size: 18px;
 }
 
 .icon-box > p {
@@ -290,3 +268,75 @@
     left: 0;
     display: block;
 }
+
+/* --[[ MEDIA QUERIES - RESPONSIVE SIZES ]]-- */
+/* Full-screen */
+
+.lp-container {
+    margin: 0 auto;
+    width: 80%;
+    height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 15px;
+        grid-template-areas:
+      "grid-mycourses grid-choosemodules grid-allcourses";
+}
+
+#lpc-mc {
+    grid-area: grid-mycourses;
+    display: grid;
+}
+
+#lpc-cm {
+    grid-area: grid-choosemodules;
+    display: grid;
+    padding: 2%;
+    border-radius: 0;
+    text-align: center;
+    background: none;
+    margin: 5px auto;
+    font-size: 18px;
+}
+
+#lpc-ac {
+    grid-area: grid-allcourses;
+    display: grid;
+    padding: 2%;
+    border-radius: 0;
+    text-align: center;
+    background: none;
+    margin: 5px auto;
+    font-size: 18px;
+}
+
+@media only screen and (min-width: 55.875em) {
+    .lp-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .lp-box {
+        width: 50%;
+    }
+
+    .lp-box:last-child {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 55.875em) {
+    .lp-row {
+        flex-wrap: nowrap;
+    }
+
+    .lp-box,
+    .lp-box:last-child {
+        width: 33.3333%;
+    }
+}
+
