@@ -1,36 +1,33 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en">
-	
-<!--
-	Office Landing Page
--->
 
+<html lang="en"?>
+
+<!--
+  Office Landing Page
+-->
+	
 <head>
-    <title>{% block title %}Office Homepage{% endblock title %}</title>
-    <meta name="description" content="TBD">
-    <meta name="author" content="TBD">
-    {% block head_css %}
-        <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/office.css' %}">
-    {% endblock head_css %}
+	<title>Office Homepage</title>
+	<link rel="stylesheet" href="../../static/modulesApplication/css/office.css">
 </head>
 	
+<header class="header">
+	<div class="header_search">Search...</div>
+	<div class="user_avatar">User Avatar</div>
+</header>
+	
 <div class="grid-container">
-  <header class="header"></header>
-  <aside class="sidenav"></aside>
-  <main class="main"></main>
-  <footer class="footer"></footer>
+	<header class="header"></header>
+	<aside class="sidenav"></aside>
+	<main class="main"></main>
+	<footer class="footer"></footer>
 </div>
 	
-<header class="header">
-  <div class="header__search">Search...</div>
-  <div class="header__avatar">User</div>
-</header>
-
 <footer class="footer">
   <div class="footer__copyright">&copy; 2021</div>
-  <div class="footer__signature">Team 37</div>
+  <div class="footer__signature">Team 34</div>
 </footer>
 	
 	
+
 </html>
