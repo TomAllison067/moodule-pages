@@ -58,7 +58,7 @@
                 <a class="close" onclick="closeForm()">&times;</a>
                 <form action="{% url 'modulesApplication:archived-selection-requests' %}" method="POST">
                     {% csrf_token %}
-                    <h2>Selection</h2>
+                    <h2>Selection </h2>
                     <input hidden id="selection_id" name="selection_id" value="te">
                     <table class="details">
                         <tr>
@@ -91,7 +91,7 @@
                         </tr>
 
                     </table>
-                    <input type="submit" class="Modify" name="Modify" value="Change status">
+                    <input type="submit" class="Modify" id="Modify" name="Modify">
                     <input type="submit" class="Modify"  name="CommentUpdate" id="CommentUpdate" value="Update Comment only">
 
                 </form>
@@ -170,7 +170,32 @@
         color: #fff;
         opacity: 0.7;
     }
+    .Abtn {
+        width: 40%;
+        padding: 10px;
+        align: left;
+        border: none;
+        background: #20a115;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        opacity: 0.7;
+    }
 
+    .Dbtn {
+        width: 40%;
+        padding: 10px;
+        align: right;
+        border: none;
+        background: #ff0000;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        opacity: 0.7;
+    }
+
+    .Abtn:hover,
+    .Dbtn:hover,
     .Modify:hover {
         opacity: 1;
     }
@@ -208,6 +233,18 @@
                     document.getElementById("entry_year").innerHTML = selections_list[x].entry_year;
                     document.getElementById("modules").innerHTML = selections_list[x].modules;
                     document.getElementById("status").innerHTML = selections_list[x].status;
+
+
+                    if (selections_list[x].status == 'APPROVED'){
+                        console.log('approed')
+                        document.getElementById("Modify").value = 'DENIED';
+                        document.getElementById("Modify").className = 'Dbtn';
+                    }else{
+                        console.log('denie')
+                        document.getElementById("Modify").value = 'APPROVED';
+                        document.getElementById("Modify").className = 'Abtn';
+
+                    }
 
                 }
             }
