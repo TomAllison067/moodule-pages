@@ -104,7 +104,7 @@ def archived_selection_requests(request):
             selection.save(update_fields=['comments', 'last_modified'])
         else:
             selection.status = request.POST.get('Modify')
-            if request.POST.get('comment') is not "":
+            if request.POST.get('comment') != "":
                 selection.comments = request.POST.get('comment')
                 selection.save(update_fields=['status', 'last_modified', 'comments'])
             selection.save(update_fields=['status', 'last_modified'])
