@@ -74,7 +74,7 @@ def choose_modules(request):
 
 
 @login_required
-def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites=None, banned_combination=None):
+def choose_specific_modules(request, prog_code, stage, entry_year):
     if request.method == "GET":
         try:
             info = factory.get_programme_info(prog_code, stage=int(stage), entry_year=entry_year)
