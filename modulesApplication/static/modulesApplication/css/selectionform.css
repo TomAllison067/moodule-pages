@@ -238,14 +238,40 @@
 .dropdown-content {
     display: none;
 }
+
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
     display: block;
 }
 
+/* Anchorlink styling taken from https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Styling_links */
+.dropdown-content a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+}
+
+.dropdown-content a:link {
+    color: blue;
+}
+
+.dropdown-content a:visited {
+    color: purple;
+}
+
+.dropdown-content a:focus, a:hover {
+    border-bottom: 1px solid;
+}
+
+.dropdown-content a:active {
+    color: red;
+}
+/* End of anchorlink styling */
+
 .module-checkbox:hover {
     background: orangered;
 }
+
 .cell-content .cc-core {
     border-left: 5px orangered solid;
 }

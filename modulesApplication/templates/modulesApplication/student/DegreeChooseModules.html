@@ -117,6 +117,9 @@
                                                 <div id="{{ module.mod_code }}moreInfo"
                                                      class="dropdown-content">
                                                     <p>{{ module.summary|slice:":200" }}...</p>
+                                                    <a target="_blank"
+                                                       href="https://ssb-prod.ec.royalholloway.ac.uk/PROD/bwckctlg.p_disp_catalog_syllabus?cat_term_in={{ info.cat_term_in }}&subj_code_in={{ module.mod_code|slice:":2" }}&crse_numb_in={{ module.mod_code|slice:"2:" }}">See
+                                                        course catalogue</a>
                                                     <!-- Placeholder - feel free to make this whole dropdown info bit better! -->
                                                 </div>
                                             {% endfor %} <!-- END OF CORE MODULES -->
@@ -143,6 +146,9 @@
                                                 <div id="{{ module.mod_code }}moreInfo"
                                                      class="dropdown-content">
                                                     <p>{{ module.summary|slice:":200" }}...</p>
+                                                    <a target="_blank"
+                                                       href="https://ssb-prod.ec.royalholloway.ac.uk/PROD/bwckctlg.p_disp_catalog_syllabus?cat_term_in={{ info.cat_term_in }}&subj_code_in={{ module.mod_code|slice:":2" }}&crse_numb_in={{ module.mod_code|slice:"2:" }}">See
+                                                        course catalogue</a>
                                                     <!-- Placeholder - feel free to make this whole dropdown info bit better! -->
                                                 </div>
                                             {% endfor %}
@@ -156,24 +162,29 @@
                                                 department.</em></p>
                                             {% for sublist in modules %}
                                                 <li class="cc-disc-alt">
-                                                    <p>Instead of {{ sublist.0.mod_code }}:</p>
                                                     <input type="checkbox" id="{{ sublist.1.mod_code }}"
                                                            value="{{ sublist.1.mod_code }}"
                                                            name="module-selections"
                                                            class="module-checkbox"
                                                            onclick="selectDiscAlt('{{ sublist.0.mod_code }}')">
                                                     <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }}
-                                                        - {{ sublist.1.title }} </label>
+                                                        - {{ sublist.1.title }} <em>instead
+                                                            of {{ sublist.0.mod_code }}</em></label>
                                                     <button type="button"
-                                                            onclick="toggleMoreInfo('{{ module.mod_code }}')"
+                                                            onclick="toggleMoreInfo('{{ sublist.1.mod_code }}')"
                                                             class="dropdown-btn">More info...
                                                     </button>
-                                                    <div id="{{ module.mod_code }}moreInfo"
-                                                         class="dropdown-content">
-                                                        <p>{{ module.summary|slice:":200" }}...</p>
-                                                        <!-- Placeholder - feel free to make this whole dropdown info bit better! -->
-                                                    </div>
                                                 </li>
+                                                <div id="{{ sublist.1.mod_code }}moreInfo"
+                                                     class="dropdown-content">
+
+                                                    <p>{{ sublist.1.summary|slice:":200" }}...</p>
+                                                    <a target="_blank"
+                                                       href="https://ssb-prod.ec.royalholloway.ac.uk/PROD/bwckctlg.p_disp_catalog_syllabus?cat_term_in={{ info.cat_term_in }}&subj_code_in={{ module.mod_code|slice:":2" }}&crse_numb_in={{ module.mod_code|slice:"2:" }}">See
+                                                        course catalogue</a>
+                                                    <!-- Placeholder - feel free to make this whole dropdown info bit better! -->
+                                                </div>
+
                                             {% endfor %}
                                         {% endif %}
                                     {% endif %}
