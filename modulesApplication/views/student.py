@@ -1,9 +1,10 @@
+import datetime
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
-import datetime
 
 from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
 from ..programmeInfo import factory
@@ -98,29 +99,22 @@ def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites
 @login_required
 def submit_selection(request):
     if request.method == "POST":
+        # Get all the arguments from the form
         student_id = request.POST.get('student-id')
-        if student_id == "" or student_id is None:
-            messages.add_message(request, messages.ERROR, "ERROR: Please enter your student id.")
-            return HttpResponseRedirect(reverse("modulesApplication:choose-specific-modules",
-                                                kwargs={'prog_code': request.POST.get('prog_code'),
-                                                        'stage': request.POST.get('stage')}
-                                                ), messages)
         stage = request.POST.get('stage')
         mod_codes = set(request.POST.getlist('module-selections'))
-        print("POST form mod codes", mod_codes)
         entry_year = request.POST.get('entry_year')
         prog_code = request.POST.get('prog_code')
         programme = Programme.objects.get(pk=prog_code)
-        print(datetime.datetime.now())
-        ModuleSelection.objects.filter(
-            student_id=student_id).delete()  # Delete any existing selections (should only be one!)
-        selection = ModuleSelection.objects.create(
-            student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme,
-            date_requested=datetime.datetime.now())
-        for m in mod_codes:
-            module = Module.objects.get(mod_code=m)
-            module.selected_in.add(selection)
-        if SelectionValidator(selection).validate():
+
+        if SelectionValidator(prog_code, stage, entry_year, mod_codes).validate():  # If the selection is valid
+            ModuleSelection.objects.filter(student_id=student_id).delete()
+            selection = ModuleSelection.objects.create(
+                student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme,
+                date_requested=datetime.datetime.now())
+            for m in mod_codes:
+                module = Module.objects.get(mod_code=m)
+                module.selected_in.add(selection)
             return HttpResponseRedirect(reverse("modulesApplication:submitted",
                                                 kwargs={'student_id': student_id,
                                                         'stage': stage,
