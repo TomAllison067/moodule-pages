@@ -80,18 +80,8 @@ def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites
             info = factory.get_programme_info(prog_code, stage=int(stage), entry_year=entry_year)
         except Programme.DoesNotExist:
             raise Http404
-        try:
-            modules_list = Module.objects.order_by('level', 'mod_code')
-            for module in modules_list:
-                prerequisites = module.prerequisites
-                banned_combinations = module.banned_combinations
-        except Module.DoesNotExist:
-            prerequisites = None
-            banned_combinations = None
         context = {'info': info,
                    'stage': "stage{}".format(stage),
-                   'prerequisites': prerequisites,
-                   'banned_combinations': banned_combinations
                    }
         return render(request, 'modulesApplication/student/DegreeChooseModules.html', context=context)
 
