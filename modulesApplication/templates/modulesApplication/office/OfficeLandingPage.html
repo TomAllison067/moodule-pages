@@ -95,7 +95,7 @@
             <div class="lp-box" id="lpb-cm">
 
                 {#<!--            The contents of the href are: {% url '#'%} without the full stop of course--> #}
-                <a href="{% url 'modulesApplication:csv-downloads' %}" class="b-btn">
+                <a href="{% url 'modulesApplication:office-landing' %}" class="b-btn">
                     <h2> Downloadable CSVs </h2>
                     <div class="lp-content" id="lpc-cm">
                         <div class="lp-content" style="padding: 10px;">
@@ -107,6 +107,18 @@
                                     <li><a href="{% url 'modulesApplication:csv' 'ModuleSelection'%}">Student Module Selection Requests</a></li>
                                 </ul>
                             </div>
+                            <br>
+                        <div class="lp-content" style="padding: 10px;">
+                            <form action="{% url 'modulesApplication:office-landing' %}" method="post" ,
+                                  enctype="multipart/form-data" class="form_csv">
+                                {% csrf_token %}
+                                {{ form }}
+                                <input class="manual-btn" style="color: black" type="submit" value="submit"/>
+                            </form>
+                            {% if message %}
+                                <p id="para">{{ message }}</p>
+                            {% endif %}
+                        </div>
                         </div>
                     </div>
                 </a>
