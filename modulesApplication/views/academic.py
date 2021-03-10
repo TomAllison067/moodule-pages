@@ -40,4 +40,4 @@ def selection_requests(request):
     context = {'headers': headers,
                'selections_list': selections_list,
                'list_of_selections': json.dumps(selections_list, cls=DjangoJSONEncoder)}
-    return render(request, 'modulesApplication/office/SelectionRequests-AcademicView.html', context)
+    return render(request, 'modulesApplication/academic/SelectionRequests-AcademicView.html', context)

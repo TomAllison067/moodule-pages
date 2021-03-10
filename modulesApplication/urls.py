@@ -20,7 +20,7 @@ student_patterns = [
 
 academic_patterns = [
     path('landing/', academic.landing, name='academic-landing'),
-    path('selection-requests/', academic.selection_requests, name='selection-requests'),
+    path('selection-requests/', academic.selection_requests, name='academic-selection-requests'),
 ]
 
 office_patterns = [

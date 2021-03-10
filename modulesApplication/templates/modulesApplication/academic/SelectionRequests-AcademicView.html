@@ -1,4 +1,4 @@
-{% extends "modulesApplication/base_office.html" %}
+{% extends "modulesApplication/base_academic.html" %}
 {% load static %}
 
 {% block title %}Choose Modules{% endblock %}
@@ -38,6 +38,7 @@
                 <tr>
                     <td>{{ selection.id }}</td>
                     <td>{{ selection.student_id }}</td>
+                    <td>{{ selection.student_name }}</td>
                     <td>{{ selection.stage }}</td>
                     <td>{{ selection.entry_year }}</td>
                     <td>{{ selection.status }}</td>
@@ -81,12 +82,10 @@
                         </tr>
                         <tr>
                             <td><b>Comments</b></td>
-                            <td><input type="text" name="comment" placeholder="Reasoning..."></td>
+<!--                            <td><input type="text" name="comment" placeholder="Reasoning..."></td>-->
                         </tr>
 
                     </table>
-                    <input type="submit" class="Abtn" name="Approved" value="Approve">
-                    <input type="submit" class="Dbtn" name="Denied" value="Deny">
 
 
                 </form>
