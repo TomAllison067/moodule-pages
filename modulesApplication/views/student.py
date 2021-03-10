@@ -130,7 +130,10 @@ def submitted(request, student_id, stage, entry_year, prog_code):
 @login_required
 def my_selection(request):
     """A view for the student to see their current ModuleSelection object."""
-    student_id = request.user.ldap_user.attrs.get('extensionAttribute3')[0]  # Ignore the warning for now..
+    try:
+        student_id = request.user.ldap_user.attrs.get('extensionAttribute3')[0]  # Ignore the warning for now..
+    except AttributeError:
+        student_id = request.user.id
     selection = get_object_or_404(
         ModuleSelection,
         student_id=student_id
