@@ -78,7 +78,9 @@
         </div>
         <!-- END RULES --->
         <!-- BEGIN SELECTION FORM -->
-        <form id="module-selection-form" action="{% url 'modulesApplication:submit-selection' %}" method="POST">
+        <form id="module-selection-form"
+              action="{% url 'modulesApplication:choose-modules' prog_code=info.programme.prog_code stage=stage|slice:"-1:" entry_year=info.entry_year %}"
+              method="POST">
             {% csrf_token %}
             <!-- GRID-->
 
@@ -197,15 +199,23 @@
 
 
             <div class="submit-box">
-                <input type="hidden" name="stage" value="{{ stage|slice:"-1:" }}">
-                <input type="hidden" name="prog_code" value="{{ info.programme.prog_code }}">
-                <input type="hidden" name="entry_year" value="{{ info.entry_year }}">
-                <label style="display:block; margin:auto; text-align: center;" for="student-id">Student
-                    ID: {{ user.ldap_user.attrs.extensionAttribute3.0 }}<br> <!-- The student ID in LDAP -->
-                    <input style="display:block; margin:auto; color: white;" type="hidden" id="student-id"
-                           name="student-id"
-                           value="{{ user.ldap_user.attrs.extensionAttribute3.0 }}"><br> <!-- The student ID in LDAP -->
-                </label>
+                {% if user.ldap_user.attrs.extensionAttribute3.0 %}
+                    <label style="display:block; margin:auto; text-align: center;" for="student-id">Student
+                        ID: {{ user.ldap_user.attrs.extensionAttribute3.0 }}<br> <!-- The student ID in LDAP -->
+                        <input style="display:block; margin:auto; color: white;" type="hidden" id="student-id"
+                               name="student-id"
+                               value="{{ user.ldap_user.attrs.extensionAttribute3.0 }}"><br>
+                        <!-- The student ID in LDAP -->
+                    </label>
+                {% else %}
+                    <!-- If you log in using django db instead of ldap, you'll get this. Just for development purposes. -->
+                    <label style="display:block; margin:auto; text-align: center;" for="student-id">Student
+                        ID: {{ user.id }}<br>
+                        <input style="display:block; margin:auto; color: white;" type="hidden" id="student-id"
+                               name="student-id"
+                               value="{{ user.id }}"><br>
+                    </label>
+                {% endif %}
                 {% if messages %}
                     {% for message in messages %}
                         <strong><span

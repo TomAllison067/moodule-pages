@@ -58,23 +58,23 @@ def landing(request):
 
 
 @login_required
-def choose_modules(request):
+def choose_degree_and_stage(request):
     if request.method == "POST":
         prog_code = request.POST.get('programme')
         stage = request.POST.get('stage')
         entry_year = request.POST.get('entry_year') or '2019'
         if prog_code is None or stage is None:
-            return HttpResponseRedirect(reverse("modulesApplication:choose-modules"))
-        url = reverse('modulesApplication:choose-specific-modules',
+            return HttpResponseRedirect(reverse("modulesApplication:choose-degree-and-stage"))
+        url = reverse('modulesApplication:choose-modules',
                       kwargs={'prog_code': prog_code,
                               'stage': stage,
                               'entry_year': entry_year})
         return HttpResponseRedirect(url)
-    return render(request, 'modulesApplication/student/StudentChooseModules.html')
+    return render(request, 'modulesApplication/student/ChooseDegreeAndStage.html')
 
 
 @login_required
-def choose_specific_modules(request, prog_code, stage, entry_year):
+def choose_modules(request, prog_code, stage, entry_year):
     if request.method == "GET":
         try:
             info = factory.get_programme_info(prog_code, stage=int(stage), entry_year=entry_year)
@@ -83,20 +83,12 @@ def choose_specific_modules(request, prog_code, stage, entry_year):
         context = {'info': info,
                    'stage': "stage{}".format(stage),
                    }
-        return render(request, 'modulesApplication/student/DegreeChooseModules.html', context=context)
-
-
-@login_required
-def submit_selection(request):
+        return render(request, 'modulesApplication/student/ChooseModules.html', context=context)
     if request.method == "POST":
         # Get all the arguments from the form
-        student_id = request.POST.get('student-id')
-        stage = request.POST.get('stage')
+        student_id = request.user.id if request.POST.get('student-id') == "" else request.POST.get('student-id')
         mod_codes = set(request.POST.getlist('module-selections'))
-        entry_year = request.POST.get('entry_year')
-        prog_code = request.POST.get('prog_code')
         programme = Programme.objects.get(pk=prog_code)
-
         if SelectionValidator(prog_code, stage, entry_year, mod_codes).validate():  # If the selection is valid
             ModuleSelection.objects.filter(student_id=student_id).delete()
             selection = ModuleSelection.objects.create(
@@ -112,9 +104,9 @@ def submit_selection(request):
                                                         'prog_code': prog_code}))
         else:
             messages.add_message(request, messages.ERROR, "ERROR: Invalid selection.")
-            return HttpResponseRedirect(reverse("modulesApplication:choose-specific-modules",
-                                                kwargs={'prog_code': request.POST.get('prog_code'),
-                                                        'stage': request.POST.get('stage'),
+            return HttpResponseRedirect(reverse("modulesApplication:choose-modules",
+                                                kwargs={'prog_code': prog_code,
+                                                        'stage': stage,
                                                         'entry_year': entry_year}
                                                 ), messages)
     else:
