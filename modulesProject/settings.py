@@ -1,3 +1,6 @@
+import ldap
+from django_auth_ldap.config import LDAPSearch
+
 """
 Django settings for modulesProject project.
 
@@ -148,3 +151,11 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_REDIRECT_URL = '/'  # Upon login, redirect to index
 LOGOUT_REDIRECT_URL = '/'  # Upon signout, redirect to index
+
+AUTH_LDAP_SERVER_URI = "ldaps://directory.rhul.ac.uk"
+
+AUTH_LDAP_BIND_DN = ""
+AUTH_LDAP_BIND_PASSWORD = ""
+AUTH_LDAP_USER_SEARCH = LDAPSearch(
+    "DC=cc,DC=rhul,DC=local", ldap.SCOPE_SUBTREE, "(extensionAttribute3=*100938899*)"
+)
