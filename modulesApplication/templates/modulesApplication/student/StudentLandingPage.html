@@ -14,7 +14,6 @@
         <!-- IMAGE SLIDER -->
         <div class="slider">
             <div class="slides">
-
                 <!--RADIO BUTTONS -->
                 <input type="radio" name="radio-btn" id="radio1">
                 <input type="radio" name="radio-btn" id="radio2">
@@ -22,7 +21,6 @@
 
                 <!-- SLIDE IMAGES -->
                 <div class="slide first">
-                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
                     <div class="slide-content">
                         <h2> Welcome to moodule </h2> <br>
                         <p> This is your online learning environment to access information about your chosen course with
@@ -31,7 +29,6 @@
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
                     <div class="slide-content">
                         <h2> Welcome to moodule </h2> <br>
                         <p> This is your online learning environment to access information about your chosen course with
@@ -40,7 +37,6 @@
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
                     <div class="slide-content">
                         <h2> Welcome to moodule </h2> <br>
                         <p> This is your online learning environment to access information about your chosen course with
@@ -67,78 +63,83 @@
 
         <!-- LANDING PAGE CONTAINER -->
         <div class="lp-container">
+            <div class="lp-row">
+                <!-- MY COURSES BOX -->
+                <div class="lp-box" id="lpc-mc">
+                    <a href="#" class="b-btn">
+                        <h2> my courses</h2>
+                        <div class="lp-content">
+                            <h3> This term </h3>
+                            <!-- MESSAGE FOR THOSE HANDLING THE DATABASE (from neka):
 
-            <!-- MY COURSES BOX -->
-            <div class="lp-box" id="lpc-bl">
-                <a href="#" class="b-btn">
-                    <h2> my courses</h2>
-                    <div class="lp-content">
-                        <h3> This term </h3>
-                        <!-- MESSAGE FOR THOSE HANDLING THE DATABASE (from neka):
+                        the li's are examples of what the listed modules would look like.
+                        should be a query request of the current stage and term of the student's
+                        modules (if they have been chosen).
 
-                    the li's are examples of what the listed modules would look like.
-                    should be a query request of the current stage and term of the student's
-                    modules (if they have been chosen).
+                        My assumption is that this will not be tested over an extensive time period,
+                        so we may be able to assume the CURRENT stage and term to be Year 1, Term 1;
+                        however it is good to still hold something to track the stage of time.
 
-                    My assumption is that this will not be tested over an extensive time period,
-                    so we may be able to assume the CURRENT stage and term to be Year 1, Term 1;
-                    however it is good to still hold something to track the stage of time.
-
-                    Format of each listed item should be:
-                    [the module code]: [the module name]
-                    (these should be retrieved by the database)
-                    -->
-                        <div class="term-module-list">
-                            <ul>
-                                <li><i class="fas fa-book-reader"></i> CS3480: Software Language Engineering</li>
-                                <li><i class="fas fa-book-reader"></i> CS3490: Computational Optimisation</li>
-                                <li><i class="fas fa-book-reader"></i> CS3510: Functional Programming and Applications
-                                </li>
-                                <li><i class="fas fa-book-reader"></i> CS3846: Human-Computer Interaction</li>
-                                <li><i class="fas fa-book-reader"></i> IY3501: Security Management</li>
-                                <li><i class="fas fa-book-reader"></i> IY3606: Smart Cards/Token Security and
-                                    Applications
-                                </li>
-                                <li><i class="fas fa-book-reader"></i> IY3609: Digital Forensics</li>
-                                <li><i class="fas fa-book-reader"></i> IY3612: Cyber Security</li>
-                                <li><i class="fas fa-book-reader"></i> IY3840: Malicious Software</li>
-                            </ul>
+                        Format of each listed item should be:
+                        [the module code]: [the module name]
+                        (these should be retrieved by the database)
+                        -->
+                            <div class="term-module-list">
+                                <ul>
+                                    <li><i class="fas fa-book-reader"></i> CS3480: Software Language Engineering</li>
+                                    <li><i class="fas fa-book-reader"></i> CS3490: Computational Optimisation</li>
+                                    <li><i class="fas fa-book-reader"></i> CS3510: Functional Programming and Applications
+                                    </li>
+                                    <li><i class="fas fa-book-reader"></i> CS3846: Human-Computer Interaction</li>
+                                    <li><i class="fas fa-book-reader"></i> IY3501: Security Management</li>
+                                    <li><i class="fas fa-book-reader"></i> IY3606: Smart Cards/Token Security and
+                                        Applications
+                                    </li>
+                                    <li><i class="fas fa-book-reader"></i> IY3609: Digital Forensics</li>
+                                    <li><i class="fas fa-book-reader"></i> IY3612: Cyber Security</li>
+                                    <li><i class="fas fa-book-reader"></i> IY3840: Malicious Software</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <!-- CHOOSE MODULES BOX -->
-            <div class="lp-box" id="lpb-cm">
-                <a href="{% url 'modulesApplication:choose-degree-and-stage' %}" class="b-btn">
-                    <h2> choose modules </h2>
-                    <div class="lp-content" id="lpc-cm">
-                        <div class="icon-box">
-                            <i class="fas fa-book-open"></i> <br>
-                            <br>
-                            <hr class="solid">
-                            <br>
-                            <p> choose the available modules for each term, based on the choice of your course </p>
+                <!-- CHOOSE MODULES BOX -->
+                <div class="lp-box" id="lpb-cm">
+                    <a href="{% url 'modulesApplication:choose-modules' %}" class="b-btn">
+                        <h2> choose modules </h2>
+                        <div class="lp-content" id="lpc-cm">
+                            <div class="icon-box">
+                                <div class="icon-effect">
+                                    <i class="fas fa-book-open"></i> 
+                                </div> <br>
+                                <br>
+                                <hr class="solid">
+                                <br>
+                                <p> choose the available modules for each term, based on the choice of your course </p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <!-- ALL COURSES BOX -->
-            <div class="lp-box" id="lpb-ac">
-                <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
-                    <h2> all courses </h2>
-                    <div class="lp-content" id="lpc-ac">
-                        <div class="icon-box">
-                            <i class="fas fa-book"></i> <br>
-                            <br>
-                            <hr class="solid">
-                            <br>
-                            <p> view the complete degree specification and requirements for all the available courses
-                            </p>
+                <!-- ALL COURSES BOX -->
+                <div class="lp-box" id="lpb-ac">
+                    <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
+                        <h2> all courses </h2>
+                        <div class="lp-content" id="lpc-ac">
+                            <div class="icon-box">
+                                <div class="icon-effect">
+                                    <i class="fas fa-book"></i> 
+                                </div> <br>
+                                <br>
+                                <hr class="solid">
+                                <br>
+                                <p> view the complete degree specification and requirements for all the available courses
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
         </div>
 
