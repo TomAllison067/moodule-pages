@@ -201,10 +201,10 @@
                 <input type="hidden" name="prog_code" value="{{ info.programme.prog_code }}">
                 <input type="hidden" name="entry_year" value="{{ info.entry_year }}">
                 <label style="display:block; margin:auto; text-align: center;" for="student-id">Student
-                    ID: {{ user.id }}<br>
+                    ID: {{ user.ldap_user.attrs.extensionAttribute3.0 }}<br> <!-- The student ID in LDAP -->
                     <input style="display:block; margin:auto; color: white;" type="hidden" id="student-id"
                            name="student-id"
-                           value="{{ user.id }}"><br>
+                           value="{{ user.ldap_user.attrs.extensionAttribute3.0 }}"><br> <!-- The student ID in LDAP -->
                 </label>
                 {% if messages %}
                     {% for message in messages %}
