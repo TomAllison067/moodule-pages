@@ -21,7 +21,9 @@ student_patterns = [
     path('my-selection', student.my_selection, name='my-selection')
 ]
 
-academic_patterns = []  # example
+academic_patterns = [
+    path('landing/', academic.landing, name='academic-landing'),
+]
 
 office_patterns = [
     path('landing/', office.landing, name='office-landing'),

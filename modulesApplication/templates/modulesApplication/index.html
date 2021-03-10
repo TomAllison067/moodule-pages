@@ -3,32 +3,36 @@
 {% block title %}Index{% endblock %}
 
 {% block sidebar-links %}
-    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
-            class="fas fa-home"></i>student landing</a></li>
-    <li><a href="{% url 'modulesApplication:office-landing' %}" class="btn"><i
-            class="fas fa-home"></i>office landing</a></li>
+<li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+        class="fas fa-home"></i>student landing</a></li>
+<li><a href="{% url 'modulesApplication:office-landing' %}" class="btn"><i
+        class="fas fa-home"></i>office landing</a></li>
+<li><a href="{% url 'modulesApplication:academic-landing' %}" class="btn"><i
+        class="fas fa-home"></i>academic landing</a></li>
 {% endblock %}
 
 
 {% block content %}
-    <div class="main-content">
-        <h1>moodule</h1>
-        <p>This is a temporary homepage with a working Log-in system. The above navbar has yet to be
-            integrated into our main system.</p> <br>
-        <hr>
-        <br>
-        {% if user.is_authenticated %}
-            <h4>Welcome {{ user.name }}!</h4><br>
-            <a href="{% url 'modulesApplication:student-landing' %}">
-                <i class="fas fa-sign-in-alt"> </i> Student Landing Page
-            </a>
-            <a href="{% url 'modulesApplication:office-landing' %}">
-                <i class="fas fa-sign-in-alt"> </i> Office Landing Page
-            </a>
-        {% else %}
-            <a href="{% url 'login' %}">
-                <i class="fas fa-sign-in-alt"> </i> Sign In
-            </a>
-        {% endif %}
-    </div>
+<div class="main-content">
+    <h1>moodule</h1>
+    <p>Welcome to your module selection </p> <br>
+    <hr>
+    <br>
+    {% if user.is_authenticated %}
+    <h4>Welcome {{ user.name }}!</h4><br>
+    <a href="{% url 'modulesApplication:student-landing' %}">
+        <i class="fas fa-sign-in-alt"> </i> Student Landing Page
+    </a>
+    <a href="{% url 'modulesApplication:office-landing' %}">
+        <i class="fas fa-sign-in-alt"> </i> Office Landing Page
+    </a>
+    <a href="{% url 'modulesApplication:academic-landing' %}">
+        <i class="fas fa-sign-in-alt"> </i> Academic Landing Page
+    </a>
+    {% else %}
+    <a href="{% url 'login' %}">
+        <i class="fas fa-sign-in-alt"> </i> Sign In
+    </a>
+    {% endif %}
+</div>
 {% endblock %}
