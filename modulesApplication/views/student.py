@@ -92,7 +92,7 @@ def choose_modules(request, prog_code, stage, entry_year):
         if SelectionValidator(prog_code, stage, entry_year, mod_codes).validate():  # If the selection is valid
             ModuleSelection.objects.filter(student_id=student_id).delete()
             selection = ModuleSelection.objects.create(
-                student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme,
+                student_id=student_id, student_name=request.user.first_name, stage=stage, entry_year=entry_year, status="PENDING", programme=programme,
                 date_requested=datetime.datetime.now())
             for m in mod_codes:
                 module = Module.objects.get(mod_code=m)
