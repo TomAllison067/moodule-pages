@@ -151,8 +151,9 @@
     margin: 0.25% 0.4%;
     display: block;
     box-sizing: border-box;
-    background: url(../images/buttons/slp-button-b.png);
+    background: linear-gradient(rgb(80, 50, 5), rgb(115, 45, 0));
     background-size: cover;
+    border-top: 5px solid orange;
     color: white;
     cursor: pointer;
     position: relative;
@@ -163,6 +164,7 @@
 
 .lp-box:hover {
     background-position: right;
+    background: linear-gradient(rgb(50, 20, 0), rgb(85, 15, 0));
     transform: scale(1.025);
     border-radius: 5px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.511);
@@ -175,6 +177,40 @@
     opacity: 100%;
 }
 
+.lp-box:hover > a .lp-content .icon-box .icon-effect {
+    color: white;
+    text-shadow: 0 0 5px white;
+    transition: all 0.25s ease;
+}
+
+.lp-box:hover > a .lp-content .icon-box .icon-effect i {
+    color: white;
+    text-shadow: 0 0 5px white;
+    transition: all 0.25s ease;
+}
+
+.icon-box .icon-effect {
+    width: 100px;
+    height: 100px;
+    display:inline-block;
+    line-height: 75px;
+    margin: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 5px solid #D8E2DC;
+    transition: all 0.25s ease;
+}
+
+.icon-box .icon-effect i {
+    color: #D8E2DC;
+    display:inline-block;
+    margin-top: 20px;
+    font-size: 50px;
+    text-align: center;
+    vertical-align: bottom;
+    transition: all 0.25s ease;
+}
 .lp-box:hover > a h2 {
     border-radius: 5px 5px 0 0;
     transition: 0.25s;
@@ -254,11 +290,6 @@
     margin-left: 2%;
 }
 
-#lpc-cm i, #lpc-ac i {
-    font-size: 60px;
-    align-items: center;
-}
-
 .lp-box a {
     position: relative;
     border-radius: 5px;
@@ -269,17 +300,15 @@
     display: block;
 }
 
-/* --[[ MEDIA QUERIES - RESPONSIVE SIZES ]]-- */
-/* Full-screen */
-
 .lp-container {
-    margin: 0 auto;
+    margin: 1% auto;
     width: 80%;
-    height: 100vh;
+    height: 100%;
+
     box-sizing: border-box;
     position: relative;
 
-    display: grid;
+    display: block;
     grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         grid-gap: 15px;
@@ -314,6 +343,8 @@
     font-size: 18px;
 }
 
+/* --[[ MEDIA QUERIES - RESPONSIVE SIZES ]]-- */
+/* Smaller-screen e.g. mobile, tablet */
 @media only screen and (min-width: 55.875em) {
     .lp-row {
         display: flex;
@@ -329,6 +360,7 @@
     }
 }
 
+/* Full-screen */
 @media only screen and (min-width: 55.875em) {
     .lp-row {
         flex-wrap: nowrap;

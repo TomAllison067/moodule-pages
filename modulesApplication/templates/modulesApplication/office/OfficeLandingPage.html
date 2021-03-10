@@ -14,7 +14,6 @@
         <!-- IMAGE SLIDER -->
         <div class="slider">
             <div class="slides">
-
                 <!--RADIO BUTTONS -->
                 <input type="radio" name="radio-btn" id="radio1">
                 <input type="radio" name="radio-btn" id="radio2">
@@ -22,26 +21,27 @@
 
                 <!-- SLIDE IMAGES -->
                 <div class="slide first">
-                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
                     <div class="slide-content">
                         <h2> Welcome to moodule </h2> <br>
-                        <p> This is the online learning environment to access information about students' chosen courses
-                            with
-                            the given modules for the academic year 20/21.</p>
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
                     <div class="slide-content">
                         <h2> Welcome to moodule </h2> <br>
-                        <p> Insert Standard Text here</p>
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="{% static 'modulesApplication/images/slider/img-1.png' %}" alt="">
                     <div class="slide-content">
                         <h2> Welcome to moodule </h2> <br>
-                        <p> Insert Standard Text here</p>
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
                     </div>
                 </div>
 
@@ -61,39 +61,11 @@
             </div>
         </div>
 
-        <!-- AUTOMATIC NAVIGATION SCRIPT-->
-        <script>
-            var counter = 1;
-            setInterval(function () {
-                document.getElementById('radio' + counter).checked = true;
-                counter++;
-                if (counter > 4) {
-                    counter = 1;
-                }
-            }, 15000);
-        </script>
-
-        <!-- MENU OVERLAY SCRIPT -->
-        <script>
-            var checkbox = document.querySelector("input[type=checkbox]");
-
-            checkbox.addEventListener('change', function () {
-                if (this.checked) {
-                    document.getElementById("overlay").style.transition = '0.5s';
-                    document.getElementById("overlay").style.display = "block";
-                } else {
-                    document.getElementById("overlay").style.transition = '0.5s';
-                    document.getElementById("overlay").style.display = "none";
-                }
-            });
-        </script>
-
         <!-- LANDING PAGE CONTAINER -->
         <div class="lp-container">
 
             <!-- VIEW STUDENTS & CSVs BOX -->
-            <div class="lp-box" id="lpb-cm">
-
+            <div class="lp-box" id="lpb-mc">
                 {#<!--            The contents of the href are: {% url '#'%} without the full stop of course--> #}
                 <a href="{% url 'modulesApplication:csv-downloads' %}" class="b-btn">
                     <h2> Downloadable CSVs </h2>
@@ -115,19 +87,33 @@
             <!-- ALL COURSES BOX -->
             <div class="lp-box" id="lpb-ac">
                 <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
-                    <h2> All courses </h2>
+                    <h2> all courses </h2>
                     <div class="lp-content" id="lpc-ac">
                         <div class="icon-box">
-                            <i class="fas fa-book"></i> <br>
+                            <div class="icon-effect">
+                                <i class="fas fa-book"></i> 
+                            </div> <br>
                             <br>
                             <hr class="solid">
                             <br>
-                            <p> View the complete degree specification and requirements for all the available courses
+                            <p> view the complete degree specification and requirements for all the available courses
                             </p>
                         </div>
                     </div>
                 </a>
             </div>
         </div>
+
+         <!-- AUTOMATIC NAVIGATION SCRIPT-->
+         <script>
+            var counter = 1;
+            setInterval(function () {
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if (counter > 4) {
+                    counter = 1;
+                }
+            }, 15000);
+        </script>
     </div>
 {% endblock %}
