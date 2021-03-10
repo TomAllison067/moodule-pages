@@ -1,7 +1,7 @@
 /* --[[ IMAGE BOX -- */
 .image-box {
     position: relative;
-    background: linear-gradient(-50deg, rgb(155, 101, 0), rgb(137, 36, 0), rgb(38, 0, 38));
+    background: linear-gradient(180deg, rgb(137, 36, 0), rgb(155, 101, 0), rgb(201, 127, 0));
     background-size: 200% 300%;
     opacity: 100%;
     width: 100%;
@@ -25,7 +25,7 @@
     font-size: 26px;
     color: white;
     background: rgba(30, 30, 30, 0);
-    border-left: 5px orangered solid;
+    border-left: 5px orange solid;
 }
 
 .ib-content h2 i {
@@ -58,7 +58,7 @@
     position: relative;
     border-radius: 5px;
     box-sizing: border-box;
-    border-top: 5px solid orangered;
+    border-top: 3px solid orangered;
 }
 
 .form-content #module-selection-form h1 {
@@ -79,11 +79,10 @@
 
 .icon-img i {
     padding: 20px;
-    background: linear-gradient(-50deg, orange, orangered, purple);
-    background-size: 400% 400%;
-    animation: ib-gradient 10s ease infinite;
+    background: linear-gradient(180deg, orangered, orange);
     color: black;
     border-radius: 50%;
+    border: 0px solid black;
     font-size: 60px;
 }
 
@@ -95,7 +94,7 @@
 
 .rules {
     margin: 5px 5px 5px 20px;
-    border-bottom: 2px solid orangered;
+    border-bottom: 2px solid black;
 }
 
 .rules p {
@@ -107,7 +106,7 @@
     color: white;
     border-radius: 2px;
     width: 35%;
-    border-top: 5px orangered solid;
+    border-top: 5px orange solid;
 }
 
 .rules ul {
@@ -147,7 +146,7 @@
     border-radius: 2px;
     box-shadow: 1px 1px rgb(114, 114, 114);
     width: 100%;
-    border-top: 5px orangered solid;
+    border-top: 5px orange solid;
 }
 
 .cell-title h3 {
@@ -196,7 +195,7 @@
 }
 
 .module-checkbox {
-    border: 2px solid orangered;
+    border: 2px solid orange;
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;

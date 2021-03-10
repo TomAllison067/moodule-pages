@@ -2,34 +2,53 @@
 
 {% block title %} My Selection {% endblock %}
 
+{% block head_css %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/studentselection.css' %}">
+{% endblock %}
 
 {% block content %}
-    <style>
-        * {
-            color: black;
-        }
+<div class="page-wrapper">
+    <!-- IMAGE BAR -->
+    <div class="image-box">
+        <div class="ib-content">
+            <h2><i class="fas fa-book-open"></i> my selection </h2> <br>
+        </div>
+    </div>
 
-        h1, h2, h3, h4 {
-            color: black !important;
-        }
-    </style>
-    <div class="page-wrapper">
-        <div class="main-content">
-            <h2>Student ID: {{ selection.student_id }} </h2>
-            <h3>Selection ID: {{ selection.id }}</h3>
-            <hr>
-            <h3>Degree Title: {{ selection.programme.title }}</h3>
-            <h3>Stage: {{ selection.stage }}</h3>
-            <h3>Entry year: {{ selection.entry_year }}</h3>
-            <hr>
-            <h3>Status: {{ selection.status }}</h3>
-            <hr>
-            <h4>Modules selected: </h4>
-            <ul>
+    <!-- MAIN BOX -->
+    <div class="main-box">
+        <div class="icon-img">
+            <i class="fas fa-book-open"></i>
+        </div>
+        <div class="mb-content">
+            <h1>Student Selection</h1>
+            <h3>ID Information: </h3>
+            <ul class="id-section">
+                <li> <i class="fas fa-user"></i> Student ID: {{ selection.student_id }} </li>
+                <li> <i class="fas fa-user"></i> Selection ID: {{ selection.id }}</li>
+            </ul>
+
+            <h3>Degree Information: </h3>
+            <ul class="stage-section">
+                <li> <i class="fas fa-book"></i> Degree Title: {{ selection.programme.title }}</li>
+                <li><i class="fas fa-book"></i> Stage: {{ selection.stage }}</li>
+                <li><i class="fas fa-book"></i> Entry year: {{ selection.entry_year }}</li>
+            </ul>
+
+            <h3>Status Informaiion: </h3>
+            <ul class="status-section">
+                <li> <i class="fas fa-hourglass-half"></i>  Status: {{ selection.status }}</li>
+            </ul>
+
+            <h3>Modules selected: </h3>
+            <ul class="module-section">
                 {% for module in modules %}
-                    <li>{{ module.mod_code }} - {{ module.title }}</li>
+                    <li><i class="fas fa-book-reader"></i> {{ module.mod_code }} - {{ module.title }}</li>
                 {% endfor %}
             </ul>
         </div>
     </div>
+</div>
 {% endblock %}
