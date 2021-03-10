@@ -137,7 +137,6 @@ STATIC_URL = '/static/'
 # Use the sites framework for Django authentication. Need to look at this later.
 SITE_ID = 1
 
-
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
@@ -152,10 +151,30 @@ AUTHENTICATION_BACKENDS = (
 LOGIN_REDIRECT_URL = '/'  # Upon login, redirect to index
 LOGOUT_REDIRECT_URL = '/'  # Upon signout, redirect to index
 
-AUTH_LDAP_SERVER_URI = "ldaps://directory.rhul.ac.uk"
+AUTH_LDAP_SERVER_URI = "ldaps://directory.rhul.ac.uk:636"
 
-AUTH_LDAP_BIND_DN = ""
-AUTH_LDAP_BIND_PASSWORD = ""
+# To be able to search for users and authenticate accordingly, the application itself needs to be 'logged in'!
+AUTH_LDAP_BIND_DN = env('AUTH_LDAP_BIND_DN')
+AUTH_LDAP_BIND_PASSWORD = env('AUTH_LDAP_BIND_PASSWORD')
+
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "givenName",
+    "last_name": "sn",
+    "email": "mail"
+}
+
+AUTH_LDAP_BASE_DN = "OU=MIIS Managed,DC=cc,DC=rhul,DC=local"
 AUTH_LDAP_USER_SEARCH = LDAPSearch(
-    "DC=cc,DC=rhul,DC=local", ldap.SCOPE_SUBTREE, "(extensionAttribute3=*100938899*)"
+    AUTH_LDAP_BASE_DN, ldap.SCOPE_SUBTREE, '(sAMAccountName=%(user)s)'
 )
+
+AUTH_LDAP_GLOBAL_OPTIONS = {
+    ldap.OPT_X_TLS_REQUIRE_CERT: ldap.OPT_X_TLS_NEVER
+}
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"console": {"class": "logging.StreamHandler"}},
+    "loggers": {"django_auth_ldap": {"level": "DEBUG", "handlers": ["console"]}},
+}
