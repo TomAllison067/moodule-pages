@@ -8,5 +8,5 @@ class ModulesApplicationConfig(AppConfig):
     name = 'modulesApplication'
 
     def ready(self):
-        settings.AUTH_LDAP_BIND_DN = getpass.getpass("Please enter LDAP username: ")
+        settings.AUTH_LDAP_BIND_DN = input("Please enter LDAP username: ")
         settings.AUTH_LDAP_BIND_PASSWORD = getpass.getpass("Please enter LDAP password: ")
