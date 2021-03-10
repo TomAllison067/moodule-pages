@@ -117,7 +117,7 @@
                                                             class="dropdown-btn">More info...
                                                     </button>
                                                 </li>
-                                                <div id="{{ module.mod_code }}moreInfo"
+                                                <div id="moreInfo{{ module.mod_code }}"
                                                      class="dropdown-content">
                                                     <p>{{ module.summary|slice:":200" }}...</p>
                                                     <a target="_blank"
@@ -146,7 +146,7 @@
                                                             class="dropdown-btn">More info...
                                                     </button>
                                                 </li>
-                                                <div id="{{ module.mod_code }}moreInfo"
+                                                <div id="moreInfo{{ module.mod_code }}"
                                                      class="dropdown-content">
                                                     <p>{{ module.summary|slice:":200" }}...</p>
                                                     <a target="_blank"
@@ -178,7 +178,7 @@
                                                             class="dropdown-btn">More info...
                                                     </button>
                                                 </li>
-                                                <div id="{{ sublist.1.mod_code }}moreInfo"
+                                                <div id="moreInfo{{ sublist.1.mod_code }}"
                                                      class="dropdown-content">
 
                                                     <p>{{ sublist.1.summary|slice:":200" }}...</p>
@@ -236,7 +236,7 @@
     <script>
 
         function toggleMoreInfo(mod_code) {
-            document.getElementById(mod_code + "moreInfo").classList.toggle("show");
+            document.getElementById("moreInfo" + mod_code).classList.toggle("show");
         }
 
         // Initial modules selected per term
@@ -272,6 +272,7 @@
                 console.log("here");
                 thisBox.checked = false;
             } else {
+                console.log(elements)
                 if (elements.length === 2) {  // Some modules don't have duplicates, causing errors in console
                     elements[1].disabled = elements[0].checked === true;
                     elements[0].disabled = elements[1].checked === true;
