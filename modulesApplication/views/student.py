@@ -105,8 +105,8 @@ def choose_modules(request, prog_code, stage, entry_year):
         else:
             messages.add_message(request, messages.ERROR, "ERROR: Invalid selection.")
             return HttpResponseRedirect(reverse("modulesApplication:choose-modules",
-                                                kwargs={'prog_code': request.POST.get('prog_code'),
-                                                        'stage': request.POST.get('stage'),
+                                                kwargs={'prog_code': prog_code,
+                                                        'stage': stage,
                                                         'entry_year': entry_year}
                                                 ), messages)
     else:
