@@ -1,4 +1,4 @@
-from modulesApplication.models import ModuleSelection, OptionRule, Strands
+from modulesApplication.models import ModuleSelection, OptionRule, Strands, Programme
 
 
 class SelectionValidator:
@@ -31,17 +31,19 @@ class SelectionValidator:
     modules are invalid).
     """
 
-    def __init__(self, selection: ModuleSelection):
-        self._selection = selection
+    def __init__(self, prog_code, stage, entry_year, mod_codes):
+        self._programme = Programme.objects.get(pk=prog_code)
+        self._stage = stage
+        self._entry_year = entry_year
         self._rules = self.get_rules()
-        self._modules_selected = set([m.mod_code for m in self._selection.module_set.all()])
+        self._modules_selected = set([m for m in mod_codes])
         self._confirmed = set()
 
     def get_rules(self):
         query = OptionRule.objects.filter(
-            prog_code=self._selection.programme,
-            stage=self._selection.stage,
-            entry_year=self._selection.entry_year,
+            prog_code=self._programme,
+            stage=self._stage,
+            entry_year=self._entry_year,
         )
         rules = {}
         for rule in query:

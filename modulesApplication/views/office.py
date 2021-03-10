@@ -50,6 +50,21 @@ def print_student_selections(request):
     return csv_converter.csv_student_selections()
 
 
+def selections_extra_details(query_set):
+    selections_list = list(query_set.values())
+    for selection in selections_list:
+        selected = ModuleSelection.objects.get(id=selection['id'])
+        modules = [m.mod_code for m in selected.module_set.all()]
+        selection['modules'] = modules
+        try:
+            selection['student_name'] = User.objects.get(id=selection['student_id']).first_name
+            selection['programme_name'] = Programme.objects.get(prog_code=selection['programme_id']).title
+        except User.DoesNotExist:
+            selection['student_name'] = None
+        except Programme.DoesNotExist:
+            selection['programme_name'] = None
+    return selections_list
+
 @login_required
 def selection_requests(request):
     if request.method == "POST":
@@ -57,7 +72,6 @@ def selection_requests(request):
         selection = ModuleSelection.objects.get(id=selection_id)
         selection.last_modified = datetime.datetime.now()
         selection.comments = request.POST.get('comment')
-        print(request.POST.get('comment'))
 
         if 'Approved' in request.POST:
             selection.status = "APPROVED"
@@ -71,16 +85,8 @@ def selection_requests(request):
     headers = csv_converter.get_headers(ModuleSelection)
     headers.remove('last_modified')
     headers.remove('comments')
-    selection_list = ModuleSelection.objects.filter(status='PENDING')
-    selections_list = list(selection_list.values())
-    for selection in selections_list:
-        selected = ModuleSelection.objects.get(id=selection['id'])
-        modules = [m.mod_code for m in selected.module_set.all()]
-        selection['modules'] = modules
-        try:
-            selection['student_name'] = User.objects.get(id=selection['student_id']).first_name
-        except User.DoesNotExist:
-            selection['student_name'] = None
+    query_set = ModuleSelection.objects.filter(status='PENDING')
+    selections_list = selections_extra_details(query_set)
     context = {'headers': headers,
                'selections_list': selections_list,
                'list_of_selections': json.dumps(selections_list, cls=DjangoJSONEncoder)}
@@ -89,4 +95,24 @@ def selection_requests(request):
 
 @login_required
 def archived_selection_requests(request):
-    return render(request, 'modulesApplication/office/ArchivedSelectionRequests.html')
+    if request.method == "POST":
+        selection_id = request.POST.get('selection_id')
+        selection = ModuleSelection.objects.get(id=selection_id)
+        selection.last_modified = datetime.datetime.now()
+        if 'CommentUpdate' in request.POST:
+            selection.comments = request.POST.get('comment')
+            selection.save(update_fields=['comments', 'last_modified'])
+        else:
+            selection.status = request.POST.get('Modify')
+            if request.POST.get('comment') != "":
+                selection.comments = request.POST.get('comment')
+                selection.save(update_fields=['status', 'last_modified', 'comments'])
+            selection.save(update_fields=['status', 'last_modified'])
+
+    selections_list = ModuleSelection.objects.exclude(status='PENDING')
+    selections_list = selections_extra_details(selections_list)
+    headers = csv_converter.get_headers(ModuleSelection)
+    context = {'headers': headers,
+               'selections_list': selections_list,
+               'list_of_selections': json.dumps(selections_list, cls=DjangoJSONEncoder)}
+    return render(request, 'modulesApplication/office/ArchivedSelectionRequests.html', context)

@@ -113,8 +113,8 @@ def populate_opts_modules(modules_dict, rules_dict, programme, stage, entry_year
             query = Module.objects.filter(mod_code__startswith=pattern)
             for module in query:
                 if module.status == "ACTIVE" and module in optional_modules \
-                        and not (module in modules_dict['term1']['CORE'] or module in
-                                 modules_dict['term2']['CORE']):
+                        and not (module in modules_dict['term1'].get('CORE', []) or module in
+                                 modules_dict['term2'].get('CORE', [])):
                     term = get_term(module)
                     if term == "1":
                         modules_dict['term1']['OPTS'] = modules_dict['term1'].get('OPTS', []) + [module]

@@ -101,15 +101,27 @@
                                             <!-- for Core modules, modules are selected and disabled-->
                                             <h4>Core Modules</h4>
                                             {% for module in modules %}
-                                                <li id="cc-core"><input type="checkbox"
-                                                                        id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
-                                                                        value="{{ module.mod_code }}"
-                                                                        name="module-selections"
-                                                                        class="module-checkbox"
-                                                                        checked hidden>
+                                                <li class="cc-core"><input type="checkbox"
+                                                                           id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
+                                                                           value="{{ module.mod_code }}"
+                                                                           name="module-selections"
+                                                                           class="module-checkbox"
+                                                                           checked hidden>
                                                     <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
                                                         - {{ module.title }}</label>
+                                                    <button type="button"
+                                                            onclick="toggleMoreInfo('{{ module.mod_code }}')"
+                                                            class="dropdown-btn">More info...
+                                                    </button>
                                                 </li>
+                                                <div id="{{ module.mod_code }}moreInfo"
+                                                     class="dropdown-content">
+                                                    <p>{{ module.summary|slice:":200" }}...</p>
+                                                    <a target="_blank"
+                                                       href="https://ssb-prod.ec.royalholloway.ac.uk/PROD/bwckctlg.p_disp_catalog_syllabus?cat_term_in={{ info.cat_term_in }}&subj_code_in={{ module.mod_code|slice:":2" }}&crse_numb_in={{ module.mod_code|slice:"2:" }}">See
+                                                        course catalogue</a>
+                                                    <!-- Placeholder - feel free to make this whole dropdown info bit better! -->
+                                                </div>
                                             {% endfor %} <!-- END OF CORE MODULES -->
                                         {% elif constraint != 'DISC_ALT' %} <!-- OTHER MODULES -->
                                             {% if constraint == 'OPTS' %}
@@ -118,15 +130,27 @@
                                                 <h4>Modules on the {{ info.strand }} strand</h4>
                                             {% endif %}
                                             {% for module in modules %}
-                                                <li id="cc-opts"><input type="checkbox"
-                                                                        id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
-                                                                        value="{{ module.mod_code }}"
-                                                                        name="module-selections"
-                                                                        class="module-checkbox"
+                                                <li class="cc-opts"><input type="checkbox"
+                                                                           id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
+                                                                           value="{{ module.mod_code }}"
+                                                                           name="module-selections"
+                                                                           class="module-checkbox"
                                                 >
                                                     <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
                                                         - {{ module.title }}</label>
+                                                    <button type="button"
+                                                            onclick="toggleMoreInfo('{{ module.mod_code }}')"
+                                                            class="dropdown-btn">More info...
+                                                    </button>
                                                 </li>
+                                                <div id="{{ module.mod_code }}moreInfo"
+                                                     class="dropdown-content">
+                                                    <p>{{ module.summary|slice:":200" }}...</p>
+                                                    <a target="_blank"
+                                                       href="https://ssb-prod.ec.royalholloway.ac.uk/PROD/bwckctlg.p_disp_catalog_syllabus?cat_term_in={{ info.cat_term_in }}&subj_code_in={{ module.mod_code|slice:":2" }}&crse_numb_in={{ module.mod_code|slice:"2:" }}">See
+                                                        course catalogue</a>
+                                                    <!-- Placeholder - feel free to make this whole dropdown info bit better! -->
+                                                </div>
                                             {% endfor %}
                                         {% else %}
                                             <h4>Discretionary Alternatives</h4>
@@ -137,16 +161,30 @@
                                                 discretion of the
                                                 department.</em></p>
                                             {% for sublist in modules %}
-                                                <li id="cc-disc-alt">
-                                                    <p>Instead of {{ sublist.0.mod_code }}:</p>
+                                                <li class="cc-disc-alt">
                                                     <input type="checkbox" id="{{ sublist.1.mod_code }}"
                                                            value="{{ sublist.1.mod_code }}"
                                                            name="module-selections"
                                                            class="module-checkbox"
                                                            onclick="selectDiscAlt('{{ sublist.0.mod_code }}')">
                                                     <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }}
-                                                        - {{ sublist.1.title }} </label>
+                                                        - {{ sublist.1.title }} <em>instead
+                                                            of {{ sublist.0.mod_code }}</em></label>
+                                                    <button type="button"
+                                                            onclick="toggleMoreInfo('{{ sublist.1.mod_code }}')"
+                                                            class="dropdown-btn">More info...
+                                                    </button>
                                                 </li>
+                                                <div id="{{ sublist.1.mod_code }}moreInfo"
+                                                     class="dropdown-content">
+
+                                                    <p>{{ sublist.1.summary|slice:":200" }}...</p>
+                                                    <a target="_blank"
+                                                       href="https://ssb-prod.ec.royalholloway.ac.uk/PROD/bwckctlg.p_disp_catalog_syllabus?cat_term_in={{ info.cat_term_in }}&subj_code_in={{ module.mod_code|slice:":2" }}&crse_numb_in={{ module.mod_code|slice:"2:" }}">See
+                                                        course catalogue</a>
+                                                    <!-- Placeholder - feel free to make this whole dropdown info bit better! -->
+                                                </div>
+
                                             {% endfor %}
                                         {% endif %}
                                     {% endif %}
@@ -184,6 +222,11 @@
 
 {% block scripts %}
     <script>
+
+        function toggleMoreInfo(mod_code) {
+            document.getElementById(mod_code + "moreInfo").classList.toggle("show");
+        }
+
         // Initial modules selected per term
         let term1Count = 0;
         let term2Count = 0;
