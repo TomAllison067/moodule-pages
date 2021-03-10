@@ -1,14 +1,13 @@
 import datetime
 import json
 
-from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.shortcuts import render, get_object_or_404
+from django.core.serializers.json import DjangoJSONEncoder
+from django.shortcuts import render
 
-from ..programmeInfo import csv_converter
-from ..models import Module, Programme, ModuleSelection, People
 from ..database.csvForm import CsvUploadForm
+from ..models import Module, Programme, ModuleSelection, People
+from ..programmeInfo import csv_converter
 
 
 @login_required
@@ -57,13 +56,11 @@ def selections_extra_details(query_set):
         modules = [m.mod_code for m in selected.module_set.all()]
         selection['modules'] = modules
         try:
-            selection['student_name'] = User.objects.get(id=selection['student_id']).first_name
             selection['programme_name'] = Programme.objects.get(prog_code=selection['programme_id']).title
-        except User.DoesNotExist:
-            selection['student_name'] = None
         except Programme.DoesNotExist:
             selection['programme_name'] = None
     return selections_list
+
 
 @login_required
 def selection_requests(request):
