@@ -153,10 +153,6 @@ LOGOUT_REDIRECT_URL = '/'  # Upon signout, redirect to index
 
 AUTH_LDAP_SERVER_URI = "ldaps://directory.rhul.ac.uk:636"
 
-# To be able to search for users and authenticate accordingly, the application itself needs to be 'logged in'!
-AUTH_LDAP_BIND_DN = env('AUTH_LDAP_BIND_DN')
-AUTH_LDAP_BIND_PASSWORD = env('AUTH_LDAP_BIND_PASSWORD')
-
 AUTH_LDAP_USER_ATTR_MAP = {
     "first_name": "givenName",
     "last_name": "sn",
