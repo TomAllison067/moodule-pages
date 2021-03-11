@@ -166,7 +166,7 @@ def choice_pathway(request):
     """Handles a user wanting to choose their modules. It attempts to derive the student's degree and stage from LDAP,
     and take them straight to the correct module choice form if successful."""
     # Attempt to derive the degree (this should probably just be cached... refactoring todo!)
-    if request.user.ldap_user:
+    if hasattr(request.user, 'ldap_user'):
         print("HERE!!!")
         potential_prog_codes = []
         for value in request.user.ldap_user.attrs.get('memberOf'):
@@ -180,13 +180,13 @@ def choice_pathway(request):
             return HttpResponseRedirect(reverse('modulesApplication:choose-degree-and-stage'))
         prog_code = potential_prog_codes[0].split(' ')[1]
 
-        # Derive the entry year and stage
+        # Derive the entry year and stage TODO sort this out in the related info db model to come...
         entry_year = request.user.ldap_user.attrs.get('whenCreated')[0][:4]
         first_of_sept_in_entry_year = datetime.date(year=int(entry_year), month=9, day=1)
         now = datetime.date.today()
         days = now - first_of_sept_in_entry_year
         stage = days.days // 365 + 1
-        
+
         return HttpResponseRedirect(reverse('modulesApplication:choose-modules',
                                             kwargs={'prog_code': prog_code,
                                                     'stage': stage,

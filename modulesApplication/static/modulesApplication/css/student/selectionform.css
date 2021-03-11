@@ -244,25 +244,25 @@
 }
 
 /* Anchorlink styling taken from https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Styling_links */
-.dropdown-content a {
+.blue-link a {
     outline: none;
     text-decoration: none;
     padding: 2px 1px 0;
 }
 
-.dropdown-content a:link {
+.blue-link {
     color: blue;
 }
 
-.dropdown-content a:visited {
+.blue-link:visited {
     color: purple;
 }
 
-.dropdown-content a:focus, a:hover {
+.blue-link:focus, .blue-link:hover {
     border-bottom: 1px solid;
 }
 
-.dropdown-content a:active {
+.blue-link:active {
     color: red;
 }
 /* End of anchorlink styling */
@@ -330,4 +330,8 @@ form#module-selection-form .submit-box input[type = "submit"]:hover {
     background: rgb(255, 121, 63);
     border: 2px white solid;
     width: 90px;
+}
+
+#if-changing-text {
+    text-align: center;
 }
