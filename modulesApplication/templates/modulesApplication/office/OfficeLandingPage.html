@@ -108,17 +108,26 @@
                                 </ul>
                             </div>
                             <br>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="lp-box" id="lpb-ac">
+                <a class="b-btn">
+                    <h2> Uploading CSV Changes</h2>
+                    <div class="lp-content" id="lpc-ac">
                         <div class="lp-content" style="padding: 10px;">
                             <form action="{% url 'modulesApplication:office-landing' %}" method="post" ,
                                   enctype="multipart/form-data" class="form_csv">
                                 {% csrf_token %}
+                                <!-- To add styling to the form need to add a class in modulesApplication/database/csvForm.py -->
                                 {{ form }}
                                 <input class="manual-btn" style="color: black" type="submit" value="submit"/>
                             </form>
                         </div>
-                        </div>
-                    </div>
-                </a>
+                    </div></a>
+
             </div>
 
             <!-- ALL COURSES BOX -->
