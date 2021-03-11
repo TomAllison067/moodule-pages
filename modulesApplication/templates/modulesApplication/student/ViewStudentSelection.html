@@ -37,7 +37,7 @@
                 <li><i class="fas fa-book"></i> Entry year: {{ selection.entry_year }}</li>
             </ul>
 
-            <h3>Status Informaiion: </h3>
+            <h3>Status Information: </h3>
             <ul class="status-section">
                 <li> <i class="fas fa-hourglass-half"></i>  Status: {{ selection.status }}</li>
             </ul>
@@ -48,7 +48,11 @@
                     <li><i class="fas fa-book-reader"></i> {{ module.mod_code }} - {{ module.title }}</li>
                 {% endfor %}
             </ul>
-            <h3>Comments: {{ selection.comments }}</h3>
+
+            <h3>Comments:</h3>
+            <ul class="comments-section">
+                <li><i class="fas fa-comment"></i>  {{ selection.comments }}</li>
+            </ul>
         </div>
     </div>
 </div>

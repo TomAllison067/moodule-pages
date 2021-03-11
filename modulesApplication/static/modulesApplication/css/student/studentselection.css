@@ -151,20 +151,13 @@
     color: black;
 }
 
-.mb-content .id-section li {
+.mb-content .id-section li, .mb-content .stage-section li,
+.mb-content .status-section li, .mb-content .module-section li {
     border-left: 5px orange solid;
 }
 
-.mb-content .stage-section li {
-    border-left: 5px orange solid;
-}
-
-.mb-content .status-section li {
-    border-left: 5px orange solid;
-}
-
-.mb-content .module-section li {
-    border-left: 5px orange solid;
+.mb-content .comments-section li {
+    border-left: 5px orangered solid;
 }
 
 .mb-content label {
