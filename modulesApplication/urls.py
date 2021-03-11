@@ -15,7 +15,8 @@ student_patterns = [
          student.choose_modules, name='choose-modules'),
     path('choose-modules/submitted/<str:student_id>/<str:prog_code>/<str:entry_year>/<str:stage>',
          student.submitted, name='submitted'),
-    path('my-selection', student.my_selection, name='my-selection')
+    path('my-selection', student.my_selection, name='my-selection'),
+    path('choice-pathway', student.choice_pathway, name='choice-pathway')
 ]
 
 academic_patterns = [
