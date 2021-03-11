@@ -115,9 +115,6 @@
                                 {{ form }}
                                 <input class="manual-btn" style="color: black" type="submit" value="submit"/>
                             </form>
-                            {% if message %}
-                                <p id="para">{{ message }}</p>
-                            {% endif %}
                         </div>
                         </div>
                     </div>
@@ -142,4 +139,15 @@
             </div>
         </div>
     </div>
+
+    {% autoescape off %}
+        <script>
+        window.onload = function () {
+            var db_reply = "{{ message }}";
+            if ( db_reply !== ''){
+                alert(db_reply)
+            }
+        };
+        </script>
+    {% endautoescape %}
 {% endblock %}

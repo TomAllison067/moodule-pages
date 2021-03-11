@@ -16,9 +16,9 @@ def landing(request):
     if request.method == 'POST':
         form = CsvUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            result = form.process_data(request.FILES['data_file'], request.POST['model'])
+            result = form.process_data(request.FILES['csv_upload'], request.POST['model'])
             if result:
-                message = "{} successfully updated".format(result)
+                message = "{}\'s successfully updated".format(result)
             else:
                 message = "Error, please check file and model is correct before submitting"
         else:
@@ -28,6 +28,7 @@ def landing(request):
 
     else:
         form = CsvUploadForm()
+        message = ''
     return render(request, 'modulesApplication/office/OfficeLandingPage.html', {'form': form})
 
 

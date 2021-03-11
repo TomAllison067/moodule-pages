@@ -15,7 +15,7 @@ models = {'1': Programme, '2': Module, '3': ModuleSelection, '4': People}
 
 
 class CsvUploadForm(forms.Form):
-    data_file = forms.FileField()
+    csv_upload = forms.FileField()
     model = forms.ChoiceField(choices=MODEL_CHOICES)
     model.widget.attrs.update({'style': 'color:black', 'required': 'required'})
 
