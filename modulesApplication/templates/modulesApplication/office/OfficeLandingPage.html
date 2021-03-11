@@ -1,4 +1,4 @@
-{% extends "modulesApplication/base_office.html" %}
+{% extends "modulesApplication/main/base_office.html" %}
 {% load static %}
 
 {% block title %}Office Landing Page{% endblock %}
@@ -6,7 +6,7 @@
 {% block head_css %}
     {{ block.super }}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/student/studentlanding.css' %}">
 {% endblock %}
 
 {% block content %}

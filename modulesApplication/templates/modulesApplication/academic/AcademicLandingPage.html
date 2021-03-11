@@ -1,4 +1,4 @@
-{% extends "modulesApplication/base_academic.html" %}
+{% extends "modulesApplication/main/base_academic.html" %}
 {% load static %}
 
 {% block title %}Academic Landing Page{% endblock %}
@@ -6,7 +6,7 @@
 {% block head_css %}
     {{ block.super }}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main/academiclanding.css' %}">
 {% endblock %}
 
 {% block content %}
