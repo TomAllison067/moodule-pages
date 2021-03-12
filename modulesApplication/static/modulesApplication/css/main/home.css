@@ -8,7 +8,7 @@
 }
 
 .main-content {
-    background: rgba(255,135,0,0.3);
+    background: rgba(255, 135, 0, 0.3);
     width: 100%;
     left: 0;
     margin: -200px 0 0 0;
@@ -30,6 +30,8 @@
     }
 }
 
-.to-middle {
-
+.in-middle {
+    display: block;
+    margin: auto;
+    width: 300px;
 }
