@@ -55,7 +55,7 @@ a {
 }
 
 a:focus {
-	outline: none !important;
+	outline: none;
 }
 
 a:hover {
@@ -95,7 +95,7 @@ textarea {
 }
 
 textarea:focus, input:focus {
-  border-color: transparent !important;
+  border-color: transparent;
 }
 
 input:focus::-webkit-input-placeholder { color:transparent; }
@@ -121,7 +121,7 @@ textarea:-ms-input-placeholder { color: #999999; }
 /*---------------------------------------------*/
 
 button {
-	outline: none !important;
+	outline: none;
 	border: none;
 	background: transparent;
 }
@@ -131,7 +131,7 @@ button:hover {
 }
 
 iframe {
-	border: none !important;
+	border: none;
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -154,12 +154,12 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
 
-.limiter {
+.page-wrapper {
   width: 100%;
   margin: 0 auto;
 }
 
-.container-login100 {
+.container-login {
   width: 100%;  
   min-height: 100vh;
   display: -webkit-box;
@@ -171,16 +171,16 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #9053c7;
+  background: #f5af19;
   background: -webkit-linear-gradient(-135deg, #f12711, #f5af19);
   background: -o-linear-gradient(-135deg, #f12711, #f5af19);
   background: -moz-linear-gradient(-135deg, #f12711, #f5af19);
   background: linear-gradient(-135deg, #f12711, #f5af19);
 }
 
-.wrap-login100 {
+.wrap-login {
   width: 960px;
-  background: #141E30;
+  background: #e7e8eb;
   border-radius: 10px;
   overflow: hidden;
 
@@ -197,22 +197,22 @@ iframe {
 /*------------------------------------------------------------------
 [  ]*/
 
-.login100-pic {
+.login-pic {
   width: 316px;
 }
 
-.login100-pic img {
+.login-pic img {
   max-width: 100%;
 }
 
 /*------------------------------------------------------------------
 [  ]*/
 
-.login100-form {
+.login-form.validate {
   width: 290px;
 }
 
-.login100-form-title {
+.login-title {
   font-family: Poppins-Bold;
   font-size: 24px;
   color: #fff;
@@ -458,39 +458,6 @@ iframe {
   }
 }
 
-
-/*.page-wrapper {
-	position: fixed;
-	top: 0; 
-	left: 0; 
-	z-index: 1;
-    min-height: 100%;
-}
-
-.page-wrapper .toggler {
-	position: absolute;
-	top: 0;
-	left: 0; 
-	z-index: 2; 
-	cursor: pointer;
-	width: 50px;
-	height: 50px;
-	opacity: 0;
-}
-
-.page-wrapper .hamburger {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 1; 
-	width: 60px;
-	height: 60px;
-	padding: 1rem;
-	background: #B4A8A9;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}*/
 
 /* Scrollbar */ 
 ::-webkit-scrollbar {
