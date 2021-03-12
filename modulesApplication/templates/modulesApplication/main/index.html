@@ -1,0 +1,48 @@
+{% extends "modulesApplication/main/base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head_css %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main/home.css' %}">
+{% endblock %}
+
+{% block sidebar-links %}
+<li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+        class="fas fa-home"></i>student landing</a></li>
+<li><a href="{% url 'modulesApplication:office-landing' %}" class="btn"><i
+        class="fas fa-home"></i>office landing</a></li>
+<li><a href="{% url 'modulesApplication:academic-landing' %}" class="btn"><i
+        class="fas fa-home"></i>academic landing</a></li>
+{% endblock %}
+
+
+{% block content %}
+    <div class="page-wrapper">
+        <div class="main-content">
+            <h1>moodule</h1>
+            <p>Welcome to your module selection portal, Moodule </p> <br>
+
+            <br>
+            {% if user.is_authenticated %}
+            <h4>Welcome {{ user.first_name }}!</h4><br>
+<!--            <a href="{% url 'modulesApplication:student-landing' %}">-->
+<!--                <i class="fas fa-sign-in-alt"> </i> Student Landing Page-->
+<!--            </a><br>-->
+<!--            <a href="{% url 'modulesApplication:office-landing' %}">-->
+<!--                <i class="fas fa-sign-in-alt"> </i> Office Landing Page-->
+<!--            </a><br>-->
+<!--            <a href="{% url 'modulesApplication:academic-landing' %}">-->
+<!--                <i class="fas fa-sign-in-alt"> </i> Academic Landing Page-->
+<!--            </a>-->
+            {% else %}
+            <div class="in-middle">
+                <a href="{% url 'login' %}">
+                    <i class="fas fa-sign-in-alt"> </i> Sign In
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

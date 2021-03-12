@@ -1,12 +1,12 @@
-{% extends "modulesApplication/main/base_office.html" %}
+{% extends "modulesApplication/main/base_academic.html" %}
 {% load static %}
 
-{% block title %}Office Landing Page{% endblock %}
+{% block title %}Academic Landing Page{% endblock %}
 
 {% block head_css %}
     {{ block.super }}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/student/studentlanding.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/academic/academiclanding.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -22,10 +22,10 @@
                 <!-- SLIDE IMAGES -->
                 <div class="slide first">
                     <div class="slide-content">
-                        <h2> Office Staff Portal </h2> 
-                        <p> Welcome to Moodule. This is the online learning environment to access information about students' chosen courses
-                            with
-                            the given modules for the academic year 20/21.</p>
+                        <h2> Academic Staff Portal </h2> 
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
                     </div>
                 </div>
                 <div class="slide">
@@ -61,13 +61,26 @@
             </div>
         </div>
 
+        <!-- AUTOMATIC NAVIGATION SCRIPT-->
+        <script>
+            var counter = 1;
+            setInterval(function () {
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if (counter > 4) {
+                    counter = 1;
+                }
+            }, 15000);
+        </script>
+
         <!-- LANDING PAGE CONTAINER -->
         <div class="lp-container">
 
             <!-- VIEW STUDENTS & CSVs BOX -->
-            <div class="lp-box" id="lpb-mc">
+            <div class="lp-box" id="lpb-cm">
+
                 {#<!--            The contents of the href are: {% url '#'%} without the full stop of course--> #}
-                <a href="{% url 'modulesApplication:office-landing' %}" class="b-btn">
+                <a href="{% url 'modulesApplication:csv-downloads' %}" class="b-btn">
                     <h2> Downloadable CSVs </h2>
                     <div class="lp-content" id="lpc-cm">
                         <div class="lp-content" style="padding: 10px;">
@@ -79,27 +92,9 @@
                                     <li><a href="{% url 'modulesApplication:csv' 'ModuleSelection'%}">Student Module Selection Requests</a></li>
                                 </ul>
                             </div>
-                            <br>
-
                         </div>
                     </div>
                 </a>
-            </div>
-            <div class="lp-box" id="lpb-ac">
-                <a class="b-btn">
-                    <h2> Uploading CSV Changes</h2>
-                    <div class="lp-content" id="lpc-ac">
-                        <div class="lp-content" style="padding: 10px;">
-                            <form action="{% url 'modulesApplication:office-landing' %}" method="post" ,
-                                  enctype="multipart/form-data" class="form_csv">
-                                {% csrf_token %}
-                                <!-- To add styling to the form need to add a class in modulesApplication/database/csvForm.py -->
-                                {{ form }}
-                                <input class="manual-btn" style="color: black" type="submit" value="submit"/>
-                            </form>
-                        </div>
-                    </div></a>
-
             </div>
 
             <!-- ALL COURSES BOX -->
@@ -121,28 +116,5 @@
                 </a>
             </div>
         </div>
-
-         <!-- AUTOMATIC NAVIGATION SCRIPT-->
-         <script>
-            var counter = 1;
-            setInterval(function () {
-                document.getElementById('radio' + counter).checked = true;
-                counter++;
-                if (counter > 4) {
-                    counter = 1;
-                }
-            }, 15000);
-        </script>
     </div>
-
-    {% autoescape off %}
-        <script>
-        window.onload = function () {
-            var db_reply = "{{ message }}";
-            if ( db_reply !== ''){
-                alert(db_reply)
-            }
-        };
-        </script>
-    {% endautoescape %}
 {% endblock %}

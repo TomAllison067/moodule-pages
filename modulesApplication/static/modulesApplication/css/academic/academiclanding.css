@@ -7,9 +7,12 @@
 .slider {
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 275px;
     border-radius: 10px;
-    border-bottom: 3px solid orangered;
+    border-bottom: 3px solid black;
+    background: linear-gradient(180deg, rgb(137, 36, 0), rgb(155, 101, 0), rgb(201, 127, 0));
+    background-size: 400% 400%;
+    animation: ib-gradient 10s ease infinite;
     overflow: hidden;
 }
 
@@ -45,25 +48,29 @@
     padding: 5px;
     color: white;
     background: #141414;
-    border-top: 5px orangered solid;
+    border-top: 5px orange solid;
 }
 
 .slide-content p {
     background: rgba(0, 0, 0, 0.5);
     padding: 7px;
-    border-left: 5px orangered solid;
+    border-left: 5px orange solid;
     color: white;
     width: 90%;
 }
 
-
-.slide img {
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    filter: blur(4px);
+@keyframes ib-gradient {
+    0% {
+        background-position: 0 0%;
+    }
+    50% {
+        background-position: 0% 75%;
+    }
+    100% {
+        background-position: 0 0%;
+    }
 }
+
 
 /* --[[ SLIDER - MANUAL NAVIGATION ]] */
 
@@ -76,9 +83,10 @@
 }
 
 .manual-btn {
-    border: 2px solid orangered;
     padding: 5px;
     border-radius: 10px;
+    background: black;
+    border: 2px solid black;
     cursor: pointer;
     transition: 0.25s;
 }
@@ -88,7 +96,8 @@
 }
 
 .manual-btn:hover {
-    background: orangered;
+    background: orange;
+    border: 2px solid black;
 }
 
 #radio1:checked ~ .first {
@@ -114,7 +123,7 @@
 }
 
 .navigation-auto div {
-    border: 2px solid orangered;
+    border: 2px solid black;
     padding: 5px;
     border-radius: 10px;
     transition: 1s;
@@ -125,15 +134,15 @@
 }
 
 #radio1:checked ~ .navigation-auto .auto-btn1 {
-    background: orangered;
+    background: black;
 }
 
 #radio2:checked ~ .navigation-auto .auto-btn2 {
-    background: orangered;
+    background: black;
 }
 
 #radio3:checked ~ .navigation-auto .auto-btn3 {
-    background: orangered;
+    background: black;
 }
 
 /* --[[ BOXES ]] */
@@ -141,32 +150,34 @@
 .lp-container {
     margin: 0 auto;
     width: 80%;
-    height: 50vh;
+    height: 80%;
     display: flex;
     box-sizing: border-box;
     position: relative;
+
 }
 
 .lp-box {
     margin: 0.25% 0.4%;
     width: 80%;
-    height: 100%;
     display: block;
     box-sizing: border-box;
-    background: url(../images/buttons/slp-button.png);
+    background: linear-gradient(rgb(80, 50, 5), rgb(115, 45, 0));
     background-size: cover;
+    border-top: 5px solid orange;
     color: white;
     cursor: pointer;
     position: relative;
     opacity: 90%;
     transition: 0.25s;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .lp-box:hover {
     background-position: right;
+    background: linear-gradient(rgb(50, 20, 0), rgb(85, 15, 0));
     transform: scale(1.025);
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.511);
     opacity: 100%;
     transition: 0.25s;
@@ -177,19 +188,53 @@
     opacity: 100%;
 }
 
+.lp-box:hover > a .lp-content .icon-box .icon-effect {
+    color: white;
+    text-shadow: 0 0 5px white;
+    transition: all 0.25s ease;
+}
+
+.lp-box:hover > a .lp-content .icon-box .icon-effect i {
+    color: white;
+    text-shadow: 0 0 5px white;
+    transition: all 0.25s ease;
+}
+
+.icon-box .icon-effect {
+    width: 100px;
+    height: 100px;
+    display:inline-block;
+    line-height: 75px;
+    margin: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 5px solid #D8E2DC;
+    transition: all 0.25s ease;
+}
+
+.icon-box .icon-effect i {
+    color: #D8E2DC;
+    display:inline-block;
+    margin-top: 20px;
+    font-size: 50px;
+    text-align: center;
+    vertical-align: bottom;
+    transition: all 0.25s ease;
+}
 .lp-box:hover > a h2 {
-    border-radius: 15px 15px 0 0;
+    border-radius: 5px 5px 0 0;
     transition: 0.25s;
 }
 
 .lp-box a h2 {
     font-size: 18px;
     text-align: center;
-    border-top: 2px orangered solid;
+    padding: 5px;
+    margin-top: 0;
     background: rgba(0, 0, 0, 0.65);
-    margin-bottom: 5%;
     position: relative;
-    border-radius: 15px 15px 0 0;
+    border-radius: 5px 5px 0 0;
 }
 
 .lp-box a .lp-content h3 {
@@ -218,9 +263,10 @@
 .lp-box a .lp-content .term-module-list {
     padding: 2px;
     width: 95%;
-    height: 35vh;
+    height: 85%; 
     display: block;
     overflow-y: scroll;
+    margin-bottom: 10px;
 }
 
 .lp-content .term-module-list li {
@@ -228,10 +274,10 @@
     margin: 10px auto;
     width: 95%;
     height: auto;
+    box-sizing: border-box;
     opacity: 100%;
     display: block;
-    box-sizing: border-box;
-    border-left: 5px orangered solid;
+    border-left: 5px orange solid;
     background-image: linear-gradient(rgb(27, 27, 27), rgb(45, 45, 45));
     background-size: cover;
     color: white;
@@ -245,16 +291,6 @@
     padding: 5px;
 }
 
-#lpc-cm, #lpc-ac {
-    display: block;
-    padding: 2%;
-    border-radius: 0;
-    text-align: center;
-    background: none;
-    margin: 5px auto;
-    font-size: 18px;
-}
-
 .icon-box > p {
     opacity: 0;
     transform: translateY(150%);
@@ -263,12 +299,7 @@
 
 #lpc-cm .icon-box, #lpc-ac .icon-box {
     margin-top: 10px;
-    margin-left: 9%;
-}
-
-#lpc-cm i, #lpc-ac i {
-    font-size: 60px;
-    align-items: center;
+    margin-left: 2%;
 }
 
 .lp-box a {
@@ -279,4 +310,40 @@
     top: 0;
     left: 0;
     display: block;
+}
+
+
+#lpc-cm {
+    padding: 2%;
+    border-radius: 0;
+    text-align: center;
+    background: none;
+    margin: 5px auto;
+    font-size: 18px;
+}
+
+#lpc-ac {
+    padding: 2%;
+    border-radius: 0;
+    text-align: center;
+    background: none;
+    margin: 5px auto;
+    font-size: 18px;
+}
+
+/* --[[ MEDIA QUERIES - RESPONSIVE SIZES ]]-- */
+/* Smaller-screen e.g. mobile, tablet */
+@media only screen and (max-width: 900px) {
+    .lp-container {
+        display: block;
+        width: 90%;
+    }
+
+    .lp-box {
+        width: 100%;
+    }
+
+    .lp-box a .lp-content .term-module-list {
+        margin-bottom: 10px;
+    }
 }

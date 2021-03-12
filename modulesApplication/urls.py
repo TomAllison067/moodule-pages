@@ -1,6 +1,4 @@
 from django.urls import path, include
-from django.conf.urls.static import static
-from django.conf import settings
 
 from modulesApplication.views import *
 
@@ -12,16 +10,19 @@ student_patterns = [
     path('all-modules/<str:module>/', student.module_details, name="specific-module"),
     path('all-modules/sort/<int:sort>/', student.all_modules, name="filter-modules"),
     path('landing/', student.landing, name='student-landing'),
-    path('choose-modules/', student.choose_modules, name='choose-modules'),
+    path('choose-degree-and-stage/', student.choose_degree_and_stage, name='choose-degree-and-stage'),
+    path('choose-modules/<str:prog_code>/<str:stage>/<str:entry_year>',
+         student.choose_modules, name='choose-modules'),
     path('choose-modules/submitted/<str:student_id>/<str:prog_code>/<str:entry_year>/<str:stage>',
          student.submitted, name='submitted'),
-    path('choose-modules/<str:prog_code>/<str:stage>/<str:entry_year>',
-         student.choose_specific_modules, name='choose-specific-modules'),
-    path('choose-modules/submit/', student.submit_selection, name='submit-selection'),
-    path('my-selection', student.my_selection, name='my-selection')
+    path('my-selection', student.my_selection, name='my-selection'),
+    path('choice-pathway', student.choice_pathway, name='choice-pathway')
 ]
 
-academic_patterns = []  # example
+academic_patterns = [
+    path('landing/', academic.landing, name='academic-landing'),
+    path('selection-requests/', academic.selection_requests, name='academic-selection-requests'),
+]
 
 office_patterns = [
     path('landing/', office.landing, name='office-landing'),

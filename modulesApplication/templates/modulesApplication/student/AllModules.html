@@ -1,4 +1,4 @@
-{% extends "modulesApplication/base_student.html" %}
+{% extends "modulesApplication/main/base_student.html" %}
 {% load static %}
 
 {% block title %}All Modules{% endblock %}
@@ -6,10 +6,11 @@
 {% block head_css %}
     {{ block.super }}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/allmodules.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/student/allmodules.css' %}">
 {% endblock %}
 
 {% block content %}
+<div class="page-wrapper">
     <!-- IMAGE BAR -->
     <div class="image-box">
         <div class="ib-content">
@@ -22,7 +23,7 @@
         <div class="icon-img">
             <i class="fas fa-book-open"></i>
         </div>
-
+        <h1> Module List </h1>
         {# module_summaries refer to the dictionary passed through with the render request #}
         <label for="year_filter">Filter by:</label> 
         <select class="dropdown" name="year" id="year_filter">
@@ -102,4 +103,5 @@
             }
         }
     </script>
+</div>
 {% endblock %}

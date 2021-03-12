@@ -7,7 +7,7 @@
     <meta name="description" content="TBD">
     <meta name="author" content="TBD">
     {% block head_css %}
-        <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/master.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main/master.css' %}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
         <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
     {% endblock head_css %}
@@ -67,7 +67,7 @@
 
             <div class="dropdown-ab-menu">
                 <ul>
-                    <li class="username"> {{ user.username }}</li>
+                    <li class="username"> {{ user.first_name }}</li>
                     <li class="email"> {{ user.email }}</li>
                     <li class="sign-out">
                         <a href="{% url 'logout' %}">
@@ -107,11 +107,12 @@
 
 </div>
 
+{% block content %}
 <div class="page-wrapper">
-    {% block content %}
 
-    {% endblock %}
 </div>
+{% endblock %}
+
 <!-- FOOTER - links will be added later -->
 <div class="footer">
     <div class="row">
@@ -142,5 +143,6 @@
 
 {% block scripts %}
 {% endblock %}
+
 </body>
 </html>

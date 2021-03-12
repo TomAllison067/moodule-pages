@@ -53,7 +53,7 @@ h4 {
 
 .image-box{
     position: relative;
-    background: linear-gradient(-50deg, rgb(155, 101, 0), rgb(137, 36, 0), rgb(38, 0, 38));
+    background: linear-gradient(180deg, rgb(137, 36, 0), rgb(155, 101, 0), rgb(201, 127, 0));
     background-size: 400% 400%;
     opacity: 100%;
     width: 100%;
@@ -109,7 +109,7 @@ h4 {
     position: relative;
     border-radius: 5px;
     box-sizing: border-box;
-    border-top: 5px solid orangered;
+    border-top: 3px solid orangered;
     color: black;
 }
 
@@ -123,13 +123,13 @@ h4 {
 
 .icon-img i {
     padding: 20px;
-    background: linear-gradient(-50deg, orange, orangered, purple);
-    background-size: 400% 400%;
-    animation: ib-gradient 10s ease infinite;
+    background: linear-gradient(180deg, orangered, orange);
     color: black;
     border-radius: 50%;
+    border: 0px solid black;
     font-size: 60px;
 }
+
 
 .form-box h1 {
     font-size: 30px;
