@@ -1,3 +1,35 @@
 /* Google font imports */
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Yantramanav:wght@900');
+
+.page-wrapper {
+    background-image: url("https://i.pinimg.com/originals/d4/42/d0/d442d0e7bf7d0ceeeeb436e36bc2f3b4.jpg");
+    background-size: cover;
+}
+
+.main-content {
+    background: rgba(255,135,0,0.3);
+    width: 100%;
+    left: 0;
+    margin: -200px 0 0 0;
+    text-align: center;
+}
+
+@keyframes anim {
+    0% {
+        background-color: #FC6a03;
+    }
+    25% {
+        background-color: #ed7117;
+    }
+    50% {
+        background-color: #d16002;
+    }
+    100% {
+        background-color: #893101;
+    }
+}
+
+.to-middle {
+
+}

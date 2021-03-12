@@ -230,9 +230,9 @@
 .lp-box a h2 {
     font-size: 18px;
     text-align: center;
-    border-top: 2px orange solid;
+    padding: 5px;
+    margin-top: 0;
     background: rgba(0, 0, 0, 0.65);
-    margin-bottom: 5%;
     position: relative;
     border-radius: 5px 5px 0 0;
 }

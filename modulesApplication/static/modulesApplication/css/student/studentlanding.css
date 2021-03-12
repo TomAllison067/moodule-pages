@@ -233,6 +233,8 @@
     border-top: 2px orange solid;
     background: rgba(0, 0, 0, 0.65);
     margin-bottom: 5%;
+    padding: 5px;
+    margin-top: 0;
     position: relative;
     border-radius: 5px 5px 0 0;
 }
