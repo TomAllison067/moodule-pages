@@ -27,19 +27,21 @@
             <br>
             {% if user.is_authenticated %}
             <h4>Welcome {{ user.name }}!</h4><br>
-            <a href="{% url 'modulesApplication:student-landing' %}">
-                <i class="fas fa-sign-in-alt"> </i> Student Landing Page
-            </a>
-            <a href="{% url 'modulesApplication:office-landing' %}">
-                <i class="fas fa-sign-in-alt"> </i> Office Landing Page
-            </a>
-            <a href="{% url 'modulesApplication:academic-landing' %}">
-                <i class="fas fa-sign-in-alt"> </i> Academic Landing Page
-            </a>
-            {% else %}
-            <a href="{% url 'login' %}">
-                <i class="fas fa-sign-in-alt"> </i> Sign In
-            </a>
+<!--            <a href="{% url 'modulesApplication:student-landing' %}">-->
+<!--                <i class="fas fa-sign-in-alt"> </i> Student Landing Page-->
+<!--            </a><br>-->
+<!--            <a href="{% url 'modulesApplication:office-landing' %}">-->
+<!--                <i class="fas fa-sign-in-alt"> </i> Office Landing Page-->
+<!--            </a><br>-->
+<!--            <a href="{% url 'modulesApplication:academic-landing' %}">-->
+<!--                <i class="fas fa-sign-in-alt"> </i> Academic Landing Page-->
+<!--            </a>-->
+            {% else %}'
+            <div class="to-middle">
+                <a href="{% url 'login' %}">
+                    <i class="fas fa-sign-in-alt"> </i> Sign In
+                </a>
+            </div>
             {% endif %}
         </div>
     </div>
