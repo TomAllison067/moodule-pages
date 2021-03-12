@@ -209,7 +209,7 @@ html, body {
     color: white;
     position: relative;
     float: right;
-    width: 260px;
+    width: 365px;
     height: 94px;
     background: rgb(15, 15, 15);
     border-radius: 0 0 5px 5px;
@@ -223,6 +223,8 @@ html, body {
     color: white;
     font-weight: bold;
     font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    overflow-wrap: break-word;
 
 }
 
@@ -232,6 +234,8 @@ html, body {
     color: white;
     margin-top: 5px;
     margin-bottom: 10px;
+    overflow-wrap: break-word;
+    font-family: 'Nunito', sans-serif;
 }
 
 .dropdown-ab-menu ul .sign-out {

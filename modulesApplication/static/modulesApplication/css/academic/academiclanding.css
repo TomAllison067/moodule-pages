@@ -147,8 +147,19 @@
 
 /* --[[ BOXES ]] */
 
+.lp-container {
+    margin: 0 auto;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
+
+}
+
 .lp-box {
     margin: 0.25% 0.4%;
+    width: 80%;
     display: block;
     box-sizing: border-box;
     background: linear-gradient(rgb(80, 50, 5), rgb(115, 45, 0));
@@ -255,6 +266,7 @@
     height: 85%; 
     display: block;
     overflow-y: scroll;
+    margin-bottom: 10px;
 }
 
 .lp-content .term-module-list li {
@@ -300,30 +312,8 @@
     display: block;
 }
 
-.lp-container {
-    margin: 1% auto;
-    width: 80%;
-    height: 100%;
-
-    box-sizing: border-box;
-    position: relative;
-
-    display: block;
-    grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-gap: 15px;
-        grid-template-areas:
-      "grid-mycourses grid-choosemodules grid-allcourses";
-}
-
-#lpc-mc {
-    grid-area: grid-mycourses;
-    display: grid;
-}
 
 #lpc-cm {
-    grid-area: grid-choosemodules;
-    display: grid;
     padding: 2%;
     border-radius: 0;
     text-align: center;
@@ -333,8 +323,6 @@
 }
 
 #lpc-ac {
-    grid-area: grid-allcourses;
-    display: grid;
     padding: 2%;
     border-radius: 0;
     text-align: center;
@@ -345,30 +333,17 @@
 
 /* --[[ MEDIA QUERIES - RESPONSIVE SIZES ]]-- */
 /* Smaller-screen e.g. mobile, tablet */
-@media only screen and (min-width: 55.875em) {
-    .lp-row {
-        display: flex;
-        flex-wrap: wrap;
+@media only screen and (max-width: 900px) {
+    .lp-container {
+        display: block;
+        width: 90%;
     }
 
     .lp-box {
-        width: 50%;
-    }
-
-    .lp-box:last-child {
         width: 100%;
     }
-}
 
-/* Full-screen */
-@media only screen and (min-width: 55.875em) {
-    .lp-row {
-        flex-wrap: nowrap;
-    }
-
-    .lp-box,
-    .lp-box:last-child {
-        width: 33.3333%;
+    .lp-box a .lp-content .term-module-list {
+        margin-bottom: 10px;
     }
 }
-
