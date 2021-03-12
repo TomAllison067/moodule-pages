@@ -55,11 +55,13 @@
                 </form>
             {% else %}
                 <p>Successfully signed in.</p>
+            {% endif %}
         {% if not user.is_authenticated %}
             {% if form.errors %}
                 <p>Your username and password didn't match. Please try again.</p>
             {% endif %}
             </div>
         </div>
+        {% endif %}
     </div>
 {% endblock %}

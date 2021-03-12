@@ -105,7 +105,7 @@
     background: rgb(20, 20, 20);
     color: white;
     border-radius: 2px;
-    width: 35%;
+    width: 55%;
     border-top: 5px orange solid;
 }
 
@@ -142,10 +142,10 @@
     position: relative;
     margin-top: 0;
     background: rgb(20, 20, 20);
-    padding: 5px;
     border-radius: 2px;
     box-shadow: 1px 1px rgb(114, 114, 114);
     width: 100%;
+    height: auto;
     border-top: 5px orange solid;
 }
 
@@ -155,7 +155,6 @@
 }
 
 .cell-content {
-    /*align-self: center;*/
     justify-self: center;
 }
 
@@ -334,4 +333,20 @@ form#module-selection-form .submit-box input[type = "submit"]:hover {
 
 #if-changing-text {
     text-align: center;
+}
+
+/* --[[ MEDIA QUERIES - RESPONSIVE SIZES ]]-- */
+/* Smaller-screen e.g. mobile, tablet */
+@media only screen and (max-width: 900px) {
+    .grid {
+        display: block;
+    }
+
+    .ib-content h2 { 
+        font-size: 19px;
+    }
+
+    .rules p {
+        width: 95%;
+    }
 }
