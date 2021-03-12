@@ -45,6 +45,8 @@
     }
 }
 
-.to-middle {
-
+.in-middle {
+    display: block;
+    margin: auto;
+    width: 300px;
 }
