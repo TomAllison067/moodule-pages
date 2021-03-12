@@ -23,54 +23,72 @@
     input {
         color: black !important;
     }
-
-    .button {
-        padding: 5px;
-    }
 </style>
 
 <div class="page-wrapper">
     <div class="container-login">
         <div class="wrap-login">
             <div class="login-pic js-tilt" data-tilt>
-                <img src="{% static 'modulesApplication/images/logo/mlogo-login.png' %}"
+                <img src="{% static 'modulesApplication/images/logo/mlogo-login.png' %}" </div>
+
+                <form class="login-form.validate">
+                    <span class="login-title">
+                        {% if not user.is_authenticated %}
+                        <a href="{% url 'social:begin' 'azuread-tenant-oauth2' %}?next={{ request.path }}">Azure Login
+                            Page</a>
+                        {% if form.errors %}
+                        <p>Your username and password didn't match. Please try again.</p>
+                        {% endif %}
+                    </span>
+                </form>
+
+                <div class="wrap-input">
+                    <div>
+                        <form method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
+                            <table>
+                                <tr>
+                                    <td>{{ form.username.label_tag }}</td>
+                                    <td>{{ form.username }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form.password.label_tag }}</td>
+                                    <td>{{ form.password }}</td>
+                                </tr>
+                            </table>
+
+                            <div class="container-login-form-btn">
+                                <button class="login-form-btn" type="submit" value="Login">
+                                    Login
+                                </button>
+                                <button type="hidden" name="next" value="{{ next }}">
+                                </button>
+                            </div>
+
+                            <div class="text-center p-t-12">
+                                <span class="txt1">
+                                    Forgot
+                                </span>
+                                <a class="txt2" href="#">
+                                    Username / Password?
+                                </a>
+                            </div>
+        
+                            <div class="text-center p-t-136">
+                                <p class="txt2">
+                                    Group 34
+                                    <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                                </p>
+                            </div>    
+
+                        </form>
+                        {% else %}
+                        <p>Successfully signed in.</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
-
-            <form class="login-form.validate">
-                <span class="login-title">
-                    {% if not user.is_authenticated %}
-                    <a href="{% url 'social:begin' 'azuread-tenant-oauth2' %}?next={{ request.path }}">Azure Login Page</a>
-                    {% if form.errors %}
-                    <p>Your username and password didn't match. Please try again.</p>
-                    {% endif %}
-                </span>
-            </form>
-
-            <div class="main-content">
-               <div>
-                <form method="post" action="{% url 'login' %}">
-                 {% csrf_token %}
-                    <table>
-                        <tr>
-                            <td>{{ form.username.label_tag }}</td>
-                            <td>{{ form.username }}</td>
-                        </tr>
-                        <tr>
-                            <td>{{ form.password.label_tag }}</td>
-                            <td>{{ form.password }}</td>
-                        </tr>
-                    </table>
-
-                <input class="login-form-btn" type="submit" value="login">
-                <input type="hidden" name="next" value="{{ next }}">
-            </form>
-            {% else %}
-            <p>Successfully signed in.</p>
-            {% endif %}
         </div>
-    </div>
-</div>
-</div>
 
 
-{% endblock %}
+        {% endblock %}
