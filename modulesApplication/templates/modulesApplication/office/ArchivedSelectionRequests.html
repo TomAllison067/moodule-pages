@@ -4,313 +4,316 @@
 {% block title %}Choose Modules{% endblock %}
 
 {% block head_css %}
-{{ block.super }}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/student/choosemodules.css' %}">
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/student/choosemodules.css' %}">
 {% endblock %}
 
 
 {% block content %}
-<div class="page-wrapper">
-    <!-- IMAGE BAR -->
-    <div class="image-box">
-        <div class="ib-content">
-            <h2><i class="fas fa-book-open"></i> archived module selection requests</h2> <br>
-        </div>
-    </div>
-
-    <!-- FORM -->
-        <div class="form-box">
-        <div class="icon-img">
-            <i class="fas fa-book-open"></i>
-        </div>
-        <table class="form-box">
-            <thead>
-            <tr>
-                {% for header in headers %}
-                    <th>{{ header|title }}</th>
-                {% endfor %}
-                <th>More info</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for selection in selections_list %}
-                <tr>
-                    <td>{{ selection.id }}</td>
-                    <td>{{ selection.student_id }}</td>
-                    <td>{{ selection.stage }}</td>
-                    <td>{{ selection.entry_year }}</td>
-                    <td>{{ selection.status }}</td>
-                    <td>{{ selection.programme_id }}</td>
-                    <td>{{ selection.date_requested }}</td>
-                    <td>{{ selection.last_modified }}</td>
-                    <td>{{ selection.comments }}</td>
-                    <td>
-                        <button class="submit-btn" onclick="openForm('{{ selection.id }}')">Modify</button>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
-        <div id="modalOne" class="modal">
-            <div class="modal-content">
-                <a class="close" onclick="closeForm()">&times;</a>
-                <form action="{% url 'modulesApplication:archived-selection-requests' %}" method="POST">
-                    {% csrf_token %}
-                    <h2>Selection </h2>
-                    <input hidden id="selection_id" name="selection_id" value="te">
-                    <table class="details">
-                        <tr>
-                            <td><b>Student Name</b></td>
-                            <td id="student_name">**EXAMPLE**</td>
-                        </tr>
-                        <tr>
-                            <td><b>Student Number</b></td>
-                            <td id="student_id">012345</td>
-                        </tr>
-                        <tr>
-                            <td><b>Student Degree</b></td>
-                            <td id="programme">1067</td>
-                        </tr>
-                        <tr>
-                            <td><b>Entry Year</b></td>
-                            <td id="entry_year">2000</td>
-                        </tr>
-                        <tr>
-                            <td><b>Modules choices</b></td>
-                            <td id="modules">CS2900</td>
-                        </tr>
-                        <tr>
-                            <td><b>Status</b></td>
-                            <td id="status">CS2900</td>
-                        </tr>
-                        <tr>
-                            <td><b>Comments</b></td>
-                            <td><input type="text" name="comment" placeholder="Reasoning..."></td>
-                        </tr>
-
-                    </table>
-                    <input type="submit" class="Modify" id="Modify" name="Modify">
-                    <input type="submit" class="Modify"  name="CommentUpdate" id="CommentUpdate" value="Update Comment only">
-
-                </form>
+    <div class="page-wrapper">
+        <!-- IMAGE BAR -->
+        <div class="image-box">
+            <div class="ib-content">
+                <h2><i class="fas fa-book-open"></i> archived module selection requests</h2> <br>
             </div>
         </div>
 
+        <!-- FORM -->
+        <div class="form-box">
+            <div class="icon-img">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <table class="form-box">
+                <thead>
+                <tr>
+                    {% for header in headers %}
+                        <th>{{ header|title }}</th>
+                    {% endfor %}
+                    <th>More info</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for selection in selections_list %}
+                    <tr>
+                        <td>{{ selection.id }}</td>
+                        <td>{{ selection.student_id }}</td>
+                        <td>{{ selection.stage }}</td>
+                        <td>{{ selection.entry_year }}</td>
+                        <td>{{ selection.status }}</td>
+                        <td>{{ selection.programme_id }}</td>
+                        <td>{{ selection.date_requested }}</td>
+                        <td>{{ selection.last_modified }}</td>
+                        <td>{{ selection.comments }}</td>
+                        <td>
+                            <button class="submit-btn" onclick="openForm('{{ selection.id }}')">Modify</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div id="modalOne" class="modal">
+                <div class="modal-content">
+                    <a class="close" onclick="closeForm()">&times;</a>
+                    <form action="{% url 'modulesApplication:archived-selection-requests' %}" method="POST">
+                        {% csrf_token %}
+                        <h2>Selection </h2>
+                        <input hidden id="selection_id" name="selection_id" value="te">
+                        <table class="details">
+                            <tr>
+                                <td><b>Student Name</b></td>
+                                <td id="student_name">**EXAMPLE**</td>
+                            </tr>
+                            <tr>
+                                <td><b>Student Number</b></td>
+                                <td id="student_id">012345</td>
+                            </tr>
+                            <tr>
+                                <td><b>Student Degree</b></td>
+                                <td id="programme">1067</td>
+                            </tr>
+                            <tr>
+                                <td><b>Entry Year</b></td>
+                                <td id="entry_year">2000</td>
+                            </tr>
+                            <tr>
+                                <td><b>Modules choices</b></td>
+                                <td id="modules">CS2900</td>
+                            </tr>
+                            <tr>
+                                <td><b>Status</b></td>
+                                <td id="status">CS2900</td>
+                            </tr>
+                            <tr>
+                                <td><b>Comments</b></td>
+                                <td><input type="text" name="comment" placeholder="Reasoning..."></td>
+                            </tr>
+
+                        </table>
+                        <input type="submit" class="Modify" id="Modify" name="Modify">
+                        <input type="submit" class="Modify" name="CommentUpdate" id="CommentUpdate"
+                               value="Update Comment only">
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
-<style>
-    /* th-table headers;
-     make the background darker and have a pointer*/
-    .form-box th {
-        cursor: pointer;
-        background-color: #2e3133;
-    }
+    <style>
+        /* th-table headers;
+         make the background darker and have a pointer*/
+        .form-box th {
+            cursor: pointer;
+            background-color: #2e3133;
+        }
 
-    /* \25b4 - the arrow in the table header show the ascending column
-    margin-left; for the gap between header name and arrow */
+        /* \25b4 - the arrow in the table header show the ascending column
+        margin-left; for the gap between header name and arrow */
 
-    .form-box .th-sort-asc::after {
-        content: "\25b4";
-        margin-left: 5px;
-    }
+        .form-box .th-sort-asc::after {
+            content: "\25b4";
+            margin-left: 5px;
+        }
 
-    /* \25be - the arrow in the table header show the descending column
-    margin-left; for the gap between header name and arrow */
-    .form-box .th-sort-desc::after {
-        content: "\25be";
-        margin-left: 5px;
-    }
+        /* \25be - the arrow in the table header show the descending column
+        margin-left; for the gap between header name and arrow */
+        .form-box .th-sort-desc::after {
+            content: "\25be";
+            margin-left: 5px;
+        }
 
-    /* change the opacity of the table headers if asc/desc */
-    .form-box .th-sort-asc,
-    .form-box .th-sort-desc {
-        background: rgba(0, 0, 0, 0.3);
-    }
+        /* change the opacity of the table headers if asc/desc */
+        .form-box .th-sort-asc,
+        .form-box .th-sort-desc {
+            background: rgba(0, 0, 0, 0.3);
+        }
 
-    /* modal- darken page behind the form when approve/deny pops up  */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 5;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
+        /* modal- darken page behind the form when approve/deny pops up  */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 5;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
-    /* the div for the approve/deny form */
-    .modal-content {
-        margin: 10% auto auto;
-        width: 50%;
-        padding: 10px;
-    }
+        /* the div for the approve/deny form */
+        .modal-content {
+            margin: 10% auto auto;
+            width: 50%;
+            padding: 10px;
+        }
 
-    form {
-        padding: 25px;
-        margin: 25px;
-        box-shadow: 0 2px 5px #f5f5f5;
-        background: #90948e;
-    }
-    input{
-        color: black;
-    }
+        form {
+            padding: 25px;
+            margin: 25px;
+            box-shadow: 0 2px 5px #f5f5f5;
+            background: #90948e;
+        }
 
-    .Modify {
-        width: 40%;
-        padding: 10px;
-        align: left;
-        border: none;
-        background: orangered;
-        font-size: 16px;
-        font-weight: 400;
-        color: #fff;
-        opacity: 0.7;
-    }
-    .Abtn {
-        width: 40%;
-        padding: 10px;
-        align: left;
-        border: none;
-        background: #20a115;
-        font-size: 16px;
-        font-weight: 400;
-        color: #fff;
-        opacity: 0.7;
-    }
+        input {
+            color: black;
+        }
 
-    .Dbtn {
-        width: 40%;
-        padding: 10px;
-        align: right;
-        border: none;
-        background: #ff0000;
-        font-size: 16px;
-        font-weight: 400;
-        color: #fff;
-        opacity: 0.7;
-    }
+        .Modify {
+            width: 40%;
+            padding: 10px;
+            align: left;
+            border: none;
+            background: orangered;
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            opacity: 0.7;
+        }
 
-    .Abtn:hover,
-    .Dbtn:hover,
-    .Modify:hover {
-        opacity: 1;
-    }
+        .Abtn {
+            width: 40%;
+            padding: 10px;
+            align: left;
+            border: none;
+            background: #20a115;
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            opacity: 0.7;
+        }
 
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
+        .Dbtn {
+            width: 40%;
+            padding: 10px;
+            align: right;
+            border: none;
+            background: #ff0000;
+            font-size: 16px;
+            font-weight: 400;
+            color: #fff;
+            opacity: 0.7;
+        }
 
-    .close:hover,
-    .close:focus {
-        color: rgba(0,0,0,0.6);
-        text-decoration: none;
-        cursor: pointer;
-    }
+        .Abtn:hover,
+        .Dbtn:hover,
+        .Modify:hover {
+            opacity: 1;
+        }
 
-    .submit-btn:hover {
-        width: 80px;
-    }
-</style>
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
 
+        .close:hover,
+        .close:focus {
+            color: rgba(0, 0, 0, 0.6);
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-{% autoescape off %}
-    <script>
-
-        selections_list = {{ list_of_selections }};
-
-        function openForm(selected) {
-            console.log(selections_list);
-            for (var x in selections_list) {
-                if (selections_list[x].id == selected) {
-                    document.getElementById("selection_id").value = selected;
-
-                    document.getElementById("student_name").innerHTML = selections_list[x].student_name;
-                    document.getElementById("student_id").innerHTML = selections_list[x].student_id;
-                    document.getElementById("programme").innerHTML = selections_list[x].programme_name;
-                    document.getElementById("entry_year").innerHTML = selections_list[x].entry_year;
-                    document.getElementById("modules").innerHTML = selections_list[x].modules;
-                    document.getElementById("status").innerHTML = selections_list[x].status;
+        .submit-btn:hover {
+            width: 80px;
+        }
+    </style>
 
 
-                    if (selections_list[x].status == 'APPROVED'){
-                        console.log('approed')
-                        document.getElementById("Modify").value = 'DENIED';
-                        document.getElementById("Modify").className = 'Dbtn';
-                    }else{
-                        console.log('denie')
-                        document.getElementById("Modify").value = 'APPROVED';
-                        document.getElementById("Modify").className = 'Abtn';
+    {% autoescape off %}
+        <script>
+
+            selections_list = {{ list_of_selections }};
+
+            function openForm(selected) {
+                console.log(selections_list);
+                for (var x in selections_list) {
+                    if (selections_list[x].id == selected) {
+                        document.getElementById("selection_id").value = selected;
+
+                        document.getElementById("student_name").innerHTML = selections_list[x].student_name;
+                        document.getElementById("student_id").innerHTML = selections_list[x].student_id;
+                        document.getElementById("programme").innerHTML = selections_list[x].programme_name;
+                        document.getElementById("entry_year").innerHTML = selections_list[x].entry_year;
+                        document.getElementById("modules").innerHTML = selections_list[x].modules;
+                        document.getElementById("status").innerHTML = selections_list[x].status;
+
+
+                        if (selections_list[x].status == 'APPROVED') {
+                            console.log('approed')
+                            document.getElementById("Modify").value = 'DENIED';
+                            document.getElementById("Modify").className = 'Dbtn';
+                        } else {
+                            console.log('denie')
+                            document.getElementById("Modify").value = 'APPROVED';
+                            document.getElementById("Modify").className = 'Abtn';
+
+                        }
 
                     }
-
                 }
+                document.getElementById("modalOne").style.display = "block";
             }
-            document.getElementById("modalOne").style.display = "block";
-        }
 
-        function closeForm() {
-            document.getElementById("modalOne").style.display = "none";
-        }
-
-        window.addEventListener("pageshow", function (event) {
-            let reloaded = event.persisted ||
-                (typeof window.performance != "undefined" &&
-                    window.performance.navigation.type >= 2);
-            if (reloaded) {
-                window.location.reload();
+            function closeForm() {
+                document.getElementById("modalOne").style.display = "none";
             }
-        });
 
-        function sortTableByColumn(table, column, asc = true) {
-            const dirModifier = asc ? 1 : -1;
-            const tBody = table.tBodies[0];
-            const rows = Array.from(tBody.querySelectorAll("tr"));
-
-            // Sort each row
-            const sortedRows = rows.sort((a, b) => {
-                let aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
-                let bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
-                if (!isNaN(aColText)){
-                    aColText = parseInt(aColText)
-                    bColText = parseInt(bColText)
+            window.addEventListener("pageshow", function (event) {
+                let reloaded = event.persisted ||
+                    (typeof window.performance != "undefined" &&
+                        window.performance.navigation.type >= 2);
+                if (reloaded) {
+                    window.location.reload();
                 }
-                return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
             });
 
-            // Remove all existing TRs from the table
-            while (tBody.firstChild) {
-                tBody.removeChild(tBody.firstChild);
+            function sortTableByColumn(table, column, asc = true) {
+                const dirModifier = asc ? 1 : -1;
+                const tBody = table.tBodies[0];
+                const rows = Array.from(tBody.querySelectorAll("tr"));
+
+                // Sort each row
+                const sortedRows = rows.sort((a, b) => {
+                    let aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+                    let bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+                    if (!isNaN(aColText)) {
+                        aColText = parseInt(aColText)
+                        bColText = parseInt(bColText)
+                    }
+                    return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
+                });
+
+                // Remove all existing TRs from the table
+                while (tBody.firstChild) {
+                    tBody.removeChild(tBody.firstChild);
+                }
+
+                // Re-add the newly sorted rows
+                tBody.append(...sortedRows);
+
+                // Remember how the column is currently sorted
+                table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+                table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-asc", asc);
+                table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-desc", !asc);
             }
 
-            // Re-add the newly sorted rows
-            tBody.append(...sortedRows);
+            document.querySelectorAll(".form-box th").forEach(headerCell => {
+                headerCell.addEventListener("click", () => {
+                    const tableElement = headerCell.parentElement.parentElement.parentElement;
+                    const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+                    const currentIsAscending = headerCell.classList.contains("th-sort-asc");
 
-            // Remember how the column is currently sorted
-            table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
-            table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-asc", asc);
-            table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-desc", !asc);
-        }
-
-        document.querySelectorAll(".form-box th").forEach(headerCell => {
-            headerCell.addEventListener("click", () => {
-                const tableElement = headerCell.parentElement.parentElement.parentElement;
-                const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
-                const currentIsAscending = headerCell.classList.contains("th-sort-asc");
-
-                sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+                    sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+                });
             });
-        });
 
-        {#sortTableByColumn(document.querySelector("table"), 0, false)#}
+            {#sortTableByColumn(document.querySelector("table"), 0, false)#}
 
-    </script>
+        </script>
     {% endautoescape %}
 {% endblock %}
 

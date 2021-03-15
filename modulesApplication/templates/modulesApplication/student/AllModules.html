@@ -10,7 +10,6 @@
 {% endblock %}
 
 {% block content %}
-<div class="page-wrapper">
     <!-- IMAGE BAR -->
     <div class="image-box">
         <div class="ib-content">
@@ -25,7 +24,7 @@
         </div>
         <h1> Module List </h1>
         {# module_summaries refer to the dictionary passed through with the render request #}
-        <label for="year_filter">Filter by:</label> 
+        <label for="year_filter">Filter by:</label>
         <select class="dropdown" name="year" id="year_filter">
             <option value=0>Select Year</option>
         </select>
@@ -38,34 +37,34 @@
                     <br> <h2>Year {{ year|add:"-3" }}</h2>
                     <br>
                     {% for module in modules %}
-                            <label class="moduleLabels">{{ module.module_code }} - {{ module.title }}</label>
-                            <div class="panel" disabled="False" id="module">
+                        <label class="moduleLabels">{{ module.module_code }} - {{ module.title }}</label>
+                        <div class="panel" disabled="False" id="module">
+                            <br>
+                            <h4>Summary</h4>
+                            <p>{{ module.summary }}</p>
+                            <br>
+                            <button style=background-color:orangered; class="moreInfoButton"
+                                    onclick="myFunction('{{ module.module_code }}')"> Find out
+                                more...
+                            </button>
+                            <div class="{{ module.module_code }}" style="display: none;">
                                 <br>
-                                <h4>Summary</h4>
-                                <p>{{ module.summary }}</p>
-                                <br>
-                                <button style=background-color:orangered; class="moreInfoButton"
-                                        onclick="myFunction('{{ module.module_code }}')"> Find out
-                                    more...
-                                </button>
-                                <div class="{{ module.module_code }}" style="display: none;">
-                                    <br>
-                                    <h4>Learning Outcomes</h4>
-                                    <p>{{ module.learning_outcomes }}.</p>
-                                    <br><h4>Recommended Reading</h4>
-                                    <p>{{ module.recommended_reading }}</p>
-                                    <br><h4>Exam Format</h4>
-                                    <p>{{ module.exam_format }}</p>
-                                    <br><h4>Course Leaders</h4>
-                                    {% for leader in module.course_leaders %}
-                                        <p>- {{ leader }}</p>
-                                    {% endfor %}
+                                <h4>Learning Outcomes</h4>
+                                <p>{{ module.learning_outcomes }}.</p>
+                                <br><h4>Recommended Reading</h4>
+                                <p>{{ module.recommended_reading }}</p>
+                                <br><h4>Exam Format</h4>
+                                <p>{{ module.exam_format }}</p>
+                                <br><h4>Course Leaders</h4>
+                                {% for leader in module.course_leaders %}
+                                    <p>- {{ leader }}</p>
+                                {% endfor %}
 
-                                </div>
-                                <br><br>
-                                <hr>
-                                <br>
                             </div>
+                            <br><br>
+                            <hr>
+                            <br>
+                        </div>
                     {% endfor %}
                 {% endfor %}
 
@@ -74,7 +73,9 @@
             <p>No polls are available.</p>
         {% endif %}
     </div>
+{% endblock %}
 
+{% block scripts %}
     <script>
         // Display/hide extra info
         function myFunction(mod_code) {
@@ -103,5 +104,4 @@
             }
         }
     </script>
-</div>
 {% endblock %}
