@@ -166,7 +166,7 @@ def choice_pathway(request):
     """Handles a user wanting to choose their modules. It attempts to derive the student's degree and stage from LDAP,
     and take them straight to the correct module choice form if successful."""
     # Attempt to derive the degree (this should probably just be cached... refactoring todo!)
-    if hasattr(request.user, 'ldap_user'):
+    if hasattr(request.user, 'ldap_user') and request.user.ldap_user.attrs is not None:
         print("HERE!!!")
         potential_prog_codes = []
         for value in request.user.ldap_user.attrs.get('memberOf'):
