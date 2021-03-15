@@ -31,11 +31,12 @@ html, body {
     padding: 0;
     list-style: none;
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 /* --[[ WRAPPER ]]-- */
 .page-wrapper {
+    padding-top: 2.5rem;
     min-height: 100%;
 }
 
@@ -545,6 +546,7 @@ label #cancel {
     background: rgb(255, 145, 0);
     color: black;
     position: relative;
+    bottom: 0;
     font-size: 12px;
 }
 

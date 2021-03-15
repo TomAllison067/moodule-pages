@@ -2,10 +2,12 @@ import datetime
 import json
 
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
 from django.core.serializers.json import DjangoJSONEncoder
+from django.shortcuts import render
+from django.views import generic
 
 from modulesApplication.database.models.module_selection import ModuleSelection
+from modulesApplication.models import Programme
 from modulesApplication.programmeInfo import csv_converter
 from modulesApplication.views import selections_extra_details
 
@@ -41,3 +43,17 @@ def selection_requests(request):
                'selections_list': selections_list,
                'list_of_selections': json.dumps(selections_list, cls=DjangoJSONEncoder)}
     return render(request, 'modulesApplication/academic/SelectionRequests-AcademicView.html', context)
+
+
+class ProgrammeIndexView(generic.ListView):
+    model = Programme
+    template_name = "modulesApplication/academic/ViewAllProgrammes.html"
+
+    def get_queryset(self):
+        return Programme.objects.all().order_by('prog_code')
+
+
+class ProgrammeUpdate(generic.UpdateView):
+    model = Programme
+    fields = ['title', 'level']
+    template_name = 'modulesApplication/academic/UpdateProgramme.html'

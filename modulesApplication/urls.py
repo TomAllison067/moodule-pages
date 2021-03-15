@@ -22,6 +22,8 @@ student_patterns = [
 academic_patterns = [
     path('landing/', academic.landing, name='academic-landing'),
     path('selection-requests/', academic.selection_requests, name='academic-selection-requests'),
+    path('view-all-programmes/', academic.ProgrammeIndexView.as_view(), name='view-programmes'),
+    path('update-programmes/<str:pk>', academic.ProgrammeUpdate.as_view(), name='update-programmes')
 ]
 
 office_patterns = [

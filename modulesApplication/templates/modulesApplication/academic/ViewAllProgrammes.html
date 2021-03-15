@@ -1,0 +1,10 @@
+{% extends 'modulesApplication/main/base_academic.html' %}
+
+{% block content %}
+    <h1>Programmes</h1>
+    <ul>
+    {% for programme in object_list %}
+        <li>{{ programme.title }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
