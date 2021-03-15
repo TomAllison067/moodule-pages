@@ -10,7 +10,6 @@
 {% endblock %}
 
 {% block content %}
-    <div class="page-wrapper">
         <!-- IMAGE SLIDER -->
         <div class="slider">
             <div class="slides">
@@ -124,7 +123,7 @@
 
          <!-- AUTOMATIC NAVIGATION SCRIPT-->
          <script>
-            var counter = 1;
+            let counter = 1;
             setInterval(function () {
                 document.getElementById('radio' + counter).checked = true;
                 counter++;
@@ -133,7 +132,6 @@
                 }
             }, 15000);
         </script>
-    </div>
 
     {% autoescape off %}
         <script>

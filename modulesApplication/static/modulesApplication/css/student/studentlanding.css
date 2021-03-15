@@ -237,6 +237,7 @@
     margin-top: 0;
     position: relative;
     border-radius: 5px 5px 0 0;
+    color: white;
 }
 
 .lp-box a .lp-content h3 {
@@ -291,6 +292,10 @@
 
 .lp-content li {
     padding: 5px;
+}
+
+.lp-content * {
+    color: white;
 }
 
 .icon-box > p {

@@ -203,7 +203,7 @@
 .icon-box .icon-effect {
     width: 100px;
     height: 100px;
-    display:inline-block;
+    display: inline-block;
     line-height: 75px;
     margin: 5px 5px;
     text-align: center;
@@ -215,19 +215,21 @@
 
 .icon-box .icon-effect i {
     color: #D8E2DC;
-    display:inline-block;
+    display: inline-block;
     margin-top: 20px;
     font-size: 50px;
     text-align: center;
     vertical-align: bottom;
     transition: all 0.25s ease;
 }
+
 .lp-box:hover > a h2 {
     border-radius: 5px 5px 0 0;
     transition: 0.25s;
 }
 
 .lp-box a h2 {
+    color: white;
     font-size: 18px;
     text-align: center;
     padding: 5px;
@@ -263,10 +265,14 @@
 .lp-box a .lp-content .term-module-list {
     padding: 2px;
     width: 95%;
-    height: 85%; 
+    height: 85%;
     display: block;
     overflow-y: scroll;
     margin-bottom: 10px;
+}
+
+.lp-content * {
+    color: white;
 }
 
 .lp-content .term-module-list li {
