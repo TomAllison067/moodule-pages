@@ -84,7 +84,8 @@ def selections_extra_details(query_set):
     return selections_list
 
 
-# This is not a view - and needs not protecting!
+@login_required
+@user_passes_test(is_staff_or_superuser)
 def selection_requests(request):
     if request.method == "POST":
         selection_id = request.POST.get('selection_id')
