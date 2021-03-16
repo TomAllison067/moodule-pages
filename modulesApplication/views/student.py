@@ -1,5 +1,4 @@
 import datetime
-import re
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -7,7 +6,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
+from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant, StudentProfile
 from ..programmeInfo import factory
 from ..programmeInfo.selection_validator import SelectionValidator
 
@@ -86,8 +85,10 @@ def choose_modules(request, prog_code, stage, entry_year):
                    }
         return render(request, 'modulesApplication/student/ChooseModules.html', context=context)
     if request.method == "POST":
-        # Get all the arguments from the form
-        student_id = request.user.id if request.POST.get('student-id') == "" else request.POST.get('student-id')
+        try:
+            student_id = request.user.studentprofile.student_id
+        except StudentProfile.DoesNotExist:
+            student_id = request.user.id
         mod_codes = set(request.POST.getlist('module-selections'))
         programme = Programme.objects.get(pk=prog_code)
         if SelectionValidator(prog_code, stage, entry_year, mod_codes).validate():  # If the selection is valid
@@ -132,10 +133,10 @@ def submitted(request, student_id, stage, entry_year, prog_code):
 @login_required
 def my_selection(request):
     """A view for the student to see their current ModuleSelection object."""
-    try:
-        student_id = request.user.ldap_user.attrs.get('extensionAttribute3')[0]  # Ignore the warning for now..
-    except AttributeError:
-        student_id = request.user.id
+    try:  # Try/Catch only for superusers/devs.. every logged in student should have a student ID from LDAP
+        student_id = request.user.studentprofile.student_id
+    except StudentProfile.DoesNotExist:
+        student_id = request.user.id  # For superusers / devs
     selection = get_object_or_404(
         ModuleSelection,
         student_id=student_id
@@ -165,32 +166,17 @@ def module_details(request, module):
 def choice_pathway(request):
     """Handles a user wanting to choose their modules. It attempts to derive the student's degree and stage from LDAP,
     and take them straight to the correct module choice form if successful."""
-    # Attempt to derive the degree (this should probably just be cached... refactoring todo!)
-    if hasattr(request.user, 'ldap_user') and request.user.ldap_user.attrs is not None:
-        print("HERE!!!")
-        potential_prog_codes = []
-        for value in request.user.ldap_user.attrs.get('memberOf'):
-            regex = re.search("Programme \d*", value)
-            if regex:
-                potential_prog_codes.append(regex.group(0))
-        print("list: \n", potential_prog_codes)
-        if len(potential_prog_codes) != 1:
-            # People may have multiple programmes in LDAP.. we don't know which is correct, so give them the choice
-            # Todo: Handle this better somehow as part of refactoring ldap attrs into related db model
+    try:
+        prog_code = request.user.studentprofile.prog_code
+        entry_year = request.user.studentprofile.entry_year
+        stage = request.user.studentprofile.stage
+        if not prog_code or not entry_year or not stage:
             return HttpResponseRedirect(reverse('modulesApplication:choose-degree-and-stage'))
-        prog_code = potential_prog_codes[0].split(' ')[1]
-
-        # Derive the entry year and stage TODO sort this out in the related info db model to come...
-        entry_year = request.user.ldap_user.attrs.get('whenCreated')[0][:4]
-        first_of_sept_in_entry_year = datetime.date(year=int(entry_year), month=9, day=1)
-        now = datetime.date.today()
-        days = now - first_of_sept_in_entry_year
-        stage = days.days // 365 + 1
-
-        return HttpResponseRedirect(reverse('modulesApplication:choose-modules',
-                                            kwargs={'prog_code': prog_code,
-                                                    'stage': stage,
-                                                    'entry_year': entry_year}
-                                            ))
-    else:  # If no ldap user for some reason.. (eg if you're a dev & signed into django account), be given the choice
+        else:
+            return HttpResponseRedirect(reverse('modulesApplication:choose-modules',
+                                                kwargs={'prog_code': prog_code,
+                                                        'stage': stage,
+                                                        'entry_year': entry_year}
+                                                ))
+    except StudentProfile.DoesNotExist:
         return HttpResponseRedirect(reverse('modulesApplication:choose-degree-and-stage'))

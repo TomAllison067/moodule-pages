@@ -1,5 +1,9 @@
+import re
+
 from django.contrib.auth.models import Group
 from django_auth_ldap.backend import LDAPBackend
+
+from modulesApplication.database.models.student_profile import StudentProfile
 
 
 class CustomLDAPBackend(LDAPBackend):
@@ -17,6 +21,8 @@ class CustomLDAPBackend(LDAPBackend):
             if not django_group:
                 return None
             user.groups.add(django_group)  # Add the user to the correct group
+            if django_group.name == 'Students':
+                self.populate_student_profile(user)
         return user
 
     @staticmethod
@@ -41,4 +47,18 @@ class CustomLDAPBackend(LDAPBackend):
         else:
             return None
 
-
+    @staticmethod
+    def populate_student_profile(user):
+        student_id = user.ldap_user.attrs.get('extensionAttribute3')[0]
+        entry_year = user.ldap_user.attrs.get('whenCreated')[0][:4]
+        potential_prog_codes = []
+        for value in user.ldap_user.attrs.get('memberOf'):
+            regex = re.search(r'Programme \d*', value)
+            if regex:
+                potential_prog_codes.append(regex.group(0))
+        if len(potential_prog_codes) != 1:
+            prog_code = None
+        else:
+            prog_code = potential_prog_codes[0].split(' ')[1]
+        StudentProfile.populate_student_profile_from_ldap(user=user, student_id=student_id, entry_year=entry_year,
+                                                          prog_code=prog_code)
