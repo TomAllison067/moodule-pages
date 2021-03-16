@@ -33,6 +33,7 @@ def landing(request):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_staff)
 def csv(request):
     if request.method == 'POST':
         form = CsvUploadForm(request.POST, request.FILES)
@@ -52,6 +53,7 @@ def csv(request):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_staff)
 def csv_file(request, model_class):
     models = [Module, Programme, ModuleSelection, People]
     for model in models:
@@ -61,11 +63,14 @@ def csv_file(request, model_class):
     return csv_converter.model_to_csv(model_class)
 
 
-@login_required()
+@login_required
+@user_passes_test(lambda u: u.is_staff)
 def print_student_selections(request):
     return csv_converter.csv_student_selections()
 
 
+@login_required
+@user_passes_test(lambda u: u.is_staff)
 def selections_extra_details(query_set):
     selections_list = list(query_set.values())
     for selection in selections_list:
@@ -80,6 +85,7 @@ def selections_extra_details(query_set):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_staff)
 def selection_requests(request):
     if request.method == "POST":
         selection_id = request.POST.get('selection_id')
@@ -108,6 +114,7 @@ def selection_requests(request):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_staff)
 def archived_selection_requests(request):
     if request.method == "POST":
         selection_id = request.POST.get('selection_id')

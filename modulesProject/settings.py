@@ -1,5 +1,5 @@
 import ldap
-from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType, LDAPGroupQuery
 
 """
 Django settings for modulesProject project.
@@ -170,6 +170,13 @@ AUTH_LDAP_GLOBAL_OPTIONS = {
 }
 
 AUTH_LDAP_CACHE_TIMEOUT = 3600
+
+AUTH_LDAP_USER_FLAGS_BY_GROPUP = {
+    "is_staff": "OU=Staff,OU=MIIS Managed,DC=cc,DC=rhul,DC=local",
+    "is_active": (LDAPGroupQuery("OU=Active,OU=Students,OU=MIIS Managed,DC=cc,DC=rhul,DC=local")
+                  | LDAPGroupQuery("OU=Active,OU=Staff,OU=MIIS Managed,DC=cc,DC=rhul,DC=local")
+                  ),
+}
 
 LOGGING = {
     "version": 1,
