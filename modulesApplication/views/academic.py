@@ -2,6 +2,7 @@ import datetime
 import json
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
 from django.views import generic
@@ -45,7 +46,7 @@ def selection_requests(request):
     return render(request, 'modulesApplication/academic/SelectionRequests-AcademicView.html', context)
 
 
-class ProgrammeIndexView(generic.ListView):
+class ProgrammeIndexView(LoginRequiredMixin, generic.ListView):
     model = Programme
     template_name = "modulesApplication/academic/ViewAllProgrammes.html"
 
@@ -53,7 +54,7 @@ class ProgrammeIndexView(generic.ListView):
         return Programme.objects.all().order_by('prog_code')
 
 
-class ProgrammeUpdate(generic.UpdateView):
+class ProgrammeUpdate(LoginRequiredMixin, generic.UpdateView):
     model = Programme
     fields = ['title', 'level']
     template_name = 'modulesApplication/academic/UpdateProgramme.html'
