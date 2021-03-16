@@ -149,7 +149,7 @@ AUTHENTICATION_BACKENDS = (
     'modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend'
 )
 
-LOGIN_REDIRECT_URL = '/'  # Upon login, redirect to index
+LOGIN_REDIRECT_URL = '/login-redirect'
 LOGOUT_REDIRECT_URL = '/'  # Upon signout, redirect to index
 
 AUTH_LDAP_SERVER_URI = "ldaps://directory.rhul.ac.uk:636"
