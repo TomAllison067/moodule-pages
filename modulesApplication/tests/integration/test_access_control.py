@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User, Group
 from django.test import TestCase, Client, tag
+from django.urls import reverse
 
 
 @tag('integration')
@@ -38,6 +39,9 @@ class TestAccessControl(TestCase):
         last_url, status_code = response.redirect_chain[-1]
         self.assertTrue(last_url.startswith('/student/landing'))
 
+        self.user.is_staff = True  # Staff permissions required for the next two
+        self.user.save()
+
         response = c.get('/office/landing', follow=True)
         last_url, status_code = response.redirect_chain[-1]
         self.assertTrue(last_url.startswith('/office/landing'))
@@ -46,12 +50,55 @@ class TestAccessControl(TestCase):
         last_url, status_code = response.redirect_chain[-1]
         self.assertTrue(last_url.startswith('/academic/landing'))
 
-    def test_student_cannot_access_office_views(self):
-        """Tests that a student is redirected to the login page if they try to access the office views."""
+    def test_non_staff_cannot_access_office_views(self):
+        """Tests that non-staff users cannot access the office views"""
         c = Client()
-        self.user.groups.add(self.student_group)
         c.login(username='mr.foo', password='top_secret')
 
-        response = c.get('/office/landing', follow=True)
+        response = c.get(reverse('modulesApplication:office-landing'), follow=True)
         last_url, status_code = response.redirect_chain[-1]
         self.assertTrue(last_url.startswith('/accounts/login'))
+
+        response = c.get(reverse('modulesApplication:csv', kwargs={
+            'model_class': 'Programme'
+        }), follow=True)
+        last_url, status_code = response.redirect_chain[-1]
+        self.assertTrue(last_url.startswith('/accounts/login'))
+
+        response = c.get(reverse('modulesApplication:csv-downloads'), follow=True)
+        last_url, status_code = response.redirect_chain[-1]
+        self.assertTrue(last_url.startswith('/accounts/login'))
+
+        response = c.get(reverse('modulesApplication:selection-requests'), follow=True)
+        last_url, status_code = response.redirect_chain[-1]
+        self.assertTrue(last_url.startswith('/accounts/login'))
+
+        response = c.get(reverse('modulesApplication:archived-selection-requests'), follow=True)
+        last_url, status_code = response.redirect_chain[-1]
+        self.assertTrue(last_url.startswith('/accounts/login'))
+
+        response = c.get(reverse('modulesApplication:print-student-selections'), follow=True)
+        last_url, status_code = response.redirect_chain[-1]
+        self.assertTrue(last_url.startswith('/accounts/login'))
+
+    def test_non_staff_cannot_access_academic_views(self):
+        """Tests that non-staff cannot access academic views"""
+        c = Client()
+        c.login(username='mr.foo', password='top_secret')
+
+        response = c.get(reverse('modulesApplication:academic-landing'), follow=True)
+        last_url, status_code = response.redirect_chain[-1]
+        self.assertTrue(last_url.startswith('/accounts/login'))
+
+        response = c.get(reverse('modulesApplication:academic-selection-requests'), follow=True)
+        last_url, status_code = response.redirect_chain[-1]
+        self.assertTrue(last_url.startswith('/accounts/login'))
+
+        # Class-based reviews seem to return a 403 instead of a redirect.
+        response = c.get(reverse('modulesApplication:view-programmes'), follow=True)
+        self.assertEqual(403, response.status_code)
+
+        response = c.get(reverse('modulesApplication:update-programmes', kwargs={
+            'pk': '1067'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)

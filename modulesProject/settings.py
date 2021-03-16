@@ -1,3 +1,5 @@
+import sys
+
 import ldap
 from django_auth_ldap.config import LDAPSearch, GroupOfNamesType, LDAPGroupQuery
 
@@ -184,3 +186,5 @@ LOGGING = {
     "handlers": {"console": {"class": "logging.StreamHandler"}},
     "loggers": {"django_auth_ldap": {"level": "DEBUG", "handlers": ["console"]}},
 }
+
+TESTING = 'test' in sys.argv

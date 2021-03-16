@@ -5,13 +5,14 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
 
+from ..auth.is_staff import is_staff_or_superuser
 from ..database.csvForm import CsvUploadForm
 from ..models import Module, Programme, ModuleSelection, People
 from ..programmeInfo import csv_converter
 
 
 @login_required
-@user_passes_test(lambda u: u.is_staff)
+@user_passes_test(is_staff_or_superuser)
 def landing(request):
     if request.method == 'POST':
         form = CsvUploadForm(request.POST, request.FILES)
@@ -33,7 +34,7 @@ def landing(request):
 
 
 @login_required
-@user_passes_test(lambda u: u.is_staff)
+@user_passes_test(is_staff_or_superuser)
 def csv(request):
     if request.method == 'POST':
         form = CsvUploadForm(request.POST, request.FILES)
@@ -53,7 +54,7 @@ def csv(request):
 
 
 @login_required
-@user_passes_test(lambda u: u.is_staff)
+@user_passes_test(is_staff_or_superuser)
 def csv_file(request, model_class):
     models = [Module, Programme, ModuleSelection, People]
     for model in models:
@@ -64,13 +65,13 @@ def csv_file(request, model_class):
 
 
 @login_required
-@user_passes_test(lambda u: u.is_staff)
+@user_passes_test(is_staff_or_superuser)
 def print_student_selections(request):
     return csv_converter.csv_student_selections()
 
 
 @login_required
-@user_passes_test(lambda u: u.is_staff)
+@user_passes_test(is_staff_or_superuser)
 def selections_extra_details(query_set):
     selections_list = list(query_set.values())
     for selection in selections_list:
@@ -85,7 +86,7 @@ def selections_extra_details(query_set):
 
 
 @login_required
-@user_passes_test(lambda u: u.is_staff)
+@user_passes_test(is_staff_or_superuser)
 def selection_requests(request):
     if request.method == "POST":
         selection_id = request.POST.get('selection_id')
@@ -114,7 +115,7 @@ def selection_requests(request):
 
 
 @login_required
-@user_passes_test(lambda u: u.is_staff)
+@user_passes_test(is_staff_or_superuser)
 def archived_selection_requests(request):
     if request.method == "POST":
         selection_id = request.POST.get('selection_id')

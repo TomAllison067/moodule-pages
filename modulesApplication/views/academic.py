@@ -1,12 +1,13 @@
 import datetime
 import json
 
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
 from django.views import generic
 
+from modulesApplication.auth.is_staff import is_staff_or_superuser
 from modulesApplication.database.models.module_selection import ModuleSelection
 from modulesApplication.models import Programme
 from modulesApplication.programmeInfo import csv_converter
@@ -14,11 +15,13 @@ from modulesApplication.views import selections_extra_details
 
 
 @login_required
+@user_passes_test(is_staff_or_superuser)
 def landing(request):
     return render(request, 'modulesApplication/academic/AcademicLandingPage.html')
 
 
 @login_required
+@user_passes_test(is_staff_or_superuser)
 def selection_requests(request):
     if request.method == "POST":
         selection_id = request.POST.get('selection_id')
@@ -46,15 +49,21 @@ def selection_requests(request):
     return render(request, 'modulesApplication/academic/SelectionRequests-AcademicView.html', context)
 
 
-class ProgrammeIndexView(LoginRequiredMixin, generic.ListView):
+class ProgrammeIndexView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
     model = Programme
     template_name = "modulesApplication/academic/ViewAllProgrammes.html"
 
     def get_queryset(self):
         return Programme.objects.all().order_by('prog_code')
 
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
 
-class ProgrammeUpdate(LoginRequiredMixin, generic.UpdateView):
+
+class ProgrammeUpdate(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Programme
     fields = ['title', 'level']
     template_name = 'modulesApplication/academic/UpdateProgramme.html'
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
