@@ -1,5 +1,5 @@
 import ldap
-from django_auth_ldap.config import LDAPSearch
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 """
 Django settings for modulesProject project.
@@ -145,7 +145,8 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 """DJANGO AUTHENTICATION SETTINGS"""
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  # Django's default auth backend
-    'django_auth_ldap.backend.LDAPBackend',  # LDAP Backend
+    # 'django_auth_ldap.backend.LDAPBackend',  # LDAP Backend
+    'modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend'
 )
 
 LOGIN_REDIRECT_URL = '/'  # Upon login, redirect to index
@@ -167,6 +168,8 @@ AUTH_LDAP_USER_SEARCH = LDAPSearch(
 AUTH_LDAP_GLOBAL_OPTIONS = {
     ldap.OPT_X_TLS_REQUIRE_CERT: ldap.OPT_X_TLS_NEVER
 }
+
+AUTH_LDAP_CACHE_TIMEOUT = 3600
 
 LOGGING = {
     "version": 1,

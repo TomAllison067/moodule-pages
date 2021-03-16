@@ -545,8 +545,9 @@ label #cancel {
 .footer {
     background: rgb(255, 145, 0);
     color: black;
-    position: relative;
     bottom: 0;
+    position: relative;
+    width: 100%;
     font-size: 12px;
 }
 
