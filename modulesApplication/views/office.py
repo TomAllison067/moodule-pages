@@ -70,8 +70,7 @@ def print_student_selections(request):
     return csv_converter.csv_student_selections()
 
 
-@login_required
-@user_passes_test(is_staff_or_superuser)
+# This is not a view - and needs not protecting!
 def selections_extra_details(query_set):
     selections_list = list(query_set.values())
     for selection in selections_list:
@@ -85,8 +84,7 @@ def selections_extra_details(query_set):
     return selections_list
 
 
-@login_required
-@user_passes_test(is_staff_or_superuser)
+# This is not a view - and needs not protecting!
 def selection_requests(request):
     if request.method == "POST":
         selection_id = request.POST.get('selection_id')
