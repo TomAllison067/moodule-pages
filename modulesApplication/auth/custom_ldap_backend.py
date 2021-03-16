@@ -7,6 +7,7 @@ class CustomLDAPBackend(LDAPBackend):
     A custom override of the LDAP backend. The justification is to derive group memberships upon login and then
     add the resulting Django user to the correct Django group.
 
+    All other LDAPBackend features work as normal.
     """
 
     def authenticate_ldap_user(self, ldap_user, password):
