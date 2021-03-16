@@ -37,7 +37,7 @@ office_patterns = [
 
 urlpatterns = [
     path('', index, name='index'),  # Redirect to homepage.
-    path('login-redirect/', auth.login_redirect, name='login-redirect'),
+    path('login-redirect/', login_redirect, name='login-redirect'),
     path('student/', include(student_patterns)),
     path('academic/', include(academic_patterns)),
     path('office/', include(office_patterns)),
