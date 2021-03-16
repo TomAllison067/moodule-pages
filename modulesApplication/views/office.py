@@ -11,6 +11,7 @@ from ..programmeInfo import csv_converter
 
 
 @login_required
+@user_passes_test(lambda u: u.is_staff)
 def landing(request):
     if request.method == 'POST':
         form = CsvUploadForm(request.POST, request.FILES)
