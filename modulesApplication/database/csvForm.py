@@ -16,8 +16,8 @@ models = {'1': Programme, '2': Module, '3': ModuleSelection, '4': People}
 
 class CsvUploadForm(forms.Form):
     csv_upload = forms.FileField()
-    model = forms.ChoiceField(choices=MODEL_CHOICES)
-    model.widget.attrs.update({'style': 'color:black', 'class':'', 'required': 'required'})
+    data = forms.ChoiceField(choices=MODEL_CHOICES)
+    data.widget.attrs.update({'style': 'color:black', 'class':'', 'required': 'required'})
 
     def process_data(self, file, model):
 
@@ -31,9 +31,7 @@ class CsvUploadForm(forms.Form):
         for row in reader:
             if headers != reader.fieldnames:
                 return False
-
             attributes = row
-            print(attributes)
             for key, value in attributes.items():
                 if value.isnumeric():
                     attributes[key] = int(value)
