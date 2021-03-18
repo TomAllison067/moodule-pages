@@ -1,0 +1,14 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+  background: whitesmoke;
+  color: black;
+}
+
+.listview-div {
+  padding-top: 10px;
+  display: block;
+  margin: auto;
+  width: 50%;
+}

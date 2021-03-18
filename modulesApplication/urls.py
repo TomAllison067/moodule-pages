@@ -23,7 +23,8 @@ academic_patterns = [
     path('landing/', academic.landing, name='academic-landing'),
     path('selection-requests/', academic.selection_requests, name='academic-selection-requests'),
     path('view-all-programmes/', academic.ProgrammeIndexView.as_view(), name='view-programmes'),
-    path('update-programmes/<str:pk>', academic.ProgrammeUpdate.as_view(), name='update-programmes')
+    path('update-programmes/<str:pk>', academic.ProgrammeUpdate.as_view(), name='update-programmes'),
+    path('view-course-leaders/', academic.CourseLeaderListView.as_view(), name='view-course-leaders')
 ]
 
 office_patterns = [

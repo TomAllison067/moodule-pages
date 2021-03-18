@@ -4,7 +4,7 @@
 
 /* --[[ HTML, BODY ]]-- */
 html, body {
-    background: linear-gradient(rgb(220, 220, 220), rgb(240, 240, 240) );
+    background: linear-gradient(rgb(220, 220, 220), rgb(240, 240, 240));
     margin: 0;
     padding: 0;
 
@@ -587,4 +587,26 @@ label #cancel {
     left: 0;
     padding-top: 20px;
 
+}
+
+.blue-link a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+}
+
+.blue-link {
+    color: blue;
+}
+
+.blue-link:visited {
+    color: purple;
+}
+
+.blue-link:focus, .blue-link:hover {
+    border-bottom: 1px solid;
+}
+
+.blue-link:active {
+    color: red;
 }

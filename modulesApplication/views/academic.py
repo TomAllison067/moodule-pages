@@ -3,6 +3,7 @@ import json
 
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.paginator import Paginator
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
 from django.views import generic
@@ -71,6 +72,7 @@ class ProgrammeUpdate(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
 
 class CourseLeaderListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
     model = CourseLeader
+    paginate_by = 15
     template_name = 'modulesApplication/academic/AcademicCourseLeaderListTemplate.html'
 
     def get_queryset(self):
@@ -78,3 +80,6 @@ class CourseLeaderListView(LoginRequiredMixin, UserPassesTestMixin, generic.List
 
     def test_func(self):
         return is_staff_or_superuser(self.request.user)
+
+    def get_paginate_by(self, queryset):
+        return self.request.GET.get("paginate_by", self.paginate_by)
