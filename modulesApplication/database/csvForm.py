@@ -8,8 +8,7 @@ from ..programmeInfo import csv_converter
 MODEL_CHOICES = (
     (1, "Programme"),
     (2, "Module"),
-    (3, "Module Selection"),
-    (4, "People")
+    (3, "Module Selection")
 )
 models = {'1': Programme, '2': Module, '3': ModuleSelection, '4': People}
 
@@ -23,8 +22,6 @@ class CsvUploadForm(forms.Form):
 
         model_class = models[model]
         headers = (csv_converter.get_headers(model_class))
-        file1 = file
-
         result = []
         f = io.TextIOWrapper(file)
         reader = csv.DictReader(f, delimiter=',', quotechar='"')
@@ -32,14 +29,25 @@ class CsvUploadForm(forms.Form):
             if headers != reader.fieldnames:
                 return False
             attributes = row
-            for key, value in attributes.items():
-                if value.isnumeric():
-                    attributes[key] = int(value)
-                if value == 'FALSE':
-                    attributes[key] = 0
-                if value == 'TRUE':
-                    attributes[key] = 1
+
+            try:
+                for key, value in attributes.items():
+
+                    print(key)
+                    print(value)
+                    if value.isnumeric():
+                        attributes[key] = int(value)
+                    if value == 'FALSE':
+                        attributes[key] = 0
+                    if value == 'TRUE':
+                        attributes[key] = 1
+            except IndexError:
+                continue
+
             tmp = model_class(*attributes.values())
+            tmp.clean()
+            if not model_class.objects.filter(pk=tmp.pk).exists():
+                tmp.save()
             result.append(tmp)
 
         headers.remove(model_class._meta.pk.name)
