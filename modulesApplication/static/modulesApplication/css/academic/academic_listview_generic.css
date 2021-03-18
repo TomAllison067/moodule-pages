@@ -1,14 +1,19 @@
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
-  padding: 5px;
+  padding: 4px;
   background: whitesmoke;
   color: black;
 }
 
+.flex-centre {
+  display: flex;
+  justify-content: center;
+}
+
 .listview-div {
   padding-top: 10px;
-  display: block;
   margin: auto;
-  width: 50%;
+  width: auto;
 }
+
