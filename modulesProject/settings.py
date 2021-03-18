@@ -1,3 +1,8 @@
+import sys
+
+import ldap
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType, LDAPGroupQuery
+
 """
 Django settings for modulesProject project.
 
@@ -62,7 +67,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -135,7 +139,6 @@ STATIC_URL = '/static/'
 # Use the sites framework for Django authentication. Need to look at this later.
 SITE_ID = 1
 
-
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
@@ -144,13 +147,44 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 """DJANGO AUTHENTICATION SETTINGS"""
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  # Django's default auth backend
-    'social_core.backends.azuread_tenant.AzureADTenantOAuth2'  # Microsoft OAuth
+    # 'django_auth_ldap.backend.LDAPBackend',  # LDAP Backend
+    'modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend'
 )
-LOGIN_REDIRECT_URL = '/'  # Upon login, redirect to index
+
+LOGIN_REDIRECT_URL = '/login-redirect'
 LOGOUT_REDIRECT_URL = '/'  # Upon signout, redirect to index
 
-# Recommended by python-social-auth at https://python-social-auth.readthedocs.io/en/latest/configuration/django.html#
-# SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_TENANT_ID = env('AZURE_TENANT_ID', default="not the tenant id")
-SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_KEY = env('AZURE_CLIENT_ID', default="not the client id")
-SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_SECRET = env('AZURE_VALUE', default="not the client secret")
+AUTH_LDAP_SERVER_URI = "ldaps://directory.rhul.ac.uk:636"
+
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "givenName",
+    "last_name": "sn",
+    "email": "mail"
+}
+
+AUTH_LDAP_BASE_DN = "OU=MIIS Managed,DC=cc,DC=rhul,DC=local"
+AUTH_LDAP_USER_SEARCH = LDAPSearch(
+    AUTH_LDAP_BASE_DN, ldap.SCOPE_SUBTREE, '(sAMAccountName=%(user)s)'
+)
+
+AUTH_LDAP_GLOBAL_OPTIONS = {
+    ldap.OPT_X_TLS_REQUIRE_CERT: ldap.OPT_X_TLS_NEVER
+}
+
+AUTH_LDAP_CACHE_TIMEOUT = 3600
+
+AUTH_LDAP_USER_FLAGS_BY_GROPUP = {
+    "is_staff": "OU=Staff,OU=MIIS Managed,DC=cc,DC=rhul,DC=local",
+    "is_active": (LDAPGroupQuery("OU=Active,OU=Students,OU=MIIS Managed,DC=cc,DC=rhul,DC=local")
+                  | LDAPGroupQuery("OU=Active,OU=Staff,OU=MIIS Managed,DC=cc,DC=rhul,DC=local")
+                  ),
+}
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"console": {"class": "logging.StreamHandler"}},
+    "loggers": {"django_auth_ldap": {"level": "DEBUG", "handlers": ["console"]}},
+}
+
+TESTING = 'test' in sys.argv

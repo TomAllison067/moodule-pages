@@ -1,9 +1,9 @@
-{% extends "modulesApplication/base.html" %}
+{% extends "modulesApplication/main/base.html" %}
 
 {% block sidebar-links %}
     <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
             class="fas fa-home"></i>home</a></li>
-    <li><a href="{% url 'modulesApplication:choose-modules' %}" class="btn"><i class="fas fa-book-open"></i>choose
+    <li><a href="{% url 'modulesApplication:choice-pathway' %}" class="btn"><i class="fas fa-book-open"></i>choose
         modules</a></li>
     <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
         courses</a></li>

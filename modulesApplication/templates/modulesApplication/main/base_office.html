@@ -1,0 +1,12 @@
+{% extends "modulesApplication/main/base.html" %}
+
+{% block sidebar-links %}
+    <li><a href="{% url 'modulesApplication:office-landing' %}" class="btn"><i
+            class="fas fa-home"></i>home</a></li>
+    <li><a href="{% url 'modulesApplication:selection-requests' %}" class="btn"><i class="fas fa-book-open"></i>selection
+        requests</a></li>
+    <li><a href="{% url 'modulesApplication:archived-selection-requests' %}" class="btn"><i class="fas fa-book-open"></i>archived
+        requests</a></li>
+    <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
+        courses</a></li>
+{% endblock %}

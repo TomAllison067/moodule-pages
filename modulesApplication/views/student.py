@@ -1,11 +1,12 @@
+import datetime
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
-import datetime
 
-from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant
+from ..models import Module, Programme, ModuleSelection, CourseLeader, ModuleVariant, StudentProfile
 from ..programmeInfo import factory
 from ..programmeInfo.selection_validator import SelectionValidator
 
@@ -57,70 +58,49 @@ def landing(request):
 
 
 @login_required
-def choose_modules(request):
+def choose_degree_and_stage(request):
     if request.method == "POST":
         prog_code = request.POST.get('programme')
         stage = request.POST.get('stage')
         entry_year = request.POST.get('entry_year') or '2019'
         if prog_code is None or stage is None:
-            return HttpResponseRedirect(reverse("modulesApplication:choose-modules"))
-        url = reverse('modulesApplication:choose-specific-modules',
+            return HttpResponseRedirect(reverse("modulesApplication:choose-degree-and-stage"))
+        url = reverse('modulesApplication:choose-modules',
                       kwargs={'prog_code': prog_code,
                               'stage': stage,
                               'entry_year': entry_year})
         return HttpResponseRedirect(url)
-    return render(request, 'modulesApplication/student/StudentChooseModules.html')
+    return render(request, 'modulesApplication/student/ChooseDegreeAndStage.html')
 
 
 @login_required
-def choose_specific_modules(request, prog_code, stage, entry_year, prerequisites=None, banned_combination=None):
+def choose_modules(request, prog_code, stage, entry_year):
     if request.method == "GET":
         try:
             info = factory.get_programme_info(prog_code, stage=int(stage), entry_year=entry_year)
         except Programme.DoesNotExist:
             raise Http404
-        try:
-            modules_list = Module.objects.order_by('level', 'mod_code')
-            for module in modules_list:
-                prerequisites = module.prerequisites
-                banned_combinations = module.banned_combinations
-        except Module.DoesNotExist:
-            prerequisites = None
-            banned_combinations = None
         context = {'info': info,
                    'stage': "stage{}".format(stage),
-                   'prerequisites': prerequisites,
-                   'banned_combinations': banned_combinations
                    }
-        return render(request, 'modulesApplication/student/DegreeChooseModules.html', context=context)
-
-
-@login_required
-def submit_selection(request):
+        return render(request, 'modulesApplication/student/ChooseModules.html', context=context)
     if request.method == "POST":
-        student_id = request.POST.get('student-id')
-        if student_id == "" or student_id is None:
-            messages.add_message(request, messages.ERROR, "ERROR: Please enter your student id.")
-            return HttpResponseRedirect(reverse("modulesApplication:choose-specific-modules",
-                                                kwargs={'prog_code': request.POST.get('prog_code'),
-                                                        'stage': request.POST.get('stage')}
-                                                ), messages)
-        stage = request.POST.get('stage')
+        try:
+            student_id = request.user.studentprofile.student_id
+        except StudentProfile.DoesNotExist:
+            student_id = request.user.id
         mod_codes = set(request.POST.getlist('module-selections'))
-        print("POST form mod codes", mod_codes)
-        entry_year = request.POST.get('entry_year')
-        prog_code = request.POST.get('prog_code')
         programme = Programme.objects.get(pk=prog_code)
-        print(datetime.datetime.now())
-        ModuleSelection.objects.filter(
-            student_id=student_id).delete()  # Delete any existing selections (should only be one!)
-        selection = ModuleSelection.objects.create(
-            student_id=student_id, stage=stage, entry_year=entry_year, status="PENDING", programme=programme,
-            date_requested=datetime.datetime.now())
-        for m in mod_codes:
-            module = Module.objects.get(mod_code=m)
-            module.selected_in.add(selection)
-        if SelectionValidator(selection).validate():
+        if SelectionValidator(prog_code, stage, entry_year, mod_codes).validate():  # If the selection is valid
+            ModuleSelection.objects.filter(student_id=student_id).delete()
+            student_name = request.user.first_name + ' ' + request.user.last_name
+            selection = ModuleSelection.objects.create(
+                student_id=student_id, student_name=student_name, stage=stage, entry_year=entry_year, status="PENDING",
+                programme=programme,
+                date_requested=datetime.datetime.now())
+            for m in mod_codes:
+                module = Module.objects.get(mod_code=m)
+                module.selected_in.add(selection)
             return HttpResponseRedirect(reverse("modulesApplication:submitted",
                                                 kwargs={'student_id': student_id,
                                                         'stage': stage,
@@ -128,9 +108,9 @@ def submit_selection(request):
                                                         'prog_code': prog_code}))
         else:
             messages.add_message(request, messages.ERROR, "ERROR: Invalid selection.")
-            return HttpResponseRedirect(reverse("modulesApplication:choose-specific-modules",
-                                                kwargs={'prog_code': request.POST.get('prog_code'),
-                                                        'stage': request.POST.get('stage'),
+            return HttpResponseRedirect(reverse("modulesApplication:choose-modules",
+                                                kwargs={'prog_code': prog_code,
+                                                        'stage': stage,
                                                         'entry_year': entry_year}
                                                 ), messages)
     else:
@@ -153,9 +133,13 @@ def submitted(request, student_id, stage, entry_year, prog_code):
 @login_required
 def my_selection(request):
     """A view for the student to see their current ModuleSelection object."""
+    try:  # Try/Catch only for superusers/devs.. every logged in student should have a student ID from LDAP
+        student_id = request.user.studentprofile.student_id
+    except StudentProfile.DoesNotExist:
+        student_id = request.user.id  # For superusers / devs
     selection = get_object_or_404(
         ModuleSelection,
-        student_id=request.user.id
+        student_id=student_id
     )
     modules = selection.module_set.all()
     context = {
@@ -176,3 +160,23 @@ def module_details(request, module):
                            'Exam_Format': current_module.exam_format}
                }
     return render(request, 'modulesApplication/student/ModuleDetails.html', context=context)
+
+
+@login_required
+def choice_pathway(request):
+    """Handles a user wanting to choose their modules. It attempts to derive the student's degree and stage from LDAP,
+    and take them straight to the correct module choice form if successful."""
+    try:
+        prog_code = request.user.studentprofile.prog_code
+        entry_year = request.user.studentprofile.entry_year
+        stage = request.user.studentprofile.stage
+        if not prog_code or not entry_year or not stage:
+            return HttpResponseRedirect(reverse('modulesApplication:choose-degree-and-stage'))
+        else:
+            return HttpResponseRedirect(reverse('modulesApplication:choose-modules',
+                                                kwargs={'prog_code': prog_code,
+                                                        'stage': stage,
+                                                        'entry_year': entry_year}
+                                                ))
+    except StudentProfile.DoesNotExist:
+        return HttpResponseRedirect(reverse('modulesApplication:choose-degree-and-stage'))

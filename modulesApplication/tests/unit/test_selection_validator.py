@@ -1,20 +1,17 @@
 from django.test import TestCase, tag
 
-from modulesApplication.models import ModuleSelection, Programme, Module, OptionRule, Strands
+from modulesApplication.models import Programme, Module, OptionRule, Strands
 from modulesApplication.programmeInfo.selection_validator import SelectionValidator
 
 
 @tag('unit')
 class TestSelectionValidator(TestCase):
+    entry_year = '2019'
+    stage = '1'
+
     def setUp(self):
         self.p1 = Programme.objects.create(prog_code="p1", level="BSc")
-        self.selection = selection = ModuleSelection.objects.create(
-            student_id="foo",
-            stage=1,
-            entry_year="2019",
-            status="PENDING",
-            programme=self.p1
-        )
+        self.prog_code = self.p1.prog_code
 
     def test_simple_selection_is_valid(self):
         """Assert that a simple made up stage 1 selection is correct - i.e, core modules."""
@@ -34,13 +31,16 @@ class TestSelectionValidator(TestCase):
         )
 
         # The valid selection contains both core modules.
-        cm1.selected_in.add(self.selection)
-        cm2.selected_in.add(self.selection)
+        mod_codes = {cm1.mod_code, cm2.mod_code}
 
-        self.assertTrue(SelectionValidator(self.selection).validate(), "A valid selection should return True.")
+        self.assertTrue(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                           entry_year=self.entry_year).validate(),
+                        "A valid selection should return True.")
 
-        cm2.selected_in.remove(self.selection)
-        self.assertFalse(SelectionValidator(self.selection).validate(), "An invalid selection should return False.")
+        mod_codes.remove(cm2.mod_code)
+        self.assertFalse(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                            entry_year=self.entry_year).validate(),
+                         "An invalid selection should return False.")
 
     def test_simple_selection_with_disc_alts(self):
         """Test a selection in stage 1 with disc_alt modules is valid/invalid"""
@@ -70,22 +70,23 @@ class TestSelectionValidator(TestCase):
             mod_code_pattern="alt_m1,alt_m2"
         )
 
-        core_m1.selected_in.add(self.selection)
-        alt_m1.selected_in.add(self.selection)
-
+        mod_codes = {core_m1.mod_code, alt_m1.mod_code}
         # Test that a selection with only the first of the DISC_ALT modules is valid.
-        self.assertTrue(SelectionValidator(self.selection).validate(),
+        self.assertTrue(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                           entry_year=self.entry_year).validate(),
                         "A selection with only core modules and the first of DISC_ALT should return true.")
 
         # Test that a selection with only the second of the DISC_ALT modules is valid.
-        alt_m1.selected_in.remove(self.selection)
-        alt_m2.selected_in.add(self.selection)
-        self.assertTrue(SelectionValidator(self.selection).validate(),
+        mod_codes.remove(alt_m1.mod_code)
+        mod_codes.add(alt_m2.mod_code)
+        self.assertTrue(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                           entry_year=self.entry_year).validate(),
                         "A selection with only core modules and the second of DISC_ALT should return true.")
 
         # Test that a selection with both of the DISC_ALT modules is invalid.
-        alt_m1.selected_in.add(self.selection)
-        self.assertFalse(SelectionValidator(self.selection).validate(),
+        mod_codes.add(alt_m1.mod_code)
+        self.assertFalse(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                            entry_year=self.entry_year).validate(),
                          "A selection with core modules but both of DISC_ALT should return False.")
 
     def test_strand_selection(self):
@@ -100,20 +101,23 @@ class TestSelectionValidator(TestCase):
         OptionRule.objects.create(
             prog_code=self.p1, mod_code_pattern="AI,cs2,iy2", constraint_type="STRAND", stage=1, entry_year='2019',
             min_quantity=2, max_quantity=2)
-        ai1.selected_in.add(self.selection)
+        mod_codes = {ai1.mod_code}
 
         # Not selecting enough STRAND modules should return False.
-        self.assertFalse(SelectionValidator(self.selection).validate(),
+        self.assertFalse(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                            entry_year=self.entry_year).validate(),
                          "A selection with too few strand modules is valid.")
 
         # Selecting the correct number of STRAND modules should return True.
-        ai2.selected_in.add(self.selection)
-        self.assertTrue(SelectionValidator(self.selection).validate(),
+        mod_codes.add(ai2.mod_code)
+        self.assertTrue(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                           entry_year=self.entry_year).validate(),
                         "A selection with the correct number of strand modules is valid.")
 
         # Selecting too many STRAND modules with no further OPTS rules to accommodate the extra returns False.
-        ai3.selected_in.add(self.selection)
-        self.assertFalse(SelectionValidator(self.selection).validate(),
+        mod_codes.add(ai3.mod_code)
+        self.assertFalse(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                            entry_year=self.entry_year).validate(),
                          "A selection with too many strand modules is invalid if extra are not also in OPTS.")
 
         # Adding an OPTS option rule should now cover the extra STRANDS module.
@@ -121,13 +125,15 @@ class TestSelectionValidator(TestCase):
             prog_code=self.p1, mod_code_pattern="cs2,iy2", constraint_type="OPTS", stage=1, entry_year='2019',
             min_quantity=1, max_quantity=1
         )
-        self.assertTrue(SelectionValidator(self.selection).validate(),
+        self.assertTrue(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                           entry_year=self.entry_year).validate(),
                         "A selection with too many strand modules is VALID if the remainder is in opts.")
 
         # Finally, another optional module will go over the OPTS quantity and so should return false.
         extra_opts = Module.objects.create(mod_code="cs2manymodules", title="aint gonna need it")
-        extra_opts.selected_in.add(self.selection)
-        self.assertFalse(SelectionValidator(self.selection).validate())
+        mod_codes.add(extra_opts.mod_code)
+        self.assertFalse(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                            entry_year=self.entry_year).validate())
 
     def test_simple_opts_selection(self):
         """Tests that a selection of simple OPTS modules is correct, not considering any STRANDS that may overlap."""
@@ -137,13 +143,15 @@ class TestSelectionValidator(TestCase):
         OptionRule.objects.create(
             prog_code=self.p1, mod_code_pattern="cs2,iy2", constraint_type="OPTS", stage=1, entry_year='2019',
             min_quantity=2, max_quantity=2)
-
-        opts1.selected_in.add(self.selection)
-        self.assertFalse(SelectionValidator(self.selection).validate(),
+        mod_codes = {opts1.mod_code}
+        self.assertFalse(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                            entry_year=self.entry_year).validate(),
                          "A selection with too few OPTS modules is valid.")
-        opts2.selected_in.add(self.selection)
-        self.assertTrue(SelectionValidator(self.selection).validate(),
+        mod_codes.add(opts2.mod_code)
+        self.assertTrue(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                           entry_year=self.entry_year).validate(),
                         "A selection with the correct number of OPTS modules is valid.")
-        opts3.selected_in.add(self.selection)
-        self.assertFalse(SelectionValidator(self.selection).validate(),
+        mod_codes.add(opts3.mod_code)
+        self.assertFalse(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
+                                            entry_year=self.entry_year).validate(),
                          "A selection with too many OPTS modules is invalid.")

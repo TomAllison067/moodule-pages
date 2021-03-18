@@ -1,4 +1,4 @@
-{% extends "modulesApplication/base_office.html" %}
+{% extends "modulesApplication/main/base_office.html" %}
 {% load static %}
 
 {% block title %}Choose Modules{% endblock %}
@@ -6,7 +6,7 @@
 {% block head_css %}
     {{ block.super }}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/choosemodules.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/student/choosemodules.css' %}">
 {% endblock %}
 
 
@@ -38,6 +38,7 @@
                 <tr>
                     <td>{{ selection.id }}</td>
                     <td>{{ selection.student_id }}</td>
+                    <td>{{ selection.student_name }}</td>
                     <td>{{ selection.stage }}</td>
                     <td>{{ selection.entry_year }}</td>
                     <td>{{ selection.status }}</td>
@@ -204,6 +205,10 @@
         color: rgba(0,0,0,0.6);
         text-decoration: none;
         cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        width: 80px;
     }
 </style>
 

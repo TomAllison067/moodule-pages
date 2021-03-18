@@ -7,7 +7,7 @@
     <meta name="description" content="TBD">
     <meta name="author" content="TBD">
     {% block head_css %}
-        <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/master.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main/master.css' %}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
         <link rel="icon" type="image/png" href="{% static 'modulesApplication/images/icons/favicon.png' %}">
     {% endblock head_css %}
@@ -45,14 +45,14 @@
 
         <a href="{% url 'modulesApplication:index' %}"><label class="title"> moodule</label></a>
 
-       <div class="search-box">
+        <div class="search-box">
             <label for="search-box" style="display: none;">Search</label>
             <input class="search-txt" type="text" id="search-box" placeholder="search">
             <a class="search-btn" href="#">
                 <i class="fas fa-search"></i>
             </a>
         </div>
-		
+
         {% if user.is_authenticated %}
             <div class="avatar-box">
                 <label for="avatar-check">
@@ -67,7 +67,7 @@
 
             <div class="dropdown-ab-menu">
                 <ul>
-                    <li class="username"> {{ user.username }}</li>
+                    <li class="username"> {{ user.first_name }}</li>
                     <li class="email"> {{ user.email }}</li>
                     <li class="sign-out">
                         <a href="{% url 'logout' %}">
@@ -142,5 +142,6 @@
 
 {% block scripts %}
 {% endblock %}
+
 </body>
 </html>

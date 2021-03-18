@@ -5,6 +5,7 @@ from django.db import models
 
 class ModuleSelection(models.Model):
     student_id = models.TextField()
+    student_name = models.TextField()
     stage = models.IntegerField(null=False)
     entry_year = models.TextField(default=str(datetime.now().year))
     status = models.TextField()

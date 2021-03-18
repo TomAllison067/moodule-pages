@@ -1,4 +1,5 @@
 from django.db import models
+
 from modulesApplication.models import ModuleSelection
 
 
@@ -44,3 +45,8 @@ class Module(models.Model):
         self.full_clean()
         super().save(*args, **kwargs)
 
+    def __str__(self):
+        return "{} - {}".format(self.mod_code, self.title)
+
+    class Meta:
+        ordering = ["mod_code"]

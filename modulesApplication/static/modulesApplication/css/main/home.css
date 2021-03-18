@@ -1,0 +1,52 @@
+/* Google font imports */
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Yantramanav:wght@900');
+
+.page-wrapper {
+    background-image: url("https://i.pinimg.com/originals/d4/42/d0/d442d0e7bf7d0ceeeeb436e36bc2f3b4.jpg");
+    background-size: cover;
+    animation: bg-anim 10s ease infinite;
+}
+
+.main-content {
+    background: rgba(255,135,0,0.1);
+    color: black;
+    width: 100%;
+    left: 0;
+    margin: -200px 0 0 0;
+    text-align: center;
+}
+
+.main-content h1 {
+    color: black;
+    font-size: 95px;
+}
+
+.main-content h4 {
+    color: black;
+    font-size: 35px;
+
+}
+
+.main-content p {
+    color: black;
+    font-size: 25px;
+}
+
+@keyframes bg-anim {
+    0% {
+        background-position: 0 0%;
+    }
+    50% {
+        background-position: 0% 25%;
+    }
+    100% {
+        background-position: 0 0%;
+    }
+}
+
+.in-middle {
+    display: block;
+    margin: auto;
+    width: 300px;
+}

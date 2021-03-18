@@ -12,3 +12,6 @@ class People(models.Model):
     id = models.TextField(primary_key=True)  # Their initials
     name = models.TextField()  # Their full name
     email = models.TextField()  # Their email address
+
+    def __str__(self):
+        return self.name

@@ -1,110 +1,102 @@
-{% extends "modulesApplication/base.html" %}
+{% extends "modulesApplication/main/base.html" %}
 
 {% block head_css %}
-{{ block.super }}
-<title>Azure Login Page</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/login.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/util.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/bootstrap/css/bootstrap.min.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/'vendor/animate/animate.css">
-<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/'vendor/select2/select2.min.css">
-<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/'fonts/font-awesome/css/font-awesome">
-<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/'vendor/css-hamburgers/hamburgers.min.css">
+    {{ block.super }}
+    <title>Azure Login Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main/util.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'modulesApplication/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/animate/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/select2/select2.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'modulesApplication/fonts/font-awesome-4.7.0/css/font-awesome.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'modulesApplication/vendor/css-hamburgers/hamburgers.min.css' %}">
 
 {% endblock %}
 
 {% block content %}
 
-<nav class="topbar">
-    </nav>
-</label>
 
-<body>
-	<div class="limiter">
+    <body>
+    <div class="limiter">
         {% if not user.is_authenticated %}
-		<div class="container-login">
-			<div class="wrap-login">
-				<div class="login-pic js-tilt" data-tilt>
-					<img src="{% static 'modulesApplication/images/logo/mlogo-login.png' %}"
-				</div>
+            <div class="container-login">
+            <div class="wrap-login">
+                <div class="login-pic js-tilt" data-tilt>
+                    <img src="{% static 'modulesApplication/images/logo/mlogo-login.png' %}"
+                </div>
             </div>
 
             <form class="login-form" method="post" action="{% url 'login' %}">
                 {% csrf_token %}
                 <span class="login-form-title">
-                    Azure Login Page
+                    Welcome to Moodule
                 </span>
 
-					<div class="wrap-input">
-						<input class="input" type="text" name="username" placeholder="Email">
-						<span class="focus-input"></span>
-                        <span class="symbol-input">
+                <div class="wrap-input">
+                    <label for="username-field" style="visibility: hidden;">Username</label>
+                    <input id="username-field" class="input" type="text" name="username" placeholder="zhacxx">
+                    <span class="focus-input"></span>
+                    <span class="symbol-input">
                             <i class="fa fa-envelope" aria-hidden="true" style="color:rgb(0, 0, 0);"></i>
                         </span>
-					</div>
+                </div>
 
-					<div class="wrap-input">
-						<input class="input" type="password" name="password" placeholder="Password">
-						<span class="focus-input"></span>
-                        <span class="symbol-input">
+                <div class="wrap-input">
+                    <label for="password-field" style="visibility: hidden;">Password</label>
+                    <input id="password-field" class="input" type="password" name="password" placeholder="Password">
+                    <span class="focus-input"></span>
+                    <span class="symbol-input">
 							<i class="fa fa-lock" aria-hidden="true" style="color:rgb(0, 0, 0);"></i>
-						</span> 
-					</div>
-					
-					<div class="container-login-form-btn">
-						<button class="login-form-btn">
-							Login
-						</button>
-					</div>
-
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
 						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
-					</div>
+                </div>
 
-                    <div class="text-center p-t-136">
-						<h class="txt2" href="#">
-							Group 34
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
-				</form>
-            {% else %}
-                <p>Successfully signed in.</p>
+                <div class="container-login-form-btn">
+                    <button class="login-form-btn">
+                        Login
+                    </button>
+                </div>
+                <div class="text-center p-t-136">
+                    <span class="txt2">
+                        Group 34
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                    </span>
+                </div>
+            </form>
+        {% else %}
+            <p>Successfully signed in.</p>
+        {% endif %}
+        {% if not user.is_authenticated %}
+            {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
             {% endif %}
-            {% if not user.is_authenticated %}
-                {% if form.errors %}
-                    <p>Your username and password didn't match. Please try again.</p>
-                {% endif %}
-            {% endif %}
-			</div>
-		</div>
-	</div>
-</body>
+        {% endif %}
+        </div>
+    </div>
+    </div>
+    </body>
 {% endblock %}
 
-{% block scripts %}
-<!--===============================================================================================-->	
-    <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'vendor/bootstrap/js/popper.js"></script>
-	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'vendor/tilt/tilt.jquery.min.js"></script>
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
-<!--===============================================================================================-->
-	<script src="{% static 'js/main.js"></script>
-{% endblock %}
+{#{% block scripts %}#}
+{#<!--===============================================================================================-->	#}
+{#    <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js"></script>#}
+{#<!--===============================================================================================-->#}
+{#	<script src="{% static 'vendor/bootstrap/js/popper.js"></script>#}
+{#	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js"></script>#}
+{#<!--===============================================================================================-->#}
+{#	<script src="{% static 'vendor/select2/select2.min.js"></script>#}
+{#<!--===============================================================================================-->#}
+{#	<script src="{% static 'vendor/tilt/tilt.jquery.min.js"></script>#}
+{#	<script >#}
+{#		$('.js-tilt').tilt({#}
+{#			scale: 1.1#}
+{#		})#}
+{#	</script>#}
+{#<!--===============================================================================================-->#}
+{#	<script src="{% static 'js/main.js"></script>#}
+{#{% endblock %}#}

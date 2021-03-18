@@ -20,31 +20,28 @@
 
 .image-box{
     position: relative;
-    background: linear-gradient(-50deg, rgb(155, 101, 0), rgb(137, 36, 0), rgb(38, 0, 38));
+    background: linear-gradient(180deg, rgb(137, 36, 0), rgb(155, 101, 0), rgb(201, 127, 0));
     background-size: 400% 400%;
     opacity: 100%;
     width: 100%;
-    height: 120px;
+    height: auto;
     overflow: hidden;
 }
 
 .ib-content {
     position: relative;
     color: black;
-    margin-top: 0;
-    padding: 50px;
+    padding: 0 50px;
     display: block;
-    height: 50%;
-    width: 90%;
 }
 
 .ib-content h2 {
     padding: 5px;
-    margin: 15px 0;
+    margin: 15px 0 0;
     font-size: 26px;
     color: white;
     background: rgba(30,30,30,0);
-    border-left: 5px orangered solid;
+    border-left: 5px orange solid;
     border-radius: 5px;
 }
 
@@ -65,9 +62,9 @@
     }
 }
 
-/* --[[ FORM ]]-- */
+/* --[[ MAIN BOX ]]-- */
 
-.form-box {
+.main-box {
     margin: 5% 10%;
     padding: 20px;
     width: 80%;
@@ -76,7 +73,7 @@
     position: relative;
     border-radius: 5px;
     box-sizing: border-box;
-    border-top: 5px solid orangered;
+    border-top: 3px solid orangered;
     color: black;
 }
 
@@ -90,22 +87,23 @@
 
 .icon-img i {
     padding: 20px;
-    background: linear-gradient(-50deg, orange, orangered, purple);
-    background-size: 400% 400%;
-    animation: ib-gradient 10s ease infinite;
+    background: linear-gradient(180deg, orangered, orange);
     color: black;
     border-radius: 50%;
+    border: 0px solid black;
     font-size: 60px;
 }
 
-.form-box #form_id {
-    width: 90%;
+
+.main-box .mb-content {
+    width: 95%;
     height: 100%;
     color: black;
     font-family: 'Nunito', sans-serif;
 }
 
-form#form_id h1 {
+
+.mb-content h1 {
     font-size: 30px;
     border-bottom: 2px solid orangered;
     color: black;
@@ -113,67 +111,55 @@ form#form_id h1 {
     margin-bottom: 15px;
 }
 
-form#form_id .ul h2 {
+
+.mb-content h3 {
+    font-size: 22px;
     color: black;
 }
 
+.mb-content ul {
+    padding: 7px;
+    margin: 5px 5px;
+    display: block;
+    border-radius: 5px;
+    width: 95%;
+    height: 95%; 
+    border-bottom: 1px black solid;
+}
 
+.mb-content ul li {
+    padding: 5px;
+    margin: 5px 5px;
+    width: 98%;
+    height: auto;
+    background: linear-gradient(rgb(230, 230, 230), rgb(215, 215, 215));
+    box-sizing: border-box;
+    opacity: 100%;
+    display: block;
+    font-size: 18px;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.25s;
+}
 
-form#form_id label {
+.mb-content ul li i {
+    color: black;
+}
+
+.mb-content .id-section li, .mb-content .stage-section li,
+.mb-content .status-section li, .mb-content .module-section li {
+    border-left: 5px orange solid;
+}
+
+.mb-content .comments-section li {
+    border-left: 5px orangered solid;
+}
+
+.mb-content label {
     font-size: 17px;
     color: black;
-}
-
-form#form_id .dropdown {
-    padding: 3px;
-    border-radius: 5px;
-    margin-top: 2px;
-    font-size: 18px;
-    margin-bottom: 15px;
-    width: 75%;
-    background: rgb(38, 38, 38);
-    border-left: 5px orangered solid;
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    transition: 0.15s;
-}
-
-form#form_id .dropdown:hover {
-    width: 77%;
-    background: rgb(255, 255, 255);
-    color: black;
-    border-left: 5px white solid;
-}
-
-form#form_id select option, select option {
-    padding: 3px;
-    border-radius: 5px;
-    font-size: 18px;
-    background: rgb(38, 38, 38);
-    color: white;
-    font-family: 'Nunito', sans-serif;
-}
-
-.submit-btn,
-form#form_id input[type = "submit"]  {
-    background: orangered;
-    width: 80px;
-    height: 33px;
-    margin-top: 15px;
-    font-size: 18px;
-    padding: 3px;
-    border-radius: 5px;
-    border: none;
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    transition: 0.15s;
-}
-
-.submit-btn:hover,
-form#form_id input[type = "submit"]:hover {
-    background: rgb(255, 121, 63);
-    border: 2px white solid;
-    width: 90px;
 }
 
 .alert {

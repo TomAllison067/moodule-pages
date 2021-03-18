@@ -1,0 +1,120 @@
+{% extends "modulesApplication/main/base_academic.html" %}
+{% load static %}
+
+{% block title %}Academic Landing Page{% endblock %}
+
+{% block head_css %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/academic/academiclanding.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="page-wrapper">
+        <!-- IMAGE SLIDER -->
+        <div class="slider">
+            <div class="slides">
+                <!--RADIO BUTTONS -->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+
+                <!-- SLIDE IMAGES -->
+                <div class="slide first">
+                    <div class="slide-content">
+                        <h2> Academic Staff Portal </h2> 
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2> Welcome to moodule </h2> 
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2> Welcome to moodule </h2> 
+                        <p> This is your online learning environment to access information about your chosen course with
+                            the
+                            given modules for the academic year 20/21.</p>
+                    </div>
+                </div>
+
+                <!-- AUTOMATIC NAVIGATION OF SLIDES-->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                </div>
+
+            </div>
+            <!--MANUAL NAVIGATION OF SLIDES-->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+            </div>
+        </div>
+
+        <!-- AUTOMATIC NAVIGATION SCRIPT-->
+        <script>
+            var counter = 1;
+            setInterval(function () {
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if (counter > 4) {
+                    counter = 1;
+                }
+            }, 15000);
+        </script>
+
+        <!-- LANDING PAGE CONTAINER -->
+        <div class="lp-container">
+
+            <!-- VIEW STUDENTS & CSVs BOX -->
+            <div class="lp-box" id="lpb-cm">
+
+                {#<!--            The contents of the href are: {% url '#'%} without the full stop of course--> #}
+                <a href="{% url 'modulesApplication:csv-downloads' %}" class="b-btn">
+                    <h2> Downloadable CSVs </h2>
+                    <div class="lp-content" id="lpc-cm">
+                        <div class="lp-content" style="padding: 10px;">
+
+                            <div class="term-module-list">
+                                <ul>
+                                    <li><a href="{% url 'modulesApplication:csv' 'Programme' %}">All Programmes</a></li>
+                                    <li><a href="{% url 'modulesApplication:csv' 'Module'%}"> All Modules</a></li>
+                                    <li><a href="{% url 'modulesApplication:csv' 'ModuleSelection'%}">Student Module Selection Requests</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ALL COURSES BOX -->
+            <div class="lp-box" id="lpb-ac">
+                <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
+                    <h2> all courses </h2>
+                    <div class="lp-content" id="lpc-ac">
+                        <div class="icon-box">
+                            <div class="icon-effect">
+                                <i class="fas fa-book"></i> 
+                            </div> <br>
+                            <br>
+                            <hr class="solid">
+                            <br>
+                            <p> view the complete degree specification and requirements for all the available courses
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

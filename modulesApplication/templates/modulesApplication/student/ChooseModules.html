@@ -1,0 +1,298 @@
+{% extends "modulesApplication/main/base_student.html" %}
+
+{% block title %}{{ info.programme.title }} - {{ info.entry_year }}{% endblock %}
+
+{% block head_css %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/student/selectionform.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="page-wrapper">
+        <div class="image-box">
+            <div class="ib-content">
+                <h2><i class="fas fa-book-open"></i> Your chosen programme is: {{ info.programme.title }}</h2> <br>
+            </div>
+        </div>
+        <br>
+        <div class="form-content">
+            <div class="icon-img">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <div class="form-title">
+                <h1> {{ info.programme.title }} - Entry
+                    year: {{ info.entry_year }}
+                    <br> Stage {{ stage|slice:"-1:" }}</h1>
+            </div>
+            <!-- RULES -->
+            <div class="rules">
+                <p>
+                    Requirements: You are required to select...
+                </p>
+                {% for constraint, rules in info.rules_dict.items %}
+                    <ul>
+                        {% if constraint == 'CORE' %}
+                            {% for rule in rules %}
+                                <li>• {{ rule.max_quantity }} core {% if rule.max_quantity == 1 %}module, which
+                                    is {% else %}modules, which are {% endif %}selected by default.
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                        {% if constraint == 'STRAND' and info.strand != None %}
+                            {% for rule in rules %}
+                                <li>• {{ rule.max_quantity }} modules beginning
+                                    with {{ rule.mod_code_pattern|slice:"3:6" }}
+                                    {% if rule.mod_code_pattern|length >= 7 %}
+                                        or {{ rule.mod_code_pattern|slice:"7:" }}
+                                    {% endif %}
+                                    from the {{ info.strand }} strand.
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                        {% if constraint == 'OPTS' %}
+                            {% for rule in rules %}
+                                {% if rule.mod_code_pattern|length >= 4 %}
+                                    <li>• {{ rule.max_quantity }} optional modules beginning
+                                        with {{ rule.mod_code_pattern|slice:":3" }}
+                                        or {{ rule.mod_code_pattern|slice:"4:" }}.
+                                    </li>
+                                {% else %}
+                                    <li>• {{ rule.max_quantity }} optional modules beginning
+                                        with {{ rule.mod_code_pattern|slice:":3" }}.
+                                    </li>
+                                {% endif %}
+
+                            {% endfor %}
+                        {% endif %}
+                        {% if constraint == 'DISC_ALT' %}
+                            {% for rule in rules %}
+                                <li> • {{ rule.mod_code_pattern|slice:":6" }} as a further core module,
+                                    or {{ rule.mod_code_pattern|slice:"7:" }} at the discretion of the
+                                    department.
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                {% endfor %}
+            </div>
+            <!-- END RULES --->
+            <!-- BEGIN SELECTION FORM -->
+            <form id="module-selection-form"
+                  action="{% url 'modulesApplication:choose-modules' prog_code=info.programme.prog_code stage=stage|slice:"-1:" entry_year=info.entry_year %}"
+                  method="POST">
+                {% csrf_token %}
+                <!-- GRID-->
+
+                <div class="grid">
+                    {% for term, constraints in info.modules_dict.items %}
+                        {% if constraints %}
+                            <!-- Only show terms with modules, e.g. Unknown term doesn't always have any -->
+                            <div class="grid-cell">
+                                <div class="cell-title">
+                                    {% if term != 'unknown' %}
+                                        <h3>{{ term|title|slice:":-1" }} {{ term|slice:"-1:" }}</h3>
+                                    {% else %}
+                                        <h3>Unknown</h3>
+                                    {% endif %}
+                                </div>
+                                <div class="cell-content">
+                                    {% for constraint, modules in constraints.items %}
+                                        {% if modules|length > 0 %}
+                                            {% if constraint == "CORE" %} <!-- CORE MODULES -->
+                                                <!-- for Core modules, modules are selected and disabled-->
+                                                <h4>Core Modules</h4>
+                                                {% for module in modules %}
+                                                    <li class="cc-core"><input type="checkbox"
+                                                                               id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
+                                                                               value="{{ module.mod_code }}"
+                                                                               name="module-selections"
+                                                                               class="module-checkbox"
+                                                                               checked hidden>
+                                                        <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
+                                                            - {{ module.title }}</label>
+                                                        <button type="button"
+                                                                onclick="toggleMoreInfo('{{ module.mod_code }}')"
+                                                                class="dropdown-btn">More info...
+                                                        </button>
+                                                    </li>
+                                                    <div id="moreInfo{{ module.mod_code }}"
+                                                         class="dropdown-content">
+                                                        <p>{{ module.summary|slice:":200" }}...</p>
+                                                        <a target="_blank"
+                                                           class="blue-link"
+                                                           href="https://ssb-prod.ec.royalholloway.ac.uk/PROD/bwckctlg.p_disp_catalog_syllabus?cat_term_in={{ info.cat_term_in }}&subj_code_in={{ module.mod_code|slice:":2" }}&crse_numb_in={{ module.mod_code|slice:"2:" }}">See
+                                                            course catalogue</a>
+                                                        <!-- Placeholder - feel free to make this whole dropdown info bit better! -->
+                                                    </div>
+                                                {% endfor %} <!-- END OF CORE MODULES -->
+                                            {% elif constraint != 'DISC_ALT' %} <!-- OTHER MODULES -->
+                                                {% if constraint == 'OPTS' %}
+                                                    <h4>Optional Modules</h4>
+                                                {% elif constraint == 'STRAND' %}
+                                                    <h4>Modules on the {{ info.strand }} strand</h4>
+                                                {% endif %}
+                                                {% for module in modules %}
+                                                    <li class="cc-opts"><input type="checkbox"
+                                                                               id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
+                                                                               value="{{ module.mod_code }}"
+                                                                               name="module-selections"
+                                                                               class="module-checkbox"
+                                                    >
+                                                        <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
+                                                            - {{ module.title }}</label>
+                                                        <button type="button"
+                                                                onclick="toggleMoreInfo('{{ module.mod_code }}')"
+                                                                class="dropdown-btn">More info...
+                                                        </button>
+                                                    </li>
+                                                    <div id="moreInfo{{ module.mod_code }}"
+                                                         class="dropdown-content">
+                                                        <p>{{ module.summary|slice:":200" }}...</p>
+                                                        <a target="_blank"
+                                                           class="blue-link"
+                                                           href="https://ssb-prod.ec.royalholloway.ac.uk/PROD/bwckctlg.p_disp_catalog_syllabus?cat_term_in={{ info.cat_term_in }}&subj_code_in={{ module.mod_code|slice:":2" }}&crse_numb_in={{ module.mod_code|slice:"2:" }}">See
+                                                            course catalogue</a>
+                                                        <!-- Placeholder - feel free to make this whole dropdown info bit better! -->
+                                                    </div>
+                                                {% endfor %}
+                                            {% else %}
+                                                <h4>Discretionary Alternatives</h4>
+                                                <p id="disc-alt-msg"><em>The following modules may be taken in
+                                                    place
+                                                    of
+                                                    another at the
+                                                    discretion of the
+                                                    department.</em></p>
+                                                {% for sublist in modules %}
+                                                    <li class="cc-disc-alt">
+                                                        <input type="checkbox" id="{{ sublist.1.mod_code }}"
+                                                               value="{{ sublist.1.mod_code }}"
+                                                               name="module-selections"
+                                                               class="module-checkbox"
+                                                               onclick="selectDiscAlt('{{ sublist.0.mod_code }}')">
+                                                        <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }}
+                                                            - {{ sublist.1.title }} <em>instead
+                                                                of {{ sublist.0.mod_code }}</em></label>
+                                                        <button type="button"
+                                                                onclick="toggleMoreInfo('{{ sublist.1.mod_code }}')"
+                                                                class="dropdown-btn">More info...
+                                                        </button>
+                                                    </li>
+                                                    <div id="moreInfo{{ sublist.1.mod_code }}"
+                                                         class="dropdown-content">
+
+                                                        <p>{{ sublist.1.summary|slice:":200" }}...</p>
+                                                        <a target="_blank"
+                                                           class="blue-link"
+                                                           href="https://ssb-prod.ec.royalholloway.ac.uk/PROD/bwckctlg.p_disp_catalog_syllabus?cat_term_in={{ info.cat_term_in }}&subj_code_in={{ module.mod_code|slice:":2" }}&crse_numb_in={{ module.mod_code|slice:"2:" }}">See
+                                                            course catalogue</a>
+                                                        <!-- Placeholder - feel free to make this whole dropdown info bit better! -->
+                                                    </div>
+
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="submit-box">
+                    {% if user.studentprofile.student_id %}
+                        <p style="display: block; text-align: center;">Student
+                            ID: {{ user.studentprofile.student_id }}<br></p>
+                    {% else %}
+                        <!-- If you log in using django db instead of ldap, you'll get this. Just for development purposes. -->
+                        <p style="display: block; text-align: center;">Student ID: {{ user.id }}<br></p>
+                    {% endif %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <strong><span
+                                    style="display: block; padding-top: 1px; margin-bottom: 10px; text-align: center; color: red;">{{ message }}</span></strong>
+                        {% endfor %}
+                    {% endif %}
+                    <input class="submit-btn" style="display: block; margin: auto;" type="submit">
+                </div>
+
+            </form>
+            <!-- END FORM -->
+            <p id="if-changing-text">If you are changing your degree programme or would otherwise like
+                to choose modules for a different programme, please click <a
+                        class="blue-link"
+                        href="{% url 'modulesApplication:choose-degree-and-stage' %}">here.</a></p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+
+        function toggleMoreInfo(mod_code) {
+            document.getElementById("moreInfo" + mod_code).classList.toggle("show");
+        }
+
+        // Initial modules selected per term
+        let term1Count = 0;
+        let term2Count = 0;
+
+        // Add selectOption event listener to all non-core modules
+        const notCoreCheckboxes = document.querySelectorAll("input[type='checkbox']:not([id$='CORE'])");
+        for (let i = 0; i < notCoreCheckboxes.length; i++) {
+            notCoreCheckboxes[i].addEventListener("click", selectOption);
+        }
+
+        // Get all core modules (disabled checkboxes ticked by default) and add them to relevant term count
+        const coreCheckboxes = document.querySelectorAll("input[type='checkbox'][id$='CORE']");
+        for (let i = 0; i < coreCheckboxes.length; i++) {
+            let term = coreCheckboxes[i].id.split('-')[1];
+            if (term === "term1") term1Count++;
+            else if (term === "term2") term2Count++;
+        }
+
+        /**
+         * Handles selecting a module. It increments/decrements the relevant counter of selected modules by term, and
+         * also handles selecting/deselecting duplicate modules (i.e, OPTS modules that are also STRAND and vice versa).
+         * @param event the event fired by a checkbox being clicked on.
+         */
+        function selectOption(event) {
+            let thisBox = event.currentTarget;
+            let mod_code = thisBox.value;
+            const query = '[id^="' + mod_code + '"]'  // Wildcard matches all checkboxes with starting ID of this mod code
+            const elements = document.querySelectorAll(query);
+            let term = thisBox.id.split('-')[1];
+            if (thisBox.checked && ((term === "term1" && term1Count === 4) || (term === "term2" && term2Count === 4))) {
+                console.log("here");
+                thisBox.checked = false;
+            } else {
+                console.log(elements)
+                if (elements.length === 2) {  // Some modules don't have duplicates, causing errors in console
+                    elements[1].disabled = elements[0].checked === true;
+                    elements[0].disabled = elements[1].checked === true;
+                }
+                if (term === "term1") {
+                    term1Count = thisBox.checked ? term1Count + 1 : term1Count - 1;
+                    console.log(term + " : " + term1Count);
+                }
+                if (term === "term2") {
+                    term2Count = thisBox.checked ? term2Count + 1 : term2Count - 1;
+                    console.log(term + " : " + term2Count);
+                }
+            }
+        }
+
+        /**
+         * Called when a disc_alt checkbox is clicked. All this does is search for the corresponding core module and
+         * click on it (thus deselecting/re-selecting as appropriate) when the disc_alt checkbox is clicked.
+         * @param initial the mod_code of the initial/core module
+         */
+        function selectDiscAlt(initial) {
+            const query = '[id^="' + initial + '"]'  // Wildcard matches all checkboxes with starting ID of this mod code
+            console.log(query)
+            let cBox = document.querySelector(query);
+            cBox.click()  // call selectOption on the disabled core module checkbox, thus unselecting/selecting it as required.
+        }
+    </script>
+{% endblock %}
