@@ -102,3 +102,7 @@ class TestAccessControl(TestCase):
             'pk': '1067'
         }), follow=True)
         self.assertEqual(403, response.status_code)
+
+        # Viewing course leaders
+        response = c.get(reverse('modulesApplication:view-course-leaders'), follow=True)
+        self.assertEqual(403, response.status_code)
