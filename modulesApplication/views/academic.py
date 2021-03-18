@@ -85,7 +85,7 @@ class CourseLeaderListView(LoginRequiredMixin, UserPassesTestMixin, generic.List
 class CourseLeaderUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = CourseLeader
     fields = ['module', 'person', 'term']
-    template_name = 'modulesApplication/academic/crud-templates/AcademicCourseLeaderUpdateTemplate.html'
+    template_name = 'modulesApplication/academic/crud-templates/AcademicGenericUpdateTemplate.html'
 
     def test_func(self):
         return is_staff_or_superuser(self.request.user)
@@ -95,8 +95,18 @@ class CourseLeaderUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.Up
 
 class CourseLeaderDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     model = CourseLeader
-    template_name = 'modulesApplication/academic/crud-templates/GenericDeleteTemplate.html'
+    template_name = 'modulesApplication/academic/crud-templates/AcademicGenericDeleteTemplate.html'
     success_url = reverse_lazy('modulesApplication:view-course-leaders')
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
+
+
+class CourseLeaderCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
+    model = CourseLeader
+    template_name = 'modulesApplication/academic/crud-templates/AcademicGenericCreateTemplate.html'
+    success_url = reverse_lazy('modulesApplication:view-course-leaders')
+    fields=['module', 'person', 'term', 'leader']
 
     def test_func(self):
         return is_staff_or_superuser(self.request.user)

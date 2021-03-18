@@ -1,9 +1,13 @@
-{% extends 'modulesApplication/academic/BaseAcademicListTemplate.html' %}
+{% extends 'modulesApplication/academic/crud-templates/BaseAcademicListTemplate.html' %}
 
 {% block heading %}
     Course Leaders
 {% endblock %}
 {% block table %}
+    <div class="create-new-model-div">
+        <a class="blue-link" href="{% url 'modulesApplication:create-course-leader' %}">Create new? </a>
+    </div>
+
     <table>
         <tr>
             <th>Module</th>
