@@ -9,7 +9,7 @@ from django.views import generic
 
 from modulesApplication.auth.is_staff import is_staff_or_superuser
 from modulesApplication.database.models.module_selection import ModuleSelection
-from modulesApplication.models import Programme
+from modulesApplication.models import Programme, CourseLeader
 from modulesApplication.programmeInfo import csv_converter
 from modulesApplication.views import selections_extra_details
 
@@ -64,6 +64,17 @@ class ProgrammeUpdate(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
     model = Programme
     fields = ['title', 'level']
     template_name = 'modulesApplication/academic/UpdateProgramme.html'
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
+
+
+class CourseLeaderListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+    model = CourseLeader
+    template_name = 'modulesApplication/academic/AcademicCourseLeaderListTemplate.html'
+
+    def get_queryset(self):
+        return CourseLeader.objects.all().order_by('module')
 
     def test_func(self):
         return is_staff_or_superuser(self.request.user)
