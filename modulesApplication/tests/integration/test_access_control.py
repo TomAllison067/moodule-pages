@@ -106,3 +106,19 @@ class TestAccessControl(TestCase):
         # Viewing course leaders
         response = c.get(reverse('modulesApplication:view-course-leaders'), follow=True)
         self.assertEqual(403, response.status_code)
+
+        # Updating course leaders
+        response = c.get(reverse('modulesApplication:update-course-leader', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+
+        # Creating course leaders
+        response = c.get(reverse('modulesApplication:create-course-leader'), follow=True)
+        self.assertEqual(403, response.status_code)
+
+        # Deleting course leaders
+        response = c.get(reverse('modulesApplication:delete-course-leader', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)

@@ -106,7 +106,7 @@ class CourseLeaderCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Cr
     model = CourseLeader
     template_name = 'modulesApplication/academic/crud-templates/AcademicGenericCreateTemplate.html'
     success_url = reverse_lazy('modulesApplication:view-course-leaders')
-    fields=['module', 'person', 'term', 'leader']
+    fields = ['module', 'person', 'term', 'leader']
 
     def test_func(self):
         return is_staff_or_superuser(self.request.user)
