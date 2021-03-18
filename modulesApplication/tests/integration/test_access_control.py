@@ -94,7 +94,7 @@ class TestAccessControl(TestCase):
         last_url, status_code = response.redirect_chain[-1]
         self.assertTrue(last_url.startswith('/accounts/login'))
 
-        # Class-based reviews seem to return a 403 instead of a redirect.
+        # Class-based views seem to return a 403 instead of a redirect.
         response = c.get(reverse('modulesApplication:view-programmes'), follow=True)
         self.assertEqual(403, response.status_code)
 
