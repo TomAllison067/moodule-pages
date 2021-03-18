@@ -12,18 +12,6 @@
 {% block content %}
     <div class="listview-div">
         <h1>{% block heading %}Model name here{% endblock %}</h1>
-        <form method="GET">
-            <label>How many per page?
-                <select name="paginate_by" id="">
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                    <option value="50">50</option>
-                </select>
-            </label>
-            <input type="submit" value="Paginate">
-        </form>
         {% block table %}
         {% endblock %}
         <div class="pagination">
