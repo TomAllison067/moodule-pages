@@ -83,3 +83,11 @@ class CourseLeaderListView(LoginRequiredMixin, UserPassesTestMixin, generic.List
 
     def get_paginate_by(self, queryset):
         return self.request.GET.get("paginate_by", self.paginate_by)
+
+class CourseLeaderUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = CourseLeader
+    fields = ['module', 'person', 'term']
+    template_name = 'modulesApplication/academic/AcademicCourseLeaderUpdateTemplate.html'
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
