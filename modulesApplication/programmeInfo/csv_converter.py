@@ -22,7 +22,7 @@ def model_to_csv(model_class):
     response = HttpResponse(content_type='text/csv')
 
     # initialising the csv writer
-    writer = csv.writer(response, delimiter=',')
+    writer = csv.writer(response)
     # get the headers to write to the top of the csv file
     headers = get_headers(model_class)
     writer.writerow(headers)

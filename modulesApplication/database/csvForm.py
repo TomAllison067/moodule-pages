@@ -22,34 +22,32 @@ class CsvUploadForm(forms.Form):
 
         model_class = models[model]
         headers = (csv_converter.get_headers(model_class))
-        result = []
+        # Wrapping the csv file uploaded to make it easier to read from
         f = io.TextIOWrapper(file)
         reader = csv.DictReader(f, delimiter=',', quotechar='"')
+
+        result = []
+        # used the csv readers created previously
         for row in reader:
+            # checking if the csv file matches the type of model selected
             if headers != reader.fieldnames:
                 return False
             attributes = row
-
-            try:
-                for key, value in attributes.items():
-
-                    print(key)
-                    print(value)
-                    if value.isnumeric():
-                        attributes[key] = int(value)
-                    if value == 'FALSE':
-                        attributes[key] = 0
-                    if value == 'TRUE':
-                        attributes[key] = 1
-            except IndexError:
-                continue
-
+            for key, value in attributes.items():
+                if value.isnumeric():
+                    attributes[key] = int(value)
+                if value == 'FALSE':
+                    attributes[key] = 0
+                if value == 'TRUE':
+                    attributes[key] = 1
             tmp = model_class(*attributes.values())
             tmp.clean()
+            # If a new record is added to the csv file uploaded then the object is created
             if not model_class.objects.filter(pk=tmp.pk).exists():
                 tmp.save()
             result.append(tmp)
 
+        # using bulk_update to efficiently update the database, while not update the private key
         headers.remove(model_class._meta.pk.name)
         for field in headers:
             model_class.objects.bulk_update(result, [field])
