@@ -18,7 +18,7 @@
         </tr>
         {% for course_leader in object_list %}
             <tr>
-                <td>{{ course_leader.module_id }}</td>
+                <td>{{ course_leader.module_id }} - {{ course_leader.module.title }}</td>
                 <td>{{ course_leader.term }}</td>
                 <td>{{ course_leader.person.name }}</td>
                 <td>
