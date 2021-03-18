@@ -25,7 +25,8 @@ academic_patterns = [
     path('view-all-programmes/', academic.ProgrammeIndexView.as_view(), name='view-programmes'),
     path('update-programmes/<str:pk>', academic.ProgrammeUpdate.as_view(), name='update-programmes'),
     path('view-course-leaders/', academic.CourseLeaderListView.as_view(), name='view-course-leaders'),
-    path('update-course-leaders/<str:pk>', academic.CourseLeaderUpdateView.as_view(), name='update-course-leaders')
+    path('update-course-leader/<str:pk>', academic.CourseLeaderUpdateView.as_view(), name='update-course-leader'),
+    path('delete-course-leader/<str:pk>', academic.CourseLeaderDeleteView.as_view(), name='delete-course-leader')
 ]
 
 office_patterns = [

@@ -73,7 +73,7 @@ class ProgrammeUpdate(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
 class CourseLeaderListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
     model = CourseLeader
     paginate_by = 20
-    template_name = 'modulesApplication/academic/AcademicCourseLeaderListTemplate.html'
+    template_name = 'modulesApplication/academic/crud-templates/AcademicCourseLeaderListTemplate.html'
 
     def get_queryset(self):
         return CourseLeader.objects.all().order_by('module')
@@ -85,9 +85,18 @@ class CourseLeaderListView(LoginRequiredMixin, UserPassesTestMixin, generic.List
 class CourseLeaderUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = CourseLeader
     fields = ['module', 'person', 'term']
-    template_name = 'modulesApplication/academic/AcademicCourseLeaderUpdateTemplate.html'
+    template_name = 'modulesApplication/academic/crud-templates/AcademicCourseLeaderUpdateTemplate.html'
 
     def test_func(self):
         return is_staff_or_superuser(self.request.user)
 
     success_url = reverse_lazy('modulesApplication:view-course-leaders')
+
+
+class CourseLeaderDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = CourseLeader
+    template_name = 'modulesApplication/academic/crud-templates/GenericDeleteTemplate.html'
+    success_url = reverse_lazy('modulesApplication:view-course-leaders')
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)

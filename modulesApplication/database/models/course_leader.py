@@ -27,3 +27,6 @@ class CourseLeader(models.Model):
 
     class Meta:
         unique_together = ('module', 'person')  # The "composite key" though not officially supported
+
+    def __str__(self):
+        return 'Course Leader: {}'.format(self.person.name)
