@@ -1,3 +1,7 @@
+
+
+
+
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
@@ -31,7 +35,7 @@
 }
 
 body, html {
-	height: 100%;
+	height: %;
 	font-family: Poppins-Regular, sans-serif;
 }
 
@@ -78,7 +82,6 @@ ul, li {
 
 /*---------------------------------------------*/
 input {
-  color: black !important;
 	outline: none;
 	border: none;
 }
@@ -141,21 +144,22 @@ iframe {
   font-family: Poppins-Regular;
   font-size: 13px;
   line-height: 1.5;
-  color: black;
+  color: #666666;
 }
+
 
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
 
-.page-wrapper {
-  width: 100%;
+.limiter {
+  width: %;
   margin: 0 auto;
 }
 
 .container-login {
-  width: 100%;  
-  min-height: 100vh;
+  width: %;  
+  min-height: vh;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -165,11 +169,11 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #f5af19;
-  background: -webkit-linear-gradient(-135deg, #f12711, #f5af19);
-  background: -o-linear-gradient(-135deg, #f12711, #f5af19);
-  background: -moz-linear-gradient(-135deg, #f12711, #f5af19);
-  background: linear-gradient(-135deg, #f12711, #f5af19);
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
 }
 
 .wrap-login {
@@ -195,7 +199,7 @@ iframe {
 }
 
 .login-pic img {
-  max-width: 100%;
+  max-width: %;
 }
 
 
@@ -211,29 +215,28 @@ iframe {
   color: #333333;
   line-height: 1.2;
   text-align: center;
-
-  width: 100%;
+  width: %;
   display: block;
-  padding-bottom: 54px;
+  padding-bottom: 34px;
 }
 
 
 /*---------------------------------------------*/
 .wrap-input {
   position: relative;
-  width: 100%;
+  width: %;
   z-index: 1;
   margin-bottom: 10px;
 }
 
-.input {
+.form-control {
   font-family: Poppins-Medium;
   font-size: 15px;
   line-height: 1.5;
   color: #666666;
 
   display: block;
-  width: 100%;
+  width: %;
   background: #e6e6e6;
   height: 50px;
   border-radius: 25px;
@@ -250,8 +253,8 @@ iframe {
   bottom: 0;
   left: 0;
   z-index: -1;
-  width: 100%;
-  height: 100%;
+  width: %;
+  height: %;
   box-shadow: 0px 0px 0px 0px;
   color: rgba(87,184,70, 0.8);
 }
@@ -288,8 +291,8 @@ iframe {
   border-radius: 25px;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: %;
+  height: %;
   padding-left: 35px;
   pointer-events: none;
   color: #666666;
@@ -308,7 +311,7 @@ iframe {
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-login-form-btn {
-  width: 100%;
+  width: %;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -326,7 +329,7 @@ iframe {
   color: #fff;
   text-transform: uppercase;
 
-  width: 100%;
+  width: %;
   height: 50px;
   border-radius: 25px;
   background: #57b846;
@@ -372,7 +375,7 @@ iframe {
 
 @media (max-width: 768px) {
   .wrap-login {
-    padding: 100px 80px 33px 80px;
+    padding: px 80px 33px 80px;
   }
 
   .login-pic {
@@ -380,13 +383,13 @@ iframe {
   }
 
   .login-form {
-    width: 100%;
+    width: %;
   }
 }
 
 @media (max-width: 576px) {
   .wrap-login {
-    padding: 100px 15px 33px 15px;
+    padding: px 15px 33px 15px;
   }
 }
 

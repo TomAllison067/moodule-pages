@@ -2,93 +2,103 @@
 
 {% block head_css %}
 {{ block.super }}
+<title>Azure Login Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/login.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/utils.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/bootstrap/css/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/util.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/bootstrap/css/bootstrap.min.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/'vendor/animate/animate.css">
 <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/'vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/'fonts/font-awesome/css/font-awesome">
+<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/'vendor/css-hamburgers/hamburgers.min.css">
+
 {% endblock %}
 
 {% block content %}
-<style>
-    label {
-        color: black;
-    }
 
-    p {
-        color: black !important;
-    }
+<nav class="topbar">
+    </nav>
+</label>
 
-    input {
-        color: black !important;
-    }
-</style>
-
-<div class="page-wrapper">
-    <div class="container-login">
-        <div class="wrap-login">
-            <div class="login-pic js-tilt" data-tilt>
-                <img src="{% static 'modulesApplication/images/logo/mlogo-login.png' %}" </div>
-
-                <form class="login-form.validate">
-                    <span class="login-title">
-                        {% if not user.is_authenticated %}
-                        <a href="{% url 'social:begin' 'azuread-tenant-oauth2' %}?next={{ request.path }}">Azure Login
-                            Page</a>
-                        {% if form.errors %}
-                        <p>Your username and password didn't match. Please try again.</p>
-                        {% endif %}
-                    </span>
-                </form>
-
-                <div class="wrap-input">
-                    <div>
-                        <form method="post" action="{% url 'login' %}">
-                            {% csrf_token %}
-                            <table>
-                                <tr>
-                                    <td>{{ form.username.label_tag }}</td>
-                                    <td>{{ form.username }}</td>
-                                </tr>
-                                <tr>
-                                    <td>{{ form.password.label_tag }}</td>
-                                    <td>{{ form.password }}</td>
-                                </tr>
-                            </table>
-
-                            <div class="container-login-form-btn">
-                                <button class="login-form-btn" type="submit" value="Login">
-                                    Login
-                                </button>
-                                <button type="hidden" name="next" value="{{ next }}">
-                                </button>
-                            </div>
-
-                            <div class="text-center p-t-12">
-                                <span class="txt1">
-                                    Forgot
-                                </span>
-                                <a class="txt2" href="#">
-                                    Username / Password?
-                                </a>
-                            </div>
-        
-                            <div class="text-center p-t-136">
-                                <p class="txt2">
-                                    Group 34
-                                    <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                                </p>
-                            </div>    
-
-                        </form>
-                        {% else %}
-                        <p>Successfully signed in.</p>
-                        {% endif %}
-                    </div>
-                </div>
+<body>
+	<div class="limiter">
+        {% if not user.is_authenticated %}
+		<div class="container-login">
+			<div class="wrap-login">
+				<div class="login-pic js-tilt" data-tilt>
+					<img src="{% static 'modulesApplication/images/logo/mlogo-login.png' %}"
+				</div>
             </div>
-        </div>
 
+            <form class="login-form" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <span class="login-form-title">
+                    Azure Login Page
+                </span>
 
-        {% endblock %}
+					<div class="wrap-input">
+						<input class="form-control" type="text" name="username" placeholder="Email">
+						<span class="focus-input"></span>
+					</div>
+
+					<div class="wrap-input">
+						<input class="form-control" type="password" name="password" placeholder="Password">
+						<span class="focus-input"></span>
+					</div>
+					
+					<div class="container-login-form-btn">
+						<button class="login-form-btn">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Forgot
+						</span>
+						<a class="txt2" href="#">
+							Username / Password?
+						</a>
+					</div>
+
+                    <div class="text-center p-t-136">
+						<h class="txt2" href="#">
+							Group 34
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+            {% else %}
+                <p>Successfully signed in.</p>
+            {% endif %}
+            {% if not user.is_authenticated %}
+                {% if form.errors %}
+                    <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+            {% endif %}
+			</div>
+		</div>
+	</div>
+</body>
+{% endblock %}
+
+{% block scripts %}
+<!--===============================================================================================-->	
+    <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js"></script>
+{% endblock %}
