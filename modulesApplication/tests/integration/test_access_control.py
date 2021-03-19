@@ -123,22 +123,30 @@ class TestAccessControl(TestCase):
         }), follow=True)
         self.assertEqual(403, response.status_code)
 
-        # Viewing course leaders
+        # MODULES
         response = c.get(reverse('modulesApplication:staff-view-modules'), follow=True)
         self.assertEqual(403, response.status_code)
-
-        # Updating course leaders
         response = c.get(reverse('modulesApplication:staff-update-module', kwargs={
             'pk': 'not-necessary'
         }), follow=True)
         self.assertEqual(403, response.status_code)
-
-        # Creating course leaders
         response = c.get(reverse('modulesApplication:staff-create-module'), follow=True)
         self.assertEqual(403, response.status_code)
-
-        # Deleting course leaders
         response = c.get(reverse('modulesApplication:staff-delete-module', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+
+        # PEOPLE
+        response = c.get(reverse('modulesApplication:staff-view-people'), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-update-person', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-create-person'), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-delete-person', kwargs={
             'pk': 'not-necessary'
         }), follow=True)
         self.assertEqual(403, response.status_code)
