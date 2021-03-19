@@ -54,7 +54,15 @@ crud_patterns = [
     path('staff-update-person/<str:pk>', modulesApplication.views.office_crud_views.PeopleUpdateView.as_view(),
          name='staff-update-person'),
     path('staff-delete-person/<str:pk>', modulesApplication.views.office_crud_views.PeopleDeleteView.as_view(),
-         name='staff-delete-person')
+         name='staff-delete-person'),
+    path('staff-view-strands/', modulesApplication.views.office_crud_views.StrandListView.as_view(),
+         name='staff-view-strands'),
+    path('staff-create-strand/', modulesApplication.views.office_crud_views.StrandCreateView.as_view(),
+         name='staff-create-strand'),
+    path('staff-update-strand/<str:pk>', modulesApplication.views.office_crud_views.StrandUpdateView.as_view(),
+         name='staff-update-strand'),
+    path('staff-delete-strand/<str:pk>', modulesApplication.views.office_crud_views.StrandDeleteView.as_view(),
+         name='staff-delete-strand')
 ]
 
 office_patterns = [

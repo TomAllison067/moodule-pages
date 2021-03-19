@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from modulesApplication.auth.is_staff import is_staff_or_superuser
-from modulesApplication.models import CourseLeader, Programme, Module, People
+from modulesApplication.models import CourseLeader, Programme, Module, People, Strands
 
 
 class ProgrammeIndexView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
@@ -193,6 +193,69 @@ class PeopleDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVi
     model = People
     template_name = 'modulesApplication/office/crud-templates/OfficeGenericDeleteTemplate.html'
     success_url = reverse_lazy('modulesApplication:staff-view-people')
+
+    def get_context_data(self, **kwargs):
+        """Add the models verbose name to the context dictionary."""
+        kwargs.update({
+            "verbose_name": self.model._meta.verbose_name, })
+        return super().get_context_data(**kwargs)
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
+
+
+# ====================================================================================
+
+# ====================================================================================
+# Strands
+class StrandListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+    model = Strands
+    paginate_by = 20
+    template_name = 'modulesApplication/office/crud-templates/OfficeStrandListTemplate.html'
+
+    def get_queryset(self):
+        return Strands.objects.all().order_by('module')
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
+
+
+class StrandCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
+    model = Strands
+    template_name = 'modulesApplication/office/crud-templates/OfficeGenericCreateTemplate.html'
+    success_url = reverse_lazy('modulesApplication:staff-view-strands')
+    fields = ['module', 'strand']
+
+    def get_context_data(self, **kwargs):
+        """Add the models verbose name to the context dictionary."""
+        kwargs.update({
+            "verbose_name": self.model._meta.verbose_name, })
+        return super().get_context_data(**kwargs)
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
+
+
+class StrandUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = Strands
+    template_name = 'modulesApplication/office/crud-templates/OfficeGenericUpdateTemplate.html'
+    success_url = reverse_lazy('modulesApplication:staff-view-strands')
+    fields = ['module', 'strand']
+
+    def get_context_data(self, **kwargs):
+        """Add the models verbose name to the context dictionary."""
+        kwargs.update({
+            "verbose_name": self.model._meta.verbose_name, })
+        return super().get_context_data(**kwargs)
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
+
+
+class StrandDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = Strands
+    template_name = 'modulesApplication/office/crud-templates/OfficeGenericDeleteTemplate.html'
+    success_url = reverse_lazy('modulesApplication:staff-view-strands')
 
     def get_context_data(self, **kwargs):
         """Add the models verbose name to the context dictionary."""
