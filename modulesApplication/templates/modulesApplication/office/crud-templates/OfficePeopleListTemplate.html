@@ -1,0 +1,34 @@
+{% extends 'modulesApplication/office/crud-templates/BaseOfficeListTemplate.html' %}
+
+{% block heading %}
+    People
+{% endblock %}
+{% block table %}
+    <div class="create-new-model-div">
+        <a class="blue-link" href="{% url 'modulesApplication:staff-create-person' %}">Create new? </a>
+    </div>
+    <table>
+        <tr>
+            <th>ID / Initials</th>
+            <th>Name</th>
+            <th>Email address</th>
+            <th>Update?</th>
+            <th>Delete?</th>
+        </tr>
+        {% for person in object_list %}
+            <tr>
+                <td>{{ person.id }}</td>
+                <td>{{ person.name }}</td>
+                <td>{{ person.email }}</td>
+                <td>
+                    <a class="blue-link"
+                       href="{% url 'modulesApplication:staff-update-person' pk=person.id %}">Update/Modify</a>
+                </td>
+                <td>
+                    <a class="blue-link"
+                       href="{% url 'modulesApplication:staff-delete-person' pk=person.id %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

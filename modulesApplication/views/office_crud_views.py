@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from modulesApplication.auth.is_staff import is_staff_or_superuser
-from modulesApplication.models import CourseLeader, Programme, Module
+from modulesApplication.models import CourseLeader, Programme, Module, People
 
 
 class ProgrammeIndexView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
@@ -143,6 +143,69 @@ class ModuleDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVi
     model = Module
     template_name = 'modulesApplication/office/crud-templates/OfficeGenericDeleteTemplate.html'
     success_url = reverse_lazy('modulesApplication:staff-view-modules')
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
+
+
+# ====================================================================================
+
+# ====================================================================================
+# People
+class PeopleListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+    model = People
+    paginate_by = 20
+    template_name = 'modulesApplication/office/crud-templates/OfficePeopleListTemplate.html'
+
+    def get_queryset(self):
+        return People.objects.all().order_by('id')
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
+
+
+class PeopleCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
+    model = People
+    template_name = 'modulesApplication/office/crud-templates/OfficeGenericCreateTemplate.html'
+    success_url = reverse_lazy('modulesApplication:staff-view-people')
+    fields = '__all__'
+
+    def get_context_data(self, **kwargs):
+        """Add the models verbose name to the context dictionary."""
+        kwargs.update({
+            "verbose_name": self.model._meta.verbose_name, })
+        return super().get_context_data(**kwargs)
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
+
+
+class PeopleUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = People
+    template_name = 'modulesApplication/office/crud-templates/OfficeGenericUpdateTemplate.html'
+    success_url = reverse_lazy('modulesApplication:staff-view-people')
+    fields = '__all__'
+
+    def get_context_data(self, **kwargs):
+        """Add the models verbose name to the context dictionary."""
+        kwargs.update({
+            "verbose_name": self.model._meta.verbose_name, })
+        return super().get_context_data(**kwargs)
+
+    def test_func(self):
+        return is_staff_or_superuser(self.request.user)
+
+
+class PeopleDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = People
+    template_name = 'modulesApplication/office/crud-templates/OfficeGenericDeleteTemplate.html'
+    success_url = reverse_lazy('modulesApplication:staff-view-people')
+
+    def get_context_data(self, **kwargs):
+        """Add the models verbose name to the context dictionary."""
+        kwargs.update({
+            "verbose_name": self.model._meta.verbose_name, })
+        return super().get_context_data(**kwargs)
 
     def test_func(self):
         return is_staff_or_superuser(self.request.user)
