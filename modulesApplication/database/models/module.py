@@ -37,6 +37,8 @@ class Module(models.Model):
     prerequisites = models.TextField(blank=True, null=True)
     banned_combinations = models.TextField(blank=True, null=True)
     learning_outcomes = models.TextField(blank=True, null=True)
+    core_reading = models.TextField(blank=True, null=True)
+    exam_format = models.TextField(blank=True, null=True)
     summary = models.TextField(blank=True, null=True)
     status = models.TextField(blank=True, null=True, choices=StatusChoices.choices)
     project = models.BooleanField(blank=True, null=True)
