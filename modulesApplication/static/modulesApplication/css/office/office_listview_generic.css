@@ -17,3 +17,21 @@ table, th, td {
   width: auto;
 }
 
+textarea {
+    height: 2em;
+    width: 25em;
+}
+
+.table-big-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.table-big-col {
+  margin: 10px;
+}
+
+.crud-header {
+  text-align: center;
+}

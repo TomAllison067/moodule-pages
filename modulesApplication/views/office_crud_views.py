@@ -45,6 +45,12 @@ class CourseLeaderUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.Up
     fields = ['module', 'person', 'term']
     template_name = 'modulesApplication/office/crud-templates/OfficeGenericUpdateTemplate.html'
 
+    def get_context_data(self, **kwargs):
+        """Add the models verbose name to the context dictionary."""
+        kwargs.update({
+            "verbose_name": self.model._meta.verbose_name, })
+        return super().get_context_data(**kwargs)
+
     def test_func(self):
         return is_staff_or_superuser(self.request.user)
 
@@ -65,6 +71,12 @@ class CourseLeaderCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Cr
     template_name = 'modulesApplication/office/crud-templates/OfficeGenericCreateTemplate.html'
     success_url = reverse_lazy('modulesApplication:view-course-leaders')
     fields = ['module', 'person', 'term', 'leader']
+
+    def get_context_data(self, **kwargs):
+        """Add the models verbose name to the context dictionary."""
+        kwargs.update({
+            "verbose_name": self.model._meta.verbose_name, })
+        return super().get_context_data(**kwargs)
 
     def test_func(self):
         return is_staff_or_superuser(self.request.user)
@@ -96,6 +108,12 @@ class ModuleCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateVi
               'books_to_purchase', 'core_reading', 'exam_format', 'status', 'project', 'lab_hours',
               'deg_progs']
 
+    def get_context_data(self, **kwargs):
+        """Add the models verbose name to the context dictionary."""
+        kwargs.update({
+            "verbose_name": self.model._meta.verbose_name, })
+        return super().get_context_data(**kwargs)
+
     def test_func(self):
         return is_staff_or_superuser(self.request.user)
 
@@ -108,6 +126,12 @@ class ModuleUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVi
               'books_to_purchase', 'core_reading', 'exam_format', 'status', 'project', 'lab_hours',
               'deg_progs']
     template_name = 'modulesApplication/office/crud-templates/OfficeGenericUpdateTemplate.html'
+
+    def get_context_data(self, **kwargs):
+        """Add the models verbose name to the context dictionary."""
+        kwargs.update({
+            "verbose_name": self.model._meta.verbose_name, })
+        return super().get_context_data(**kwargs)
 
     def test_func(self):
         return is_staff_or_superuser(self.request.user)
