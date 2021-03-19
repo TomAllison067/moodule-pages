@@ -338,6 +338,93 @@
     font-size: 18px;
 }
 
+/* --[[ OFFICE FORM ]] -- */
+
+.lp-form {
+    margin: auto;
+    padding: 10px;
+    width: 90%;
+    height: 90%;
+    display: block;
+    box-sizing: border-box;
+    background-image: linear-gradient(black, rgb(27, 27, 27));
+    background-size: cover;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.25s;
+}
+
+.lp-form form label {
+    display: block;
+    font-size: 18px;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+
+.lp-form form input[type="submit"] {
+    background: orangered;
+    width: 70%;
+    height: 33px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    padding: 3px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    transition: 0.15s;
+}
+
+.lp-form form input[type="submit"]:hover {
+    background: rgb(255, 121, 63);
+    width: 80%;
+}
+
+.lp-form form select {
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 2px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    width: 80%;
+    background: rgb(38, 38, 38);
+    border-left: 5px orangered solid;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    transition: 0.15s;
+}
+
+.lp-form form select:hover {
+    width: 85%;
+    background: rgb(255, 255, 255);
+    color: black;
+    border-left: 5px white solid;
+}
+
+.lp-form form select option {
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 18px;
+    background: rgb(38, 38, 38);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+
+
+.lp-form form select option, select option {
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 18px;
+    background: rgb(38, 38, 38);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+
+
 /* --[[ MEDIA QUERIES - RESPONSIVE SIZES ]]-- */
 /* Smaller-screen e.g. mobile, tablet */
 @media only screen and (max-width: 900px) {
