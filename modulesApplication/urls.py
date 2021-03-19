@@ -38,7 +38,15 @@ crud_patterns = [
     path('delete-course-leader/<str:pk>', modulesApplication.views.office_crud_views.CourseLeaderDeleteView.as_view(),
          name='delete-course-leader'),
     path('create-course-leader/', modulesApplication.views.office_crud_views.CourseLeaderCreateView.as_view(),
-         name='create-course-leader')
+         name='create-course-leader'),
+    path('staff-view-modules/', modulesApplication.views.office_crud_views.ModuleListView.as_view(),
+         name='staff-view-modules'),
+    path('staff-create-module/', modulesApplication.views.office_crud_views.ModuleCreateView.as_view(),
+         name='staff-create-module'),
+    path('staff-update-module/<str:pk>', modulesApplication.views.office_crud_views.ModuleUpdateView.as_view(),
+         name='staff-update-module'),
+    path('staff-delete-module/<str:pk>', modulesApplication.views.office_crud_views.ModuleDeleteView.as_view(),
+         name='staff-delete-module')
 ]
 
 office_patterns = [

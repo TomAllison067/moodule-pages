@@ -1,0 +1,43 @@
+{% extends 'modulesApplication/office/crud-templates/BaseOfficeListTemplate.html' %}
+
+{% block heading %}
+    Modules
+{% endblock %}
+{% block table %}
+    <div class="create-new-model-div">
+        <a class="blue-link" href="{% url 'modulesApplication:staff-create-module' %}">Create new? </a>
+    </div>
+
+    <table>
+        <tr>
+            <th>Module</th>
+            <th>JACOS</th>
+            <th>Level</th>
+            <th>Department</th>
+            <th>Credits</th>
+            <th>Prerequisites</th>
+            <th>Status</th>
+            <th>Update?</th>
+            <th>Delete?</th>
+        </tr>
+        {% for module in object_list %}
+            <tr>
+                <td>{{ module.mod_code }} - {{ module.title }}</td>
+                <td>{{ module.jacos_code }}</td>
+                <td>{{ module.level }}</td>
+                <td>{{ module.department }}</td>
+                <td>{{ module.credits }}</td>
+                <td>{{ module.prerequisites|slice:":50" }}{% if module.prerequisites|length > 50 %}... {% endif %}</td>
+                <td>{{ module.status }}</td>
+                <td>
+                    <a class="blue-link"
+                       href="{% url 'modulesApplication:staff-update-module' pk=module.mod_code %}">Update/Modify</a>
+                </td>
+                <td>
+                    <a class="blue-link"
+                       href="{% url 'modulesApplication:staff-delete-module' pk=module.mod_code %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
