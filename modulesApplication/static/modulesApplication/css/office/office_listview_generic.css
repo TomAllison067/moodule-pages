@@ -4,6 +4,7 @@ table, th, td {
   padding: 4px;
   background: whitesmoke;
   color: black;
+  margin: 20px 20px;
 }
 
 .flex-centre {
@@ -17,6 +18,17 @@ table, th, td {
   width: auto;
 }
 
+.listview-div h1 {
+  text-align: center;
+}
+
+.create-new-model-div {
+  text-align: center;
+}
+
+.pagination {
+  text-align: center;
+}
 textarea {
     height: 2em;
     width: 25em;

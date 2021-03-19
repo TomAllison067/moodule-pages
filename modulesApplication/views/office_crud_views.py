@@ -102,11 +102,8 @@ class ModuleCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateVi
     model = Module
     template_name = 'modulesApplication/office/crud-templates/OfficeGenericCreateTemplate.html'
     success_url = reverse_lazy('modulesApplication:staff-view-modules')
-    fields = ['mod_code', 'jacs_code', 'hecos_code', 'title', 'short_title', 'level', 'department',
-              'with_effect_from', 'availability_terms', 'credits', 'corequisites', 'prerequisites',
-              'banned_combinations', 'learning_outcomes', 'summary', 'notional_learning_hours',
-              'books_to_purchase', 'core_reading', 'exam_format', 'status', 'project', 'lab_hours',
-              'deg_progs']
+    fields = ['mod_code', 'title', 'level', 'credits', 'corequisites', 'prerequisites',
+              'banned_combinations', 'learning_outcomes', 'summary', 'status', 'project']
 
     def get_context_data(self, **kwargs):
         """Add the models verbose name to the context dictionary."""
@@ -120,11 +117,8 @@ class ModuleCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateVi
 
 class ModuleUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Module
-    fields = ['mod_code', 'jacs_code', 'hecos_code', 'title', 'short_title', 'level', 'department',
-              'with_effect_from', 'availability_terms', 'credits', 'corequisites', 'prerequisites',
-              'banned_combinations', 'learning_outcomes', 'summary', 'notional_learning_hours',
-              'books_to_purchase', 'core_reading', 'exam_format', 'status', 'project', 'lab_hours',
-              'deg_progs']
+    fields = ['mod_code', 'title', 'level', 'credits', 'corequisites', 'prerequisites',
+              'banned_combinations', 'learning_outcomes', 'summary', 'status', 'project']
     template_name = 'modulesApplication/office/crud-templates/OfficeGenericUpdateTemplate.html'
 
     def get_context_data(self, **kwargs):

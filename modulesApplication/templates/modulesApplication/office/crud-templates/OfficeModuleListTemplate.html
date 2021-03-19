@@ -10,23 +10,27 @@
     <table>
         <tr>
             <th>Module</th>
-            <th>JACOS</th>
             <th>Level</th>
-            <th>Department</th>
             <th>Credits</th>
             <th>Prerequisites</th>
+            <th>Banned Combinations</th>
+            <th>Learning Outcomes</th>
+            <th>Summary</th>
+            <th>Project</th>
             <th>Status</th>
             <th>Update?</th>
             <th>Delete?</th>
         </tr>
         {% for module in object_list %}
             <tr>
-                <td>{{ module.mod_code }} - {{ module.title }}</td>
-                <td>{{ module.jacos_code }}</td>
+                <td>{{ module.mod_code }} - {{ module.title|slice:":50" }}{% if module.title|length > 50 %}... {% endif %}</td>
                 <td>{{ module.level }}</td>
-                <td>{{ module.department }}</td>
                 <td>{{ module.credits }}</td>
-                <td>{{ module.prerequisites|slice:":50" }}{% if module.prerequisites|length > 50 %}... {% endif %}</td>
+                <td>{{ module.prerequisites|slice:":30" }}{% if module.prerequisites|length > 30 %}... {% endif %}</td>
+                <td>{{ module.banned_combinations|slice:":30" }}{% if module.banned_combinations|length > 30 %}... {% endif %}</td>
+                <td>{{ module.learning_outcomes|slice:":30" }}{% if module.learning_outcomes|length > 30 %}... {% endif %}</td>
+                <td>{{ module.summary|slice:":30" }}{% if module.summary|length > 30 %}... {% endif %}</td>
+                <td>{{ module.project }}</td>
                 <td>{{ module.status }}</td>
                 <td>
                     <a class="blue-link"
