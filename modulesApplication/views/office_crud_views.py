@@ -117,9 +117,10 @@ class ModuleCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateVi
 
 class ModuleUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Module
-    fields = ['mod_code', 'title', 'level', 'credits', 'corequisites', 'prerequisites',
+    fields = ['title', 'level', 'credits', 'corequisites', 'prerequisites',
               'banned_combinations', 'learning_outcomes', 'summary', 'status', 'project']
     template_name = 'modulesApplication/office/crud-templates/OfficeGenericUpdateTemplate.html'
+    success_url = reverse_lazy('modulesApplication:staff-view-modules')
 
     def get_context_data(self, **kwargs):
         """Add the models verbose name to the context dictionary."""
@@ -129,8 +130,6 @@ class ModuleUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVi
 
     def test_func(self):
         return is_staff_or_superuser(self.request.user)
-
-    success_url = reverse_lazy('modulesApplication:staff-view-modules')
 
 
 class ModuleDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
@@ -178,7 +177,7 @@ class PeopleUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVi
     model = People
     template_name = 'modulesApplication/office/crud-templates/OfficeGenericUpdateTemplate.html'
     success_url = reverse_lazy('modulesApplication:staff-view-people')
-    fields = '__all__'
+    fields = ['name', 'email']
 
     def get_context_data(self, **kwargs):
         """Add the models verbose name to the context dictionary."""

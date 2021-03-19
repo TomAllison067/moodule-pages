@@ -4,11 +4,11 @@ from django.utils.translation import gettext_lazy as _
 from modulesApplication.models import ModuleSelection
 
 
-class LevelChoices(models.TextChoices):
-    FOUR = '4', _('4')
-    FIVE = '5', _('5')
-    SIX = '6', _('6')
-    SEVEN = '7', _('7')
+class LevelChoices(models.IntegerChoices):
+    FOUR = 4, _('4')
+    FIVE = 5, _('5')
+    SIX = 6, _('6')
+    SEVEN = 7, _('7')
 
 
 class CreditsChoices(models.IntegerChoices):
