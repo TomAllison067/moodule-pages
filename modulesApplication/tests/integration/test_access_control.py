@@ -150,3 +150,17 @@ class TestAccessControl(TestCase):
             'pk': 'not-necessary'
         }), follow=True)
         self.assertEqual(403, response.status_code)
+
+        # STRANDS
+        response = c.get(reverse('modulesApplication:staff-view-strands'), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-update-strand', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-create-strand'), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-delete-strand', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
