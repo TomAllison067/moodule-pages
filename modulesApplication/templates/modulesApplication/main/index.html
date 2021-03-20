@@ -22,19 +22,8 @@
         <div class="main-content">
             <h1>moodule</h1>
             <p>Welcome to your module selection portal, Moodule </p> <br>
-
-            <br>
             {% if user.is_authenticated %}
             <h4>Welcome {{ user.first_name }}!</h4><br>
-<!--            <a href="{% url 'modulesApplication:student-landing' %}">-->
-<!--                <i class="fas fa-sign-in-alt"> </i> Student Landing Page-->
-<!--            </a><br>-->
-<!--            <a href="{% url 'modulesApplication:office-landing' %}">-->
-<!--                <i class="fas fa-sign-in-alt"> </i> Office Landing Page-->
-<!--            </a><br>-->
-<!--            <a href="{% url 'modulesApplication:academic-landing' %}">-->
-<!--                <i class="fas fa-sign-in-alt"> </i> Academic Landing Page-->
-<!--            </a>-->
             {% else %}
             <div class="in-middle">
                 <a href="{% url 'login' %}">
