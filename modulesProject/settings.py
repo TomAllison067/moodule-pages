@@ -54,6 +54,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.8000',
     '127.0.0.1',
+    '.herokuapp.com',
 ]
 
 # Application definition
@@ -191,5 +192,3 @@ TESTING = 'test' in sys.argv
 
 AUTH_LDAP_BIND_DN = env('username')
 AUTH_LDAP_BIND_DN = env('password')
-
-django_heroku.settings(locals())
