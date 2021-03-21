@@ -21,8 +21,7 @@ student_patterns = [
 ]
 
 academic_patterns = [
-    path('landing/', academic.landing, name='academic-landing'),
-    path('selection-requests/', academic.selection_requests, name='academic-selection-requests'),
+    # As of 21/03/21, academic and office staff features have merged. - Keiru
 ]
 
 # URLs for the generic crud views, to be included in the office urls.

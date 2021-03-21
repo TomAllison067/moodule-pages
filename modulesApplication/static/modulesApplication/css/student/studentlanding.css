@@ -184,7 +184,7 @@
 }
 
 .lp-box:hover > a .lp-content .icon-box p {
-    transform: translateY(0%);
+    /*transform: translateY(50%);*/
     opacity: 100%;
 }
 
@@ -250,7 +250,7 @@
 .lp-content {
     margin: auto;
     width: 90%;
-    height: 80%;
+    height: 90%;
     display: block;
     box-sizing: border-box;
     background-image: linear-gradient(black, rgb(27, 27, 27));
@@ -261,6 +261,7 @@
     cursor: pointer;
     position: relative;
     transition: 0.25s;
+    padding: 15px 0;
 }
 
 .lp-box a .lp-content .term-module-list {
@@ -294,13 +295,17 @@
     padding: 5px;
 }
 
+.lp-content li :hover {
+    background-color: rgba(0,0,0,0.3);
+}
+
 .lp-content * {
     color: white;
 }
 
 .icon-box > p {
-    opacity: 0;
-    transform: translateY(150%);
+    opacity: 80;
+    /*transform: translateY(150%);*/
     transition: transform 0.25s;
 }
 

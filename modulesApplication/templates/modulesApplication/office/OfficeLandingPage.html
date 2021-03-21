@@ -4,147 +4,154 @@
 {% block title %}Office Landing Page{% endblock %}
 
 {% block head_css %}
-    {{ block.super }}
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/student/studentlanding.css' %}">
+{{ block.super }}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/student/studentlanding.css' %}">
 {% endblock %}
 
 {% block content %}
-        <!-- IMAGE SLIDER -->
-        <div class="slider">
-            <div class="slides">
-                <!--RADIO BUTTONS -->
-                <input type="radio" name="radio-btn" id="radio1">
-                <input type="radio" name="radio-btn" id="radio2">
-                <input type="radio" name="radio-btn" id="radio3">
+<!-- IMAGE SLIDER -->
+<div class="slider">
+    <div class="slides">
+        <!--RADIO BUTTONS -->
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
 
-                <!-- SLIDE IMAGES -->
-                <div class="slide first">
-                    <div class="slide-content">
-                        <h2> Office Staff Portal </h2> 
-                        <p> Welcome to Moodule. This is the online learning environment to access information about students' chosen courses
-                            with
-                            the given modules for the academic year 20/21.</p>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">
-                        <h2> Welcome to moodule </h2> 
-                        <p> This is your online learning environment to access information about your chosen course with
-                            the
-                            given modules for the academic year 20/21.</p>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">
-                        <h2> Welcome to moodule </h2> 
-                        <p> This is your online learning environment to access information about your chosen course with
-                            the
-                            given modules for the academic year 20/21.</p>
-                    </div>
-                </div>
-
-                <!-- AUTOMATIC NAVIGATION OF SLIDES-->
-                <div class="navigation-auto">
-                    <div class="auto-btn1"></div>
-                    <div class="auto-btn2"></div>
-                    <div class="auto-btn3"></div>
-                </div>
-
+        <!-- SLIDE IMAGES -->
+        <div class="slide first">
+            <div class="slide-content">
+                <h2> Office Staff Portal </h2>
+                <p> Welcome to Moodule. This is the online learning environment to access information about students'
+                    chosen courses
+                    with
+                    the given modules for the academic year 20/21.</p>
             </div>
-            <!--MANUAL NAVIGATION OF SLIDES-->
-            <div class="navigation-manual">
-                <label for="radio1" class="manual-btn"></label>
-                <label for="radio2" class="manual-btn"></label>
-                <label for="radio3" class="manual-btn"></label>
+        </div>
+        <div class="slide">
+            <div class="slide-content">
+                <h2> Welcome to moodule </h2>
+                <p> This is your online learning environment to access information about your chosen course with
+                    the
+                    given modules for the academic year 20/21.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide-content">
+                <h2> Welcome to moodule </h2>
+                <p> This is your online learning environment to access information about your chosen course with
+                    the
+                    given modules for the academic year 20/21.</p>
             </div>
         </div>
 
-        <!-- LANDING PAGE CONTAINER -->
-        <div class="lp-container">
-
-            <!-- VIEW STUDENTS & CSVs BOX -->
-            <div class="lp-box" id="lpb-mc">
-                {#<!--            The contents of the href are: {% url '#'%} without the full stop of course--> #}
-                <a href="{% url 'modulesApplication:office-landing' %}" class="b-btn">
-                    <h2> Downloadable CSVs </h2>
-                    <div class="lp-content" id="lpc-cm">
-                        <div class="lp-content" style="padding: 10px;">
-
-                            <div class="term-module-list">
-                                <ul>
-                                    <li><a href="{% url 'modulesApplication:csv' 'Programme' %}">All Programmes</a></li>
-                                    <li><a href="{% url 'modulesApplication:csv' 'Module'%}"> All Modules</a></li>
-                                    <li><a href="{% url 'modulesApplication:csv' 'ModuleSelection'%}">Student Module Selection Requests</a></li>
-                                </ul>
-                            </div>
-                            <br>
-
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="lp-box" id="lpb-ac">
-                <a class="b-btn">
-                    <h2> Uploading CSV Changes</h2>
-                    <div class="lp-content" id="lpc-ac">
-                        <div style="font-size: 15px">
-                            Uploading a CSV:  First line headers, Each value separated by commas <br><br>
-                            Tip: Download a CSV for the data you wish to change as a guide
-                        </div>
-                        <div class="lp-content" style="padding: 10px;">
-                            <form action="{% url 'modulesApplication:office-landing' %}" method="post" ,
-                                  enctype="multipart/form-data" class="form_csv">
-                                {% csrf_token %}
-                                <!-- To add styling to the form need to add a class in modulesApplication/database/csvForm.py -->
-                                {{ form }}
-                                <input class="manual-btn" type="submit" value="submit"/>
-                            </form>
-                        </div>
-                    </div></a>
-
-            </div>
-
-            <!-- ALL COURSES BOX -->
-            <div class="lp-box" id="lpb-ac">
-                <a href="{% url 'modulesApplication:all-modules' %}" class="b-btn">
-                    <h2> all courses </h2>
-                    <div class="lp-content" id="lpc-ac">
-                        <div class="icon-box">
-                            <div class="icon-effect">
-                                <i class="fas fa-book"></i> 
-                            </div> <br>
-                            <br>
-                            <hr class="solid">
-                            <br>
-                            <p> View the complete degree specification and requirements for all the available courses
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+        <!-- AUTOMATIC NAVIGATION OF SLIDES-->
+        <div class="navigation-auto">
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="auto-btn3"></div>
         </div>
 
-         <!-- AUTOMATIC NAVIGATION SCRIPT-->
-         <script>
-            let counter = 1;
-            setInterval(function () {
-                document.getElementById('radio' + counter).checked = true;
-                counter++;
-                if (counter > 4) {
-                    counter = 1;
-                }
-            }, 15000);
-        </script>
+    </div>
+    <!--MANUAL NAVIGATION OF SLIDES-->
+    <div class="navigation-manual">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+    </div>
+</div>
 
-    {% autoescape off %}
-        <script>
-        window.onload = function () {
-            var db_reply = "{{ message }}";
-            if ( db_reply !== ''){
-                alert(db_reply)
-            }
-        };
-        </script>
-    {% endautoescape %}
+<!-- LANDING PAGE CONTAINER -->
+<div class="lp-container">
+
+    <!-- Downloadable CSVs BOX -->
+    <div class="lp-box" id="lpb-mc">
+        {#<!--            The contents of the href are: {% url '#'%} without the full stop of course--> #}
+        <a href="{% url 'modulesApplication:office-landing' %}" class="b-btn">
+            <h2> Downloadable CSVs </h2>
+            <div class="lp-content" id="lpc-cm">
+                <div class="lp-content">
+
+                    <div class="term-module-list">
+                        <ul>
+                            <li><a href="{% url 'modulesApplication:csv' 'Programme' %}">All Programmes</a></li>
+                            <li><a href="{% url 'modulesApplication:csv' 'Module'%}"> All Modules</a></li>
+                            <li><a href="{% url 'modulesApplication:csv' 'ModuleSelection'%}">Student Module Selection
+                                Requests</a></li>
+                        </ul>
+                    </div>
+                    <br>
+
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="lp-box" id="lpb-ac">
+        <a class="b-btn">
+            <h2> Uploading CSV Changes</h2>
+            <div class="lp-content" id="lpc-ac">
+                <div style="font-size: 15px">
+                    Uploading a CSV: First line headers, Each value separated by commas <br><br>
+                    Tip: Download a CSV for the data you wish to change as a guide. <br>
+                </div>
+                <div class="lp-content" style="padding: 10px;">
+                    <form action="{% url 'modulesApplication:office-landing' %}" method="post" ,
+                          enctype="multipart/form-data" class="form_csv">
+                        {% csrf_token %}
+                        <!-- To add styling to the form need to add a class in modulesApplication/database/csvForm.py -->
+                        {{ form }}
+                        <input class="manual-btn" type="submit" value="submit"/>
+                    </form>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- ALL COURSES BOX -->
+    <div class="lp-box" id="lpb-ac">
+        <a href="" class="b-btn">
+            <h2> Configurations </h2>
+            <div class="lp-content" id="lpc-ac">
+                <div class="lp-content">
+
+                    <div class="term-module-list">
+                        <ul>
+                            <li><a href="{% url 'modulesApplication:view-course-leaders' %}">Configure Course
+                                Leaders</a></li>
+                            <li><a href="{% url 'modulesApplication:staff-view-modules' %}"> Configure Modules</a></li>
+                            <li><a href="{% url 'modulesApplication:staff-view-people' %}">Configure People</a></li>
+                            <li><a href="{% url 'modulesApplication:staff-view-strands' %}">Configure Strands</a></li>
+                        </ul>
+                    </div>
+                    <br>
+
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- AUTOMATIC NAVIGATION SCRIPT-->
+<script>
+    let counter = 1;
+    setInterval(function () {
+        document.getElementById('radio' + counter).checked = true;
+        counter++;
+        if (counter > 4) {
+            counter = 1;
+        }
+    }, 15000);
+</script>
+
+{% autoescape off %}
+<script>
+    window.onload = function () {
+        var db_reply = "{{ message }}";
+        if (db_reply !== '') {
+            alert(db_reply)
+        }
+    };
+</script>
+{% endautoescape %}
 {% endblock %}
