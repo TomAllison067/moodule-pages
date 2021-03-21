@@ -19,7 +19,7 @@ class CustomLDAPBackend(LDAPBackend):
         if user:
             django_group = self.derive_group(user)
             if not django_group:
-                return None
+                return None  # Don't authenticate if their LDAP group can't match up to one of ours
             user.groups.add(django_group)  # Add the user to the correct group
             if django_group.name == 'Students':
                 self.populate_student_profile(user)
@@ -40,12 +40,12 @@ class CustomLDAPBackend(LDAPBackend):
         :return the correct Django group, or None
         """
         ldap_group_value = user.ldap_user.attrs.get('extensionAttribute8')[0].lower()
+        group = None
         if 'academic staff' in ldap_group_value or 'administrative staff' in ldap_group_value:
-            return Group.objects.get(name='Staff')
+            group, created = Group.objects.get_or_create('Staff')
         elif 'student' in ldap_group_value:
-            return Group.objects.get(name='Students')
-        else:
-            return None
+            group, created = Group.objects.get_or_create('Students')
+        return group
 
     @staticmethod
     def populate_student_profile(user):
