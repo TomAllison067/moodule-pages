@@ -29,6 +29,7 @@
 
 .main-content a { /* For the sign-in button */
     color: white;
+    margin: 0;
 }
 
 .main-content p {
