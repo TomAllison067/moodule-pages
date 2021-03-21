@@ -189,4 +189,7 @@ LOGGING = {
 
 TESTING = 'test' in sys.argv
 
+AUTH_LDAP_BIND_DN = env('username')
+AUTH_LDAP_BIND_DN = env('password')
+
 django_heroku.settings(locals())
