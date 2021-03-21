@@ -1,17 +1,16 @@
 {% extends "modulesApplication/main/base_academic.html" %}
 {% load static %}
 
-{% block title %}Choose Modules{% endblock %}
+{% block title %}Selection Requests{% endblock %}
 
 {% block head_css %}
     {{ block.super }}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/student/choosemodules.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/office/selectionrequests.css' %}">
 {% endblock %}
 
 
 {% block content %}
-<div class="page-wrapper">
     <!-- IMAGE BAR -->
     <div class="image-box">
         <div class="ib-content">
@@ -20,74 +19,74 @@
     </div>
 
     <!-- FORM -->
-    <div class="form-box">
+    <div class="table-box">
         <div class="icon-img">
             <i class="fas fa-book-open"></i>
         </div>
-        <table class="form-box">
-            <thead>
-            <tr>
-                {% for header in headers %}
-                    <th>{{ header|title }}</th>
-                {% endfor %}
-                <th>More info</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for selection in selections_list %}
+        <h1>Selection Requests</h1>
+        <br>
+        <div class="table-scroll">
+            <table class="content-table">
+                <thead>
                 <tr>
-                    <td>{{ selection.id }}</td>
-                    <td>{{ selection.student_id }}</td>
-                    <td>{{ selection.student_name }}</td>
-                    <td>{{ selection.stage }}</td>
-                    <td>{{ selection.entry_year }}</td>
-                    <td>{{ selection.status }}</td>
-                    <td>{{ selection.programme_id }}</td>
-                    <td>{{ selection.date_requested }}</td>
-                    <td>
-                        <button class="submit-btn" onclick="openForm('{{ selection.id }}')">Details</button>
-                    </td>
+                    {% for header in headers %}
+                        <th>{{ header|title }}</th>
+                    {% endfor %}
+                    <th>More info</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for selection in selections_list %}
+                    <tr>
+                        <td data-label="ID"> {{ selection.id }}</td>
+                        <td data-label="STUDENT ID"> {{ selection.student_id }}</td>
+                        <td data-label="STUDENT NAME"> {{ selection.student_name }}</td>
+                        <td data-label="STAGE"> {{ selection.stage }}</td>
+                        <td data-label="ENTRY YEAR"> {{ selection.entry_year }}</td>
+                        <td data-label="STATUS"> {{ selection.status }}</td>
+                        <td data-label="PROGRAMME ID"> {{ selection.programme_id }}</td>
+                        <td data-label="DATE REQUESTED"> {{ selection.date_requested }}</td>
+                        <td data-label="MORE INFO">
+                            <button class="details-btn" onclick="openForm('{{ selection.id }}')">Details</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-        <div id="modalOne" class="modal">
+        <div class="modal" id="modalOne">
             <div class="modal-content">
                 <a class="close" onclick="closeForm()">&times;</a>
-                <form action="{% url 'modulesApplication:selection-requests' %}" method="POST">
+                <form class="modal-form" action="{% url 'modulesApplication:selection-requests' %}" method="POST">
                     {% csrf_token %}
-                    <h2>Selection </h2>
+                    <h1>Selection </h1>
                     <input hidden id="selection_id" name="selection_id" value="te">
                     <table class="details">
                         <tr>
-                            <td><b>Student Name</b></td>
-                            <td id="student_name">**EXAMPLE**</td>
+                            <td class="details-label"><b>STUDENT NAME</b></td>
+                            <td class="details-cell" id="student_name">**EXAMPLE**</td>
                         </tr>
                         <tr>
-                            <td><b>Student Number</b></td>
-                            <td id="student_id">012345</td>
+                            <td class="details-label"><b>STUDENT NUMBER</b></td>
+                            <td class="details-cell" id="student_id">012345</td>
                         </tr>
                         <tr>
-                            <td><b>Student Degree</b></td>
-                            <td id="programme">1067</td>
+                            <td class="details-label"><b>STUDENT DEGREE</b></td>
+                            <td class="details-cell"  id="programme">1067</td>
                         </tr>
                         <tr>
-                            <td><b>Entry Year</b></td>
-                            <td id="entry_year">2000</td>
+                            <td class="details-label"><b>ENTRY YEAR</b></td>
+                            <td class="details-cell" id="entry_year">2000</td>
                         </tr>
                         <tr>
-                            <td><b>Modules choices</b></td>
-                            <td id="modules">CS2900</td>
+                            <td class="details-label"><b>MODULES CHOICES</b></td>
+                            <td class="details-cell" id="modules">CS2900</td>
                         </tr>
                         <tr>
-                            <td><b>Comments</b></td>
-<!--                            <td><input type="text" name="comment" placeholder="Reasoning..."></td>-->
+                            <td class="details-label"><b>COMMENTS</b></td>
                         </tr>
-
                     </table>
-
-
                 </form>
             </div>
         </div>

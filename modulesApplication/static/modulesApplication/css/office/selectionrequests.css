@@ -430,7 +430,7 @@ margin-left; for the gap between header name and arrow */
 }
 
 /*-- MEDIA QUERIES --*/
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
     .content-table {
       border: 0;
     }
