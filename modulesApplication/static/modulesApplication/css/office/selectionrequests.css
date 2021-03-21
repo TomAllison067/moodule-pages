@@ -165,56 +165,6 @@ margin-left; for the gap between header name and arrow */
     text-transform: uppercase;
     word-wrap: break-word;
   }
-  
-  @media screen and (max-width: 1200px) {
-    .content-table {
-      border: 0;
-    }
-  
-    .content-table caption {
-      font-size: 16px;
-    }
-    
-    .content-table thead {
-      border: none;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-    }
-    
-    .content-table tr {
-      border-bottom: 3px solid #ddd;
-      display: block;
-      margin-bottom: .625em;
-    }
-    
-    .content-table td {
-      border-bottom: 1px solid #ddd;
-      display: block;
-      font-size: 16px;
-      text-align: right;
-    }
-    
-    .content-table td::before {
-      /*
-      * aria-label has no advantage, it won't be read inside a table
-      content: attr(aria-label);
-      */
-      content: attr(data-label);
-      float: left;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    
-    .content-table td:last-child {
-      border-bottom: 0;
-    }
-  }
-
 /* -- */
 
 
@@ -241,7 +191,8 @@ margin-left; for the gap between header name and arrow */
 /* -- DIV FOR ABOVE/DENY FORM -- */
 .modal-content {
     margin: 10% auto auto;
-    width: 80%;
+    width: 90%;
+    border-radius: 5px;
     padding: 10px;
 }
 
@@ -249,11 +200,13 @@ margin-left; for the gap between header name and arrow */
     padding: 25px;
     margin: 25px;
     background: #d0d0d0;
+    border-top: 2px solid orangered;
 }
 
 .details {
     border: 0;
     width: 100%;
+    overflow: hidden;
   }
 
   .details caption {
@@ -262,6 +215,7 @@ margin-left; for the gap between header name and arrow */
   
   .details tr {
     margin: 0 10px;
+    width: 100%;
     border-bottom: 3px solid #ddd;
     display: block;
     margin-bottom: .625em;
@@ -269,22 +223,25 @@ margin-left; for the gap between header name and arrow */
   
   .details td {
     margin: 0 10px;
-    width: auto;
+    height: auto;
     border-bottom: 1px solid #ddd;
     display: inline-block;
     font-size: 16px;
     text-align: right;
-    word-wrap: break-word;
   }
-  
-  .details td:last-child {
-    border-bottom: 0;
+
+  .details-label {
+    width: auto;
   }
 
   .details-cell {
-      display: block;
-      float: right;
-      word-wrap: break-word;
+    float: right;
+    width: 50%;
+    word-wrap: break-word;
+}
+
+  .details td:last-child {
+    border-bottom: 0;
   }
 
 
@@ -304,10 +261,10 @@ margin-left; for the gap between header name and arrow */
 }
 
 .Abtn {
-    width: 30%;
+    width: 45%;
     padding: 10px;
     align: left;
-    margin: 0 15px;
+    margin: 0 7px;
     border: 1px solid none;
     background: #20a115;
     border-radius: 5px;
@@ -317,12 +274,13 @@ margin-left; for the gap between header name and arrow */
     color: #fff;
     opacity: 0.7;
     transition: 0.2s;
+    word-wrap: break-word;  
 }
 
 .Dbtn {
-    width: 30%;
+    width: 45%;
     padding: 10px;
-    margin: 0 15px;
+    margin: 0 7px;
     align: right;
     border: 1px solid none;
     background: #ff0000;
@@ -333,10 +291,29 @@ margin-left; for the gap between header name and arrow */
     color: #fff;
     opacity: 0.7;
     transition: 0.2s;
+    word-wrap: break-word;  
+}
+
+#CommentUpdate {
+    width: 45%;
+    padding: 10px;
+    margin: 0 7px;
+    align: right;
+    border: 1px solid none;
+    background: #ac5000;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Nunito', sans-serif;
+    color: #fff;
+    opacity: 0.7;
+    transition: 0.2s;
+    word-wrap: break-word;  
+
 }
 
 .Abtn:hover,
-.Dbtn:hover {
+.Dbtn:hover, #CommentUpdate:hover {
     border: 1px solid white;
     opacity: 1;
 }
@@ -451,3 +428,67 @@ margin-left; for the gap between header name and arrow */
     background-color: #1d51a5;
     border-color: #b6d4fe;
 }
+
+/*-- MEDIA QUERIES --*/
+@media screen and (max-width: 1200px) {
+    .content-table {
+      border: 0;
+    }
+  
+    .content-table caption {
+      font-size: 16px;
+    }
+    
+    .content-table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    .content-table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    .content-table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: 16px;
+      text-align: right;
+    }
+    
+    .content-table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    .content-table td:last-child {
+      border-bottom: 0;
+    }
+
+    .Abtn, .Dbtn, #CommentUpdate {
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    .details-label {
+        display: inline-block;
+    }
+  
+    .details-cell {
+      display: inline-block;
+
+    }
+  }

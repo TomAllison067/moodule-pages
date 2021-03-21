@@ -6,25 +6,27 @@
 {% block head_css %}
     {{ block.super }}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/student/choosemodules.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/office/selectionrequests.css' %}">
 {% endblock %}
 
 
 {% block content %}
-    <div class="page-wrapper">
-        <!-- IMAGE BAR -->
-        <div class="image-box">
-            <div class="ib-content">
-                <h2><i class="fas fa-book-open"></i> archived module selection requests</h2> <br>
-            </div>
+    <!-- IMAGE BAR -->
+    <div class="image-box">
+        <div class="ib-content">
+            <h2><i class="fas fa-book-open"></i> archived module selection requests</h2> <br>
         </div>
+    </div>
 
-        <!-- FORM -->
-        <div class="form-box">
-            <div class="icon-img">
-                <i class="fas fa-book-open"></i>
-            </div>
-            <table class="form-box">
+    <!-- FORM -->
+    <div class="table-box">
+        <div class="icon-img">
+            <i class="fas fa-book-open"></i>
+        </div>
+        <h1> Archived Selection Requests</h1>
+        <br>
+        <div class="table-scroll">
+            <table class="content-table">
                 <thead>
                 <tr>
                     {% for header in headers %}
@@ -36,192 +38,72 @@
                 <tbody>
                 {% for selection in selections_list %}
                     <tr>
-                        <td>{{ selection.id }}</td>
-                        <td>{{ selection.student_id }}</td>
-                        <td>{{ selection.stage }}</td>
-                        <td>{{ selection.entry_year }}</td>
-                        <td>{{ selection.status }}</td>
-                        <td>{{ selection.programme_id }}</td>
-                        <td>{{ selection.date_requested }}</td>
-                        <td>{{ selection.last_modified }}</td>
-                        <td>{{ selection.comments }}</td>
-                        <td>
-                            <button class="submit-btn" onclick="openForm('{{ selection.id }}')">Modify</button>
+                        <td data-label="ID">{{ selection.id }}</td>
+                        <td data-label="STUDENT ID">{{ selection.student_id }}</td>
+                        <td data-label="STUDENT NAME">{{ selection.student_name }}</td>
+                        <td data-label="STAGE">{{ selection.stage }}</td>
+                        <td data-label="ENTRY YEAR">{{ selection.entry_year }}</td>
+                        <td data-label="STATUS">{{ selection.status }}</td>
+                        <td data-label="PROGRAMME ID">{{ selection.programme_id }}</td>
+                        <td data-label="DATE REQUESTED">{{ selection.date_requested }}</td>
+                        <td data-label="LAST MODIFIED">{{ selection.last_modified }}</td>
+                        <td data-label="COMMENTS">{{ selection.comments }}</td>
+                        <td data-label="MORE INFO">
+                            <button class="details-btn" onclick="openForm('{{ selection.id }}')">Modify</button>
                         </td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
-
-            <div id="modalOne" class="modal">
-                <div class="modal-content">
-                    <a class="close" onclick="closeForm()">&times;</a>
-                    <form action="{% url 'modulesApplication:archived-selection-requests' %}" method="POST">
-                        {% csrf_token %}
-                        <h2>Selection </h2>
-                        <input hidden id="selection_id" name="selection_id" value="te">
-                        <table class="details">
-                            <tr>
-                                <td><b>Student Name</b></td>
-                                <td id="student_name">**EXAMPLE**</td>
-                            </tr>
-                            <tr>
-                                <td><b>Student Number</b></td>
-                                <td id="student_id">012345</td>
-                            </tr>
-                            <tr>
-                                <td><b>Student Degree</b></td>
-                                <td id="programme">1067</td>
-                            </tr>
-                            <tr>
-                                <td><b>Entry Year</b></td>
-                                <td id="entry_year">2000</td>
-                            </tr>
-                            <tr>
-                                <td><b>Modules choices</b></td>
-                                <td id="modules">CS2900</td>
-                            </tr>
-                            <tr>
-                                <td><b>Status</b></td>
-                                <td id="status">CS2900</td>
-                            </tr>
-                            <tr>
-                                <td><b>Comments</b></td>
-                                <td><input type="text" name="comment" placeholder="Reasoning..."></td>
-                            </tr>
-
-                        </table>
-                        <input type="submit" class="Modify" id="Modify" name="Modify">
-                        <input type="submit" class="Modify" name="CommentUpdate" id="CommentUpdate"
-                               value="Update Comment only">
-
-                    </form>
-                </div>
-            </div>
-
         </div>
     </div>
-    <style>
-        /* th-table headers;
-         make the background darker and have a pointer*/
-        .form-box th {
-            cursor: pointer;
-            background-color: #2e3133;
-        }
 
-        /* \25b4 - the arrow in the table header show the ascending column
-        margin-left; for the gap between header name and arrow */
+    <div class="modal" id="modalOne">
+        <div class="modal-content">
+            <a class="close" onclick="closeForm()">&times;</a>
+            <form class="modal-form" action="{% url 'modulesApplication:archived-selection-requests' %}" method="POST">
+                {% csrf_token %}
+                <h1>Archived Selection </h1>
+                <input hidden id="selection_id" name="selection_id" value="te">
+                <table class="details">
+                    <tr>
+                        <td class="details-label"><b>STUDENT NAME</b></td>
+                        <td class="details-cell" id="student_name">**EXAMPLE**</td>
+                    </tr>
+                    <tr>
+                        <td class="details-label"><b>STUDENT NUMBER</b></td>
+                        <td class="details-cell" id="student_id">012345</td>
+                    </tr>
+                    <tr>
+                        <td class="details-label"><b>STUDENT DEGREE</b></td>
+                        <td class="details-cell"  id="programme">1067</td>
+                    </tr>
+                    <tr>
+                        <td class="details-label"><b>ENTRY YEAR</b></td>
+                        <td class="details-cell" id="entry_year">2000</td>
+                    </tr>
+                    <tr>
+                        <td class="details-label"><b>MODULES CHOICES</b></td>
+                        <td class="details-cell" id="modules">CS2900</td>
+                    </tr>
+                    <tr>
+                        <td class="details-label"><b>STATUS</b></td>
+                        <td class="details-cell" id="status">CS2900</td>
+                    </tr>
+                    <tr>
+                        <td class="details-label"><b>COMMENTS</b></td>
+                        <td class="details-cell"><input type="text" name="comment" placeholder="Reasoning..."></td>
+                    </tr>
 
-        .form-box .th-sort-asc::after {
-            content: "\25b4";
-            margin-left: 5px;
-        }
+                </table>
+                <br>
+                <input type="submit" class="Modify" id="Modify" name="Modify">
+                <input type="submit" class="Modify" name="CommentUpdate" id="CommentUpdate"
+                        value="UPDATE COMMENT ">
 
-        /* \25be - the arrow in the table header show the descending column
-        margin-left; for the gap between header name and arrow */
-        .form-box .th-sort-desc::after {
-            content: "\25be";
-            margin-left: 5px;
-        }
-
-        /* change the opacity of the table headers if asc/desc */
-        .form-box .th-sort-asc,
-        .form-box .th-sort-desc {
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        /* modal- darken page behind the form when approve/deny pops up  */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 5;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        /* the div for the approve/deny form */
-        .modal-content {
-            margin: 10% auto auto;
-            width: 50%;
-            padding: 10px;
-        }
-
-        form {
-            padding: 25px;
-            margin: 25px;
-            box-shadow: 0 2px 5px #f5f5f5;
-            background: #90948e;
-        }
-
-        input {
-            color: black;
-        }
-
-        .Modify {
-            width: 40%;
-            padding: 10px;
-            align: left;
-            border: none;
-            background: orangered;
-            font-size: 16px;
-            font-weight: 400;
-            color: #fff;
-            opacity: 0.7;
-        }
-
-        .Abtn {
-            width: 40%;
-            padding: 10px;
-            align: left;
-            border: none;
-            background: #20a115;
-            font-size: 16px;
-            font-weight: 400;
-            color: #fff;
-            opacity: 0.7;
-        }
-
-        .Dbtn {
-            width: 40%;
-            padding: 10px;
-            align: right;
-            border: none;
-            background: #ff0000;
-            font-size: 16px;
-            font-weight: 400;
-            color: #fff;
-            opacity: 0.7;
-        }
-
-        .Abtn:hover,
-        .Dbtn:hover,
-        .Modify:hover {
-            opacity: 1;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: rgba(0, 0, 0, 0.6);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .submit-btn:hover {
-            width: 80px;
-        }
-    </style>
-
+            </form>
+        </div>
+    </div>
 
     {% autoescape off %}
         <script>
@@ -233,7 +115,6 @@
                 for (var x in selections_list) {
                     if (selections_list[x].id == selected) {
                         document.getElementById("selection_id").value = selected;
-
                         document.getElementById("student_name").innerHTML = selections_list[x].student_name;
                         document.getElementById("student_id").innerHTML = selections_list[x].student_id;
                         document.getElementById("programme").innerHTML = selections_list[x].programme_name;

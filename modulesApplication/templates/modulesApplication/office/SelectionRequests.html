@@ -11,7 +11,6 @@
 
 
 {% block content %}
-<div class="page-wrapper">
     <!-- IMAGE BAR -->
     <div class="image-box">
         <div class="ib-content">
@@ -39,14 +38,14 @@
                 <tbody>
                 {% for selection in selections_list %}
                     <tr>
-                        <td data-label="ID">{{ selection.id }}</td>
-                        <td data-label="STUDENT ID">{{ selection.student_id }}</td>
-                        <td data-label="STUDENT NAME">{{ selection.student_name }}</td>
-                        <td data-label="SELECTION STAGE">{{ selection.stage }}</td>
-                        <td data-label="ENTRY YEAR">{{ selection.entry_year }}</td>
-                        <td data-label="STATUS">{{ selection.status }}</td>
-                        <td data-label="PROGRAMME ID">{{ selection.programme_id }}</td>
-                        <td data-label="DATE REQUESTED">{{ selection.date_requested }}</td>
+                        <td data-label="ID"> {{ selection.id }}</td>
+                        <td data-label="STUDENT ID"> {{ selection.student_id }}</td>
+                        <td data-label="STUDENT NAME"> {{ selection.student_name }}</td>
+                        <td data-label="STAGE"> {{ selection.stage }}</td>
+                        <td data-label="ENTRY YEAR"> {{ selection.entry_year }}</td>
+                        <td data-label="STATUS"> {{ selection.status }}</td>
+                        <td data-label="PROGRAMME ID"> {{ selection.programme_id }}</td>
+                        <td data-label="DATE REQUESTED"> {{ selection.date_requested }}</td>
                         <td data-label="MORE INFO">
                             <button class="details-btn" onclick="openForm('{{ selection.id }}')">Details</button>
                         </td>
@@ -54,10 +53,10 @@
                 {% endfor %}
                 </tbody>
             </table>
-            </div>
         </div>
+    </div>
 
-        <div id="modalOne" class="modal">
+    <div class="modal" id="modalOne">
             <div class="modal-content">
                 <a class="close" onclick="closeForm()">&times;</a>
                 <form class="modal-form" action="{% url 'modulesApplication:selection-requests' %}" method="POST">
@@ -98,7 +97,6 @@
 
                 </form>
             </div>
-        </div>
         {% comment %}{% for selections in selections_list %}
         <ul>
             <button class="ib-content">
@@ -108,8 +106,6 @@
     {% endfor %}{% endcomment %}
 
         <!--        Content for the Selection requests goes here.-->
-
-    </div>
 </div>
 
 
