@@ -1,0 +1,35 @@
+{% extends 'modulesApplication/office/crud-templates/BaseOfficeListTemplate.html' %}
+
+{% block title %}
+    All Strands
+{% endblock %}
+{% block heading %}
+    Strands
+{% endblock %}
+{% block table %}
+    <div class="create-new-model-div">
+        <a class="blue-link" href="{% url 'modulesApplication:staff-create-strand' %}">Create new? </a>
+    </div>
+    <table>
+        <tr>
+            <th>Module</th>
+            <th>Strand</th>
+            <th>Update?</th>
+            <th>Delete?</th>
+        </tr>
+        {% for strand in object_list %}
+            <tr>
+                <td>{{ strand.module.mod_code }}</td>
+                <td>{{ strand.strand }}</td>
+                <td>
+                    <a class="blue-link"
+                       href="{% url 'modulesApplication:staff-update-strand' pk=strand.strand_id %}">Update/Modify</a>
+                </td>
+                <td>
+                    <a class="blue-link"
+                       href="{% url 'modulesApplication:staff-delete-strand' pk=strand.strand_id %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

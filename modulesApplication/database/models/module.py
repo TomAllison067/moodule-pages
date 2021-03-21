@@ -1,6 +1,28 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from modulesApplication.models import ModuleSelection
+
+
+class LevelChoices(models.IntegerChoices):
+    FOUR = 4, _('4')
+    FIVE = 5, _('5')
+    SIX = 6, _('6')
+    SEVEN = 7, _('7')
+
+
+class CreditsChoices(models.IntegerChoices):
+    MINUS_ONE = -1, _('-1')
+    FIFTEEN = 15, _('15')
+    THIRTY = 30, _('30')
+    SIXTY = 60, _('60')
+
+
+class StatusChoices(models.TextChoices):
+    ACTIVE = 'ACTIVE', _('ACTIVE')
+    DORMANT = 'DORMANT', _('DORMANT')
+    WITHDRAWN = 'WITHDRAWN', _('WITHDRAWN')
+    WONTRUN = 'WONTRUN', _('WONTRUN')
 
 
 class Module(models.Model):
@@ -8,35 +30,23 @@ class Module(models.Model):
     Represents a Module - eg cs2815 (hooray) or cs1860 (boo)
     """
     mod_code = models.TextField(blank=False, primary_key=True)
-    jacs_code = models.TextField(blank=True, null=True)
-    hecos_code = models.TextField(blank=True, null=True)
     title = models.TextField(blank=True, null=True)
-    short_title = models.TextField(blank=True, null=True)
-    level = models.IntegerField(blank=True, null=True)
-    department = models.TextField(blank=True, null=True)
-    with_effect_from = models.TextField(blank=True, null=True)
-    availability_terms = models.TextField(blank=True, null=True)
-    credits = models.IntegerField(blank=True, null=True)
+    level = models.IntegerField(blank=True, null=True, choices=LevelChoices.choices)
+    credits = models.IntegerField(blank=True, null=True, choices=CreditsChoices.choices)
     corequisites = models.TextField(blank=True, null=True)
     prerequisites = models.TextField(blank=True, null=True)
     banned_combinations = models.TextField(blank=True, null=True)
     learning_outcomes = models.TextField(blank=True, null=True)
-    summary = models.TextField(blank=True, null=True)
-    notional_learning_hours = models.TextField(blank=True, null=True)
-    books_to_purchase = models.TextField(blank=True, null=True)
     core_reading = models.TextField(blank=True, null=True)
     exam_format = models.TextField(blank=True, null=True)
-    status = models.TextField(blank=True, null=True)
+    summary = models.TextField(blank=True, null=True)
+    status = models.TextField(blank=True, null=True, choices=StatusChoices.choices)
     project = models.BooleanField(blank=True, null=True)
-    lab_hours = models.IntegerField(blank=True, null=True)
-    deg_progs = models.TextField(blank=True, null=True)
     selected_in = models.ManyToManyField(ModuleSelection)
 
     def clean(self, *args, **kwargs):
         if self.mod_code is None or self.mod_code == "":
             raise ValueError
-        if self.lab_hours == "":
-            self.lab_hours = None
         super().clean()
 
     def save(self, *args, **kwargs):

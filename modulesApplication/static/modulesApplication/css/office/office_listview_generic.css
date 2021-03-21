@@ -1,0 +1,49 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 4px;
+  background: whitesmoke;
+  color: black;
+  margin: 20px 20px;
+}
+
+.flex-centre {
+  display: flex;
+  justify-content: center;
+}
+
+.listview-div {
+  padding-top: 10px;
+  margin: auto;
+  width: auto;
+}
+
+.listview-div h1 {
+  text-align: center;
+}
+
+.create-new-model-div {
+  text-align: center;
+}
+
+.pagination {
+  text-align: center;
+}
+textarea {
+    height: 2em;
+    width: 25em;
+}
+
+.table-big-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.table-big-col {
+  margin: 10px;
+}
+
+.crud-header {
+  text-align: center;
+}

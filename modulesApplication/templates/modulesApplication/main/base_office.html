@@ -5,8 +5,18 @@
             class="fas fa-home"></i>home</a></li>
     <li><a href="{% url 'modulesApplication:selection-requests' %}" class="btn"><i class="fas fa-book-open"></i>selection
         requests</a></li>
-    <li><a href="{% url 'modulesApplication:archived-selection-requests' %}" class="btn"><i class="fas fa-book-open"></i>archived
+    <li><a href="{% url 'modulesApplication:archived-selection-requests' %}" class="btn"><i
+            class="fas fa-book-open"></i>archived
         requests</a></li>
     <li><a href="{% url 'modulesApplication:all-modules' %}" class="btn"><i class="fas fa-book-open"></i>all
         courses</a></li>
+    <li><a href="{% url 'modulesApplication:view-course-leaders' %}" class="btn"><i class="fas fa-book-open"></i>configure
+        course
+        leaders</a></li>
+    <li><a href="{% url 'modulesApplication:staff-view-modules' %}" class="btn"><i class="fas fa-book-open"></i>configure
+        modules</a></li>
+    <li><a href="{% url 'modulesApplication:staff-view-people' %}" class="btn"><i class="fas fa-book-open"></i>configure
+        people</a></li>
+    <li><a href="{% url 'modulesApplication:staff-view-strands' %}" class="btn"><i class="fas fa-book-open"></i>configure
+        strands</a></li>
 {% endblock %}
