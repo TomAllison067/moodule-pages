@@ -28,7 +28,7 @@ class CustomLDAPBackend(LDAPBackend):
     @staticmethod
     def derive_group(user):
         """Given the authenticated user, this searches the corresponding LDAP attributes to derive if the user is
-        staff or a student and returns a string corresponding to a Django group in our application.
+        staff or a student and returns a Django group.
 
         It is derived from extensionAttribute8 in the University's LDAP entries for people.
 
@@ -40,12 +40,14 @@ class CustomLDAPBackend(LDAPBackend):
         :return the correct Django group, or None
         """
         ldap_group_value = user.ldap_user.attrs.get('extensionAttribute8')[0].lower()
-        group = None
         if 'academic staff' in ldap_group_value or 'administrative staff' in ldap_group_value:
-            group, created = Group.objects.get_or_create('Staff')
+            group, created = Group.objects.get_or_create(name='Staff')
+            return group
         elif 'student' in ldap_group_value:
-            group, created = Group.objects.get_or_create('Students')
-        return group
+            group, created = Group.objects.get_or_create(name='Students')
+            return group
+        else:
+            return None
 
     @staticmethod
     def populate_student_profile(user):
