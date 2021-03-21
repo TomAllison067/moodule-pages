@@ -1,5 +1,5 @@
 import sys
-
+import django_heroku
 import ldap
 from django_auth_ldap.config import LDAPSearch, GroupOfNamesType, LDAPGroupQuery
 
@@ -188,3 +188,5 @@ LOGGING = {
 }
 
 TESTING = 'test' in sys.argv
+
+django_heroku.settings(locals())
