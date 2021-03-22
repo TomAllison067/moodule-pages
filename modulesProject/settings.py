@@ -188,7 +188,7 @@ LOGGING = {
     "loggers": {"django_auth_ldap": {"level": "DEBUG", "handlers": ["console"]}},
 }
 
-# TESTING = 'test' in sys.argv
+TESTING = 'test' in sys.argv
 
 AUTH_LDAP_BIND_DN = env('username')
 AUTH_LDAP_BIND_DN = env('password')
