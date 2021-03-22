@@ -7,46 +7,52 @@
     Modules
 {% endblock %}
 {% block table %}
+    <h1> Modules List </h1>
     <div class="create-new-model-div">
-        <a class="blue-link" href="{% url 'modulesApplication:staff-create-module' %}">Create new? </a>
+        <a class="blue-link" id="create-bl" href="{% url 'modulesApplication:staff-create-module' %}"> <i class="fas fa-plus"></i> Create new module? </a>
     </div>
-    <table>
-        <tr>
-            <th>Module</th>
-            <th>Level</th>
-            <th>Credits</th>
-            <th>Prerequisites</th>
-            <th>Banned Combinations</th>
-            <th>Learning Outcomes</th>
-            <th>Summary</th>
-            <th>Project</th>
-            <th>Status</th>
-            <th>Update?</th>
-            <th>Delete?</th>
-        </tr>
-        {% for module in object_list %}
-            <tr>
-                <td>{{ module.mod_code }} -
-                    {{ module.title|slice:":50" }}{% if module.title|length > 50 %}... {% endif %}</td>
-                <td>{{ module.level }}</td>
-                <td>{{ module.credits }}</td>
-                <td>{{ module.prerequisites|slice:":30" }}{% if module.prerequisites|length > 30 %}... {% endif %}</td>
-                <td>{{ module.banned_combinations|slice:":30" }}{% if module.banned_combinations|length > 30 %}
-                    ... {% endif %}</td>
-                <td>{{ module.learning_outcomes|slice:":30" }}{% if module.learning_outcomes|length > 30 %}
-                    ... {% endif %}</td>
-                <td>{{ module.summary|slice:":30" }}{% if module.summary|length > 30 %}... {% endif %}</td>
-                <td>{{ module.project }}</td>
-                <td>{{ module.status }}</td>
-                <td>
-                    <a class="blue-link"
-                       href="{% url 'modulesApplication:staff-update-module' pk=module.mod_code %}">Update/Modify</a>
-                </td>
-                <td>
-                    <a class="blue-link"
-                       href="{% url 'modulesApplication:staff-delete-module' pk=module.mod_code %}">Delete</a>
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+
+    <div class="table-scroll">
+        <table>
+            <thead>
+                <th>Module</th>
+                <th>Level</th>
+                <th>Credits</th>
+                <th>Prerequisites</th>
+                <th>Banned Combinations</th>
+                <th>Learning Outcomes</th>
+                <th>Summary</th>
+                <th>Project</th>
+                <th>Status</th>
+                <th>Update?</th>
+                <th>Delete?</th>
+            </thead>
+            <tbody>
+            {% for module in object_list %}
+                <tr>
+                    <td data-label="MODULE:"> &nbsp; {{ module.mod_code }} -
+                        {{ module.title|slice:":50" }}{% if module.title|length > 50 %}... {% endif %}</td>
+                    <td data-label="LEVEL:"> &nbsp; {{ module.level }}</td>
+                    <td data-label="CREDITS:"> &nbsp; {{ module.credits }}</td>
+                    <td data-label="PREREQUISITES:"> &nbsp; {{ module.prerequisites|slice:":30" }}{% if module.prerequisites|length > 30 %}... {% endif %}</td>
+                    <td data-label="BANNED COMBINATIONS:"> &nbsp; {{ module.banned_combinations|slice:":30" }}{% if module.banned_combinations|length > 30 %}
+                        ... {% endif %}</td>
+                    <td data-label="LEARNING OUTCOMES:"> &nbsp; {{ module.learning_outcomes|slice:":30" }}{% if module.learning_outcomes|length > 30 %}
+                        ... {% endif %}</td>
+                    <td data-label="SUMMARY:"> &nbsp; {{ module.summary|slice:":30" }}{% if module.summary|length > 30 %}... {% endif %}</td>
+                    <td data-label="PROJECT: "> &nbsp; {{ module.project }}</td>
+                    <td data-label="STATUS: "> &nbsp; {{ module.status }}</td>
+                    <td data-label="UPDATE? ">
+                        <a class="blue-link" id="update-bl"
+                        href="{% url 'modulesApplication:staff-update-module' pk=module.mod_code %}"><i class="fas fa-edit"></i></a>
+                    </td>
+                    <td data-label="DELETE? ">
+                        <a class="blue-link" id="delete-bl"
+                        href="{% url 'modulesApplication:staff-delete-module' pk=module.mod_code %}"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
 {% endblock %}
