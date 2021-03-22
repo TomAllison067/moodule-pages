@@ -4,7 +4,7 @@ import environ
 from django.apps import AppConfig
 from django.conf import settings
 
-env = environ.env()
+env = environ.Env()
 
 class ModulesApplicationConfig(AppConfig):
     name = 'modulesApplication'
