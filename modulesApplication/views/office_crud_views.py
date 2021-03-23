@@ -42,7 +42,7 @@ class CourseLeaderListView(LoginRequiredMixin, UserPassesTestMixin, generic.List
 
 class CourseLeaderUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = CourseLeader
-    fields = ['module', 'person', 'term']
+    fields = ['module', 'person', 'term', 'leader']
     template_name = 'modulesApplication/office/crud-templates/OfficeGenericUpdateTemplate.html'
 
     def get_context_data(self, **kwargs):
