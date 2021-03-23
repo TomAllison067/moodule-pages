@@ -20,10 +20,6 @@ student_patterns = [
     path('choice-pathway', student.choice_pathway, name='choice-pathway')
 ]
 
-academic_patterns = [
-    # As of 21/03/21, academic and office staff features have merged. - Keiru
-]
-
 # URLs for the generic crud views, to be included in the office urls.
 crud_patterns = [
     path('view-all-programmes/', modulesApplication.views.office_crud_views.ProgrammeIndexView.as_view(),
@@ -78,6 +74,5 @@ urlpatterns = [
     path('', index, name='index'),  # Redirect to homepage.
     path('login-redirect/', login_redirect, name='login-redirect'),
     path('student/', include(student_patterns)),
-    path('academic/', include(academic_patterns)),
     path('office/', include(office_patterns)),
 ]
