@@ -48,7 +48,7 @@
                 <input type="hidden" name="next" value="{{ next }}">
             </form>
         {% else %}
-            <p>Successfully signed in.</p>
+            <p>You're successfully signed in, so you might be seeing this because you're not supposed to be accessing this page!</p>
         {% endif %}
         {% if not user.is_authenticated %}
             {% if form.errors %}
