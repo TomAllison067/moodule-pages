@@ -13,15 +13,15 @@
 }
 
 .page-wrapper h1 {
-    color: white;
-    font-size: 4.5rem;
+    color: #464545;
+    font-size: 3.7rem;
     width: 100%;
     max-width: 900px;
     text-align: center;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -80%);
+    transform: translate(-50%, -180%);
 
 }
 
