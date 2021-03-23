@@ -11,68 +11,91 @@
 {% block content %}
     <div class="flex-centre">
         <div class="listview-div">
-            <div class="crud-header">
+            <div class="table-box">
+                <div class="icon-img">
+                    <i class="fas fa-plus"></i>
+                </div>
+
                 <h1>Create {{ verbose_name|title }}</h1>
-            </div>
-            <form method="post">{% csrf_token %}
-                <div class="table-big-row">
-                    <div class="table-big-col">
-                        <table>
-                            <tr>
-                                <td><strong>Field</strong></td>
-                                <td><strong>Value</strong></td>
-                            </tr>
-                            {% for field in form.visible_fields %}
-                                {% if forloop.counter < 11 %}
+
+                <form method="post">{% csrf_token %}
+                    <div class="table-big-row">
+                        <div class="table-big-col">
+                            <table class="form-table">
+                                <thead>
                                     <tr>
-                                        <td>{{ field.label_tag }}</td>
-                                        <td>{{ field }}</td>
+                                        <th><strong>Field</strong></th>
+                                        <th><strong>Value</strong></th>
                                     </tr>
-                                {% endif %}
-                            {% endfor %}
-                        </table>
-                    </div>
-                    <div class="table-big-col">
-                        {% if form.visible_fields|length >= 15 %}
-                            <table>
-                                <tr>
-                                    <td><strong>Field</strong></td>
-                                    <td><strong>Value</strong></td>
-                                </tr>
+                                </thead>
+                                <tbody>
                                 {% for field in form.visible_fields %}
-                                    {% if forloop.counter >= 15 %}
+                                    {% if forloop.counter < 11 %}
                                         <tr>
-                                            <td>{{ field.label_tag }}</td>
-                                            <td>{{ field }}</td>
+                                            <td class="form-ltag">{{ field.label_tag }}</td>
+                                            <td class="form-td">
+                                                <div class="input-div">
+                                                    <div class="icon-button"> <i class="fas fa-plus"></i></div>
+                                                    {{ field }}
+                                                </div>
+                                            </td>
                                         </tr>
                                     {% endif %}
                                 {% endfor %}
+                                </tbody>
                             </table>
-                        {% endif %}
+                        </div>
+                        <div class="table-big-col">
+                            {% if form.visible_fields|length >= 15 %}
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th><strong>Field</strong></th>
+                                            <th><strong>Value</strong></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for field in form.visible_fields %}
+                                        {% if forloop.counter >= 15 %}
+                                            <tr>
+                                                <td class="form-ltag">{{ field.label_tag }}</td>
+                                                <td class="form-td">
+                                                    <div class="input-div">
+                                                        <div class="icon-button"> <i class="fas fa-plus"></i></div>
+                                                        {{ field }}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
-                <div class="table-big-row">
-                    {% if form.errors %}
+                    <div class="table-big-row">
                         {% if form.errors %}
-                            {% for field in form %}
-                                {% for error in field.errors %}
+                            {% if form.errors %}
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <div class="alert">
+                                            <strong>{{ error|escape }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
                                     <div class="alert">
                                         <strong>{{ error|escape }}</strong>
                                     </div>
                                 {% endfor %}
-                            {% endfor %}
-                            {% for error in form.non_field_errors %}
-                                <div class="alert">
-                                    <strong>{{ error|escape }}</strong>
-                                </div>
-                            {% endfor %}
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
-                </div>
-                <div class="table-big-row">
-                    <input type="submit" value="Save">
-                </div>
-            </form>
+                    </div>
+                    <div class="table-big-row">
+                        <input class="blue-link" id="create-bl" type="submit" value="Create">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}
