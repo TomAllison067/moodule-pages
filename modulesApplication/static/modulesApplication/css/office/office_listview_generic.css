@@ -1,0 +1,335 @@
+/* table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 4px;
+  background: whitesmoke;
+  color: black;
+  margin: 20px 20px;
+}
+*/
+
+/* --[[ TABLE BOX ]] -- */
+.table-box {
+  margin: 5% 10%;
+  margin-left: 5%;
+  padding: 20px;
+  width: 90%;
+  height: 80%;
+  background: rgba(130, 130, 130, 0.25);
+  position: relative;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border-top: 3px solid orangered;
+  color: black;
+}
+
+.icon-img {
+  width: 25%;
+  height: 25%;
+  margin-top: -50px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.icon-img i {
+  padding: 20px;
+  background: linear-gradient(180deg, orangered, orange);
+  color: black;
+  border-radius: 50%;
+  border: 0px solid black;
+  font-size: 60px;
+}
+
+
+.table-box h1 {
+  font-size: 35px;
+  margin: 0;
+
+  border-bottom: 2px solid orangered;
+  color: black;
+
+}
+
+/* --[[ TABLE ]] -- */
+/* th-table headers;
+    make the background darker and have a pointer*/
+    .table-box th {
+    cursor: pointer;
+    background-color: #2e3133;
+}
+
+.table-scroll {
+  height: 450px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+table {
+  border: 1px solid #ccc;
+  position: relative;
+  border-collapse: collapse; 
+  empty-cells: show;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  font-family: 'Nunito', sans-serif;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+  
+table tbody tr:nth-of-type(even) {
+  background-color: #f0f0f0;
+}
+
+table thead tr th {
+  background: black;
+  border-left: 1px solid grey;
+  top: 0;
+  position: sticky;
+  font-size: 13px;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  word-wrap: break-word;
+  color: black;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+}
+
+table th {
+  font-size: 16px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+
+.blue-link {
+  background: orange;
+  padding: 7px;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Nunito', sans-serif;
+  border: 2px solid none;
+  margin-top: 50px;
+  transition: 0.2s;
+}
+
+.blue-link:visited {
+  color: white;
+}
+
+#create-bl {
+  background: rgb(26, 157, 105);
+  border: 2px rgba(255, 255, 255, 0)  solid;
+
+}
+
+#create-bl i {
+  color: white;
+  margin-right: 5px;
+}
+
+#create-bl:hover {
+  background: rgb(38, 184, 126);
+  border: 2px white solid;
+}
+
+#update-bl {
+  background: orangered;
+  border: 2px rgba(255, 255, 255, 0)  solid;
+  width: auto;
+}
+
+#update-bl i {
+  color: white;
+}
+
+#update-bl:hover {
+  background: rgb(255, 120, 36);
+  border: 2px white solid;
+}
+
+#delete-bl {
+  background: red;
+  border: 2px rgba(255, 255, 255, 0) solid;
+}
+
+#delete-bl i {
+  color: white;
+}
+
+#delete-bl:hover {
+  background: rgb(255, 100, 100);
+  border: 2px white solid;
+}
+
+.current {
+  padding: 7px;
+  margin: 2px 2px;
+  font-size: 20px;
+}
+
+
+/**/
+
+
+.flex-centre {
+  display: block;
+  justify-content: center;
+}
+
+.listview-div {
+  padding-top: 10px;
+  margin: auto;
+  width: auto;
+}
+
+.listview-div h1 {
+  text-align: center;
+}
+
+.create-new-model-div {
+  text-align: center;
+  padding: 20px;
+}
+
+.pagination {
+  text-align: center;
+  padding: 20px;
+}
+
+#first, #previous {
+  background: rgb(230, 230, 230);
+  border: 2px rgba(0, 0, 0, 0) solid;
+  color: black;
+  font-size: 20px;
+  margin: 0 5px;
+  transition: 0.25s;
+}
+
+#next, #last {
+  background: rgb(230, 230, 230);
+  border: 2px rgba(0, 0, 0, 0) solid;
+  color: black;
+  font-size: 20px;
+  margin: 0 5px;
+  transition: 0.25s;
+}
+
+#first span, #last span {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+  margin-right: 0px;
+  display: inline-block;
+  vertical-align: top;
+
+  visibility: none;
+
+  max-width:0px; /* This is the fixed unit value */
+  opacity: 0;
+
+  transition:all 0.25s;
+  box-sizing:border-box;
+
+  text-decoration:none;
+  color:black;
+}
+
+#next:hover, #previous:hover, #first:hover, #last:hover {
+  background: white;
+  border: 2px black solid;
+}
+
+#first:hover span, #last:hover span {
+  margin-right:0px;
+  opacity: 1;
+  width: auto;
+  max-width:500px; /* this value makes the transition */
+}
+
+textarea {
+    height: 2em;
+    width: 25em;
+}
+
+.table-big-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.table-big-col {
+  margin: 10px;
+}
+
+.crud-header {
+  text-align: center;
+}
+
+/*-- MEDIA QUERIES --*/
+@media screen and (max-width: 1000px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 16px;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 16px;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}

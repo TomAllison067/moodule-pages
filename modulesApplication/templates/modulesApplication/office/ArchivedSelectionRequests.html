@@ -38,16 +38,16 @@
                 <tbody>
                 {% for selection in selections_list %}
                     <tr>
-                        <td data-label="ID">{{ selection.id }}</td>
-                        <td data-label="STUDENT ID">{{ selection.student_id }}</td>
-                        <td data-label="STUDENT NAME">{{ selection.student_name }}</td>
-                        <td data-label="STAGE">{{ selection.stage }}</td>
-                        <td data-label="ENTRY YEAR">{{ selection.entry_year }}</td>
-                        <td data-label="STATUS">{{ selection.status }}</td>
-                        <td data-label="PROGRAMME ID">{{ selection.programme_id }}</td>
-                        <td data-label="DATE REQUESTED">{{ selection.date_requested }}</td>
-                        <td data-label="LAST MODIFIED">{{ selection.last_modified }}</td>
-                        <td data-label="COMMENTS">{{ selection.comments }}</td>
+                        <td data-label="ID"> &nbsp; {{ selection.id }}</td>
+                        <td data-label="STUDENT ID"> &nbsp; {{ selection.student_id }}</td>
+                        <td data-label="STUDENT NAME"> &nbsp; {{ selection.student_name }}</td>
+                        <td data-label="STAGE"> &nbsp; {{ selection.stage }}</td>
+                        <td data-label="ENTRY YEAR"> &nbsp; {{ selection.entry_year }}</td>
+                        <td data-label="STATUS"> &nbsp; {{ selection.status }}</td>
+                        <td data-label="PROGRAMME ID"> &nbsp; {{ selection.programme_id }}</td>
+                        <td data-label="DATE REQUESTED"> &nbsp; {{ selection.date_requested }}</td>
+                        <td data-label="LAST MODIFIED"> &nbsp; {{ selection.last_modified }}</td>
+                        <td data-label="COMMENTS"> &nbsp; {{ selection.comments }}</td>
                         <td data-label="MORE INFO">
                             <button class="details-btn" onclick="openForm('{{ selection.id }}')">Modify</button>
                         </td>
@@ -108,19 +108,24 @@
     {% autoescape off %}
         <script>
 
-            selections_list = {{ list_of_selections }};
+            selections_list = {
+            {
+                list_of_selections
+            }
+            }
+            ;
 
             function openForm(selected) {
                 console.log(selections_list);
                 for (var x in selections_list) {
                     if (selections_list[x].id == selected) {
                         document.getElementById("selection_id").value = selected;
-                        document.getElementById("student_name").innerHTML = selections_list[x].student_name;
-                        document.getElementById("student_id").innerHTML = selections_list[x].student_id;
-                        document.getElementById("programme").innerHTML = selections_list[x].programme_name;
-                        document.getElementById("entry_year").innerHTML = selections_list[x].entry_year;
-                        document.getElementById("modules").innerHTML = selections_list[x].modules;
-                        document.getElementById("status").innerHTML = selections_list[x].status;
+                        document.getElementById("student_name").innerHTML = '\u00A0' + selections_list[x].student_name;
+                        document.getElementById("student_id").innerHTML = '\u00A0' + selections_list[x].student_id;
+                        document.getElementById("programme").innerHTML = '\u00A0' + selections_list[x].programme_name;
+                        document.getElementById("entry_year").innerHTML = '\u00A0' + selections_list[x].entry_year;
+                        document.getElementById("modules").innerHTML = '\u00A0' + selections_list[x].modules;
+                        document.getElementById("status").innerHTML = '\u00A0' + selections_list[x].status;
 
 
                         if (selections_list[x].status == 'APPROVED') {
@@ -192,7 +197,10 @@
                 });
             });
 
-            {#sortTableByColumn(document.querySelector("table"), 0, false)#}
+            {
+                #sortTableByColumn(document.querySelector("table"), 0, false)
+                #
+            }
 
         </script>
     {% endautoescape %}

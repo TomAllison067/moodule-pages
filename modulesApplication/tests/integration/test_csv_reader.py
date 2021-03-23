@@ -20,14 +20,8 @@ class TestCsvReader(TestCase):
     cr = CsvReader()  # The reader
     test_module = Module(  # The first module in the file "exported_sqlite3_module_table.csv"
         mod_code="CS3810",
-        jacs_code="",
-        hecos_code="",
         title="Half Unit Project",
-        short_title="",
         level=6,
-        department="Computer Science",
-        with_effect_from="",
-        availability_terms="",
         credits=15,
         corequisites="",
         prerequisites="CS2800",
@@ -39,8 +33,6 @@ class TestCsvReader(TestCase):
         summary="To provide the opportunity to demonstrate independence and originality, to plan and organise a "
                 "large project over a long period, and to put into practice the techniques taught throughout "
                 "their degree course.",
-        notional_learning_hours=150,
-        books_to_purchase="",
         core_reading="Nancy A. Lynch: Distributed Algorithms. The Morgan Kaufmann Series in Data Management "
                      "Systems (1996). ISBN-13: 978-1558603486 "
                      "Hagit Attiya, Jennifer Welch: Distributed Computing: Fundamentals, Simulations and Advanced "
@@ -54,9 +46,7 @@ class TestCsvReader(TestCase):
                     "Answer ALL questions"
                     "Calculators are NOT permitted",
         status="ACTIVE",
-        project=1,
-        lab_hours=0,
-        deg_progs="CS")
+        project=1)
 
     # How many rows of modules are in "exported_sqlite3_module_table.csv". 114 rows, minus 1 header row = 113.
     EXPECTED_MODULES = expected.EXPECTED_MODULES
@@ -89,7 +79,7 @@ class TestCsvReader(TestCase):
         would always return False.
         """
         # The first module in exported_sqlite3_module_table.csv
-        modules = self.cr.read_table(
+        modules = self.cr.read_table_partial(
             filepath="modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
             model_class=Module)
 
@@ -101,14 +91,14 @@ class TestCsvReader(TestCase):
         Tests that the csv reader does indeed read in the correct number of modules from the csv file. The length of the
         list of modules it returns should be 113.
         """
-        modules = self.cr.read_table(
+        modules = self.cr.read_table_partial(
             filepath="modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
             model_class=Module)
         self.assertEqual(self.EXPECTED_MODULES, len(modules))
 
     def test_reads_strands(self):
         """Tests the correct number of strands are read in."""
-        strands = self.cr.read_table(
+        strands = self.cr.read_table_partial(
             filepath="modulesApplication/tests/resources/exported_strands_table.csv",
             model_class=Strands)
         self.assertEqual(self.EXPECTED_STRANDS, len(strands))
@@ -129,8 +119,8 @@ class TestCsvReader(TestCase):
 
     def test_read_modules_from_csv_and_save_to_database(self):
         cr = CsvReader()
-        modules = cr.read_table("modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
-                                Module)
+        modules = cr.read_table_partial("modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
+                                        Module)
         self.assertEqual(113, len(modules), "There are 113 modules in the csv file.")
         for m in modules:
             m.clean()
@@ -146,7 +136,7 @@ class TestCsvReader(TestCase):
 
         # adding Modules to databse and strands depend on module
         cr = CsvReader()
-        modules = cr.read_table("modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
+        modules = cr.read_table_partial("modulesApplication/tests/resources/exported_sqlite3_module_table.csv",
                                 Module)
         for m in modules:
             m.clean()

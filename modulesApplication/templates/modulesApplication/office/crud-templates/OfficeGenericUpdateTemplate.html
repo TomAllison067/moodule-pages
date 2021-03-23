@@ -1,0 +1,78 @@
+{% extends 'modulesApplication/main/base_office.html' %}
+{% block title %}
+    Update {{ verbose_name|title }}
+{% endblock %}
+{% block head_css %}
+    {% load static %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'modulesApplication/css/office/office_listview_generic.css' %}">
+    <!-- for flex centre div -->
+{% endblock %}
+{% block content %}
+    <div class="flex-centre">
+        <div class="listview-div">
+            <div class="crud-header">
+                <h1>Update {{ verbose_name|title }}</h1>
+            </div>
+            <form method="post">{% csrf_token %}
+                <div class="table-big-row">
+                    <div class="table-big-col">
+                        <table>
+                            <tr>
+                                <td><strong>Field</strong></td>
+                                <td><strong>Value</strong></td>
+                            </tr>
+                            {% for field in form.visible_fields %}
+                                {% if forloop.counter < 11 %}
+                                    <tr>
+                                        <td>{{ field.label_tag }}</td>
+                                        <td>{{ field }}</td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div class="table-big-col">
+                        {% if form.visible_fields|length >= 15 %}
+                            <table>
+                                <tr>
+                                    <td><strong>Field</strong></td>
+                                    <td><strong>Value</strong></td>
+                                </tr>
+                                {% for field in form.visible_fields %}
+                                    {% if forloop.counter >= 15 %}
+                                        <tr>
+                                            <td>{{ field.label_tag }}</td>
+                                            <td>{{ field }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </table>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="table-big-row">
+                    {% if form.errors %}
+                        {% if form.errors %}
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <div class="alert">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <div class="alert">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                </div>
+                <div class="table-big-row">
+                    <input type="submit" value="Update">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

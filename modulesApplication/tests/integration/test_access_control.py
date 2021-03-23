@@ -3,7 +3,7 @@ from django.test import TestCase, Client, tag
 from django.urls import reverse
 
 
-@tag('integration')
+@tag('integration', 'access-control')
 class TestAccessControl(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(
@@ -100,5 +100,67 @@ class TestAccessControl(TestCase):
 
         response = c.get(reverse('modulesApplication:update-programmes', kwargs={
             'pk': '1067'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+
+        # Viewing course leaders
+        response = c.get(reverse('modulesApplication:view-course-leaders'), follow=True)
+        self.assertEqual(403, response.status_code)
+
+        # Updating course leaders
+        response = c.get(reverse('modulesApplication:update-course-leader', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+
+        # Creating course leaders
+        response = c.get(reverse('modulesApplication:create-course-leader'), follow=True)
+        self.assertEqual(403, response.status_code)
+
+        # Deleting course leaders
+        response = c.get(reverse('modulesApplication:delete-course-leader', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+
+        # MODULES
+        response = c.get(reverse('modulesApplication:staff-view-modules'), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-update-module', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-create-module'), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-delete-module', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+
+        # PEOPLE
+        response = c.get(reverse('modulesApplication:staff-view-people'), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-update-person', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-create-person'), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-delete-person', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+
+        # STRANDS
+        response = c.get(reverse('modulesApplication:staff-view-strands'), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-update-strand', kwargs={
+            'pk': 'not-necessary'
+        }), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-create-strand'), follow=True)
+        self.assertEqual(403, response.status_code)
+        response = c.get(reverse('modulesApplication:staff-delete-strand', kwargs={
+            'pk': 'not-necessary'
         }), follow=True)
         self.assertEqual(403, response.status_code)

@@ -39,7 +39,6 @@
                     {% for module in modules %}
                         <label class="moduleLabels">{{ module.module_code }} - {{ module.title }}</label>
                         <div class="panel" disabled="False" id="module">
-                            <br>
                             <h4>Summary</h4>
                             <p>{{ module.summary }}</p>
                             <br>
@@ -48,14 +47,13 @@
                                 more...
                             </button>
                             <div class="{{ module.module_code }}" style="display: none;">
-                                <br>
                                 <h4>Learning Outcomes</h4>
                                 <p>{{ module.learning_outcomes }}.</p>
-                                <br><h4>Recommended Reading</h4>
+                                <h4>Recommended Reading</h4>
                                 <p>{{ module.recommended_reading }}</p>
-                                <br><h4>Exam Format</h4>
+                                <h4>Exam Format</h4>
                                 <p>{{ module.exam_format }}</p>
-                                <br><h4>Course Leaders</h4>
+                                <h4>Course Leaders</h4>
                                 {% for leader in module.course_leaders %}
                                     <p>- {{ leader }}</p>
                                 {% endfor %}

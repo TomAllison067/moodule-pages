@@ -184,7 +184,7 @@
 }
 
 .lp-box:hover > a .lp-content .icon-box p {
-    transform: translateY(0%);
+    /*transform: translateY(50%);*/
     opacity: 100%;
 }
 
@@ -250,7 +250,7 @@
 .lp-content {
     margin: auto;
     width: 90%;
-    height: 80%;
+    height: 90%;
     display: block;
     box-sizing: border-box;
     background-image: linear-gradient(black, rgb(27, 27, 27));
@@ -261,9 +261,10 @@
     cursor: pointer;
     position: relative;
     transition: 0.25s;
+    padding: 15px 0;
 }
 
-.lp-box a .lp-content .term-module-list {
+.lp-box a .lp-content .lp-list {
     padding: 2px;
     width: 95%;
     height: 85%; 
@@ -272,7 +273,7 @@
     margin-bottom: 10px;
 }
 
-.lp-content .term-module-list li {
+.lp-list ul li {
     padding: 5px;
     margin: 10px auto;
     width: 95%;
@@ -285,13 +286,27 @@
     background-size: cover;
     color: white;
     border-radius: 5px;
+    justify-content: left;
+    text-align: left;
     cursor: pointer;
     position: relative;
-    transition: 0.25s;
+    transition: 0.2s;
 }
 
-.lp-content li {
-    padding: 5px;
+.lp-list ul li a {
+    transition: 0.2s;
+}
+
+.lp-list ul li:hover {
+    background-image: linear-gradient(rgb(40, 40, 40), rgb(81, 81, 81));
+}
+
+.lp-list ul li:hover a {
+    padding-left: 15px;
+}
+
+.lp-list ul li i {
+    padding: 0 10px;
 }
 
 .lp-content * {
@@ -299,8 +314,8 @@
 }
 
 .icon-box > p {
-    opacity: 0;
-    transform: translateY(150%);
+    opacity: 80;
+    /*transform: translateY(150%);*/
     transition: transform 0.25s;
 }
 
@@ -342,12 +357,11 @@
 
 .lp-form {
     margin: auto;
-    padding: 10px;
+    padding: 15px;
     width: 90%;
     height: 90%;
     display: block;
     box-sizing: border-box;
-    background-image: linear-gradient(black, rgb(27, 27, 27));
     background-size: cover;
     color: white;
     font-size: 18px;
@@ -364,6 +378,172 @@
     font-family: 'Nunito', sans-serif;
 }
 
+/* FILE UPLOAD */
+.file-upload{
+    display:block;
+    text-align:center;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.file-upload .file-select{
+    display:block;
+    border: 2px solid none;
+    color: #34495e;
+    cursor:pointer;
+    height: 40px;
+    line-height:40px;
+    border-radius: 5px;
+    text-align:left;
+    background:#FFFFFF;
+    overflow:hidden;
+    position:relative;
+}
+.file-upload .file-select .file-select-button{
+    background:#dce4ec;
+    padding:0 10px;
+    display:inline-block;
+    height:40px;
+    line-height:40px;
+}
+.file-upload .file-select .file-select-name{
+    line-height:40px;
+    color: black;
+    display:inline-block;
+    text-overflow: ellipsis; 
+    padding:0 10px;
+}
+.file-upload .file-select:hover{
+    border-color:#34495e;
+    transition:all .15s ease-in-out;
+    -moz-transition:all .15s ease-in-out;
+    -webkit-transition:all .15s ease-in-out;
+    -o-transition:all .15s ease-in-out;
+}
+.file-upload .file-select:hover .file-select-button{
+    background:#34495e;
+    color: black;
+    transition:all .15s ease-in-out;
+    -moz-transition:all .15s ease-in-out;
+    -webkit-transition:all .15s ease-in-out;
+    -o-transition:all .15s ease-in-out;
+}
+.file-upload.active .file-select{
+    border-color:#3fa46a;
+    transition:all .15s ease-in-out;
+    -moz-transition:all .15s ease-in-out;
+    -webkit-transition:all .15s ease-in-out;
+    -o-transition:all .15s ease-in-out;
+}
+.file-upload.active .file-select .file-select-button{
+    background:#3fa46a;color:#FFFFFF;
+    transition:all .15s ease-in-out;
+    -moz-transition:all .15s ease-in-out;
+    -webkit-transition:all .15s ease-in-out;
+    -o-transition:all .15s ease-in-out;
+}
+
+.file-upload .file-select input[type=file]{
+    z-index:100;cursor:pointer;
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    opacity:0;
+    filter:alpha(opacity=0);
+}
+.file-upload .file-select .file-select-disabled{
+    opacity:0.65;
+}
+.file-upload .file-select .file-select-disabled:hover{
+    cursor:default;
+    display:block;
+    border: 2px solid #dce4ec;
+    color: #34495e;
+    cursor:pointer;
+    height:40px;
+    line-height:40px;
+    margin-top:5px;
+    text-align:left;
+    background:#FFFFFF;
+    overflow:hidden;
+    position:relative;
+}
+
+.file-upload .file-select.file-select-disabled:hover .file-select-button{
+    background:#dce4ec;
+    color:#666666;
+    padding:0 10px;
+    display:inline-block;
+    height:40px;
+    line-height:40px;
+}
+.file-upload .file-select.file-select-disabled:hover .file-select-name{
+    line-height:40px;
+    display:inline-block;
+    text-overflow: ellipsis; 
+    padding:0 10px;
+}
+
+/* CHOOSE MODEL  */
+.choose-model {
+    display: block;
+    width: 100%;
+    height: 40px;
+    background: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: left;
+    justify-content: left;
+}
+
+.choose-model .cms-button {
+    position: absolute;
+    background:#dce4ec;
+    padding:0 10px;
+    display:inline-block;
+    width: 15px;
+    height:40px;
+    line-height:40px;
+}
+
+.choose-model select {
+    position: absolute;
+    margin-left: 40px;
+    padding:0 10px;
+    width: calc(100% - 75px);
+    border: none;
+    height:40px;
+    line-height:40px;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.choose-model select option {
+    color: black;
+    background: white;
+    border-bottom: 1px solid black;
+}
+
+.choose-model:hover{
+    border-color:#34495e;
+    transition:all .15s ease-in-out;
+    -moz-transition:all .15s ease-in-out;
+    -webkit-transition:all .15s ease-in-out;
+    -o-transition:all .15s ease-in-out;
+}
+.choose-model:hover .cms-button{
+    background:#34495e;
+    color: black;
+    transition:all .15s ease-in-out;
+    -moz-transition:all .15s ease-in-out;
+    -webkit-transition:all .15s ease-in-out;
+    -o-transition:all .15s ease-in-out;
+}
+
+
+/* SUBMIT BUTTON */
 .lp-form form input[type="submit"] {
     background: orangered;
     width: 70%;
@@ -372,6 +552,7 @@
     margin-bottom: 15px;
     font-size: 18px;
     padding: 3px;
+    border: 2px solid rgba(255, 255, 255, 0);
     border-radius: 5px;
     border: none;
     color: white;
@@ -381,53 +562,13 @@
 
 .lp-form form input[type="submit"]:hover {
     background: rgb(255, 121, 63);
-    width: 80%;
+    border: 2px solid white;
+    width: 75%;
 }
-
-.lp-form form select {
-    padding: 3px;
-    border-radius: 5px;
-    margin-top: 2px;
-    font-size: 18px;
-    margin-bottom: 15px;
-    width: 80%;
-    background: rgb(38, 38, 38);
-    border-left: 5px orangered solid;
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    transition: 0.15s;
-}
-
-.lp-form form select:hover {
-    width: 85%;
-    background: rgb(255, 255, 255);
-    color: black;
-    border-left: 5px white solid;
-}
-
-.lp-form form select option {
-    padding: 3px;
-    border-radius: 5px;
-    font-size: 18px;
-    background: rgb(38, 38, 38);
-    color: white;
-    font-family: 'Nunito', sans-serif;
-}
-
-
-.lp-form form select option, select option {
-    padding: 3px;
-    border-radius: 5px;
-    font-size: 18px;
-    background: rgb(38, 38, 38);
-    color: white;
-    font-family: 'Nunito', sans-serif;
-}
-
 
 /* --[[ MEDIA QUERIES - RESPONSIVE SIZES ]]-- */
 /* Smaller-screen e.g. mobile, tablet */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
     .lp-container {
         display: block;
         width: 90%;
@@ -437,7 +578,7 @@
         width: 100%;
     }
 
-    .lp-box a .lp-content .term-module-list {
+    .lp-box a .lp-content .lp-list {
         margin-bottom: 10px;
     }
 }

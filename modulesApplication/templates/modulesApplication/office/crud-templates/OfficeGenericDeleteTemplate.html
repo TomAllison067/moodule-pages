@@ -1,0 +1,10 @@
+{% extends 'modulesApplication/main/base_office.html' %}
+
+{% block content %}
+<div class="main-content">
+    <form method="post">{% csrf_token %}
+        <p style="color: black;">Are you sure you want to delete "{{ object }}"?</p>
+        <input type="submit" value="Confirm">
+    </form>
+</div>
+{% endblock %}

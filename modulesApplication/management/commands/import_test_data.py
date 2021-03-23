@@ -49,7 +49,7 @@ class Command(BaseCommand):
         """
         Insert modules from the sqlite3 csv into your local database.
         """
-        modules = self.cr.read_table("modulesApplication/tests/resources/exported_sqlite3_module_table.csv", Module)
+        modules = self.cr.read_table_partial("modulesApplication/tests/resources/exported_sqlite3_module_table.csv", Module)
         for m in modules:
             m.clean()  # Validate every model's attributes
         Module.objects.bulk_create(modules)  # Create & save to database
