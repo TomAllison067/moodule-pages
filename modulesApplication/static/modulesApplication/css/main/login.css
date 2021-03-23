@@ -1,25 +1,7 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
-@font-face {
-  font-family: Poppins-Regular;
-  src: url('\fonts\poppins\Poppins-Regular.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Bold;
-  src: url('\fonts\poppins\Poppins-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url('\fonts\poppins\Poppins-Medium.ttf'); 
-}
-
-@font-face {
-  font-family: Montserrat-Bold;
-  src: url('\fonts\montserrat\Montserrat-Bold.ttf'); 
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -32,13 +14,26 @@
 
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+	font-family: Quicksand, sans-serif;
+}
+
+.search-box {
+  background: #DE7936;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  height: 44px !important;
+  align-items: center;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 15px;
+  padding: 12px;
 }
 
 /*---------------------------------------------*/
 
 a {
-	font-family: Poppins-Regular;
+	font-family: Quicksand;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -64,17 +59,23 @@ h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
 }
 
-p {
-	font-family: Poppins-Regular;
-	font-size: 14px;
-	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
-}
 
 ul, li {
 	margin: 0px;
 	list-style-type: none;
+}
+
+
+.loginBg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 600px;
+  background-image: url("images/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  z-index: 0;
 }
 
 /*---------------------------------------------*/
@@ -133,17 +134,17 @@ iframe {
 [ Utility ]*/
 
 .txt1 {
-  font-family: Poppins-Regular;
+  font-family: Quicksand;
   font-size: 13px;
   line-height: 1.5;
   color: #999999;
 }
 
 .txt2 {
-  font-family: Poppins-Regular;
+  font-family: Quicksand;
   font-size: 13px;
   line-height: 1.5;
-  color: black;
+  color: white;
 }
 
 
@@ -167,19 +168,17 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #f5af19;
-  background: -webkit-linear-gradient(-135deg, #f12711, #f5af19);
-  background: -o-linear-gradient(-135deg, #f12711, #f5af19);
-  background: -moz-linear-gradient(-135deg, #f12711, #f5af19);
-  background: linear-gradient(-135deg, #f12711, #f5af19);
+  background: #373737;
 }
 
 .wrap-login {
   width: 960px;
+
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-
+  position: relative;
+  z-index: 3;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -204,19 +203,24 @@ iframe {
 /*------------------------------------------------------------------
 [  ]*/
 .login-form {
-  width: 290px;
+  width: 100%;
+  max-width: 650px;
+  position: relative;
+  z-index: 3;
+  margin: 0 auto!important;
+  background: #2E2E2E;
+  border-radius: 1.5rem;
 }
 
 .login-form-title {
-  font-family: Poppins-Bold;
+  font-family: Quicksand;
   font-size: 24px;
-  color: #333333;
   line-height: 1.2;
   text-align: center;
-
+  color: white;
   width: 100%;
   display: block;
-  padding-bottom: 54px;
+  padding: 30px 0;
 }
 
 
@@ -228,40 +232,33 @@ iframe {
   margin-bottom: 10px;
 }
 
+input {
+  color: white!important;
+}
+
 .input {
-  font-family: Poppins-Medium;
+  font-family: Quicksand;
   font-size: 15px;
   line-height: 1.5;
-  color: #666666;
-
+  margin: 0 auto;
   display: block;
   width: 100%;
-  background: #e6e6e6;
+  max-width: 500px;
+  color: white;
+  background: #343434;
   height: 50px;
-  border-radius: 25px;
-  padding: 0 30px 0 68px;
+  border-radius: 10px;
+  padding: 0 30px;
 }
 
 /*------------------------------------------------------------------
 [ Focus ]*/
 
-.focus-input {
-  display: block;
-  position: absolute;
-  border-radius: 25px;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0px 0px 0px 0px;
-  color: rgba(87,184,70, 0.8);
+.input:focus {
+  outline :0;
+  border: 1px solid orange;
 }
 
-.input:focus + .focus-input {
-  -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
-  animation: anim-shadow 0.5s ease-in-out forwards;
-}
 
 @-webkit-keyframes anim-shadow {
   to {
@@ -319,17 +316,28 @@ iframe {
   padding-top: 20px;
 }
 
+ .error {
+  text-align: center!important;
+  color: rgb(247, 75, 75)!important;
+  padding: 10px 0!important;
+}
+
+.success {
+  text-align: center!important;
+  color: green!important;
+  padding: 10px 0!important;
+}
+
 .login-form-btn {
-  font-family: Montserrat-Bold;
+  font-family: Quicksand;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
-  text-transform: uppercase;
-
   width: 100%;
+  max-width: 150px;
   height: 50px;
-  border-radius: 25px;
-  background: #57b846;
+  border-radius: 15px;
+  background: #CC6240;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -337,7 +345,8 @@ iframe {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 25px;
+  padding: 0 25px 0 25px;
+  margin-bottom: 30px;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -345,7 +354,7 @@ iframe {
 }
 
 .login-form-btn:hover {
-  background: #333333;
+  background: #ab4e34;
 }
 
 /*------------------------------------------------------------------

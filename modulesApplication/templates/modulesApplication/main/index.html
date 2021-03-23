@@ -15,19 +15,8 @@
         class="fas fa-home"></i>office landing</a></li>
 {% endblock %}
 
-
 {% block content %}
-        <div class="main-content">
-            <h1>moodule</h1>
-            <p>Welcome to your module selection portal, Moodule </p> <br>
-            {% if user.is_authenticated %}
-            <h4>Welcome {{ user.first_name }}!</h4><br>
-            {% else %}
-            <div class="in-middle">
-                <a href="{% url 'login' %}">
-                    <i class="fas fa-sign-in-alt"> </i> Sign In
-                </a>
-            </div>
-            {% endif %}
-        </div>
+<h1>Welcome to your moodule selection portal</h1>
+        <div class="bgHome">
+</div>
 {% endblock %}

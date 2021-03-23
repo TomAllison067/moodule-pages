@@ -23,64 +23,49 @@
     <input type="checkbox" id="avatar-check">
 
     <!-- SIDEBAR MENU -->
-    <div class="sidebar">
-        <header>
-            <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
-        </header>
-        <ul style="overflow: hidden; height: 100%;">
-            {% block sidebar-links %} <!-- Let the links be subclassed if provided, otherwise this is the default.-->
-                <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
-                        class="fas fa-home"></i>student landing</a></li>
-                <li><a href="{% url 'modulesApplication:office-landing' %}" class="btn"><i
-                        class="fas fa-home"></i>office landing</a></li>
-            {% endblock sidebar-links %}
-        </ul>
-    </div>
+
+        <div class="sidebar">
+            <ul style="overflow: hidden; height: 100%;">
+                {% block sidebar-links %} <!-- Let the links be subclassed if provided, otherwise this is the default. -->
+                    <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
+                            class="fas fa-home"></i>student landing</a></li>
+                    <li><a href="{% url 'modulesApplication:office-landing' %}" class="btn"><i
+                            class="fas fa-home"></i>office landing</a></li>
+                {% endblock sidebar-links %}
+            </ul>
+        </div>
 
     <!-- TOP BAR -->
     <nav class="topbar">
-        <label for="sidebar-checkbox">
-            <i class="fas fa-bars" id="btn"></i>
-        </label>
-
-        <a href="{% url 'modulesApplication:index' %}"><label class="title"> moodule</label></a>
-
-        <div class="search-box">
-            <label for="search-box" style="display: none;">Search</label>
-            <input class="search-txt" type="text" id="search-box" placeholder="search">
-            <a class="search-btn" href="#">
-                <i class="fas fa-search"></i>
-            </a>
-        </div>
-
-        {% if user.is_authenticated %}
-            <div class="avatar-box">
-                <label for="avatar-check">
-                    {% if user.avatar %}
-                        <img src="{{ user.avatar }}" alt="The user's avatar.">
-                    {% else %}
-                        <img src="{% static 'modulesApplication/images/logo/slp-box-img.png' %}"
-                             alt="The Moodule logo.">
-                    {% endif %}
+        <div class="wrapper">
+            <div class="side">
+                <label for="sidebar-checkbox">
+                    <i class="fas fa-bars" id="btn"></i>
                 </label>
+
+                <a href="{% url 'modulesApplication:index' %}"><label class="title"> moodule.</label></a>
             </div>
 
-            <div class="dropdown-ab-menu">
-                <ul>
-                    <li class="username"> {{ user.first_name }}</li>
-                    <li class="email"> {{ user.email }}</li>
-                    <li class="sign-out">
-                        <a href="{% url 'logout' %}">
-                            <i class="fas fa-sign-out-alt"></i> Sign Out
-                        </a>
-                    </li>
-                </ul>
+            <div class="sideTwo">
+                <div class="search-box">
+                    <label for="search-box" style="display: none;">Search</label>
+                    <input class="search-txt" type="text" id="search-box" placeholder="search">
+                    <a class="search-btn" href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+
+                {% if user.is_authenticated %}
+                <div class="logout">
+                    <a href="{% url 'logout' %}">Logout</a>
+                </div>
+                {% else %}
+                <div class="sign-in">
+                    <a href="{% url 'login' %}">Login</a>
+                </div>
+                {% endif %}
             </div>
-        {% else %}
-            <div class="sign-in">
-                <a href="{% url 'login' %}"> <i class="fas fa-sign-in-alt"> </i> </a>
-            </div>
-        {% endif %}
+        </div>
     </nav>
 
     <!-- MENU OVERLAY SCRIPT -->
@@ -109,36 +94,15 @@
 
 <div class="page-wrapper">
     {% block content %}
-
     {% endblock %}
 </div>
-<!-- FOOTER - links will be added later -->
-<div class="footer">
-    <div class="row">
-        <div class="col">
-            <ul>
-                <li>Royal Holloway, University of London</li>
-                <li>Egham, Surrey, TW20 0EX</li>
-            </ul>
-        </div>
-        <div class="col">
-            <ul>
-                <li>Terms & Conditions</li>
-                <li>Privacy Policy</li>
-            </ul>
-        </div>
-        <div class="col">
-            <ul>
 
-                <li>moodule@gmail.com</li>
-                <li>T: +44 (0)1784 434455</li>
-            </ul>
-        </div>
-    </div>
-    <div class="finalrow">
-        &copy; 2021 moodule.com | Designed by CS2815 Group 34
-    </div>
-</div>
+<!-- FOOTER - links will be added later -->
+<footer>
+        <p>Royal Holloway, University of London</p>
+        <p>@ 2021 module.com | Designed by CSB15 Group 34</p>
+        <p>Terms & Conditions | Privacy Policy</p>
+</footer>
 
 {% block scripts %}
 {% endblock %}

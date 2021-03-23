@@ -2,35 +2,26 @@
 
 {% block head_css %}
     {{ block.super }}
-    <title>Azure Login Page</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main/login.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/css/main/util.css' %}">
-    <link rel="stylesheet" type="text/css"
-          href="{% static 'modulesApplication/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/animate/animate.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/select2/select2.min.css' %}">
-    <link rel="stylesheet" type="text/css"
-          href="{% static 'modulesApplication/fonts/font-awesome-4.7.0/css/font-awesome.css' %}">
-    <link rel="stylesheet" type="text/css"
-          href="{% static 'modulesApplication/vendor/css-hamburgers/hamburgers.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/fonts/font-awesome-4.7.0/css/font-awesome.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'modulesApplication/vendor/css-hamburgers/hamburgers.min.css' %}">
 
 {% endblock %}
 
 {% block content %}
 
-
     <body>
     <div class="limiter">
         {% if not user.is_authenticated %}
             <div class="container-login">
-            <div class="wrap-login">
-                <div class="login-pic js-tilt" data-tilt>
-                    <img src="{% static 'modulesApplication/images/logo/mlogo-login.png' %}"
-                </div>
-            </div>
 
             <form class="login-form" method="post" action="{% url 'login' %}">
                 {% csrf_token %}
@@ -42,7 +33,7 @@
                     <input class="input" type="text" name="username" placeholder="zhacxx">
                     <span class="focus-input"></span>
                     <span class="symbol-input">
-                            <i class="fa fa-envelope" aria-hidden="true" style="color:rgb(0, 0, 0);"></i>
+                            <i class="fa fa-envelope" aria-hidden="true" style="color:rgb(255, 255, 255);"></i>
                         </span>
                 </div>
 
@@ -50,7 +41,7 @@
                     <input id="password-field" class="input" type="password" name="password" placeholder="Password">
                     <span class="focus-input"></span>
                     <span class="symbol-input">
-							<i class="fa fa-lock" aria-hidden="true" style="color:rgb(0, 0, 0);"></i>
+							<i class="fa fa-lock" aria-hidden="true" style="color:rgb(255, 255, 255);"></i>
 						</span>
                 </div>
 
@@ -59,25 +50,24 @@
                         Login
                     </button>
                 </div>
-                
-                <div class="text-center p-t-136">
-                    <span class="txt2">
-                        Group 34
-                    </span>
-                </div>
-            </form>
-        {% else %}
-            <p>You're successfully signed in, so you might be seeing this because you're not supposed to be accessing this page!</p>
-        {% endif %}
-        {% if not user.is_authenticated %}
-            {% if form.errors %}
-                <p>Your username and password didn't match. Please try again.</p>
+                {% else %}
+                <p class ='success'>You're successfully signed in, so you might be seeing this because you're not supposed to be accessing this page!</p>
             {% endif %}
-        {% endif %}
+            {% if not user.is_authenticated %}
+                {% if form.errors %}
+                    <p class ='error'>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+            {% endif %}
+            </form>
+    
         </div>
     </div>
+
+
+    <div class="loginBg"></div>
     </div>
     </body>
+    
 {% endblock %}
 
 {#{% block scripts %}#}
