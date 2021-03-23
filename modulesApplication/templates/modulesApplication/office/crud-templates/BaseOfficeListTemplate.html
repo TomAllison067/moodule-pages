@@ -11,24 +11,34 @@
 {% endblock %}
 {% block content %}
     <div class="flex-centre">
-        <div class="listview-div">
-            <h1>{% block heading %}Model name here{% endblock %}</h1>
-            {% block table %}
-            {% endblock %}
-            <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a class="blue-link" href="?page=1">&laquo; first</a>
-            <a class="blue-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        <div class="table-box">
+            <div class="icon-img">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <div class="listview-div">
+                {% block table %}
+                {% endblock %}
+                <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class="blue-link" id="first" href="?page=1"> 
+                    <span> first</span>  <i class="fas fa-fast-backward"></i>
+                </a>
+                <a class="blue-link" id="previous" href="?page={{ page_obj.previous_page_number }}"><i
+                        class="fas fa-step-backward"></i></a>
+            {% endif %}
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+            {% if page_obj.has_next %}
+                <a class="blue-link" id="next" href="?page={{ page_obj.next_page_number }}"><i
+                        class="fas fa-step-forward"></i></a>
+                <a class="blue-link" id="last" href="?page={{ page_obj.paginator.num_pages }}"> 
+                    <i class="fas fa-fast-forward"> </i> <span> last </span>
+                </a>
+            {% endif %}
         </span>
-        {% if page_obj.has_next %}
-            <a class="blue-link" href="?page={{ page_obj.next_page_number }}">next</a>
-            <a class="blue-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
+                </div>
             </div>
         </div>
     </div>

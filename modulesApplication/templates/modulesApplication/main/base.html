@@ -27,7 +27,7 @@
         <header>
             <img class="mainlogo" src="{% static 'modulesApplication/images/logo/mlogo.png' %}" alt="logo">
         </header>
-        <ul>
+        <ul style="overflow: hidden; height: 100%;">
             {% block sidebar-links %} <!-- Let the links be subclassed if provided, otherwise this is the default.-->
                 <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
                         class="fas fa-home"></i>student landing</a></li>

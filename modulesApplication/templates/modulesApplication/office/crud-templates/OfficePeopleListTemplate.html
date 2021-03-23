@@ -3,35 +3,43 @@
 {% block title %}
     All People
 {% endblock %}
-{% block heading %}
-    People
-{% endblock %}
 {% block table %}
+    <h1> People </h1>
     <div class="create-new-model-div">
-        <a class="blue-link" href="{% url 'modulesApplication:staff-create-person' %}">Create new? </a>
+        <a class="blue-link" id="create-bl" href="{% url 'modulesApplication:staff-create-person' %}"> <i
+                class="fas fa-plus"></i> Create new person? </a>
     </div>
-    <table>
-        <tr>
-            <th>ID / Initials</th>
-            <th>Name</th>
-            <th>Email address</th>
-            <th>Update?</th>
-            <th>Delete?</th>
-        </tr>
-        {% for person in object_list %}
+
+    <div class="table-scroll">
+        <table>
+            <thead>
             <tr>
-                <td>{{ person.id }}</td>
-                <td>{{ person.name }}</td>
-                <td>{{ person.email }}</td>
-                <td>
-                    <a class="blue-link"
-                       href="{% url 'modulesApplication:staff-update-person' pk=person.id %}">Update/Modify</a>
-                </td>
-                <td>
-                    <a class="blue-link"
-                       href="{% url 'modulesApplication:staff-delete-person' pk=person.id %}">Delete</a>
-                </td>
+                <th>ID / Initials</th>
+                <th>Name</th>
+                <th>Email address</th>
+                <th>Update?</th>
+                <th>Delete?</th>
             </tr>
-        {% endfor %}
-    </table>
+            </thead>
+            <tbody>
+            {% for person in object_list %}
+                <tr>
+                    <td data-label="ID / INITIALS: "> &nbsp; {{ person.id }}</td>
+                    <td data-label="NAME: "> &nbsp; {{ person.name }}</td>
+                    <td data-label="EMAIL ADDRESS: "> &nbsp; {{ person.email }}</td>
+                    <td data-label="UPDATE? ">
+                        <a class="blue-link" id="update-bl"
+                           href="{% url 'modulesApplication:staff-update-person' pk=person.id %}"><i
+                                class="fas fa-edit"></i></a>
+                    </td>
+                    <td data-label="DELETE? ">
+                        <a class="blue-link" id="delete-bl"
+                           href="{% url 'modulesApplication:staff-delete-person' pk=person.id %}"><i
+                                class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
