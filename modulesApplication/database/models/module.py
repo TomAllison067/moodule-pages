@@ -29,18 +29,18 @@ class Module(models.Model):
     """
     Represents a Module - eg cs2815 (hooray) or cs1860 (boo)
     """
-    mod_code = models.TextField(blank=False, primary_key=True)
-    title = models.TextField(blank=True, null=True)
+    mod_code = models.CharField(blank=False, primary_key=True, max_length=10)
+    title = models.CharField(blank=True, null=True, max_length=255)
     level = models.IntegerField(blank=True, null=True, choices=LevelChoices.choices)
     credits = models.IntegerField(blank=True, null=True, choices=CreditsChoices.choices)
-    corequisites = models.TextField(blank=True, null=True)
-    prerequisites = models.TextField(blank=True, null=True)
+    corequisites = models.TextField(blank=True, null=True, max_length=255)
+    prerequisites = models.TextField(blank=True, null=True, max_length=255)
     banned_combinations = models.TextField(blank=True, null=True)
     learning_outcomes = models.TextField(blank=True, null=True)
     core_reading = models.TextField(blank=True, null=True)
     exam_format = models.TextField(blank=True, null=True)
     summary = models.TextField(blank=True, null=True)
-    status = models.TextField(blank=True, null=True, choices=StatusChoices.choices)
+    status = models.CharField(blank=True, null=True, choices=StatusChoices.choices, max_length=15)
     project = models.BooleanField(blank=True, null=True)
     selected_in = models.ManyToManyField(ModuleSelection)
 

@@ -12,7 +12,7 @@ class StrandChoices(models.TextChoices):
 
 class Strands(models.Model):
     module = models.ForeignKey('Module', models.CASCADE, db_column='mod_code', blank=False, null=False)
-    strand = models.TextField(blank=False, null=False, choices=StrandChoices.choices)
+    strand = models.CharField(blank=False, null=False, choices=StrandChoices.choices, max_length=5)
     strand_id = models.AutoField(primary_key=True)
 
     class Meta:

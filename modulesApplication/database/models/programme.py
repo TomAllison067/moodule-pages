@@ -23,9 +23,9 @@ class Programme(models.Model):
     need most of those fields for our purposes.
     """
 
-    prog_code = models.TextField(primary_key=True)
-    title = models.TextField(unique=True)
-    level = models.TextField(choices=DegreeLevel.choices)  # Choices validated at model level
+    prog_code = models.CharField(primary_key=True, max_length=10)
+    title = models.CharField(unique=True, max_length=255)
+    level = models.CharField(choices=DegreeLevel.choices, max_length=10)  # Choices validated at model level
     yini = models.BooleanField(default=False)
 
     def clean(self):

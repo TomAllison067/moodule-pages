@@ -22,7 +22,7 @@ class CourseLeader(models.Model):
     module = models.ForeignKey('Module', models.CASCADE)
     person = models.ForeignKey('People', models.CASCADE)
     leader = models.BooleanField()
-    term = models.TextField(choices=TermChoices.choices, null=False)
+    term = models.CharField(choices=TermChoices.choices, null=False, max_length=6)
     id = models.AutoField(primary_key=True)  # Automatic ID - needed since Django doesn't support composite keys
 
     class Meta:

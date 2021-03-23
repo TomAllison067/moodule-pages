@@ -16,12 +16,12 @@ class ConstraintType(models.TextChoices):
 class OptionRule(models.Model):
     id = models.AutoField(primary_key=True)
     prog_code = models.ForeignKey('Programme', models.DO_NOTHING, db_column='prog_code', null=False)
-    entry_year = models.TextField(null=False)
+    entry_year = models.CharField(null=False, max_length=4)
     stage = models.IntegerField(null=False)
-    constraint_type = models.TextField(choices=ConstraintType.choices, null=False)
+    constraint_type = models.CharField(choices=ConstraintType.choices, null=False, max_length=20)
     min_quantity = models.IntegerField(default=1)
     max_quantity = models.IntegerField(default=1)
-    mod_code_pattern = models.TextField(null=False)
+    mod_code_pattern = models.CharField(null=False, max_length=10)
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):

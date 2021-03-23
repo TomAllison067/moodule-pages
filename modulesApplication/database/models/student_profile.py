@@ -7,10 +7,10 @@ from django.db import models
 class StudentProfile(models.Model):
     """A database model to store information related to the student - e.g. their student ID"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    student_id = models.TextField(null=True)
-    entry_year = models.TextField(null=True)
-    prog_code = models.TextField(
-        null=True)  # We can't use a foreign key here - some LDAP entries have multiple programmes..
+    student_id = models.CharField(null=True, max_length=20)
+    entry_year = models.CharField(null=True, max_length=4)
+    prog_code = models.CharField(
+        null=True, max_length=10)  # We can't use a foreign key here - some LDAP entries have multiple programmes..
     stage = models.SmallIntegerField(null=True)
 
     @staticmethod

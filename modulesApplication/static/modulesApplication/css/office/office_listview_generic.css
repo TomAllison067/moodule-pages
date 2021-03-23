@@ -40,8 +40,7 @@
 
 .table-box h2 {
   font-size: 30px;
-  margin: 0;
-  margin-top: 30px;
+  margin: 30px 0 0;
   border-bottom: 2px solid orangered;
   color: black;
 }
@@ -58,11 +57,11 @@
     background-color: #2e3133;
 }
 
-.table-scroll {
-  height: 450px;
-  width: 100%;
-  overflow-y: auto;
-}
+/*.table-scroll {*/
+/*  height: 450px;*/
+/*  width: 100%;*/
+/*  overflow-y: auto;*/
+/*}*/
 
 table {
   border: 1px solid #ccc;
@@ -130,7 +129,7 @@ table th {
   text-decoration: none;
   font-weight: bold;
   font-family: 'Nunito', sans-serif;
-  border: 2px solid none;
+  border: 2px solid;
   margin-top: 25px;
   transition: 0.2s;
 }

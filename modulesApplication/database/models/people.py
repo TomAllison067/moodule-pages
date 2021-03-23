@@ -9,9 +9,9 @@ class People(models.Model):
 
     This corresponds to the 'people' table in the sqlite3 database.
     """
-    id = models.TextField(primary_key=True)  # Their initials
-    name = models.TextField()  # Their full name
-    email = models.TextField()  # Their email address
+    id = models.CharField(primary_key=True, max_length=5)  # Their initials
+    name = models.CharField(max_length=255)  # Their full name
+    email = models.CharField(max_length=255)  # Their email address
 
     def __str__(self):
         return self.name
