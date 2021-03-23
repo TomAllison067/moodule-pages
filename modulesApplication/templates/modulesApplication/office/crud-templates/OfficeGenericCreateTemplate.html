@@ -23,10 +23,10 @@
                         <div class="table-big-col">
                             <table class="form-table">
                                 <thead>
-                                    <tr>
-                                        <th><strong>Field</strong></th>
-                                        <th><strong>Value</strong></th>
-                                    </tr>
+                                <tr>
+                                    <th><strong>Field</strong></th>
+                                    <th><strong>Value</strong></th>
+                                </tr>
                                 </thead>
                                 <tbody>
                                 {% for field in form.visible_fields %}
@@ -34,10 +34,14 @@
                                         <tr>
                                             <td class="form-ltag">{{ field.label_tag }}</td>
                                             <td class="form-td">
-                                                <div class="input-div">
-                                                    <div class="icon-button"> <i class="fas fa-plus"></i></div>
+                                                {% if field.widget_type != "checkbox" %}
+                                                    <div class="input-div">
+                                                        <div class="icon-button"><i class="fas fa-plus"></i></div>
+                                                        {{ field }}
+                                                    </div>
+                                                {% else %}
                                                     {{ field }}
-                                                </div>
+                                                {% endif %}
                                             </td>
                                         </tr>
                                     {% endif %}
@@ -49,21 +53,25 @@
                             {% if form.visible_fields|length >= 15 %}
                                 <table>
                                     <thead>
-                                        <tr>
-                                            <th><strong>Field</strong></th>
-                                            <th><strong>Value</strong></th>
-                                        </tr>
+                                    <tr>
+                                        <th><strong>Field</strong></th>
+                                        <th><strong>Value</strong></th>
+                                    </tr>
                                     </thead>
                                     <tbody>
                                     {% for field in form.visible_fields %}
                                         {% if forloop.counter >= 15 %}
                                             <tr>
-                                                <td class="form-ltag">{{ field.label_tag }}</td>
+                                                <td class="form-ltag">{{ field.label_tag }}{{ field }}</td>
                                                 <td class="form-td">
-                                                    <div class="input-div">
-                                                        <div class="icon-button"> <i class="fas fa-plus"></i></div>
+                                                    {% if field.widget.widget != "checkbox" %}
+                                                        <div class="input-div">
+                                                            <div class="icon-button"><i class="fas fa-plus"></i></div>
+                                                            {{ field }}
+                                                        </div>
+                                                    {% else %}
                                                         {{ field }}
-                                                    </div>
+                                                    {% endif %}
                                                 </td>
                                             </tr>
                                         {% endif %}
