@@ -56,6 +56,7 @@
     <!-- DROPDOWN SCRIPT -->
     <script>
         //from programmes table : title,prog_code
+        //this can be used if the user does not have a LDAP account or if they wish to change their degree manually
         const programmes = {
             "BSc Computer Science": "1067",
             "BSc Computer Science with a Year in Industry": "2327",
@@ -84,6 +85,7 @@
             "MSci Computer Science (Distributed and Networked Systems) with a Year in Industry": "3017"
         };
 
+        //linking each programme code with the number of stages it has, stages meaning years to study
         const programmes_stage = {
             "1067": "3",
             "1059": "3",
@@ -110,7 +112,9 @@
             "2674": "5",
             "2846": "5",
             "3017": "5"
-        }
+        };
+
+        //presenting a more user friendly choice of stage selection
         const stage = {
             "Year One": "1",
             "Year Two": "2",

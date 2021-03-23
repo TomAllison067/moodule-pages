@@ -17,7 +17,7 @@ def landing(request):
     if request.method == 'POST':
         form = CsvUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            result = form.process_data(request.FILES['csv_upload'], request.POST['model'])
+            result = form.process_data(request.FILES['csv_upload'], request.POST['data'])
             if result:
                 message = "{}\'s successfully updated".format(result)
             else:
@@ -40,7 +40,7 @@ def csv(request):
         form = CsvUploadForm(request.POST, request.FILES)
 
         if form.is_valid():
-            result = form.process_data(request.FILES['data_file'], request.POST['model'])
+            result = form.process_data(request.FILES['data_file'], request.POST['data'])
             if result:
                 message = "{} successfully updated".format(result)
         else:
