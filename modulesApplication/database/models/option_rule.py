@@ -21,7 +21,7 @@ class OptionRule(models.Model):
     constraint_type = models.CharField(choices=ConstraintType.choices, null=False, max_length=20)
     min_quantity = models.IntegerField(default=1)
     max_quantity = models.IntegerField(default=1)
-    mod_code_pattern = models.CharField(null=False, max_length=10)
+    mod_code_pattern = models.CharField(null=False, max_length=255)
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
