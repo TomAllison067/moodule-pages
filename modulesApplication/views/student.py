@@ -137,10 +137,12 @@ def my_selection(request):
         student_id = request.user.studentprofile.student_id
     except StudentProfile.DoesNotExist:
         student_id = request.user.id  # For superusers / devs
-    selection = get_object_or_404(
-        ModuleSelection,
-        student_id=student_id
-    )
+    try:
+        selection = ModuleSelection.objects.get(
+            student_id=student_id
+        )
+    except ModuleSelection.DoesNotExist:
+        return HttpResponseRedirect(reverse('modulesApplication:choice-pathway'))
     modules = selection.module_set.all()
     context = {
         'selection': selection,
