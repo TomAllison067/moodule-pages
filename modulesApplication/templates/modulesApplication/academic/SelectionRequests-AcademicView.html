@@ -1,4 +1,4 @@
-{% extends "modulesApplication/main/base_office.html" %}
+{% extends "modulesApplication/main/base_academic.html" %}
 {% load static %}
 
 {% block title %}Selection Requests{% endblock %}
@@ -17,6 +17,7 @@
             <h2><i class="fas fa-book-open"></i> student module selection requests</h2> <br>
         </div>
     </div>
+
     <!-- FORM -->
     <div class="table-box">
         <div class="icon-img">
@@ -35,16 +36,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for selection in selections_list %}
+                    {% for selection in selections_list %}
                     <tr>
-                        <td data-label="ID"> &nbsp; {{ selection.id }}</td>
-                        <td data-label="STUDENT ID"> &nbsp; {{ selection.student_id }}</td>
-                        <td data-label="STUDENT NAME"> &nbsp; {{ selection.student_name }}</td>
-                        <td data-label="STAGE"> &nbsp; {{ selection.stage }}</td>
-                        <td data-label="ENTRY YEAR"> &nbsp; {{ selection.entry_year }}</td>
-                        <td data-label="STATUS"> &nbsp; {{ selection.status }}</td>
-                        <td data-label="PROGRAMME ID"> &nbsp; {{ selection.programme_id }}</td>
-                        <td data-label="DATE REQUESTED"> &nbsp; {{ selection.date_requested }}</td>
+                        <td data-label="ID"> {{ selection.id }}</td>
+                        <td data-label="STUDENT ID"> {{ selection.student_id }}</td>
+                        <td data-label="STUDENT NAME"> {{ selection.student_name }}</td>
+                        <td data-label="STAGE"> {{ selection.stage }}</td>
+                        <td data-label="ENTRY YEAR"> {{ selection.entry_year }}</td>
+                        <td data-label="STATUS"> {{ selection.status }}</td>
+                        <td data-label="PROGRAMME ID"> {{ selection.programme_id }}</td>
+                        <td data-label="DATE REQUESTED"> {{ selection.date_requested }}</td>
                         <td data-label="MORE INFO">
                             <button class="details-btn" onclick="openForm('{{ selection.id }}')">Details</button>
                         </td>
@@ -53,9 +54,8 @@
                 </tbody>
             </table>
         </div>
-    </div>
 
-    <div class="modal" id="modalOne">
+        <div class="modal" id="modalOne">
             <div class="modal-content">
                 <a class="close" onclick="closeForm()">&times;</a>
                 <form class="modal-form" action="{% url 'modulesApplication:selection-requests' %}" method="POST">
@@ -85,17 +85,11 @@
                         </tr>
                         <tr>
                             <td class="details-label"><b>COMMENTS</b></td>
-                            <td class="details-cell" ><input type="text" name="comment" placeholder="Reasoning..."></td>
                         </tr>
-
                     </table>
-                    <br>
-                    <input type="submit" class="Abtn" name="Approved" value="APPROVE">
-                    <input type="submit" class="Dbtn" name="Denied" value="DENY">
-
-
                 </form>
             </div>
+        </div>
         {% comment %}{% for selections in selections_list %}
         <ul>
             <button class="ib-content">
@@ -105,7 +99,115 @@
     {% endfor %}{% endcomment %}
 
         <!--        Content for the Selection requests goes here.-->
+
+    </div>
 </div>
+<style>
+    /* th-table headers;
+     make the background darker and have a pointer*/
+    .form-box th {
+        cursor: pointer;
+        background-color: #2e3133;
+    }
+
+    /* \25b4 - the arrow in the table header show the ascending column
+    margin-left; for the gap between header name and arrow */
+
+    .form-box .th-sort-asc::after {
+        content: "\25b4";
+        margin-left: 5px;
+    }
+
+    /* \25be - the arrow in the table header show the descending column
+    margin-left; for the gap between header name and arrow */
+    .form-box .th-sort-desc::after {
+        content: "\25be";
+        margin-left: 5px;
+    }
+
+    /* change the opacity of the table headers if asc/desc */
+    .form-box .th-sort-asc,
+    .form-box .th-sort-desc {
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    /* modal- darken page behind the form when approve/deny pops up  */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 5;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* the div for the approve/deny form */
+    .modal-content {
+        margin: 10% auto auto;
+        width: 50%;
+        padding: 10px;
+    }
+
+    form {
+        padding: 25px;
+        margin: 25px;
+        box-shadow: 0 2px 5px #f5f5f5;
+        background: #90948e;
+    }
+    input{
+        color: black;
+    }
+
+    .Abtn {
+        width: 40%;
+        padding: 10px;
+        align: left;
+        border: none;
+        background: #20a115;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        opacity: 0.7;
+    }
+
+    .Dbtn {
+        width: 40%;
+        padding: 10px;
+        align: right;
+        border: none;
+        background: #ff0000;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        opacity: 0.7;
+    }
+
+    .Abtn:hover,
+    .Dbtn:hover {
+        opacity: 1;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: rgba(0,0,0,0.6);
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        width: 80px;
+    }
+</style>
 
 
 {% autoescape off %}
@@ -119,11 +221,11 @@
                 if (selections_list[x].id == selected) {
                     document.getElementById("selection_id").value = selected;
 
-                    document.getElementById("student_name").innerHTML =  '\u00A0' + selections_list[x].student_name;
-                    document.getElementById("student_id").innerHTML =  '\u00A0' + selections_list[x].student_id;
-                    document.getElementById("programme").innerHTML = '\u00A0' + selections_list[x].programme_name;
-                    document.getElementById("entry_year").innerHTML = '\u00A0' + selections_list[x].entry_year;
-                    document.getElementById("modules").innerHTML = '\u00A0' + selections_list[x].modules;
+                    document.getElementById("student_name").innerHTML = selections_list[x].student_name;
+                    document.getElementById("student_id").innerHTML = selections_list[x].student_id;
+                    document.getElementById("programme").innerHTML = selections_list[x].programme_name;
+                    document.getElementById("entry_year").innerHTML = selections_list[x].entry_year;
+                    document.getElementById("modules").innerHTML = selections_list[x].modules;
                 }
             }
             document.getElementById("modalOne").style.display = "block";
@@ -151,7 +253,7 @@
             const sortedRows = rows.sort((a, b) => {
                 let aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
                 let bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
-                if (!isNaN(aColText)) {
+                if (!isNaN(aColText)){
                     aColText = parseInt(aColText)
                     bColText = parseInt(bColText)
                 }
@@ -172,11 +274,11 @@
             table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-desc", !asc);
         }
 
-    document.querySelectorAll(".table-box th").forEach(headerCell => {
-        headerCell.addEventListener("click", () => {
-            const tableElement = headerCell.parentElement.parentElement.parentElement;
-            const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
-            const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+        document.querySelectorAll(".form-box th").forEach(headerCell => {
+            headerCell.addEventListener("click", () => {
+                const tableElement = headerCell.parentElement.parentElement.parentElement;
+                const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+                const currentIsAscending = headerCell.classList.contains("th-sort-asc");
 
                 sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
             });
@@ -185,6 +287,6 @@
         {#sortTableByColumn(document.querySelector("table"), 0, false)#}
 
     </script>
-    {% endautoescape %}
+{% endautoescape %}
 {% endblock %}
 

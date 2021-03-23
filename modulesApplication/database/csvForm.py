@@ -16,6 +16,7 @@ models = {'1': Programme, '2': Module, '3': ModuleSelection, '4': People}
 class CsvUploadForm(forms.Form):
     csv_upload = forms.FileField()
     data = forms.ChoiceField(choices=MODEL_CHOICES)
+    csv_upload.widget.attrs.update({'style': 'color:black', 'class':'csv_upload', 'required': 'required'})
     data.widget.attrs.update({'style': 'color:black', 'class':'', 'required': 'required'})
 
     def process_data(self, file, model):
