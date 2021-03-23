@@ -108,12 +108,7 @@
     {% autoescape off %}
         <script>
 
-            selections_list = {
-            {
-                list_of_selections
-            }
-            }
-            ;
+            selections_list = {{ list_of_selections }};
 
             function openForm(selected) {
                 console.log(selections_list);
@@ -197,10 +192,7 @@
                 });
             });
 
-            {
-                #sortTableByColumn(document.querySelector("table"), 0, false)
-                #
-            }
+            {#sortTableByColumn(document.querySelector("table"), 0, false)#}
 
         </script>
     {% endautoescape %}
