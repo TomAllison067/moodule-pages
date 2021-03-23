@@ -9,16 +9,19 @@
 {% block table %}
     <h1> Strands </h1>
     <div class="create-new-model-div">
-        <a class="blue-link" id="create-bl" href="{% url 'modulesApplication:staff-create-strand' %}"><i class="fas fa-plus"></i> Create new strand? </a>
+        <a class="blue-link" id="create-bl" href="{% url 'modulesApplication:staff-create-strand' %}"><i
+                class="fas fa-plus"></i> Create new strand? </a>
     </div>
 
     <div class="table-scroll">
         <table>
             <thead>
+            <tr>
                 <th>Module</th>
                 <th>Strand</th>
                 <th>Update?</th>
                 <th>Delete?</th>
+            </tr>
             </thead>
             <tbody>
             {% for strand in object_list %}
@@ -27,11 +30,13 @@
                     <td data-label="STRAND: "> &nbsp; {{ strand.strand }}</td>
                     <td data-label="UPDATE? ">
                         <a class="blue-link" id="update-bl"
-                        href="{% url 'modulesApplication:staff-update-strand' pk=strand.strand_id %}"><i class="fas fa-edit"></i></a>
+                           href="{% url 'modulesApplication:staff-update-strand' pk=strand.strand_id %}"><i
+                                class="fas fa-edit"></i></a>
                     </td>
                     <td data-label="DELETE? ">
                         <a class="blue-link" id="delete-bl"
-                        href="{% url 'modulesApplication:staff-delete-strand' pk=strand.strand_id %}"><i class="fas fa-trash-alt"></i></a>
+                           href="{% url 'modulesApplication:staff-delete-strand' pk=strand.strand_id %}"><i
+                                class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             {% endfor %}

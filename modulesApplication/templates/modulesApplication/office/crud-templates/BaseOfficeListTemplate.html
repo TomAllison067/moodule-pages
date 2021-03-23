@@ -24,13 +24,15 @@
                 <a class="blue-link" id="first" href="?page=1"> 
                     <span> first</span>  <i class="fas fa-fast-backward"></i>
                 </a>
-                <a class="blue-link" id="previous" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-step-backward"></i></a>
+                <a class="blue-link" id="previous" href="?page={{ page_obj.previous_page_number }}"><i
+                        class="fas fa-step-backward"></i></a>
             {% endif %}
             <span class="current">
                 Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
             </span>
             {% if page_obj.has_next %}
-                <a class="blue-link" id="next" href="?page={{ page_obj.next_page_number }}"><i class="fas fa-step-forward"></i></a>
+                <a class="blue-link" id="next" href="?page={{ page_obj.next_page_number }}"><i
+                        class="fas fa-step-forward"></i></a>
                 <a class="blue-link" id="last" href="?page={{ page_obj.paginator.num_pages }}"> 
                     <i class="fas fa-fast-forward"> </i> <span> last </span>
                 </a>

@@ -9,12 +9,14 @@
 {% block table %}
     <h1> Modules List </h1>
     <div class="create-new-model-div">
-        <a class="blue-link" id="create-bl" href="{% url 'modulesApplication:staff-create-module' %}"> <i class="fas fa-plus"></i> Create new module? </a>
+        <a class="blue-link" id="create-bl" href="{% url 'modulesApplication:staff-create-module' %}"> <i
+                class="fas fa-plus"></i> Create new module? </a>
     </div>
 
     <div class="table-scroll">
         <table>
             <thead>
+            <tr>
                 <th>Module</th>
                 <th>Level</th>
                 <th>Credits</th>
@@ -26,6 +28,7 @@
                 <th>Status</th>
                 <th>Update?</th>
                 <th>Delete?</th>
+            </tr>
             </thead>
             <tbody>
             {% for module in object_list %}
@@ -34,25 +37,32 @@
                         {{ module.title|slice:":50" }}{% if module.title|length > 50 %}... {% endif %}</td>
                     <td data-label="LEVEL:"> &nbsp; {{ module.level }}</td>
                     <td data-label="CREDITS:"> &nbsp; {{ module.credits }}</td>
-                    <td data-label="PREREQUISITES:"> &nbsp; {{ module.prerequisites|slice:":30" }}{% if module.prerequisites|length > 30 %}... {% endif %}</td>
-                    <td data-label="BANNED COMBINATIONS:"> &nbsp; {{ module.banned_combinations|slice:":30" }}{% if module.banned_combinations|length > 30 %}
-                        ... {% endif %}</td>
-                    <td data-label="LEARNING OUTCOMES:"> &nbsp; {{ module.learning_outcomes|slice:":30" }}{% if module.learning_outcomes|length > 30 %}
-                        ... {% endif %}</td>
-                    <td data-label="SUMMARY:"> &nbsp; {{ module.summary|slice:":30" }}{% if module.summary|length > 30 %}... {% endif %}</td>
+                    <td data-label="PREREQUISITES:"> &nbsp;
+                        {{ module.prerequisites|slice:":30" }}{% if module.prerequisites|length > 30 %}
+                            ... {% endif %}</td>
+                    <td data-label="BANNED COMBINATIONS:"> &nbsp;
+                        {{ module.banned_combinations|slice:":30" }}{% if module.banned_combinations|length > 30 %}
+                            ... {% endif %}</td>
+                    <td data-label="LEARNING OUTCOMES:"> &nbsp;
+                        {{ module.learning_outcomes|slice:":30" }}{% if module.learning_outcomes|length > 30 %}
+                            ... {% endif %}</td>
+                    <td data-label="SUMMARY:"> &nbsp;
+                        {{ module.summary|slice:":30" }}{% if module.summary|length > 30 %}... {% endif %}</td>
                     <td data-label="PROJECT: "> &nbsp; {{ module.project }}</td>
                     <td data-label="STATUS: "> &nbsp; {{ module.status }}</td>
                     <td data-label="UPDATE? ">
                         <a class="blue-link" id="update-bl"
-                        href="{% url 'modulesApplication:staff-update-module' pk=module.mod_code %}"><i class="fas fa-edit"></i></a>
+                           href="{% url 'modulesApplication:staff-update-module' pk=module.mod_code %}"><i
+                                class="fas fa-edit"></i></a>
                     </td>
                     <td data-label="DELETE? ">
                         <a class="blue-link" id="delete-bl"
-                        href="{% url 'modulesApplication:staff-delete-module' pk=module.mod_code %}"><i class="fas fa-trash-alt"></i></a>
+                           href="{% url 'modulesApplication:staff-delete-module' pk=module.mod_code %}"><i
+                                class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             {% endfor %}
-        </tbody>
+            </tbody>
         </table>
     </div>
 {% endblock %}

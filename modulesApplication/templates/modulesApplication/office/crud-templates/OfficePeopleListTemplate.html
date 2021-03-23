@@ -6,17 +6,20 @@
 {% block table %}
     <h1> People </h1>
     <div class="create-new-model-div">
-        <a class="blue-link" id="create-bl" href="{% url 'modulesApplication:staff-create-person' %}"> <i class="fas fa-plus"></i> Create new person? </a>
+        <a class="blue-link" id="create-bl" href="{% url 'modulesApplication:staff-create-person' %}"> <i
+                class="fas fa-plus"></i> Create new person? </a>
     </div>
 
     <div class="table-scroll">
         <table>
             <thead>
+            <tr>
                 <th>ID / Initials</th>
                 <th>Name</th>
                 <th>Email address</th>
                 <th>Update?</th>
                 <th>Delete?</th>
+            </tr>
             </thead>
             <tbody>
             {% for person in object_list %}
@@ -26,11 +29,13 @@
                     <td data-label="EMAIL ADDRESS: "> &nbsp; {{ person.email }}</td>
                     <td data-label="UPDATE? ">
                         <a class="blue-link" id="update-bl"
-                        href="{% url 'modulesApplication:staff-update-person' pk=person.id %}"><i class="fas fa-edit"></i></a>
+                           href="{% url 'modulesApplication:staff-update-person' pk=person.id %}"><i
+                                class="fas fa-edit"></i></a>
                     </td>
                     <td data-label="DELETE? ">
-                        <a class="blue-link"id="delete-bl"
-                        href="{% url 'modulesApplication:staff-delete-person' pk=person.id %}"><i class="fas fa-trash-alt"></i></a>
+                        <a class="blue-link" id="delete-bl"
+                           href="{% url 'modulesApplication:staff-delete-person' pk=person.id %}"><i
+                                class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             {% endfor %}
