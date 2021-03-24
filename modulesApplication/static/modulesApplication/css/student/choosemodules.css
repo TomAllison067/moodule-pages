@@ -154,10 +154,11 @@ form#form_id select option, select option {
 
 .submit-btn,
 form#form_id input[type = "submit"]  {
-    background: orangered;
-    width: 80px;
-    height: 33px;
-    margin-top: 15px;
+    background: #CC6240;
+    width: 100%;
+    max-width: 150px;
+    height: 40px;
+    margin-top: 10px;
     font-size: 18px;
     padding: 3px;
     border-radius: 5px;
@@ -169,9 +170,9 @@ form#form_id input[type = "submit"]  {
 
 .submit-btn:hover,
 form#form_id input[type = "submit"]:hover {
-    background: rgb(255, 121, 63);
-    border: 2px white solid;
-    width: 90px;
+    background: #ae5237;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .alert {

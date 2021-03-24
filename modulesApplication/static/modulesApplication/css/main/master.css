@@ -1,10 +1,11 @@
 /* --[[ GOOGLE FONT IMPORTS ]]-- */
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Yantramanav:wght@900');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
 
 /* --[[ HTML, BODY ]]-- */
 html, body {
-    background: linear-gradient(rgb(220, 220, 220), rgb(240, 240, 240));
+    background: #f1ebeb;
     margin: 0;
     padding: 0;
 
@@ -19,7 +20,7 @@ html, body {
 
     color: white;
     background-size: cover;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
@@ -36,8 +37,8 @@ html, body {
 
 /* --[[ WRAPPER ]]-- */
 .page-wrapper {
-    margin-top: 43px; /* height of the topbar */
     min-height: 100%;
+    position: relative;
 }
 
 .page-wrapper2 {
@@ -91,31 +92,61 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(255, 135, 0);
+    background-color: rgb(79, 79, 79);
     border-radius: 5px;
 }
 
 /* --[[ TOPBAR ]]-- */
 
 .topbar {
-    width: calc(100%);
-    height: 43px;
-    background: linear-gradient(rgb(255, 100, 0) 5%, rgb(255, 135, 0) 55%);
+    width: 100%;
+    height: 90px;
+    background: #FF9046;
     z-index: 5;
-    display: inline-block;
     overflow: visible;
     position: fixed;
+}
+
+.user {
+    width: 100%;
+    max-width: 40px;
+    margin-left: 20px;
+    align-self: center;
+}
+
+
+.topbar .wrapper {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    align-items: center;
     justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.topbar .side {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: flex-start;
+}
+
+.topbar .sideTwo {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: flex-end;
 }
 
 .topbar .title {
-    position: absolute;
-    top: 5px;
-    color: black;
-    font-weight: 800;
+    color: white;
+    font-weight: 500;
+    margin-left: 60px;
     font-size: 25px;
-    margin-left: 80px;
-    font-family: 'Yantramanav', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* --[[ TB: AVATAR BOX ]]-- */
@@ -164,43 +195,56 @@ html, body {
 }
 
 .sign-in {
-    margin: 2px;
-    padding: 10px;
-    position: absolute;
-    display: block;
-    width: 15px;
-    height: 12px;
-    top: 2px;
-    right: 10px;
-    background-image: linear-gradient(to right, orange 0%, orangered 51%, orange 100%);
-    background-size: 200% auto;
-    color: black;
-    font-size: 20px;
+    width: 100%;
+    max-width: 150px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #CC6240;
+    margin-left: 20px;
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
     text-align: center;
-    border-radius: 50%;
-    transition: 0.35s;
-}
-
-.sign-in a {
-    display: block;
-    margin: -5px -1px;
-    top: 20px;
-    left: 5px;
-    text-decoration: none;
-    color: black;
-}
-
-.sign-in a i {
-    color: black;
+    transition: all 0.3s;
 }
 
 .sign-in:hover {
-    background-image: linear-gradient(to right, rgb(152, 99, 0) 0%, rgb(143, 38, 0) 51%, rgb(152, 99, 0) 100%);
-    background-position: right center;
+    background: #ae5237;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.sign-in a {
+    text-decoration: none;
     color: white;
 }
 
-.sign-in:hover > a, .sign-in:hover > a i {
+.logout {
+    width: 100%;
+    max-width: 150px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #CC6240;
+    margin-left: 20px;
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.logout:hover {
+    background: #ae5237;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.logout a {
+    text-decoration: none;
     color: white;
 }
 
@@ -297,21 +341,21 @@ html, body {
 
 /* --[[ TB: SEARCH BOX ]]-- */
 .search-box {
-    position: absolute;
-    top: 20px;
-    right: 0;
-    transform: translate(-50%, -50%);
-    background: rgb(15, 15, 15);
+    background: #DE7936;
+    display: flex;
+    justify-content: space-between;
     color: white;
-    height: 12px;
+    height: 22px;
+    align-items: center;
+    width: 100%;
+    max-width: 250px;
     border-radius: 15px;
     padding: 12px;
 }
 
 .search-box input[type = "text"] {
-    margin-bottom: 10px;
     background: none;
-    color: white;
+    color: white!important;
 }
 
 .search-box input[type = "text"]:focus {
@@ -322,6 +366,10 @@ html, body {
 .search-box:focus {
     background: none;
     background: rgb(30, 30, 30);
+}
+
+.search-box::placeholder {
+    color: white!important;
 }
 
 .search-btn {
@@ -350,13 +398,18 @@ html, body {
     outline: none;
     float: left;
     padding: 0;
-    color: white;
+    color: white!important;
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
     transition: 0.25s;
     line-height: 15px;
     width: 100px;
 }
+
+.search-txt::placeholder {
+    color: white;
+}
+
 
 /* --[[ SIDEBAR ]]-- */
 .sidebar {
@@ -365,7 +418,7 @@ html, body {
     top: 40px;
     width: 250px;
     height: 100%;
-    background: rgb(15, 15, 15);
+    background: #2E2E2E;
     transition: all .25s ease;
     z-index: 5;
 }
@@ -375,7 +428,6 @@ html, body {
     color: white;
     text-align: center;
     line-height: 70px;
-    background: rgb(15, 15, 15);
     user-select: none;
 }
 
@@ -389,17 +441,21 @@ html, body {
     filter: contrast(200%);
 }
 
+.sidebar ul {
+    margin-top: 120px;
+}
+
 .sidebar ul a {
     display: block;
     height: 100%;
     width: 100%;
     line-height: 25px;
     font-size: 18px;
+    text-align: left;
     color: white;
-    padding-left: 20px;
+    background: transparent;
+    padding-left: 40px;
     box-sizing: border-box;
-    border-top: 1px solid rgba(255, 255, 255, .1);
-    border-bottom: 4px solid rgb(255, 135, 0);
     transition: all .25s;
 }
 
@@ -423,7 +479,7 @@ html, body {
 
 .sidebar ul a i {
     margin-right: 16px;
-    color: rgb(255, 135, 0);
+    color: rgb(255, 255, 255);
     transition: 0.3s ease;
 }
 
@@ -444,16 +500,16 @@ html, body {
 label #btn, label #cancel {
     position: absolute;
     cursor: pointer;
-    background: black;
+    background: none;
     border-radius: 2px;
 }
 
 label #btn {
-    left: 25px;
-    top: 5px;
-    font-size: 18px;
+    font-size: 23px;
     color: white;
     padding: 6px 12px;
+    width: 100%;
+    max-width: 33px;
     transition: all .25s;
 }
 
@@ -517,16 +573,10 @@ label #cancel {
     position: relative;
 }
 
-.btn:before {
-    content: "";
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    background: rgb(15, 15, 15);
-    left: 20px;
-    bottom: -7px;
-    transform: rotate(45deg);
+.sidebar .btn:hover {
+    background: #CC6240;
 }
+
 
 .btn i {
     margin-right: 10px;
@@ -587,51 +637,27 @@ label #cancel {
 
 /* --[[ FOOTER ]]-- */
 
-.footer {
-    background: rgb(255, 145, 0);
-    color: black;
+footer {
+    background:#2E2E2E;
     bottom: 0;
     position: relative;
     width: 100%;
-    font-size: 12px;
+    padding: 40px 0!important;
+    align-items: center!important;
+    display: flex !important;
+    justify-content: space-evenly;
 }
 
-.footer .row {
-    border-top: 2px solid black;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    height: auto;
-    color: black;
-    padding: 10px;
-    text-align: center;
+footer p {
+    color: white;
+    transition: all 0.3s;
+    font-size: 16px;
 }
 
-.footer .finalrow {
-    color: black;
-    padding: 10px;
-    text-align: center;
-}
-
-.footer .row .col {
-    padding: 5px;
-    color: black;
-    text-align: center;
-}
-
-.footer .row .col ul li {
-    color: black;
-}
-
-.footer .footer-bottom {
-    background: #343a40;
-    color: #686868;
-    height: 50px;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding-top: 20px;
-
+footer p:hover {
+    color: orange;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .blue-link a {

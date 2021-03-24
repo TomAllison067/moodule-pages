@@ -8,11 +8,12 @@
     position: relative;
     width: 100%;
     height: 275px;
-    border-bottom: 3px solid black;
-    background: linear-gradient(180deg, rgb(137, 36, 0), rgb(155, 101, 0), rgb(201, 127, 0));
-    background-size: 400% 400%;
-    animation: ib-gradient 10s ease infinite;
+    background: #222222;
+    margin-top: 90px;
     overflow: hidden;
+    background-image: url("images/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .slides {
@@ -36,26 +37,28 @@
 .slide-content {
     position: relative;
     color: black;
-    margin-top: 0;
-    padding: 60px;
-    display: block;
-    height: 50%;
-    width: 75%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto 0 -8.35%;
+    text-align: center;
 }
 
 .slide-content h2 {
-    padding: 5px;
     color: white;
-    background: #141414;
-    border-top: 5px orange solid;
+    font-size: 35px!important;
+    text-align: center;
 }
 
 .slide-content p {
     background: rgba(0, 0, 0, 0.5);
-    padding: 7px;
-    border-left: 5px orange solid;
+    padding: 15px;
     color: white;
-    width: 90%;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 @keyframes ib-gradient {
@@ -84,8 +87,7 @@
 .manual-btn {
     padding: 5px;
     border-radius: 10px;
-    background: black;
-    border: 2px solid black;
+    background: #f1ebeb;
     cursor: pointer;
     transition: 0.25s;
 }
@@ -95,8 +97,7 @@
 }
 
 .manual-btn:hover {
-    background: orange;
-    border: 2px solid black;
+    background: #FF9046;
 }
 
 #radio1:checked ~ .first {
@@ -157,28 +158,22 @@
 }
 
 .lp-box {
-    margin: 0.25% 0.4%;
+    margin: 50px 10px;
     width: 80%;
     display: block;
     box-sizing: border-box;
-    background: linear-gradient(rgb(80, 50, 5), rgb(115, 45, 0));
-    background-size: cover;
-    border-top: 5px solid orange;
+    background: #2E2E2E;
     color: white;
     cursor: pointer;
     position: relative;
-    opacity: 90%;
     transition: 0.25s;
     border-radius: 5px;
 }
 
 .lp-box:hover {
-    background-position: right;
-    background: linear-gradient(rgb(50, 20, 0), rgb(85, 15, 0));
+    background: #3b3b3b;
     transform: scale(1.025);
     border-radius: 5px;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.511);
-    opacity: 100%;
     transition: 0.25s;
 }
 
@@ -233,10 +228,9 @@
 .lp-box a h2 {
     font-size: 18px;
     text-align: center;
-    border-top: 2px orange solid;
-    background: rgba(0, 0, 0, 0.65);
+    background: #2b2b2b;
     margin-bottom: 5%;
-    padding: 5px;
+    padding: 20px;
     margin-top: 0;
     position: relative;
     border-radius: 5px 5px 0 0;
@@ -256,7 +250,6 @@
     height: 90%;
     display: block;
     box-sizing: border-box;
-    background-image: linear-gradient(black, rgb(27, 27, 27));
     background-size: cover;
     color: white;
     font-size: 18px;

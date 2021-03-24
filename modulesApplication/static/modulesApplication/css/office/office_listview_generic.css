@@ -308,151 +308,21 @@ table th {
   line-height:40px;
 }
 
-/* Input type-texts, and text areas */
-.input-div input[type="text"], .input-div textarea {
+.input-div textarea {
   margin-left: 40px;
-  position: relative;
+  position: initial;
   padding:0 10px;
-  z-index: 1;
+  width: calc(100% - 50px);
   border: none;
   resize: none;
+  width: 90%;
   height: 40px;
-  width: 91%;
-  overflow: hidden;
-  line-height: 35px;
+  overflow: auto;
+  line-height:40px;
   font-size: 16px;
-  border: 1px solid rgba(0, 0, 0, 0);
   font-family: 'Nunito', sans-serif;
+  z-index: 20;
   transition: 0.2s;
-}
-
-/* Checkbox fields */
-
-.checkbox-container {
-  width: 100%;
-  box-sizing: border-box;
-  text-align: left;
-  padding: 40px 0px;
-}
-
-/* Styling Checkbox Starts */
-.checkbox-label {
-  display: block;
-  position: relative;
-  margin: auto;
-  cursor: pointer;
-  margin-left: 5px;
-  font-size: 22px;
-  line-height: 24px;
-  height: 24px;
-  width: 24px;
-  clear: both;
-}
-
-.checkbox-label input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.checkbox-label .checkbox-square {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 25px;
-  width: 25px;
-  background-color: transparent;
-  border-radius: 5px;
-  transition: all 0.3s ease-out;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  border: 3px solid #34495e;
-
-}
-
-.checkbox-label:hover .checkbox-square {
-  background-color: #34495e29;
-}
-
-.checkbox-label input:checked ~ .checkbox-square {
-  background-color: #34495e;
-  border-radius: 5px;
-  -webkit-transform: rotate(0deg) scale(1);
-  -ms-transform: rotate(0deg) scale(1);
-  transform: rotate(0deg) scale(1);
-  opacity:1;
-  border: 3px solid #34495e;
-}
-
-.checkbox-label .checkbox-square::after {
-  position: absolute;
-  content: "";
-  left: 12px;
-  top: 12px;
-  height: 0px;
-  width: 0px;
-  border-radius: 5px;
-  border: 3px solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(0deg) scale(0);
-  -ms-transform: rotate(0deg) scale(0);
-  transform: rotate(0deg) scale(0);
-  opacity:1;
-  transition: all 0.2s ease-out;
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-}
-
-.checkbox-label input:checked ~ .checkbox-square::after {
-  -webkit-transform: rotate(45deg) scale(1);
-  -ms-transform: rotate(45deg) scale(1);
-  transform: rotate(45deg) scale(1);
-  opacity:1;
-  left: 8px;
-  top: 3px;
-  width: 6px;
-  height: 12px;
-  border: 3px solid white;
-  border-width: 0 3px 3px 0;
-  background-color: transparent;
-  border-radius: 0;
-}
-
-/* Checkbox - ripple Effect */
-.checkbox-label .checkbox-square::before {
-  position: absolute;
-  content: "";
-  left: 10px;
-  top: 10px;
-  width: 0px;
-  height: 0px;
-  border-radius: 5px;
-  border: 3px solid #34495e;
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);	
-}
-
-.checkbox-label input:checked ~ .checkbox-square::before {
-  left: -3px;
-  top: -3px;
-  width: 24px;
-  height: 24px;
-  border-radius: 5px;
-  -webkit-transform: scale(3);
-  -ms-transform: scale(3);
-  transform: scale(3);
-  opacity:0;
-  z-index: 999;
-  transition: all 0.3s ease-out;
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
 }
 
 .form-ltag {
@@ -460,17 +330,15 @@ table th {
   font-weight: bold;
 }
 
-/* For textarea-focus - expand the field height */
+/* for textareas later 
 .input-div textarea:focus {
-  z-index: 2;
-  height: 12em;
-  background: linear-gradient(rgb(240, 240, 240), rgb(255, 255, 255));
-  border: 1px solid black;
-  overflow: auto;
+  z-index: 90;
+  height: 10em;
+  border: 2px solid black;
   border-radius: 2px;
 }
+*/
 
-/* Dropdown fields */
 .input-div select {
   margin-left: 40px;
   padding:0 10px;
@@ -493,7 +361,6 @@ table th {
   color: white;
 }
 
-/* For hover and focus of fields - highlight the field being interacted */
 .input-div:hover{
   border-color:#34495e;
   transition:all .15s ease-in-out;
@@ -584,18 +451,10 @@ table th {
     display: none;
   }
   .form-table tr, td {
-    position: relative;
     display: block;
   }
 
-  /* Smaller width of fields on smaller widths */
-  .input-div input[type="text"], .input-div textarea {
-    width: 85%;
-  }
-
-  /* Center the checkbox on smaller widths */
-  .checkbox-label {
-    margin-left: auto;
-    margin-right: auto;
+  .input-div textarea {
+    width: 87%;
   }
 }
