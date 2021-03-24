@@ -1,10 +1,16 @@
 modulesApplication.csv package
 ==============================
 
-Submodules
-----------
+Package Overview
+---------------
 
-modulesApplication.csv.csvForm module
+.. automodule:: modulesApplication.csv
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+modulesApplication.csv.csvForm
 -------------------------------------
 
 .. automodule:: modulesApplication.csv.csvForm
@@ -12,7 +18,7 @@ modulesApplication.csv.csvForm module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.csv.csv\_reader module
+modulesApplication.csv.csv\_reader
 -----------------------------------------
 
 .. automodule:: modulesApplication.csv.csv_reader
@@ -20,10 +26,3 @@ modulesApplication.csv.csv\_reader module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
-
-.. automodule:: modulesApplication.csv
-   :members:
-   :undoc-members:
-   :show-inheritance:

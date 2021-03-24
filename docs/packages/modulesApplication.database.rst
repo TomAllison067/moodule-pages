@@ -1,10 +1,15 @@
 modulesApplication.database package
 ===================================
 
-Submodules
-----------
+Package Overview
+---------------
 
-modulesApplication.database.course\_leader module
+.. automodule:: modulesApplication.database
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+modulesApplication.database.course\_leader
 -------------------------------------------------
 
 .. automodule:: modulesApplication.database.course_leader
@@ -12,7 +17,7 @@ modulesApplication.database.course\_leader module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.database.module module
+modulesApplication.database.module
 -----------------------------------------
 
 .. automodule:: modulesApplication.database.module
@@ -20,7 +25,7 @@ modulesApplication.database.module module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.database.module\_selection module
+modulesApplication.database.module\_selection
 ----------------------------------------------------
 
 .. automodule:: modulesApplication.database.module_selection
@@ -28,7 +33,7 @@ modulesApplication.database.module\_selection module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.database.module\_variants module
+modulesApplication.database.module\_variants
 ---------------------------------------------------
 
 .. automodule:: modulesApplication.database.module_variants
@@ -36,7 +41,7 @@ modulesApplication.database.module\_variants module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.database.option\_rule module
+modulesApplication.database.option\_rule
 -----------------------------------------------
 
 .. automodule:: modulesApplication.database.option_rule
@@ -44,7 +49,7 @@ modulesApplication.database.option\_rule module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.database.optional\_module module
+modulesApplication.database.optional\_module
 ---------------------------------------------------
 
 .. automodule:: modulesApplication.database.optional_module
@@ -52,7 +57,7 @@ modulesApplication.database.optional\_module module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.database.people module
+modulesApplication.database.people
 -----------------------------------------
 
 .. automodule:: modulesApplication.database.people
@@ -60,7 +65,7 @@ modulesApplication.database.people module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.database.programme module
+modulesApplication.database.programme
 --------------------------------------------
 
 .. automodule:: modulesApplication.database.programme
@@ -68,7 +73,7 @@ modulesApplication.database.programme module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.database.strand module
+modulesApplication.database.strand
 -----------------------------------------
 
 .. automodule:: modulesApplication.database.strand
@@ -76,7 +81,7 @@ modulesApplication.database.strand module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.database.student\_profile module
+modulesApplication.database.student\_profile
 ---------------------------------------------------
 
 .. automodule:: modulesApplication.database.student_profile
@@ -84,10 +89,4 @@ modulesApplication.database.student\_profile module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
 
-.. automodule:: modulesApplication.database
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,10 +1,15 @@
 modulesProject package
 ======================
 
-Submodules
-----------
+Package Overview
+---------------
 
-modulesProject.asgi module
+.. automodule:: modulesProject
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+modulesProject.asgi
 --------------------------
 
 .. automodule:: modulesProject.asgi
@@ -12,7 +17,7 @@ modulesProject.asgi module
    :undoc-members:
    :show-inheritance:
 
-modulesProject.settings module
+modulesProject.settings
 ------------------------------
 
 .. automodule:: modulesProject.settings
@@ -20,7 +25,7 @@ modulesProject.settings module
    :undoc-members:
    :show-inheritance:
 
-modulesProject.urls module
+modulesProject.urls
 --------------------------
 
 .. automodule:: modulesProject.urls
@@ -28,7 +33,7 @@ modulesProject.urls module
    :undoc-members:
    :show-inheritance:
 
-modulesProject.wsgi module
+modulesProject.wsgi
 --------------------------
 
 .. automodule:: modulesProject.wsgi
@@ -36,10 +41,4 @@ modulesProject.wsgi module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
 
-.. automodule:: modulesProject
-   :members:
-   :undoc-members:
-   :show-inheritance:

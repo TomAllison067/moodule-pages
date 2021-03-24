@@ -1,10 +1,15 @@
 modulesApplication.views package
 ================================
 
-Submodules
-----------
+Package Overview
+---------------
 
-modulesApplication.views.index module
+.. automodule:: modulesApplication.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+modulesApplication.views.index
 -------------------------------------
 
 .. automodule:: modulesApplication.views.index
@@ -12,7 +17,7 @@ modulesApplication.views.index module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.views.office module
+modulesApplication.views.office
 --------------------------------------
 
 .. automodule:: modulesApplication.views.office
@@ -20,7 +25,7 @@ modulesApplication.views.office module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.views.office\_crud\_views module
+modulesApplication.views.office\_crud\_views
 ---------------------------------------------------
 
 .. automodule:: modulesApplication.views.office_crud_views
@@ -28,7 +33,7 @@ modulesApplication.views.office\_crud\_views module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.views.student module
+modulesApplication.views.student
 ---------------------------------------
 
 .. automodule:: modulesApplication.views.student
@@ -36,10 +41,4 @@ modulesApplication.views.student module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
 
-.. automodule:: modulesApplication.views
-   :members:
-   :undoc-members:
-   :show-inheritance:

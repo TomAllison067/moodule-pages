@@ -18,7 +18,7 @@ Subpackages
 Submodules
 ----------
 
-modulesApplication.admin module
+modulesApplication.admin
 -------------------------------
 
 .. automodule:: modulesApplication.admin
@@ -26,7 +26,7 @@ modulesApplication.admin module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.apps module
+modulesApplication.apps
 ------------------------------
 
 .. automodule:: modulesApplication.apps
@@ -34,7 +34,7 @@ modulesApplication.apps module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.models module
+modulesApplication.models
 --------------------------------
 
 .. automodule:: modulesApplication.models

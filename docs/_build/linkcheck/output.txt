@@ -1,0 +1,1 @@
+packages/modulesApplication.programmeInfo.rst:1: [broken] https://ssb-prod.ec.royalholloway.ac.uk/PROD/bwckctlg.p_disp_catalog_syllabus?cat_term_in=202021: 500 Server Error:  for url: https://ssb-prod.ec.royalholloway.ac.uk/PROD/bwckctlg.p_disp_catalog_syllabus?cat_term_in=202021

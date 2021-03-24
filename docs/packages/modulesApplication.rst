@@ -1,6 +1,14 @@
 modulesApplication package
 ==========================
 
+Package Overview
+---------------
+
+.. automodule:: modulesApplication
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Subpackages
 -----------
 
@@ -15,8 +23,6 @@ Subpackages
    modulesApplication.tests
    modulesApplication.views
 
-Submodules
-----------
 
 modulesApplication.admin module
 -------------------------------
@@ -50,10 +56,4 @@ modulesApplication.urls module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
 
-.. automodule:: modulesApplication
-   :members:
-   :undoc-members:
-   :show-inheritance:

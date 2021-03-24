@@ -1,10 +1,15 @@
 modulesApplication.programmeInfo package
 ========================================
 
-Submodules
-----------
+Package Overview
+---------------
 
-modulesApplication.programmeInfo.csv\_converter module
+.. automodule:: modulesApplication.programmeInfo
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+modulesApplication.programmeInfo.csv\_converter
 ------------------------------------------------------
 
 .. automodule:: modulesApplication.programmeInfo.csv_converter
@@ -12,7 +17,7 @@ modulesApplication.programmeInfo.csv\_converter module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.programmeInfo.factory module
+modulesApplication.programmeInfo.factory
 -----------------------------------------------
 
 .. automodule:: modulesApplication.programmeInfo.factory
@@ -20,7 +25,7 @@ modulesApplication.programmeInfo.factory module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.programmeInfo.programme\_info module
+modulesApplication.programmeInfo.programme\_info
 -------------------------------------------------------
 
 .. automodule:: modulesApplication.programmeInfo.programme_info
@@ -28,7 +33,7 @@ modulesApplication.programmeInfo.programme\_info module
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.programmeInfo.selection\_validator module
+modulesApplication.programmeInfo.selection\_validator
 ------------------------------------------------------------
 
 .. automodule:: modulesApplication.programmeInfo.selection_validator
@@ -36,10 +41,4 @@ modulesApplication.programmeInfo.selection\_validator module
    :undoc-members:
    :show-inheritance:
 
-Module contents
----------------
 
-.. automodule:: modulesApplication.programmeInfo
-   :members:
-   :undoc-members:
-   :show-inheritance:
