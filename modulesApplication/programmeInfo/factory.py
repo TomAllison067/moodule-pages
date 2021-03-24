@@ -41,33 +41,8 @@ def __sort_alphanumerically(modules_dict):
                                                              key=operator.attrgetter('mod_code'))
 
 
-def populate_has_modules(modules_dict):
-    for term in modules_dict.keys():
-        for constraint_type, modules_list in modules_dict[term].items():
-            pass
-
-
-def get_programme_info(prog_code: str, entry_year: str, stage: int) -> ProgrammeInfo:
-    """The factory method to build and return a new ProgrammeInfo object. ProgrammeInfo objects hold information
-    about a degree programme's modules and optsrules for a given entry year and stage."""
-    programme = Programme.objects.get(prog_code=prog_code)
-    modules_dict = {'term1': {},
-                    'term2': {}}
-    rules_dict = {}
-    has_modules = {'term1': True,
-                   'term2': False}
-    populate_core_modules(modules_dict, rules_dict, programme, stage, entry_year)
-    populate_disc_alt_modules(modules_dict, rules_dict, programme, stage, entry_year)
-    populate_opts_modules(modules_dict, rules_dict, programme, stage, entry_year)
-    populate_strand_modules(modules_dict, rules_dict, programme, stage, entry_year)
-    strand = get_strand(entry_year, programme, stage)
-    modules_to_set(modules_dict)
-    sort_alphanumerically(modules_dict)
-    populate_has_modules(modules_dict)
-    return ProgrammeInfo(programme, stage, entry_year, modules_dict, rules_dict, strand, has_modules)
-
-
-def modules_to_set(modules_dict):
+def __modules_to_set(modules_dict):
+    """Go through each list of modules and make them a set, removing any duplicates."""
     for term in modules_dict.keys():
         for constraint_type, modules_list in modules_dict[term].items():
             if constraint_type != 'DISC_ALT':
@@ -183,12 +158,3 @@ def __populate_strand_modules(modules_dict, rules_dict, programme, stage, entry_
                     elif term.upper() == "BOTH":
                         modules_dict['term1']['STRAND'] = modules_dict['term1'].get('STRAND', []) + [module]
                         modules_dict['term2']['STRAND'] = modules_dict['term2'].get('STRAND', []) + [module]
-
-
-def get_strand(entry_year, programme, stage):
-    strand = str()
-    if stage >= 2:  # If stage 2 or above, we can get the derive the programme's strand from an OptionRule
-        rule = OptionRule.objects.filter(prog_code=programme, constraint_type="STRAND", stage=stage,
-                                         entry_year=entry_year).first()
-        strand = rule.mod_code_pattern.split(',')[0] if rule is not None else None
-    return strand
