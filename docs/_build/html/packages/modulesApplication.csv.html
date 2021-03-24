@@ -184,6 +184,14 @@
 <h1>modulesApplication.csv package<a class="headerlink" href="#modulesapplication-csv-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-modulesApplication.csv">
 <span id="package-overview"></span><h2>Package Overview<a class="headerlink" href="#module-modulesApplication.csv" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>This package contains functionality related to CSV files:</dt><dd><ul class="simple">
+<li><p>A <cite>CsvReader</cite> class capable of reading .csv files into the database.</p></li>
+<li><p>A Django form used for uploading .csv files on the office homepage.</p></li>
+<li><p>A module capable of converting various models to/from .csv format.</p></li>
+</ul>
+</dd>
+</dl>
 </div>
 <div class="section" id="module-modulesApplication.csv.csvForm">
 <span id="modulesapplication-csv-csvform"></span><h2>modulesApplication.csv.csvForm<a class="headerlink" href="#module-modulesApplication.csv.csvForm" title="Permalink to this headline">¶</a></h2>
@@ -221,41 +229,77 @@
 <dt id="modulesApplication.csv.csv_reader.CsvReader">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.csv.csv_reader.</span></code><code class="sig-name descname"><span class="pre">CsvReader</span></code><a class="headerlink" href="#modulesApplication.csv.csv_reader.CsvReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A CsvReader to read in data from a csv file.
-The CsvReader can read headers from a csv file, as well as rows, and return a list of Model objects according
-to the type that was read in.</p>
+<p>A <cite>CsvReader</cite> can read .csv files and convert the data into appropriate data model classes for our database.</p>
+<p>We’ve tried to be generic, and the <code class="docutils literal notranslate"><span class="pre">read_table_partial</span></code> method is probably the most appropriate method
+for most cases.</p>
 <dl class="py method">
 <dt id="modulesApplication.csv.csv_reader.CsvReader.read_dict">
 <code class="sig-name descname"><span class="pre">read_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.csv.csv_reader.CsvReader.read_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read a csv file and return a list of dicts.
-:param file the csv file to read
-:return: a list of dicts of header/value pairs</p>
+<dd><p>Reads a .csv file and converts it into a list of dictionaries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> – the file to read</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>value] dictionaries.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>A list of [header</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="modulesApplication.csv.csv_reader.CsvReader.read_headers">
-<code class="sig-name descname"><span class="pre">read_headers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.csv.csv_reader.CsvReader.read_headers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the headers of the csv file.
-:param filename: the path of the file to read.
-:return: the headers from the csv file.</p>
+<code class="sig-name descname"><span class="pre">read_headers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#modulesApplication.csv.csv_reader.CsvReader.read_headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the headers (the first row) of a .csv file and returns it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – the file to read in.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A List[str] of containing the headers in the first row of the .csv file.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="modulesApplication.csv.csv_reader.CsvReader.read_table">
 <code class="sig-name descname"><span class="pre">read_table</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_class</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">django.db.models.base.ModelBase</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.csv.csv_reader.CsvReader.read_table" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read ALL HEADERS from a csv file corresponding to one database table into a list of Model objects.
-:param filepath: the path of the csv file to read.
-:param model_class: the type of Model to read in
-:return: A list of Model objects.</p>
+<dd><p>DEPRECATED!</p>
+<p>Reads a .csv file corresponding to a data model, and builds a list of the corresponding model objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> – the file to read.</p></li>
+<li><p><strong>model_class</strong> – the desired model class.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of model objects.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="modulesApplication.csv.csv_reader.CsvReader.read_table_partial">
 <code class="sig-name descname"><span class="pre">read_table_partial</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_class</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.csv.csv_reader.CsvReader.read_table_partial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read from a csv file into a model, reading only those headers which the model has as a field and no more.
-:param filepath: the path of the csv file
-:param model_class: the target model class
-:return: a list of model objects</p>
+<dd><p>Read from a csv file into a model, reading only those headers which the model has as a field and no more.</p>
+<p>A more flexible, generic, better version of <code class="docutils literal notranslate"><span class="pre">read_table</span></code> that doesn’t require your .csv file to have
+exactly the same number of headers as the target model class.</p>
+<p>For example, our application only has some fields in the <cite>Programme</cite> model compared to the example sqlite
+database. This method will only read in the appropriate headers. Use this one!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> – the file to read in.</p></li>
+<li><p><strong>model_class</strong> – the target model to read in to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of appropriate model objects.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
