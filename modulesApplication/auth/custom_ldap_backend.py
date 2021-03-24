@@ -8,8 +8,12 @@ from modulesApplication.database.student_profile import StudentProfile
 
 class CustomLDAPBackend(LDAPBackend):
     """
-    A custom override of the LDAP backend. The justification is to derive group memberships upon login and then
-    add the resulting Django user to the correct Django group (in our case, Students or Staff).
+    A custom override of the LDAP authentication backend. The justification is to derive group memberships upon login
+    and then add the resulting Django user to the correct Django group (in our case, Students or Staff).
+
+    When a user logs in, the application query's the university's LDAP server and attempts to draw out the
+    relevant information - particularly what 'type' of person they are (extensionAttribute8) and other useful
+    information.
 
     Only RHUL students and academic or administrative staff should be allowed to log in.
 
@@ -26,7 +30,7 @@ class CustomLDAPBackend(LDAPBackend):
                 return None  # Don't authenticate if their LDAP group can't match up to one of ours
             user.groups.add(django_group)  # Add the user to the correct group
             if django_group.name == 'Students':
-                self.populate_student_profile(user)
+                self.query_student_profile_information(user)
         return user
 
     @staticmethod
@@ -60,7 +64,26 @@ class CustomLDAPBackend(LDAPBackend):
             return None
 
     @staticmethod
-    def populate_student_profile(user):
+    def query_student_profile_information(user):
+        """
+        Queries the LDAP server to obtain information about a student:
+            * Their student ID
+            * Their entry year
+            * Their degree programme
+
+        When this information is collected, it calls ``database.StudentProfile.populate_student_profile_from_ldap``
+        with this information to actually populate the relevant `StudentProfile` object.
+
+        Some LDAP entries may be incorrect - e.g., some students who have changed their degree programme may
+        erronously have two degree entries in their LDAP entry. If so, the StudentProfile will have ``None`` as the
+        programme code as we do not yet have a workaround for this.
+
+        The user is still able to manually select their degree/stage when choosing modules if this
+        is the case.
+
+        Args:
+            user: the student user authenticating
+        """
         student_id = user.ldap_user.attrs.get('extensionAttribute3')[0]
         entry_year = user.ldap_user.attrs.get('whenCreated')[0][:4]
         potential_prog_codes = []

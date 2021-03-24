@@ -190,8 +190,11 @@
 <dt id="modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.auth.custom_ldap_backend.</span></code><code class="sig-name descname"><span class="pre">CustomLDAPBackend</span></code><a class="headerlink" href="#modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_auth_ldap.backend.LDAPBackend</span></code></p>
-<p>A custom override of the LDAP backend. The justification is to derive group memberships upon login and then
-add the resulting Django user to the correct Django group (in our case, Students or Staff).</p>
+<p>A custom override of the LDAP authentication backend. The justification is to derive group memberships upon login
+and then add the resulting Django user to the correct Django group (in our case, Students or Staff).</p>
+<p>When a user logs in, the application query’s the university’s LDAP server and attempts to draw out the
+relevant information - particularly what ‘type’ of person they are (extensionAttribute8) and other useful
+information.</p>
 <p>Only RHUL students and academic or administrative staff should be allowed to log in.</p>
 <p>All other LDAPBackend features work as normal.</p>
 <p>See <a class="reference external" href="https://django-auth-ldap.readthedocs.io/en/latest/">https://django-auth-ldap.readthedocs.io/en/latest/</a></p>
@@ -226,9 +229,29 @@ is staff or a student and returns a Django group.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend.populate_student_profile">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">populate_student_profile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend.populate_student_profile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend.query_student_profile_information">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">query_student_profile_information</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend.query_student_profile_information" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Queries the LDAP server to obtain information about a student:</dt><dd><ul class="simple">
+<li><p>Their student ID</p></li>
+<li><p>Their entry year</p></li>
+<li><p>Their degree programme</p></li>
+</ul>
+</dd>
+</dl>
+<p>When this information is collected, it calls <code class="docutils literal notranslate"><span class="pre">database.StudentProfile.populate_student_profile_from_ldap</span></code>
+with this information to actually populate the relevant <cite>StudentProfile</cite> object.</p>
+<p>Some LDAP entries may be incorrect - e.g., some students who have changed their degree programme may
+erronously have two degree entries in their LDAP entry. If so, the StudentProfile will have <code class="docutils literal notranslate"><span class="pre">None</span></code> as the
+programme code as we do not yet have a workaround for this.</p>
+<p>The user is still able to manually select their degree/stage when choosing modules if this
+is the case.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>user</strong> – the student user authenticating</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
