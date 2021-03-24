@@ -1,3 +1,7 @@
+"""
+All the views relating to a member of staff using the application, and some helper methods.
+"""
+
 import datetime
 import json
 

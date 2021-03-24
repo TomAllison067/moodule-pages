@@ -185,18 +185,24 @@
 <h1>modulesApplication.views package<a class="headerlink" href="#modulesapplication-views-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-modulesApplication.views">
 <span id="package-overview"></span><h2>Package Overview<a class="headerlink" href="#module-modulesApplication.views" title="Permalink to this headline">¶</a></h2>
+<p>This package contains all of our web views, i.e. all the functionality of the website.</p>
+<p>It is responsible for handling HTTP requests, and handles things like displaying different pages to the user,
+redirects, submitting forms, .etc .etc</p>
 </div>
 <div class="section" id="module-modulesApplication.views.index">
 <span id="modulesapplication-views-index"></span><h2>modulesApplication.views.index<a class="headerlink" href="#module-modulesApplication.views.index" title="Permalink to this headline">¶</a></h2>
+<p>Views handling the user’s entry point into the application.</p>
 <dl class="py function">
 <dt id="modulesApplication.views.index.index">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.index.</span></code><code class="sig-name descname"><span class="pre">index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.index.index" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Displays the index page.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.index.login_redirect">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.index.</span></code><code class="sig-name descname"><span class="pre">login_redirect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.index.login_redirect" title="Permalink to this definition">¶</a></dt>
-<dd><p>A view to handle redirecting upon login.</p>
+<dd><p>A view to handle redirection upon login.</p>
+<p>Redirects students to the <code class="docutils literal notranslate"><span class="pre">student-landing</span></code> view, and staff to the <code class="docutils literal notranslate"><span class="pre">staff-landing</span></code> view.</p>
 </dd></dl>
 
 </div>
@@ -240,6 +246,10 @@
 </div>
 <div class="section" id="module-modulesApplication.views.office_crud_views">
 <span id="modulesapplication-views-office-crud-views"></span><h2>modulesApplication.views.office_crud_views<a class="headerlink" href="#module-modulesApplication.views.office_crud_views" title="Permalink to this headline">¶</a></h2>
+<p>A module containing various <em>create/read/update/delete</em> views allowing office staff to modify data.</p>
+<p>These are all generic Django class-based views tailored to our application, and their purpose is self-explanatory.</p>
+<p>Each ListView links to the relevant CRUD views.</p>
+<p>See <a class="reference external" href="https://docs.djangoproject.com/en/3.1/ref/class-based-views/">https://docs.djangoproject.com/en/3.1/ref/class-based-views/</a></p>
 <dl class="py class">
 <dt id="modulesApplication.views.office_crud_views.CourseLeaderCreateView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office_crud_views.</span></code><code class="sig-name descname"><span class="pre">CourseLeaderCreateView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office_crud_views.CourseLeaderCreateView" title="Permalink to this definition">¶</a></dt>
@@ -309,6 +319,7 @@
 <dt id="modulesApplication.views.office_crud_views.CourseLeaderListView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office_crud_views.</span></code><code class="sig-name descname"><span class="pre">CourseLeaderListView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office_crud_views.CourseLeaderListView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.UserPassesTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.views.generic.list.ListView</span></code></p>
+<p>Displays a table of all Course Leaders, with options to create/update/delete.</p>
 <dl class="py method">
 <dt id="modulesApplication.views.office_crud_views.CourseLeaderListView.get_queryset">
 <code class="sig-name descname"><span class="pre">get_queryset</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office_crud_views.CourseLeaderListView.get_queryset" title="Permalink to this definition">¶</a></dt>
@@ -447,6 +458,7 @@
 <dt id="modulesApplication.views.office_crud_views.ModuleListView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office_crud_views.</span></code><code class="sig-name descname"><span class="pre">ModuleListView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office_crud_views.ModuleListView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.UserPassesTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.views.generic.list.ListView</span></code></p>
+<p>Displays a table of all Modules, with options to create/update/delete.</p>
 <dl class="py method">
 <dt id="modulesApplication.views.office_crud_views.ModuleListView.get_queryset">
 <code class="sig-name descname"><span class="pre">get_queryset</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office_crud_views.ModuleListView.get_queryset" title="Permalink to this definition">¶</a></dt>
@@ -591,6 +603,7 @@
 <dt id="modulesApplication.views.office_crud_views.PeopleListView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office_crud_views.</span></code><code class="sig-name descname"><span class="pre">PeopleListView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office_crud_views.PeopleListView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.UserPassesTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.views.generic.list.ListView</span></code></p>
+<p>Displays a table of all People, with options to create/update/delete.</p>
 <dl class="py method">
 <dt id="modulesApplication.views.office_crud_views.PeopleListView.get_queryset">
 <code class="sig-name descname"><span class="pre">get_queryset</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office_crud_views.PeopleListView.get_queryset" title="Permalink to this definition">¶</a></dt>
@@ -664,6 +677,7 @@
 <dt id="modulesApplication.views.office_crud_views.ProgrammeIndexView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office_crud_views.</span></code><code class="sig-name descname"><span class="pre">ProgrammeIndexView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office_crud_views.ProgrammeIndexView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.UserPassesTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.views.generic.list.ListView</span></code></p>
+<p>Displays a table of all Programmes, with options to create/update/delete.</p>
 <dl class="py method">
 <dt id="modulesApplication.views.office_crud_views.ProgrammeIndexView.get_queryset">
 <code class="sig-name descname"><span class="pre">get_queryset</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office_crud_views.ProgrammeIndexView.get_queryset" title="Permalink to this definition">¶</a></dt>
@@ -792,6 +806,7 @@
 <dt id="modulesApplication.views.office_crud_views.StrandListView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office_crud_views.</span></code><code class="sig-name descname"><span class="pre">StrandListView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office_crud_views.StrandListView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.UserPassesTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.views.generic.list.ListView</span></code></p>
+<p>Displays a table of all Strands, with options to create/update/delete.</p>
 <dl class="py method">
 <dt id="modulesApplication.views.office_crud_views.StrandListView.get_queryset">
 <code class="sig-name descname"><span class="pre">get_queryset</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office_crud_views.StrandListView.get_queryset" title="Permalink to this definition">¶</a></dt>
@@ -864,6 +879,7 @@
 </div>
 <div class="section" id="module-modulesApplication.views.student">
 <span id="modulesapplication-views-student"></span><h2>modulesApplication.views.student<a class="headerlink" href="#module-modulesApplication.views.student" title="Permalink to this headline">¶</a></h2>
+<p>All the views relating to a student using the application.</p>
 <dl class="py function">
 <dt id="modulesApplication.views.student.all_modules">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.student.</span></code><code class="sig-name descname"><span class="pre">all_modules</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.student.all_modules" title="Permalink to this definition">¶</a></dt>
@@ -872,29 +888,36 @@
 <dl class="py function">
 <dt id="modulesApplication.views.student.choice_pathway">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.student.</span></code><code class="sig-name descname"><span class="pre">choice_pathway</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.student.choice_pathway" title="Permalink to this definition">¶</a></dt>
-<dd><p>Handles a user wanting to choose their modules. It attempts to derive the student’s degree and stage from LDAP,
-and take them straight to the correct module choice form if successful.</p>
+<dd><p>Handles a user wanting to choose their modules.</p>
+<p>It attempts to derive the student’s degree and stage from LDAP, and takes them the <code class="docutils literal notranslate"><span class="pre">choose_modules</span></code> view if
+successful, or the <code class="docutils literal notranslate"><span class="pre">choose_degree_and_stage</span></code> view otherwise.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.student.choose_degree_and_stage">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.student.</span></code><code class="sig-name descname"><span class="pre">choose_degree_and_stage</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.student.choose_degree_and_stage" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Allows a user to choose their degree programme and stage. Useful if there is some sort of LDAP error meaning
+their programme/stage cannot be derived automatically, or if testing the site as a superuser.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.student.choose_modules">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.student.</span></code><code class="sig-name descname"><span class="pre">choose_modules</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prog_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.student.choose_modules" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Allows a user to choose their modules. A GET request displays the form, and a POST request submits the form and
+redirects to the <code class="docutils literal notranslate"><span class="pre">submitted</span></code> view.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.student.landing">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.student.</span></code><code class="sig-name descname"><span class="pre">landing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.student.landing" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Displays the student landing page.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.student.module_details">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.student.</span></code><code class="sig-name descname"><span class="pre">module_details</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.student.module_details" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Shows details of various modules.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.student.my_selection">
@@ -905,7 +928,9 @@ and take them straight to the correct module choice form if successful.</p>
 <dl class="py function">
 <dt id="modulesApplication.views.student.submitted">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.student.</span></code><code class="sig-name descname"><span class="pre">submitted</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prog_code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.student.submitted" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Builds a ModuleSelection object after the <code class="docutils literal notranslate"><span class="pre">choose_modules</span></code> form is submitted, and redirects the user to the
+<code class="docutils literal notranslate"><span class="pre">my_selection</span></code> view.</p>
+</dd></dl>
 
 </div>
 </div>

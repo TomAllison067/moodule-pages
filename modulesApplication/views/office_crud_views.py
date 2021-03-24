@@ -1,3 +1,14 @@
+"""
+A module containing various *create/read/update/delete* views allowing office staff to modify data.
+
+These are all generic Django class-based views tailored to our application, and their purpose is self-explanatory.
+The documentation for these is just generic Django documentation.
+
+Each ListView links to the relevant CRUD views.
+
+See https://docs.djangoproject.com/en/3.1/ref/class-based-views/
+"""
+
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.views import generic
@@ -7,6 +18,7 @@ from modulesApplication.models import CourseLeader, Programme, Module, People, S
 
 
 class ProgrammeIndexView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+    """Displays a table of all Programmes, with options to create/update/delete."""
     model = Programme
     template_name = "modulesApplication/academic/ViewAllProgrammes.html"
 
@@ -29,6 +41,7 @@ class ProgrammeUpdate(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
 # ====================================================================================
 # Course Leaders
 class CourseLeaderListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+    """Displays a table of all Course Leaders, with options to create/update/delete."""
     model = CourseLeader
     paginate_by = 20
     template_name = 'modulesApplication/office/crud-templates/OfficeCourseLeaderListTemplate.html'
@@ -88,6 +101,7 @@ class CourseLeaderCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.Cr
 # ====================================================================================
 # Modules
 class ModuleListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+    """Displays a table of all Modules, with options to create/update/delete."""
     model = Module
     paginate_by = 20
     template_name = 'modulesApplication/office/crud-templates/OfficeModuleListTemplate.html'
@@ -147,6 +161,7 @@ class ModuleDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVi
 # ====================================================================================
 # People
 class PeopleListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+    """Displays a table of all People, with options to create/update/delete."""
     model = People
     paginate_by = 20
     template_name = 'modulesApplication/office/crud-templates/OfficePeopleListTemplate.html'
@@ -210,6 +225,7 @@ class PeopleDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteVi
 # ====================================================================================
 # Strands
 class StrandListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+    """Displays a table of all Strands, with options to create/update/delete."""
     model = Strands
     paginate_by = 20
     template_name = 'modulesApplication/office/crud-templates/OfficeStrandListTemplate.html'

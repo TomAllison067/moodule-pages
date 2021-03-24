@@ -1,3 +1,7 @@
+"""
+All the views relating to a student using the application.
+"""
+
 import datetime
 
 from django.contrib import messages
@@ -54,11 +58,14 @@ def all_modules(request, sort=0):
 
 @login_required
 def landing(request):
+    """Displays the student landing page."""
     return render(request, 'modulesApplication/student/StudentLandingPage.html')
 
 
 @login_required
 def choose_degree_and_stage(request):
+    """Allows a user to choose their degree programme and stage. Useful if there is some sort of LDAP error meaning
+    their programme/stage cannot be derived automatically, or if testing the site as a superuser."""
     if request.method == "POST":
         prog_code = request.POST.get('programme')
         stage = request.POST.get('stage')
@@ -75,6 +82,8 @@ def choose_degree_and_stage(request):
 
 @login_required
 def choose_modules(request, prog_code, stage, entry_year):
+    """Allows a user to choose their modules. A GET request displays the form, and a POST request submits the form and
+    redirects to the ``submitted`` view."""
     if request.method == "GET":
         try:
             info = factory.get_programme_info(prog_code, stage=int(stage), entry_year=entry_year)
@@ -119,7 +128,8 @@ def choose_modules(request, prog_code, stage, entry_year):
 
 @login_required
 def submitted(request, student_id, stage, entry_year, prog_code):
-    print(student_id)
+    """Builds a ModuleSelection object after the ``choose_modules`` form is submitted, and redirects the user to the
+    ``my_selection`` view."""
     programme = Programme.objects.get(pk=prog_code)
     selection = get_object_or_404(
         ModuleSelection,
@@ -153,6 +163,7 @@ def my_selection(request):
 
 @login_required
 def module_details(request, module):
+    """Shows details of various modules."""
     current_module = Module.objects.get(pk=module)
 
     context = {'module': current_module,
@@ -166,8 +177,11 @@ def module_details(request, module):
 
 @login_required
 def choice_pathway(request):
-    """Handles a user wanting to choose their modules. It attempts to derive the student's degree and stage from LDAP,
-    and take them straight to the correct module choice form if successful."""
+    """Handles a user wanting to choose their modules.
+
+    It attempts to derive the student's degree and stage from LDAP, and takes them the ``choose_modules`` view if
+    successful, or the ``choose_degree_and_stage`` view otherwise.
+    """
     try:
         prog_code = request.user.studentprofile.prog_code
         entry_year = request.user.studentprofile.entry_year
