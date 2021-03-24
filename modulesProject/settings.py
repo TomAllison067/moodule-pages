@@ -12,12 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 Before deployment:
 See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 """
-
-import sys
-import django_heroku
-import ldap
-from django_auth_ldap.config import LDAPSearch, GroupOfNamesType, LDAPGroupQuery
-
 import os
 import sys
 from pathlib import Path
