@@ -1,5 +1,5 @@
-from modulesApplication.database.csv_reader import CsvReader
-from modulesApplication.models import Programme, OptionRule, Module, Strands, OptionalModule
+from modulesApplication.csv.csv_reader import CsvReader
+from modulesApplication.models import Programme, OptionRule, Module, OptionalModule
 from modulesApplication.management.commands.import_test_data import Command
 
 """

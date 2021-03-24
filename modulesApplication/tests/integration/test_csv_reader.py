@@ -1,6 +1,6 @@
 from django.test import tag, TestCase
 
-from modulesApplication.database.csv_reader import CsvReader
+from modulesApplication.csv.csv_reader import CsvReader
 from modulesApplication.models import Module, Strands, Programme
 from modulesApplication.tests.resources import expected
 

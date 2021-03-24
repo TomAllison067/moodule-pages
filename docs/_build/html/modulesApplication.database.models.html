@@ -738,11 +738,6 @@ each case, we can instead have one CORE option rule containing all of the module
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.programme.</span></code><code class="sig-name descname"><span class="pre">Programme</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.programme.Programme" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
 <p>A data model representing a degree program, eg ‘BSc Computer Science’.</p>
-<p>It has four fields:
-prog_code: A string of the programme code, the primary key.
-title: The title of the degree programme.
-level: The level of study, e.g. BS or MSc
-yini: Boolean, true if this course contains a Year in Industry placement.</p>
 <p>This is very much simplified in comparison to the equivalent model in the example database, as we simply don’t
 need most of those fields for our purposes.</p>
 <dl class="py exception">
@@ -904,7 +899,9 @@ as Django’s ORM does not support composite keys.</p>
 <dt id="modulesApplication.database.models.student_profile.StudentProfile">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.student_profile.</span></code><code class="sig-name descname"><span class="pre">StudentProfile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
-<p>A database model to store information related to the student - e.g. their student ID</p>
+<p>A database model to cache student information drawn from LDAP, avoiding repeat queries to the LDAP server
+each time we need this information.</p>
+<p>This is updated by LDAP each time a student logs in.</p>
 <dl class="py exception">
 <dt id="modulesApplication.database.models.student_profile.StudentProfile.DoesNotExist">
 <em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.DoesNotExist" title="Permalink to this definition">¶</a></dt>
@@ -920,8 +917,7 @@ as Django’s ORM does not support composite keys.</p>
 <dl class="py attribute">
 <dt id="modulesApplication.database.models.student_profile.StudentProfile.entry_year">
 <code class="sig-name descname"><span class="pre">entry_year</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.entry_year" title="Permalink to this definition">¶</a></dt>
-<dd><p>A wrapper for a deferred-loading field. When the value is read from this
-object the first time, the query is executed.</p>
+<dd><p>The year they began their studies.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -939,39 +935,32 @@ object the first time, the query is executed.</p>
 <dl class="py method">
 <dt id="modulesApplication.database.models.student_profile.StudentProfile.populate_student_profile_from_ldap">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">populate_student_profile_from_ldap</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prog_code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.populate_student_profile_from_ldap" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Populates this profile given the user object, their student ID, entry_year and programme code, drawn from
+LDAP on login.</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt id="modulesApplication.database.models.student_profile.StudentProfile.prog_code">
 <code class="sig-name descname"><span class="pre">prog_code</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.prog_code" title="Permalink to this definition">¶</a></dt>
-<dd><p>A wrapper for a deferred-loading field. When the value is read from this
-object the first time, the query is executed.</p>
+<dd><p>String of student’s programme code. May be null if LDAP entry is incorrect, e.g. there are two.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="modulesApplication.database.models.student_profile.StudentProfile.stage">
 <code class="sig-name descname"><span class="pre">stage</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.stage" title="Permalink to this definition">¶</a></dt>
-<dd><p>A wrapper for a deferred-loading field. When the value is read from this
-object the first time, the query is executed.</p>
+<dd><p>The student’s degree stage. Calculated on login.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="modulesApplication.database.models.student_profile.StudentProfile.student_id">
 <code class="sig-name descname"><span class="pre">student_id</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.student_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>A wrapper for a deferred-loading field. When the value is read from this
-object the first time, the query is executed.</p>
+<dd><p>The student’s ID.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="modulesApplication.database.models.student_profile.StudentProfile.user">
 <code class="sig-name descname"><span class="pre">user</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
-<p>In the example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+<dd><p>The Django User object.</p>
 </dd></dl>
 
 </dd></dl>

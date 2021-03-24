@@ -2,8 +2,8 @@ import csv
 
 from django import forms
 import io
-from ..models import Programme, Module, ModuleSelection, People
-from ..programmeInfo import csv_converter
+from modulesApplication.models import Programme, Module, ModuleSelection, People
+from modulesApplication.programmeInfo import csv_converter
 
 MODEL_CHOICES = (
     (1, "Programme"),
@@ -16,8 +16,8 @@ models = {'1': Programme, '2': Module, '3': ModuleSelection, '4': People}
 class CsvUploadForm(forms.Form):
     csv_upload = forms.FileField()
     data = forms.ChoiceField(choices=MODEL_CHOICES)
-    csv_upload.widget.attrs.update({'style': 'color:black', 'class':'csv_upload', 'required': 'required'})
-    data.widget.attrs.update({'style': 'color:black', 'class':'', 'required': 'required'})
+    csv_upload.widget.attrs.update({'style': 'color:black', 'class': 'csv_upload', 'required': 'required'})
+    data.widget.attrs.update({'style': 'color:black', 'class': '', 'required': 'required'})
 
     def process_data(self, file, model):
 

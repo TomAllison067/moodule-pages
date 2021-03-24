@@ -6,7 +6,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
 
 from ..auth.is_staff import is_staff_or_superuser
-from ..database.csvForm import CsvUploadForm
+from modulesApplication.csv.csvForm import CsvUploadForm
 from ..models import Module, Programme, ModuleSelection, People
 from ..programmeInfo import csv_converter
 

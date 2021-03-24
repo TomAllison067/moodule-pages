@@ -1,12 +1,9 @@
 import csv
 
-from django.db.models import AutoField
 from django.db.models.base import ModelBase
 
-from modulesApplication.database.models.module import Module
-from modulesApplication.database.models.option_rule import OptionRule
-from modulesApplication.database.models.programme import Programme
-from modulesApplication.database.models.strand import Strands
+from modulesApplication.database.option_rule import OptionRule
+from modulesApplication.database.programme import Programme
 
 
 class CsvReader:

@@ -3,7 +3,7 @@ import re
 from django.contrib.auth.models import Group
 from django_auth_ldap.backend import LDAPBackend
 
-from modulesApplication.database.models.student_profile import StudentProfile
+from modulesApplication.database.student_profile import StudentProfile
 
 
 class CustomLDAPBackend(LDAPBackend):

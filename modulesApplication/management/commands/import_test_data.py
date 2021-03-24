@@ -1,9 +1,8 @@
 import datetime
 
 from django.core.management.base import BaseCommand
-from django.db import IntegrityError
 
-from modulesApplication.database.csv_reader import CsvReader
+from modulesApplication.csv.csv_reader import CsvReader
 from modulesApplication.models import *
 
 CURRENT_YEAR = datetime.datetime.now().year
