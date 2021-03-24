@@ -1,6 +1,12 @@
 ###################
 Overview / Readme
 ###################
+This documentation provides a **broad overview of the packages**, and more technical details if you wish to dive slightly deeper.
+
+It was generated using ``Sphinx`` - somewhat similar to ``JavaDoc``.
+
+Moodule is a comprehensive portal for both computer science students and staff that allows Students to select their module choices for their next year, as well as access information about their courses. On the flip side; office staff can use this portal to audit and edit information about courses such as course leaders and course content on the fly.
+
 To see the application deployed on Heroku visit https://moodule-rhul.herokuapp.com/
 where you can use the following credentials to access the application as a staff member or a student:
 
@@ -22,3 +28,5 @@ Several useful Django management commands may be of help:
     3. ``python3 manage.py import_test_data`` to populate the database with test data provided earlier in the course.
 
 See https://docs.djangoproject.com/en/3.1/ref/django-admin/
+
+A very very big thank you to the developers over at https://django-auth-ldap.readthedocs.io/en/latest/
