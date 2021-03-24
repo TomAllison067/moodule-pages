@@ -18,6 +18,7 @@ from ..programmeInfo import csv_converter
 @login_required
 @user_passes_test(is_staff_or_superuser)
 def landing(request):
+    """Displays the office landing to the user."""
     if request.method == 'POST':
         form = CsvUploadForm(request.POST, request.FILES)
         if form.is_valid():
@@ -40,6 +41,7 @@ def landing(request):
 @login_required
 @user_passes_test(is_staff_or_superuser)
 def csv(request):
+    """The csv upload/download form."""
     if request.method == 'POST':
         form = CsvUploadForm(request.POST, request.FILES)
 
@@ -60,6 +62,7 @@ def csv(request):
 @login_required
 @user_passes_test(is_staff_or_superuser)
 def csv_file(request, model_class):
+    """A helper method to convert data models to CSV format"""
     models = [Module, Programme, ModuleSelection, People]
     for model in models:
         if model.__name__ == model_class:
@@ -71,11 +74,13 @@ def csv_file(request, model_class):
 @login_required
 @user_passes_test(is_staff_or_superuser)
 def print_student_selections(request):
+    """Returns a csv of student selections."""
     return csv_converter.csv_student_selections()
 
 
 # This is not a view - and needs not protecting!
 def selections_extra_details(query_set):
+    """A helper method to get extra information about ModuleSelection objects given a query set."""
     selections_list = list(query_set.values())
     for selection in selections_list:
         selected = ModuleSelection.objects.get(id=selection['id'])
@@ -91,6 +96,7 @@ def selections_extra_details(query_set):
 @login_required
 @user_passes_test(is_staff_or_superuser)
 def selection_requests(request):
+    """Displays outstanding selection requests and handles approving/denying/commenting on them."""
     if request.method == "POST":
         selection_id = request.POST.get('selection_id')
         selection = ModuleSelection.objects.get(id=selection_id)
@@ -120,6 +126,7 @@ def selection_requests(request):
 @login_required
 @user_passes_test(is_staff_or_superuser)
 def archived_selection_requests(request):
+    """Displays archived selection requests and handles modifying them."""
     if request.method == "POST":
         selection_id = request.POST.get('selection_id')
         selection = ModuleSelection.objects.get(id=selection_id)

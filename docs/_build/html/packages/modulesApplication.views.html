@@ -208,46 +208,55 @@ redirects, submitting forms, .etc .etc</p>
 </div>
 <div class="section" id="module-modulesApplication.views.office">
 <span id="modulesapplication-views-office"></span><h2>modulesApplication.views.office<a class="headerlink" href="#module-modulesApplication.views.office" title="Permalink to this headline">¶</a></h2>
+<p>All the views relating to a member of staff using the application, and some helper methods.</p>
 <dl class="py function">
 <dt id="modulesApplication.views.office.archived_selection_requests">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office.</span></code><code class="sig-name descname"><span class="pre">archived_selection_requests</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office.archived_selection_requests" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Displays archived selection requests and handles modifying them.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.office.csv">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office.</span></code><code class="sig-name descname"><span class="pre">csv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office.csv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The csv upload/download form.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.office.csv_file">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office.</span></code><code class="sig-name descname"><span class="pre">csv_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_class</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office.csv_file" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A helper method to convert data models to CSV format</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.office.landing">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office.</span></code><code class="sig-name descname"><span class="pre">landing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office.landing" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Displays the office landing to the user.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.office.print_student_selections">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office.</span></code><code class="sig-name descname"><span class="pre">print_student_selections</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office.print_student_selections" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a csv of student selections.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.office.selection_requests">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office.</span></code><code class="sig-name descname"><span class="pre">selection_requests</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office.selection_requests" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Displays outstanding selection requests and handles approving/denying/commenting on them.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="modulesApplication.views.office.selections_extra_details">
 <code class="sig-prename descclassname"><span class="pre">modulesApplication.views.office.</span></code><code class="sig-name descname"><span class="pre">selections_extra_details</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_set</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.views.office.selections_extra_details" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A helper method to get extra information about ModuleSelection objects given a query set.</p>
+</dd></dl>
 
 </div>
 <div class="section" id="module-modulesApplication.views.office_crud_views">
 <span id="modulesapplication-views-office-crud-views"></span><h2>modulesApplication.views.office_crud_views<a class="headerlink" href="#module-modulesApplication.views.office_crud_views" title="Permalink to this headline">¶</a></h2>
 <p>A module containing various <em>create/read/update/delete</em> views allowing office staff to modify data.</p>
-<p>These are all generic Django class-based views tailored to our application, and their purpose is self-explanatory.</p>
+<p>These are all generic Django class-based views tailored to our application, and their purpose is self-explanatory.
+The documentation for these is just generic Django documentation.</p>
 <p>Each ListView links to the relevant CRUD views.</p>
 <p>See <a class="reference external" href="https://docs.djangoproject.com/en/3.1/ref/class-based-views/">https://docs.djangoproject.com/en/3.1/ref/class-based-views/</a></p>
 <dl class="py class">
