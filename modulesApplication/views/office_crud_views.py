@@ -58,6 +58,7 @@ class CourseLeaderUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.Up
 
 
 class CourseLeaderDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+
     model = CourseLeader
     template_name = 'modulesApplication/office/crud-templates/OfficeGenericDeleteTemplate.html'
     success_url = reverse_lazy('modulesApplication:view-course-leaders')

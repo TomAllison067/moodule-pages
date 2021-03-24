@@ -14,24 +14,22 @@ class DegreeLevel(models.TextChoices):
 class Programme(models.Model):
     """
     A data model representing a degree program, eg 'BSc Computer Science'.
-    It has four fields:
-    prog_code: A string of the programme code, the primary key.
-    title: The title of the degree programme.
-    level: The level of study, e.g. BS or MSc
-    yini: Boolean, true if this course contains a Year in Industry placement.
+
     This is very much simplified in comparison to the equivalent model in the example database, as we simply don't
     need most of those fields for our purposes.
     """
-
     prog_code = models.CharField(primary_key=True, max_length=255)
+    """Primary key, e.g. '1067'."""
     title = models.CharField(unique=True, max_length=255)
-    level = models.CharField(choices=DegreeLevel.choices, max_length=10)  # Choices validated at model level
+    """The degree title e.g., 'BSc Computer Science'."""
+    level = models.CharField(choices=DegreeLevel.choices, max_length=10)
+    """What level - one of BSC or MSCI."""
     yini = models.BooleanField(default=False)
+    """Boolean - whether this Programme contains a Year in Industry."""
 
     def clean(self):
         """
-        Validates the object at the model level.
-        Called when a ModelForm validates the model, or of course when we want to call it ourselves.
+        Override to validate the level. Useful when importing CSV data.
         """
         level = self.level.upper()
         if level not in [level[0] for level in DegreeLevel.choices]:

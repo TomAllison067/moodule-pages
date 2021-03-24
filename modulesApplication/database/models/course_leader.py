@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 class TermChoices(models.TextChoices):
     """
-    The term choices
+    An enum representing what term the CourseLeader is running the related Module in.
     """
     TERM1 = '1', _('Term 1')
     TERM2 = '2', _('Term 2')
@@ -12,18 +12,21 @@ class TermChoices(models.TextChoices):
 
 
 class CourseLeader(models.Model):
-    """This class links People to Modules. It specifies which people from the People table are instructors/leaders
-    on a certain Module table.
-
-    It also contains information about which term a module is in.
-
-    This corresponds to the 'leaders' table in the sqlite3 database.
+    """
+    A CourseLeader object relates a Person object to a Module object
+    and defines who teaches a module, as well as what term the module is running in.
     """
     module = models.ForeignKey('Module', models.CASCADE)
+    """The related Module object."""
     person = models.ForeignKey('People', models.CASCADE)
+    """The related Person object."""
     leader = models.BooleanField()
+    """Whether this CourseLeader is the primary leader of the Module or not."""
     term = models.CharField(choices=TermChoices.choices, null=False, max_length=6)
+    """The term the module runs in - one of TermChoices."""
     id = models.AutoField(primary_key=True)  # Automatic ID - needed since Django doesn't support composite keys
+    """Auto generated primary key integer. The Meta inner class specifies a unique_together contrainst between the
+    module and person, since Django's ORM does not officially support composite keys."""
 
     class Meta:
         unique_together = ('module', 'person')  # The "composite key" though not officially supported
