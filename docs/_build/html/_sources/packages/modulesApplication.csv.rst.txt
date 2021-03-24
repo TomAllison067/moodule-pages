@@ -2,7 +2,7 @@ modulesApplication.csv package
 ==============================
 
 Package Overview
----------------
+-------------------------------------
 
 .. automodule:: modulesApplication.csv
    :members:

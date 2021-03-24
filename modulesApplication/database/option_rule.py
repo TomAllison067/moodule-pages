@@ -24,13 +24,13 @@ class OptionRule(models.Model):
     entry_year = models.CharField(null=False, max_length=4)
     """The entry year of the Programme this rule applies to."""
     stage = models.IntegerField(null=False)
-    """The stage this applies to."""
+    """The stage of degree this rule applies to."""
     constraint_type = models.CharField(choices=ConstraintType.choices, null=False, max_length=20)
     """What type of rule - one of ConstraintType."""
     min_quantity = models.IntegerField(default=1)
-    """Defines the minimum number of modules matching this OptionRule's mod_code_pattern to be selected."""
+    """Defines the minimum number of modules matching this OptionRule's `mod_code_pattern` to be selected."""
     max_quantity = models.IntegerField(default=1)
-    """Defines the maximum number of modules matching this OptionRule's mod_code_pattern to be selected."""
+    """Defines the maximum number of modules matching this OptionRule's `mod_code_pattern` to be selected."""
     mod_code_pattern = models.CharField(null=False, max_length=255)
     """A comma-separated string listing one or several mod_codes defining what modules this rule applies to."""
 
@@ -49,7 +49,7 @@ class OptionRule(models.Model):
         programme/entry_year/stage
         into one single rule, and deletes the redundant rules from the database.
 
-        This means instead of having multiple CORE option rule per core module for
+        This means instead of having multiple CORE option rules per core module for
         each case, we can instead have one CORE option rule containing all of the modules in the rule's mod_code.
 
         Args:
@@ -57,7 +57,8 @@ class OptionRule(models.Model):
            entry_year: the entry year of the programme
            stage: the stage of the programme who's core modules you wish to squash
 
-        Returns: True if all modules are squashed successfully
+        Returns:
+            True if all modules are squashed successfully.
        """
         # Get all the core option rules for this programme, entry year and stage
         all_rules = OptionRule.objects.filter(prog_code=programme, entry_year=entry_year, stage=stage,

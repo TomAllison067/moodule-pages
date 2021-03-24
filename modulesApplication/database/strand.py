@@ -17,7 +17,7 @@ class Strands(models.Model):
     module = models.ForeignKey('Module', models.CASCADE, db_column='mod_code', blank=False, null=False)
     """Foreign key to the corresponding Module."""
     strand = models.CharField(blank=False, null=False, choices=StrandChoices.choices, max_length=5)
-    """The strand - one of StrandChoices."""
+    """The strand. One of StrandChoices."""
     strand_id = models.AutoField(primary_key=True)
     """Auto-generated ID. The Meta subclass specifies a unique_together constraint between the module and strand, 
     as Django's ORM does not support composite keys."""

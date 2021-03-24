@@ -2,7 +2,7 @@ modulesApplication.views package
 ================================
 
 Package Overview
----------------
+-------------------------------------
 
 .. automodule:: modulesApplication.views
    :members:

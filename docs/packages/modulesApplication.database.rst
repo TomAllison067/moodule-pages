@@ -2,7 +2,7 @@ modulesApplication.database package
 ===================================
 
 Package Overview
----------------
+----------------------------------------
 
 .. automodule:: modulesApplication.database
    :members:

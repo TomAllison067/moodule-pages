@@ -23,9 +23,11 @@ class CourseLeader(models.Model):
     leader = models.BooleanField()
     """Whether this CourseLeader is the primary leader of the Module or not."""
     term = models.CharField(choices=TermChoices.choices, null=False, max_length=6)
-    """The term the module runs in - one of TermChoices."""
+    """The term the module runs in. One of TermChoices."""
     id = models.AutoField(primary_key=True)  # Automatic ID - needed since Django doesn't support composite keys
-    """Auto generated primary key integer. The Meta inner class specifies a unique_together contrainst between the
+    """Auto generated primary key integer. 
+    
+    The Meta inner class (see source code) specifies a unique_together contrainst between the
     module and person, since Django's ORM does not officially support composite keys."""
 
     class Meta:

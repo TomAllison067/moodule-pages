@@ -20,7 +20,7 @@ class StudentProfile(models.Model):
         null=True, max_length=10)  # We can't use a foreign key here - some LDAP entries have multiple programmes..
     """String of student's programme code. May be null if LDAP entry is incorrect, e.g. there are two."""
     stage = models.SmallIntegerField(null=True)
-    """The student's degree stage. Calculated on login."""
+    """The student's degree stage. Calculated on login from their entry year."""
 
     @staticmethod
     def populate_student_profile_from_ldap(user, student_id, entry_year, prog_code):

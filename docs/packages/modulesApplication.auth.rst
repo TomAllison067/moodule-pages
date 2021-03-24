@@ -2,7 +2,7 @@ modulesApplication.auth package
 ===============================
 
 Package Overview
----------------
+------------------
 
 .. automodule:: modulesApplication.auth
    :members:

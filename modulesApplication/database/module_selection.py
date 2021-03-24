@@ -8,7 +8,7 @@ class ModuleSelection(models.Model):
 
     It specifies information about the student, and has a foreign key reference to their degree program.
 
-    A Module can be selected via `a_module.selected_in.add(a_module_selection)`"""
+    A Module can be selected via ``a_module.selected_in.add(a_module_selection)``"""
     student_id = models.CharField(max_length=20)
     """The student's ID."""
     student_name = models.CharField(max_length=255)

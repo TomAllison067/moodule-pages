@@ -2,7 +2,7 @@ modulesApplication.programmeInfo package
 ========================================
 
 Package Overview
----------------
+--------------------------
 
 .. automodule:: modulesApplication.programmeInfo
    :members:

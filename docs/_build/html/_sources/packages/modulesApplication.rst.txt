@@ -2,7 +2,7 @@ modulesApplication package
 ==========================
 
 Package Overview
----------------
+----------------
 
 .. automodule:: modulesApplication
    :members:
@@ -18,9 +18,7 @@ Subpackages
    modulesApplication.auth
    modulesApplication.csv
    modulesApplication.database
-   modulesApplication.migrations
    modulesApplication.programmeInfo
-   modulesApplication.tests
    modulesApplication.views
 
 

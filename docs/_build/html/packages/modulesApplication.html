@@ -88,7 +88,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Overview / Readme</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">modulesApplication package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#package-overview">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modulesApplication">Package Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modulesApplication.auth.html">modulesApplication.auth package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modulesApplication.csv.html">modulesApplication.csv package</a></li>
@@ -104,7 +104,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modulesProject.html">modulesProject package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">manage package</a></li>
 </ul>
 
             
@@ -174,29 +174,48 @@
             
   <div class="section" id="modulesapplication-package">
 <h1>modulesApplication package<a class="headerlink" href="#modulesapplication-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="package-overview">
-<h2>Package Overview<a class="headerlink" href="#package-overview" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-modulesApplication"></span><p>The main package for our application.</p>
-<p>Contains all other packages.</p>
+<div class="section" id="module-modulesApplication">
+<span id="package-overview"></span><h2>Package Overview<a class="headerlink" href="#module-modulesApplication" title="Permalink to this headline">¶</a></h2>
+<p>The main package for our application.</p>
+<p>This package contains all the useful subpackages (our team’s code), as well as various a few simple modules
+that handle various tasks.</p>
+<dl class="simple">
+<dt>Subpackages:</dt><dd><ul class="simple">
+<li><p><cite>auth</cite>: Contains a subclass of the django-ldap-auth package and some access control functionality.</p></li>
+<li><p><cite>csv</cite>: Contains functionality relating to csv upload/download, form input, importing test data from csvs, .etc</p></li>
+<li><p><cite>database</cite>: Where all the models are defined for use by Django’s ORM.</p></li>
+<li><p><cite>programmeInfo</cite>: Functionality to gather information about a student’s potential choices related to their degree programme, and validation of their selection.</p></li>
+<li><p><cite>views</cite>: All of our web views, i.e. all the functionality of the website / how it responds to HTTP requests</p></li>
+</ul>
+</dd>
+<dt>Modules:</dt><dd><ul class="simple">
+<li><p><cite>admin</cite>: Used by Django to register various database models into the auto-generated admin site. We haven’t really used this, but the admin site could prove useful for configuring permissions, groups, .etc in the future should you choose to use this application.</p></li>
+<li><p><cite>apps</cite>: Used by Django to get information about the application and its settings. Contains one overridden method to prompt the host for their LDAP credentials on startup.</p></li>
+<li><p><cite>models</cite>: Normally where data model classes go. We simply use this to import our models from the database package instead as we have so many.</p></li>
+<li><p><cite>urls</cite>: Contains the various url patterns for our application. Referenced by modulesProject.urls to actually “include” the urls in the overall project.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Excluded from the documentation are the packages containing all the tests and database migration files.</p>
 </div>
 <div class="section" id="subpackages">
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modulesApplication.auth.html">modulesApplication.auth package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="modulesApplication.auth.html#package-overview">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.auth.html#module-modulesApplication.auth">Package Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.auth.html#module-modulesApplication.auth.custom_ldap_backend">modulesApplication.auth.custom_ldap_backend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.auth.html#module-modulesApplication.auth.is_staff">modulesApplication.auth.is_staff</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modulesApplication.csv.html">modulesApplication.csv package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="modulesApplication.csv.html#package-overview">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.csv.html#module-modulesApplication.csv">Package Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.csv.html#module-modulesApplication.csv.csvForm">modulesApplication.csv.csvForm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.csv.html#module-modulesApplication.csv.csv_reader">modulesApplication.csv.csv_reader</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modulesApplication.database.html">modulesApplication.database package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#package-overview">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database">Package Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.course_leader">modulesApplication.database.course_leader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.module">modulesApplication.database.module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.module_selection">modulesApplication.database.module_selection</a></li>
@@ -210,7 +229,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modulesApplication.programmeInfo.html">modulesApplication.programmeInfo package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="modulesApplication.programmeInfo.html#package-overview">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.programmeInfo.html#module-modulesApplication.programmeInfo">Package Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.programmeInfo.html#module-modulesApplication.programmeInfo.csv_converter">modulesApplication.programmeInfo.csv_converter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.programmeInfo.html#module-modulesApplication.programmeInfo.factory">modulesApplication.programmeInfo.factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.programmeInfo.html#module-modulesApplication.programmeInfo.programme_info">modulesApplication.programmeInfo.programme_info</a></li>
@@ -218,7 +237,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modulesApplication.views.html">modulesApplication.views package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="modulesApplication.views.html#package-overview">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.views.html#module-modulesApplication.views">Package Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.views.html#module-modulesApplication.views.index">modulesApplication.views.index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.views.html#module-modulesApplication.views.office">modulesApplication.views.office</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulesApplication.views.html#module-modulesApplication.views.office_crud_views">modulesApplication.views.office_crud_views</a></li>
