@@ -9,13 +9,6 @@ Package Overview
    :undoc-members:
    :show-inheritance:
 
-modulesApplication.programmeInfo.csv\_converter
-------------------------------------------------------
-
-.. automodule:: modulesApplication.programmeInfo.csv_converter
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 modulesApplication.programmeInfo.factory
 -----------------------------------------------

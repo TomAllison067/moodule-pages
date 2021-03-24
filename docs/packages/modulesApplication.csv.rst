@@ -26,3 +26,10 @@ modulesApplication.csv.csv\_reader
    :undoc-members:
    :show-inheritance:
 
+modulesApplication.csv.csv\_converter
+------------------------------------------------------
+
+.. automodule:: modulesApplication.programmeInfo.csv_converter
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -6,6 +6,10 @@ The documentation for these is just generic Django documentation.
 
 Each ListView links to the relevant CRUD views.
 
+**An important omission** is that there are no `OptionRule` CRUD views. This is simply due to lack of time - if you
+wish to use this application then we can certainly implement them (and anything else we didn't quite manage
+to fit in!).
+
 See https://docs.djangoproject.com/en/3.1/ref/class-based-views/
 """
 

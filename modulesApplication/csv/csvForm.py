@@ -3,7 +3,7 @@ import csv
 from django import forms
 import io
 from modulesApplication.models import Programme, Module, ModuleSelection, People
-from modulesApplication.programmeInfo import csv_converter
+from modulesApplication.csv import csv_converter
 
 MODEL_CHOICES = (
     (1, "Programme"),

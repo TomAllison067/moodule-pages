@@ -12,7 +12,7 @@ from django.shortcuts import render
 from ..auth.is_staff import is_staff_or_superuser
 from modulesApplication.csv.csvForm import CsvUploadForm
 from ..models import Module, Programme, ModuleSelection, People
-from ..programmeInfo import csv_converter
+from ..csv import csv_converter
 
 
 @login_required
