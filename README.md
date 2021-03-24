@@ -20,10 +20,14 @@ To install and run the app locally on the Django development server (on Ubuntu -
 
 Several useful Django management commands may be of help:
 1. `python3 manage.py createsuperuser` to create a local superuser stored in the database.
-   You can log in using this and it will not be checked against LDAP. You will have access to all areas of the site.
+   You can log in using this, and it will not be checked against LDAP. You will have access to all areas of the site.
 2. `python3 manage.py test` to run the unit and integration tests.
 3. `python3 manage.py import_test_data` to populate the database with test data provided earlier in the course.
 
 See https://docs.djangoproject.com/en/3.1/ref/django-admin/
 
-A very very big thank you to the developers over at https://django-auth-ldap.readthedocs.io/en/latest/ for making it easy to hook up to LDAP!
+A very big thank you to the developers over at https://django-auth-ldap.readthedocs.io/en/latest/ for making it easy to hook up to LDAP!
+
+You can **access some slightly more technical documentation** (JavaDoc style) by going to:
+`docs/_build/html/index.html`
+in the source code.
