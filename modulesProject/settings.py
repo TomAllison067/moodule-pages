@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 Before deployment:
 See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 """
-
 import os
 import sys
 from pathlib import Path
@@ -38,6 +37,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.8000',
     '127.0.0.1',
+    '.herokuapp.com',
 ]
 
 INSTALLED_APPS = [
