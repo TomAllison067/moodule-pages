@@ -3,6 +3,7 @@ Moodule is a comprehensive portal for both computer science students and staff t
 module choices for their next year, as well as access information about their courses. On the flip side; office staff 
 can use this portal to audit and edit information about courses such as course leaders and course content on the fly.
 
+## See it on Heroku 
 To see the application deployed on Heroku visit https://moodule-rhul.herokuapp.com/
 where you can use the following credentials to access the application as a staff member or a student:
 
@@ -11,6 +12,7 @@ where you can use the following credentials to access the application as a staff
 
 (or, login with your real university username/password e.g. `zhacxx`)
 
+## Run it locally
 To install and run the app locally on the Django development server (on Ubuntu - other platforms similarly):
 
 1. Navigate to the root folder
@@ -18,6 +20,7 @@ To install and run the app locally on the Django development server (on Ubuntu -
 3. Create a local `.env` file and fill it with the appropriate details. See `.env.example` for details.
 4. `python3 manage.py runserver`
 
+## Help
 Several useful Django management commands may be of help:
 1. `python3 manage.py createsuperuser` to create a local superuser stored in the database.
    You can log in using this, and it will not be checked against LDAP. You will have access to all areas of the site.
@@ -26,8 +29,10 @@ Several useful Django management commands may be of help:
 
 See https://docs.djangoproject.com/en/3.1/ref/django-admin/
 
-A very big thank you to the developers over at https://django-auth-ldap.readthedocs.io/en/latest/ for making it easy to hook up to LDAP!
-
-You can **access some slightly more technical documentation** (JavaDoc style) by going to:
+## Further technical documentation
+You can **access some slightly more technical documentation** (`JavaDoc` style) by going to:
 `docs/_build/html/index.html`
 in the source code.
+
+### Cheers!
+A very big thank you to the developers over at https://django-auth-ldap.readthedocs.io/en/latest/ for making it easy to hook up to LDAP!
