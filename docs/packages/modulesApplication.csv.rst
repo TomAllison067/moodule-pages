@@ -29,7 +29,7 @@ modulesApplication.csv.csv\_reader
 modulesApplication.csv.csv\_converter
 ------------------------------------------------------
 
-.. automodule:: modulesApplication.programmeInfo.csv_converter
+.. automodule:: modulesApplication.csv.csv_converter
    :members:
    :undoc-members:
    :show-inheritance:

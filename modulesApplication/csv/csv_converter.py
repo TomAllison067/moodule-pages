@@ -7,6 +7,7 @@ from modulesApplication.models import ModuleSelection
 
 
 def get_headers(model_class):
+    """Get a list of headers of the provided model class."""
     model = model_class.objects.model
     model_fields = model._meta.fields + model._meta.many_to_many
     headers = [field.name for field in model_fields]
@@ -14,6 +15,7 @@ def get_headers(model_class):
 
 
 def model_to_csv(model_class):
+    """Downloads a .csv file of all entries of the provided model class."""
     # creating a unique filename for the csv
     if model_class is ModuleSelection:
         return csv_student_selections()  # Hacky lame fix for now - sorry V, i was super tired when i did this! - tom :)
@@ -36,6 +38,7 @@ def model_to_csv(model_class):
 
 
 def csv_student_selections():
+    """Downloads a .csv of all student module selections."""
     # Prints module selections but with mod codes appended to the end of the row
     queryset = ModuleSelection.objects.all()
     model = queryset.model

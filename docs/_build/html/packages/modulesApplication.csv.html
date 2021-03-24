@@ -95,7 +95,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-modulesApplication.csv">Package Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-modulesApplication.csv.csvForm">modulesApplication.csv.csvForm</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-modulesApplication.csv.csv_reader">modulesApplication.csv.csv_reader</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#modulesapplication-csv-csv-converter">modulesApplication.csv.csv_converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-modulesApplication.csv.csv_converter">modulesApplication.csv.csv_converter</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modulesApplication.database.html">modulesApplication.database package</a></li>
@@ -199,6 +199,7 @@
 <dt id="modulesApplication.csv.csvForm.CsvUploadForm">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.csv.csvForm.</span></code><code class="sig-name descname"><span class="pre">CsvUploadForm</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data=None</span></em>, <em class="sig-param"><span class="pre">files=None</span></em>, <em class="sig-param"><span class="pre">auto_id='id_%s'</span></em>, <em class="sig-param"><span class="pre">prefix=None</span></em>, <em class="sig-param"><span class="pre">initial=None</span></em>, <em class="sig-param"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></em>, <em class="sig-param"><span class="pre">label_suffix=None</span></em>, <em class="sig-param"><span class="pre">empty_permitted=False</span></em>, <em class="sig-param"><span class="pre">field_order=None</span></em>, <em class="sig-param"><span class="pre">use_required_attribute=None</span></em>, <em class="sig-param"><span class="pre">renderer=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.csv.csvForm.CsvUploadForm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.forms.Form</span></code></p>
+<p>A Djanago class-based form to handle uploading .csv files</p>
 <dl class="py attribute">
 <dt id="modulesApplication.csv.csvForm.CsvUploadForm.base_fields">
 <code class="sig-name descname"><span class="pre">base_fields</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'csv_upload':</span> <span class="pre">&lt;django.forms.fields.FileField</span> <span class="pre">object&gt;,</span> <span class="pre">'data':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#modulesApplication.csv.csvForm.CsvUploadForm.base_fields" title="Permalink to this definition">¶</a></dt>
@@ -218,7 +219,16 @@
 <dl class="py method">
 <dt id="modulesApplication.csv.csvForm.CsvUploadForm.process_data">
 <code class="sig-name descname"><span class="pre">process_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.csv.csvForm.CsvUploadForm.process_data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Processes an uploaded .csv file and modifies the relevant entries in the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> – the file uploaded</p></li>
+<li><p><strong>model</strong> – the model under modification</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -305,8 +315,26 @@ database. This method will only read in the appropriate headers. Use this one!</
 </dd></dl>
 
 </div>
-<div class="section" id="modulesapplication-csv-csv-converter">
-<h2>modulesApplication.csv.csv_converter<a class="headerlink" href="#modulesapplication-csv-csv-converter" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-modulesApplication.csv.csv_converter">
+<span id="modulesapplication-csv-csv-converter"></span><h2>modulesApplication.csv.csv_converter<a class="headerlink" href="#module-modulesApplication.csv.csv_converter" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="modulesApplication.csv.csv_converter.csv_student_selections">
+<code class="sig-prename descclassname"><span class="pre">modulesApplication.csv.csv_converter.</span></code><code class="sig-name descname"><span class="pre">csv_student_selections</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.csv.csv_converter.csv_student_selections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads a .csv of all student module selections.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="modulesApplication.csv.csv_converter.get_headers">
+<code class="sig-prename descclassname"><span class="pre">modulesApplication.csv.csv_converter.</span></code><code class="sig-name descname"><span class="pre">get_headers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_class</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.csv.csv_converter.get_headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of headers of the provided model class.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="modulesApplication.csv.csv_converter.model_to_csv">
+<code class="sig-prename descclassname"><span class="pre">modulesApplication.csv.csv_converter.</span></code><code class="sig-name descname"><span class="pre">model_to_csv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_class</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.csv.csv_converter.model_to_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads a .csv file of all entries of the provided model class.</p>
+</dd></dl>
+
 </div>
 </div>
 

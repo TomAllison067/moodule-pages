@@ -14,13 +14,20 @@ models = {'1': Programme, '2': Module, '3': ModuleSelection, '4': People}
 
 
 class CsvUploadForm(forms.Form):
+    """A Djanago class-based form to handle uploading .csv files"""
     csv_upload = forms.FileField()
     data = forms.ChoiceField(choices=MODEL_CHOICES)
     csv_upload.widget.attrs.update({'style': 'color:black', 'class': 'csv_upload', 'required': 'required'})
     data.widget.attrs.update({'style': 'color:black', 'class': '', 'required': 'required'})
 
     def process_data(self, file, model):
+        """
+        Processes an uploaded .csv file and modifies the relevant entries in the database.
 
+        Args:
+            file: the file uploaded
+            model: the model under modification
+        """
         model_class = models[model]
         headers = (csv_converter.get_headers(model_class))
         # Wrapping the csv file uploaded to make it easier to read from
@@ -48,7 +55,7 @@ class CsvUploadForm(forms.Form):
                 tmp.save()
             result.append(tmp)
 
-        # using bulk_update to efficiently update the database, while not update the private key
+        # using bulk_update to efficiently update the database, while not update the public key
         headers.remove(model_class._meta.pk.name)
         for field in headers:
             model_class.objects.bulk_update(result, [field])
