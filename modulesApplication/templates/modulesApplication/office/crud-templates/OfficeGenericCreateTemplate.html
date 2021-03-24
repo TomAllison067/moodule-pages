@@ -40,7 +40,12 @@
                                                         {{ field }}
                                                     </div>
                                                 {% else %}
-                                                    {{ field }}
+                                                    <div class="checkbox-container">
+                                                        <label class="checkbox-label">
+                                                            {{ field }}
+                                                            <span class="checkbox-square"></span>
+                                                        </label>
+                                                    </div>
                                                 {% endif %}
                                             </td>
                                         </tr>
@@ -70,7 +75,12 @@
                                                             {{ field }}
                                                         </div>
                                                     {% else %}
-                                                        {{ field }}
+                                                        <div class="checkbox-container">
+                                                            <label class="checkbox-label">
+                                                                {{ field }}
+                                                                <span class="checkbox-square"></span>
+                                                            </label>
+                                                        </div>
                                                     {% endif %}
                                                 </td>
                                             </tr>
