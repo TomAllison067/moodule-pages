@@ -1,3 +1,8 @@
+"""
+Contains the various URL patterns for our application.
+
+"""
+
 from django.urls import path, include
 
 import modulesApplication.views.office_crud_views

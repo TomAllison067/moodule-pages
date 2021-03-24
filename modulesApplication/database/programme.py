@@ -23,9 +23,9 @@ class Programme(models.Model):
     title = models.CharField(unique=True, max_length=255)
     """The degree title e.g., 'BSc Computer Science'."""
     level = models.CharField(choices=DegreeLevel.choices, max_length=10)
-    """What level - one of BSC or MSCI."""
+    """What level the degree programme is. One of BSC or MSCI."""
     yini = models.BooleanField(default=False)
-    """Boolean - whether this Programme contains a Year in Industry."""
+    """Boolean. Whether this Programme contains a Year in Industry."""
 
     def clean(self):
         """
