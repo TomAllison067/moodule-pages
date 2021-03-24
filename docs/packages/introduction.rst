@@ -2,4 +2,5 @@
 Overview / Readme
 ############
 
-By team 34!
+To run the app locally:
+    1. 
