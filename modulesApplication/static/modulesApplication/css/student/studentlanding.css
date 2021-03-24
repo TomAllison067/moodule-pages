@@ -8,7 +8,6 @@
     position: relative;
     width: 100%;
     height: 275px;
-    border-radius: 10px;
     border-bottom: 3px solid black;
     background: linear-gradient(180deg, rgb(137, 36, 0), rgb(155, 101, 0), rgb(201, 127, 0));
     background-size: 400% 400%;
@@ -183,8 +182,12 @@
     transition: 0.25s;
 }
 
+.lp-box a .lp-content .icon-box p {
+    margin-top: 70px;
+}
+
 .lp-box:hover > a .lp-content .icon-box p {
-    /*transform: translateY(50%);*/
+    transform: translateY(-50%);
     opacity: 100%;
 }
 

@@ -24,12 +24,10 @@ def get_programme_info(prog_code: str, entry_year: str, stage: int) -> Programme
     about a degree programme's modules and optsrules for a given entry year and stage."""
     programme = Programme.objects.get(prog_code=prog_code)
     modules_dict = {'term1': {},
-                    'term2': {},
-                    'unknown': {}}
+                    'term2': {}}
     rules_dict = {}
     has_modules = {'term1': True,
-                   'term2': False,
-                   'unknown': False}
+                   'term2': False}
     populate_core_modules(modules_dict, rules_dict, programme, stage, entry_year)
     populate_disc_alt_modules(modules_dict, rules_dict, programme, stage, entry_year)
     populate_opts_modules(modules_dict, rules_dict, programme, stage, entry_year)
@@ -79,8 +77,6 @@ def populate_core_modules(modules_dict: Dict, rules_dict: Dict, programme: Progr
                     elif term.upper() == "BOTH" or module.title.upper() == "YEAR IN INDUSTRY":
                         modules_dict['term1']['CORE'] = modules_dict['term1'].get('CORE', []) + [module]
                         modules_dict['term2']['CORE'] = modules_dict['term2'].get('CORE', []) + [module]
-                    else:
-                        modules_dict['unknown']['CORE'] = modules_dict['unknown'].get('CORE', []) + [module]
 
 
 def populate_disc_alt_modules(modules_dict, rules_dict, programme, stage, entry_year):
@@ -123,8 +119,6 @@ def populate_opts_modules(modules_dict, rules_dict, programme, stage, entry_year
                     elif term.upper() == "BOTH":
                         modules_dict['term1']['OPTS'] = modules_dict['term1'].get('OPTS', []) + [module]
                         modules_dict['term2']['OPTS'] = modules_dict['term2'].get('OPTS', []) + [module]
-                    else:
-                        modules_dict['unknown']['OPTS'] = modules_dict['unknown'].get('OPTS', []) + [module]
 
 
 def populate_strand_modules(modules_dict, rules_dict, programme, stage, entry_year):
@@ -150,8 +144,6 @@ def populate_strand_modules(modules_dict, rules_dict, programme, stage, entry_ye
                     elif term.upper() == "BOTH":
                         modules_dict['term1']['STRAND'] = modules_dict['term1'].get('STRAND', []) + [module]
                         modules_dict['term2']['STRAND'] = modules_dict['term2'].get('STRAND', []) + [module]
-                    else:
-                        modules_dict['unknown']['STRAND'] = modules_dict['unknown'].get('STRAND', []) + [module]
 
 
 def get_strand(entry_year, programme, stage):
