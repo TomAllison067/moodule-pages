@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    modulesApplication.auth
+   modulesApplication.csv
    modulesApplication.database
    modulesApplication.migrations
    modulesApplication.programmeInfo
