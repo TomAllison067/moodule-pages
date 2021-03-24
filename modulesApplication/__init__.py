@@ -1,7 +1,7 @@
 """
 The main package for our application.
 
-This package contains all the useful subpackages (our team's code), as well as various a few simple modules
+This package contains all the useful subpackages (the majority of our team's backend code), as well as various a few simple modules
 that handle various tasks.
 
 Subpackages:
