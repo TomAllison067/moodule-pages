@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modulesApplication.auth package &#8212; Moodule 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="modulesapplication-auth-package">
+<h1>modulesApplication.auth package<a class="headerlink" href="#modulesapplication-auth-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-modulesApplication.auth.custom_ldap_backend">
+<span id="modulesapplication-auth-custom-ldap-backend-module"></span><h2>modulesApplication.auth.custom_ldap_backend module<a class="headerlink" href="#module-modulesApplication.auth.custom_ldap_backend" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.auth.custom_ldap_backend.</span></code><code class="sig-name descname"><span class="pre">CustomLDAPBackend</span></code><a class="headerlink" href="#modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_auth_ldap.backend.LDAPBackend</span></code></p>
+<p>A custom override of the LDAP backend. The justification is to derive group memberships upon login and then
+add the resulting Django user to the correct Django group.</p>
+<p>All other LDAPBackend features work as normal.</p>
+<dl class="py method">
+<dt id="modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend.authenticate_ldap_user">
+<code class="sig-name descname"><span class="pre">authenticate_ldap_user</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ldap_user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend.authenticate_ldap_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an authenticated Django user or None.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend.derive_group">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">derive_group</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend.derive_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the authenticated user, this searches the corresponding LDAP attributes to derive if the user is
+staff or a student and returns a Django group.</p>
+<p>It is derived from extensionAttribute8 in the University’s LDAP entries for people.</p>
+<p>Examples of extensionAttribute8 in LDAP are:
+- Student (Undergraduate)
+- Student (Postgraduate)
+- Staff (Academic Staff)
+:param user the authenticated user object
+:return the correct Django group, or None</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend.populate_student_profile">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">populate_student_profile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend.populate_student_profile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.auth.is_staff">
+<span id="modulesapplication-auth-is-staff-module"></span><h2>modulesApplication.auth.is_staff module<a class="headerlink" href="#module-modulesApplication.auth.is_staff" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="modulesApplication.auth.is_staff.is_staff_or_superuser">
+<code class="sig-prename descclassname"><span class="pre">modulesApplication.auth.is_staff.</span></code><code class="sig-name descname"><span class="pre">is_staff_or_superuser</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.auth.is_staff.is_staff_or_superuser" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple function to pass into &#64;user_passes_test decorators</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.auth">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-modulesApplication.auth" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Moodule</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Team 34.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/modulesApplication.auth.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

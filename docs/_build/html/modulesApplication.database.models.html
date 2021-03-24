@@ -1,0 +1,1051 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modulesApplication.database.models package &#8212; Moodule 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="modulesapplication-database-models-package">
+<h1>modulesApplication.database.models package<a class="headerlink" href="#modulesapplication-database-models-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-modulesApplication.database.models.course_leader">
+<span id="modulesapplication-database-models-course-leader-module"></span><h2>modulesApplication.database.models.course_leader module<a class="headerlink" href="#module-modulesApplication.database.models.course_leader" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.database.models.course_leader.CourseLeader">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.course_leader.</span></code><code class="sig-name descname"><span class="pre">CourseLeader</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.course_leader.CourseLeader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>A CourseLeader object relates a Person object to a Module object
+and defines who teaches a module, as well as what term the module is running in.</p>
+<dl class="py exception">
+<dt id="modulesApplication.database.models.course_leader.CourseLeader.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#modulesApplication.database.models.course_leader.CourseLeader.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="modulesApplication.database.models.course_leader.CourseLeader.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#modulesApplication.database.models.course_leader.CourseLeader.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.course_leader.CourseLeader.get_term_display">
+<code class="sig-name descname"><span class="pre">get_term_display</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">term&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.course_leader.CourseLeader.get_term_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.course_leader.CourseLeader.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#modulesApplication.database.models.course_leader.CourseLeader.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Auto generated primary key integer. The Meta inner class specifies a unique_together contrainst between the
+module and person, since Django’s ORM does not officially support composite keys.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.course_leader.CourseLeader.leader">
+<code class="sig-name descname"><span class="pre">leader</span></code><a class="headerlink" href="#modulesApplication.database.models.course_leader.CourseLeader.leader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether this CourseLeader is the primary leader of the Module or not.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.course_leader.CourseLeader.module">
+<code class="sig-name descname"><span class="pre">module</span></code><a class="headerlink" href="#modulesApplication.database.models.course_leader.CourseLeader.module" title="Permalink to this definition">¶</a></dt>
+<dd><p>The related Module object.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.course_leader.CourseLeader.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modulesApplication.database.models.course_leader.CourseLeader.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.course_leader.CourseLeader.person">
+<code class="sig-name descname"><span class="pre">person</span></code><a class="headerlink" href="#modulesApplication.database.models.course_leader.CourseLeader.person" title="Permalink to this definition">¶</a></dt>
+<dd><p>The related Person object.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.course_leader.CourseLeader.term">
+<code class="sig-name descname"><span class="pre">term</span></code><a class="headerlink" href="#modulesApplication.database.models.course_leader.CourseLeader.term" title="Permalink to this definition">¶</a></dt>
+<dd><p>The term the module runs in - one of TermChoices.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="modulesApplication.database.models.course_leader.TermChoices">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.course_leader.</span></code><code class="sig-name descname"><span class="pre">TermChoices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.course_leader.TermChoices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.enums.TextChoices</span></code></p>
+<p>An enum representing what term the CourseLeader is running the related Module in.</p>
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.course_leader.TermChoices.BOTH">
+<code class="sig-name descname"><span class="pre">BOTH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Both'</span></em><a class="headerlink" href="#modulesApplication.database.models.course_leader.TermChoices.BOTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.course_leader.TermChoices.TERM1">
+<code class="sig-name descname"><span class="pre">TERM1</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'1'</span></em><a class="headerlink" href="#modulesApplication.database.models.course_leader.TermChoices.TERM1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.course_leader.TermChoices.TERM2">
+<code class="sig-name descname"><span class="pre">TERM2</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'2'</span></em><a class="headerlink" href="#modulesApplication.database.models.course_leader.TermChoices.TERM2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.database.models.module">
+<span id="modulesapplication-database-models-module-module"></span><h2>modulesApplication.database.models.module module<a class="headerlink" href="#module-modulesApplication.database.models.module" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.database.models.module.CreditsChoices">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.module.</span></code><code class="sig-name descname"><span class="pre">CreditsChoices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.module.CreditsChoices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.enums.IntegerChoices</span></code></p>
+<p>Enum of the credits a Module is worth</p>
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.CreditsChoices.FIFTEEN">
+<code class="sig-name descname"><span class="pre">FIFTEEN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">15</span></em><a class="headerlink" href="#modulesApplication.database.models.module.CreditsChoices.FIFTEEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.CreditsChoices.MINUS_ONE">
+<code class="sig-name descname"><span class="pre">MINUS_ONE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">-1</span></em><a class="headerlink" href="#modulesApplication.database.models.module.CreditsChoices.MINUS_ONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.CreditsChoices.SIXTY">
+<code class="sig-name descname"><span class="pre">SIXTY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">60</span></em><a class="headerlink" href="#modulesApplication.database.models.module.CreditsChoices.SIXTY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.CreditsChoices.THIRTY">
+<code class="sig-name descname"><span class="pre">THIRTY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">30</span></em><a class="headerlink" href="#modulesApplication.database.models.module.CreditsChoices.THIRTY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="modulesApplication.database.models.module.LevelChoices">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.module.</span></code><code class="sig-name descname"><span class="pre">LevelChoices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.module.LevelChoices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.enums.IntegerChoices</span></code></p>
+<p>Enum representing the level of this Module</p>
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.LevelChoices.FIVE">
+<code class="sig-name descname"><span class="pre">FIVE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">5</span></em><a class="headerlink" href="#modulesApplication.database.models.module.LevelChoices.FIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.LevelChoices.FOUR">
+<code class="sig-name descname"><span class="pre">FOUR</span></code><em class="property"> <span class="pre">=</span> <span class="pre">4</span></em><a class="headerlink" href="#modulesApplication.database.models.module.LevelChoices.FOUR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.LevelChoices.SEVEN">
+<code class="sig-name descname"><span class="pre">SEVEN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">7</span></em><a class="headerlink" href="#modulesApplication.database.models.module.LevelChoices.SEVEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.LevelChoices.SIX">
+<code class="sig-name descname"><span class="pre">SIX</span></code><em class="property"> <span class="pre">=</span> <span class="pre">6</span></em><a class="headerlink" href="#modulesApplication.database.models.module.LevelChoices.SIX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="modulesApplication.database.models.module.Module">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.module.</span></code><code class="sig-name descname"><span class="pre">Module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.module.Module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Represents a Module in the database, e.g. CS2815.</p>
+<dl class="py exception">
+<dt id="modulesApplication.database.models.module.Module.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="modulesApplication.database.models.module.Module.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.banned_combinations">
+<code class="sig-name descname"><span class="pre">banned_combinations</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.banned_combinations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Text field describing banned combinations</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.module.Module.clean">
+<code class="sig-name descname"><span class="pre">clean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.module.Module.clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override of the clean() method to validate</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.core_reading">
+<code class="sig-name descname"><span class="pre">core_reading</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.core_reading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Text field describing any core reading</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.corequisites">
+<code class="sig-name descname"><span class="pre">corequisites</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.corequisites" title="Permalink to this definition">¶</a></dt>
+<dd><p>Text field describing corequisites</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.credits">
+<code class="sig-name descname"><span class="pre">credits</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.credits" title="Permalink to this definition">¶</a></dt>
+<dd><p>How many credits the module is worth - one of CreditsChoices</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.exam_format">
+<code class="sig-name descname"><span class="pre">exam_format</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.exam_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Text field describing exam format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.module.Module.get_credits_display">
+<code class="sig-name descname"><span class="pre">get_credits_display</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.IntegerField:</span> <span class="pre">credits&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.module.Module.get_credits_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.module.Module.get_level_display">
+<code class="sig-name descname"><span class="pre">get_level_display</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.IntegerField:</span> <span class="pre">level&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.module.Module.get_level_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.module.Module.get_status_display">
+<code class="sig-name descname"><span class="pre">get_status_display</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">status&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.module.Module.get_status_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.learning_outcomes">
+<code class="sig-name descname"><span class="pre">learning_outcomes</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.learning_outcomes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Text field describing learning outcomes</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.level">
+<code class="sig-name descname"><span class="pre">level</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.level" title="Permalink to this definition">¶</a></dt>
+<dd><p>The level - one of LevelChoices</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.mod_code">
+<code class="sig-name descname"><span class="pre">mod_code</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.mod_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primary key, e.g. ‘CS2815’</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modulesApplication.database.models.module.Module.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.prerequisites">
+<code class="sig-name descname"><span class="pre">prerequisites</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.prerequisites" title="Permalink to this definition">¶</a></dt>
+<dd><p>Text field describing prequisites</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.project">
+<code class="sig-name descname"><span class="pre">project</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean - whether the module is a project or not (?)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.module.Module.save">
+<code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.module.Module.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override of the Save method to call clean(), and check that a module has a mod_code. Most useful when
+importing incorrect csv data.</p>
+<p>This also validates objects created with the Module.objects.create() method</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.status">
+<code class="sig-name descname"><span class="pre">status</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of the module - one of StatusChoices</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.summary">
+<code class="sig-name descname"><span class="pre">summary</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Text field summarising the module</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.Module.title">
+<code class="sig-name descname"><span class="pre">title</span></code><a class="headerlink" href="#modulesApplication.database.models.module.Module.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>The title of the module</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="modulesApplication.database.models.module.StatusChoices">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.module.</span></code><code class="sig-name descname"><span class="pre">StatusChoices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.module.StatusChoices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.enums.TextChoices</span></code></p>
+<p>Enum representing the Module’s status</p>
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.StatusChoices.ACTIVE">
+<code class="sig-name descname"><span class="pre">ACTIVE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'ACTIVE'</span></em><a class="headerlink" href="#modulesApplication.database.models.module.StatusChoices.ACTIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.StatusChoices.DORMANT">
+<code class="sig-name descname"><span class="pre">DORMANT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'DORMANT'</span></em><a class="headerlink" href="#modulesApplication.database.models.module.StatusChoices.DORMANT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.StatusChoices.WITHDRAWN">
+<code class="sig-name descname"><span class="pre">WITHDRAWN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'WITHDRAWN'</span></em><a class="headerlink" href="#modulesApplication.database.models.module.StatusChoices.WITHDRAWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module.StatusChoices.WONTRUN">
+<code class="sig-name descname"><span class="pre">WONTRUN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'WONTRUN'</span></em><a class="headerlink" href="#modulesApplication.database.models.module.StatusChoices.WONTRUN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.database.models.module_selection">
+<span id="modulesapplication-database-models-module-selection-module"></span><h2>modulesApplication.database.models.module_selection module<a class="headerlink" href="#module-modulesApplication.database.models.module_selection" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.module_selection.</span></code><code class="sig-name descname"><span class="pre">ModuleSelection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>A ModuleSelection is created by a student when they choose their modules.</p>
+<p>It specifies information about the student, and has a foreign key reference to their degree program.</p>
+<p>A Module can be selected via <cite>a_module.selected_in.add(a_module_selection)</cite></p>
+<dl class="py exception">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.comments">
+<code class="sig-name descname"><span class="pre">comments</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Text field of any comments provided.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.date_requested">
+<code class="sig-name descname"><span class="pre">date_requested</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.date_requested" title="Permalink to this definition">¶</a></dt>
+<dd><p>The date the selection was made.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.entry_year">
+<code class="sig-name descname"><span class="pre">entry_year</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.entry_year" title="Permalink to this definition">¶</a></dt>
+<dd><p>When the student began studying.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.last_modified">
+<code class="sig-name descname"><span class="pre">last_modified</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.last_modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>When the selection was last modified.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.programme">
+<code class="sig-name descname"><span class="pre">programme</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.programme" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreign key to the Programme object this selection was made in context of.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.stage">
+<code class="sig-name descname"><span class="pre">stage</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.stage" title="Permalink to this definition">¶</a></dt>
+<dd><p>The stage of the student’s degree.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.status">
+<code class="sig-name descname"><span class="pre">status</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of the selection - e.g., approved, pending, .etc.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.student_id">
+<code class="sig-name descname"><span class="pre">student_id</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.student_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The student’s ID.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_selection.ModuleSelection.student_name">
+<code class="sig-name descname"><span class="pre">student_name</span></code><a class="headerlink" href="#modulesApplication.database.models.module_selection.ModuleSelection.student_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The student’s name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.database.models.module_variants">
+<span id="modulesapplication-database-models-module-variants-module"></span><h2>modulesApplication.database.models.module_variants module<a class="headerlink" href="#module-modulesApplication.database.models.module_variants" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.database.models.module_variants.ModuleVariant">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.module_variants.</span></code><code class="sig-name descname"><span class="pre">ModuleVariant</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.module_variants.ModuleVariant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>A class to map modules to their variants, e.g., CS2815 is a variant of CS2810.</p>
+<dl class="py exception">
+<dt id="modulesApplication.database.models.module_variants.ModuleVariant.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#modulesApplication.database.models.module_variants.ModuleVariant.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="modulesApplication.database.models.module_variants.ModuleVariant.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#modulesApplication.database.models.module_variants.ModuleVariant.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_variants.ModuleVariant.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#modulesApplication.database.models.module_variants.ModuleVariant.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Autogenerated ID in lieue of composite key. Unique_together constraint is defined in the Meta inner class
+between the major/minor modules.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_variants.ModuleVariant.major">
+<code class="sig-name descname"><span class="pre">major</span></code><a class="headerlink" href="#modulesApplication.database.models.module_variants.ModuleVariant.major" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreign key to the major module - e.g. CS2810 is the major variant of CS2815.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_variants.ModuleVariant.minor">
+<code class="sig-name descname"><span class="pre">minor</span></code><a class="headerlink" href="#modulesApplication.database.models.module_variants.ModuleVariant.minor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreign key to the minor module - e.g. CS2815 is a variant of CS2810.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.module_variants.ModuleVariant.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modulesApplication.database.models.module_variants.ModuleVariant.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.database.models.option_rule">
+<span id="modulesapplication-database-models-option-rule-module"></span><h2>modulesApplication.database.models.option_rule module<a class="headerlink" href="#module-modulesApplication.database.models.option_rule" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.database.models.option_rule.ConstraintType">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.option_rule.</span></code><code class="sig-name descname"><span class="pre">ConstraintType</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.option_rule.ConstraintType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.enums.TextChoices</span></code></p>
+<p>Enum specifying the constraint type of this OptionRule</p>
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.ConstraintType.CORE">
+<code class="sig-name descname"><span class="pre">CORE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'CORE'</span></em><a class="headerlink" href="#modulesApplication.database.models.option_rule.ConstraintType.CORE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.ConstraintType.CREDITS">
+<code class="sig-name descname"><span class="pre">CREDITS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'CREDITS'</span></em><a class="headerlink" href="#modulesApplication.database.models.option_rule.ConstraintType.CREDITS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.ConstraintType.DISALLOWED">
+<code class="sig-name descname"><span class="pre">DISALLOWED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'DISALLOWED'</span></em><a class="headerlink" href="#modulesApplication.database.models.option_rule.ConstraintType.DISALLOWED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.ConstraintType.DISC_ALT">
+<code class="sig-name descname"><span class="pre">DISC_ALT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'DISC_ALT'</span></em><a class="headerlink" href="#modulesApplication.database.models.option_rule.ConstraintType.DISC_ALT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.ConstraintType.MAX_STRAND">
+<code class="sig-name descname"><span class="pre">MAX_STRAND</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'MAX_STRAND'</span></em><a class="headerlink" href="#modulesApplication.database.models.option_rule.ConstraintType.MAX_STRAND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.ConstraintType.OPTS">
+<code class="sig-name descname"><span class="pre">OPTS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'OPTS'</span></em><a class="headerlink" href="#modulesApplication.database.models.option_rule.ConstraintType.OPTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.ConstraintType.STRAND">
+<code class="sig-name descname"><span class="pre">STRAND</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'STRAND'</span></em><a class="headerlink" href="#modulesApplication.database.models.option_rule.ConstraintType.STRAND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="modulesApplication.database.models.option_rule.OptionRule">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.option_rule.</span></code><code class="sig-name descname"><span class="pre">OptionRule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>A class to represent OptionRules. When a student makes a selection, the modules they are allowed to pick
+is defined by several OptionRule objects.</p>
+<dl class="py exception">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.constraint_type">
+<code class="sig-name descname"><span class="pre">constraint_type</span></code><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.constraint_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>What type of rule - one of ConstraintType.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.entry_year">
+<code class="sig-name descname"><span class="pre">entry_year</span></code><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.entry_year" title="Permalink to this definition">¶</a></dt>
+<dd><p>The entry year of the Programme this rule applies to.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.get_constraint_type_display">
+<code class="sig-name descname"><span class="pre">get_constraint_type_display</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">constraint_type&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.get_constraint_type_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Auto-generated ID.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.max_quantity">
+<code class="sig-name descname"><span class="pre">max_quantity</span></code><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.max_quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the maximum number of modules matching this OptionRule’s mod_code_pattern to be selected.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.min_quantity">
+<code class="sig-name descname"><span class="pre">min_quantity</span></code><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.min_quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the minimum number of modules matching this OptionRule’s mod_code_pattern to be selected.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.mod_code_pattern">
+<code class="sig-name descname"><span class="pre">mod_code_pattern</span></code><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.mod_code_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>A comma-separated string listing one or several mod_codes defining what modules this rule applies to.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.prog_code">
+<code class="sig-name descname"><span class="pre">prog_code</span></code><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.prog_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>ForeignKey to the Programme this rule is for.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.save">
+<code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force_insert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">using</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override to validatee the constraint type upon saving. Useful for csv imports.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.squash_core_modules">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">squash_core_modules</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">programme</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.squash_core_modules" title="Permalink to this definition">¶</a></dt>
+<dd><p>A static method to “squash” all of the core option rules for a given programme, entry year and stage
+into one single core option rule. It moves all mod_codes from multiple CORE rules for this
+programme/entry_year/stage
+into one single rule, and deletes the redundant rules from the database.</p>
+<p>This means instead of having multiple CORE option rule per core module for
+each case, we can instead have one CORE option rule containing all of the modules in the rule’s mod_code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>programme</strong> – the Programme object who’s core modules you wish to squash</p></li>
+<li><p><strong>entry_year</strong> – the entry year of the programme</p></li>
+<li><p><strong>stage</strong> – the stage of the programme who’s core modules you wish to squash</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns: True if all modules are squashed successfully</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.option_rule.OptionRule.stage">
+<code class="sig-name descname"><span class="pre">stage</span></code><a class="headerlink" href="#modulesApplication.database.models.option_rule.OptionRule.stage" title="Permalink to this definition">¶</a></dt>
+<dd><p>The stage this applies to.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.database.models.optional_module">
+<span id="modulesapplication-database-models-optional-module-module"></span><h2>modulesApplication.database.models.optional_module module<a class="headerlink" href="#module-modulesApplication.database.models.optional_module" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.database.models.optional_module.OptionalModule">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.optional_module.</span></code><code class="sig-name descname"><span class="pre">OptionalModule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.optional_module.OptionalModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Maps Programmes to Modules to represent optional modules by programme.</p>
+<dl class="py exception">
+<dt id="modulesApplication.database.models.optional_module.OptionalModule.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#modulesApplication.database.models.optional_module.OptionalModule.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="modulesApplication.database.models.optional_module.OptionalModule.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#modulesApplication.database.models.optional_module.OptionalModule.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.optional_module.OptionalModule.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#modulesApplication.database.models.optional_module.OptionalModule.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Auto-generated ID.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.optional_module.OptionalModule.mod_code">
+<code class="sig-name descname"><span class="pre">mod_code</span></code><a class="headerlink" href="#modulesApplication.database.models.optional_module.OptionalModule.mod_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreign key to the corresponding Module.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.optional_module.OptionalModule.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modulesApplication.database.models.optional_module.OptionalModule.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.optional_module.OptionalModule.prog_code">
+<code class="sig-name descname"><span class="pre">prog_code</span></code><a class="headerlink" href="#modulesApplication.database.models.optional_module.OptionalModule.prog_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreign key to the corresponding Programme.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.database.models.people">
+<span id="modulesapplication-database-models-people-module"></span><h2>modulesApplication.database.models.people module<a class="headerlink" href="#module-modulesApplication.database.models.people" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.database.models.people.People">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.people.</span></code><code class="sig-name descname"><span class="pre">People</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.people.People" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>A class to represent a person, i.e, a member of the faculty.</p>
+<p>It is referenced by the CourseLeader class to link instructors to the modules they instruct.</p>
+<p>This corresponds to the ‘people’ table in the sqlite3 database.</p>
+<dl class="py exception">
+<dt id="modulesApplication.database.models.people.People.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#modulesApplication.database.models.people.People.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="modulesApplication.database.models.people.People.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#modulesApplication.database.models.people.People.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.people.People.email">
+<code class="sig-name descname"><span class="pre">email</span></code><a class="headerlink" href="#modulesApplication.database.models.people.People.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Their email address.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.people.People.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#modulesApplication.database.models.people.People.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primary key - their initials.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.people.People.name">
+<code class="sig-name descname"><span class="pre">name</span></code><a class="headerlink" href="#modulesApplication.database.models.people.People.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Their full name.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.people.People.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modulesApplication.database.models.people.People.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.database.models.programme">
+<span id="modulesapplication-database-models-programme-module"></span><h2>modulesApplication.database.models.programme module<a class="headerlink" href="#module-modulesApplication.database.models.programme" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.database.models.programme.DegreeLevel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.programme.</span></code><code class="sig-name descname"><span class="pre">DegreeLevel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.programme.DegreeLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.enums.TextChoices</span></code></p>
+<p>The valid degree levels.</p>
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.programme.DegreeLevel.BACHELORS">
+<code class="sig-name descname"><span class="pre">BACHELORS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'BSC'</span></em><a class="headerlink" href="#modulesApplication.database.models.programme.DegreeLevel.BACHELORS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.programme.DegreeLevel.MASTERS">
+<code class="sig-name descname"><span class="pre">MASTERS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'MSCI'</span></em><a class="headerlink" href="#modulesApplication.database.models.programme.DegreeLevel.MASTERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="modulesApplication.database.models.programme.Programme">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.programme.</span></code><code class="sig-name descname"><span class="pre">Programme</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.programme.Programme" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>A data model representing a degree program, eg ‘BSc Computer Science’.</p>
+<p>It has four fields:
+prog_code: A string of the programme code, the primary key.
+title: The title of the degree programme.
+level: The level of study, e.g. BS or MSc
+yini: Boolean, true if this course contains a Year in Industry placement.</p>
+<p>This is very much simplified in comparison to the equivalent model in the example database, as we simply don’t
+need most of those fields for our purposes.</p>
+<dl class="py exception">
+<dt id="modulesApplication.database.models.programme.Programme.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#modulesApplication.database.models.programme.Programme.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="modulesApplication.database.models.programme.Programme.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#modulesApplication.database.models.programme.Programme.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.programme.Programme.clean">
+<code class="sig-name descname"><span class="pre">clean</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.programme.Programme.clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override to validate the level. Useful when importing CSV data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.programme.Programme.get_level_display">
+<code class="sig-name descname"><span class="pre">get_level_display</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">level&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.programme.Programme.get_level_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.programme.Programme.level">
+<code class="sig-name descname"><span class="pre">level</span></code><a class="headerlink" href="#modulesApplication.database.models.programme.Programme.level" title="Permalink to this definition">¶</a></dt>
+<dd><p>What level - one of BSC or MSCI.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.programme.Programme.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modulesApplication.database.models.programme.Programme.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.programme.Programme.prog_code">
+<code class="sig-name descname"><span class="pre">prog_code</span></code><a class="headerlink" href="#modulesApplication.database.models.programme.Programme.prog_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primary key, e.g. ‘1067’.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.programme.Programme.title">
+<code class="sig-name descname"><span class="pre">title</span></code><a class="headerlink" href="#modulesApplication.database.models.programme.Programme.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>The degree title e.g., ‘BSc Computer Science’.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.programme.Programme.yini">
+<code class="sig-name descname"><span class="pre">yini</span></code><a class="headerlink" href="#modulesApplication.database.models.programme.Programme.yini" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean - whether this Programme contains a Year in Industry.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.database.models.strand">
+<span id="modulesapplication-database-models-strand-module"></span><h2>modulesApplication.database.models.strand module<a class="headerlink" href="#module-modulesApplication.database.models.strand" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.database.models.strand.StrandChoices">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.strand.</span></code><code class="sig-name descname"><span class="pre">StrandChoices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.strand.StrandChoices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.enums.TextChoices</span></code></p>
+<p>Enum representing the different strands.</p>
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.strand.StrandChoices.AI">
+<code class="sig-name descname"><span class="pre">AI</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'AI'</span></em><a class="headerlink" href="#modulesApplication.database.models.strand.StrandChoices.AI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.strand.StrandChoices.DNS">
+<code class="sig-name descname"><span class="pre">DNS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'DNS'</span></em><a class="headerlink" href="#modulesApplication.database.models.strand.StrandChoices.DNS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.strand.StrandChoices.IS">
+<code class="sig-name descname"><span class="pre">IS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'IS'</span></em><a class="headerlink" href="#modulesApplication.database.models.strand.StrandChoices.IS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.strand.StrandChoices.SE">
+<code class="sig-name descname"><span class="pre">SE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'SE'</span></em><a class="headerlink" href="#modulesApplication.database.models.strand.StrandChoices.SE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="modulesApplication.database.models.strand.Strands">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.strand.</span></code><code class="sig-name descname"><span class="pre">Strands</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.strand.Strands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Some modules may be on strands, e.g., CS2815 is on the Software Engineering strand. This relates modules to their
+strands if they should have one.</p>
+<dl class="py exception">
+<dt id="modulesApplication.database.models.strand.Strands.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#modulesApplication.database.models.strand.Strands.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="modulesApplication.database.models.strand.Strands.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#modulesApplication.database.models.strand.Strands.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.strand.Strands.clean">
+<code class="sig-name descname"><span class="pre">clean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.strand.Strands.clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook for doing any extra model-wide validation after clean() has been
+called on every field by self.clean_fields. Any ValidationError raised
+by this method will not be associated with a particular field; it will
+have a special-case association with the field defined by NON_FIELD_ERRORS.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.strand.Strands.get_strand_display">
+<code class="sig-name descname"><span class="pre">get_strand_display</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">strand&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.strand.Strands.get_strand_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.strand.Strands.module">
+<code class="sig-name descname"><span class="pre">module</span></code><a class="headerlink" href="#modulesApplication.database.models.strand.Strands.module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Foreign key to the corresponding Module.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.strand.Strands.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modulesApplication.database.models.strand.Strands.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.strand.Strands.save">
+<code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.strand.Strands.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the current instance. Override this in a subclass if you want to
+control the saving process.</p>
+<p>The ‘force_insert’ and ‘force_update’ parameters can be used to insist
+that the “save” must be an SQL insert or update (or equivalent for
+non-SQL backends), respectively. Normally, they should not be set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.strand.Strands.strand">
+<code class="sig-name descname"><span class="pre">strand</span></code><a class="headerlink" href="#modulesApplication.database.models.strand.Strands.strand" title="Permalink to this definition">¶</a></dt>
+<dd><p>The strand - one of StrandChoices.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.strand.Strands.strand_id">
+<code class="sig-name descname"><span class="pre">strand_id</span></code><a class="headerlink" href="#modulesApplication.database.models.strand.Strands.strand_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Auto-generated ID. The Meta subclass specifies a unique_together constraint between the module and strand,
+as Django’s ORM does not support composite keys.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.database.models.student_profile">
+<span id="modulesapplication-database-models-student-profile-module"></span><h2>modulesApplication.database.models.student_profile module<a class="headerlink" href="#module-modulesApplication.database.models.student_profile" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.database.models.student_profile.StudentProfile">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.database.models.student_profile.</span></code><code class="sig-name descname"><span class="pre">StudentProfile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>A database model to store information related to the student - e.g. their student ID</p>
+<dl class="py exception">
+<dt id="modulesApplication.database.models.student_profile.StudentProfile.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="modulesApplication.database.models.student_profile.StudentProfile.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.student_profile.StudentProfile.entry_year">
+<code class="sig-name descname"><span class="pre">entry_year</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.entry_year" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.student_profile.StudentProfile.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.student_profile.StudentProfile.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.database.models.student_profile.StudentProfile.populate_student_profile_from_ldap">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">populate_student_profile_from_ldap</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prog_code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.populate_student_profile_from_ldap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.student_profile.StudentProfile.prog_code">
+<code class="sig-name descname"><span class="pre">prog_code</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.prog_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.student_profile.StudentProfile.stage">
+<code class="sig-name descname"><span class="pre">stage</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.stage" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.student_profile.StudentProfile.student_id">
+<code class="sig-name descname"><span class="pre">student_id</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.student_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="modulesApplication.database.models.student_profile.StudentProfile.user">
+<code class="sig-name descname"><span class="pre">user</span></code><a class="headerlink" href="#modulesApplication.database.models.student_profile.StudentProfile.user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.database.models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-modulesApplication.database.models" title="Permalink to this headline">¶</a></h2>
+<p>This package contains all the various Python classes to be used by Django’s ORM.</p>
+<p>Each class represents a data model in our app or a relationship between them.</p>
+<p>See <a class="reference external" href="https://docs.djangoproject.com/en/3.1/topics/db/models/">https://docs.djangoproject.com/en/3.1/topics/db/models/</a> for more info.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Moodule</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Team 34.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/modulesApplication.database.models.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
