@@ -1,8 +1,3 @@
-import sys
-import django_heroku
-import ldap
-from django_auth_ldap.config import LDAPSearch, GroupOfNamesType, LDAPGroupQuery
-
 """
 Django settings for modulesProject project.
 
@@ -14,50 +9,42 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 
-# Before deployment:
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+Before deployment:
+See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 """
 
+import sys
+import django_heroku
+import ldap
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType, LDAPGroupQuery
+
 import os
+import sys
 from pathlib import Path
 
-import environ  # Let's use django-environ to handle our environment variables
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+import environ
+import ldap
 from django.urls import reverse
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType, LDAPGroupQuery
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-"""Importing environment variables with django-environ
-    https://django-environ.readthedocs.io/en/latest/#"""
 env = environ.Env(
-    # Debug false by default (unless specified in .env)
     DEBUG=(bool, False)
 )
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
     'default': env.db(),
     'example': env.db('EXAMPLE_DB_URL', default="sqlite:////tmp/my-tmp-sqlite.db")
 }
 
-"""django-environ finished"""
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.8000',
     '127.0.0.1',
     '.herokuapp.com',
 ]
-
-# Application definition
 
 INSTALLED_APPS = [
     'modulesApplication.apps.ModulesApplicationConfig',  # install our app so it runs in django!
@@ -131,25 +118,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
 STATIC_URL = '/static/'
 
-# https://docs.djangoproject.com/en/3.1/ref/contrib/sites/#enabling-the-sites-framework
-# Use the sites framework for Django authentication. Need to look at this later.
 SITE_ID = 1
-
-SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'resources')
 # MEDIA_URL = '/resources/'
 
-"""DJANGO AUTHENTICATION SETTINGS"""
+
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  # Django's default auth backend
-    # 'django_auth_ldap.backend.LDAPBackend',  # LDAP Backend
-    'modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend'
+    'modulesApplication.auth.custom_ldap_backend.CustomLDAPBackend'  # Override of django_auth_ldap.backend.LDAPBackend
 )
 
 LOGIN_REDIRECT_URL = '/login-redirect'

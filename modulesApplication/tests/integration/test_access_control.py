@@ -24,10 +24,6 @@ class TestAccessControl(TestCase):
         last_url, status_code = response.redirect_chain[-1]
         self.assertTrue(last_url.startswith('/accounts/login/'))
 
-        response = c.get('/academic/landing', follow=True)
-        last_url, status_code = response.redirect_chain[-1]
-        self.assertTrue(last_url.startswith('/accounts/login/'))
-
     def test_logged_in_does_not_redirect(self):
         """
         Test that a logged in user is NOT redirected!
@@ -45,10 +41,6 @@ class TestAccessControl(TestCase):
         response = c.get('/office/landing', follow=True)
         last_url, status_code = response.redirect_chain[-1]
         self.assertTrue(last_url.startswith('/office/landing'))
-
-        response = c.get('/academic/landing', follow=True)
-        last_url, status_code = response.redirect_chain[-1]
-        self.assertTrue(last_url.startswith('/academic/landing'))
 
     def test_non_staff_cannot_access_office_views(self):
         """Tests that non-staff users cannot access the office views"""
@@ -78,19 +70,6 @@ class TestAccessControl(TestCase):
         self.assertTrue(last_url.startswith('/accounts/login'))
 
         response = c.get(reverse('modulesApplication:print-student-selections'), follow=True)
-        last_url, status_code = response.redirect_chain[-1]
-        self.assertTrue(last_url.startswith('/accounts/login'))
-
-    def test_non_staff_cannot_access_academic_views(self):
-        """Tests that non-staff cannot access academic views"""
-        c = Client()
-        c.login(username='mr.foo', password='top_secret')
-
-        response = c.get(reverse('modulesApplication:academic-landing'), follow=True)
-        last_url, status_code = response.redirect_chain[-1]
-        self.assertTrue(last_url.startswith('/accounts/login'))
-
-        response = c.get(reverse('modulesApplication:academic-selection-requests'), follow=True)
         last_url, status_code = response.redirect_chain[-1]
         self.assertTrue(last_url.startswith('/accounts/login'))
 

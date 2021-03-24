@@ -403,14 +403,38 @@ html, body {
     transition: all .25s;
 }
 
-.sidebar ul li:hover a {
+.sidebar ul .sub-btn {
+    font-size: 18px;
+    color: white;
     padding-left: 35px;
-    background: rgb(25, 25, 25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+    transition: all .25s;
+}
+
+.sidebar a:hover {
+    padding-left: 35px;
+    background: rgb(35, 35, 35);
+}
+
+.sidebar .sub-btn:hover {
+    padding-left: 50px;
+    background: rgb(75, 75, 75);
 }
 
 .sidebar ul a i {
     margin-right: 16px;
     color: rgb(255, 135, 0);
+    transition: 0.3s ease;
+}
+
+.sidebar ul .sub-menu i {
+    margin-right: 16px;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.sidebar ul a .dropdown {
+    margin-left: 10px;
 }
 
 #sidebar-checkbox {
@@ -462,9 +486,30 @@ label #cancel {
     opacity: 50%;
 }
 
+/* --[[ SB - SUB MENU ]] -- */
+
+.sidebar ul li:hover .sub-menu {
+    display: block;
+    max-height: 250px;
+}
+
+.sub-menu a {
+    background-color: rgb(52, 52, 52);
+}
+
+.sub-menu a:hover {
+    background-color: #666;
+}
+
+.sub-menu {
+    overflow: hidden;
+    max-height: 0;
+    -webkit-transition: all 0.25s ease-out;
+}
+
 /* --[[ SB - BUTTONS ]]-- */
 
-.btn {
+.btn, .sub-btn {
     display: block;
     padding: 16px 20px;
     background: rgb(15, 15, 15);

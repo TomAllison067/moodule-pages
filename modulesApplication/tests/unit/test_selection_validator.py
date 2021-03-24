@@ -130,7 +130,7 @@ class TestSelectionValidator(TestCase):
                         "A selection with too many strand modules is VALID if the remainder is in opts.")
 
         # Finally, another optional module will go over the OPTS quantity and so should return false.
-        extra_opts = Module.objects.create(mod_code="cs2manymodules", title="aint gonna need it")
+        extra_opts = Module.objects.create(mod_code="cs2manymod", title="aint gonna need it")
         mod_codes.add(extra_opts.mod_code)
         self.assertFalse(SelectionValidator(prog_code=self.prog_code, stage=self.stage, mod_codes=mod_codes,
                                             entry_year=self.entry_year).validate())
