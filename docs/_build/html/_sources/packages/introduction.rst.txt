@@ -3,7 +3,7 @@ Overview / Readme
 ###################
 This documentation provides a **broad overview of the packages**, and more technical details if you wish to dive slightly deeper.
 
-It generated using ``Sphinx`` - somewhat similar to ``JavaDoc``.
+It was generated using ``Sphinx`` - somewhat similar to ``JavaDoc``.
 
 Moodule is a comprehensive portal for both computer science students and staff that allows Students to select their module choices for their next year, as well as access information about their courses. On the flip side; office staff can use this portal to audit and edit information about courses such as course leaders and course content on the fly.
 
