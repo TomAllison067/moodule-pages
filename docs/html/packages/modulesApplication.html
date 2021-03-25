@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>modulesApplication package &mdash; Moodule 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="modulesApplication.auth package" href="modulesApplication.auth.html" />
+    <link rel="prev" title="Overview / Readme" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Moodule
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Overview / Readme</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">modulesApplication package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-modulesApplication">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modulesApplication.auth.html">modulesApplication.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modulesApplication.csv.html">modulesApplication.csv package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modulesApplication.database.html">modulesApplication.database package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modulesApplication.programmeInfo.html">modulesApplication.programmeInfo package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modulesApplication.views.html">modulesApplication.views package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modulesApplication.admin">modulesApplication.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modulesApplication.apps">modulesApplication.apps module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modulesApplication.models">modulesApplication.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-modulesApplication.urls">modulesApplication.urls module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modulesProject.html">modulesProject package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">manage package</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Moodule</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>modulesApplication package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/packages/modulesApplication.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="modulesapplication-package">
+<h1>modulesApplication package<a class="headerlink" href="#modulesapplication-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-modulesApplication">
+<span id="package-overview"></span><h2>Package Overview<a class="headerlink" href="#module-modulesApplication" title="Permalink to this headline">¶</a></h2>
+<p>The main package for our application.</p>
+<p>This package contains all the useful subpackages (the majority of our team’s backend code), as well as various a few simple modules
+that handle various tasks.</p>
+<dl class="simple">
+<dt>Subpackages:</dt><dd><ul class="simple">
+<li><p><cite>auth</cite>: Contains a subclass of the django-ldap-auth package and some access control functionality.</p></li>
+<li><p><cite>csv</cite>: Contains functionality relating to csv upload/download, form input, importing test data from csvs, .etc</p></li>
+<li><p><cite>database</cite>: Where all the models are defined for use by Django’s ORM.</p></li>
+<li><p><cite>programmeInfo</cite>: Functionality to gather information about a student’s potential choices related to their degree programme, and validation of their selection.</p></li>
+<li><p><cite>views</cite>: All of our web views, i.e. all the functionality of the website / how it responds to HTTP requests</p></li>
+</ul>
+</dd>
+<dt>Modules:</dt><dd><ul class="simple">
+<li><p><cite>admin</cite>: Used by Django to register various database models into the auto-generated admin site. We haven’t really used this, but the admin site could prove useful for configuring permissions, groups, .etc in the future should you choose to use this application.</p></li>
+<li><p><cite>apps</cite>: Used by Django to get information about the application and its settings. Contains one overridden method to prompt the host for their LDAP credentials on startup.</p></li>
+<li><p><cite>models</cite>: Normally where data model classes go. We simply use this to import our models from the database package instead as we have so many.</p></li>
+<li><p><cite>urls</cite>: Contains the various url patterns for our application. Referenced by modulesProject.urls to actually “include” the urls in the overall project.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Excluded from the documentation are the packages containing all the tests and database migration files.</p>
+</div>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modulesApplication.auth.html">modulesApplication.auth package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.auth.html#module-modulesApplication.auth">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.auth.html#module-modulesApplication.auth.custom_ldap_backend">modulesApplication.auth.custom_ldap_backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.auth.html#module-modulesApplication.auth.is_staff">modulesApplication.auth.is_staff</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modulesApplication.csv.html">modulesApplication.csv package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.csv.html#module-modulesApplication.csv">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.csv.html#module-modulesApplication.csv.csvForm">modulesApplication.csv.csvForm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.csv.html#module-modulesApplication.csv.csv_reader">modulesApplication.csv.csv_reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.csv.html#module-modulesApplication.csv.csv_converter">modulesApplication.csv.csv_converter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modulesApplication.database.html">modulesApplication.database package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.course_leader">modulesApplication.database.course_leader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.module">modulesApplication.database.module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.module_selection">modulesApplication.database.module_selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.module_variants">modulesApplication.database.module_variants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.option_rule">modulesApplication.database.option_rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.optional_module">modulesApplication.database.optional_module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.people">modulesApplication.database.people</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.programme">modulesApplication.database.programme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.strand">modulesApplication.database.strand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.database.html#module-modulesApplication.database.student_profile">modulesApplication.database.student_profile</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modulesApplication.programmeInfo.html">modulesApplication.programmeInfo package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.programmeInfo.html#module-modulesApplication.programmeInfo">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.programmeInfo.html#module-modulesApplication.programmeInfo.factory">modulesApplication.programmeInfo.factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.programmeInfo.html#module-modulesApplication.programmeInfo.programme_info">modulesApplication.programmeInfo.programme_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.programmeInfo.html#module-modulesApplication.programmeInfo.selection_validator">modulesApplication.programmeInfo.selection_validator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modulesApplication.views.html">modulesApplication.views package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.views.html#module-modulesApplication.views">Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.views.html#module-modulesApplication.views.index">modulesApplication.views.index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.views.html#module-modulesApplication.views.office">modulesApplication.views.office</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.views.html#module-modulesApplication.views.office_crud_views">modulesApplication.views.office_crud_views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesApplication.views.html#module-modulesApplication.views.student">modulesApplication.views.student</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-modulesApplication.admin">
+<span id="modulesapplication-admin-module"></span><h2>modulesApplication.admin module<a class="headerlink" href="#module-modulesApplication.admin" title="Permalink to this headline">¶</a></h2>
+<p>Used to register data models in the Django admin site. We haven’t really used this.</p>
+</div>
+<div class="section" id="module-modulesApplication.apps">
+<span id="modulesapplication-apps-module"></span><h2>modulesApplication.apps module<a class="headerlink" href="#module-modulesApplication.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="modulesApplication.apps.ModulesApplicationConfig">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.apps.</span></code><code class="sig-name descname"><span class="pre">ModulesApplicationConfig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.apps.ModulesApplicationConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="py attribute">
+<dt id="modulesApplication.apps.ModulesApplicationConfig.name">
+<code class="sig-name descname"><span class="pre">name</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'modulesApplication'</span></em><a class="headerlink" href="#modulesApplication.apps.ModulesApplicationConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="modulesApplication.apps.ModulesApplicationConfig.ready">
+<code class="sig-name descname"><span class="pre">ready</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.apps.ModulesApplicationConfig.ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override of Django’s ready() method to prompt for LDAP credentials on server startup.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modulesApplication.models">
+<span id="modulesapplication-models-module"></span><h2>modulesApplication.models module<a class="headerlink" href="#module-modulesApplication.models" title="Permalink to this headline">¶</a></h2>
+<p>This module simply imports data model classes from the database package, for ease of organisation.</p>
+<p>models location: modulesApplication/database/</p>
+</div>
+<div class="section" id="module-modulesApplication.urls">
+<span id="modulesapplication-urls-module"></span><h2>modulesApplication.urls module<a class="headerlink" href="#module-modulesApplication.urls" title="Permalink to this headline">¶</a></h2>
+<p>Contains the various URL patterns for our application.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modulesApplication.auth.html" class="btn btn-neutral float-right" title="modulesApplication.auth package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Overview / Readme" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Team 34.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
