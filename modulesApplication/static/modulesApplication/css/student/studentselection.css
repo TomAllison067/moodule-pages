@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Yantramanav:wght@900');
 
+/* TOP PADDING */
+.page-wrapper {
+    padding-top: 45px;
+}
 
 /* --[[ ALL MODULES TABLE ]]-- */
 
@@ -20,8 +24,11 @@
 
 .image-box{
     position: relative;
-    background: linear-gradient(180deg, rgb(137, 36, 0), rgb(155, 101, 0), rgb(201, 127, 0));
-    background-size: 400% 400%;
+    background: #222222a1;
+    background-image: url("../student/images/bg.png");
+    background-repeat: no-repeat;
+    background-size: 120% 10em;
+    background-position: bottom left;
     opacity: 100%;
     width: 100%;
     height: auto;
@@ -33,6 +40,8 @@
     color: black;
     padding: 0 50px;
     display: block;
+    height: 50%;
+    width: 90%;
 }
 
 .ib-content h2 {
@@ -40,8 +49,8 @@
     margin: 15px 0 0;
     font-size: 26px;
     color: white;
-    background: rgba(30,30,30,0);
-    border-left: 5px orange solid;
+    background: rgba(0,0,0,0.7);
+    border-left: 5px orangered solid;
     border-radius: 5px;
 }
 
@@ -78,8 +87,9 @@
 }
 
 .icon-img {
-    width: 25%;
-    height: 25%;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 50px;
     margin-top: -50px;
     border-radius: 50%;
     position: relative;
@@ -99,7 +109,6 @@
     width: 95%;
     height: 100%;
     color: black;
-    font-family: 'Nunito', sans-serif;
 }
 
 

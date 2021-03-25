@@ -56,7 +56,7 @@
     background: rgba(0, 0, 0, 0.5);
     padding: 15px;
     color: white;
-    width: 100%;
+    width: 75%;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -371,14 +371,12 @@
     display: block;
     font-size: 18px;
     color: white;
-    font-family: 'Nunito', sans-serif;
 }
 
 /* FILE UPLOAD */
 .file-upload{
     display:block;
     text-align:center;
-    font-family: 'Nunito', sans-serif;
     border-radius: 5px;
     font-size: 16px;
 }
@@ -513,7 +511,6 @@
     height:40px;
     line-height:40px;
     font-size: 16px;
-    font-family: 'Nunito', sans-serif;
 }
 
 .choose-model select option {
@@ -541,7 +538,7 @@
 
 /* SUBMIT BUTTON */
 .lp-form form input[type="submit"] {
-    background: orangered;
+    background: #FF9046;
     width: 70%;
     height: 33px;
     margin-top: 15px;
@@ -549,15 +546,15 @@
     font-size: 18px;
     padding: 3px;
     border: 2px solid rgba(255, 255, 255, 0);
+    font-weight: bold;
     border-radius: 5px;
     border: none;
     color: white;
-    font-family: 'Nunito', sans-serif;
     transition: 0.15s;
 }
 
 .lp-form form input[type="submit"]:hover {
-    background: rgb(255, 121, 63);
+    background: rgb(255, 163, 102);
     border: 2px solid white;
     width: 75%;
 }

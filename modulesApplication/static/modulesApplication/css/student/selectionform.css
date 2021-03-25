@@ -1,8 +1,17 @@
+
+/* TOP PADDING */
+.page-wrapper {
+    padding-top: 45px;
+}
+
 /* --[[ IMAGE BOX -- */
-.image-box {
+.image-box{
     position: relative;
-    background: linear-gradient(180deg, rgb(137, 36, 0), rgb(155, 101, 0), rgb(201, 127, 0));
-    background-size: 200% 300%;
+    background: #222222a1;
+    background-image: url("../student/images/bg.png");
+    background-repeat: no-repeat;
+    background-size: 120% 10em;
+    background-position: bottom left;
     opacity: 100%;
     width: 100%;
     height: auto;
@@ -12,7 +21,6 @@
 .ib-content {
     position: relative;
     color: black;
-    margin-top: 0;
     padding: 0 50px;
     display: block;
     height: 50%;
@@ -24,8 +32,9 @@
     margin: 15px 0 0;
     font-size: 26px;
     color: white;
-    background: rgba(30, 30, 30, 0);
-    border-left: 5px orange solid;
+    background: rgba(0,0,0,0.7);
+    border-left: 5px orangered solid;
+    border-radius: 5px;
 }
 
 .ib-content h2 i {
@@ -70,8 +79,9 @@
 }
 
 .icon-img {
-    width: 25%;
-    height: 25%;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 50px;
     margin-top: -50px;
     border-radius: 50%;
     position: relative;
@@ -217,7 +227,6 @@
     border-radius: 5px;
     margin-left: 10px;
     border: none;
-    font-family: 'Nunito', sans-serif;
     transition: 0.15s;
 }
 
@@ -293,7 +302,6 @@ form#module-selection-form .submit-box {
 
 form#module-selection-form .submit-box label {
     margin-bottom: 15px;
-    font-family: 'Nunito', sans-serif;
     color: black;
 }
 
@@ -305,7 +313,6 @@ form#module-selection-form .submit-box label input[type = "text"] {
     border: none;
     border-radius: 5px;
     padding: 10px;
-    font-family: 'Nunito', sans-serif;
     color: white;
     border-left: 5px solid orangered;
     transition: 0.25s;
@@ -321,7 +328,6 @@ form#module-selection-form .submit-box input[type = "submit"] {
     border-radius: 5px;
     border: none;
     color: white;
-    font-family: 'Nunito', sans-serif;
     transition: 0.15s;
 }
 

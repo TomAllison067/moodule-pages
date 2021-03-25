@@ -25,7 +25,7 @@
     <!-- SIDEBAR MENU -->
 
         <div class="sidebar">
-            <ul style="overflow: hidden; height: 100%;">
+            <ul class="btn-list" style="overflow: hidden; height: 100%;">
                 {% block sidebar-links %} <!-- Let the links be subclassed if provided, otherwise this is the default. -->
                     <li><a href="{% url 'modulesApplication:student-landing' %}" class="btn"><i
                             class="fas fa-home"></i>student landing</a></li>
@@ -47,13 +47,6 @@
             </div>
 
             <div class="sideTwo">
-                <div class="search-box">
-                    <label for="search-box" style="display: none;">Search</label>
-                    <input class="search-txt" type="text" id="search-box" placeholder="search">
-                    <a class="search-btn" href="#">
-                        <i class="fas fa-search"></i>
-                    </a>
-                </div>
 
                 {% if user.is_authenticated %}
                 <div class="logout">
