@@ -104,18 +104,12 @@
                                                 <!-- for Core modules, modules are selected and disabled-->
                                                 <h4>Core Modules</h4>
                                                 {% for module in modules %}
-                                                    <li class="cc-core">
-                                                        <div class="checkbox-container">
-                                                            <label class="checkbox-label">
-                                                                <input type="checkbox"
-                                                                    id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
-                                                                    value="{{ module.mod_code }}"
-                                                                    name="module-selections"
-                                                                    class="module-checkbox"
-                                                                    checked hidden>
-                                                                    <span class="checkbox-square"></span>
-                                                            </label>
-                                                        </div>
+                                                    <li class="cc-core"><input type="checkbox"
+                                                                               id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
+                                                                               value="{{ module.mod_code }}"
+                                                                               name="module-selections"
+                                                                               class="module-checkbox"
+                                                                               checked hidden>
                                                         <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
                                                             - {{ module.title }}</label>
                                                         <button type="button"
@@ -140,17 +134,12 @@
                                                     <h4>Modules on the {{ info.strand }} strand</h4>
                                                 {% endif %}
                                                 {% for module in modules %}
-                                                    <li class="cc-opts">
-                                                        <div class="checkbox-container">
-                                                            <label class="checkbox-label">
-                                                            <input type="checkbox"
-                                                                id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
-                                                                value="{{ module.mod_code }}"
-                                                                name="module-selections"
-                                                                class="module-checkbox">
-                                                                <span class="checkbox-square"></span>
-                                                            </label>
-                                                        </div>
+                                                    <li class="cc-opts"><input type="checkbox"
+                                                                               id="{{ module.mod_code }}-{{ term }}-{{ constraint }}"
+                                                                               value="{{ module.mod_code }}"
+                                                                               name="module-selections"
+                                                                               class="module-checkbox"
+                                                    >
                                                         <label for="{{ module.mod_code }}-{{ term }}-{{ constraint }}">{{ module.mod_code }}
                                                             - {{ module.title }}</label>
                                                         <button type="button"
@@ -178,16 +167,11 @@
                                                     department.</em></p>
                                                 {% for sublist in modules %}
                                                     <li class="cc-disc-alt">
-                                                        <div class="checkbox-container">
-                                                            <label class="checkbox-label">
-                                                                <input type="checkbox" id="{{ sublist.1.mod_code }}"
-                                                                    value="{{ sublist.1.mod_code }}"
-                                                                    name="module-selections"
-                                                                    class="module-checkbox"
-                                                                    onclick="selectDiscAlt('{{ sublist.0.mod_code }}')">
-                                                                <span class="checkbox-square"></span>
-                                                            </label>
-                                                        </div>
+                                                        <input type="checkbox" id="{{ sublist.1.mod_code }}"
+                                                               value="{{ sublist.1.mod_code }}"
+                                                               name="module-selections"
+                                                               class="module-checkbox"
+                                                               onclick="selectDiscAlt('{{ sublist.0.mod_code }}')">
                                                         <label for="{{ sublist.1.mod_code }}">{{ sublist.1.mod_code }}
                                                             - {{ sublist.1.title }} <em>instead
                                                                 of {{ sublist.0.mod_code }}</em></label>
