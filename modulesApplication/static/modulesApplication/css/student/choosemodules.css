@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Yantramanav:wght@900');
 
+/* TOP PADDING */
+.page-wrapper {
+    padding-top: 45px;
+}
 
 /* --[[ ALL MODULES TABLE ]]-- */
 
@@ -20,8 +24,11 @@
 
 .image-box{
     position: relative;
-    background: linear-gradient(180deg, rgb(137, 36, 0), rgb(155, 101, 0), rgb(201, 127, 0));
-    background-size: 400% 400%;
+    background: #222222a1;
+    background-image: url("../student/images/bg.png");
+    background-repeat: no-repeat;
+    background-size: 120% 10em;
+    background-position: bottom left;
     opacity: 100%;
     width: 100%;
     height: auto;
@@ -42,7 +49,7 @@
     margin: 15px 0 0;
     font-size: 26px;
     color: white;
-    background: rgba(30,30,30,0);
+    background: rgba(0,0,0,0.7);
     border-left: 5px orangered solid;
     border-radius: 5px;
 }
@@ -80,8 +87,9 @@
 }
 
 .icon-img {
-    width: 25%;
-    height: 25%;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 50px;
     margin-top: -50px;
     border-radius: 50%;
     position: relative;
@@ -100,7 +108,6 @@
     width: 90%;
     height: 100%;
     color: black;
-    font-family: 'Nunito', sans-serif;
 }
 
 form#form_id h1 {
@@ -132,7 +139,6 @@ form#form_id .dropdown {
     background: rgb(38, 38, 38);
     border-left: 5px orangered solid;
     color: white;
-    font-family: 'Nunito', sans-serif;
     transition: 0.15s;
 }
 
@@ -149,29 +155,28 @@ form#form_id select option, select option {
     font-size: 18px;
     background: rgb(38, 38, 38);
     color: white;
-    font-family: 'Nunito', sans-serif;
 }
 
 .submit-btn,
 form#form_id input[type = "submit"]  {
-    background: orangered;
-    width: 80px;
-    height: 33px;
-    margin-top: 15px;
+    background: #CC6240;
+    width: 100%;
+    max-width: 150px;
+    height: 40px;
+    margin-top: 10px;
     font-size: 18px;
     padding: 3px;
     border-radius: 5px;
     border: none;
     color: white;
-    font-family: 'Nunito', sans-serif;
     transition: 0.15s;
 }
 
 .submit-btn:hover,
 form#form_id input[type = "submit"]:hover {
-    background: rgb(255, 121, 63);
-    border: 2px white solid;
-    width: 90px;
+    background: #ae5237;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .alert {
