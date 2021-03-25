@@ -270,7 +270,10 @@ student’s degree, entry year, and stage.</p>
 <dt id="modulesApplication.programmeInfo.selection_validator.SelectionValidator">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">modulesApplication.programmeInfo.selection_validator.</span></code><code class="sig-name descname"><span class="pre">SelectionValidator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prog_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod_codes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#modulesApplication.programmeInfo.selection_validator.SelectionValidator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A SelectionValidator can be used to validate whether a given ModuleSelection is valid or not.</p>
+<p>A SelectionValidator can be used to validate whether a student’s selection is valid or not when constructed
+with a <cite>Programme</cite> object, stage, entry year and list of module codes.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">validate()</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code>, you can go ahead and create a <code class="docutils literal notranslate"><span class="pre">ModuleSelection</span></code> object (as is done
+in the student views).</p>
 <dl class="simple">
 <dt>Validation is performed as such:</dt><dd><ul class="simple">
 <li><p>First, it checks that the correct number of <cite>CORE</cite> modules are selected. It assumes there is one <cite>CORE</cite>        <cite>OptionRule</cite>, which has all the <cite>mod_code_patterns</cite> for the <cite>CORE</cite> modules and the correct min/max quantity        (min and max are probably the same number).</p></li>
